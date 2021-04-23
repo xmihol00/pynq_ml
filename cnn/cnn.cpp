@@ -30,7 +30,7 @@ void kernel
     static int16_t l2_maxes[L2_KERNELS] = {0, };
     static int16_t l2_kernel_sums[L2_KERNELS] = {0, };
 
-    if ((l1_iteration & 0x3FF) < 384)
+    if ((l1_iteration & ITERATION_MASK) < (L1_STRIPE_INPUT_WIDTH * IN_CHANNELS / 4))
     {
         int high = 7;
         int low = 0;
@@ -48,13 +48,13 @@ void kernel
             low += 8;
         }
 
-        if ((l1_iteration & 0x3FF) == 191)
+        if ((l1_iteration & ITERATION_MASK) == (L1_STRIPE_INPUT_WIDTH * IN_CHANNELS / 8 - 1))
         {
             l1_write_row_offset += 1;
             l1_write_col_offset = 1;
         }
     }
-    else if ((l1_iteration & 0x3FF) == 0x3FF)
+    else if ((l1_iteration & ITERATION_MASK) == ITERATION_MASK)
     {
         l1_write_col_offset = 1;
         l1_write_row_offset += 1;
@@ -64,7 +64,7 @@ void kernel
         }
     }
 
-    if (l1_iteration >= 2*1024)
+    if (l1_iteration >= 2 * ITERATION_MULTIPLE)
     {   
         bool top_offset = l1_iteration & 2;
         bool left_offset = l1_iteration & 1;
@@ -89,6 +89,7 @@ void kernel
                 {
                     for (int k = 0; k < L1_KERNELS; k++)
                     {
+                        //1std::cout << (int)l1_kernels[j * L1_KERNELS + k][l][m] << " " << (int)l1_stripes[j][row_idx][col_idx] << " " << (int)row_idx << std::endl;
                         partial_sums[j][k] += l1_kernels[j * L1_KERNELS + k][l][m] * l1_stripes[j][row_idx][col_idx];
                     }
                 }
@@ -101,6 +102,7 @@ void kernel
             #pragma HLS latency min=4
                 for (int k = 0; k < L1_KERNELS; k++)
                 {
+                    //1std::cout << "partial_sums[" << j << "][" << k << "] = " << partial_sums[j][k] << std::endl;
                     kernel_sums[k] += partial_sums[j][k];
                 }
             }
@@ -109,14 +111,16 @@ void kernel
         for (int j = 0; j < L1_KERNELS; j++)
         {
         #pragma HLS UNROLL
+            //1std::cout << "kernel_sums[" << j << "] = " << kernel_sums[j] << std::endl;
             l1_maxes[j] = kernel_sums[j] > l1_maxes[j] ? kernel_sums[j] : l1_maxes[j];
         }
 
-        if ((l1_iteration & 0b11) == 0b11)
+        if ((l1_iteration & L1_OUTPUT_WRITE_MASK) == L1_OUTPUT_WRITE_MASK)
         {
             for (int k = 0; k < L1_KERNELS; k++)
             {
-                l2_stripes[k][l2_write_row_offset][l2_write_col_offset] = l1_maxes[k] >> 5;
+                //1std::cout << "l1_maxes[" << k << "] = " << l1_maxes[k] << std::endl;
+                l2_stripes[k][l2_write_row_offset][l2_write_col_offset] = l1_maxes[k] >> L1_OUTPUT_SHIFT;
                 l1_maxes[k] = 0;
             }
 
@@ -144,7 +148,7 @@ void kernel
         }
     }
 
-    if (l2_iteration >= 6*1024 && !(l2_iteration & 1024))
+    if (l2_iteration >= 6 * ITERATION_MULTIPLE && !(l2_iteration & ITERATION_MULTIPLE))
     {
         uint8_t channel_offset = l2_iteration & 1 ? 2 : 0;
         bool top_offset = l2_iteration & 4;
@@ -160,7 +164,7 @@ void kernel
             }
             for (int m = 0; m < KERNEL_SIZE; m++)
             {
-                for (int j = 0; j < L1_KERNELS/2; j++)
+                for (int j = 0; j < L1_KERNELS / 2; j++)
                 {
                     for (int k = 0; k < L2_KERNELS; k++)
                     {
@@ -179,13 +183,13 @@ void kernel
             }
         }
 
-        if ((l2_iteration & 0b111) == 0b111)
+        if ((l2_iteration & L2_OUTPUT_WRITE_MASK) == L2_OUTPUT_WRITE_MASK)
         {
             int high = 15;
             int low = 0;
             axis_out_t out_data;
             out_data.keep = -1;
-            out_data.last = l2_iteration >= (257*1024 - 7);
+            out_data.last = l2_iteration >= ((L2_STRIPE_INPUT_WIDTH + 1) * ITERATION_MULTIPLE - 7);
             for (int k = 0; k < L2_KERNELS; k++)
             {
                 out_data.data.range(high, low) = l2_maxes[k];
@@ -209,18 +213,19 @@ void kernel
     }
 
     l1_iteration++;
-    if (l1_iteration == 257*1024)
+    if (l1_iteration == (L2_STRIPE_INPUT_WIDTH + 1) * ITERATION_MULTIPLE)
     {
-        l1_iteration = 1024;
-        l1_read_row_offset = 2;
+        l1_iteration = ITERATION_MULTIPLE;
+        l1_read_row_offset += 2;
+        l1_read_row_offset = l1_read_row_offset == STRIPE_HEIGHT ? 0 : l1_read_row_offset;
         l2_write_row_offset--;
     }
 
     l2_iteration++;
-    if (l2_iteration == 258*1024)
+    if (l2_iteration == (L2_STRIPE_INPUT_WIDTH + 2) * ITERATION_MULTIPLE)
     {
-        l2_iteration = 2*1024;
-        l2_read_row_offset = 2;
+        l2_iteration = 2 * ITERATION_MULTIPLE;
+        l2_read_row_offset = 0;
     }
 }
 

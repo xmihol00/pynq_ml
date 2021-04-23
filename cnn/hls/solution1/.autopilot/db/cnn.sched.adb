@@ -243,10 +243,10 @@
 					<Obj>
 						<type>0</type>
 						<id>105</id>
-						<name>_ln250</name>
+						<name>_ln255</name>
 						<fileName>cnn.cpp</fileName>
 						<fileDirectory>/mnt/sdc3/david/projs/pynq_ml/cnn</fileDirectory>
-						<lineNumber>250</lineNumber>
+						<lineNumber>255</lineNumber>
 						<contextFuncName>cnn</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -261,7 +261,7 @@
 											<first>cnn.cpp</first>
 											<second>cnn</second>
 										</first>
-										<second>250</second>
+										<second>255</second>
 									</item>
 								</second>
 							</item>
@@ -359,10 +359,10 @@
 					<item>190</item>
 				</oprand_edges>
 				<opcode>call</opcode>
-				<m_Display>0</m_Display>
+				<m_Display>1</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_isLCDNode>1</m_isLCDNode>
+				<m_isStartOfPath>1</m_isStartOfPath>
 				<m_delay>3.25</m_delay>
 				<m_topoIndex>1</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
@@ -372,10 +372,10 @@
 					<Obj>
 						<type>0</type>
 						<id>106</id>
-						<name>_ln251</name>
+						<name>_ln256</name>
 						<fileName>cnn.cpp</fileName>
 						<fileDirectory>/mnt/sdc3/david/projs/pynq_ml/cnn</fileDirectory>
-						<lineNumber>251</lineNumber>
+						<lineNumber>256</lineNumber>
 						<contextFuncName>cnn</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -390,7 +390,7 @@
 											<first>cnn.cpp</first>
 											<second>cnn</second>
 										</first>
-										<second>251</second>
+										<second>256</second>
 									</item>
 								</second>
 							</item>
@@ -1065,12 +1065,12 @@
 				<item_version>0</item_version>
 				<item>107</item>
 			</basic_blocks>
-			<mII>36</mII>
-			<mDepth>38</mDepth>
+			<mII>40</mII>
+			<mDepth>42</mDepth>
 			<mMinTripCount>-1</mMinTripCount>
 			<mMaxTripCount>-1</mMaxTripCount>
-			<mMinLatency>37</mMinLatency>
-			<mMaxLatency>37</mMaxLatency>
+			<mMinLatency>41</mMinLatency>
+			<mMaxLatency>41</mMaxLatency>
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>
 		</item>
@@ -1084,13 +1084,13 @@
 			<first>105</first>
 			<second class_id="28" tracking_level="0" version="0">
 				<first>1</first>
-				<second>35</second>
+				<second>39</second>
 			</second>
 		</item>
 		<item>
 			<first>106</first>
 			<second>
-				<first>37</first>
+				<first>41</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -1102,7 +1102,7 @@
 			<first>107</first>
 			<second class_id="31" tracking_level="0" version="0">
 				<first>0</first>
-				<second>37</second>
+				<second>41</second>
 			</second>
 		</item>
 	</bblk_ent_exit>
@@ -1122,8 +1122,8 @@
 			</nodes>
 			<anchor_node>-1</anchor_node>
 			<region_type>8</region_type>
-			<interval>36</interval>
-			<pipe_depth>38</pipe_depth>
+			<interval>40</interval>
+			<pipe_depth>42</pipe_depth>
 		</item>
 	</regions>
 	<dp_fu_nodes class_id="34" tracking_level="0" version="0">

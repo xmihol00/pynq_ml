@@ -3,26 +3,58 @@
   <errorLogs>
     <logs>
       <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
     </logs>
   </errorLogs>
   <warningLogs>
     <logs>
       <synLog>
-        <logs message="WARNING: [RTGEN 206-101] Register 'l2_write_row_offset' is power-on initialization." projectName="hls" solutionName="solution1" date="2020-02-24T11:41:22.665+0100" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'l1_read_row_offset' is power-on initialization." projectName="hls" solutionName="solution1" date="2020-02-24T11:41:22.407+0100" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'l2_maxes_7' is power-on initialization." projectName="hls" solutionName="solution1" date="2020-02-24T11:41:22.406+0100" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'l2_maxes_6' is power-on initialization." projectName="hls" solutionName="solution1" date="2020-02-24T11:41:22.404+0100" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'l2_maxes_5' is power-on initialization." projectName="hls" solutionName="solution1" date="2020-02-24T11:41:22.402+0100" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'l2_maxes_4' is power-on initialization." projectName="hls" solutionName="solution1" date="2020-02-24T11:41:22.400+0100" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'l2_maxes_3' is power-on initialization." projectName="hls" solutionName="solution1" date="2020-02-24T11:41:22.398+0100" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'l2_maxes_2' is power-on initialization." projectName="hls" solutionName="solution1" date="2020-02-24T11:41:22.396+0100" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'l2_maxes_1' is power-on initialization." projectName="hls" solutionName="solution1" date="2020-02-24T11:41:22.394+0100" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'l2_maxes_0' is power-on initialization." projectName="hls" solutionName="solution1" date="2020-02-24T11:41:22.392+0100" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'l2_kernel_sums_7' is power-on initialization." projectName="hls" solutionName="solution1" date="2020-02-24T11:41:22.362+0100" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'l2_kernel_sums_6' is power-on initialization." projectName="hls" solutionName="solution1" date="2020-02-24T11:41:22.360+0100" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'l2_kernel_sums_5' is power-on initialization." projectName="hls" solutionName="solution1" date="2020-02-24T11:41:22.358+0100" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'l2_kernel_sums_4' is power-on initialization." projectName="hls" solutionName="solution1" date="2020-02-24T11:41:22.356+0100" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l2_write_row_offset' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.768+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l1_read_row_offset' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.533+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l2_maxes_7' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.524+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l2_maxes_6' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.520+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l2_maxes_5' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.516+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l2_maxes_4' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.513+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l2_maxes_3' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.509+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l2_maxes_2' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.502+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l2_maxes_1' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.499+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l2_maxes_0' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.496+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l2_kernel_sums_7' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.470+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l2_kernel_sums_6' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.468+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l2_kernel_sums_5' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.466+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l2_kernel_sums_4' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.460+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l2_kernel_sums_3' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.457+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l2_kernel_sums_2' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.452+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l2_kernel_sums_1' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.450+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l2_kernel_sums_0' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.447+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l2_read_col_offset' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.429+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l2_read_row_offset' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.426+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l2_iteration' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.423+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l2_write_col_offset' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.420+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l1_maxes_3' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.416+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l1_maxes_2' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.415+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l1_maxes_1' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.413+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l1_maxes_0' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.411+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l1_read_col_offset' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.387+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l1_channel_idx' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.385+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l1_write_row_offset' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.380+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l1_write_col_offset' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.378+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'l1_iteration' is power-on initialization." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:48.374+0200" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-62] II = 39 is infeasible due to multiple pipeline iteration latency = 40 and incompatible II = 30 of 'call' operation ('_ln255', cnn.cpp:255) to 'kernel'." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:46.376+0200" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-62] II = 38 is infeasible due to multiple pipeline iteration latency = 40 and incompatible II = 30 of 'call' operation ('_ln255', cnn.cpp:255) to 'kernel'." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:46.367+0200" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-62] II = 37 is infeasible due to multiple pipeline iteration latency = 40 and incompatible II = 30 of 'call' operation ('_ln255', cnn.cpp:255) to 'kernel'." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:46.365+0200" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-62] II = 36 is infeasible due to multiple pipeline iteration latency = 40 and incompatible II = 30 of 'call' operation ('_ln255', cnn.cpp:255) to 'kernel'." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:46.363+0200" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-21] The critical path in module 'kernel' consists of the following:&#xA;&#x9;'mul' operation of DSP[2916] ('mul_ln171_26', cnn.cpp:171) [2468]  (3.36 ns)&#xA;&#x9;'add' operation of DSP[2916] ('add_ln171_110', cnn.cpp:171) [2916]  (3.02 ns)&#xA;&#x9;'add' operation ('add_ln171_111', cnn.cpp:171) [2918]  (0 ns)&#xA;&#x9;'add' operation ('add_ln171_112', cnn.cpp:171) [2919]  (3.9 ns)&#xA;&#x9;'select' operation ('select_ln177_4', cnn.cpp:177) [3059]  (0.805 ns)" projectName="hls" solutionName="solution1" date="2021-04-23T16:24:41.001+0200" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-21] Estimated clock period (11.088ns) exceeds the target (target clock period: 10ns, clock uncertainty: 1.25ns, effective delay budget: 8.75ns)." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:40.996+0200" type="Warning"/>
+        <logs message="WARNING: [SYNCHK 200-23] cnn.cpp:40: variable-indexed range selection may cause suboptimal QoR." projectName="hls" solutionName="solution1" date="2021-04-23T16:24:28.671+0200" type="Warning"/>
       </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
     </logs>
   </warningLogs>
 </vivadoHLSLog:LogRoot>

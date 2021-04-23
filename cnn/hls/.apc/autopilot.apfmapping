@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="cnn.cpp" path="/mnt/sdc3/david/projs/pynq_ml/cnn/cnn.cpp"/>
     <originFiles name="cnn.h" path="/mnt/sdc3/david/projs/pynq_ml/cnn/cnn.h"/>
+    <originFiles name="cnn.cpp" path="/mnt/sdc3/david/projs/pynq_ml/cnn/cnn.cpp"/>
   </source>
   <testbench>
-    <originFiles name="cnn.h" path="/mnt/sdc3/david/projs/pynq_ml/cnn/cnn.h"/>
-    <originFiles name="cnn_tb.cpp" path="/mnt/sdc3/david/projs/pynq_ml/cnn/cnn_tb.cpp"/>
     <originFiles name="cnn_tb.h" path="/mnt/sdc3/david/projs/pynq_ml/cnn/cnn_tb.h"/>
+    <originFiles name="cnn_tb.cpp" path="/mnt/sdc3/david/projs/pynq_ml/cnn/cnn_tb.cpp"/>
+    <originFiles name="cnn.h" path="/mnt/sdc3/david/projs/pynq_ml/cnn/cnn.h"/>
   </testbench>
 </autopilotfilemapping:AutoPilotFileMapping>

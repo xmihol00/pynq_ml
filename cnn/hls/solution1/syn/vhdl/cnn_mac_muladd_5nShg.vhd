@@ -10,7 +10,7 @@ entity cnn_mac_muladd_5nShg_DSP48_1 is
 port (
     in0:  in  std_logic_vector(5 - 1 downto 0);
     in1:  in  std_logic_vector(8 - 1 downto 0);
-    in2:  in  std_logic_vector(12 - 1 downto 0);
+    in2:  in  std_logic_vector(13 - 1 downto 0);
     dout: out std_logic_vector(13 - 1 downto 0));
 
     attribute use_dsp : string;

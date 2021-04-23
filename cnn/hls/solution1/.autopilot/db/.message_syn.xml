@@ -2,14 +2,14 @@
 <Messages>
 	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_631" tag="SCHEDULE" content="Option &apos;relax_ii_for_timing&apos; is enabled, will increase II to preserve clock frequency constraints."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1312" tag="" content="Analyzing design file &apos;cnn.cpp&apos; ..."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Linking Time (s): cpu = 00:00:13 ; elapsed = 00:00:12 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 3830 ; free virtual = 23964"/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Pragmas Time (s): cpu = 00:00:13 ; elapsed = 00:00:12 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 3839 ; free virtual = 23973"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Linking Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 4787 ; free virtual = 21105"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Pragmas Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 4787 ; free virtual = 21105"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1467" tag="" content="Starting code transformations ..."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Standard Transforms Time (s): cpu = 00:00:14 ; elapsed = 00:00:13 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 3847 ; free virtual = 23981"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Standard Transforms Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 4785 ; free virtual = 21103"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1472" tag="" content="Checking synthesizability ..."/>
 	<Message severity="WARNING" prefix="[SYNCHK 200-23]" key="SYNCHK_VAR_INDEX_RANGE_359" tag="" content="cnn.cpp:40: variable-indexed range selection may cause suboptimal QoR."/>
 	<Message severity="INFO" prefix="[SYNCHK 200-10]" key="SYNCHK_SYNCHK_SUMMARY_377" tag="" content="0 error(s), 1 warning(s)."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Synthesizability Time (s): cpu = 00:00:14 ; elapsed = 00:00:13 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 3846 ; free virtual = 23982"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Synthesizability Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 4784 ; free virtual = 21103"/>
 	<Message severity="INFO" prefix="[XFORM 203-502]" key="XFORM_AUTO_UNROLL_STATUS_250" tag="" content="Unrolling all loops for pipelining in function &apos;kernel&apos; (cnn.cpp:5)."/>
 	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-1&apos; (cnn.cpp:38) in function &apos;kernel&apos; completely with a factor of 8."/>
 	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;memset_partial_sums&apos; in function &apos;kernel&apos; completely with a factor of 2."/>
@@ -19,16 +19,16 @@
 	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-4.1&apos; (cnn.cpp:85) in function &apos;kernel&apos; completely with a factor of 3."/>
 	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-4.1.1&apos; (cnn.cpp:88) in function &apos;kernel&apos; completely with a factor of 3."/>
 	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-4.1.1.1&apos; (cnn.cpp:90) in function &apos;kernel&apos; completely with a factor of 4."/>
-	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-5&apos; (cnn.cpp:98) in function &apos;kernel&apos; completely with a factor of 3."/>
-	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-5.1&apos; (cnn.cpp:102) in function &apos;kernel&apos; completely with a factor of 4."/>
-	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-6&apos; (cnn.cpp:109) in function &apos;kernel&apos; completely with a factor of 4."/>
-	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-7&apos; (cnn.cpp:117) in function &apos;kernel&apos; completely with a factor of 4."/>
-	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-8&apos; (cnn.cpp:154) in function &apos;kernel&apos; completely with a factor of 3."/>
-	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-8.1&apos; (cnn.cpp:161) in function &apos;kernel&apos; completely with a factor of 3."/>
-	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-8.1.1&apos; (cnn.cpp:163) in function &apos;kernel&apos; completely with a factor of 2."/>
-	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-8.1.1.1&apos; (cnn.cpp:165) in function &apos;kernel&apos; completely with a factor of 8."/>
-	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-9&apos; (cnn.cpp:175) in function &apos;kernel&apos; completely with a factor of 8."/>
-	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-10&apos; (cnn.cpp:189) in function &apos;kernel&apos; completely with a factor of 8."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-5&apos; (cnn.cpp:99) in function &apos;kernel&apos; completely with a factor of 3."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-5.1&apos; (cnn.cpp:103) in function &apos;kernel&apos; completely with a factor of 4."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-6&apos; (cnn.cpp:111) in function &apos;kernel&apos; completely with a factor of 4."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-7&apos; (cnn.cpp:120) in function &apos;kernel&apos; completely with a factor of 4."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-8&apos; (cnn.cpp:158) in function &apos;kernel&apos; completely with a factor of 3."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-8.1&apos; (cnn.cpp:165) in function &apos;kernel&apos; completely with a factor of 3."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-8.1.1&apos; (cnn.cpp:167) in function &apos;kernel&apos; completely with a factor of 2."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-8.1.1.1&apos; (cnn.cpp:169) in function &apos;kernel&apos; completely with a factor of 8."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-9&apos; (cnn.cpp:179) in function &apos;kernel&apos; completely with a factor of 8."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-10&apos; (cnn.cpp:193) in function &apos;kernel&apos; completely with a factor of 8."/>
 	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_120" tag="" content="Partitioning array &apos;l2_maxes&apos; automatically."/>
 	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_120" tag="" content="Partitioning array &apos;l2_kernel_sums&apos; automatically."/>
 	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_120" tag="" content="Partitioning array &apos;l1_maxes&apos; automatically."/>
@@ -46,14 +46,15 @@
 	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;partial_sums.0&apos; (cnn.cpp:73) in dimension 1 completely."/>
 	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;partial_sums.1&apos; (cnn.cpp:73) in dimension 1 completely."/>
 	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;partial_sums.2&apos; (cnn.cpp:73) in dimension 1 completely."/>
-	<Message severity="INFO" prefix="[XFORM 203-401]" key="XFORM_IFCONV_STATUS_239" tag="" content="Performing if-conversion on hyperblock from (cnn.cpp:149:58) to (cnn.cpp:182:9) in function &apos;kernel&apos;... converting 435 basic blocks."/>
-	<Message severity="INFO" prefix="[XFORM 203-401]" key="XFORM_IFCONV_STATUS_239" tag="" content="Performing if-conversion on hyperblock from (cnn.cpp:123:13) to (cnn.cpp:144:9) in function &apos;kernel&apos;... converting 5 basic blocks."/>
-	<Message severity="INFO" prefix="[XFORM 203-401]" key="XFORM_IFCONV_STATUS_239" tag="" content="Performing if-conversion on hyperblock from (cnn.cpp:188:13) to (cnn.cpp:208:9) in function &apos;kernel&apos;... converting 3 basic blocks."/>
-	<Message severity="INFO" prefix="[XFORM 203-11]" key="XFORM_EXPR_BALANCE_STATUS_178" tag="" content="Balancing expressions in function &apos;kernel&apos; (cnn.cpp:5)...370 expression(s) balanced."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Pre-synthesis Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 3813 ; free virtual = 23949"/>
+	<Message severity="INFO" prefix="[XFORM 203-401]" key="XFORM_IFCONV_STATUS_239" tag="" content="Performing if-conversion on hyperblock from (cnn.cpp:153:58) to (cnn.cpp:186:9) in function &apos;kernel&apos;... converting 435 basic blocks."/>
+	<Message severity="INFO" prefix="[XFORM 203-401]" key="XFORM_IFCONV_STATUS_239" tag="" content="Performing if-conversion on hyperblock from (cnn.cpp:215:5) in function &apos;kernel&apos;... converting 3 basic blocks."/>
+	<Message severity="INFO" prefix="[XFORM 203-401]" key="XFORM_IFCONV_STATUS_239" tag="" content="Performing if-conversion on hyperblock from (cnn.cpp:127:13) to (cnn.cpp:148:9) in function &apos;kernel&apos;... converting 5 basic blocks."/>
+	<Message severity="INFO" prefix="[XFORM 203-401]" key="XFORM_IFCONV_STATUS_239" tag="" content="Performing if-conversion on hyperblock from (cnn.cpp:192:13) to (cnn.cpp:212:9) in function &apos;kernel&apos;... converting 3 basic blocks."/>
+	<Message severity="INFO" prefix="[XFORM 203-11]" key="XFORM_EXPR_BALANCE_STATUS_178" tag="" content="Balancing expressions in function &apos;kernel&apos; (cnn.cpp:5)...407 expression(s) balanced."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Pre-synthesis Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 4745 ; free virtual = 21065"/>
 	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;l1_stripes.0.0&apos; (cnn.cpp:40:84)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;l2_stripes.0.0&apos; (cnn.cpp:119:17)"/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Architecture Synthesis Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 3797 ; free virtual = 23923"/>
+	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;l2_stripes.0.0&apos; (cnn.cpp:123:17)"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Architecture Synthesis Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 4726 ; free virtual = 21034"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1317" tag="" content="Starting hardware synthesis ..."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1385" tag="" content="Synthesizing &apos;cnn&apos; ..."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------"/>
@@ -61,35 +62,40 @@
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..."/>
 	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_46" tag="" content="Pipelining function &apos;kernel&apos;."/>
-	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 30, Final II = 30, Depth = 36."/>
-	<Message severity="WARNING" prefix="[SCHED 204-21]" key="SCHED_DELAY_EXCEEDED_76" tag="SDX_KERNEL,SCHEDULE" content="Estimated clock period (11.3445ns) exceeds the target (target clock period: 10ns, clock uncertainty: 1.25ns, effective delay budget: 8.75ns)."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 30, Final II = 30, Depth = 40."/>
+	<Message severity="WARNING" prefix="[SCHED 204-21]" key="SCHED_DELAY_EXCEEDED_76" tag="SDX_KERNEL,SCHEDULE" content="Estimated clock period (11.088ns) exceeds the target (target clock period: 10ns, clock uncertainty: 1.25ns, effective delay budget: 8.75ns)."/>
 	<Message severity="WARNING" prefix="[SCHED 204-21]" key="SCHED_DELAY_EXCEEDED_74" tag="SDX_KERNEL,SCHEDULE" content="The critical path in module &apos;kernel&apos; consists of the following:
-	&apos;mul&apos; operation of DSP[1567] (&apos;mul_ln92_8&apos;, cnn.cpp:92) [1448]  (3.36 ns)
-	&apos;add&apos; operation of DSP[1567] (&apos;add_ln104_2&apos;, cnn.cpp:104) [1567]  (3.02 ns)
-	&apos;add&apos; operation of DSP[1568] (&apos;add_ln104_3&apos;, cnn.cpp:104) [1568]  (3.02 ns)
-	&apos;add&apos; operation (&apos;add_ln104_8&apos;, cnn.cpp:104) [1570]  (1.94 ns)"/>
+	&apos;mul&apos; operation of DSP[2916] (&apos;mul_ln171_26&apos;, cnn.cpp:171) [2468]  (3.36 ns)
+	&apos;add&apos; operation of DSP[2916] (&apos;add_ln171_110&apos;, cnn.cpp:171) [2916]  (3.02 ns)
+	&apos;add&apos; operation (&apos;add_ln171_111&apos;, cnn.cpp:171) [2918]  (0 ns)
+	&apos;add&apos; operation (&apos;add_ln171_112&apos;, cnn.cpp:171) [2919]  (3.9 ns)
+	&apos;select&apos; operation (&apos;select_ln177_4&apos;, cnn.cpp:177) [3059]  (0.805 ns)"/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 24.85 seconds; current allocated memory: 147.100 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 26.06 seconds; current allocated memory: 146.962 MB."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 2.64 seconds; current allocated memory: 158.248 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 3.1 seconds; current allocated memory: 157.967 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;cnn&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..."/>
 	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_46" tag="" content="Pipelining function &apos;cnn&apos;."/>
-	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 36, Final II = 36, Depth = 38."/>
+	<Message severity="WARNING" prefix="[SCHED 204-62]" key="SCHED_SUB_II_INFEASIBLE_43" tag="LOOP,SDX_LOOP,SCHEDULE" content="II = 36 is infeasible due to multiple pipeline iteration latency = 40 and incompatible II = 30 of &apos;call&apos; operation (&apos;_ln255&apos;, cnn.cpp:255) to &apos;kernel&apos;."/>
+	<Message severity="WARNING" prefix="[SCHED 204-62]" key="SCHED_SUB_II_INFEASIBLE_43" tag="LOOP,SDX_LOOP,SCHEDULE" content="II = 37 is infeasible due to multiple pipeline iteration latency = 40 and incompatible II = 30 of &apos;call&apos; operation (&apos;_ln255&apos;, cnn.cpp:255) to &apos;kernel&apos;."/>
+	<Message severity="WARNING" prefix="[SCHED 204-62]" key="SCHED_SUB_II_INFEASIBLE_43" tag="LOOP,SDX_LOOP,SCHEDULE" content="II = 38 is infeasible due to multiple pipeline iteration latency = 40 and incompatible II = 30 of &apos;call&apos; operation (&apos;_ln255&apos;, cnn.cpp:255) to &apos;kernel&apos;."/>
+	<Message severity="WARNING" prefix="[SCHED 204-62]" key="SCHED_SUB_II_INFEASIBLE_43" tag="LOOP,SDX_LOOP,SCHEDULE" content="II = 39 is infeasible due to multiple pipeline iteration latency = 40 and incompatible II = 30 of &apos;call&apos; operation (&apos;_ln255&apos;, cnn.cpp:255) to &apos;kernel&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 36, Final II = 40, Depth = 42."/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 2.14 seconds; current allocated memory: 159.305 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 2.18 seconds; current allocated memory: 159.052 MB."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.88 seconds; current allocated memory: 160.565 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.98 seconds; current allocated memory: 160.386 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;kernel&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------"/>
@@ -166,37 +172,31 @@
 	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_861" tag="" content="Register &apos;l2_maxes_7&apos; is power-on initialization."/>
 	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_861" tag="" content="Register &apos;l1_read_row_offset&apos; is power-on initialization."/>
 	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_861" tag="" content="Register &apos;l2_write_row_offset&apos; is power-on initialization."/>
-	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;cnn_mac_muladd_5s_8ns_13ns_13_1_1&apos; to &apos;cnn_mac_muladd_5sRg6&apos; due to the length limit 20"/>
-	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;cnn_mac_muladd_5ns_8ns_12s_13_1_1&apos; to &apos;cnn_mac_muladd_5nShg&apos; due to the length limit 20"/>
-	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;cnn_mac_muladd_5s_8ns_13s_14_1_1&apos; to &apos;cnn_mac_muladd_5sThq&apos; due to the length limit 20"/>
-	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;cnn_mac_muladd_5ns_8ns_13ns_13_1_1&apos; to &apos;cnn_mac_muladd_5nUhA&apos; due to the length limit 20"/>
-	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;cnn_mac_muladd_5ns_8ns_13s_14_1_1&apos; to &apos;cnn_mac_muladd_5nVhK&apos; due to the length limit 20"/>
-	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;cnn_mac_muladd_5s_8ns_15s_15_1_1&apos; to &apos;cnn_mac_muladd_5sWhU&apos; due to the length limit 20"/>
-	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;cnn_mac_muladd_5ns_8ns_15s_15_1_1&apos; to &apos;cnn_mac_muladd_5nXh4&apos; due to the length limit 20"/>
-	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;cnn_mac_muladd_5s_8ns_11s_13_1_1&apos; to &apos;cnn_mac_muladd_5sYie&apos; due to the length limit 20"/>
-	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;cnn_mac_muladd_5ns_8ns_14ns_14_1_1&apos; to &apos;cnn_mac_muladd_5nZio&apos; due to the length limit 20"/>
-	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;cnn_mul_mul_8ns_5s_13_1_1&apos; to &apos;cnn_mul_mul_8ns_50iy&apos; due to the length limit 20"/>
-	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;cnn_mul_mul_8ns_5s_12_1_1&apos; to &apos;cnn_mul_mul_8ns_51iI&apos; due to the length limit 20"/>
-	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;cnn_mac_muladd_8ns_5s_13ns_13_1_1&apos; to &apos;cnn_mac_muladd_8n2iS&apos; due to the length limit 20"/>
-	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;cnn_mac_muladd_8ns_5s_9ns_12_1_1&apos; to &apos;cnn_mac_muladd_8n3i2&apos; due to the length limit 20"/>
-	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;cnn_mac_muladd_8ns_5s_9s_13_1_1&apos; to &apos;cnn_mac_muladd_8n4jc&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;cnn_mac_mul_sub_5ns_8ns_9ns_13_1_1&apos; to &apos;cnn_mac_mul_sub_5Rg6&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;cnn_mac_muladd_5ns_8ns_13s_13_1_1&apos; to &apos;cnn_mac_muladd_5nShg&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;cnn_mac_muladd_5s_8ns_10ns_13_1_1&apos; to &apos;cnn_mac_muladd_5sThq&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;cnn_mac_muladd_5s_8ns_12s_14_1_1&apos; to &apos;cnn_mac_muladd_5sUhA&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;cnn_mac_muladd_5s_8ns_13ns_13_1_1&apos; to &apos;cnn_mac_muladd_5sVhK&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;cnn_mac_muladd_5ns_8ns_9ns_12_1_1&apos; to &apos;cnn_mac_muladd_5nWhU&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;cnn_mul_mul_5s_8ns_13_1_1&apos; to &apos;cnn_mul_mul_5s_8nXh4&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;cnn_mul_mul_5s_8ns_12_1_1&apos; to &apos;cnn_mul_mul_5s_8nYie&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;cnn_mac_muladd_5s_8ns_12ns_13_1_1&apos; to &apos;cnn_mac_muladd_5sZio&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;cnn_mac_muladd_5s_8ns_9ns_13_1_1&apos; to &apos;cnn_mac_muladd_5s0iy&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;cnn_mac_muladd_5s_8ns_12s_13_1_1&apos; to &apos;cnn_mac_muladd_5s1iI&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;cnn_mac_mul_sub_5Rg6&apos;: 1 instance(s)."/>
 	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;cnn_mac_muladd_5nShg&apos;: 1 instance(s)."/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;cnn_mac_muladd_5nUhA&apos;: 1 instance(s)."/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;cnn_mac_muladd_5nVhK&apos;: 2 instance(s)."/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;cnn_mac_muladd_5nXh4&apos;: 1 instance(s)."/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;cnn_mac_muladd_5nZio&apos;: 1 instance(s)."/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;cnn_mac_muladd_5sRg6&apos;: 1 instance(s)."/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;cnn_mac_muladd_5sThq&apos;: 2 instance(s)."/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;cnn_mac_muladd_5sWhU&apos;: 1 instance(s)."/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;cnn_mac_muladd_5sYie&apos;: 1 instance(s)."/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;cnn_mac_muladd_8n2iS&apos;: 2 instance(s)."/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;cnn_mac_muladd_8n3i2&apos;: 1 instance(s)."/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;cnn_mac_muladd_8n4jc&apos;: 1 instance(s)."/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;cnn_mul_mul_8ns_50iy&apos;: 17 instance(s)."/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;cnn_mul_mul_8ns_51iI&apos;: 4 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;cnn_mac_muladd_5nWhU&apos;: 1 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;cnn_mac_muladd_5s0iy&apos;: 1 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;cnn_mac_muladd_5s1iI&apos;: 1 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;cnn_mac_muladd_5sThq&apos;: 1 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;cnn_mac_muladd_5sUhA&apos;: 1 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;cnn_mac_muladd_5sVhK&apos;: 3 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;cnn_mac_muladd_5sZio&apos;: 1 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;cnn_mul_mul_5s_8nXh4&apos;: 13 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;cnn_mul_mul_5s_8nYie&apos;: 3 instance(s)."/>
 	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;cnn_mux_63_8_1_1&apos;: 68 instance(s)."/>
 	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;kernel&apos;."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 1.61 seconds; current allocated memory: 178.235 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 1.64 seconds; current allocated memory: 177.883 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;cnn&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------"/>
@@ -210,11 +210,11 @@
 	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;cnn/out_V_last_V&apos; to &apos;axis&apos; (register, both mode)."/>
 	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on function &apos;cnn&apos; to &apos;ap_ctrl_none&apos;."/>
 	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;cnn&apos;."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 5.27 seconds; current allocated memory: 223.769 MB."/>
-	<Message severity="INFO" prefix="[HLS 200-789]" key="HLS 200-789" tag="THROUGHPUT,SDX_KERNEL" content="**** Estimated Fmax: 88.15 MHz"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 5.43 seconds; current allocated memory: 223.335 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-789]" key="HLS 200-789" tag="THROUGHPUT,SDX_KERNEL" content="**** Estimated Fmax: 90.19 MHz"/>
 	<Message severity="INFO" prefix="[RTMG 210-278]" key="RTMG_278_1791" tag="" content="Implementing memory &apos;kernel_l1_stripesbkb_ram (RAM_2P_BRAM)&apos; using block RAMs with reset."/>
 	<Message severity="INFO" prefix="[RTMG 210-278]" key="RTMG_278_1791" tag="" content="Implementing memory &apos;kernel_l2_stripestde_ram (RAM_2P_BRAM)&apos; using block RAMs with reset."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished generating all RTL models Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 3734 ; free virtual = 23911"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished generating all RTL models Time (s): cpu = 00:00:38 ; elapsed = 00:00:42 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 4554 ; free virtual = 20909"/>
 	<Message severity="INFO" prefix="[VHDL 208-304]" key="VHDL_304_1066" tag="" content="Generating VHDL RTL for cnn."/>
 	<Message severity="INFO" prefix="[VLOG 209-307]" key="VLOG_307_1067" tag="" content="Generating Verilog RTL for cnn."/>
 </Messages>

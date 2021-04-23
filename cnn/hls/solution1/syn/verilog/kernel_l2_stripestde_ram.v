@@ -6,8 +6,8 @@
 module kernel_l2_stripestde_ram (addr0, ce0, q0, addr1, ce1, d1, we1, q1,  clk);
 
 parameter DWIDTH = 8;
-parameter AWIDTH = 9;
-parameter MEM_SIZE = 258;
+parameter AWIDTH = 8;
+parameter MEM_SIZE = 130;
 
 input[AWIDTH-1:0] addr0;
 input ce0;

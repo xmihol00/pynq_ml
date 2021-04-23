@@ -9,8 +9,8 @@ use ieee.numeric_std.all;
 entity kernel_l1_stripesbkb is
     generic (
         DataWidth    : integer := 8;
-        AddressWidth : integer := 10;
-        AddressRange : integer := 514
+        AddressWidth : integer := 9;
+        AddressRange : integer := 258
     );
     port (
         clk      : in  std_logic;

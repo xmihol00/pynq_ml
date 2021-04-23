@@ -77,8 +77,8 @@
     "ClockName": "ap_clk",
     "ClockPeriod": "10",
     "IsCombLogic": "0",
-    "II": "36",
-    "Latency": "37",
+    "II": "40",
+    "Latency": "41",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -96,20 +96,17 @@
   "Files": {
     "CSource": ["..\/..\/cnn.cpp"],
     "Vhdl": [
+      "impl\/vhdl\/cnn_mac_mul_sub_5Rg6.vhd",
       "impl\/vhdl\/cnn_mac_muladd_5nShg.vhd",
-      "impl\/vhdl\/cnn_mac_muladd_5nUhA.vhd",
-      "impl\/vhdl\/cnn_mac_muladd_5nVhK.vhd",
-      "impl\/vhdl\/cnn_mac_muladd_5nXh4.vhd",
-      "impl\/vhdl\/cnn_mac_muladd_5nZio.vhd",
-      "impl\/vhdl\/cnn_mac_muladd_5sRg6.vhd",
+      "impl\/vhdl\/cnn_mac_muladd_5nWhU.vhd",
+      "impl\/vhdl\/cnn_mac_muladd_5s0iy.vhd",
+      "impl\/vhdl\/cnn_mac_muladd_5s1iI.vhd",
       "impl\/vhdl\/cnn_mac_muladd_5sThq.vhd",
-      "impl\/vhdl\/cnn_mac_muladd_5sWhU.vhd",
-      "impl\/vhdl\/cnn_mac_muladd_5sYie.vhd",
-      "impl\/vhdl\/cnn_mac_muladd_8n2iS.vhd",
-      "impl\/vhdl\/cnn_mac_muladd_8n3i2.vhd",
-      "impl\/vhdl\/cnn_mac_muladd_8n4jc.vhd",
-      "impl\/vhdl\/cnn_mul_mul_8ns_50iy.vhd",
-      "impl\/vhdl\/cnn_mul_mul_8ns_51iI.vhd",
+      "impl\/vhdl\/cnn_mac_muladd_5sUhA.vhd",
+      "impl\/vhdl\/cnn_mac_muladd_5sVhK.vhd",
+      "impl\/vhdl\/cnn_mac_muladd_5sZio.vhd",
+      "impl\/vhdl\/cnn_mul_mul_5s_8nXh4.vhd",
+      "impl\/vhdl\/cnn_mul_mul_5s_8nYie.vhd",
       "impl\/vhdl\/cnn_mux_63_8_1_1.vhd",
       "impl\/vhdl\/kernel.vhd",
       "impl\/vhdl\/kernel_l1_stripesbkb.vhd",
@@ -120,20 +117,17 @@
       "impl\/vhdl\/cnn.vhd"
     ],
     "Verilog": [
+      "impl\/verilog\/cnn_mac_mul_sub_5Rg6.v",
       "impl\/verilog\/cnn_mac_muladd_5nShg.v",
-      "impl\/verilog\/cnn_mac_muladd_5nUhA.v",
-      "impl\/verilog\/cnn_mac_muladd_5nVhK.v",
-      "impl\/verilog\/cnn_mac_muladd_5nXh4.v",
-      "impl\/verilog\/cnn_mac_muladd_5nZio.v",
-      "impl\/verilog\/cnn_mac_muladd_5sRg6.v",
+      "impl\/verilog\/cnn_mac_muladd_5nWhU.v",
+      "impl\/verilog\/cnn_mac_muladd_5s0iy.v",
+      "impl\/verilog\/cnn_mac_muladd_5s1iI.v",
       "impl\/verilog\/cnn_mac_muladd_5sThq.v",
-      "impl\/verilog\/cnn_mac_muladd_5sWhU.v",
-      "impl\/verilog\/cnn_mac_muladd_5sYie.v",
-      "impl\/verilog\/cnn_mac_muladd_8n2iS.v",
-      "impl\/verilog\/cnn_mac_muladd_8n3i2.v",
-      "impl\/verilog\/cnn_mac_muladd_8n4jc.v",
-      "impl\/verilog\/cnn_mul_mul_8ns_50iy.v",
-      "impl\/verilog\/cnn_mul_mul_8ns_51iI.v",
+      "impl\/verilog\/cnn_mac_muladd_5sUhA.v",
+      "impl\/verilog\/cnn_mac_muladd_5sVhK.v",
+      "impl\/verilog\/cnn_mac_muladd_5sZio.v",
+      "impl\/verilog\/cnn_mul_mul_5s_8nXh4.v",
+      "impl\/verilog\/cnn_mul_mul_5s_8nYie.v",
       "impl\/verilog\/cnn_mux_63_8_1_1.v",
       "impl\/verilog\/kernel.v",
       "impl\/verilog\/kernel_l1_stripesbkb.v",
@@ -321,45 +315,45 @@
     "Metrics": {
       "kernel": {
         "Latency": {
-          "LatencyBest": "35",
-          "LatencyAvg": "35",
-          "LatencyWorst": "35",
+          "LatencyBest": "39",
+          "LatencyAvg": "39",
+          "LatencyWorst": "39",
           "PipelineII": "30",
-          "PipelineDepth": "36",
+          "PipelineDepth": "40",
           "PipelineType": "function"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "11.344"
+          "Estimate": "11.088"
         },
         "Area": {
           "BRAM_18K": "42",
-          "DSP48E": "36",
-          "FF": "20609",
-          "LUT": "37417",
+          "DSP48E": "27",
+          "FF": "12916",
+          "LUT": "27543",
           "URAM": "0"
         }
       },
       "cnn": {
         "Latency": {
-          "LatencyBest": "37",
-          "LatencyAvg": "37",
-          "LatencyWorst": "37",
-          "PipelineII": "36",
-          "PipelineDepth": "38",
+          "LatencyBest": "41",
+          "LatencyAvg": "41",
+          "LatencyWorst": "41",
+          "PipelineII": "40",
+          "PipelineDepth": "42",
           "PipelineType": "function"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "11.344"
+          "Estimate": "11.088"
         },
         "Area": {
           "BRAM_18K": "42",
-          "DSP48E": "36",
-          "FF": "20647",
-          "LUT": "37621",
+          "DSP48E": "27",
+          "FF": "12958",
+          "LUT": "27763",
           "URAM": "0"
         }
       }
@@ -375,7 +369,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2020-02-24 11:41:30 CET",
+    "Time": "2021-04-23 16:24:57 CEST",
     "ToolName": "vivado_hls",
     "ToolVersion": "2020.1"
   }

@@ -208,7 +208,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>1ec067aa</spirit:value>
+            <spirit:value>702a7baa</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -224,7 +224,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>7572c54b</spirit:value>
+            <spirit:value>cb7e97e9</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -240,7 +240,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>d79e2855</spirit:value>
+            <spirit:value>a058966c</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -256,7 +256,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>f4a4ce72</spirit:value>
+            <spirit:value>530ae252</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -560,27 +560,23 @@
         <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>hdl/verilog/cnn_mac_mul_sub_5Rg6.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>hdl/verilog/cnn_mac_muladd_5nShg.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/cnn_mac_muladd_5nUhA.v</spirit:name>
+        <spirit:name>hdl/verilog/cnn_mac_muladd_5nWhU.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/cnn_mac_muladd_5nVhK.v</spirit:name>
+        <spirit:name>hdl/verilog/cnn_mac_muladd_5s0iy.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/cnn_mac_muladd_5nXh4.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/cnn_mac_muladd_5nZio.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/cnn_mac_muladd_5sRg6.v</spirit:name>
+        <spirit:name>hdl/verilog/cnn_mac_muladd_5s1iI.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -588,31 +584,23 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/cnn_mac_muladd_5sWhU.v</spirit:name>
+        <spirit:name>hdl/verilog/cnn_mac_muladd_5sUhA.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/cnn_mac_muladd_5sYie.v</spirit:name>
+        <spirit:name>hdl/verilog/cnn_mac_muladd_5sVhK.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/cnn_mac_muladd_8n2iS.v</spirit:name>
+        <spirit:name>hdl/verilog/cnn_mac_muladd_5sZio.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/cnn_mac_muladd_8n3i2.v</spirit:name>
+        <spirit:name>hdl/verilog/cnn_mul_mul_5s_8nXh4.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/cnn_mac_muladd_8n4jc.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/cnn_mul_mul_8ns_50iy.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/cnn_mul_mul_8ns_51iI.v</spirit:name>
+        <spirit:name>hdl/verilog/cnn_mul_mul_5s_8nYie.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -651,32 +639,27 @@
     <spirit:fileSet>
       <spirit:name>xilinx_verilogbehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
+        <spirit:name>hdl/verilog/cnn_mac_mul_sub_5Rg6.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>hdl/verilog/cnn_mac_muladd_5nShg.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/cnn_mac_muladd_5nUhA.v</spirit:name>
+        <spirit:name>hdl/verilog/cnn_mac_muladd_5nWhU.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/cnn_mac_muladd_5nVhK.v</spirit:name>
+        <spirit:name>hdl/verilog/cnn_mac_muladd_5s0iy.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/cnn_mac_muladd_5nXh4.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/cnn_mac_muladd_5nZio.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/cnn_mac_muladd_5sRg6.v</spirit:name>
+        <spirit:name>hdl/verilog/cnn_mac_muladd_5s1iI.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -686,37 +669,27 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/cnn_mac_muladd_5sWhU.v</spirit:name>
+        <spirit:name>hdl/verilog/cnn_mac_muladd_5sUhA.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/cnn_mac_muladd_5sYie.v</spirit:name>
+        <spirit:name>hdl/verilog/cnn_mac_muladd_5sVhK.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/cnn_mac_muladd_8n2iS.v</spirit:name>
+        <spirit:name>hdl/verilog/cnn_mac_muladd_5sZio.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/cnn_mac_muladd_8n3i2.v</spirit:name>
+        <spirit:name>hdl/verilog/cnn_mul_mul_5s_8nXh4.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/cnn_mac_muladd_8n4jc.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/cnn_mul_mul_8ns_50iy.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/cnn_mul_mul_8ns_51iI.v</spirit:name>
+        <spirit:name>hdl/verilog/cnn_mul_mul_5s_8nYie.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -769,27 +742,23 @@
         <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>hdl/vhdl/cnn_mac_mul_sub_5Rg6.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>hdl/vhdl/cnn_mac_muladd_5nShg.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/cnn_mac_muladd_5nUhA.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/cnn_mac_muladd_5nWhU.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/cnn_mac_muladd_5nVhK.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/cnn_mac_muladd_5s0iy.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/cnn_mac_muladd_5nXh4.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/cnn_mac_muladd_5nZio.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/cnn_mac_muladd_5sRg6.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/cnn_mac_muladd_5s1iI.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -797,31 +766,23 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/cnn_mac_muladd_5sWhU.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/cnn_mac_muladd_5sUhA.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/cnn_mac_muladd_5sYie.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/cnn_mac_muladd_5sVhK.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/cnn_mac_muladd_8n2iS.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/cnn_mac_muladd_5sZio.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/cnn_mac_muladd_8n3i2.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/cnn_mul_mul_5s_8nXh4.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/cnn_mac_muladd_8n4jc.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/cnn_mul_mul_8ns_50iy.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/cnn_mul_mul_8ns_51iI.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/cnn_mul_mul_5s_8nYie.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -855,38 +816,33 @@
       <spirit:file>
         <spirit:name>hdl/vhdl/cnn.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_69b1126b</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_06717196</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_vhdlbehavioralsimulation_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>hdl/vhdl/cnn_mac_mul_sub_5Rg6.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
       <spirit:file>
         <spirit:name>hdl/vhdl/cnn_mac_muladd_5nShg.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/cnn_mac_muladd_5nUhA.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/cnn_mac_muladd_5nWhU.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/cnn_mac_muladd_5nVhK.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/cnn_mac_muladd_5s0iy.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/cnn_mac_muladd_5nXh4.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/cnn_mac_muladd_5nZio.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/cnn_mac_muladd_5sRg6.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/cnn_mac_muladd_5s1iI.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -896,37 +852,27 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/cnn_mac_muladd_5sWhU.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/cnn_mac_muladd_5sUhA.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/cnn_mac_muladd_5sYie.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/cnn_mac_muladd_5sVhK.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/cnn_mac_muladd_8n2iS.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/cnn_mac_muladd_5sZio.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/cnn_mac_muladd_8n3i2.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/cnn_mul_mul_5s_8nXh4.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/cnn_mac_muladd_8n4jc.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/cnn_mul_mul_8ns_50iy.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/cnn_mul_mul_8ns_51iI.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/cnn_mul_mul_5s_8nYie.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -1030,11 +976,11 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>latency</spirit:name>
-      <spirit:value spirit:id="PARAM_VALUE.latency" spirit:order="5">37</spirit:value>
+      <spirit:value spirit:id="PARAM_VALUE.latency" spirit:order="5">41</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>II</spirit:name>
-      <spirit:value spirit:id="PARAM_VALUE.II" spirit:order="6">36</spirit:value>
+      <spirit:value spirit:id="PARAM_VALUE.II" spirit:order="6">40</spirit:value>
     </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>
@@ -1047,15 +993,15 @@
       </xilinx:taxonomies>
       <xilinx:displayName>Cnn</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>2002241141</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2020-02-24T10:42:00Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>2104231625</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-04-23T14:25:19Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2020.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="94f4300a"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="4690d76c"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="2b2e0d54"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="93785790"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="059ff7ce"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="be473125"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

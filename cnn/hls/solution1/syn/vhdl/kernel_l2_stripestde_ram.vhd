@@ -11,8 +11,8 @@ entity kernel_l2_stripestde_ram is
     generic(
             MEM_TYPE    : string := "block"; 
             DWIDTH     : integer := 8; 
-            AWIDTH     : integer := 9; 
-            MEM_SIZE    : integer := 258
+            AWIDTH     : integer := 8; 
+            MEM_SIZE    : integer := 130
     ); 
     port (
           addr0     : in std_logic_vector(AWIDTH-1 downto 0); 

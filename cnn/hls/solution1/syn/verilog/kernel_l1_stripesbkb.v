@@ -8,8 +8,8 @@
 module kernel_l1_stripesbkb
 #(parameter
     DataWidth    = 8,
-    AddressWidth = 10,
-    AddressRange = 514
+    AddressWidth = 9,
+    AddressRange = 258
 )(
     input  wire                    clk,
     input  wire                    reset,

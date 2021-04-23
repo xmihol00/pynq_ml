@@ -7,7 +7,7 @@
 (* use_dsp = "yes" *) module cnn_mac_muladd_5nShg_DSP48_1(
     input  [5 - 1:0] in0,
     input  [8 - 1:0] in1,
-    input  [12 - 1:0] in2,
+    input  [13 - 1:0] in2,
     output [13 - 1:0]  dout);
 
 wire signed [25 - 1:0]     a;

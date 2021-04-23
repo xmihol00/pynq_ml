@@ -8,8 +8,8 @@
 module kernel_l2_stripestde
 #(parameter
     DataWidth    = 8,
-    AddressWidth = 9,
-    AddressRange = 258
+    AddressWidth = 8,
+    AddressRange = 130
 )(
     input  wire                    clk,
     input  wire                    reset,
