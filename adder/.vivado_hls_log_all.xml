@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <packageLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <packageLog>
+        <logs message="WARNING: [Timing 38-242] The property HD.CLK_SRC of clock port &quot;ap_clk&quot; is not set. In out-of-context mode, this prevents timing estimation for clock delay/skew&#xA;Resolution: Set the HD.CLK_SRC property of the out-of-context port to the location of the clock buffer instance in the top-level design" projectName="adder" solutionName="solution1" date="2020-01-27T17:02:29.850+0100" type="Warning"/>
+        <logs message="WARNING: [Timing 38-493] Port ap_clk has one or several leaf clock pins in its transitive fanout without any clock buffer on the path and no clock reaching the clock pin(s). Vivado cannot infer the clock source when no clock buffer is found on the path to a leaf clock pin." projectName="adder" solutionName="solution1" date="2020-01-27T17:02:29.846+0100" type="Warning"/>
+        <logs message="WARNING: [Power 33-232] No user defined clocks were found in the design! Power estimation will be inaccurate until this is corrected.&#xA;Resolution: Please specify clocks using create_clock/create_generated_clock for sequential elements. For pure combinatorial circuits, please specify a virtual clock, otherwise the vectorless estimation might be inaccurate&#xA;Running Vector-less Activity Propagation...&#xA;&#xA;&#xA;Finished Running Vector-less Activity Propagation&#xA;78 Infos, 60 Warnings, 0 Critical Warnings and 0 Errors encountered.&#xA;report_power completed successfully" projectName="adder" solutionName="solution1" date="2020-01-27T17:02:23.996+0100" type="Warning"/>
+      </packageLog>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

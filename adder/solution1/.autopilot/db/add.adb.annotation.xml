@@ -1,0 +1,3 @@
+<annotationInfo>
+<item  id="14" filename=".git/adder.cpp" linenumber="8" name="add_ln8" contextFuncName="add" moduleName="add" rtlName="c" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="39" fileDirectory="/home/david/projs/pynq_ml"><\/item>
+</annotationInfo>
