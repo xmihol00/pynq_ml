@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="matmul.cpp" path="/mnt/sdc3/david/projs/pynq_ml/matmul/matmul.cpp"/>
+    <originFiles name="matmul.h" path="/mnt/sdc3/david/projs/pynq_ml/matmul/matmul.h"/>
+  </source>
+  <testbench/>
+</autopilotfilemapping:AutoPilotFileMapping>
