@@ -327,16 +327,12 @@ dma = overlay.dma
 mlp_ip = overlay.mlp
 
 
-DIM = 64
-in_buffer = allocate(shape=(64, 1), dtype=np.int8, cacheable=False)
-out_buffer = allocate(shape=(10, 1), dtype=np.int16, cacheable=False)
+in_buffer = allocate(shape=(64, ), dtype=np.int8, cacheable=False)
+out_buffer = allocate(shape=(10, ), dtype=np.int16, cacheable=False)
 
 CTRL_REG = 0x00
 AP_START = (1<<0) # bit 0
 AUTO_RESTART = (1<<7) # bit 7
-mlp_ip.register_map.k = DIM
-mlp_ip.register_map.m = DIM
-mlp_ip.register_map.n = DIM
 
 def run_kernel():
     dma.sendchannel.transfer(in_buffer)
@@ -345,7 +341,7 @@ def run_kernel():
     dma.sendchannel.wait()
     dma.recvchannel.wait()
 
-sample = np.random.randint(-128, 127, size=(64, 1), dtype=np.int8)
+sample = np.random.randint(-128, 127, size=(64, ), dtype=np.int8)
 
 in_buffer[:] = sample
 
@@ -356,9 +352,11 @@ kernel_time = end - start
 print("Kernel execution time: {0}".format(end - start))
 
 start = time.time()
-ground_truth = sample @ l1_weights + l1_biases
+print(sample.reshape(64, 1).shape, l1_weights.shape, l1_biases.shape)
+ground_truth = l1_weights @ sample.reshape(64, 1) + l1_biases
 ground_truth = np.maximum(ground_truth, 0)
-ground_truth = ground_truth @ l2_weights + l2_biases
+print(ground_truth.shape, l2_weights.shape, l2_biases.shape)
+ground_truth = l2_weights @ ground_truth + l2_biases
 end = time.time()
 ground_truth_time = end - start
 print("Ground truth execution time: {0}".format(end - start))
