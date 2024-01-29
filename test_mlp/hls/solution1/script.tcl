@@ -6,12 +6,15 @@
 open_project hls
 set_top mlp
 add_files mlp.cpp
+add_files mlp.h
+add_files -tb mlp.h
+add_files -tb mlp_tb.cpp
 open_solution "solution1"
 set_part {xc7z020-clg400-1}
 create_clock -period 10 -name default
 config_export -format ip_catalog -rtl vhdl
 #source "./hls/solution1/directives.tcl"
-#csim_design
+csim_design
 csynth_design
-#cosim_design
+cosim_design
 export_design -flow impl -rtl vhdl -format ip_catalog

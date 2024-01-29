@@ -3,11 +3,14 @@
 #include "ap_axi_sdata.h"
 #include "ap_int.h"
 #include "hls_stream.h"
+#ifndef __SYNTHESIS__
+	#include <iostream>
+#endif
 
 #define AXI_WIDTH 32
 #define INPUT_SIZE 64
-#define L1_SIZE 64
 #define OUTPUT_SIZE 10
+#define L1_SIZE 64
 #define INT8_BITS 8
 #define INT16_BITS 16
 
@@ -347,6 +350,9 @@ input_layer:
         }
         sum += l1_biases[i];
         sum = sum < 0 ? 0 : sum;
+		#ifndef __SYNTHESIS__
+			std::cout << sum << std::endl;
+		#endif
         l1_out[i] = sum;
     }
 

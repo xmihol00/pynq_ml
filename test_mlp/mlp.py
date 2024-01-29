@@ -316,8 +316,8 @@ l2_biases = [
         [ -14,  123,   88,   60,  -84, -111,   14,  127,   64,  -67]
     ]
 
-l1_weights = np.array(l1_weights, dtype=np.int16).reshape((64, 64)).T
-l2_weights = np.array(l2_weights, dtype=np.int16).reshape((64, 10)).T
+l1_weights = np.array(l1_weights, dtype=np.int16).reshape((64, 64))
+l2_weights = np.array(l2_weights, dtype=np.int16).reshape((10, 64))
 l1_biases = np.array(l1_biases, dtype=np.int16).reshape((64, 1))
 l2_biases = np.array(l2_biases, dtype=np.int16).reshape((10, 1))
 
@@ -341,7 +341,7 @@ def run_kernel():
     dma.sendchannel.wait()
     dma.recvchannel.wait()
 
-sample = np.random.randint(-128, 127, size=(64, ), dtype=np.int8)
+sample = np.ones((64, ), dtype=np.int8)
 
 in_buffer[:] = sample
 

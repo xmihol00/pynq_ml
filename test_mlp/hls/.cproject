@@ -51,6 +51,8 @@
                                 								
                                 <option id="gnu.cpp.compiler.option.include.paths.118917007" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
                                     									
+                                    <listOptionValue builtIn="false" value="/mnt/sdc3/david/projs/pynq_ml/test_mlp"/>
+                                    									
                                     <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include/etc"/>
                                     									
                                     <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/lnx64/tools/systemc/include"/>
@@ -84,6 +86,8 @@
                                 <option id="gnu.c.compiler.exe.debug.option.debugging.level.2095162894" name="Debug Level" superClass="gnu.c.compiler.exe.debug.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.max" valueType="enumerated"/>
                                 								
                                 <option id="gnu.c.compiler.option.include.paths.1853424767" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+                                    									
+                                    <listOptionValue builtIn="false" value="/mnt/sdc3/david/projs/pynq_ml/test_mlp"/>
                                     									
                                     <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include/etc"/>
                                     									
@@ -159,7 +163,7 @@
                     					
                     <sourceEntries>
                         						
-                        <entry excluding="solution1|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+                        <entry excluding="solution1|source/mlp.h|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
                         					
                     </sourceEntries>
                     				
@@ -219,6 +223,8 @@
                                 								
                                 <option id="gnu.cpp.compiler.option.include.paths.1220705625" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
                                     									
+                                    <listOptionValue builtIn="false" value="/mnt/sdc3/david/projs/pynq_ml/test_mlp"/>
+                                    									
                                     <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include/etc"/>
                                     									
                                     <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/lnx64/tools/systemc/include"/>
@@ -242,6 +248,8 @@
                                 <option id="gnu.c.compiler.exe.release.option.debugging.level.1844090911" name="Debug Level" superClass="gnu.c.compiler.exe.release.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
                                 								
                                 <option id="gnu.c.compiler.option.include.paths.10909011" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+                                    									
+                                    <listOptionValue builtIn="false" value="/mnt/sdc3/david/projs/pynq_ml/test_mlp"/>
                                     									
                                     <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include/etc"/>
                                     									
@@ -307,7 +315,7 @@
                     					
                     <sourceEntries>
                         						
-                        <entry excluding="solution1|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+                        <entry excluding="solution1|source/mlp.h|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
                         					
                     </sourceEntries>
                     				
