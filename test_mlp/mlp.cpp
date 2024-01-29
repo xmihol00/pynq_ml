@@ -4,7 +4,7 @@
 #include "ap_int.h"
 #include "hls_stream.h"
 
-#define AXI_WIDTH 256
+#define AXI_WIDTH 32
 #define INPUT_SIZE 64
 #define L1_SIZE 64
 #define OUTPUT_SIZE 10
@@ -376,8 +376,8 @@ extern "C"
     #pragma HLS ARRAY_PARTITION variable = sample factor = 8 dim = 1 cyclic
     #pragma HLS ARRAY_PARTITION variable = prediction factor = 2 dim = 1 cyclic
 
-        const int j_limit = AXI_WIDTH / INT8_BITS;
-        const int i_limit = INPUT_SIZE / j_limit;
+        int j_limit = AXI_WIDTH / INT8_BITS;
+        int i_limit = INPUT_SIZE / j_limit;
 
         int low;
         int high;
@@ -391,7 +391,7 @@ extern "C"
             axis_t temp = in.read();
             for (int j = 0; j < j_limit; j++)
             {
-                sample[i * 16 + j] = temp.data.range(high, low);
+                sample[i * (AXI_WIDTH / INT8_BITS) + j] = temp.data.range(high, low);
 
                 low += INT8_BITS;
                 high += INT8_BITS;
@@ -399,6 +399,9 @@ extern "C"
         }
 
         mlp_kernel(sample, prediction);
+
+        j_limit = AXI_WIDTH / INT16_BITS;
+        i_limit = OUTPUT_SIZE / j_limit;
 
     write_prediction:
         for (int i = 0; i < i_limit; i++)
@@ -409,7 +412,7 @@ extern "C"
 
             for (int j = 0; j < j_limit; j++)
             {
-                temp.data.range(high, low) = prediction[i * 16 + j];
+                temp.data.range(high, low) = prediction[i * (AXI_WIDTH / INT16_BITS) + j];
 
                 low += INT16_BITS;
                 high += INT16_BITS;

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'mlp_kernel'" level="0">
-<item name = "Date">Mon Jan 29 18:45:06 2024
+<item name = "Date">Mon Jan 29 20:35:39 2024
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">hls</item>
@@ -54,7 +54,7 @@
 <column name="Expression">-, -, 0, 255, -</column>
 <column name="FIFO">-, -, -, -, -</column>
 <column name="Instance">-, -, 0, 45, -</column>
-<column name="Memory">4, -, 91, 26, 0</column>
+<column name="Memory">4, -, 92, 26, 0</column>
 <column name="Multiplexer">-, -, -, 140, -</column>
 <column name="Register">-, -, 181, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
@@ -82,7 +82,7 @@
 <column name="l1_out_1_U">mlp_kernel_l1_out_0, 0, 30, 8, 0, 32, 15, 1, 480</column>
 <column name="l1_weights_1_U">mlp_kernel_l1_weibkb, 1, 0, 0, 0, 2048, 8, 1, 16384</column>
 <column name="l1_weights_0_U">mlp_kernel_l1_weicud, 1, 0, 0, 0, 2048, 8, 1, 16384</column>
-<column name="l2_biases_1_U">mlp_kernel_l2_biahbi, 0, 7, 1, 0, 5, 7, 1, 35</column>
+<column name="l2_biases_1_U">mlp_kernel_l2_biahbi, 0, 8, 1, 0, 5, 8, 1, 40</column>
 <column name="l2_biases_0_U">mlp_kernel_l2_biaibs, 0, 8, 1, 0, 5, 8, 1, 40</column>
 <column name="l2_weights_1_U">mlp_kernel_l2_weifYi, 1, 0, 0, 0, 320, 8, 1, 2560</column>
 <column name="l2_weights_0_U">mlp_kernel_l2_weig8j, 1, 0, 0, 0, 320, 8, 1, 2560</column>
@@ -101,7 +101,7 @@
 <column name="i_fu_464_p2">+, 0, 0, 15, 7, 1</column>
 <column name="j_1_fu_686_p2">+, 0, 0, 15, 7, 1</column>
 <column name="j_fu_492_p2">+, 0, 0, 15, 7, 1</column>
-<column name="sum_3_fu_790_p2">+, 0, 0, 23, 16, 16</column>
+<column name="sum_3_fu_786_p2">+, 0, 0, 23, 16, 16</column>
 <column name="sum_fu_628_p2">+, 0, 0, 23, 16, 16</column>
 <column name="icmp_ln339_fu_458_p2">icmp, 0, 0, 11, 7, 8</column>
 <column name="icmp_ln342_fu_486_p2">icmp, 0, 0, 11, 7, 8</column>
@@ -111,7 +111,7 @@
 <column name="select_ln346_fu_609_p3">select, 0, 0, 8, 1, 8</column>
 <column name="select_ln357_1_fu_762_p3">select, 0, 0, 15, 1, 15</column>
 <column name="select_ln357_fu_755_p3">select, 0, 0, 8, 1, 8</column>
-<column name="select_ln359_fu_779_p3">select, 0, 0, 8, 1, 8</column>
+<column name="select_ln359_fu_775_p3">select, 0, 0, 8, 1, 8</column>
 <column name="sum_1_fu_648_p3">select, 0, 0, 15, 1, 1</column>
 </table>
 </item>
@@ -133,30 +133,30 @@
 <column name="ap_CS_fsm">12, 0, 12, 0</column>
 <column name="i1_0_reg_423">4, 0, 4, 0</column>
 <column name="i_0_reg_388">7, 0, 7, 0</column>
-<column name="i_1_reg_944">4, 0, 4, 0</column>
-<column name="i_reg_817">7, 0, 7, 0</column>
+<column name="i_1_reg_940">4, 0, 4, 0</column>
+<column name="i_reg_813">7, 0, 7, 0</column>
 <column name="j3_0_reg_447">7, 0, 7, 0</column>
 <column name="j_0_reg_400">7, 0, 7, 0</column>
-<column name="j_1_reg_957">7, 0, 7, 0</column>
-<column name="j_reg_830">7, 0, 7, 0</column>
-<column name="l1_out_0_addr_reg_910">5, 0, 5, 0</column>
-<column name="l1_out_1_addr_reg_915">5, 0, 5, 0</column>
-<column name="prediction_0_addr_reg_1003">3, 0, 3, 0</column>
-<column name="prediction_1_addr_reg_1008">3, 0, 3, 0</column>
-<column name="select_ln344_reg_920">8, 0, 8, 0</column>
-<column name="select_ln357_1_reg_1018">15, 0, 15, 0</column>
-<column name="select_ln357_reg_1013">8, 0, 8, 0</column>
-<column name="shl_ln1_reg_949">4, 0, 10, 6</column>
-<column name="shl_ln_reg_822">6, 0, 12, 6</column>
+<column name="j_1_reg_953">7, 0, 7, 0</column>
+<column name="j_reg_826">7, 0, 7, 0</column>
+<column name="l1_out_0_addr_reg_906">5, 0, 5, 0</column>
+<column name="l1_out_1_addr_reg_911">5, 0, 5, 0</column>
+<column name="prediction_0_addr_reg_999">3, 0, 3, 0</column>
+<column name="prediction_1_addr_reg_1004">3, 0, 3, 0</column>
+<column name="select_ln344_reg_916">8, 0, 8, 0</column>
+<column name="select_ln357_1_reg_1014">15, 0, 15, 0</column>
+<column name="select_ln357_reg_1009">8, 0, 8, 0</column>
+<column name="shl_ln1_reg_945">4, 0, 10, 6</column>
+<column name="shl_ln_reg_818">6, 0, 12, 6</column>
 <column name="sum2_0_reg_435">16, 0, 16, 0</column>
 <column name="sum_0_reg_411">16, 0, 16, 0</column>
-<column name="sum_1_reg_935">15, 0, 15, 0</column>
-<column name="tmp_2_reg_925">8, 0, 8, 0</column>
-<column name="trunc_ln344_1_reg_835">1, 0, 1, 0</column>
-<column name="trunc_ln344_2_reg_850">3, 0, 3, 0</column>
-<column name="trunc_ln346_reg_895">1, 0, 1, 0</column>
-<column name="trunc_ln357_reg_962">1, 0, 1, 0</column>
-<column name="trunc_ln359_reg_988">1, 0, 1, 0</column>
+<column name="sum_1_reg_931">15, 0, 15, 0</column>
+<column name="tmp_2_reg_921">8, 0, 8, 0</column>
+<column name="trunc_ln344_1_reg_831">1, 0, 1, 0</column>
+<column name="trunc_ln344_2_reg_846">3, 0, 3, 0</column>
+<column name="trunc_ln346_reg_891">1, 0, 1, 0</column>
+<column name="trunc_ln357_reg_958">1, 0, 1, 0</column>
+<column name="trunc_ln359_reg_984">1, 0, 1, 0</column>
 </table>
 </item>
 </section>

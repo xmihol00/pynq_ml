@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
---Date        : Mon Jan 29 19:59:47 2024
+--Date        : Mon Jan 29 20:49:51 2024
 --Host        : david running 64-bit Ubuntu 22.04.2 LTS
 --Command     : generate_target design_1_wrapper.bd
 --Design      : design_1_wrapper

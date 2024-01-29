@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xD3F9096BCBE31C54",
+      "boundary_crc": "0xBF44962EB038B186",
       "device": "xc7z020clg400-1",
       "name": "bd_0",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
@@ -18,7 +18,7 @@
         "vlnv": "xilinx.com:interface:axis_rtl:1.0",
         "parameters": {
           "TDATA_NUM_BYTES": {
-            "value": "32"
+            "value": "4"
           },
           "TDEST_WIDTH": {
             "value": "0"
@@ -66,7 +66,7 @@
         "vlnv": "xilinx.com:interface:axis_rtl:1.0",
         "parameters": {
           "TDATA_NUM_BYTES": {
-            "value": "32",
+            "value": "4",
             "value_src": "const_prop"
           },
           "TDEST_WIDTH": {

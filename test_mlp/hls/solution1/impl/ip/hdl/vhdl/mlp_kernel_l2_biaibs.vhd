@@ -26,8 +26,8 @@ architecture rtl of mlp_kernel_l2_biaibs_rom is
 signal addr0_tmp : std_logic_vector(AWIDTH-1 downto 0); 
 type mem_array is array (0 to MEM_SIZE-1) of std_logic_vector (DWIDTH-1 downto 0); 
 signal mem : mem_array := (
-    0 => "00011001", 1 => "00000011", 2 => "10011101", 3 => "11000100", 
-    4 => "10111000" );
+    0 => "11110010", 1 => "01011000", 2 => "10101100", 3 => "00001110", 
+    4 => "01000000" );
 
 attribute syn_rom_style : string;
 attribute syn_rom_style of mem : signal is "select_rom";

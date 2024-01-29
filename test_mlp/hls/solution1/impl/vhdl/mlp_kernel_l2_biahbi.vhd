@@ -8,7 +8,7 @@ use ieee.std_logic_unsigned.all;
 
 entity mlp_kernel_l2_biahbi_rom is 
     generic(
-             DWIDTH     : integer := 7; 
+             DWIDTH     : integer := 8; 
              AWIDTH     : integer := 3; 
              MEM_SIZE    : integer := 5
     ); 
@@ -26,8 +26,8 @@ architecture rtl of mlp_kernel_l2_biahbi_rom is
 signal addr0_tmp : std_logic_vector(AWIDTH-1 downto 0); 
 type mem_array is array (0 to MEM_SIZE-1) of std_logic_vector (DWIDTH-1 downto 0); 
 signal mem : mem_array := (
-    0 => "0001011", 1 => "1100111", 2 => "0101000", 3 => "1101010", 
-    4 => "0011111" );
+    0 => "01111011", 1 => "00111100", 2 => "10010001", 3 => "01111111", 
+    4 => "10111101" );
 
 attribute syn_rom_style : string;
 attribute syn_rom_style of mem : signal is "select_rom";
@@ -65,7 +65,7 @@ use IEEE.std_logic_1164.all;
 
 entity mlp_kernel_l2_biahbi is
     generic (
-        DataWidth : INTEGER := 7;
+        DataWidth : INTEGER := 8;
         AddressRange : INTEGER := 5;
         AddressWidth : INTEGER := 3);
     port (

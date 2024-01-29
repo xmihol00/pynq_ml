@@ -5,10 +5,10 @@
 <ModuleName>mlp</ModuleName>
 <InstancesList>
 <Instance>
-<InstName>grp_mlp_kernel_fu_428</InstName>
+<InstName>grp_mlp_kernel_fu_436</InstName>
 <ModuleName>mlp_kernel</ModuleName>
 <IsCompInst>true</IsCompInst>
-<ID>428</ID>
+<ID>436</ID>
 </Instance>
 </InstancesList>
 </TopModule>
@@ -68,7 +68,7 @@
 <Resources>
 <BRAM_18K>4</BRAM_18K>
 <DSP48E>2</DSP48E>
-<FF>272</FF>
+<FF>273</FF>
 <LUT>466</LUT>
 <URAM>0</URAM>
 </Resources>
@@ -500,43 +500,43 @@
 <SummaryOfTimingAnalysis>
 <TargetClockPeriod>10.00</TargetClockPeriod>
 <ClockUncertainty>1.25</ClockUncertainty>
-<EstimatedClockPeriod>7.865</EstimatedClockPeriod>
+<EstimatedClockPeriod>7.653</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
-<Best-caseLatency>14829</Best-caseLatency>
-<Average-caseLatency>14829</Average-caseLatency>
-<Worst-caseLatency>14829</Worst-caseLatency>
+<Best-caseLatency>14758</Best-caseLatency>
+<Average-caseLatency>14758</Average-caseLatency>
+<Worst-caseLatency>14758</Worst-caseLatency>
 <Best-caseRealTimeLatency>0.148 ms</Best-caseRealTimeLatency>
 <Average-caseRealTimeLatency>0.148 ms</Average-caseRealTimeLatency>
 <Worst-caseRealTimeLatency>0.148 ms</Worst-caseRealTimeLatency>
-<PipelineInitiationInterval>14830</PipelineInitiationInterval>
+<PipelineInitiationInterval>14759</PipelineInitiationInterval>
 <PipelineType>none</PipelineType>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <load_sample>
 <Name>load_sample</Name>
-<TripCount>2</TripCount>
-<Latency>196</Latency>
-<IterationLatency>98</IterationLatency>
-<PipelineDepth>98</PipelineDepth>
+<TripCount>16</TripCount>
+<Latency>224</Latency>
+<IterationLatency>14</IterationLatency>
+<PipelineDepth>14</PipelineDepth>
 <load_sample.1>
 <Name>load_sample.1</Name>
-<TripCount>32</TripCount>
-<Latency>96</Latency>
+<TripCount>4</TripCount>
+<Latency>12</Latency>
 <IterationLatency>3</IterationLatency>
 <PipelineDepth>3</PipelineDepth>
 </load_sample.1>
 </load_sample>
 <write_prediction>
 <Name>write_prediction</Name>
-<TripCount>2</TripCount>
-<Latency>134</Latency>
-<IterationLatency>67</IterationLatency>
-<PipelineDepth>67</PipelineDepth>
+<TripCount>5</TripCount>
+<Latency>35</Latency>
+<IterationLatency>7</IterationLatency>
+<PipelineDepth>7</PipelineDepth>
 <write_prediction.1>
 <Name>write_prediction.1</Name>
-<TripCount>32</TripCount>
-<Latency>64</Latency>
+<TripCount>2</TripCount>
+<Latency>4</Latency>
 <IterationLatency>2</IterationLatency>
 <PipelineDepth>2</PipelineDepth>
 </write_prediction.1>
@@ -547,8 +547,8 @@
 <Resources>
 <BRAM_18K>4</BRAM_18K>
 <DSP48E>2</DSP48E>
-<FF>1405</FF>
-<LUT>8141</LUT>
+<FF>678</FF>
+<LUT>2095</LUT>
 <URAM>0</URAM>
 </Resources>
 </AreaEstimates>
@@ -815,7 +815,7 @@
 <IOProtocol>axis</IOProtocol>
 <IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
-<Bits>256</Bits>
+<Bits>32</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
@@ -863,7 +863,7 @@
 <IOProtocol>axis</IOProtocol>
 <IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
-<Bits>32</Bits>
+<Bits>4</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
@@ -875,7 +875,7 @@
 <IOProtocol>axis</IOProtocol>
 <IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
-<Bits>32</Bits>
+<Bits>4</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
@@ -887,7 +887,7 @@
 <IOProtocol>axis</IOProtocol>
 <IOConfig>register, both mode</IOConfig>
 <Dir>out</Dir>
-<Bits>256</Bits>
+<Bits>32</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
@@ -935,7 +935,7 @@
 <IOProtocol>axis</IOProtocol>
 <IOConfig>register, both mode</IOConfig>
 <Dir>out</Dir>
-<Bits>32</Bits>
+<Bits>4</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
@@ -947,7 +947,7 @@
 <IOProtocol>axis</IOProtocol>
 <IOConfig>register, both mode</IOConfig>
 <Dir>out</Dir>
-<Bits>32</Bits>
+<Bits>4</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>

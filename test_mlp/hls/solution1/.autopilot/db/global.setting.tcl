@@ -42,7 +42,7 @@ set SCTraceOption all
 set TargetInfo xc7z020:-clg400:-1
 set SourceFiles {sc {} c ../../mlp.cpp}
 set SourceFlags {sc {} c {{}}}
-set DirectiveFile /mnt/sdc3/david/projs/pynq_ml/simple_mlp/hls/solution1/solution1.directive
+set DirectiveFile /mnt/sdc3/david/projs/pynq_ml/test_mlp/hls/solution1/solution1.directive
 set TBFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

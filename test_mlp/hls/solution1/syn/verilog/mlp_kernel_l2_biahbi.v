@@ -6,7 +6,7 @@
 (* rom_style = "distributed" *) module mlp_kernel_l2_biahbi_rom (
 addr0, ce0, q0, clk);
 
-parameter DWIDTH = 7;
+parameter DWIDTH = 8;
 parameter AWIDTH = 3;
 parameter MEM_SIZE = 5;
 
@@ -43,7 +43,7 @@ module mlp_kernel_l2_biahbi(
     ce0,
     q0);
 
-parameter DataWidth = 32'd7;
+parameter DataWidth = 32'd8;
 parameter AddressRange = 32'd5;
 parameter AddressWidth = 32'd3;
 input reset;

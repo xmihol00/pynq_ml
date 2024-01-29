@@ -603,7 +603,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>TDATA_NUM_BYTES</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.IN_R.TDATA_NUM_BYTES">32</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.IN_R.TDATA_NUM_BYTES">4</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>TUSER_WIDTH</spirit:name>
@@ -763,7 +763,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>TDATA_NUM_BYTES</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.OUT_R.TDATA_NUM_BYTES">32</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.OUT_R.TDATA_NUM_BYTES">4</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>TUSER_WIDTH</spirit:name>
@@ -1144,11 +1144,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Jan 29 18:24:36 UTC 2020</spirit:value>
+            <spirit:value>Mon Jan 29 19:37:04 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:57ca747e</spirit:value>
+            <spirit:value>9:bca02ca6</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1159,7 +1159,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:57ca747e</spirit:value>
+            <spirit:value>9:bca02ca6</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1175,11 +1175,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Jan 29 18:24:36 UTC 2020</spirit:value>
+            <spirit:value>Mon Jan 29 19:37:04 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:57ca747e</spirit:value>
+            <spirit:value>9:bca02ca6</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1195,11 +1195,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Jan 29 18:24:36 UTC 2020</spirit:value>
+            <spirit:value>Mon Jan 29 19:37:04 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:31d9ddb8</spirit:value>
+            <spirit:value>9:a3f01a91</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1215,11 +1215,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Jan 29 18:24:36 UTC 2020</spirit:value>
+            <spirit:value>Mon Jan 29 19:37:04 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:31d9ddb8</spirit:value>
+            <spirit:value>9:a3f01a91</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1233,11 +1233,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Jan 29 18:25:41 UTC 2020</spirit:value>
+            <spirit:value>Mon Jan 29 19:37:55 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:57ca747e</spirit:value>
+            <spirit:value>9:bca02ca6</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1562,7 +1562,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">255</spirit:left>
+            <spirit:left spirit:format="long">31</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1599,7 +1599,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">31</spirit:left>
+            <spirit:left spirit:format="long">3</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1610,7 +1610,7 @@
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
           <spirit:driver>
-            <spirit:defaultValue spirit:format="long">4294967295</spirit:defaultValue>
+            <spirit:defaultValue spirit:format="long">15</spirit:defaultValue>
           </spirit:driver>
         </spirit:wire>
       </spirit:port>
@@ -1619,7 +1619,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">31</spirit:left>
+            <spirit:left spirit:format="long">3</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1630,7 +1630,7 @@
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
           <spirit:driver>
-            <spirit:defaultValue spirit:format="long">4294967295</spirit:defaultValue>
+            <spirit:defaultValue spirit:format="long">15</spirit:defaultValue>
           </spirit:driver>
         </spirit:wire>
       </spirit:port>
@@ -1665,7 +1665,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">255</spirit:left>
+            <spirit:left spirit:format="long">31</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1699,7 +1699,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">31</spirit:left>
+            <spirit:left spirit:format="long">3</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1716,7 +1716,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">31</spirit:left>
+            <spirit:left spirit:format="long">3</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1749,75 +1749,75 @@
         <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_control_s_axi.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_control_s_axi.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_kernel.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_kernel.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_kernel_l1_biadEe.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_kernel_l1_biadEe.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_kernel_l1_biaeOg.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_kernel_l1_biaeOg.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_kernel_l1_out_0.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_kernel_l1_out_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_kernel_l1_weibkb.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_kernel_l1_weibkb.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_kernel_l1_weicud.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_kernel_l1_weicud.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_kernel_l2_biahbi.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_kernel_l2_biahbi.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_kernel_l2_biaibs.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_kernel_l2_biaibs.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_kernel_l2_weifYi.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_kernel_l2_weifYi.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_kernel_l2_weig8j.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_kernel_l2_weig8j.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_mac_muladd_8sjbC.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_mac_muladd_8sjbC.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_mac_muladd_15kbM.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_mac_muladd_15kbM.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_mux_832_8_1_1.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_mux_832_8_1_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_prediction_0.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_prediction_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_sample_0.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_sample_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/regslice_core.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/regslice_core.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -1832,92 +1832,92 @@
     <spirit:fileSet>
       <spirit:name>xilinx_vhdlbehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_control_s_axi.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_control_s_axi.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_kernel.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_kernel.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_kernel_l1_biadEe.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_kernel_l1_biadEe.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_kernel_l1_biaeOg.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_kernel_l1_biaeOg.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_kernel_l1_out_0.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_kernel_l1_out_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_kernel_l1_weibkb.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_kernel_l1_weibkb.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_kernel_l1_weicud.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_kernel_l1_weicud.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_kernel_l2_biahbi.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_kernel_l2_biahbi.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_kernel_l2_biaibs.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_kernel_l2_biaibs.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_kernel_l2_weifYi.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_kernel_l2_weifYi.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_kernel_l2_weig8j.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_kernel_l2_weig8j.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_mac_muladd_8sjbC.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_mac_muladd_8sjbC.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_mac_muladd_15kbM.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_mac_muladd_15kbM.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_mux_832_8_1_1.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_mux_832_8_1_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_prediction_0.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_prediction_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp_sample_0.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp_sample_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/regslice_core.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/regslice_core.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/31d9/hdl/vhdl/mlp.vhd</spirit:name>
+        <spirit:name>../../ipshared/895f/hdl/vhdl/mlp.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -2008,7 +2008,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>latency</spirit:name>
-      <spirit:value spirit:id="PARAM_VALUE.latency" spirit:order="5">14829</spirit:value>
+      <spirit:value spirit:id="PARAM_VALUE.latency" spirit:order="5">14758</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -2033,7 +2033,7 @@
     <xilinx:coreExtensions>
       <xilinx:displayName>Mlp</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>2001291924</xilinx:coreRevision>
+      <xilinx:coreRevision>1901292036</xilinx:coreRevision>
       <xilinx:configElementInfos>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.AP_CLK.ASSOCIATED_BUSIF" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.AP_CLK.ASSOCIATED_RESET" xilinx:valuePermission="bd"/>
@@ -2102,12 +2102,12 @@
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2020.1</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="2bc6b7da"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="e26e67f3"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="f2df1fcd"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="b7a92085"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="960dbeb1"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="671802ee"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="1fee092c"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="23754c13"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="8d1a5a13"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="f10aeab7"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

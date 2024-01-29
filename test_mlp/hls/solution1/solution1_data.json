@@ -21,7 +21,7 @@
       "index": "0",
       "type": {
         "kinds": ["struct"],
-        "dataType": "ap_axiu<256, 0, 0, 0>",
+        "dataType": "ap_axiu<32, 0, 0, 0>",
         "structImpl": "flat-interface",
         "fields": {
           "data": {
@@ -47,7 +47,7 @@
       "index": "1",
       "type": {
         "kinds": ["struct"],
-        "dataType": "ap_axiu<256, 0, 0, 0>",
+        "dataType": "ap_axiu<32, 0, 0, 0>",
         "structImpl": "flat-interface",
         "fields": {
           "data": {
@@ -78,7 +78,7 @@
     "ClockPeriod": "10",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "14829",
+    "Latency": "14758",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -154,9 +154,9 @@
       "impl\/misc\/drivers\/mlp_v1_0\/src\/xmlp_sinit.c"
     ],
     "Misc": ["impl\/misc\/logo.png"],
-    "DesignXml": "\/mnt\/sdc3\/david\/projs\/pynq_ml\/simple_mlp\/hls\/solution1\/.autopilot\/db\/mlp.design.xml",
-    "DebugDir": "\/mnt\/sdc3\/david\/projs\/pynq_ml\/simple_mlp\/hls\/solution1\/.debug",
-    "ProtoInst": ["\/mnt\/sdc3\/david\/projs\/pynq_ml\/simple_mlp\/hls\/solution1\/.debug\/mlp.protoinst"]
+    "DesignXml": "\/mnt\/sdc3\/david\/projs\/pynq_ml\/test_mlp\/hls\/solution1\/.autopilot\/db\/mlp.design.xml",
+    "DebugDir": "\/mnt\/sdc3\/david\/projs\/pynq_ml\/test_mlp\/hls\/solution1\/.debug",
+    "ProtoInst": ["\/mnt\/sdc3\/david\/projs\/pynq_ml\/test_mlp\/hls\/solution1\/.debug\/mlp.protoinst"]
   },
   "SubcoreInfo": {
     "HasXpmMemory": false,
@@ -187,7 +187,7 @@
       "ctype": {
         "TDATA": {
           "Type": "integer unsigned",
-          "Width": "256"
+          "Width": "32"
         },
         "TVALID": {"Type": "bool"},
         "TREADY": {"Type": "bool"},
@@ -197,18 +197,18 @@
         },
         "TKEEP": {
           "Type": "integer unsigned",
-          "Width": "32"
+          "Width": "4"
         },
         "TSTRB": {
           "Type": "integer unsigned",
-          "Width": "32"
+          "Width": "4"
         }
       },
       "port_width": {
-        "TDATA": "256",
-        "TKEEP": "32",
+        "TDATA": "32",
+        "TKEEP": "4",
         "TLAST": "1",
-        "TSTRB": "32"
+        "TSTRB": "4"
       }
     },
     "interrupt": {
@@ -225,7 +225,7 @@
       "ctype": {
         "TDATA": {
           "Type": "integer unsigned",
-          "Width": "256"
+          "Width": "32"
         },
         "TVALID": {"Type": "bool"},
         "TREADY": {"Type": "bool"},
@@ -235,18 +235,18 @@
         },
         "TKEEP": {
           "Type": "integer unsigned",
-          "Width": "32"
+          "Width": "4"
         },
         "TSTRB": {
           "Type": "integer unsigned",
-          "Width": "32"
+          "Width": "4"
         }
       },
       "port_width": {
-        "TDATA": "256",
-        "TKEEP": "32",
+        "TDATA": "32",
+        "TKEEP": "4",
         "TLAST": "1",
-        "TSTRB": "32"
+        "TSTRB": "4"
       }
     },
     "s_axi_control": {
@@ -548,7 +548,7 @@
     },
     "in_r_TDATA": {
       "dir": "in",
-      "width": "256"
+      "width": "32"
     },
     "in_r_TVALID": {
       "dir": "in",
@@ -565,15 +565,15 @@
     },
     "in_r_TKEEP": {
       "dir": "in",
-      "width": "32"
+      "width": "4"
     },
     "in_r_TSTRB": {
       "dir": "in",
-      "width": "32"
+      "width": "4"
     },
     "out_r_TDATA": {
       "dir": "out",
-      "width": "256"
+      "width": "32"
     },
     "out_r_TVALID": {
       "dir": "out",
@@ -590,11 +590,11 @@
     },
     "out_r_TKEEP": {
       "dir": "out",
-      "width": "32"
+      "width": "4"
     },
     "out_r_TSTRB": {
       "dir": "out",
-      "width": "32"
+      "width": "4"
     }
   },
   "ModuleInfo": {
@@ -602,7 +602,7 @@
       "ModuleName": "mlp",
       "Instances": [{
           "ModuleName": "mlp_kernel",
-          "InstanceName": "grp_mlp_kernel_fu_428"
+          "InstanceName": "grp_mlp_kernel_fu_436"
         }]
     },
     "Info": {
@@ -669,50 +669,50 @@
         "Area": {
           "BRAM_18K": "4",
           "DSP48E": "2",
-          "FF": "272",
+          "FF": "273",
           "LUT": "466",
           "URAM": "0"
         }
       },
       "mlp": {
         "Latency": {
-          "LatencyBest": "14829",
-          "LatencyAvg": "14829",
-          "LatencyWorst": "14829",
-          "PipelineII": "14830",
+          "LatencyBest": "14758",
+          "LatencyAvg": "14758",
+          "LatencyWorst": "14758",
+          "PipelineII": "14759",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "7.865"
+          "Estimate": "7.653"
         },
         "Loops": [
           {
             "Name": "load_sample",
-            "TripCount": "2",
-            "Latency": "196",
+            "TripCount": "16",
+            "Latency": "224",
             "PipelineII": "",
-            "PipelineDepth": "98",
+            "PipelineDepth": "14",
             "Loops": [{
                 "Name": "load_sample.1",
-                "TripCount": "32",
-                "Latency": "96",
+                "TripCount": "4",
+                "Latency": "12",
                 "PipelineII": "",
                 "PipelineDepth": "3"
               }]
           },
           {
             "Name": "write_prediction",
-            "TripCount": "2",
-            "Latency": "134",
+            "TripCount": "5",
+            "Latency": "35",
             "PipelineII": "",
-            "PipelineDepth": "67",
+            "PipelineDepth": "7",
             "Loops": [{
                 "Name": "write_prediction.1",
-                "TripCount": "32",
-                "Latency": "64",
+                "TripCount": "2",
+                "Latency": "4",
                 "PipelineII": "",
                 "PipelineDepth": "2"
               }]
@@ -721,8 +721,8 @@
         "Area": {
           "BRAM_18K": "4",
           "DSP48E": "2",
-          "FF": "1405",
-          "LUT": "8141",
+          "FF": "678",
+          "LUT": "2095",
           "URAM": "0"
         }
       }
@@ -738,7 +738,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2024-01-29 18:45:08 CET",
+    "Time": "2024-01-29 20:35:41 CET",
     "ToolName": "vivado_hls",
     "ToolVersion": "2020.1"
   }
