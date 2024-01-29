@@ -48,11 +48,11 @@
 
 
 // IP VLNV: xilinx.com:hls:matmul:1.0
-// IP Revision: 2001282302
+// IP Revision: 2001291901
 
 (* X_CORE_INFO = "matmul,Vivado 2020.1" *)
 (* CHECK_LICENSE_TYPE = "bd_0_hls_inst_0,matmul,{}" *)
-(* CORE_GENERATION_INFO = "bd_0_hls_inst_0,matmul,{x_ipProduct=Vivado 2020.1,x_ipVendor=xilinx.com,x_ipLibrary=hls,x_ipName=matmul,x_ipVersion=1.0,x_ipCoreRevision=2001282302,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S_AXI_CONTROL_ADDR_WIDTH=4,C_S_AXI_CONTROL_DATA_WIDTH=32}" *)
+(* CORE_GENERATION_INFO = "bd_0_hls_inst_0,matmul,{x_ipProduct=Vivado 2020.1,x_ipVendor=xilinx.com,x_ipLibrary=hls,x_ipName=matmul,x_ipVersion=1.0,x_ipCoreRevision=2001291901,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S_AXI_CONTROL_ADDR_WIDTH=4,C_S_AXI_CONTROL_DATA_WIDTH=32}" *)
 (* IP_DEFINITION_SOURCE = "HLS" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module bd_0_hls_inst_0 (

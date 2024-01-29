@@ -1672,8 +1672,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>Matmul</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>2001282302</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2020-01-28T22:02:37Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>2001291901</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2020-01-29T18:01:27Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2020.1</xilinx:xilinxVersion>

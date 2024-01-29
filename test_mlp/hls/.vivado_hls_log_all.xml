@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <packageLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <packageLog>
+        <logs message="WARNING: [Timing 38-242] The property HD.CLK_SRC of clock port &quot;ap_clk&quot; is not set. In out-of-context mode, this prevents timing estimation for clock delay/skew&#xA;Resolution: Set the HD.CLK_SRC property of the out-of-context port to the location of the clock buffer instance in the top-level design" projectName="hls" solutionName="solution1" date="2020-01-29T19:27:53.694+0100" type="Warning"/>
+        <logs message="WARNING: [Power 33-332] Found switching activity that implies high-fanout reset nets being asserted for excessive periods of time which may result in inaccurate power analysis.&#xA;Resolution: To review and fix problems, please run Power Constraints Advisor in the GUI from Tools > Power Constraints Advisor or run report_power with the -advisory option to generate a text report.&#xA;106 Infos, 103 Warnings, 0 Critical Warnings and 0 Errors encountered.&#xA;report_power completed successfully" projectName="hls" solutionName="solution1" date="2020-01-29T19:27:46.259+0100" type="Warning"/>
+        <logs message="WARNING: [Timing 38-242] The property HD.CLK_SRC of clock port &quot;ap_clk&quot; is not set. In out-of-context mode, this prevents timing estimation for clock delay/skew&#xA;Resolution: Set the HD.CLK_SRC property of the out-of-context port to the location of the clock buffer instance in the top-level design" projectName="hls" solutionName="solution1" date="2020-01-29T19:27:44.345+0100" type="Warning"/>
+        <logs message="WARNING: [Route 35-198] Port &quot;in_r_tdata[209]&quot; does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal &quot;in_r_tdata[209]&quot;. Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported." projectName="hls" solutionName="solution1" date="2020-01-29T19:27:25.080+0100" type="Warning"/>
+        <logs message="WARNING: [Route 35-198] Port &quot;in_r_tdata[250]&quot; does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal &quot;in_r_tdata[250]&quot;. Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported." projectName="hls" solutionName="solution1" date="2020-01-29T19:27:25.078+0100" type="Warning"/>
+        <logs message="WARNING: [Route 35-198] Port &quot;in_r_tdata[249]&quot; does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal &quot;in_r_tdata[249]&quot;. Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported." projectName="hls" solutionName="solution1" date="2020-01-29T19:27:25.075+0100" type="Warning"/>
+        <logs message="WARNING: [Route 35-198] Port &quot;in_r_tdata[190]&quot; does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal &quot;in_r_tdata[190]&quot;. Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported." projectName="hls" solutionName="solution1" date="2020-01-29T19:27:25.064+0100" type="Warning"/>
+        <logs message="WARNING: [Route 35-198] Port &quot;in_r_tdata[189]&quot; does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal &quot;in_r_tdata[189]&quot;. Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported." projectName="hls" solutionName="solution1" date="2020-01-29T19:27:25.060+0100" type="Warning"/>
+        <logs message="WARNING: [Route 35-198] Port &quot;in_r_tdata[68]&quot; does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal &quot;in_r_tdata[68]&quot;. Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported." projectName="hls" solutionName="solution1" date="2020-01-29T19:27:25.050+0100" type="Warning"/>
+        <logs message="WARNING: [Route 35-198] Port &quot;in_r_tdata[67]&quot; does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal &quot;in_r_tdata[67]&quot;. Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported." projectName="hls" solutionName="solution1" date="2020-01-29T19:27:25.043+0100" type="Warning"/>
+      </packageLog>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>
