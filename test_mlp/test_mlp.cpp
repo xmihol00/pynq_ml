@@ -14,7 +14,7 @@
 #define INT8_BITS 8
 #define INT16_BITS 16
 
-typedef ap_axiu<AXI_WIDTH, 0, 0, 0> axis_t;
+typedef ap_axiu<AXI_WIDTH, 0, 0, 0> axis_in_t;
 
 void mlp_kernel(int8_t sample[INPUT_SIZE], int16_t prediction[OUTPUT_SIZE])
 {

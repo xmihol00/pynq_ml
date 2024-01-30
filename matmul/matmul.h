@@ -10,7 +10,7 @@
 #define ROWS_COLS (ROWS * COLS)
 #define DWIDTH 512
 
-typedef ap_axiu<DWIDTH, 0, 0, 0> axis_t;
+typedef ap_axiu<DWIDTH, 0, 0, 0> axis_in_t;
 
 typedef union converter {
   float fp;

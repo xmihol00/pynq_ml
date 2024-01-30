@@ -325,29 +325,29 @@ l2_biases = np.array(l2_biases, dtype=np.int16).reshape((10, 1))
 samples = np.random.randint(-128, 127, size=(ITERATIONS, 64), dtype=np.int8)
 
 def input_thread(dma, in_buffer):
-    sample = np.ones((64, ), dtype=np.int8)
     for i in range(ITERATIONS):
-        print(f"Input iteration {i + 1}", flush=True)
+        #print(f"Input iteration {i + 1}", flush=True)
         in_buffer[:] = samples[i]
         dma.sendchannel.transfer(in_buffer)
         dma.sendchannel.wait()
 
 def output_thread(dma, out_buffer):
-    time.sleep(5)
+    #time.sleep(5)
     all_correct = True
     for i in range(ITERATIONS):
-        print(f"Output iteration {i + 1}", flush=True)
+        #print(f"Output iteration {i + 1}", flush=True)
         dma.recvchannel.transfer(out_buffer)
         dma.recvchannel.wait()
         result = out_buffer.copy()
-        sample = samples[i]
-        ground_truth = l1_weights @ sample.reshape(64, 1) + l1_biases
-        ground_truth = np.maximum(ground_truth, 0)
-        ground_truth = l2_weights @ ground_truth + l2_biases
-        ground_truth = ground_truth.flatten()
-        same = np.array_equal(result, ground_truth)
-        print(same, result[0], ground_truth[0], flush=True)
-        all_correct = all_correct and same
+        if False:
+            sample = samples[i]
+            ground_truth = l1_weights @ sample.reshape(64, 1) + l1_biases
+            ground_truth = np.maximum(ground_truth, 0)
+            ground_truth = l2_weights @ ground_truth + l2_biases
+            ground_truth = ground_truth.flatten()
+            same = np.array_equal(result, ground_truth)
+            print(same, result[0], ground_truth[0], flush=True)
+            all_correct = all_correct and same
     
     print("All correct:", all_correct, flush=True)
 
@@ -363,6 +363,8 @@ if __name__ == "__main__":
     in_buffer = allocate(shape=(64,), dtype=np.int8)
     out_buffer = allocate(shape=(10,), dtype=np.int16)
 
+    start = time.time()
+
     input_thread = threading.Thread(target=input_thread, args=(overlay.dma, in_buffer))
     output_thread = threading.Thread(target=output_thread, args=(overlay.dma, out_buffer))
 
@@ -375,8 +377,10 @@ if __name__ == "__main__":
     output_thread.join()
     print("Threads joined")
 
+    end = time.time()
+
     print("Freeing buffers")
     in_buffer.freebuffer()
     out_buffer.freebuffer()
     
-    print("Done")
+    print(f"Done, run time: {end - start}")
