@@ -1,5 +1,5 @@
 
-#include "mlp.h"
+#include "test_mlp.h"
 #include <iostream>
 
 int8_t sample[INPUT_SIZE] = {
