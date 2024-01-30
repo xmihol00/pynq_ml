@@ -357,6 +357,7 @@ ground_truth = l1_weights @ sample.reshape(64, 1) + l1_biases
 ground_truth = np.maximum(ground_truth, 0)
 print(ground_truth.shape, l2_weights.shape, l2_biases.shape)
 ground_truth = l2_weights @ ground_truth + l2_biases
+ground_truth = ground_truth.flatten()
 end = time.time()
 ground_truth_time = end - start
 print("Ground truth execution time: {0}".format(end - start))
