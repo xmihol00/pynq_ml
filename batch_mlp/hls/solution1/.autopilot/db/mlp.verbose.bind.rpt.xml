@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'mlp'" level="0">
-<item name = "Date">Tue Jan 30 15:53:49 2024
+<item name = "Date">Tue Jan 30 23:11:33 2024
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">hls</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 10.779 ns, 1.25 ns</column>
+<column name="ap_clk">10.00 ns, 10.283 ns, 1.25 ns</column>
 </table>
 </item>
 </section>
@@ -24,14 +24,14 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">22095, 22095, 0.238 ms, 0.238 ms, 22095, 22095, none</column>
+<column name="">8758, 8758, 90.059 us, 90.059 us, 8758, 8758, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_mlp_kernel_fu_521">mlp_kernel, 20204, 20204, 0.218 ms, 0.218 ms, 20204, 20204, none</column>
+<column name="grp_mlp_kernel_fu_569">mlp_kernel, 6867, 6867, 70.613 us, 70.613 us, 6867, 6867, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

@@ -2,14 +2,59 @@
 <vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
   <errorLogs>
     <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
       <packageLog/>
+      <csimLog/>
     </logs>
   </errorLogs>
   <warningLogs>
     <logs>
-      <packageLog>
-        <logs message="WARNING: [Route 35-198] Port &quot;in_r_tdata[410]&quot; does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal &quot;in_r_tdata[410]&quot;. Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported." projectName="hls" solutionName="solution1" date="2024-01-30T16:01:45.385+0100" type="Warning"/>
-      </packageLog>
+      <synLog>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l2_weiGfk' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.656+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l2_weiFfa' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.625+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l2_weiEe0' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.596+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l2_weiDeQ' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.569+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l2_weiCeG' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.540+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l2_weiBew' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.528+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l2_weiAem' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.499+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l2_weizec' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.482+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l2_weiyd2' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.466+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l2_weixdS' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.451+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l2_weiwdI' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.434+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l2_weivdy' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.419+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l2_weiudo' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.400+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l2_weitde' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.383+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l2_weisc4' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.365+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l2_weircU' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.349+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l1_weiqcK' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.326+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l1_weipcA' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.303+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l1_weiocq' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.280+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l1_weincg' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.257+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l1_weimb6' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.233+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l1_weilbW' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.210+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l1_weikbM' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.188+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l1_weijbC' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.166+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l1_weiibs' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.143+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l1_weihbi' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.121+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l1_weig8j' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.100+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l1_weifYi' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.077+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l1_weieOg' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.055+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l1_weidEe' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.033+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l1_weicud' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:47.009+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_kernel_l1_weibkb' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:46.986+0100" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-21] The critical path in module 'mlp_kernel' consists of the following:&#xA;&#x9;'mul' operation of DSP[2449] ('mul_ln359_224', batch_mlp.cpp:359) [1955]  (3.36 ns)&#xA;&#x9;'add' operation of DSP[2449] ('add_ln359_76', batch_mlp.cpp:359) [2449]  (3.02 ns)&#xA;&#x9;'add' operation ('add_ln359_77', batch_mlp.cpp:359) [2452]  (0 ns)&#xA;&#x9;'add' operation ('add_ln359_83', batch_mlp.cpp:359) [2460]  (3.9 ns)" projectName="hls" solutionName="solution1" date="2024-01-30T23:11:23.729+0100" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-21] Estimated clock period (10.283ns) exceeds the target (target clock period: 10ns, clock uncertainty: 1.25ns, effective delay budget: 8.75ns)." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:23.722+0100" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-503] Ignored partial unroll directive for loop 'Loop-1.3' (batch_mlp.cpp:363) because its parent loop or function is pipelined." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:14.592+0100" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-503] Ignored partial unroll directive for loop 'Loop-1.2.1' (batch_mlp.cpp:355) because its parent loop or function is pipelined." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:14.587+0100" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-503] Ignored partial unroll directive for loop 'Loop-1.2' (batch_mlp.cpp:351) because its parent loop or function is pipelined." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:14.581+0100" type="Warning"/>
+        <logs message="WARNING: [SYNCHK 200-23] batch_mlp.cpp:425: variable-indexed range selection may cause suboptimal QoR." projectName="hls" solutionName="solution1" date="2024-01-30T23:11:14.475+0100" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
     </logs>
   </warningLogs>
 </vivadoHLSLog:LogRoot>

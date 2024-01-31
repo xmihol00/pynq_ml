@@ -6925,9 +6925,9 @@ typedef ap_axiu<(8 * 16), 0, 0, 0> axis_out_t;
 
 void mlp_kernel(int8_t sample[8][64], int16_t prediction[8][10])
 {_ssdm_SpecArrayDimSize(sample, 8);_ssdm_SpecArrayDimSize(prediction, 8);
-_ssdm_op_SpecPipeline(0, 0, 0, 1, "");
 
- const int8_t l1_weights[64 * 64] = {
+
+    const int8_t l1_weights[64 * 64] = {
           67, 9, 91, -33, 59, 67, -121, 47, 93, 4, -110, -48, 112, -37, -14, -10,
          -78, -92, -62, -119, 5, 34, -42, -26, -84, -27, -100, 44, 18, -90, -21, -114,
          -83, -108, -100, -39, 80, 9, 92, 100, -11, -34, 126, 33, -97, -58, -30, -52,
@@ -7233,52 +7233,40 @@ _ssdm_SpecConstant(l1_weights);
 _ssdm_SpecConstant(l2_weights);
 # 284 "batch_mlp.cpp"
 
-    const int8_t l1_biases[64] = {
-          25, -127, -4, -70, -112, -28, -33, -122, 125, 1, 55, -59, -75, 107, 35, 71,
-        -119, 36, 75, -4, 78, 44, 47, -50, -44, -101, 33, 53, -118, 83, -111, -35,
-         -97, 110, -55, -57, 24, 37, 31, 25, 72, -66, -86, 66, -31, 95, -67, -112,
-        -122, -29, -54, -70, -42, -102, 74, 115, 55, 100, -37, 15, -10, 2, -87, -10
-    };
-_ssdm_SpecConstant(l1_biases);
-# 326 "batch_mlp.cpp"
-
-    const int8_t l2_biases[10] = {
-         -14, 123, 88, 60, -84, -111, 14, 127, 64, -67
-    };
-_ssdm_SpecConstant(l2_biases);
-# 332 "batch_mlp.cpp"
-
-
+# 336 "batch_mlp.cpp"
     int16_t l1_out[8][64];
 
 _ssdm_op_SpecResource(l1_weights, "", "RAM_2P_BRAM", "", -1, "", "", "", "", "");
-_ssdm_SpecArrayPartition( l1_weights, 1, "CYCLIC", 2, "");
+_ssdm_SpecArrayPartition( l1_weights, 1, "CYCLIC", 16, "");
 _ssdm_op_SpecResource(l2_weights, "", "RAM_2P_BRAM", "", -1, "", "", "", "", "");
-_ssdm_SpecArrayPartition( l2_weights, 1, "CYCLIC", 2, "");
-_ssdm_SpecArrayPartition( l1_biases, 1, "CYCLIC", 2, "");
+_ssdm_SpecArrayPartition( l2_weights, 1, "CYCLIC", 16, "");
+
 _ssdm_SpecArrayPartition( l1_out, 1, "CYCLIC", 8, "");
-_ssdm_SpecArrayPartition( l2_biases, 1, "CYCLIC", 2, "");
+
 
 input_layer:
     for (int i = 0; i < 64; i++)
     {
-        int16_t sums[8] = {0, };
+_ssdm_op_SpecPipeline(2, 1, 1, 0, "");
+ int16_t sums[8] = {0, };
         for (int j = 0; j < 64; j++)
         {
-_ssdm_Unroll(1, 0, 2, "");
+_ssdm_Unroll(1, 4, 4, "");
  int8_t weight = l1_weights[i * 64 + j];
             for (int k = 0; k < 8; k++)
             {
-_ssdm_Unroll(1, 0, 8, "");
+
+_ssdm_Unroll(1, 4, 8, "");
  sums[k] += weight * sample[k][j];
             }
         }
 
         for (int k = 0; k < 8; k++)
         {
-_ssdm_Unroll(1, 0, 8, "");
- sums[k] += l1_biases[i];
-            sums[k] = sums[k] < 0 ? 0 : sums[k];
+
+_ssdm_Unroll(1, 4, 8, "");
+
+ sums[k] = sums[k] < 0 ? 0 : sums[k];
             l1_out[k][i] = sums[k];
         }
     }
@@ -7286,23 +7274,26 @@ _ssdm_Unroll(1, 0, 8, "");
 output_layer:
     for (int i = 0; i < 10; i++)
     {
+
         int16_t sums[8] = {0, };
         for (int j = 0; j < 64; j++)
         {
-_ssdm_Unroll(1, 0, 2, "");
+_ssdm_Unroll(1, 4, 4, "");
  int8_t weight = l2_weights[i * 64 + j];
             for (int k = 0; k < 8; k++)
             {
-_ssdm_Unroll(1, 0, 8, "");
+
+_ssdm_Unroll(1, 4, 4, "");
  sums[k] += weight * l1_out[k][j];
             }
         }
 
         for (int k = 0; k < 8; k++)
         {
-_ssdm_Unroll(1, 0, 8, "");
- sums[k] += l2_biases[i];
-            prediction[k][i] = sums[k];
+
+_ssdm_Unroll(1, 4, 8, "");
+
+ prediction[k][i] = sums[k];
         }
     }
 }

@@ -21,7 +21,7 @@ typedef ap_axiu<AXI_OUT_WIDTH, 0, 0, 0> axis_out_t;
 
 void mlp_kernel(int8_t sample[BATCH_SIZE][INPUT_SIZE], int16_t prediction[BATCH_SIZE][OUTPUT_SIZE])
 {
-#pragma HLS PIPELINE off
+//#pragma HLS PIPELINE off
 #if 1 // weights and biases
     const int8_t l1_weights[INPUT_SIZE * L1_SIZE] = {
           67,    9,   91,  -33,   59,   67, -121,   47,   93,    4, -110,  -48,  112,  -37,  -14,  -10,
@@ -323,7 +323,7 @@ void mlp_kernel(int8_t sample[BATCH_SIZE][INPUT_SIZE], int16_t prediction[BATCH_
          107,  104,  125,  -80,   18,  -77,   28,   18,  -91,  -35, -102,   56, -114,  -28,  -18,   28,
          -20,   21,  -11,   41, -120,   55, -107,   64,   94,   97, -117,   33,   42,  -50,   53,   74
     };
-    const int8_t l1_biases[L1_SIZE] = {
+    /*const int8_t l1_biases[L1_SIZE] = {
           25, -127,   -4,  -70, -112,  -28,  -33, -122,  125,    1,   55,  -59,  -75,  107,   35,   71,
         -119,   36,   75,   -4,   78,   44,   47,  -50,  -44, -101,   33,   53, -118,   83, -111,  -35,
          -97,  110,  -55,  -57,   24,   37,   31,   25,   72,  -66,  -86,   66,  -31,   95,  -67, -112,
@@ -331,37 +331,40 @@ void mlp_kernel(int8_t sample[BATCH_SIZE][INPUT_SIZE], int16_t prediction[BATCH_
     };
     const int8_t l2_biases[OUTPUT_SIZE] = {
          -14,  123,   88,   60,  -84, -111,   14,  127,   64,  -67
-    };
+    };*/
 #endif
     int16_t l1_out[BATCH_SIZE][L1_SIZE];
 
 #pragma HLS RESOURCE variable=l1_weights core=RAM_2P_BRAM
-#pragma HLS ARRAY_PARTITION variable = l1_weights factor = 2 dim = 1 cyclic
+#pragma HLS ARRAY_PARTITION variable = l1_weights factor = 16 dim = 1 cyclic
 #pragma HLS RESOURCE variable=l2_weights core=RAM_2P_BRAM
-#pragma HLS ARRAY_PARTITION variable = l2_weights factor = 2 dim = 1 cyclic
-#pragma HLS ARRAY_PARTITION variable = l1_biases factor = 2 dim = 1 cyclic
+#pragma HLS ARRAY_PARTITION variable = l2_weights factor = 16 dim = 1 cyclic
+//#pragma HLS ARRAY_PARTITION variable = l1_biases factor = 2 dim = 1 cyclic
 #pragma HLS ARRAY_PARTITION variable = l1_out factor = 8 dim = 1 cyclic
-#pragma HLS ARRAY_PARTITION variable = l2_biases factor = 2 dim = 1 cyclic
+//#pragma HLS ARRAY_PARTITION variable = l2_biases factor = 2 dim = 1 cyclic
 
 input_layer:
     for (int i = 0; i < INPUT_SIZE; i++)
     {
+	#pragma HLS PIPELINE II=2
         int16_t sums[BATCH_SIZE] = {0, };
         for (int j = 0; j < L1_SIZE; j++)
         {
-        #pragma HLS UNROLL factor=2
+        #pragma HLS UNROLL skip_exit_check factor=4
             int8_t weight = l1_weights[i * INPUT_SIZE + j];
             for (int k = 0; k < BATCH_SIZE; k++)
             {
-            #pragma HLS UNROLL factor=8
+			//#pragma HLS PIPELINE
+            #pragma HLS UNROLL skip_exit_check factor=8
                 sums[k] += weight * sample[k][j];
             }
         }
 
         for (int k = 0; k < BATCH_SIZE; k++)
         {
-        #pragma HLS UNROLL factor=8
-            sums[k] += l1_biases[i];
+		//#pragma HLS PIPELINE
+        #pragma HLS UNROLL skip_exit_check factor=8
+            //sums[k] += l1_biases[i];
             sums[k] = sums[k] < 0 ? 0 : sums[k];
             l1_out[k][i] = sums[k];
         }
@@ -370,22 +373,25 @@ input_layer:
 output_layer:
     for (int i = 0; i < OUTPUT_SIZE; i++)
     {
+	//#pragma HLS PIPELINE
         int16_t sums[BATCH_SIZE] = {0, };
         for (int j = 0; j < L1_SIZE; j++)
         {
-        #pragma HLS UNROLL factor=2
+        #pragma HLS UNROLL skip_exit_check factor=4
             int8_t weight = l2_weights[i * L1_SIZE + j];
             for (int k = 0; k < BATCH_SIZE; k++)
             {
-            #pragma HLS UNROLL factor=8
+			//#pragma HLS PIPELINE
+            #pragma HLS UNROLL skip_exit_check factor=4
                 sums[k] += weight * l1_out[k][j];
             }
         }
 
         for (int k = 0; k < BATCH_SIZE; k++)
         {
-        #pragma HLS UNROLL factor=8
-            sums[k] += l2_biases[i];
+		//#pragma HLS PIPELINE
+        #pragma HLS UNROLL skip_exit_check factor=8
+            //sums[k] += l2_biases[i];
             prediction[k][i] = sums[k];
         }
     }

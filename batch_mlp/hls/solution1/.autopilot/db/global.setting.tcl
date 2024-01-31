@@ -43,7 +43,7 @@ set TargetInfo xc7z020:-clg400:-1
 set SourceFiles {sc {} c ../../batch_mlp.cpp}
 set SourceFlags {sc {} c {{}}}
 set DirectiveFile /mnt/sdc3/david/projs/pynq_ml/batch_mlp/hls/solution1/solution1.directive
-set TBFiles {verilog {../../batch_mlp_tb.cpp ../../batch_mlp.h} bc {../../batch_mlp_tb.cpp ../../batch_mlp.h} sc {../../batch_mlp_tb.cpp ../../batch_mlp.h} vhdl {../../batch_mlp_tb.cpp ../../batch_mlp.h} c {} cas {../../batch_mlp_tb.cpp ../../batch_mlp.h}}
+set TBFiles {verilog {../../batch_mlp.h ../../batch_mlp_tb.cpp} bc {../../batch_mlp.h ../../batch_mlp_tb.cpp} sc {../../batch_mlp.h ../../batch_mlp_tb.cpp} vhdl {../../batch_mlp.h ../../batch_mlp_tb.cpp} c {} cas {../../batch_mlp.h ../../batch_mlp_tb.cpp}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

@@ -13,7 +13,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_mlp_kernel_fu_521/grp_mlp_kernel_fu_521_activity": {
+				"grp_mlp_kernel_fu_569/grp_mlp_kernel_fu_569_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},

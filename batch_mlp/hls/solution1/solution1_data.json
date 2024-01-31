@@ -78,7 +78,7 @@
     "ClockPeriod": "10",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "22095",
+    "Latency": "8758",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -98,20 +98,44 @@
     "Vhdl": [
       "impl\/vhdl\/mlp_control_s_axi.vhd",
       "impl\/vhdl\/mlp_kernel.vhd",
-      "impl\/vhdl\/mlp_kernel_l1_biadEe.vhd",
-      "impl\/vhdl\/mlp_kernel_l1_biaeOg.vhd",
       "impl\/vhdl\/mlp_kernel_l1_out_0.vhd",
       "impl\/vhdl\/mlp_kernel_l1_weibkb.vhd",
       "impl\/vhdl\/mlp_kernel_l1_weicud.vhd",
-      "impl\/vhdl\/mlp_kernel_l2_biahbi.vhd",
-      "impl\/vhdl\/mlp_kernel_l2_biaibs.vhd",
-      "impl\/vhdl\/mlp_kernel_l2_weifYi.vhd",
-      "impl\/vhdl\/mlp_kernel_l2_weig8j.vhd",
+      "impl\/vhdl\/mlp_kernel_l1_weidEe.vhd",
+      "impl\/vhdl\/mlp_kernel_l1_weieOg.vhd",
+      "impl\/vhdl\/mlp_kernel_l1_weifYi.vhd",
+      "impl\/vhdl\/mlp_kernel_l1_weig8j.vhd",
+      "impl\/vhdl\/mlp_kernel_l1_weihbi.vhd",
+      "impl\/vhdl\/mlp_kernel_l1_weiibs.vhd",
+      "impl\/vhdl\/mlp_kernel_l1_weijbC.vhd",
+      "impl\/vhdl\/mlp_kernel_l1_weikbM.vhd",
+      "impl\/vhdl\/mlp_kernel_l1_weilbW.vhd",
+      "impl\/vhdl\/mlp_kernel_l1_weimb6.vhd",
+      "impl\/vhdl\/mlp_kernel_l1_weincg.vhd",
+      "impl\/vhdl\/mlp_kernel_l1_weiocq.vhd",
+      "impl\/vhdl\/mlp_kernel_l1_weipcA.vhd",
+      "impl\/vhdl\/mlp_kernel_l1_weiqcK.vhd",
+      "impl\/vhdl\/mlp_kernel_l2_weiAem.vhd",
+      "impl\/vhdl\/mlp_kernel_l2_weiBew.vhd",
+      "impl\/vhdl\/mlp_kernel_l2_weiCeG.vhd",
+      "impl\/vhdl\/mlp_kernel_l2_weiDeQ.vhd",
+      "impl\/vhdl\/mlp_kernel_l2_weiEe0.vhd",
+      "impl\/vhdl\/mlp_kernel_l2_weiFfa.vhd",
+      "impl\/vhdl\/mlp_kernel_l2_weiGfk.vhd",
+      "impl\/vhdl\/mlp_kernel_l2_weircU.vhd",
+      "impl\/vhdl\/mlp_kernel_l2_weisc4.vhd",
+      "impl\/vhdl\/mlp_kernel_l2_weitde.vhd",
+      "impl\/vhdl\/mlp_kernel_l2_weiudo.vhd",
+      "impl\/vhdl\/mlp_kernel_l2_weivdy.vhd",
+      "impl\/vhdl\/mlp_kernel_l2_weiwdI.vhd",
+      "impl\/vhdl\/mlp_kernel_l2_weixdS.vhd",
+      "impl\/vhdl\/mlp_kernel_l2_weiyd2.vhd",
+      "impl\/vhdl\/mlp_kernel_l2_weizec.vhd",
       "impl\/vhdl\/mlp_kernel_sums.vhd",
-      "impl\/vhdl\/mlp_mac_muladd_8sjbC.vhd",
-      "impl\/vhdl\/mlp_mac_muladd_8slbW.vhd",
-      "impl\/vhdl\/mlp_mul_mul_8s_15kbM.vhd",
+      "impl\/vhdl\/mlp_mac_muladd_8sHfu.vhd",
+      "impl\/vhdl\/mlp_mac_muladd_8sIfE.vhd",
       "impl\/vhdl\/mlp_mux_83_16_1_1.vhd",
+      "impl\/vhdl\/mlp_mux_1632_8_1_1.vhd",
       "impl\/vhdl\/mlp_prediction_0.vhd",
       "impl\/vhdl\/mlp_sample_0.vhd",
       "impl\/vhdl\/regslice_core.vhd",
@@ -120,28 +144,76 @@
     "Verilog": [
       "impl\/verilog\/mlp_control_s_axi.v",
       "impl\/verilog\/mlp_kernel.v",
-      "impl\/verilog\/mlp_kernel_l1_biadEe.v",
-      "impl\/verilog\/mlp_kernel_l1_biadEe_rom.dat",
-      "impl\/verilog\/mlp_kernel_l1_biaeOg.v",
-      "impl\/verilog\/mlp_kernel_l1_biaeOg_rom.dat",
       "impl\/verilog\/mlp_kernel_l1_out_0.v",
       "impl\/verilog\/mlp_kernel_l1_weibkb.v",
       "impl\/verilog\/mlp_kernel_l1_weibkb_rom.dat",
       "impl\/verilog\/mlp_kernel_l1_weicud.v",
       "impl\/verilog\/mlp_kernel_l1_weicud_rom.dat",
-      "impl\/verilog\/mlp_kernel_l2_biahbi.v",
-      "impl\/verilog\/mlp_kernel_l2_biahbi_rom.dat",
-      "impl\/verilog\/mlp_kernel_l2_biaibs.v",
-      "impl\/verilog\/mlp_kernel_l2_biaibs_rom.dat",
-      "impl\/verilog\/mlp_kernel_l2_weifYi.v",
-      "impl\/verilog\/mlp_kernel_l2_weifYi_rom.dat",
-      "impl\/verilog\/mlp_kernel_l2_weig8j.v",
-      "impl\/verilog\/mlp_kernel_l2_weig8j_rom.dat",
+      "impl\/verilog\/mlp_kernel_l1_weidEe.v",
+      "impl\/verilog\/mlp_kernel_l1_weidEe_rom.dat",
+      "impl\/verilog\/mlp_kernel_l1_weieOg.v",
+      "impl\/verilog\/mlp_kernel_l1_weieOg_rom.dat",
+      "impl\/verilog\/mlp_kernel_l1_weifYi.v",
+      "impl\/verilog\/mlp_kernel_l1_weifYi_rom.dat",
+      "impl\/verilog\/mlp_kernel_l1_weig8j.v",
+      "impl\/verilog\/mlp_kernel_l1_weig8j_rom.dat",
+      "impl\/verilog\/mlp_kernel_l1_weihbi.v",
+      "impl\/verilog\/mlp_kernel_l1_weihbi_rom.dat",
+      "impl\/verilog\/mlp_kernel_l1_weiibs.v",
+      "impl\/verilog\/mlp_kernel_l1_weiibs_rom.dat",
+      "impl\/verilog\/mlp_kernel_l1_weijbC.v",
+      "impl\/verilog\/mlp_kernel_l1_weijbC_rom.dat",
+      "impl\/verilog\/mlp_kernel_l1_weikbM.v",
+      "impl\/verilog\/mlp_kernel_l1_weikbM_rom.dat",
+      "impl\/verilog\/mlp_kernel_l1_weilbW.v",
+      "impl\/verilog\/mlp_kernel_l1_weilbW_rom.dat",
+      "impl\/verilog\/mlp_kernel_l1_weimb6.v",
+      "impl\/verilog\/mlp_kernel_l1_weimb6_rom.dat",
+      "impl\/verilog\/mlp_kernel_l1_weincg.v",
+      "impl\/verilog\/mlp_kernel_l1_weincg_rom.dat",
+      "impl\/verilog\/mlp_kernel_l1_weiocq.v",
+      "impl\/verilog\/mlp_kernel_l1_weiocq_rom.dat",
+      "impl\/verilog\/mlp_kernel_l1_weipcA.v",
+      "impl\/verilog\/mlp_kernel_l1_weipcA_rom.dat",
+      "impl\/verilog\/mlp_kernel_l1_weiqcK.v",
+      "impl\/verilog\/mlp_kernel_l1_weiqcK_rom.dat",
+      "impl\/verilog\/mlp_kernel_l2_weiAem.v",
+      "impl\/verilog\/mlp_kernel_l2_weiAem_rom.dat",
+      "impl\/verilog\/mlp_kernel_l2_weiBew.v",
+      "impl\/verilog\/mlp_kernel_l2_weiBew_rom.dat",
+      "impl\/verilog\/mlp_kernel_l2_weiCeG.v",
+      "impl\/verilog\/mlp_kernel_l2_weiCeG_rom.dat",
+      "impl\/verilog\/mlp_kernel_l2_weiDeQ.v",
+      "impl\/verilog\/mlp_kernel_l2_weiDeQ_rom.dat",
+      "impl\/verilog\/mlp_kernel_l2_weiEe0.v",
+      "impl\/verilog\/mlp_kernel_l2_weiEe0_rom.dat",
+      "impl\/verilog\/mlp_kernel_l2_weiFfa.v",
+      "impl\/verilog\/mlp_kernel_l2_weiFfa_rom.dat",
+      "impl\/verilog\/mlp_kernel_l2_weiGfk.v",
+      "impl\/verilog\/mlp_kernel_l2_weiGfk_rom.dat",
+      "impl\/verilog\/mlp_kernel_l2_weircU.v",
+      "impl\/verilog\/mlp_kernel_l2_weircU_rom.dat",
+      "impl\/verilog\/mlp_kernel_l2_weisc4.v",
+      "impl\/verilog\/mlp_kernel_l2_weisc4_rom.dat",
+      "impl\/verilog\/mlp_kernel_l2_weitde.v",
+      "impl\/verilog\/mlp_kernel_l2_weitde_rom.dat",
+      "impl\/verilog\/mlp_kernel_l2_weiudo.v",
+      "impl\/verilog\/mlp_kernel_l2_weiudo_rom.dat",
+      "impl\/verilog\/mlp_kernel_l2_weivdy.v",
+      "impl\/verilog\/mlp_kernel_l2_weivdy_rom.dat",
+      "impl\/verilog\/mlp_kernel_l2_weiwdI.v",
+      "impl\/verilog\/mlp_kernel_l2_weiwdI_rom.dat",
+      "impl\/verilog\/mlp_kernel_l2_weixdS.v",
+      "impl\/verilog\/mlp_kernel_l2_weixdS_rom.dat",
+      "impl\/verilog\/mlp_kernel_l2_weiyd2.v",
+      "impl\/verilog\/mlp_kernel_l2_weiyd2_rom.dat",
+      "impl\/verilog\/mlp_kernel_l2_weizec.v",
+      "impl\/verilog\/mlp_kernel_l2_weizec_rom.dat",
       "impl\/verilog\/mlp_kernel_sums.v",
-      "impl\/verilog\/mlp_mac_muladd_8sjbC.v",
-      "impl\/verilog\/mlp_mac_muladd_8slbW.v",
-      "impl\/verilog\/mlp_mul_mul_8s_15kbM.v",
+      "impl\/verilog\/mlp_mac_muladd_8sHfu.v",
+      "impl\/verilog\/mlp_mac_muladd_8sIfE.v",
       "impl\/verilog\/mlp_mux_83_16_1_1.v",
+      "impl\/verilog\/mlp_mux_1632_8_1_1.v",
       "impl\/verilog\/mlp_prediction_0.v",
       "impl\/verilog\/mlp_sample_0.v",
       "impl\/verilog\/regslice_core.v",
@@ -606,7 +678,7 @@
       "ModuleName": "mlp",
       "Instances": [{
           "ModuleName": "mlp_kernel",
-          "InstanceName": "grp_mlp_kernel_fu_521"
+          "InstanceName": "grp_mlp_kernel_fu_569"
         }]
     },
     "Info": {
@@ -628,48 +700,32 @@
     "Metrics": {
       "mlp_kernel": {
         "Latency": {
-          "LatencyBest": "20204",
-          "LatencyAvg": "20204",
-          "LatencyWorst": "20204",
-          "PipelineII": "20204",
+          "LatencyBest": "6867",
+          "LatencyAvg": "6867",
+          "LatencyWorst": "6867",
+          "PipelineII": "6867",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "10.779"
+          "Estimate": "10.283"
         },
         "Loops": [
           {
             "Name": "input_layer",
             "TripCount": "64",
-            "Latency": "17472",
-            "PipelineII": "",
-            "PipelineDepth": "273",
-            "Loops": [
-              {
-                "Name": "memset_sums",
-                "TripCount": "8",
-                "Latency": "7",
-                "PipelineII": "",
-                "PipelineDepth": "1"
-              },
-              {
-                "Name": "input_layer.2",
-                "TripCount": "32",
-                "Latency": "256",
-                "PipelineII": "",
-                "PipelineDepth": "8"
-              }
-            ]
+            "Latency": "132",
+            "PipelineII": "2",
+            "PipelineDepth": "7"
           },
           {
             "Name": "output_layer",
             "TripCount": "10",
-            "Latency": "2730",
+            "Latency": "6700",
             "PipelineII": "",
-            "PipelineDepth": "273",
+            "PipelineDepth": "670",
             "Loops": [
               {
                 "Name": "memset_sums3",
@@ -680,35 +736,65 @@
               },
               {
                 "Name": "output_layer.2",
-                "TripCount": "32",
-                "Latency": "256",
+                "TripCount": "16",
+                "Latency": "656",
                 "PipelineII": "",
-                "PipelineDepth": "8"
+                "PipelineDepth": "41",
+                "Loops": [
+                  {
+                    "Name": "output_layer.2.1",
+                    "TripCount": "2",
+                    "Latency": "8",
+                    "PipelineII": "",
+                    "PipelineDepth": "4"
+                  },
+                  {
+                    "Name": "output_layer.2.2",
+                    "TripCount": "2",
+                    "Latency": "8",
+                    "PipelineII": "",
+                    "PipelineDepth": "4"
+                  },
+                  {
+                    "Name": "output_layer.2.3",
+                    "TripCount": "2",
+                    "Latency": "8",
+                    "PipelineII": "",
+                    "PipelineDepth": "4"
+                  },
+                  {
+                    "Name": "output_layer.2.4",
+                    "TripCount": "2",
+                    "Latency": "8",
+                    "PipelineII": "",
+                    "PipelineDepth": "4"
+                  }
+                ]
               }
             ]
           }
         ],
         "Area": {
-          "BRAM_18K": "6",
-          "DSP48E": "24",
-          "FF": "1555",
-          "LUT": "2349",
+          "BRAM_18K": "33",
+          "DSP48E": "272",
+          "FF": "24508",
+          "LUT": "24370",
           "URAM": "0"
         }
       },
       "mlp": {
         "Latency": {
-          "LatencyBest": "22095",
-          "LatencyAvg": "22095",
-          "LatencyWorst": "22095",
-          "PipelineII": "22096",
+          "LatencyBest": "8758",
+          "LatencyAvg": "8758",
+          "LatencyWorst": "8758",
+          "PipelineII": "8759",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "10.779"
+          "Estimate": "10.283"
         },
         "Loops": [
           {
@@ -741,10 +827,10 @@
           }
         ],
         "Area": {
-          "BRAM_18K": "6",
-          "DSP48E": "24",
-          "FF": "3448",
-          "LUT": "11033",
+          "BRAM_18K": "33",
+          "DSP48E": "272",
+          "FF": "26401",
+          "LUT": "33126",
           "URAM": "0"
         }
       }
@@ -760,7 +846,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2024-01-30 15:53:52 CET",
+    "Time": "2024-01-30 23:11:48 CET",
     "ToolName": "vivado_hls",
     "ToolVersion": "2020.1"
   }

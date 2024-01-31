@@ -4,7 +4,7 @@
     <originFiles name="batch_mlp.cpp" path="/mnt/sdc3/david/projs/pynq_ml/batch_mlp/batch_mlp.cpp"/>
   </source>
   <testbench>
-    <originFiles name="batch_mlp.h" path="/mnt/sdc3/david/projs/pynq_ml/batch_mlp/batch_mlp.h"/>
     <originFiles name="batch_mlp_tb.cpp" path="/mnt/sdc3/david/projs/pynq_ml/batch_mlp/batch_mlp_tb.cpp"/>
+    <originFiles name="batch_mlp.h" path="/mnt/sdc3/david/projs/pynq_ml/batch_mlp/batch_mlp.h"/>
   </testbench>
 </autopilotfilemapping:AutoPilotFileMapping>
