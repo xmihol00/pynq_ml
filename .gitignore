@@ -102,3 +102,6 @@ hw_handoff
 ipshared
 
 !*/*.h
+
+models/
+weights/
