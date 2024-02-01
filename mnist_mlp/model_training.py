@@ -23,8 +23,8 @@ y_test = tf.keras.utils.to_categorical(y_test, 10)
 # model
 model = tf.keras.models.Sequential(
     [
-        tf.keras.layers.Dense(100, activation="relu", input_shape=(X_train.shape[1],)),
-        tf.keras.layers.Dense(50, activation="relu"),
+        tf.keras.layers.Dense(128, activation="relu", input_shape=(X_train.shape[1],)),
+        tf.keras.layers.Dense(64, activation="relu"),
         tf.keras.layers.Dense(10, activation="softmax"),
     ]
 )

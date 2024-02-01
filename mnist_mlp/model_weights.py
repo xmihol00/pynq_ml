@@ -25,13 +25,8 @@ if QUANTIZED:
         scales = dict['quantization_parameters']['scales']
         zero_points = dict['quantization_parameters']['zero_points']
         tensor = interpreter.tensor(i)()
-        #if tensor.shape in [(100, 784), (50, 100), (10, 50), (1, 100), (1, 50), (1, 10)]:
-            #print(tensor_name, format_array_py(tensor), sep=" = ", end="\n\n")
-        print(tensor_name, scales, zero_points)
-    input_details = interpreter.get_input_details()
-    output_details = interpreter.get_output_details()
-    print(input_details)
-    print(output_details)
+        if tensor.shape in [(128, 784), (64, 128), (10, 64), (1, 128), (1, 64), (1, 10)]:
+            print(tensor_name, format_array_C(tensor), sep=" = ", end="\n\n")
 else:
     model = tf.keras.models.load_model("models/mnist.h5")
     for i, layer in enumerate(model.layers):

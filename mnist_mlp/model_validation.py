@@ -3,6 +3,11 @@ import weights_biases as wb
 import idx2numpy as idx
 import tensorflow as tf
 
+def format_array_C(arr):
+    lines = ['{' + ', '.join(map(lambda x: f"{x: 5d}", line)) + '}' for line in arr]
+    new_line = ',\\\n        '
+    return f"{{\\\n        {new_line.join(lines)}\\\n    }}"
+
 def network_int(x):
     l1 = np.matmul(wb.l1_weights, x.T, dtype=np.int32)
     l1 = np.add(l1, wb.l1_biases.T, dtype=np.int32) >> 8
@@ -38,3 +43,6 @@ correct_float = np.sum(np.argmax(predictions_float, axis=1) == y_test)
 
 print(f"Correct int predictions: {correct_int} out of {len(y_test)}")
 print(f"Correct float predictions: {correct_float} out of {len(y_test)}")
+
+print("samples", format_array_C(X_test[:10, :]), sep=" = ", end="\n\n")
+print("ground_truth", format_array_C(predictions_int.T[:10, :]), sep=" = ", end="\n\n")
