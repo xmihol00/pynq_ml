@@ -23,8 +23,8 @@ y_test = tf.keras.utils.to_categorical(y_test, 10)
 # model
 model = tf.keras.models.Sequential(
     [
-        tf.keras.layers.Dense(X_train.shape[1], activation="relu", input_shape=(X_train.shape[1],)),
-        tf.keras.layers.Dense(100, activation="relu", input_shape=(100,)),
+        tf.keras.layers.Dense(100, activation="relu", input_shape=(X_train.shape[1],)),
+        tf.keras.layers.Dense(50, activation="relu"),
         tf.keras.layers.Dense(10, activation="softmax"),
     ]
 )
@@ -35,6 +35,10 @@ model.fit(X_train, y_train, epochs=10, batch_size=128, validation_split=0.15)
 
 # evaluate model
 model.evaluate(X_test, y_test)
+
+# save the model
+os.makedirs("models", exist_ok=True)
+model.save("models/mnist.h5")
 
 # convert the model
 converter = tf.lite.TFLiteConverter.from_keras_model(model)
