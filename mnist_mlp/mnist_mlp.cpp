@@ -9,18 +9,18 @@
 #endif
 
 #define AXI_INPUT_WIDTH 128
-#define AXI_OUTPUT_WIDTH 32
+#define AXI_OUTPUT_WIDTH 64
 #define INPUT_SIZE 784
 #define OUTPUT_SIZE 10
 #define L1_SIZE 128
 #define L2_SIZE 64
 #define INT8_BITS 8
-#define INT16_BITS 16
+#define INT32_BITS 32
 
 typedef ap_axiu<AXI_INPUT_WIDTH, 0, 0, 0> axis_in_t;
 typedef ap_axiu<AXI_OUTPUT_WIDTH, 0, 0, 0> axis_out_t;
 
-void mlp_kernel(int8_t sample[INPUT_SIZE], int16_t prediction[OUTPUT_SIZE])
+void mlp_kernel(uint8_t sample[INPUT_SIZE], int32_t prediction[OUTPUT_SIZE])
 {
 #pragma HLS PIPELINE off
 
@@ -60,7 +60,7 @@ input_mat_mul_outer:
 input_bias_relu:
     for (int i = 0; i < L1_SIZE; i++)
     {
-    #pragma HLS UNROLL
+	#pragma HLS UNROLL
         l1_out[i] += l1_biases[i];
         l1_out[i] = l1_out[i] >> 8;
         if (l1_out[i] < 0)
@@ -75,7 +75,7 @@ hidden_mat_mul_outer:
     hidden_mat_mul_inner:
         for (int j = 0; j < L2_SIZE; j++)
         {
-        #pragma HLS UNROLL
+		#pragma HLS UNROLL factor=32
             l2_out[j] += l2_weights[j][i] * l1_out[i];
         }
     }
@@ -83,7 +83,7 @@ hidden_mat_mul_outer:
 hidden_bias_relu:
     for (int i = 0; i < L2_SIZE; i++)
     {
-    #pragma HLS UNROLL
+	#pragma HLS UNROLL factor=32
         l2_out[i] += l2_biases[i];
         l2_out[i] = l2_out[i] >> 8;
         if (l2_out[i] < 0)
@@ -95,7 +95,7 @@ hidden_bias_relu:
 output_bias:
     for (int i = 0; i < OUTPUT_SIZE; i++)
     {
-    #pragma HLS UNROLL
+	#pragma HLS UNROLL
         prediction[i] = l3_biases[i];
     }
 
@@ -119,8 +119,8 @@ extern "C"
     #pragma HLS INTERFACE axis port = in
     #pragma HLS INTERFACE axis port = out
 
-        int8_t sample[INPUT_SIZE];
-        int16_t prediction[OUTPUT_SIZE];
+        uint8_t sample[INPUT_SIZE];
+        int32_t prediction[OUTPUT_SIZE];
     #pragma HLS ARRAY_PARTITION variable = sample factor = 1 dim = 1 cyclic
     #pragma HLS ARRAY_PARTITION variable = prediction factor = 8 dim = 1 cyclic
 
@@ -148,7 +148,7 @@ extern "C"
 
         mlp_kernel(sample, prediction);
 
-        j_limit = AXI_OUTPUT_WIDTH / INT16_BITS;
+        j_limit = AXI_OUTPUT_WIDTH / INT32_BITS;
         i_limit = OUTPUT_SIZE / j_limit;
 
     write_prediction:
@@ -156,14 +156,14 @@ extern "C"
         {
             axis_out_t temp;
             low = 0;
-            high = INT16_BITS - 1;
+            high = INT32_BITS - 1;
 
             for (int j = 0; j < j_limit; j++)
             {
-                temp.data.range(high, low) = prediction[i * (AXI_OUTPUT_WIDTH / INT16_BITS) + j];
+                temp.data.range(high, low) = prediction[i * (AXI_OUTPUT_WIDTH / INT32_BITS) + j];
 
-                low += INT16_BITS;
-                high += INT16_BITS;
+                low += INT32_BITS;
+                high += INT32_BITS;
             }
 
             ap_uint<1> last = 0;

@@ -16,7 +16,7 @@ def network_int(x):
     l2 = np.add(l2, wb.l2_biases.T, dtype=np.int32) >> 8
     l2 = np.maximum(l2, 0, dtype=np.int32)
     l3 = np.matmul(wb.l3_weights, l2, dtype=np.int32)
-    l3 = np.add(l3, wb.l3_biases.T, dtype=np.int32) >> 8
+    l3 = np.add(l3, wb.l3_biases.T, dtype=np.int32)
     return l3
 
 def network_float(x, model):
@@ -44,5 +44,5 @@ correct_float = np.sum(np.argmax(predictions_float, axis=1) == y_test)
 print(f"Correct int predictions: {correct_int} out of {len(y_test)}")
 print(f"Correct float predictions: {correct_float} out of {len(y_test)}")
 
-print("samples", format_array_C(X_test[:10, :]), sep=" = ", end="\n\n")
-print("ground_truth", format_array_C(predictions_int.T[:10, :]), sep=" = ", end="\n\n")
+#print("samples", format_array_C(X_test[:10, :]), sep=" = ", end="\n\n")
+#print("ground_truth", format_array_C(predictions_int.T[:10, :]), sep=" = ", end="\n\n")
