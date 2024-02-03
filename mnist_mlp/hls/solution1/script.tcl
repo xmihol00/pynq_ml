@@ -7,12 +7,13 @@ open_project hls
 set_top mlp
 add_files mnist_mlp.cpp
 add_files weights_biases.h
-add_files -tb mnist_mlp_tb.cpp
+add_files -tb mnist_mlp_tb.cpp -cflags "-Wno-unknown-pragmas" -csimflags "-Wno-unknown-pragmas"
 open_solution "solution1"
-set_part {xc7z020clg400-1}
+set_part {xc7z020-clg400-1}
 create_clock -period 10 -name default
+config_export -format ip_catalog -rtl verilog
 #source "./hls/solution1/directives.tcl"
 csim_design
 csynth_design
 cosim_design
-export_design -format ip_catalog
+export_design -flow impl -rtl verilog -format ip_catalog

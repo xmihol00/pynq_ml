@@ -6954,7 +6954,8 @@ void mlp_kernel(uint8_t sample[784], int32_t prediction[10])
 input_mat_mul_outer:
     for (int i = 0; i < 784; i++)
     {
-    input_mat_mul_inner:
+#pragma HLS PIPELINE II=1
+ input_mat_mul_inner:
         for (int j = 0; j < 128; j++)
         {
 #pragma HLS UNROLL
@@ -6965,7 +6966,7 @@ input_mat_mul_outer:
 input_bias_relu:
     for (int i = 0; i < 128; i++)
     {
-#pragma HLS UNROLL
+#pragma HLS PIPELINE II=1
  l1_out[i] += l1_biases[i];
         l1_out[i] = l1_out[i] >> 8;
         if (l1_out[i] < 0)
@@ -6977,7 +6978,8 @@ input_bias_relu:
 hidden_mat_mul_outer:
     for (int i = 0; i < 128; i++)
     {
-    hidden_mat_mul_inner:
+#pragma HLS PIPELINE II=1
+ hidden_mat_mul_inner:
         for (int j = 0; j < 64; j++)
         {
 #pragma HLS UNROLL factor=32
@@ -6988,7 +6990,7 @@ hidden_mat_mul_outer:
 hidden_bias_relu:
     for (int i = 0; i < 64; i++)
     {
-#pragma HLS UNROLL factor=32
+#pragma HLS PIPELINE II=1
  l2_out[i] += l2_biases[i];
         l2_out[i] = l2_out[i] >> 8;
         if (l2_out[i] < 0)
@@ -7000,6 +7002,7 @@ hidden_bias_relu:
 output_bias:
     for (int i = 0; i < 10; i++)
     {
+#pragma HLS PIPELINE II=1
 #pragma HLS UNROLL
  prediction[i] = l3_biases[i];
     }
@@ -7007,7 +7010,8 @@ output_bias:
 output_mat_mul_outer:
     for (int i = 0; i < 64; i++)
     {
-    output_mat_mul_inner:
+#pragma HLS PIPELINE II=1
+ output_mat_mul_inner:
         for (int j = 0; j < 10; j++)
         {
 #pragma HLS UNROLL
@@ -7036,9 +7040,10 @@ extern "C"
         int high;
 
     load_sample:
-        for (int i = 0; i < i_limit * 49; i++)
+        for (int i = 0; i < i_limit; i++)
         {
-            low = 0;
+#pragma HLS PIPELINE
+ low = 0;
             high = 8 - 1;
 
             axis_in_t temp = in.read();
@@ -7057,9 +7062,10 @@ extern "C"
         i_limit = 10 / j_limit;
 
     write_prediction:
-        for (int i = 0; i < i_limit * 5; i++)
+        for (int i = 0; i < i_limit; i++)
         {
-            axis_out_t temp;
+#pragma HLS PIPELINE
+ axis_out_t temp;
             low = 0;
             high = 32 - 1;
 

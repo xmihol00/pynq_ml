@@ -51,8 +51,6 @@
                                 								
                                 <option id="gnu.cpp.compiler.option.include.paths.49940458" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
                                     									
-                                    <listOptionValue builtIn="false" value="/mnt/sdc3/david/projs/pynq_ml/mnist_mlp"/>
-                                    									
                                     <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include/etc"/>
                                     									
                                     <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/lnx64/tools/systemc/include"/>
@@ -86,8 +84,6 @@
                                 <option id="gnu.c.compiler.exe.debug.option.debugging.level.769027903" name="Debug Level" superClass="gnu.c.compiler.exe.debug.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.max" valueType="enumerated"/>
                                 								
                                 <option id="gnu.c.compiler.option.include.paths.2007515175" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-                                    									
-                                    <listOptionValue builtIn="false" value="/mnt/sdc3/david/projs/pynq_ml/mnist_mlp"/>
                                     									
                                     <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include/etc"/>
                                     									
@@ -161,6 +157,36 @@
                         					
                     </folderInfo>
                     					
+                    <fileInfo id="cdt.managedbuild.config.gnu.exe.debug.158434723.1989370109" name="mnist_mlp_tb.cpp" rcbsApplicability="disable" resourcePath="testbench/mnist_mlp_tb.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.1678817824.957655589">
+                        						
+                        <tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.1678817824.957655589" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.1678817824">
+                            							
+                            <option id="gnu.cpp.compiler.option.preprocessor.def.230661238" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def"/>
+                            							
+                            <option id="gnu.cpp.compiler.option.include.paths.448696963" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
+                                								
+                                <listOptionValue builtIn="false" value="/mnt/sdc3/david/projs/pynq_ml/mnist_mlp"/>
+                                								
+                                <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include/etc"/>
+                                								
+                                <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/lnx64/tools/systemc/include"/>
+                                								
+                                <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/lnx64/tools/auto_cc/include"/>
+                                								
+                                <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include/ap_sysc"/>
+                                								
+                                <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include"/>
+                                							
+                            </option>
+                            							
+                            <option id="gnu.cpp.compiler.option.other.other.1733575599" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-Wno-unknown-pragmas -c -fmessage-length=0" valueType="string"/>
+                            							
+                            <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.301716333" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+                            						
+                        </tool>
+                        					
+                    </fileInfo>
+                    					
                     <sourceEntries>
                         						
                         <entry excluding="solution1|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
@@ -223,8 +249,6 @@
                                 								
                                 <option id="gnu.cpp.compiler.option.include.paths.803152983" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
                                     									
-                                    <listOptionValue builtIn="false" value="/mnt/sdc3/david/projs/pynq_ml/mnist_mlp"/>
-                                    									
                                     <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include/etc"/>
                                     									
                                     <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/lnx64/tools/systemc/include"/>
@@ -248,8 +272,6 @@
                                 <option id="gnu.c.compiler.exe.release.option.debugging.level.816380021" name="Debug Level" superClass="gnu.c.compiler.exe.release.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
                                 								
                                 <option id="gnu.c.compiler.option.include.paths.1978324390" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-                                    									
-                                    <listOptionValue builtIn="false" value="/mnt/sdc3/david/projs/pynq_ml/mnist_mlp"/>
                                     									
                                     <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include/etc"/>
                                     									
@@ -312,6 +334,36 @@
                         </toolChain>
                         					
                     </folderInfo>
+                    					
+                    <fileInfo id="cdt.managedbuild.config.gnu.exe.release.284774635.901159564" name="mnist_mlp_tb.cpp" rcbsApplicability="disable" resourcePath="testbench/mnist_mlp_tb.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1168946159.1047473250">
+                        						
+                        <tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1168946159.1047473250" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1168946159">
+                            							
+                            <option id="gnu.cpp.compiler.option.preprocessor.def.1398430767" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def"/>
+                            							
+                            <option id="gnu.cpp.compiler.option.include.paths.46152195" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
+                                								
+                                <listOptionValue builtIn="false" value="/mnt/sdc3/david/projs/pynq_ml/mnist_mlp"/>
+                                								
+                                <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include/etc"/>
+                                								
+                                <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/lnx64/tools/systemc/include"/>
+                                								
+                                <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/lnx64/tools/auto_cc/include"/>
+                                								
+                                <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include/ap_sysc"/>
+                                								
+                                <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include"/>
+                                							
+                            </option>
+                            							
+                            <option id="gnu.cpp.compiler.option.other.other.1047629477" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-Wno-unknown-pragmas -c -fmessage-length=0" valueType="string"/>
+                            							
+                            <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1660599718" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+                            						
+                        </tool>
+                        					
+                    </fileInfo>
                     					
                     <sourceEntries>
                         						

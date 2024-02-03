@@ -49,6 +49,7 @@ void mlp_kernel(uint8_t sample[INPUT_SIZE], int32_t prediction[OUTPUT_SIZE])
 input_mat_mul_outer:
     for (int i = 0; i < INPUT_SIZE; i++)
     {
+	#pragma HLS PIPELINE
     input_mat_mul_inner:
         for (int j = 0; j < L1_SIZE; j++)
         {
@@ -60,6 +61,7 @@ input_mat_mul_outer:
 input_bias_relu:
     for (int i = 0; i < L1_SIZE; i++)
     {
+	#pragma HLS PIPELINE
 	#pragma HLS UNROLL
         l1_out[i] += l1_biases[i];
         l1_out[i] = l1_out[i] >> 8;
@@ -72,6 +74,7 @@ input_bias_relu:
 hidden_mat_mul_outer:
     for (int i = 0; i < L1_SIZE; i++)
     {
+	//#pragma HLS PIPELINE
     hidden_mat_mul_inner:
         for (int j = 0; j < L2_SIZE; j++)
         {
@@ -84,6 +87,7 @@ hidden_bias_relu:
     for (int i = 0; i < L2_SIZE; i++)
     {
 	#pragma HLS UNROLL factor=32
+	//#pragma HLS PIPELINE
         l2_out[i] += l2_biases[i];
         l2_out[i] = l2_out[i] >> 8;
         if (l2_out[i] < 0)
@@ -95,6 +99,7 @@ hidden_bias_relu:
 output_bias:
     for (int i = 0; i < OUTPUT_SIZE; i++)
     {
+	#pragma HLS PIPELINE
 	#pragma HLS UNROLL
         prediction[i] = l3_biases[i];
     }
@@ -102,6 +107,7 @@ output_bias:
 output_mat_mul_outer:
     for (int i = 0; i < L2_SIZE; i++)
     {
+	#pragma HLS PIPELINE
     output_mat_mul_inner:
         for (int j = 0; j < OUTPUT_SIZE; j++)
         {
@@ -131,8 +137,9 @@ extern "C"
         int high;
 
     load_sample:
-        for (int i = 0; i < i_limit * 49; i++)
+        for (int i = 0; i < i_limit; i++)
         {
+		#pragma HLS PIPELINE
             low = 0;
             high = INT8_BITS - 1;
 
@@ -152,8 +159,9 @@ extern "C"
         i_limit = OUTPUT_SIZE / j_limit;
 
     write_prediction:
-        for (int i = 0; i < i_limit * 5; i++)
+        for (int i = 0; i < i_limit; i++)
         {
+		#pragma HLS PIPELINE
             axis_out_t temp;
             low = 0;
             high = INT32_BITS - 1;

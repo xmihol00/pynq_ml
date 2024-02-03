@@ -12,9 +12,10 @@
     "Package": "-clg400",
     "Speed": "-1"
   },
-  "HlsSolution": {
-    
-  },
+  "HlsSolution": {"Config": [
+      "config_export -format=ip_catalog",
+      "config_export -rtl=verilog"
+    ]},
   "Args": {
     "in": {
       "index": "0",
@@ -77,7 +78,7 @@
     "ClockPeriod": "10",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "286796",
+    "Latency": "203632",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -745,7 +746,7 @@
       "ModuleName": "mlp",
       "Instances": [{
           "ModuleName": "mlp_kernel",
-          "InstanceName": "grp_mlp_kernel_fu_452"
+          "InstanceName": "grp_mlp_kernel_fu_538"
         }]
     },
     "Info": {
@@ -767,10 +768,10 @@
     "Metrics": {
       "mlp_kernel": {
         "Latency": {
-          "LatencyBest": "204984",
-          "LatencyAvg": "204984",
-          "LatencyWorst": "204984",
-          "PipelineII": "204984",
+          "LatencyBest": "203229",
+          "LatencyAvg": "203229",
+          "LatencyWorst": "203229",
+          "PipelineII": "203229",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -811,8 +812,8 @@
           {
             "Name": "input_mat_mul_outer",
             "TripCount": "784",
-            "Latency": "2352",
-            "PipelineII": "",
+            "Latency": "785",
+            "PipelineII": "1",
             "PipelineDepth": "3"
           },
           {
@@ -839,25 +840,25 @@
           {
             "Name": "output_mat_mul_outer",
             "TripCount": "64",
-            "Latency": "256",
-            "PipelineII": "",
+            "Latency": "66",
+            "PipelineII": "1",
             "PipelineDepth": "4"
           }
         ],
         "Area": {
           "BRAM_18K": "170",
           "DSP48E": "212",
-          "FF": "40621",
-          "LUT": "41769",
+          "FF": "40387",
+          "LUT": "37391",
           "URAM": "0"
         }
       },
       "mlp": {
         "Latency": {
-          "LatencyBest": "286796",
-          "LatencyAvg": "286796",
-          "LatencyWorst": "286796",
-          "PipelineII": "286797",
+          "LatencyBest": "203632",
+          "LatencyAvg": "203632",
+          "LatencyWorst": "203632",
+          "PipelineII": "203633",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -869,38 +870,24 @@
         "Loops": [
           {
             "Name": "load_sample",
-            "TripCount": "2401",
-            "Latency": "81634",
-            "PipelineII": "",
-            "PipelineDepth": "34",
-            "Loops": [{
-                "Name": "load_sample.1",
-                "TripCount": "16",
-                "Latency": "32",
-                "PipelineII": "",
-                "PipelineDepth": "2"
-              }]
+            "TripCount": "49",
+            "Latency": "392",
+            "PipelineII": "8",
+            "PipelineDepth": "9"
           },
           {
             "Name": "write_prediction",
-            "TripCount": "25",
-            "Latency": "175",
-            "PipelineII": "",
-            "PipelineDepth": "7",
-            "Loops": [{
-                "Name": "write_prediction.1",
-                "TripCount": "2",
-                "Latency": "4",
-                "PipelineII": "",
-                "PipelineDepth": "2"
-              }]
+            "TripCount": "5",
+            "Latency": "6",
+            "PipelineII": "1",
+            "PipelineDepth": "3"
           }
         ],
         "Area": {
           "BRAM_18K": "171",
           "DSP48E": "212",
-          "FF": "41476",
-          "LUT": "44485",
+          "FF": "40962",
+          "LUT": "38089",
           "URAM": "0"
         }
       }
@@ -916,7 +903,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2024-02-01 19:02:59 CET",
+    "Time": "2020-02-02 14:25:08 CET",
     "ToolName": "vivado_hls",
     "ToolVersion": "2020.1"
   }
