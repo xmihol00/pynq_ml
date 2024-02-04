@@ -1,6 +1,6 @@
 set lang "C++"
 set moduleName "mlp"
-set moduleIsExternC "1"
+set moduleIsExternC "0"
 set rawDecl ""
 set globalVariable ""
 set PortList ""

@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="mlp,hls_ip_2020_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=8.462000,HLS_SYN_LAT=2743,HLS_SYN_TPT=2742,HLS_SYN_MEM=128,HLS_SYN_DSP=128,HLS_SYN_FF=11850,HLS_SYN_LUT=95930,HLS_VERSION=2020_1}" *)
+(* CORE_GENERATION_INFO="mlp,hls_ip_2020_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=8.272500,HLS_SYN_LAT=1858,HLS_SYN_TPT=1846,HLS_SYN_MEM=205,HLS_SYN_DSP=138,HLS_SYN_FF=16979,HLS_SYN_LUT=9444,HLS_VERSION=2020_1}" *)
 
 module mlp (
         s_axi_control_AWVALID,
@@ -98,8 +98,10 @@ wire    read_input_U0_ap_ready;
 wire    read_input_U0_start_out;
 wire    read_input_U0_start_write;
 wire    read_input_U0_in_r_TREADY;
-wire   [7:0] read_input_U0_l1_in_V_din;
-wire    read_input_U0_l1_in_V_write;
+wire   [7:0] read_input_U0_l1_in_0_V_din;
+wire    read_input_U0_l1_in_0_V_write;
+wire   [7:0] read_input_U0_l1_in_1_V_din;
+wire    read_input_U0_l1_in_1_V_write;
 wire    mlp_l1_U0_ap_start;
 wire    mlp_l1_U0_ap_done;
 wire    mlp_l1_U0_ap_continue;
@@ -107,9 +109,30 @@ wire    mlp_l1_U0_ap_idle;
 wire    mlp_l1_U0_ap_ready;
 wire    mlp_l1_U0_start_out;
 wire    mlp_l1_U0_start_write;
-wire    mlp_l1_U0_l1_in_V_read;
-wire   [31:0] mlp_l1_U0_l2_in_V_din;
-wire    mlp_l1_U0_l2_in_V_write;
+wire    mlp_l1_U0_l1_in_0_V_read;
+wire    mlp_l1_U0_l1_in_1_V_read;
+wire   [15:0] mlp_l1_U0_l1_out_V_din;
+wire    mlp_l1_U0_l1_out_V_write;
+wire    mlp_l2_U0_ap_start;
+wire    mlp_l2_U0_ap_done;
+wire    mlp_l2_U0_ap_continue;
+wire    mlp_l2_U0_ap_idle;
+wire    mlp_l2_U0_ap_ready;
+wire    mlp_l2_U0_start_out;
+wire    mlp_l2_U0_start_write;
+wire    mlp_l2_U0_l2_in_V_read;
+wire   [15:0] mlp_l2_U0_l2_out_V_din;
+wire    mlp_l2_U0_l2_out_V_write;
+wire    mlp_l3_U0_ap_start;
+wire    mlp_l3_U0_ap_done;
+wire    mlp_l3_U0_ap_continue;
+wire    mlp_l3_U0_ap_idle;
+wire    mlp_l3_U0_ap_ready;
+wire    mlp_l3_U0_start_out;
+wire    mlp_l3_U0_start_write;
+wire    mlp_l3_U0_l3_in_V_read;
+wire   [31:0] mlp_l3_U0_l3_out_V_din;
+wire    mlp_l3_U0_l3_out_V_write;
 wire    write_output_U0_ap_start;
 wire    write_output_U0_ap_done;
 wire    write_output_U0_ap_continue;
@@ -122,18 +145,35 @@ wire   [7:0] write_output_U0_out_r_TKEEP;
 wire   [7:0] write_output_U0_out_r_TSTRB;
 wire   [0:0] write_output_U0_out_r_TLAST;
 wire    ap_sync_continue;
-wire    l1_in_V_full_n;
-wire   [7:0] l1_in_V_dout;
-wire    l1_in_V_empty_n;
+wire    l1_in_0_V_full_n;
+wire   [7:0] l1_in_0_V_dout;
+wire    l1_in_0_V_empty_n;
+wire    l1_in_1_V_full_n;
+wire   [7:0] l1_in_1_V_dout;
+wire    l1_in_1_V_empty_n;
 wire    l2_in_V_full_n;
-wire   [31:0] l2_in_V_dout;
+wire   [15:0] l2_in_V_dout;
 wire    l2_in_V_empty_n;
+wire    l3_in_V_full_n;
+wire   [15:0] l3_in_V_dout;
+wire    l3_in_V_empty_n;
+wire    l3_out_V_full_n;
+wire   [31:0] l3_out_V_dout;
+wire    l3_out_V_empty_n;
 wire    ap_sync_done;
 wire    ap_sync_ready;
 wire   [0:0] start_for_mlp_l1_U0_din;
 wire    start_for_mlp_l1_U0_full_n;
 wire   [0:0] start_for_mlp_l1_U0_dout;
 wire    start_for_mlp_l1_U0_empty_n;
+wire   [0:0] start_for_mlp_l2_U0_din;
+wire    start_for_mlp_l2_U0_full_n;
+wire   [0:0] start_for_mlp_l2_U0_dout;
+wire    start_for_mlp_l2_U0_empty_n;
+wire   [0:0] start_for_mlp_l3_U0_din;
+wire    start_for_mlp_l3_U0_full_n;
+wire   [0:0] start_for_mlp_l3_U0_dout;
+wire    start_for_mlp_l3_U0_empty_n;
 wire   [0:0] start_for_write_output_U0_din;
 wire    start_for_write_output_U0_full_n;
 wire   [0:0] start_for_write_output_U0_dout;
@@ -189,28 +229,72 @@ read_input read_input_U0(
     .in_r_TKEEP(in_r_TKEEP),
     .in_r_TSTRB(in_r_TSTRB),
     .in_r_TLAST(in_r_TLAST),
-    .l1_in_V_din(read_input_U0_l1_in_V_din),
-    .l1_in_V_full_n(l1_in_V_full_n),
-    .l1_in_V_write(read_input_U0_l1_in_V_write)
+    .l1_in_0_V_din(read_input_U0_l1_in_0_V_din),
+    .l1_in_0_V_full_n(l1_in_0_V_full_n),
+    .l1_in_0_V_write(read_input_U0_l1_in_0_V_write),
+    .l1_in_1_V_din(read_input_U0_l1_in_1_V_din),
+    .l1_in_1_V_full_n(l1_in_1_V_full_n),
+    .l1_in_1_V_write(read_input_U0_l1_in_1_V_write)
 );
 
 mlp_l1 mlp_l1_U0(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst_n_inv),
     .ap_start(mlp_l1_U0_ap_start),
-    .start_full_n(start_for_write_output_U0_full_n),
+    .start_full_n(start_for_mlp_l2_U0_full_n),
     .ap_done(mlp_l1_U0_ap_done),
     .ap_continue(mlp_l1_U0_ap_continue),
     .ap_idle(mlp_l1_U0_ap_idle),
     .ap_ready(mlp_l1_U0_ap_ready),
     .start_out(mlp_l1_U0_start_out),
     .start_write(mlp_l1_U0_start_write),
-    .l1_in_V_dout(l1_in_V_dout),
-    .l1_in_V_empty_n(l1_in_V_empty_n),
-    .l1_in_V_read(mlp_l1_U0_l1_in_V_read),
-    .l2_in_V_din(mlp_l1_U0_l2_in_V_din),
-    .l2_in_V_full_n(l2_in_V_full_n),
-    .l2_in_V_write(mlp_l1_U0_l2_in_V_write)
+    .l1_in_0_V_dout(l1_in_0_V_dout),
+    .l1_in_0_V_empty_n(l1_in_0_V_empty_n),
+    .l1_in_0_V_read(mlp_l1_U0_l1_in_0_V_read),
+    .l1_in_1_V_dout(l1_in_1_V_dout),
+    .l1_in_1_V_empty_n(l1_in_1_V_empty_n),
+    .l1_in_1_V_read(mlp_l1_U0_l1_in_1_V_read),
+    .l1_out_V_din(mlp_l1_U0_l1_out_V_din),
+    .l1_out_V_full_n(l2_in_V_full_n),
+    .l1_out_V_write(mlp_l1_U0_l1_out_V_write)
+);
+
+mlp_l2 mlp_l2_U0(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst_n_inv),
+    .ap_start(mlp_l2_U0_ap_start),
+    .start_full_n(start_for_mlp_l3_U0_full_n),
+    .ap_done(mlp_l2_U0_ap_done),
+    .ap_continue(mlp_l2_U0_ap_continue),
+    .ap_idle(mlp_l2_U0_ap_idle),
+    .ap_ready(mlp_l2_U0_ap_ready),
+    .start_out(mlp_l2_U0_start_out),
+    .start_write(mlp_l2_U0_start_write),
+    .l2_in_V_dout(l2_in_V_dout),
+    .l2_in_V_empty_n(l2_in_V_empty_n),
+    .l2_in_V_read(mlp_l2_U0_l2_in_V_read),
+    .l2_out_V_din(mlp_l2_U0_l2_out_V_din),
+    .l2_out_V_full_n(l3_in_V_full_n),
+    .l2_out_V_write(mlp_l2_U0_l2_out_V_write)
+);
+
+mlp_l3 mlp_l3_U0(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst_n_inv),
+    .ap_start(mlp_l3_U0_ap_start),
+    .start_full_n(start_for_write_output_U0_full_n),
+    .ap_done(mlp_l3_U0_ap_done),
+    .ap_continue(mlp_l3_U0_ap_continue),
+    .ap_idle(mlp_l3_U0_ap_idle),
+    .ap_ready(mlp_l3_U0_ap_ready),
+    .start_out(mlp_l3_U0_start_out),
+    .start_write(mlp_l3_U0_start_write),
+    .l3_in_V_dout(l3_in_V_dout),
+    .l3_in_V_empty_n(l3_in_V_empty_n),
+    .l3_in_V_read(mlp_l3_U0_l3_in_V_read),
+    .l3_out_V_din(mlp_l3_U0_l3_out_V_din),
+    .l3_out_V_full_n(l3_out_V_full_n),
+    .l3_out_V_write(mlp_l3_U0_l3_out_V_write)
 );
 
 write_output write_output_U0(
@@ -221,8 +305,8 @@ write_output write_output_U0(
     .ap_continue(write_output_U0_ap_continue),
     .ap_idle(write_output_U0_ap_idle),
     .ap_ready(write_output_U0_ap_ready),
-    .l3_out_V_dout(l2_in_V_dout),
-    .l3_out_V_empty_n(l2_in_V_empty_n),
+    .l3_out_V_dout(l3_out_V_dout),
+    .l3_out_V_empty_n(l3_out_V_empty_n),
     .l3_out_V_read(write_output_U0_l3_out_V_read),
     .out_r_TDATA(write_output_U0_out_r_TDATA),
     .out_r_TVALID(write_output_U0_out_r_TVALID),
@@ -232,29 +316,68 @@ write_output write_output_U0(
     .out_r_TLAST(write_output_U0_out_r_TLAST)
 );
 
-fifo_w8_d2_A l1_in_V_U(
+fifo_w8_d2_A l1_in_0_V_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(read_input_U0_l1_in_V_din),
-    .if_full_n(l1_in_V_full_n),
-    .if_write(read_input_U0_l1_in_V_write),
-    .if_dout(l1_in_V_dout),
-    .if_empty_n(l1_in_V_empty_n),
-    .if_read(mlp_l1_U0_l1_in_V_read)
+    .if_din(read_input_U0_l1_in_0_V_din),
+    .if_full_n(l1_in_0_V_full_n),
+    .if_write(read_input_U0_l1_in_0_V_write),
+    .if_dout(l1_in_0_V_dout),
+    .if_empty_n(l1_in_0_V_empty_n),
+    .if_read(mlp_l1_U0_l1_in_0_V_read)
 );
 
-fifo_w32_d2_A l2_in_V_U(
+fifo_w8_d2_A l1_in_1_V_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(mlp_l1_U0_l2_in_V_din),
+    .if_din(read_input_U0_l1_in_1_V_din),
+    .if_full_n(l1_in_1_V_full_n),
+    .if_write(read_input_U0_l1_in_1_V_write),
+    .if_dout(l1_in_1_V_dout),
+    .if_empty_n(l1_in_1_V_empty_n),
+    .if_read(mlp_l1_U0_l1_in_1_V_read)
+);
+
+fifo_w16_d2_A l2_in_V_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(mlp_l1_U0_l1_out_V_din),
     .if_full_n(l2_in_V_full_n),
-    .if_write(mlp_l1_U0_l2_in_V_write),
+    .if_write(mlp_l1_U0_l1_out_V_write),
     .if_dout(l2_in_V_dout),
     .if_empty_n(l2_in_V_empty_n),
+    .if_read(mlp_l2_U0_l2_in_V_read)
+);
+
+fifo_w16_d2_A l3_in_V_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(mlp_l2_U0_l2_out_V_din),
+    .if_full_n(l3_in_V_full_n),
+    .if_write(mlp_l2_U0_l2_out_V_write),
+    .if_dout(l3_in_V_dout),
+    .if_empty_n(l3_in_V_empty_n),
+    .if_read(mlp_l3_U0_l3_in_V_read)
+);
+
+fifo_w32_d2_A l3_out_V_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(mlp_l3_U0_l3_out_V_din),
+    .if_full_n(l3_out_V_full_n),
+    .if_write(mlp_l3_U0_l3_out_V_write),
+    .if_dout(l3_out_V_dout),
+    .if_empty_n(l3_out_V_empty_n),
     .if_read(write_output_U0_l3_out_V_read)
 );
 
@@ -271,14 +394,40 @@ start_for_mlp_l1_U0 start_for_mlp_l1_U0_U(
     .if_read(mlp_l1_U0_ap_ready)
 );
 
-start_for_write_oecO start_for_write_oecO_U(
+start_for_mlp_l2_U0 start_for_mlp_l2_U0_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(start_for_mlp_l2_U0_din),
+    .if_full_n(start_for_mlp_l2_U0_full_n),
+    .if_write(mlp_l1_U0_start_write),
+    .if_dout(start_for_mlp_l2_U0_dout),
+    .if_empty_n(start_for_mlp_l2_U0_empty_n),
+    .if_read(mlp_l2_U0_ap_ready)
+);
+
+start_for_mlp_l3_U0 start_for_mlp_l3_U0_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(start_for_mlp_l3_U0_din),
+    .if_full_n(start_for_mlp_l3_U0_full_n),
+    .if_write(mlp_l2_U0_start_write),
+    .if_dout(start_for_mlp_l3_U0_dout),
+    .if_empty_n(start_for_mlp_l3_U0_empty_n),
+    .if_read(mlp_l3_U0_ap_ready)
+);
+
+start_for_write_ocZC start_for_write_ocZC_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
     .if_din(start_for_write_output_U0_din),
     .if_full_n(start_for_write_output_U0_full_n),
-    .if_write(mlp_l1_U0_start_write),
+    .if_write(mlp_l3_U0_start_write),
     .if_dout(start_for_write_output_U0_dout),
     .if_empty_n(start_for_write_output_U0_empty_n),
     .if_read(write_output_U0_ap_ready)
@@ -286,7 +435,7 @@ start_for_write_oecO start_for_write_oecO_U(
 
 assign ap_done = write_output_U0_ap_done;
 
-assign ap_idle = (write_output_U0_ap_idle & read_input_U0_ap_idle & mlp_l1_U0_ap_idle);
+assign ap_idle = (write_output_U0_ap_idle & read_input_U0_ap_idle & mlp_l3_U0_ap_idle & mlp_l2_U0_ap_idle & mlp_l1_U0_ap_idle);
 
 assign ap_ready = read_input_U0_ap_ready;
 
@@ -306,6 +455,14 @@ assign mlp_l1_U0_ap_continue = 1'b1;
 
 assign mlp_l1_U0_ap_start = start_for_mlp_l1_U0_empty_n;
 
+assign mlp_l2_U0_ap_continue = 1'b1;
+
+assign mlp_l2_U0_ap_start = start_for_mlp_l2_U0_empty_n;
+
+assign mlp_l3_U0_ap_continue = 1'b1;
+
+assign mlp_l3_U0_ap_start = start_for_mlp_l3_U0_empty_n;
+
 assign out_r_TDATA = write_output_U0_out_r_TDATA;
 
 assign out_r_TKEEP = write_output_U0_out_r_TKEEP;
@@ -321,6 +478,10 @@ assign read_input_U0_ap_continue = 1'b1;
 assign read_input_U0_ap_start = ap_start;
 
 assign start_for_mlp_l1_U0_din = 1'b1;
+
+assign start_for_mlp_l2_U0_din = 1'b1;
+
+assign start_for_mlp_l3_U0_din = 1'b1;
 
 assign start_for_write_output_U0_din = 1'b1;
 

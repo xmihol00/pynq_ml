@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'mlp'" level="0">
-<item name = "Date">Sun Feb  4 13:27:41 2024
+<item name = "Date">Sun Feb  4 20:36:29 2024
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">hls</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 8.462 ns, 1.25 ns</column>
+<column name="ap_clk">10.00 ns, 8.272 ns, 1.25 ns</column>
 </table>
 </item>
 </section>
@@ -24,16 +24,18 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">2743, 2743, 27.430 us, 27.430 us, 2742, 2742, dataflow</column>
+<column name="">1858, 1858, 18.580 us, 18.580 us, 1846, 1846, dataflow</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="mlp_l1_U0">mlp_l1, 2741, 2741, 27.410 us, 27.410 us, 2741, 2741, none</column>
-<column name="read_input_U0">read_input, 1667, 1667, 16.670 us, 16.670 us, 1667, 1667, none</column>
-<column name="write_output_U0">write_output, 36, 36, 0.360 us, 0.360 us, 36, 36, none</column>
+<column name="mlp_l1_U0">mlp_l1, 1845, 1845, 18.450 us, 18.450 us, 1845, 1845, none</column>
+<column name="mlp_l2_U0">mlp_l2, 264, 264, 2.640 us, 2.640 us, 264, 264, none</column>
+<column name="mlp_l3_U0">mlp_l3, 91, 91, 0.910 us, 0.910 us, 91, 91, none</column>
+<column name="read_input_U0">read_input, 786, 786, 7.860 us, 7.860 us, 786, 786, none</column>
+<column name="write_output_U0">write_output, 13, 13, 0.130 us, 0.130 us, 13, 13, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -51,13 +53,13 @@
 <keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 2, -</column>
-<column name="FIFO">0, -, 10, 64, -</column>
-<column name="Instance">128, 128, 11840, 95864, 0</column>
+<column name="FIFO">0, -, 25, 140, -</column>
+<column name="Instance">205, 138, 16954, 9302, 0</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, -, -, -</column>
 <column name="Register">-, -, -, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
-<specialColumn name="Utilization (%)">45, 58, 11, 180, 0</specialColumn>
+<specialColumn name="Utilization (%)">73, 62, 15, 17, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
@@ -65,9 +67,11 @@
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
 <column name="mlp_control_s_axi_U">mlp_control_s_axi, 0, 0, 36, 40, 0</column>
-<column name="mlp_l1_U0">mlp_l1, 128, 128, 11354, 93286, 0</column>
-<column name="read_input_U0">read_input, 0, 0, 324, 1374, 0</column>
-<column name="write_output_U0">write_output, 0, 0, 126, 1164, 0</column>
+<column name="mlp_l1_U0">mlp_l1, 129, 64, 10898, 6516, 0</column>
+<column name="mlp_l2_U0">mlp_l2, 65, 64, 4687, 1725, 0</column>
+<column name="mlp_l3_U0">mlp_l3, 11, 10, 1131, 496, 0</column>
+<column name="read_input_U0">read_input, 0, 0, 155, 407, 0</column>
+<column name="write_output_U0">write_output, 0, 0, 47, 118, 0</column>
 </table>
 </item>
 <item name = "DSP48E"><table name="" hasTotal="0">
@@ -80,8 +84,11 @@
 </item>
 <item name = "FIFO"><table name="" hasTotal="1">
 <keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
-<column name="l1_in_V_U">0, 5, 0, -, 2, 8, 16</column>
-<column name="l2_in_V_U">0, 5, 0, -, 2, 32, 64</column>
+<column name="l1_in_0_V_U">0, 5, 0, -, 2, 8, 16</column>
+<column name="l1_in_1_V_U">0, 5, 0, -, 2, 8, 16</column>
+<column name="l2_in_V_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="l3_in_V_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="l3_out_V_U">0, 5, 0, -, 2, 32, 64</column>
 </table>
 </item>
 <item name = "Expression"><table name="" hasTotal="1">

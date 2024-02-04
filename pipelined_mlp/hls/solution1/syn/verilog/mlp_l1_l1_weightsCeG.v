@@ -6,7 +6,7 @@
 (* rom_style = "block" *) module mlp_l1_l1_weightsCeG_rom (
 addr0, ce0, q0, clk);
 
-parameter DWIDTH = 8;
+parameter DWIDTH = 6;
 parameter AWIDTH = 10;
 parameter MEM_SIZE = 784;
 
@@ -43,7 +43,7 @@ module mlp_l1_l1_weightsCeG(
     ce0,
     q0);
 
-parameter DataWidth = 32'd8;
+parameter DataWidth = 32'd6;
 parameter AddressRange = 32'd784;
 parameter AddressWidth = 32'd10;
 input reset;

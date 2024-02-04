@@ -40,25 +40,25 @@ samples = np.array([
 
 ground_truth = [7, 2, 1, 0, 4, 1, 4, 9, 6, 9, 0, 6, 9, 0, 1, 5, 9, 7, 3, 4]
 
-ITERATIONS = 10000
+ITERATIONS = 1000
 SAMPLES = 20
 
 def input_thread(dma, in_buffer):
-    for i in range(ITERATIONS // SAMPLES):
-        #print(f"Input iteration {i + 1}", flush=True)
-        in_buffer[:, :] = samples
+    for i in range(ITERATIONS):
+        print(f"Input iteration {i + 1}", flush=True)
+        in_buffer[:] = samples[i % 20]
         dma.sendchannel.transfer(in_buffer)
         dma.sendchannel.wait()
 
 def output_thread(dma, out_buffer):
     #time.sleep(5)
     all_correct = True
-    for i in range(ITERATIONS // SAMPLES):
-        #print(f"Output iteration {i + 1}", flush=True)
+    for i in range(ITERATIONS):
+        print(f"Output iteration {i + 1}", flush=True)
         dma.recvchannel.transfer(out_buffer)
         dma.recvchannel.wait()
         result = out_buffer.copy()
-        if False:
+        if True:
             print(f"Result: {result}", flush=True)
             prediction = np.argmax(result)
             same = prediction == ground_truth[i % 20]
@@ -69,15 +69,15 @@ def output_thread(dma, out_buffer):
 
 if __name__ == "__main__":
     print("Loading overlay", flush=True)
-    overlay = Overlay('overlay/mnist_mlp.bit')
+    overlay = Overlay('overlay/pipelined_mlp.bit')
 
     CTRL_REG = 0x00
     AP_START = (1<<0) # bit 0
     AUTO_RESTART = (1<<7) # bit 7
-    overlay.mlp.write(CTRL_REG, (AP_START | AUTO_RESTART))
+    overlay.mlp_0.write(CTRL_REG, (AP_START | AUTO_RESTART))
 
-    in_buffer = allocate(shape=(SAMPLES, 28*28), dtype=np.uint8, cacheable=True)
-    out_buffer = allocate(shape=(SAMPLES, 10), dtype=np.int32, cacheable=True)
+    in_buffer = allocate(shape=(28*28,), dtype=np.uint8, cacheable=True)
+    out_buffer = allocate(shape=(10,), dtype=np.int32, cacheable=True)
 
     start = time.time()
 

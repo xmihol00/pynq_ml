@@ -87,14 +87,29 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 5 \
-    name l1_in_V \
+    name l1_in_0_V \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_l1_in_V \
+    corename dc_l1_in_0_V \
     op interface \
-    ports { l1_in_V_din { O 8 vector } l1_in_V_full_n { I 1 bit } l1_in_V_write { O 1 bit } } \
+    ports { l1_in_0_V_din { O 8 vector } l1_in_0_V_full_n { I 1 bit } l1_in_0_V_write { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 6 \
+    name l1_in_1_V \
+    type fifo \
+    dir O \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_l1_in_1_V \
+    op interface \
+    ports { l1_in_1_V_din { O 8 vector } l1_in_1_V_full_n { I 1 bit } l1_in_1_V_write { O 1 bit } } \
 } "
 }
 
@@ -163,7 +178,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 
 
 # RegSlice definition:
-set ID 6
+set ID 7
 set RegSliceName regslice_core
 set RegSliceInstName regslice_core_U
 set CoreName ap_simcore_regslice_core

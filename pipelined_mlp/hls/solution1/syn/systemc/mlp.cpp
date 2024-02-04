@@ -65,26 +65,66 @@ mlp::mlp(sc_module_name name) : sc_module(name), mVcdFile(0) {
     read_input_U0->in_r_TKEEP(in_r_TKEEP);
     read_input_U0->in_r_TSTRB(in_r_TSTRB);
     read_input_U0->in_r_TLAST(in_r_TLAST);
-    read_input_U0->l1_in_V_din(read_input_U0_l1_in_V_din);
-    read_input_U0->l1_in_V_full_n(l1_in_V_full_n);
-    read_input_U0->l1_in_V_write(read_input_U0_l1_in_V_write);
+    read_input_U0->l1_in_0_V_din(read_input_U0_l1_in_0_V_din);
+    read_input_U0->l1_in_0_V_full_n(l1_in_0_V_full_n);
+    read_input_U0->l1_in_0_V_write(read_input_U0_l1_in_0_V_write);
+    read_input_U0->l1_in_1_V_din(read_input_U0_l1_in_1_V_din);
+    read_input_U0->l1_in_1_V_full_n(l1_in_1_V_full_n);
+    read_input_U0->l1_in_1_V_write(read_input_U0_l1_in_1_V_write);
     mlp_l1_U0 = new mlp_l1("mlp_l1_U0");
     mlp_l1_U0->ap_clk(ap_clk);
     mlp_l1_U0->ap_rst(ap_rst_n_inv);
     mlp_l1_U0->ap_start(mlp_l1_U0_ap_start);
-    mlp_l1_U0->start_full_n(start_for_write_output_U0_full_n);
+    mlp_l1_U0->start_full_n(start_for_mlp_l2_U0_full_n);
     mlp_l1_U0->ap_done(mlp_l1_U0_ap_done);
     mlp_l1_U0->ap_continue(mlp_l1_U0_ap_continue);
     mlp_l1_U0->ap_idle(mlp_l1_U0_ap_idle);
     mlp_l1_U0->ap_ready(mlp_l1_U0_ap_ready);
     mlp_l1_U0->start_out(mlp_l1_U0_start_out);
     mlp_l1_U0->start_write(mlp_l1_U0_start_write);
-    mlp_l1_U0->l1_in_V_dout(l1_in_V_dout);
-    mlp_l1_U0->l1_in_V_empty_n(l1_in_V_empty_n);
-    mlp_l1_U0->l1_in_V_read(mlp_l1_U0_l1_in_V_read);
-    mlp_l1_U0->l2_in_V_din(mlp_l1_U0_l2_in_V_din);
-    mlp_l1_U0->l2_in_V_full_n(l2_in_V_full_n);
-    mlp_l1_U0->l2_in_V_write(mlp_l1_U0_l2_in_V_write);
+    mlp_l1_U0->l1_in_0_V_dout(l1_in_0_V_dout);
+    mlp_l1_U0->l1_in_0_V_empty_n(l1_in_0_V_empty_n);
+    mlp_l1_U0->l1_in_0_V_read(mlp_l1_U0_l1_in_0_V_read);
+    mlp_l1_U0->l1_in_1_V_dout(l1_in_1_V_dout);
+    mlp_l1_U0->l1_in_1_V_empty_n(l1_in_1_V_empty_n);
+    mlp_l1_U0->l1_in_1_V_read(mlp_l1_U0_l1_in_1_V_read);
+    mlp_l1_U0->l1_out_V_din(mlp_l1_U0_l1_out_V_din);
+    mlp_l1_U0->l1_out_V_full_n(l2_in_V_full_n);
+    mlp_l1_U0->l1_out_V_write(mlp_l1_U0_l1_out_V_write);
+    mlp_l2_U0 = new mlp_l2("mlp_l2_U0");
+    mlp_l2_U0->ap_clk(ap_clk);
+    mlp_l2_U0->ap_rst(ap_rst_n_inv);
+    mlp_l2_U0->ap_start(mlp_l2_U0_ap_start);
+    mlp_l2_U0->start_full_n(start_for_mlp_l3_U0_full_n);
+    mlp_l2_U0->ap_done(mlp_l2_U0_ap_done);
+    mlp_l2_U0->ap_continue(mlp_l2_U0_ap_continue);
+    mlp_l2_U0->ap_idle(mlp_l2_U0_ap_idle);
+    mlp_l2_U0->ap_ready(mlp_l2_U0_ap_ready);
+    mlp_l2_U0->start_out(mlp_l2_U0_start_out);
+    mlp_l2_U0->start_write(mlp_l2_U0_start_write);
+    mlp_l2_U0->l2_in_V_dout(l2_in_V_dout);
+    mlp_l2_U0->l2_in_V_empty_n(l2_in_V_empty_n);
+    mlp_l2_U0->l2_in_V_read(mlp_l2_U0_l2_in_V_read);
+    mlp_l2_U0->l2_out_V_din(mlp_l2_U0_l2_out_V_din);
+    mlp_l2_U0->l2_out_V_full_n(l3_in_V_full_n);
+    mlp_l2_U0->l2_out_V_write(mlp_l2_U0_l2_out_V_write);
+    mlp_l3_U0 = new mlp_l3("mlp_l3_U0");
+    mlp_l3_U0->ap_clk(ap_clk);
+    mlp_l3_U0->ap_rst(ap_rst_n_inv);
+    mlp_l3_U0->ap_start(mlp_l3_U0_ap_start);
+    mlp_l3_U0->start_full_n(start_for_write_output_U0_full_n);
+    mlp_l3_U0->ap_done(mlp_l3_U0_ap_done);
+    mlp_l3_U0->ap_continue(mlp_l3_U0_ap_continue);
+    mlp_l3_U0->ap_idle(mlp_l3_U0_ap_idle);
+    mlp_l3_U0->ap_ready(mlp_l3_U0_ap_ready);
+    mlp_l3_U0->start_out(mlp_l3_U0_start_out);
+    mlp_l3_U0->start_write(mlp_l3_U0_start_write);
+    mlp_l3_U0->l3_in_V_dout(l3_in_V_dout);
+    mlp_l3_U0->l3_in_V_empty_n(l3_in_V_empty_n);
+    mlp_l3_U0->l3_in_V_read(mlp_l3_U0_l3_in_V_read);
+    mlp_l3_U0->l3_out_V_din(mlp_l3_U0_l3_out_V_din);
+    mlp_l3_U0->l3_out_V_full_n(l3_out_V_full_n);
+    mlp_l3_U0->l3_out_V_write(mlp_l3_U0_l3_out_V_write);
     write_output_U0 = new write_output("write_output_U0");
     write_output_U0->ap_clk(ap_clk);
     write_output_U0->ap_rst(ap_rst_n_inv);
@@ -93,8 +133,8 @@ mlp::mlp(sc_module_name name) : sc_module(name), mVcdFile(0) {
     write_output_U0->ap_continue(write_output_U0_ap_continue);
     write_output_U0->ap_idle(write_output_U0_ap_idle);
     write_output_U0->ap_ready(write_output_U0_ap_ready);
-    write_output_U0->l3_out_V_dout(l2_in_V_dout);
-    write_output_U0->l3_out_V_empty_n(l2_in_V_empty_n);
+    write_output_U0->l3_out_V_dout(l3_out_V_dout);
+    write_output_U0->l3_out_V_empty_n(l3_out_V_empty_n);
     write_output_U0->l3_out_V_read(write_output_U0_l3_out_V_read);
     write_output_U0->out_r_TDATA(write_output_U0_out_r_TDATA);
     write_output_U0->out_r_TVALID(write_output_U0_out_r_TVALID);
@@ -102,28 +142,61 @@ mlp::mlp(sc_module_name name) : sc_module(name), mVcdFile(0) {
     write_output_U0->out_r_TKEEP(write_output_U0_out_r_TKEEP);
     write_output_U0->out_r_TSTRB(write_output_U0_out_r_TSTRB);
     write_output_U0->out_r_TLAST(write_output_U0_out_r_TLAST);
-    l1_in_V_U = new fifo_w8_d2_A("l1_in_V_U");
-    l1_in_V_U->clk(ap_clk);
-    l1_in_V_U->reset(ap_rst_n_inv);
-    l1_in_V_U->if_read_ce(ap_var_for_const0);
-    l1_in_V_U->if_write_ce(ap_var_for_const0);
-    l1_in_V_U->if_din(read_input_U0_l1_in_V_din);
-    l1_in_V_U->if_full_n(l1_in_V_full_n);
-    l1_in_V_U->if_write(read_input_U0_l1_in_V_write);
-    l1_in_V_U->if_dout(l1_in_V_dout);
-    l1_in_V_U->if_empty_n(l1_in_V_empty_n);
-    l1_in_V_U->if_read(mlp_l1_U0_l1_in_V_read);
-    l2_in_V_U = new fifo_w32_d2_A("l2_in_V_U");
+    l1_in_0_V_U = new fifo_w8_d2_A("l1_in_0_V_U");
+    l1_in_0_V_U->clk(ap_clk);
+    l1_in_0_V_U->reset(ap_rst_n_inv);
+    l1_in_0_V_U->if_read_ce(ap_var_for_const0);
+    l1_in_0_V_U->if_write_ce(ap_var_for_const0);
+    l1_in_0_V_U->if_din(read_input_U0_l1_in_0_V_din);
+    l1_in_0_V_U->if_full_n(l1_in_0_V_full_n);
+    l1_in_0_V_U->if_write(read_input_U0_l1_in_0_V_write);
+    l1_in_0_V_U->if_dout(l1_in_0_V_dout);
+    l1_in_0_V_U->if_empty_n(l1_in_0_V_empty_n);
+    l1_in_0_V_U->if_read(mlp_l1_U0_l1_in_0_V_read);
+    l1_in_1_V_U = new fifo_w8_d2_A("l1_in_1_V_U");
+    l1_in_1_V_U->clk(ap_clk);
+    l1_in_1_V_U->reset(ap_rst_n_inv);
+    l1_in_1_V_U->if_read_ce(ap_var_for_const0);
+    l1_in_1_V_U->if_write_ce(ap_var_for_const0);
+    l1_in_1_V_U->if_din(read_input_U0_l1_in_1_V_din);
+    l1_in_1_V_U->if_full_n(l1_in_1_V_full_n);
+    l1_in_1_V_U->if_write(read_input_U0_l1_in_1_V_write);
+    l1_in_1_V_U->if_dout(l1_in_1_V_dout);
+    l1_in_1_V_U->if_empty_n(l1_in_1_V_empty_n);
+    l1_in_1_V_U->if_read(mlp_l1_U0_l1_in_1_V_read);
+    l2_in_V_U = new fifo_w16_d2_A("l2_in_V_U");
     l2_in_V_U->clk(ap_clk);
     l2_in_V_U->reset(ap_rst_n_inv);
     l2_in_V_U->if_read_ce(ap_var_for_const0);
     l2_in_V_U->if_write_ce(ap_var_for_const0);
-    l2_in_V_U->if_din(mlp_l1_U0_l2_in_V_din);
+    l2_in_V_U->if_din(mlp_l1_U0_l1_out_V_din);
     l2_in_V_U->if_full_n(l2_in_V_full_n);
-    l2_in_V_U->if_write(mlp_l1_U0_l2_in_V_write);
+    l2_in_V_U->if_write(mlp_l1_U0_l1_out_V_write);
     l2_in_V_U->if_dout(l2_in_V_dout);
     l2_in_V_U->if_empty_n(l2_in_V_empty_n);
-    l2_in_V_U->if_read(write_output_U0_l3_out_V_read);
+    l2_in_V_U->if_read(mlp_l2_U0_l2_in_V_read);
+    l3_in_V_U = new fifo_w16_d2_A("l3_in_V_U");
+    l3_in_V_U->clk(ap_clk);
+    l3_in_V_U->reset(ap_rst_n_inv);
+    l3_in_V_U->if_read_ce(ap_var_for_const0);
+    l3_in_V_U->if_write_ce(ap_var_for_const0);
+    l3_in_V_U->if_din(mlp_l2_U0_l2_out_V_din);
+    l3_in_V_U->if_full_n(l3_in_V_full_n);
+    l3_in_V_U->if_write(mlp_l2_U0_l2_out_V_write);
+    l3_in_V_U->if_dout(l3_in_V_dout);
+    l3_in_V_U->if_empty_n(l3_in_V_empty_n);
+    l3_in_V_U->if_read(mlp_l3_U0_l3_in_V_read);
+    l3_out_V_U = new fifo_w32_d2_A("l3_out_V_U");
+    l3_out_V_U->clk(ap_clk);
+    l3_out_V_U->reset(ap_rst_n_inv);
+    l3_out_V_U->if_read_ce(ap_var_for_const0);
+    l3_out_V_U->if_write_ce(ap_var_for_const0);
+    l3_out_V_U->if_din(mlp_l3_U0_l3_out_V_din);
+    l3_out_V_U->if_full_n(l3_out_V_full_n);
+    l3_out_V_U->if_write(mlp_l3_U0_l3_out_V_write);
+    l3_out_V_U->if_dout(l3_out_V_dout);
+    l3_out_V_U->if_empty_n(l3_out_V_empty_n);
+    l3_out_V_U->if_read(write_output_U0_l3_out_V_read);
     start_for_mlp_l1_U0_U = new start_for_mlp_l1_U0("start_for_mlp_l1_U0_U");
     start_for_mlp_l1_U0_U->clk(ap_clk);
     start_for_mlp_l1_U0_U->reset(ap_rst_n_inv);
@@ -135,17 +208,39 @@ mlp::mlp(sc_module_name name) : sc_module(name), mVcdFile(0) {
     start_for_mlp_l1_U0_U->if_dout(start_for_mlp_l1_U0_dout);
     start_for_mlp_l1_U0_U->if_empty_n(start_for_mlp_l1_U0_empty_n);
     start_for_mlp_l1_U0_U->if_read(mlp_l1_U0_ap_ready);
-    start_for_write_oecO_U = new start_for_write_oecO("start_for_write_oecO_U");
-    start_for_write_oecO_U->clk(ap_clk);
-    start_for_write_oecO_U->reset(ap_rst_n_inv);
-    start_for_write_oecO_U->if_read_ce(ap_var_for_const0);
-    start_for_write_oecO_U->if_write_ce(ap_var_for_const0);
-    start_for_write_oecO_U->if_din(start_for_write_output_U0_din);
-    start_for_write_oecO_U->if_full_n(start_for_write_output_U0_full_n);
-    start_for_write_oecO_U->if_write(mlp_l1_U0_start_write);
-    start_for_write_oecO_U->if_dout(start_for_write_output_U0_dout);
-    start_for_write_oecO_U->if_empty_n(start_for_write_output_U0_empty_n);
-    start_for_write_oecO_U->if_read(write_output_U0_ap_ready);
+    start_for_mlp_l2_U0_U = new start_for_mlp_l2_U0("start_for_mlp_l2_U0_U");
+    start_for_mlp_l2_U0_U->clk(ap_clk);
+    start_for_mlp_l2_U0_U->reset(ap_rst_n_inv);
+    start_for_mlp_l2_U0_U->if_read_ce(ap_var_for_const0);
+    start_for_mlp_l2_U0_U->if_write_ce(ap_var_for_const0);
+    start_for_mlp_l2_U0_U->if_din(start_for_mlp_l2_U0_din);
+    start_for_mlp_l2_U0_U->if_full_n(start_for_mlp_l2_U0_full_n);
+    start_for_mlp_l2_U0_U->if_write(mlp_l1_U0_start_write);
+    start_for_mlp_l2_U0_U->if_dout(start_for_mlp_l2_U0_dout);
+    start_for_mlp_l2_U0_U->if_empty_n(start_for_mlp_l2_U0_empty_n);
+    start_for_mlp_l2_U0_U->if_read(mlp_l2_U0_ap_ready);
+    start_for_mlp_l3_U0_U = new start_for_mlp_l3_U0("start_for_mlp_l3_U0_U");
+    start_for_mlp_l3_U0_U->clk(ap_clk);
+    start_for_mlp_l3_U0_U->reset(ap_rst_n_inv);
+    start_for_mlp_l3_U0_U->if_read_ce(ap_var_for_const0);
+    start_for_mlp_l3_U0_U->if_write_ce(ap_var_for_const0);
+    start_for_mlp_l3_U0_U->if_din(start_for_mlp_l3_U0_din);
+    start_for_mlp_l3_U0_U->if_full_n(start_for_mlp_l3_U0_full_n);
+    start_for_mlp_l3_U0_U->if_write(mlp_l2_U0_start_write);
+    start_for_mlp_l3_U0_U->if_dout(start_for_mlp_l3_U0_dout);
+    start_for_mlp_l3_U0_U->if_empty_n(start_for_mlp_l3_U0_empty_n);
+    start_for_mlp_l3_U0_U->if_read(mlp_l3_U0_ap_ready);
+    start_for_write_ocZC_U = new start_for_write_ocZC("start_for_write_ocZC_U");
+    start_for_write_ocZC_U->clk(ap_clk);
+    start_for_write_ocZC_U->reset(ap_rst_n_inv);
+    start_for_write_ocZC_U->if_read_ce(ap_var_for_const0);
+    start_for_write_ocZC_U->if_write_ce(ap_var_for_const0);
+    start_for_write_ocZC_U->if_din(start_for_write_output_U0_din);
+    start_for_write_ocZC_U->if_full_n(start_for_write_output_U0_full_n);
+    start_for_write_ocZC_U->if_write(mlp_l3_U0_start_write);
+    start_for_write_ocZC_U->if_dout(start_for_write_output_U0_dout);
+    start_for_write_ocZC_U->if_empty_n(start_for_write_output_U0_empty_n);
+    start_for_write_ocZC_U->if_read(write_output_U0_ap_ready);
 
     SC_METHOD(thread_ap_done);
     sensitive << ( write_output_U0_ap_done );
@@ -153,6 +248,8 @@ mlp::mlp(sc_module_name name) : sc_module(name), mVcdFile(0) {
     SC_METHOD(thread_ap_idle);
     sensitive << ( read_input_U0_ap_idle );
     sensitive << ( mlp_l1_U0_ap_idle );
+    sensitive << ( mlp_l2_U0_ap_idle );
+    sensitive << ( mlp_l3_U0_ap_idle );
     sensitive << ( write_output_U0_ap_idle );
 
     SC_METHOD(thread_ap_ready);
@@ -177,6 +274,16 @@ mlp::mlp(sc_module_name name) : sc_module(name), mVcdFile(0) {
     SC_METHOD(thread_mlp_l1_U0_ap_start);
     sensitive << ( start_for_mlp_l1_U0_empty_n );
 
+    SC_METHOD(thread_mlp_l2_U0_ap_continue);
+
+    SC_METHOD(thread_mlp_l2_U0_ap_start);
+    sensitive << ( start_for_mlp_l2_U0_empty_n );
+
+    SC_METHOD(thread_mlp_l3_U0_ap_continue);
+
+    SC_METHOD(thread_mlp_l3_U0_ap_start);
+    sensitive << ( start_for_mlp_l3_U0_empty_n );
+
     SC_METHOD(thread_out_r_TDATA);
     sensitive << ( write_output_U0_out_r_TDATA );
 
@@ -198,6 +305,10 @@ mlp::mlp(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sensitive << ( ap_start );
 
     SC_METHOD(thread_start_for_mlp_l1_U0_din);
+
+    SC_METHOD(thread_start_for_mlp_l2_U0_din);
+
+    SC_METHOD(thread_start_for_mlp_l3_U0_din);
 
     SC_METHOD(thread_start_for_write_output_U0_din);
 
@@ -270,8 +381,10 @@ mlp::mlp(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sc_trace(mVcdFile, read_input_U0_start_out, "read_input_U0_start_out");
     sc_trace(mVcdFile, read_input_U0_start_write, "read_input_U0_start_write");
     sc_trace(mVcdFile, read_input_U0_in_r_TREADY, "read_input_U0_in_r_TREADY");
-    sc_trace(mVcdFile, read_input_U0_l1_in_V_din, "read_input_U0_l1_in_V_din");
-    sc_trace(mVcdFile, read_input_U0_l1_in_V_write, "read_input_U0_l1_in_V_write");
+    sc_trace(mVcdFile, read_input_U0_l1_in_0_V_din, "read_input_U0_l1_in_0_V_din");
+    sc_trace(mVcdFile, read_input_U0_l1_in_0_V_write, "read_input_U0_l1_in_0_V_write");
+    sc_trace(mVcdFile, read_input_U0_l1_in_1_V_din, "read_input_U0_l1_in_1_V_din");
+    sc_trace(mVcdFile, read_input_U0_l1_in_1_V_write, "read_input_U0_l1_in_1_V_write");
     sc_trace(mVcdFile, mlp_l1_U0_ap_start, "mlp_l1_U0_ap_start");
     sc_trace(mVcdFile, mlp_l1_U0_ap_done, "mlp_l1_U0_ap_done");
     sc_trace(mVcdFile, mlp_l1_U0_ap_continue, "mlp_l1_U0_ap_continue");
@@ -279,9 +392,30 @@ mlp::mlp(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sc_trace(mVcdFile, mlp_l1_U0_ap_ready, "mlp_l1_U0_ap_ready");
     sc_trace(mVcdFile, mlp_l1_U0_start_out, "mlp_l1_U0_start_out");
     sc_trace(mVcdFile, mlp_l1_U0_start_write, "mlp_l1_U0_start_write");
-    sc_trace(mVcdFile, mlp_l1_U0_l1_in_V_read, "mlp_l1_U0_l1_in_V_read");
-    sc_trace(mVcdFile, mlp_l1_U0_l2_in_V_din, "mlp_l1_U0_l2_in_V_din");
-    sc_trace(mVcdFile, mlp_l1_U0_l2_in_V_write, "mlp_l1_U0_l2_in_V_write");
+    sc_trace(mVcdFile, mlp_l1_U0_l1_in_0_V_read, "mlp_l1_U0_l1_in_0_V_read");
+    sc_trace(mVcdFile, mlp_l1_U0_l1_in_1_V_read, "mlp_l1_U0_l1_in_1_V_read");
+    sc_trace(mVcdFile, mlp_l1_U0_l1_out_V_din, "mlp_l1_U0_l1_out_V_din");
+    sc_trace(mVcdFile, mlp_l1_U0_l1_out_V_write, "mlp_l1_U0_l1_out_V_write");
+    sc_trace(mVcdFile, mlp_l2_U0_ap_start, "mlp_l2_U0_ap_start");
+    sc_trace(mVcdFile, mlp_l2_U0_ap_done, "mlp_l2_U0_ap_done");
+    sc_trace(mVcdFile, mlp_l2_U0_ap_continue, "mlp_l2_U0_ap_continue");
+    sc_trace(mVcdFile, mlp_l2_U0_ap_idle, "mlp_l2_U0_ap_idle");
+    sc_trace(mVcdFile, mlp_l2_U0_ap_ready, "mlp_l2_U0_ap_ready");
+    sc_trace(mVcdFile, mlp_l2_U0_start_out, "mlp_l2_U0_start_out");
+    sc_trace(mVcdFile, mlp_l2_U0_start_write, "mlp_l2_U0_start_write");
+    sc_trace(mVcdFile, mlp_l2_U0_l2_in_V_read, "mlp_l2_U0_l2_in_V_read");
+    sc_trace(mVcdFile, mlp_l2_U0_l2_out_V_din, "mlp_l2_U0_l2_out_V_din");
+    sc_trace(mVcdFile, mlp_l2_U0_l2_out_V_write, "mlp_l2_U0_l2_out_V_write");
+    sc_trace(mVcdFile, mlp_l3_U0_ap_start, "mlp_l3_U0_ap_start");
+    sc_trace(mVcdFile, mlp_l3_U0_ap_done, "mlp_l3_U0_ap_done");
+    sc_trace(mVcdFile, mlp_l3_U0_ap_continue, "mlp_l3_U0_ap_continue");
+    sc_trace(mVcdFile, mlp_l3_U0_ap_idle, "mlp_l3_U0_ap_idle");
+    sc_trace(mVcdFile, mlp_l3_U0_ap_ready, "mlp_l3_U0_ap_ready");
+    sc_trace(mVcdFile, mlp_l3_U0_start_out, "mlp_l3_U0_start_out");
+    sc_trace(mVcdFile, mlp_l3_U0_start_write, "mlp_l3_U0_start_write");
+    sc_trace(mVcdFile, mlp_l3_U0_l3_in_V_read, "mlp_l3_U0_l3_in_V_read");
+    sc_trace(mVcdFile, mlp_l3_U0_l3_out_V_din, "mlp_l3_U0_l3_out_V_din");
+    sc_trace(mVcdFile, mlp_l3_U0_l3_out_V_write, "mlp_l3_U0_l3_out_V_write");
     sc_trace(mVcdFile, write_output_U0_ap_start, "write_output_U0_ap_start");
     sc_trace(mVcdFile, write_output_U0_ap_done, "write_output_U0_ap_done");
     sc_trace(mVcdFile, write_output_U0_ap_continue, "write_output_U0_ap_continue");
@@ -294,18 +428,35 @@ mlp::mlp(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sc_trace(mVcdFile, write_output_U0_out_r_TSTRB, "write_output_U0_out_r_TSTRB");
     sc_trace(mVcdFile, write_output_U0_out_r_TLAST, "write_output_U0_out_r_TLAST");
     sc_trace(mVcdFile, ap_sync_continue, "ap_sync_continue");
-    sc_trace(mVcdFile, l1_in_V_full_n, "l1_in_V_full_n");
-    sc_trace(mVcdFile, l1_in_V_dout, "l1_in_V_dout");
-    sc_trace(mVcdFile, l1_in_V_empty_n, "l1_in_V_empty_n");
+    sc_trace(mVcdFile, l1_in_0_V_full_n, "l1_in_0_V_full_n");
+    sc_trace(mVcdFile, l1_in_0_V_dout, "l1_in_0_V_dout");
+    sc_trace(mVcdFile, l1_in_0_V_empty_n, "l1_in_0_V_empty_n");
+    sc_trace(mVcdFile, l1_in_1_V_full_n, "l1_in_1_V_full_n");
+    sc_trace(mVcdFile, l1_in_1_V_dout, "l1_in_1_V_dout");
+    sc_trace(mVcdFile, l1_in_1_V_empty_n, "l1_in_1_V_empty_n");
     sc_trace(mVcdFile, l2_in_V_full_n, "l2_in_V_full_n");
     sc_trace(mVcdFile, l2_in_V_dout, "l2_in_V_dout");
     sc_trace(mVcdFile, l2_in_V_empty_n, "l2_in_V_empty_n");
+    sc_trace(mVcdFile, l3_in_V_full_n, "l3_in_V_full_n");
+    sc_trace(mVcdFile, l3_in_V_dout, "l3_in_V_dout");
+    sc_trace(mVcdFile, l3_in_V_empty_n, "l3_in_V_empty_n");
+    sc_trace(mVcdFile, l3_out_V_full_n, "l3_out_V_full_n");
+    sc_trace(mVcdFile, l3_out_V_dout, "l3_out_V_dout");
+    sc_trace(mVcdFile, l3_out_V_empty_n, "l3_out_V_empty_n");
     sc_trace(mVcdFile, ap_sync_done, "ap_sync_done");
     sc_trace(mVcdFile, ap_sync_ready, "ap_sync_ready");
     sc_trace(mVcdFile, start_for_mlp_l1_U0_din, "start_for_mlp_l1_U0_din");
     sc_trace(mVcdFile, start_for_mlp_l1_U0_full_n, "start_for_mlp_l1_U0_full_n");
     sc_trace(mVcdFile, start_for_mlp_l1_U0_dout, "start_for_mlp_l1_U0_dout");
     sc_trace(mVcdFile, start_for_mlp_l1_U0_empty_n, "start_for_mlp_l1_U0_empty_n");
+    sc_trace(mVcdFile, start_for_mlp_l2_U0_din, "start_for_mlp_l2_U0_din");
+    sc_trace(mVcdFile, start_for_mlp_l2_U0_full_n, "start_for_mlp_l2_U0_full_n");
+    sc_trace(mVcdFile, start_for_mlp_l2_U0_dout, "start_for_mlp_l2_U0_dout");
+    sc_trace(mVcdFile, start_for_mlp_l2_U0_empty_n, "start_for_mlp_l2_U0_empty_n");
+    sc_trace(mVcdFile, start_for_mlp_l3_U0_din, "start_for_mlp_l3_U0_din");
+    sc_trace(mVcdFile, start_for_mlp_l3_U0_full_n, "start_for_mlp_l3_U0_full_n");
+    sc_trace(mVcdFile, start_for_mlp_l3_U0_dout, "start_for_mlp_l3_U0_dout");
+    sc_trace(mVcdFile, start_for_mlp_l3_U0_empty_n, "start_for_mlp_l3_U0_empty_n");
     sc_trace(mVcdFile, start_for_write_output_U0_din, "start_for_write_output_U0_din");
     sc_trace(mVcdFile, start_for_write_output_U0_full_n, "start_for_write_output_U0_full_n");
     sc_trace(mVcdFile, start_for_write_output_U0_dout, "start_for_write_output_U0_dout");
@@ -330,11 +481,18 @@ mlp::~mlp() {
     delete mlp_control_s_axi_U;
     delete read_input_U0;
     delete mlp_l1_U0;
+    delete mlp_l2_U0;
+    delete mlp_l3_U0;
     delete write_output_U0;
-    delete l1_in_V_U;
+    delete l1_in_0_V_U;
+    delete l1_in_1_V_U;
     delete l2_in_V_U;
+    delete l3_in_V_U;
+    delete l3_out_V_U;
     delete start_for_mlp_l1_U0_U;
-    delete start_for_write_oecO_U;
+    delete start_for_mlp_l2_U0_U;
+    delete start_for_mlp_l3_U0_U;
+    delete start_for_write_ocZC_U;
 }
 
 void mlp::thread_ap_var_for_const0() {
@@ -346,7 +504,7 @@ void mlp::thread_ap_done() {
 }
 
 void mlp::thread_ap_idle() {
-    ap_idle = (read_input_U0_ap_idle.read() & mlp_l1_U0_ap_idle.read() & write_output_U0_ap_idle.read());
+    ap_idle = (read_input_U0_ap_idle.read() & mlp_l1_U0_ap_idle.read() & mlp_l2_U0_ap_idle.read() & mlp_l3_U0_ap_idle.read() & write_output_U0_ap_idle.read());
 }
 
 void mlp::thread_ap_ready() {
@@ -381,6 +539,22 @@ void mlp::thread_mlp_l1_U0_ap_start() {
     mlp_l1_U0_ap_start = start_for_mlp_l1_U0_empty_n.read();
 }
 
+void mlp::thread_mlp_l2_U0_ap_continue() {
+    mlp_l2_U0_ap_continue = ap_const_logic_1;
+}
+
+void mlp::thread_mlp_l2_U0_ap_start() {
+    mlp_l2_U0_ap_start = start_for_mlp_l2_U0_empty_n.read();
+}
+
+void mlp::thread_mlp_l3_U0_ap_continue() {
+    mlp_l3_U0_ap_continue = ap_const_logic_1;
+}
+
+void mlp::thread_mlp_l3_U0_ap_start() {
+    mlp_l3_U0_ap_start = start_for_mlp_l3_U0_empty_n.read();
+}
+
 void mlp::thread_out_r_TDATA() {
     out_r_TDATA = write_output_U0_out_r_TDATA.read();
 }
@@ -411,6 +585,14 @@ void mlp::thread_read_input_U0_ap_start() {
 
 void mlp::thread_start_for_mlp_l1_U0_din() {
     start_for_mlp_l1_U0_din =  (sc_lv<1>) (ap_const_logic_1);
+}
+
+void mlp::thread_start_for_mlp_l2_U0_din() {
+    start_for_mlp_l2_U0_din =  (sc_lv<1>) (ap_const_logic_1);
+}
+
+void mlp::thread_start_for_mlp_l3_U0_din() {
+    start_for_mlp_l3_U0_din =  (sc_lv<1>) (ap_const_logic_1);
 }
 
 void mlp::thread_start_for_write_output_U0_din() {

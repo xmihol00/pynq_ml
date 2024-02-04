@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'mlp_l1'" level="0">
-<item name = "Date">Sun Feb  4 13:27:12 2024
+<item name = "Date">Sun Feb  4 20:35:58 2024
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">hls</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 8.462 ns, 1.25 ns</column>
+<column name="ap_clk">10.00 ns, 8.272 ns, 1.25 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">2741, 2741, 27.410 us, 27.410 us, 2741, 2741, none</column>
+<column name="">1845, 1845, 18.450 us, 18.450 us, 1845, 1845, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,10 +35,10 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- memset_l1_out_buffer">127, 127, 1, -, -, 128, no</column>
-<column name="- l1_in_dataflow">1568, 1568, 2, -, -, 784, no</column>
-<column name="- l1_mat_mul_outer">785, 785, 3, 1, 1, 784, yes</column>
-<column name="- l1_out_dataflow">256, 256, 2, -, -, 128, no</column>
+<column name="- l1">1844, 1844, 922, -, -, 2, no</column>
+<column name=" + l1_output_reset">64, 64, 1, 1, 1, 64, yes</column>
+<column name=" + l1_mat_mul_outer">786, 786, 3, 1, 1, 784, yes</column>
+<column name=" + l1_bias_relu_write">65, 65, 3, 1, 1, 64, yes</column>
 </table>
 </item>
 </section>

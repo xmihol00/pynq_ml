@@ -5,8 +5,12 @@
     <downStreamTool>
         <DownStreamTool name="vivado"/>
     </downStreamTool>
+    <clockList>
+        <clock default="false" name="default" period="10"/>
+    </clockList>
     <config>
         <schedule model="mlp"/>
+        <config_export format="ip_catalog" rtl="vhdl"/>
     </config>
     <UIConfigurations>
         <UIAutosynConf boardInfo="pynq-z2 (xc7z020clg400-1) " hideTrivialOp="true" isBasedOnBoard="true" isSolutionDirty="false" isStopAskAgain="false" showDetailDesignViewer="false">
@@ -40,8 +44,8 @@
             </RTLs>
         </UIAutoSimConf>
     </UIConfigurations>
-    <ExportDesign askAgain="true" evaluate="false" flow="false" flowChoice="syn" formatName="ip_catalog" rtl="verilog" rtlButton="false" rtlCombo="verilog">
-        <Format formatName="ip_catalog"/>
+    <ExportDesign askAgain="false" evaluate="true" flow="true" flowChoice="impl" formatName="ip_catalog" rtl="vhdl" rtlButton="true" rtlCombo="vhdl">
+        <Format formatName="ip_catalog" description="" vendor="" library="" ipname="" version="1.0" driver_input_dir="" display_name="" taxonomy=""/>
         <Format formatName="sysgen"/>
         <Format formatName="sysgen_ise"/>
         <Format formatName="syn_dcp"/>
@@ -67,8 +71,5 @@
         <library name="DefaultPlatform" value="xilinx/zynq/zynq"/>
         <library name="DefaultPlatform" value="xilinx/zynq/zynq_fpv6"/>
     </libraryList>
-    <clockList>
-        <clock default="false" name="default" period="10"/>
-    </clockList>
 </solution>
 

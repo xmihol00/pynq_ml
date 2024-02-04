@@ -17,28 +17,28 @@
 <PipelineType>dataflow</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>8.462</EstimatedClockPeriod>
+<EstimatedClockPeriod>8.272</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>2743</Best-caseLatency>
-<Average-caseLatency>2743</Average-caseLatency>
-<Worst-caseLatency>2743</Worst-caseLatency>
-<Best-caseRealTimeLatency>27.430 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>27.430 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>27.430 us</Worst-caseRealTimeLatency>
-<DataflowPipelineThroughput>2742</DataflowPipelineThroughput>
-<Interval-min>2742</Interval-min>
-<Interval-max>2742</Interval-max>
+<Best-caseLatency>1858</Best-caseLatency>
+<Average-caseLatency>1858</Average-caseLatency>
+<Worst-caseLatency>1858</Worst-caseLatency>
+<Best-caseRealTimeLatency>18.580 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>18.580 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>18.580 us</Worst-caseRealTimeLatency>
+<DataflowPipelineThroughput>1846</DataflowPipelineThroughput>
+<Interval-min>1846</Interval-min>
+<Interval-max>1846</Interval-max>
 </SummaryOfOverallLatency>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
-<BRAM_18K>128</BRAM_18K>
-<DSP48E>128</DSP48E>
-<FF>11850</FF>
-<LUT>95930</LUT>
+<BRAM_18K>205</BRAM_18K>
+<DSP48E>138</DSP48E>
+<FF>16979</FF>
+<LUT>9444</LUT>
 <URAM>0</URAM>
 </Resources>
 <AvailableResources>

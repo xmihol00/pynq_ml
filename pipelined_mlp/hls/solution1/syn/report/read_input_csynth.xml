@@ -17,37 +17,33 @@
 <PipelineType>none</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>6.809</EstimatedClockPeriod>
+<EstimatedClockPeriod>3.634</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>1667</Best-caseLatency>
-<Average-caseLatency>1667</Average-caseLatency>
-<Worst-caseLatency>1667</Worst-caseLatency>
-<Best-caseRealTimeLatency>16.670 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>16.670 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>16.670 us</Worst-caseRealTimeLatency>
-<Interval-min>1667</Interval-min>
-<Interval-max>1667</Interval-max>
+<Best-caseLatency>786</Best-caseLatency>
+<Average-caseLatency>786</Average-caseLatency>
+<Worst-caseLatency>786</Worst-caseLatency>
+<Best-caseRealTimeLatency>7.860 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>7.860 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>7.860 us</Worst-caseRealTimeLatency>
+<Interval-min>786</Interval-min>
+<Interval-max>786</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <load_sample>
 <TripCount>49</TripCount>
-<Latency>1666</Latency>
-<IterationLatency>34</IterationLatency>
-<load_sample.1>
-<TripCount>16</TripCount>
-<Latency>32</Latency>
-<IterationLatency>2</IterationLatency>
-</load_sample.1>
+<Latency>784</Latency>
+<PipelineII>16</PipelineII>
+<PipelineDepth>17</PipelineDepth>
 </load_sample>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
-<FF>324</FF>
-<LUT>1374</LUT>
+<FF>155</FF>
+<LUT>407</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP48E>0</DSP48E>
 <URAM>0</URAM>
@@ -239,8 +235,8 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>l1_in_V_din</name>
-<Object>l1_in_V</Object>
+<name>l1_in_0_V_din</name>
+<Object>l1_in_0_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -250,8 +246,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>l1_in_V_full_n</name>
-<Object>l1_in_V</Object>
+<name>l1_in_0_V_full_n</name>
+<Object>l1_in_0_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -261,8 +257,41 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>l1_in_V_write</name>
-<Object>l1_in_V</Object>
+<name>l1_in_0_V_write</name>
+<Object>l1_in_0_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>ap_fifo</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>l1_in_1_V_din</name>
+<Object>l1_in_1_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>ap_fifo</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>8</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>l1_in_1_V_full_n</name>
+<Object>l1_in_1_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>ap_fifo</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>l1_in_1_V_write</name>
+<Object>l1_in_1_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>

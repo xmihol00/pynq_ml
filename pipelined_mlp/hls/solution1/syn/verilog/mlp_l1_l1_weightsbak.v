@@ -6,7 +6,7 @@
 (* rom_style = "block" *) module mlp_l1_l1_weightsbak_rom (
 addr0, ce0, q0, clk);
 
-parameter DWIDTH = 7;
+parameter DWIDTH = 8;
 parameter AWIDTH = 10;
 parameter MEM_SIZE = 784;
 
@@ -43,7 +43,7 @@ module mlp_l1_l1_weightsbak(
     ce0,
     q0);
 
-parameter DataWidth = 32'd7;
+parameter DataWidth = 32'd8;
 parameter AddressRange = 32'd784;
 parameter AddressWidth = 32'd10;
 input reset;

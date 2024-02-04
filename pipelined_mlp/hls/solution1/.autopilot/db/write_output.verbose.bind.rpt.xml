@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'write_output'" level="0">
-<item name = "Date">Sun Feb  4 13:27:18 2024
+<item name = "Date">Sun Feb  4 20:36:04 2024
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">hls</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 7.885 ns, 1.25 ns</column>
+<column name="ap_clk">10.00 ns, 3.634 ns, 1.25 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">36, 36, 0.360 us, 0.360 us, 36, 36, none</column>
+<column name="">13, 13, 0.130 us, 0.130 us, 13, 13, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,8 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- write_prediction">35, 35, 7, -, -, 5, no</column>
-<column name=" + write_prediction.1">4, 4, 2, -, -, 2, no</column>
+<column name="- write_prediction">11, 11, 4, 2, 1, 5, yes</column>
 </table>
 </item>
 </section>

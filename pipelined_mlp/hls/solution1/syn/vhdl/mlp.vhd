@@ -52,7 +52,7 @@ end;
 architecture behav of mlp is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "mlp,hls_ip_2020_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=8.462000,HLS_SYN_LAT=2743,HLS_SYN_TPT=2742,HLS_SYN_MEM=128,HLS_SYN_DSP=128,HLS_SYN_FF=11850,HLS_SYN_LUT=95930,HLS_VERSION=2020_1}";
+    "mlp,hls_ip_2020_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=8.272500,HLS_SYN_LAT=1858,HLS_SYN_TPT=1846,HLS_SYN_MEM=205,HLS_SYN_DSP=138,HLS_SYN_FF=16979,HLS_SYN_LUT=9444,HLS_VERSION=2020_1}";
     constant C_S_AXI_DATA_WIDTH : INTEGER range 63 downto 0 := 20;
     constant C_S_AXI_WSTRB_WIDTH : INTEGER range 63 downto 0 := 4;
     constant C_S_AXI_ADDR_WIDTH : INTEGER range 63 downto 0 := 20;
@@ -75,8 +75,10 @@ architecture behav of mlp is
     signal read_input_U0_start_out : STD_LOGIC;
     signal read_input_U0_start_write : STD_LOGIC;
     signal read_input_U0_in_r_TREADY : STD_LOGIC;
-    signal read_input_U0_l1_in_V_din : STD_LOGIC_VECTOR (7 downto 0);
-    signal read_input_U0_l1_in_V_write : STD_LOGIC;
+    signal read_input_U0_l1_in_0_V_din : STD_LOGIC_VECTOR (7 downto 0);
+    signal read_input_U0_l1_in_0_V_write : STD_LOGIC;
+    signal read_input_U0_l1_in_1_V_din : STD_LOGIC_VECTOR (7 downto 0);
+    signal read_input_U0_l1_in_1_V_write : STD_LOGIC;
     signal mlp_l1_U0_ap_start : STD_LOGIC;
     signal mlp_l1_U0_ap_done : STD_LOGIC;
     signal mlp_l1_U0_ap_continue : STD_LOGIC;
@@ -84,9 +86,30 @@ architecture behav of mlp is
     signal mlp_l1_U0_ap_ready : STD_LOGIC;
     signal mlp_l1_U0_start_out : STD_LOGIC;
     signal mlp_l1_U0_start_write : STD_LOGIC;
-    signal mlp_l1_U0_l1_in_V_read : STD_LOGIC;
-    signal mlp_l1_U0_l2_in_V_din : STD_LOGIC_VECTOR (31 downto 0);
-    signal mlp_l1_U0_l2_in_V_write : STD_LOGIC;
+    signal mlp_l1_U0_l1_in_0_V_read : STD_LOGIC;
+    signal mlp_l1_U0_l1_in_1_V_read : STD_LOGIC;
+    signal mlp_l1_U0_l1_out_V_din : STD_LOGIC_VECTOR (15 downto 0);
+    signal mlp_l1_U0_l1_out_V_write : STD_LOGIC;
+    signal mlp_l2_U0_ap_start : STD_LOGIC;
+    signal mlp_l2_U0_ap_done : STD_LOGIC;
+    signal mlp_l2_U0_ap_continue : STD_LOGIC;
+    signal mlp_l2_U0_ap_idle : STD_LOGIC;
+    signal mlp_l2_U0_ap_ready : STD_LOGIC;
+    signal mlp_l2_U0_start_out : STD_LOGIC;
+    signal mlp_l2_U0_start_write : STD_LOGIC;
+    signal mlp_l2_U0_l2_in_V_read : STD_LOGIC;
+    signal mlp_l2_U0_l2_out_V_din : STD_LOGIC_VECTOR (15 downto 0);
+    signal mlp_l2_U0_l2_out_V_write : STD_LOGIC;
+    signal mlp_l3_U0_ap_start : STD_LOGIC;
+    signal mlp_l3_U0_ap_done : STD_LOGIC;
+    signal mlp_l3_U0_ap_continue : STD_LOGIC;
+    signal mlp_l3_U0_ap_idle : STD_LOGIC;
+    signal mlp_l3_U0_ap_ready : STD_LOGIC;
+    signal mlp_l3_U0_start_out : STD_LOGIC;
+    signal mlp_l3_U0_start_write : STD_LOGIC;
+    signal mlp_l3_U0_l3_in_V_read : STD_LOGIC;
+    signal mlp_l3_U0_l3_out_V_din : STD_LOGIC_VECTOR (31 downto 0);
+    signal mlp_l3_U0_l3_out_V_write : STD_LOGIC;
     signal write_output_U0_ap_start : STD_LOGIC;
     signal write_output_U0_ap_done : STD_LOGIC;
     signal write_output_U0_ap_continue : STD_LOGIC;
@@ -99,18 +122,35 @@ architecture behav of mlp is
     signal write_output_U0_out_r_TSTRB : STD_LOGIC_VECTOR (7 downto 0);
     signal write_output_U0_out_r_TLAST : STD_LOGIC_VECTOR (0 downto 0);
     signal ap_sync_continue : STD_LOGIC;
-    signal l1_in_V_full_n : STD_LOGIC;
-    signal l1_in_V_dout : STD_LOGIC_VECTOR (7 downto 0);
-    signal l1_in_V_empty_n : STD_LOGIC;
+    signal l1_in_0_V_full_n : STD_LOGIC;
+    signal l1_in_0_V_dout : STD_LOGIC_VECTOR (7 downto 0);
+    signal l1_in_0_V_empty_n : STD_LOGIC;
+    signal l1_in_1_V_full_n : STD_LOGIC;
+    signal l1_in_1_V_dout : STD_LOGIC_VECTOR (7 downto 0);
+    signal l1_in_1_V_empty_n : STD_LOGIC;
     signal l2_in_V_full_n : STD_LOGIC;
-    signal l2_in_V_dout : STD_LOGIC_VECTOR (31 downto 0);
+    signal l2_in_V_dout : STD_LOGIC_VECTOR (15 downto 0);
     signal l2_in_V_empty_n : STD_LOGIC;
+    signal l3_in_V_full_n : STD_LOGIC;
+    signal l3_in_V_dout : STD_LOGIC_VECTOR (15 downto 0);
+    signal l3_in_V_empty_n : STD_LOGIC;
+    signal l3_out_V_full_n : STD_LOGIC;
+    signal l3_out_V_dout : STD_LOGIC_VECTOR (31 downto 0);
+    signal l3_out_V_empty_n : STD_LOGIC;
     signal ap_sync_done : STD_LOGIC;
     signal ap_sync_ready : STD_LOGIC;
     signal start_for_mlp_l1_U0_din : STD_LOGIC_VECTOR (0 downto 0);
     signal start_for_mlp_l1_U0_full_n : STD_LOGIC;
     signal start_for_mlp_l1_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
     signal start_for_mlp_l1_U0_empty_n : STD_LOGIC;
+    signal start_for_mlp_l2_U0_din : STD_LOGIC_VECTOR (0 downto 0);
+    signal start_for_mlp_l2_U0_full_n : STD_LOGIC;
+    signal start_for_mlp_l2_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
+    signal start_for_mlp_l2_U0_empty_n : STD_LOGIC;
+    signal start_for_mlp_l3_U0_din : STD_LOGIC_VECTOR (0 downto 0);
+    signal start_for_mlp_l3_U0_full_n : STD_LOGIC;
+    signal start_for_mlp_l3_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
+    signal start_for_mlp_l3_U0_empty_n : STD_LOGIC;
     signal start_for_write_output_U0_din : STD_LOGIC_VECTOR (0 downto 0);
     signal start_for_write_output_U0_full_n : STD_LOGIC;
     signal start_for_write_output_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
@@ -136,9 +176,12 @@ architecture behav of mlp is
         in_r_TKEEP : IN STD_LOGIC_VECTOR (15 downto 0);
         in_r_TSTRB : IN STD_LOGIC_VECTOR (15 downto 0);
         in_r_TLAST : IN STD_LOGIC_VECTOR (0 downto 0);
-        l1_in_V_din : OUT STD_LOGIC_VECTOR (7 downto 0);
-        l1_in_V_full_n : IN STD_LOGIC;
-        l1_in_V_write : OUT STD_LOGIC );
+        l1_in_0_V_din : OUT STD_LOGIC_VECTOR (7 downto 0);
+        l1_in_0_V_full_n : IN STD_LOGIC;
+        l1_in_0_V_write : OUT STD_LOGIC;
+        l1_in_1_V_din : OUT STD_LOGIC_VECTOR (7 downto 0);
+        l1_in_1_V_full_n : IN STD_LOGIC;
+        l1_in_1_V_write : OUT STD_LOGIC );
     end component;
 
 
@@ -154,12 +197,57 @@ architecture behav of mlp is
         ap_ready : OUT STD_LOGIC;
         start_out : OUT STD_LOGIC;
         start_write : OUT STD_LOGIC;
-        l1_in_V_dout : IN STD_LOGIC_VECTOR (7 downto 0);
-        l1_in_V_empty_n : IN STD_LOGIC;
-        l1_in_V_read : OUT STD_LOGIC;
-        l2_in_V_din : OUT STD_LOGIC_VECTOR (31 downto 0);
-        l2_in_V_full_n : IN STD_LOGIC;
-        l2_in_V_write : OUT STD_LOGIC );
+        l1_in_0_V_dout : IN STD_LOGIC_VECTOR (7 downto 0);
+        l1_in_0_V_empty_n : IN STD_LOGIC;
+        l1_in_0_V_read : OUT STD_LOGIC;
+        l1_in_1_V_dout : IN STD_LOGIC_VECTOR (7 downto 0);
+        l1_in_1_V_empty_n : IN STD_LOGIC;
+        l1_in_1_V_read : OUT STD_LOGIC;
+        l1_out_V_din : OUT STD_LOGIC_VECTOR (15 downto 0);
+        l1_out_V_full_n : IN STD_LOGIC;
+        l1_out_V_write : OUT STD_LOGIC );
+    end component;
+
+
+    component mlp_l2 IS
+    port (
+        ap_clk : IN STD_LOGIC;
+        ap_rst : IN STD_LOGIC;
+        ap_start : IN STD_LOGIC;
+        start_full_n : IN STD_LOGIC;
+        ap_done : OUT STD_LOGIC;
+        ap_continue : IN STD_LOGIC;
+        ap_idle : OUT STD_LOGIC;
+        ap_ready : OUT STD_LOGIC;
+        start_out : OUT STD_LOGIC;
+        start_write : OUT STD_LOGIC;
+        l2_in_V_dout : IN STD_LOGIC_VECTOR (15 downto 0);
+        l2_in_V_empty_n : IN STD_LOGIC;
+        l2_in_V_read : OUT STD_LOGIC;
+        l2_out_V_din : OUT STD_LOGIC_VECTOR (15 downto 0);
+        l2_out_V_full_n : IN STD_LOGIC;
+        l2_out_V_write : OUT STD_LOGIC );
+    end component;
+
+
+    component mlp_l3 IS
+    port (
+        ap_clk : IN STD_LOGIC;
+        ap_rst : IN STD_LOGIC;
+        ap_start : IN STD_LOGIC;
+        start_full_n : IN STD_LOGIC;
+        ap_done : OUT STD_LOGIC;
+        ap_continue : IN STD_LOGIC;
+        ap_idle : OUT STD_LOGIC;
+        ap_ready : OUT STD_LOGIC;
+        start_out : OUT STD_LOGIC;
+        start_write : OUT STD_LOGIC;
+        l3_in_V_dout : IN STD_LOGIC_VECTOR (15 downto 0);
+        l3_in_V_empty_n : IN STD_LOGIC;
+        l3_in_V_read : OUT STD_LOGIC;
+        l3_out_V_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+        l3_out_V_full_n : IN STD_LOGIC;
+        l3_out_V_write : OUT STD_LOGIC );
     end component;
 
 
@@ -199,6 +287,21 @@ architecture behav of mlp is
     end component;
 
 
+    component fifo_w16_d2_A IS
+    port (
+        clk : IN STD_LOGIC;
+        reset : IN STD_LOGIC;
+        if_read_ce : IN STD_LOGIC;
+        if_write_ce : IN STD_LOGIC;
+        if_din : IN STD_LOGIC_VECTOR (15 downto 0);
+        if_full_n : OUT STD_LOGIC;
+        if_write : IN STD_LOGIC;
+        if_dout : OUT STD_LOGIC_VECTOR (15 downto 0);
+        if_empty_n : OUT STD_LOGIC;
+        if_read : IN STD_LOGIC );
+    end component;
+
+
     component fifo_w32_d2_A IS
     port (
         clk : IN STD_LOGIC;
@@ -229,7 +332,37 @@ architecture behav of mlp is
     end component;
 
 
-    component start_for_write_oecO IS
+    component start_for_mlp_l2_U0 IS
+    port (
+        clk : IN STD_LOGIC;
+        reset : IN STD_LOGIC;
+        if_read_ce : IN STD_LOGIC;
+        if_write_ce : IN STD_LOGIC;
+        if_din : IN STD_LOGIC_VECTOR (0 downto 0);
+        if_full_n : OUT STD_LOGIC;
+        if_write : IN STD_LOGIC;
+        if_dout : OUT STD_LOGIC_VECTOR (0 downto 0);
+        if_empty_n : OUT STD_LOGIC;
+        if_read : IN STD_LOGIC );
+    end component;
+
+
+    component start_for_mlp_l3_U0 IS
+    port (
+        clk : IN STD_LOGIC;
+        reset : IN STD_LOGIC;
+        if_read_ce : IN STD_LOGIC;
+        if_write_ce : IN STD_LOGIC;
+        if_din : IN STD_LOGIC_VECTOR (0 downto 0);
+        if_full_n : OUT STD_LOGIC;
+        if_write : IN STD_LOGIC;
+        if_dout : OUT STD_LOGIC_VECTOR (0 downto 0);
+        if_empty_n : OUT STD_LOGIC;
+        if_read : IN STD_LOGIC );
+    end component;
+
+
+    component start_for_write_ocZC IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -328,28 +461,72 @@ begin
         in_r_TKEEP => in_r_TKEEP,
         in_r_TSTRB => in_r_TSTRB,
         in_r_TLAST => in_r_TLAST,
-        l1_in_V_din => read_input_U0_l1_in_V_din,
-        l1_in_V_full_n => l1_in_V_full_n,
-        l1_in_V_write => read_input_U0_l1_in_V_write);
+        l1_in_0_V_din => read_input_U0_l1_in_0_V_din,
+        l1_in_0_V_full_n => l1_in_0_V_full_n,
+        l1_in_0_V_write => read_input_U0_l1_in_0_V_write,
+        l1_in_1_V_din => read_input_U0_l1_in_1_V_din,
+        l1_in_1_V_full_n => l1_in_1_V_full_n,
+        l1_in_1_V_write => read_input_U0_l1_in_1_V_write);
 
     mlp_l1_U0 : component mlp_l1
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
         ap_start => mlp_l1_U0_ap_start,
-        start_full_n => start_for_write_output_U0_full_n,
+        start_full_n => start_for_mlp_l2_U0_full_n,
         ap_done => mlp_l1_U0_ap_done,
         ap_continue => mlp_l1_U0_ap_continue,
         ap_idle => mlp_l1_U0_ap_idle,
         ap_ready => mlp_l1_U0_ap_ready,
         start_out => mlp_l1_U0_start_out,
         start_write => mlp_l1_U0_start_write,
-        l1_in_V_dout => l1_in_V_dout,
-        l1_in_V_empty_n => l1_in_V_empty_n,
-        l1_in_V_read => mlp_l1_U0_l1_in_V_read,
-        l2_in_V_din => mlp_l1_U0_l2_in_V_din,
-        l2_in_V_full_n => l2_in_V_full_n,
-        l2_in_V_write => mlp_l1_U0_l2_in_V_write);
+        l1_in_0_V_dout => l1_in_0_V_dout,
+        l1_in_0_V_empty_n => l1_in_0_V_empty_n,
+        l1_in_0_V_read => mlp_l1_U0_l1_in_0_V_read,
+        l1_in_1_V_dout => l1_in_1_V_dout,
+        l1_in_1_V_empty_n => l1_in_1_V_empty_n,
+        l1_in_1_V_read => mlp_l1_U0_l1_in_1_V_read,
+        l1_out_V_din => mlp_l1_U0_l1_out_V_din,
+        l1_out_V_full_n => l2_in_V_full_n,
+        l1_out_V_write => mlp_l1_U0_l1_out_V_write);
+
+    mlp_l2_U0 : component mlp_l2
+    port map (
+        ap_clk => ap_clk,
+        ap_rst => ap_rst_n_inv,
+        ap_start => mlp_l2_U0_ap_start,
+        start_full_n => start_for_mlp_l3_U0_full_n,
+        ap_done => mlp_l2_U0_ap_done,
+        ap_continue => mlp_l2_U0_ap_continue,
+        ap_idle => mlp_l2_U0_ap_idle,
+        ap_ready => mlp_l2_U0_ap_ready,
+        start_out => mlp_l2_U0_start_out,
+        start_write => mlp_l2_U0_start_write,
+        l2_in_V_dout => l2_in_V_dout,
+        l2_in_V_empty_n => l2_in_V_empty_n,
+        l2_in_V_read => mlp_l2_U0_l2_in_V_read,
+        l2_out_V_din => mlp_l2_U0_l2_out_V_din,
+        l2_out_V_full_n => l3_in_V_full_n,
+        l2_out_V_write => mlp_l2_U0_l2_out_V_write);
+
+    mlp_l3_U0 : component mlp_l3
+    port map (
+        ap_clk => ap_clk,
+        ap_rst => ap_rst_n_inv,
+        ap_start => mlp_l3_U0_ap_start,
+        start_full_n => start_for_write_output_U0_full_n,
+        ap_done => mlp_l3_U0_ap_done,
+        ap_continue => mlp_l3_U0_ap_continue,
+        ap_idle => mlp_l3_U0_ap_idle,
+        ap_ready => mlp_l3_U0_ap_ready,
+        start_out => mlp_l3_U0_start_out,
+        start_write => mlp_l3_U0_start_write,
+        l3_in_V_dout => l3_in_V_dout,
+        l3_in_V_empty_n => l3_in_V_empty_n,
+        l3_in_V_read => mlp_l3_U0_l3_in_V_read,
+        l3_out_V_din => mlp_l3_U0_l3_out_V_din,
+        l3_out_V_full_n => l3_out_V_full_n,
+        l3_out_V_write => mlp_l3_U0_l3_out_V_write);
 
     write_output_U0 : component write_output
     port map (
@@ -360,8 +537,8 @@ begin
         ap_continue => write_output_U0_ap_continue,
         ap_idle => write_output_U0_ap_idle,
         ap_ready => write_output_U0_ap_ready,
-        l3_out_V_dout => l2_in_V_dout,
-        l3_out_V_empty_n => l2_in_V_empty_n,
+        l3_out_V_dout => l3_out_V_dout,
+        l3_out_V_empty_n => l3_out_V_empty_n,
         l3_out_V_read => write_output_U0_l3_out_V_read,
         out_r_TDATA => write_output_U0_out_r_TDATA,
         out_r_TVALID => write_output_U0_out_r_TVALID,
@@ -370,30 +547,69 @@ begin
         out_r_TSTRB => write_output_U0_out_r_TSTRB,
         out_r_TLAST => write_output_U0_out_r_TLAST);
 
-    l1_in_V_U : component fifo_w8_d2_A
+    l1_in_0_V_U : component fifo_w8_d2_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => read_input_U0_l1_in_V_din,
-        if_full_n => l1_in_V_full_n,
-        if_write => read_input_U0_l1_in_V_write,
-        if_dout => l1_in_V_dout,
-        if_empty_n => l1_in_V_empty_n,
-        if_read => mlp_l1_U0_l1_in_V_read);
+        if_din => read_input_U0_l1_in_0_V_din,
+        if_full_n => l1_in_0_V_full_n,
+        if_write => read_input_U0_l1_in_0_V_write,
+        if_dout => l1_in_0_V_dout,
+        if_empty_n => l1_in_0_V_empty_n,
+        if_read => mlp_l1_U0_l1_in_0_V_read);
 
-    l2_in_V_U : component fifo_w32_d2_A
+    l1_in_1_V_U : component fifo_w8_d2_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => mlp_l1_U0_l2_in_V_din,
+        if_din => read_input_U0_l1_in_1_V_din,
+        if_full_n => l1_in_1_V_full_n,
+        if_write => read_input_U0_l1_in_1_V_write,
+        if_dout => l1_in_1_V_dout,
+        if_empty_n => l1_in_1_V_empty_n,
+        if_read => mlp_l1_U0_l1_in_1_V_read);
+
+    l2_in_V_U : component fifo_w16_d2_A
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        if_read_ce => ap_const_logic_1,
+        if_write_ce => ap_const_logic_1,
+        if_din => mlp_l1_U0_l1_out_V_din,
         if_full_n => l2_in_V_full_n,
-        if_write => mlp_l1_U0_l2_in_V_write,
+        if_write => mlp_l1_U0_l1_out_V_write,
         if_dout => l2_in_V_dout,
         if_empty_n => l2_in_V_empty_n,
+        if_read => mlp_l2_U0_l2_in_V_read);
+
+    l3_in_V_U : component fifo_w16_d2_A
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        if_read_ce => ap_const_logic_1,
+        if_write_ce => ap_const_logic_1,
+        if_din => mlp_l2_U0_l2_out_V_din,
+        if_full_n => l3_in_V_full_n,
+        if_write => mlp_l2_U0_l2_out_V_write,
+        if_dout => l3_in_V_dout,
+        if_empty_n => l3_in_V_empty_n,
+        if_read => mlp_l3_U0_l3_in_V_read);
+
+    l3_out_V_U : component fifo_w32_d2_A
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        if_read_ce => ap_const_logic_1,
+        if_write_ce => ap_const_logic_1,
+        if_din => mlp_l3_U0_l3_out_V_din,
+        if_full_n => l3_out_V_full_n,
+        if_write => mlp_l3_U0_l3_out_V_write,
+        if_dout => l3_out_V_dout,
+        if_empty_n => l3_out_V_empty_n,
         if_read => write_output_U0_l3_out_V_read);
 
     start_for_mlp_l1_U0_U : component start_for_mlp_l1_U0
@@ -409,7 +625,33 @@ begin
         if_empty_n => start_for_mlp_l1_U0_empty_n,
         if_read => mlp_l1_U0_ap_ready);
 
-    start_for_write_oecO_U : component start_for_write_oecO
+    start_for_mlp_l2_U0_U : component start_for_mlp_l2_U0
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        if_read_ce => ap_const_logic_1,
+        if_write_ce => ap_const_logic_1,
+        if_din => start_for_mlp_l2_U0_din,
+        if_full_n => start_for_mlp_l2_U0_full_n,
+        if_write => mlp_l1_U0_start_write,
+        if_dout => start_for_mlp_l2_U0_dout,
+        if_empty_n => start_for_mlp_l2_U0_empty_n,
+        if_read => mlp_l2_U0_ap_ready);
+
+    start_for_mlp_l3_U0_U : component start_for_mlp_l3_U0
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        if_read_ce => ap_const_logic_1,
+        if_write_ce => ap_const_logic_1,
+        if_din => start_for_mlp_l3_U0_din,
+        if_full_n => start_for_mlp_l3_U0_full_n,
+        if_write => mlp_l2_U0_start_write,
+        if_dout => start_for_mlp_l3_U0_dout,
+        if_empty_n => start_for_mlp_l3_U0_empty_n,
+        if_read => mlp_l3_U0_ap_ready);
+
+    start_for_write_ocZC_U : component start_for_write_ocZC
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
@@ -417,7 +659,7 @@ begin
         if_write_ce => ap_const_logic_1,
         if_din => start_for_write_output_U0_din,
         if_full_n => start_for_write_output_U0_full_n,
-        if_write => mlp_l1_U0_start_write,
+        if_write => mlp_l3_U0_start_write,
         if_dout => start_for_write_output_U0_dout,
         if_empty_n => start_for_write_output_U0_empty_n,
         if_read => write_output_U0_ap_ready);
@@ -426,7 +668,7 @@ begin
 
 
     ap_done <= write_output_U0_ap_done;
-    ap_idle <= (write_output_U0_ap_idle and read_input_U0_ap_idle and mlp_l1_U0_ap_idle);
+    ap_idle <= (write_output_U0_ap_idle and read_input_U0_ap_idle and mlp_l3_U0_ap_idle and mlp_l2_U0_ap_idle and mlp_l1_U0_ap_idle);
     ap_ready <= read_input_U0_ap_ready;
 
     ap_rst_n_inv_assign_proc : process(ap_rst_n)
@@ -440,6 +682,10 @@ begin
     in_r_TREADY <= read_input_U0_in_r_TREADY;
     mlp_l1_U0_ap_continue <= ap_const_logic_1;
     mlp_l1_U0_ap_start <= start_for_mlp_l1_U0_empty_n;
+    mlp_l2_U0_ap_continue <= ap_const_logic_1;
+    mlp_l2_U0_ap_start <= start_for_mlp_l2_U0_empty_n;
+    mlp_l3_U0_ap_continue <= ap_const_logic_1;
+    mlp_l3_U0_ap_start <= start_for_mlp_l3_U0_empty_n;
     out_r_TDATA <= write_output_U0_out_r_TDATA;
     out_r_TKEEP <= write_output_U0_out_r_TKEEP;
     out_r_TLAST <= write_output_U0_out_r_TLAST;
@@ -448,6 +694,8 @@ begin
     read_input_U0_ap_continue <= ap_const_logic_1;
     read_input_U0_ap_start <= ap_start;
     start_for_mlp_l1_U0_din <= (0=>ap_const_logic_1, others=>'-');
+    start_for_mlp_l2_U0_din <= (0=>ap_const_logic_1, others=>'-');
+    start_for_mlp_l3_U0_din <= (0=>ap_const_logic_1, others=>'-');
     start_for_write_output_U0_din <= (0=>ap_const_logic_1, others=>'-');
     write_output_U0_ap_continue <= ap_const_logic_1;
     write_output_U0_ap_start <= start_for_write_output_U0_empty_n;

@@ -43,12 +43,12 @@ set TargetInfo xc7z020:-clg400:-1
 set SourceFiles {sc {} c ../../pipelined_mlp.cpp}
 set SourceFlags {sc {} c {{}}}
 set DirectiveFile /mnt/sdc3/david/projs/pynq_ml/pipelined_mlp/hls/solution1/solution1.directive
-set TBFiles {verilog ../../pipelined_mlp_tb.cpp bc ../../pipelined_mlp_tb.cpp vhdl ../../pipelined_mlp_tb.cpp sc ../../pipelined_mlp_tb.cpp cas ../../pipelined_mlp_tb.cpp c {}}
+set TBFiles {verilog {../../pipelined_mlp_tb.cpp ../../pipelined_mlp.h} bc {../../pipelined_mlp_tb.cpp ../../pipelined_mlp.h} sc {../../pipelined_mlp_tb.cpp ../../pipelined_mlp.h} vhdl {../../pipelined_mlp_tb.cpp ../../pipelined_mlp.h} c {} cas {../../pipelined_mlp_tb.cpp ../../pipelined_mlp.h}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
-set TBTops {verilog {} bc {} vhdl {} sc {} cas {} c {}}
-set TBInstNames {verilog {} bc {} vhdl {} sc {} cas {} c {}}
+set TBTops {verilog {} bc {} sc {} vhdl {} c {} cas {}}
+set TBInstNames {verilog {} bc {} sc {} vhdl {} c {} cas {}}
 set XDCFiles {}
 set ExtraGlobalOptions {"area_timing" 1 "clock_gate" 1 "impl_flow" map "power_gate" 0}
 set TBTVFileNotFound {}
