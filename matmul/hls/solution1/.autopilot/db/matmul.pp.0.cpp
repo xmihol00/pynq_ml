@@ -6714,7 +6714,7 @@ extern uintmax_t wcstoumax (const wchar_t *__restrict __nptr,
 
 
 
-typedef ap_axiu<512, 0, 0, 0> axis_t;
+typedef ap_axiu<512, 0, 0, 0> axis_in_t;
 
 typedef union converter {
   float fp;
@@ -6939,7 +6939,7 @@ public:
 # 3 "matmul.cpp" 2
 
 void matmul_kernel(float matA[(128 * 128)], float matB[(128 * 128)], float matC[(128 * 128)])
-{_ssdm_SpecArrayDimSize(matA, 16384);_ssdm_SpecArrayDimSize(matB, 16384);_ssdm_SpecArrayDimSize(matC, 16384);
+{
     for (int i = 0; i < 128; ++i)
     {
         for (int j = 0; j < 128; ++j)
@@ -6961,17 +6961,17 @@ extern "C"
     void matmul(hls::stream<axis_t> &in, hls::stream<axis_t> &out)
     {
 #pragma HLS INTERFACE s_axilite port = return bundle = control
-#pragma HLS INTERFACE axis port = &in
-#pragma HLS INTERFACE axis port = &out
+#pragma HLS INTERFACE axis port = in
+#pragma HLS INTERFACE axis port = out
 
  const int FLOAT_BITS = 32;
 
         float matA[(128 * 128)];
         float matB[(128 * 128)];
         float matC[(128 * 128)];
-#pragma HLS ARRAY_PARTITION variable = &matA factor = 16 dim = 1 cyclic
-#pragma HLS ARRAY_PARTITION variable = &matB factor = 16 dim = 1 block
-#pragma HLS ARRAY_PARTITION variable = &matC factor = 16 dim = 1 cyclic
+#pragma HLS ARRAY_PARTITION variable = matA factor = 16 dim = 1 cyclic
+#pragma HLS ARRAY_PARTITION variable = matB factor = 16 dim = 1 block
+#pragma HLS ARRAY_PARTITION variable = matC factor = 16 dim = 1 cyclic
 
  int j_limit = 16;
         int i_limit = (128 * 128) / j_limit;

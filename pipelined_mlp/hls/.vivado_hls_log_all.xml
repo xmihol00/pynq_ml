@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weights' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:49.446+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsb3s' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:49.401+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsb2s' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:49.355+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsb1s' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:49.310+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsb0s' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:49.265+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbZs' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:49.219+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbYs' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:49.172+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbXr' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:49.126+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbWr' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:49.082+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbVr' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:49.033+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbUr' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:48.987+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbTr' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:48.942+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbSr' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:48.897+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbRq' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:48.851+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbQq' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:48.806+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbPq' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:48.762+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbOq' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:48.718+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbNq' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:48.673+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbMq' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:48.629+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbLp' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:48.585+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbKp' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:48.541+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbJp' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:48.496+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbIp' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:48.452+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbHp' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:48.408+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbGp' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:48.363+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbFp' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:48.319+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbEo' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:48.277+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbDo' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:48.234+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbCo' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:48.188+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbBo' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:48.143+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbAo' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:48.098+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbzo' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:48.053+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbyn' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:48.009+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbxn' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:47.965+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbwn' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:47.920+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbvn' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:47.877+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbun' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:47.834+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbtn' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:47.791+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbsm' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:47.748+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbrm' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:47.703+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbqm' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:47.661+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbpm' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:47.618+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbom' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:47.575+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbnm' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:47.531+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbml' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:47.489+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbll' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:47.446+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbkl' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:47.405+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbjl' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:47.362+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbil' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:47.320+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbhl' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:47.278+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbgk' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:47.232+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbfk' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:47.186+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbek' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:47.137+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbdk' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:47.090+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbck' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:47.041+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbbk' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:46.995+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbak' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:46.950+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weights9j0' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:46.904+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weights8jQ' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:46.859+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weights7jG' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:46.813+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weights6jw' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:46.766+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weights5jm' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:46.721+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weights4jc' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:46.674+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weights3i2' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:46.630+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weights2iS' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:46.585+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weights1iI' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:46.539+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weights0iy' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:46.494+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsZio' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:46.455+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsYie' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:46.405+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsXh4' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:46.382+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsWhU' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:46.289+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsVhK' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:46.237+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsUhA' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:46.187+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsThq' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:46.136+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsShg' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:46.092+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsRg6' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:46.040+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsQgW' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:45.996+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsPgM' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:45.951+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsOgC' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:45.908+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsNgs' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:45.864+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsMgi' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:45.819+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsLf8' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:45.775+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsKfY' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:45.732+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsJfO' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:45.689+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsIfE' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:45.645+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsHfu' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:45.602+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsGfk' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:45.559+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsFfa' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:45.511+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsEe0' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:45.468+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsDeQ' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:45.423+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsCeG' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:45.379+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsBew' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:45.333+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsAem' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:45.290+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightszec' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:45.250+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsyd2' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:45.206+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsxdS' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:45.161+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightswdI' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:45.114+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsvdy' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:45.075+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsudo' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:45.026+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightstde' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:44.984+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightssc4' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:44.943+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsrcU' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:44.899+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsqcK' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:44.853+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightspcA' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:44.809+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsocq' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:44.762+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsncg' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:44.720+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsmb6' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:44.680+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightslbW' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:44.639+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightskbM' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:44.601+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsjbC' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:44.564+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsibs' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:44.529+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightshbi' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:44.489+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsg8j' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:44.453+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsfYi' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:44.417+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightseOg' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:44.380+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsdEe' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:44.344+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightscud' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:44.309+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weightsbkb' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:44.272+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weights_9' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:44.236+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weights_8' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:44.198+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weights_7' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:44.161+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weights_6' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:44.124+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weights_5' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:44.088+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weights_4' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:44.053+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weights_3' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:44.015+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weights_2' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:43.979+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weights_1' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:43.939+0100" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'mlp_l1_l1_weights_0' is read-only, switch it to a ROM." projectName="hls" solutionName="solution1" date="2024-02-04T13:27:43.896+0100" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-104] Completely partitioning array 'l1_out_buffer' (pipelined_mlp.cpp:89) accessed through non-constant indices on dimension 1 (pipelined_mlp.cpp:116:9), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead." projectName="hls" solutionName="solution1" date="2024-02-04T13:26:24.167+0100" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-104] Completely partitioning array 'l1_biases'  accessed through non-constant indices on dimension 1 (pipelined_mlp.cpp:116:9), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead." projectName="hls" solutionName="solution1" date="2024-02-04T13:26:24.150+0100" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-503] Ignored partial unroll directive for loop 'l1_mat_mul_inner' (pipelined_mlp.cpp:106) because its parent loop or function is pipelined." projectName="hls" solutionName="solution1" date="2024-02-04T13:26:24.013+0100" type="Warning"/>
+        <logs message="WARNING: [SYNCHK 200-23] pipelined_mlp.cpp:65: variable-indexed range selection may cause suboptimal QoR." projectName="hls" solutionName="solution1" date="2024-02-04T13:26:23.928+0100" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

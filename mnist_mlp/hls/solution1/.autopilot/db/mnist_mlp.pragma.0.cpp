@@ -6954,7 +6954,7 @@ void mlp_kernel(uint8_t sample[784], int32_t prediction[10])
 input_mat_mul_outer:
     for (int i = 0; i < 784; i++)
     {
-#pragma HLS PIPELINE II=1
+#pragma HLS PIPELINE
  input_mat_mul_inner:
         for (int j = 0; j < 128; j++)
         {
@@ -6966,7 +6966,8 @@ input_mat_mul_outer:
 input_bias_relu:
     for (int i = 0; i < 128; i++)
     {
-#pragma HLS PIPELINE II=1
+#pragma HLS PIPELINE
+#pragma HLS UNROLL
  l1_out[i] += l1_biases[i];
         l1_out[i] = l1_out[i] >> 8;
         if (l1_out[i] < 0)
@@ -6978,8 +6979,8 @@ input_bias_relu:
 hidden_mat_mul_outer:
     for (int i = 0; i < 128; i++)
     {
-#pragma HLS PIPELINE II=1
- hidden_mat_mul_inner:
+
+    hidden_mat_mul_inner:
         for (int j = 0; j < 64; j++)
         {
 #pragma HLS UNROLL factor=32
@@ -6990,7 +6991,8 @@ hidden_mat_mul_outer:
 hidden_bias_relu:
     for (int i = 0; i < 64; i++)
     {
-#pragma HLS PIPELINE II=1
+#pragma HLS UNROLL factor=32
+
  l2_out[i] += l2_biases[i];
         l2_out[i] = l2_out[i] >> 8;
         if (l2_out[i] < 0)
@@ -7002,7 +7004,7 @@ hidden_bias_relu:
 output_bias:
     for (int i = 0; i < 10; i++)
     {
-#pragma HLS PIPELINE II=1
+#pragma HLS PIPELINE
 #pragma HLS UNROLL
  prediction[i] = l3_biases[i];
     }
@@ -7010,7 +7012,7 @@ output_bias:
 output_mat_mul_outer:
     for (int i = 0; i < 64; i++)
     {
-#pragma HLS PIPELINE II=1
+#pragma HLS PIPELINE
  output_mat_mul_inner:
         for (int j = 0; j < 10; j++)
         {

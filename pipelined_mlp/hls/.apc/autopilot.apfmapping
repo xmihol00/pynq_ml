@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="weights_biases.h" path="/mnt/sdc3/david/projs/pynq_ml/pipelined_mlp/weights_biases.h"/>
+    <originFiles name="pipelined_mlp.cpp" path="/mnt/sdc3/david/projs/pynq_ml/pipelined_mlp/pipelined_mlp.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="pipelined_mlp_tb.cpp" path="/mnt/sdc3/david/projs/pynq_ml/pipelined_mlp/pipelined_mlp_tb.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

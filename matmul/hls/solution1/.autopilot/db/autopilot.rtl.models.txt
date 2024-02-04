@@ -1,9 +1,0 @@
-matmul_fadd_32ns_bkb
-matmul_fmul_32ns_cud
-matmul_mux_1632_3dEe
-matmul_matA_0
-matmul_matC_0
-matmul_control_s_axi
-regslice_core
-matmul_kernel
-matmul

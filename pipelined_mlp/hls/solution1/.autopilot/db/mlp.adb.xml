@@ -1,0 +1,2142 @@
+<stg><name>mlp</name>
+
+
+<trans_list>
+
+<trans id="36" from="1" to="2">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="37" from="2" to="3">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="38" from="3" to="4">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="39" from="4" to="5">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="40" from="5" to="6">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="41" from="6" to="7">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="42" from="7" to="8">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+</trans_list>
+
+
+
+<state_list>
+
+<state id="1" st_id="1">
+
+<operation id="9" st_id="1" stage="1" lat="1">
+<core>FIFO</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="275" bw="8" op_0_bw="64">
+<![CDATA[
+:10  %l1_in_V = alloca i8, align 1
+
+]]></Node>
+<StgValue><ssdm name="l1_in_V"/></StgValue>
+</operation>
+
+<operation id="10" st_id="1" stage="1" lat="1">
+<core>FIFO</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="278" bw="32" op_0_bw="64">
+<![CDATA[
+:13  %l2_in_V = alloca i32, align 4
+
+]]></Node>
+<StgValue><ssdm name="l2_in_V"/></StgValue>
+</operation>
+</state>
+
+<state id="2" st_id="2">
+
+<operation id="11" st_id="2" stage="2" lat="2">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="285" bw="0" op_0_bw="0" op_1_bw="128" op_2_bw="16" op_3_bw="16" op_4_bw="1" op_5_bw="8">
+<![CDATA[
+:20  call fastcc void @read_input(i128* %in_V_data_V, i16* %in_V_keep_V, i16* %in_V_strb_V, i1* %in_V_last_V, i8* %l1_in_V)
+
+]]></Node>
+<StgValue><ssdm name="call_ln217"/></StgValue>
+</operation>
+</state>
+
+<state id="3" st_id="3">
+
+<operation id="12" st_id="3" stage="1" lat="2">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="285" bw="0" op_0_bw="0" op_1_bw="128" op_2_bw="16" op_3_bw="16" op_4_bw="1" op_5_bw="8">
+<![CDATA[
+:20  call fastcc void @read_input(i128* %in_V_data_V, i16* %in_V_keep_V, i16* %in_V_strb_V, i1* %in_V_last_V, i8* %l1_in_V)
+
+]]></Node>
+<StgValue><ssdm name="call_ln217"/></StgValue>
+</operation>
+</state>
+
+<state id="4" st_id="4">
+
+<operation id="13" st_id="4" stage="2" lat="2">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="286" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="32" op_3_bw="8" op_4_bw="7" op_5_bw="8" op_6_bw="7" op_7_bw="8" op_8_bw="8" op_9_bw="8" op_10_bw="8" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="7" op_15_bw="8" op_16_bw="8" op_17_bw="7" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="7" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="7" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="8" op_38_bw="7" op_39_bw="8" op_40_bw="8" op_41_bw="8" op_42_bw="8" op_43_bw="8" op_44_bw="7" op_45_bw="8" op_46_bw="7" op_47_bw="8" op_48_bw="7" op_49_bw="8" op_50_bw="8" op_51_bw="8" op_52_bw="8" op_53_bw="8" op_54_bw="8" op_55_bw="8" op_56_bw="8" op_57_bw="8" op_58_bw="8" op_59_bw="8" op_60_bw="8" op_61_bw="8" op_62_bw="8" op_63_bw="7" op_64_bw="7" op_65_bw="8" op_66_bw="8" op_67_bw="8" op_68_bw="7" op_69_bw="8" op_70_bw="7" op_71_bw="8" op_72_bw="8" op_73_bw="8" op_74_bw="7" op_75_bw="7" op_76_bw="8" op_77_bw="8" op_78_bw="7" op_79_bw="8" op_80_bw="8" op_81_bw="8" op_82_bw="8" op_83_bw="8" op_84_bw="8" op_85_bw="6" op_86_bw="8" op_87_bw="8" op_88_bw="8" op_89_bw="8" op_90_bw="7" op_91_bw="7" op_92_bw="8" op_93_bw="7" op_94_bw="8" op_95_bw="7" op_96_bw="7" op_97_bw="8" op_98_bw="8" op_99_bw="7" op_100_bw="8" op_101_bw="8" op_102_bw="8" op_103_bw="8" op_104_bw="8" op_105_bw="8" op_106_bw="8" op_107_bw="8" op_108_bw="8" op_109_bw="8" op_110_bw="8" op_111_bw="8" op_112_bw="7" op_113_bw="8" op_114_bw="7" op_115_bw="8" op_116_bw="7" op_117_bw="8" op_118_bw="8" op_119_bw="8" op_120_bw="7" op_121_bw="7" op_122_bw="8" op_123_bw="8" op_124_bw="8" op_125_bw="8" op_126_bw="8" op_127_bw="7" op_128_bw="8" op_129_bw="7" op_130_bw="8" op_131_bw="0" op_132_bw="0">
+<![CDATA[
+:21  call fastcc void @mlp_l1(i8* %l1_in_V, i32* %l2_in_V)
+
+]]></Node>
+<StgValue><ssdm name="call_ln218"/></StgValue>
+</operation>
+</state>
+
+<state id="5" st_id="5">
+
+<operation id="14" st_id="5" stage="1" lat="2">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="286" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="32" op_3_bw="8" op_4_bw="7" op_5_bw="8" op_6_bw="7" op_7_bw="8" op_8_bw="8" op_9_bw="8" op_10_bw="8" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="7" op_15_bw="8" op_16_bw="8" op_17_bw="7" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="7" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="7" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="8" op_38_bw="7" op_39_bw="8" op_40_bw="8" op_41_bw="8" op_42_bw="8" op_43_bw="8" op_44_bw="7" op_45_bw="8" op_46_bw="7" op_47_bw="8" op_48_bw="7" op_49_bw="8" op_50_bw="8" op_51_bw="8" op_52_bw="8" op_53_bw="8" op_54_bw="8" op_55_bw="8" op_56_bw="8" op_57_bw="8" op_58_bw="8" op_59_bw="8" op_60_bw="8" op_61_bw="8" op_62_bw="8" op_63_bw="7" op_64_bw="7" op_65_bw="8" op_66_bw="8" op_67_bw="8" op_68_bw="7" op_69_bw="8" op_70_bw="7" op_71_bw="8" op_72_bw="8" op_73_bw="8" op_74_bw="7" op_75_bw="7" op_76_bw="8" op_77_bw="8" op_78_bw="7" op_79_bw="8" op_80_bw="8" op_81_bw="8" op_82_bw="8" op_83_bw="8" op_84_bw="8" op_85_bw="6" op_86_bw="8" op_87_bw="8" op_88_bw="8" op_89_bw="8" op_90_bw="7" op_91_bw="7" op_92_bw="8" op_93_bw="7" op_94_bw="8" op_95_bw="7" op_96_bw="7" op_97_bw="8" op_98_bw="8" op_99_bw="7" op_100_bw="8" op_101_bw="8" op_102_bw="8" op_103_bw="8" op_104_bw="8" op_105_bw="8" op_106_bw="8" op_107_bw="8" op_108_bw="8" op_109_bw="8" op_110_bw="8" op_111_bw="8" op_112_bw="7" op_113_bw="8" op_114_bw="7" op_115_bw="8" op_116_bw="7" op_117_bw="8" op_118_bw="8" op_119_bw="8" op_120_bw="7" op_121_bw="7" op_122_bw="8" op_123_bw="8" op_124_bw="8" op_125_bw="8" op_126_bw="8" op_127_bw="7" op_128_bw="8" op_129_bw="7" op_130_bw="8" op_131_bw="0" op_132_bw="0">
+<![CDATA[
+:21  call fastcc void @mlp_l1(i8* %l1_in_V, i32* %l2_in_V)
+
+]]></Node>
+<StgValue><ssdm name="call_ln218"/></StgValue>
+</operation>
+</state>
+
+<state id="6" st_id="6">
+
+<operation id="15" st_id="6" stage="2" lat="2">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="287" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="1" op_6_bw="0" op_7_bw="0">
+<![CDATA[
+:22  call fastcc void @write_output(i32* %l2_in_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
+
+]]></Node>
+<StgValue><ssdm name="call_ln219"/></StgValue>
+</operation>
+</state>
+
+<state id="7" st_id="7">
+
+<operation id="16" st_id="7" stage="1" lat="2">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="287" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="1" op_6_bw="0" op_7_bw="0">
+<![CDATA[
+:22  call fastcc void @write_output(i32* %l2_in_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
+
+]]></Node>
+<StgValue><ssdm name="call_ln219"/></StgValue>
+</operation>
+</state>
+
+<state id="8" st_id="8">
+
+<operation id="17" st_id="8" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="265" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="0">
+<![CDATA[
+:0  call void (...)* @_ssdm_op_SpecDataflowPipeline(i32 -1, i32 0, [1 x i8]* @p_str2) nounwind
+
+]]></Node>
+<StgValue><ssdm name="specdataflowpipeline_ln213"/></StgValue>
+</operation>
+
+<operation id="18" st_id="8" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="266" bw="0" op_0_bw="0" op_1_bw="128">
+<![CDATA[
+:1  call void (...)* @_ssdm_op_SpecBitsMap(i128* %in_V_data_V), !map !63
+
+]]></Node>
+<StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
+</operation>
+
+<operation id="19" st_id="8" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="267" bw="0" op_0_bw="0" op_1_bw="16">
+<![CDATA[
+:2  call void (...)* @_ssdm_op_SpecBitsMap(i16* %in_V_keep_V), !map !69
+
+]]></Node>
+<StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
+</operation>
+
+<operation id="20" st_id="8" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="268" bw="0" op_0_bw="0" op_1_bw="16">
+<![CDATA[
+:3  call void (...)* @_ssdm_op_SpecBitsMap(i16* %in_V_strb_V), !map !73
+
+]]></Node>
+<StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
+</operation>
+
+<operation id="21" st_id="8" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="269" bw="0" op_0_bw="0" op_1_bw="1">
+<![CDATA[
+:4  call void (...)* @_ssdm_op_SpecBitsMap(i1* %in_V_last_V), !map !77
+
+]]></Node>
+<StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
+</operation>
+
+<operation id="22" st_id="8" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="270" bw="0" op_0_bw="0" op_1_bw="64">
+<![CDATA[
+:5  call void (...)* @_ssdm_op_SpecBitsMap(i64* %out_V_data_V), !map !81
+
+]]></Node>
+<StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
+</operation>
+
+<operation id="23" st_id="8" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="271" bw="0" op_0_bw="0" op_1_bw="8">
+<![CDATA[
+:6  call void (...)* @_ssdm_op_SpecBitsMap(i8* %out_V_keep_V), !map !85
+
+]]></Node>
+<StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
+</operation>
+
+<operation id="24" st_id="8" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="272" bw="0" op_0_bw="0" op_1_bw="8">
+<![CDATA[
+:7  call void (...)* @_ssdm_op_SpecBitsMap(i8* %out_V_strb_V), !map !89
+
+]]></Node>
+<StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
+</operation>
+
+<operation id="25" st_id="8" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="273" bw="0" op_0_bw="0" op_1_bw="1">
+<![CDATA[
+:8  call void (...)* @_ssdm_op_SpecBitsMap(i1* %out_V_last_V), !map !93
+
+]]></Node>
+<StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
+</operation>
+
+<operation id="26" st_id="8" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="274" bw="0" op_0_bw="0" op_1_bw="0">
+<![CDATA[
+:9  call void (...)* @_ssdm_op_SpecTopModule([4 x i8]* @mlp_str) nounwind
+
+]]></Node>
+<StgValue><ssdm name="spectopmodule_ln0"/></StgValue>
+</operation>
+
+<operation id="27" st_id="8" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="276" bw="32" op_0_bw="32" op_1_bw="0" op_2_bw="32" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="32" op_7_bw="8" op_8_bw="8">
+<![CDATA[
+:11  %empty = call i32 (...)* @_ssdm_op_SpecChannel([8 x i8]* @l1_in_OC_V_str, i32 1, [1 x i8]* @p_str30, [1 x i8]* @p_str30, i32 2, i32 2, i8* %l1_in_V, i8* %l1_in_V)
+
+]]></Node>
+<StgValue><ssdm name="empty"/></StgValue>
+</operation>
+
+<operation id="28" st_id="8" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="277" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
+<![CDATA[
+:12  call void (...)* @_ssdm_op_SpecInterface(i8* %l1_in_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str31, i32 0, i32 0, [1 x i8]* @p_str32, [1 x i8]* @p_str33, [1 x i8]* @p_str34, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str35, [1 x i8]* @p_str36)
+
+]]></Node>
+<StgValue><ssdm name="specinterface_ln0"/></StgValue>
+</operation>
+
+<operation id="29" st_id="8" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="279" bw="32" op_0_bw="32" op_1_bw="0" op_2_bw="32" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="32" op_7_bw="32" op_8_bw="32">
+<![CDATA[
+:14  %empty_22 = call i32 (...)* @_ssdm_op_SpecChannel([8 x i8]* @l2_in_OC_V_str, i32 1, [1 x i8]* @p_str37, [1 x i8]* @p_str37, i32 2, i32 2, i32* %l2_in_V, i32* %l2_in_V)
+
+]]></Node>
+<StgValue><ssdm name="empty_22"/></StgValue>
+</operation>
+
+<operation id="30" st_id="8" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="280" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
+<![CDATA[
+:15  call void (...)* @_ssdm_op_SpecInterface(i32* %l2_in_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str38, i32 0, i32 0, [1 x i8]* @p_str39, [1 x i8]* @p_str40, [1 x i8]* @p_str41, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str42, [1 x i8]* @p_str43)
+
+]]></Node>
+<StgValue><ssdm name="specinterface_ln0"/></StgValue>
+</operation>
+
+<operation id="31" st_id="8" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="281" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
+<![CDATA[
+:16  call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str15, i32 0, i32 0, [1 x i8]* @p_str2, i32 0, i32 0, [8 x i8]* @p_str16, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind
+
+]]></Node>
+<StgValue><ssdm name="specinterface_ln204"/></StgValue>
+</operation>
+
+<operation id="32" st_id="8" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="282" bw="0" op_0_bw="0" op_1_bw="128" op_2_bw="16" op_3_bw="16" op_4_bw="1" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="32" op_10_bw="32" op_11_bw="0" op_12_bw="0" op_13_bw="0" op_14_bw="32" op_15_bw="32" op_16_bw="32" op_17_bw="32" op_18_bw="0" op_19_bw="0">
+<![CDATA[
+:17  call void (...)* @_ssdm_op_SpecInterface(i128* %in_V_data_V, i16* %in_V_keep_V, i16* %in_V_strb_V, i1* %in_V_last_V, [5 x i8]* @p_str17, i32 1, i32 1, [5 x i8]* @p_str18, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind
+
+]]></Node>
+<StgValue><ssdm name="specinterface_ln205"/></StgValue>
+</operation>
+
+<operation id="33" st_id="8" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="283" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="8" op_3_bw="8" op_4_bw="1" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="32" op_10_bw="32" op_11_bw="0" op_12_bw="0" op_13_bw="0" op_14_bw="32" op_15_bw="32" op_16_bw="32" op_17_bw="32" op_18_bw="0" op_19_bw="0">
+<![CDATA[
+:18  call void (...)* @_ssdm_op_SpecInterface(i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V, [5 x i8]* @p_str17, i32 1, i32 1, [5 x i8]* @p_str18, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind
+
+]]></Node>
+<StgValue><ssdm name="specinterface_ln206"/></StgValue>
+</operation>
+
+<operation id="34" st_id="8" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="284" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="7" op_3_bw="8" op_4_bw="7" op_5_bw="8" op_6_bw="8" op_7_bw="8" op_8_bw="8" op_9_bw="8" op_10_bw="8" op_11_bw="8" op_12_bw="7" op_13_bw="8" op_14_bw="8" op_15_bw="7" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="7" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="7" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="7" op_37_bw="8" op_38_bw="8" op_39_bw="8" op_40_bw="8" op_41_bw="8" op_42_bw="7" op_43_bw="8" op_44_bw="7" op_45_bw="8" op_46_bw="7" op_47_bw="8" op_48_bw="8" op_49_bw="8" op_50_bw="8" op_51_bw="8" op_52_bw="8" op_53_bw="8" op_54_bw="8" op_55_bw="8" op_56_bw="8" op_57_bw="8" op_58_bw="8" op_59_bw="8" op_60_bw="8" op_61_bw="7" op_62_bw="7" op_63_bw="8" op_64_bw="8" op_65_bw="8" op_66_bw="7" op_67_bw="8" op_68_bw="7" op_69_bw="8" op_70_bw="8" op_71_bw="8" op_72_bw="7" op_73_bw="7" op_74_bw="8" op_75_bw="8" op_76_bw="7" op_77_bw="8" op_78_bw="8" op_79_bw="8" op_80_bw="8" op_81_bw="8" op_82_bw="8" op_83_bw="6" op_84_bw="8" op_85_bw="8" op_86_bw="8" op_87_bw="8" op_88_bw="7" op_89_bw="7" op_90_bw="8" op_91_bw="7" op_92_bw="8" op_93_bw="7" op_94_bw="7" op_95_bw="8" op_96_bw="8" op_97_bw="7" op_98_bw="8" op_99_bw="8" op_100_bw="8" op_101_bw="8" op_102_bw="8" op_103_bw="8" op_104_bw="8" op_105_bw="8" op_106_bw="8" op_107_bw="8" op_108_bw="8" op_109_bw="8" op_110_bw="7" op_111_bw="8" op_112_bw="7" op_113_bw="8" op_114_bw="7" op_115_bw="8" op_116_bw="8" op_117_bw="8" op_118_bw="7" op_119_bw="7" op_120_bw="8" op_121_bw="8" op_122_bw="8" op_123_bw="8" op_124_bw="8" op_125_bw="7" op_126_bw="8" op_127_bw="7" op_128_bw="8" op_129_bw="0" op_130_bw="0" op_131_bw="0" op_132_bw="32" op_133_bw="0" op_134_bw="0" op_135_bw="0" op_136_bw="0" op_137_bw="0">
+<![CDATA[
+:19  call void (...)* @_ssdm_op_SpecMemCore([784 x i8]* @l1_weights_0, [784 x i7]* @l1_weights_1, [784 x i8]* @l1_weights_2, [784 x i7]* @l1_weights_3, [784 x i8]* @l1_weights_4, [784 x i8]* @l1_weights_5, [784 x i8]* @l1_weights_6, [784 x i8]* @l1_weights_7, [784 x i8]* @l1_weights_8, [784 x i8]* @l1_weights_9, [784 x i8]* @l1_weights_10, [784 x i7]* @l1_weights_11, [784 x i8]* @l1_weights_12, [784 x i8]* @l1_weights_13, [784 x i7]* @l1_weights_14, [784 x i8]* @l1_weights_15, [784 x i8]* @l1_weights_16, [784 x i8]* @l1_weights_17, [784 x i8]* @l1_weights_18, [784 x i7]* @l1_weights_19, [784 x i8]* @l1_weights_20, [784 x i8]* @l1_weights_21, [784 x i8]* @l1_weights_22, [784 x i7]* @l1_weights_23, [784 x i8]* @l1_weights_24, [784 x i8]* @l1_weights_25, [784 x i8]* @l1_weights_26, [784 x i8]* @l1_weights_27, [784 x i8]* @l1_weights_28, [784 x i8]* @l1_weights_29, [784 x i8]* @l1_weights_30, [784 x i8]* @l1_weights_31, [784 x i8]* @l1_weights_32, [784 x i8]* @l1_weights_33, [784 x i8]* @l1_weights_34, [784 x i7]* @l1_weights_35, [784 x i8]* @l1_weights_36, [784 x i8]* @l1_weights_37, [784 x i8]* @l1_weights_38, [784 x i8]* @l1_weights_39, [784 x i8]* @l1_weights_40, [784 x i7]* @l1_weights_41, [784 x i8]* @l1_weights_42, [784 x i7]* @l1_weights_43, [784 x i8]* @l1_weights_44, [784 x i7]* @l1_weights_45, [784 x i8]* @l1_weights_46, [784 x i8]* @l1_weights_47, [784 x i8]* @l1_weights_48, [784 x i8]* @l1_weights_49, [784 x i8]* @l1_weights_50, [784 x i8]* @l1_weights_51, [784 x i8]* @l1_weights_52, [784 x i8]* @l1_weights_53, [784 x i8]* @l1_weights_54, [784 x i8]* @l1_weights_55, [784 x i8]* @l1_weights_56, [784 x i8]* @l1_weights_57, [784 x i8]* @l1_weights_58, [784 x i8]* @l1_weights_59, [784 x i7]* @l1_weights_60, [784 x i7]* @l1_weights_61, [784 x i8]* @l1_weights_62, [784 x i8]* @l1_weights_63, [784 x i8]* @l1_weights_64, [784 x i7]* @l1_weights_65, [784 x i8]* @l1_weights_66, [784 x i7]* @l1_weights_67, [784 x i8]* @l1_weights_68, [784 x i8]* @l1_weights_69, [784 x i8]* @l1_weights_70, [784 x i7]* @l1_weights_71, [784 x i7]* @l1_weights_72, [784 x i8]* @l1_weights_73, [784 x i8]* @l1_weights_74, [784 x i7]* @l1_weights_75, [784 x i8]* @l1_weights_76, [784 x i8]* @l1_weights_77, [784 x i8]* @l1_weights_78, [784 x i8]* @l1_weights_79, [784 x i8]* @l1_weights_80, [784 x i8]* @l1_weights_81, [784 x i6]* @l1_weights_82, [784 x i8]* @l1_weights_83, [784 x i8]* @l1_weights_84, [784 x i8]* @l1_weights_85, [784 x i8]* @l1_weights_86, [784 x i7]* @l1_weights_87, [784 x i7]* @l1_weights_88, [784 x i8]* @l1_weights_89, [784 x i7]* @l1_weights_90, [784 x i8]* @l1_weights_91, [784 x i7]* @l1_weights_92, [784 x i7]* @l1_weights_93, [784 x i8]* @l1_weights_94, [784 x i8]* @l1_weights_95, [784 x i7]* @l1_weights_96, [784 x i8]* @l1_weights_97, [784 x i8]* @l1_weights_98, [784 x i8]* @l1_weights_99, [784 x i8]* @l1_weights_152, [784 x i8]* @l1_weights_151, [784 x i8]* @l1_weights_150, [784 x i8]* @l1_weights_149, [784 x i8]* @l1_weights_148, [784 x i8]* @l1_weights_147, [784 x i8]* @l1_weights_146, [784 x i8]* @l1_weights_145, [784 x i8]* @l1_weights_144, [784 x i7]* @l1_weights_143, [784 x i8]* @l1_weights_142, [784 x i7]* @l1_weights_141, [784 x i8]* @l1_weights_140, [784 x i7]* @l1_weights_139, [784 x i8]* @l1_weights_138, [784 x i8]* @l1_weights_137, [784 x i8]* @l1_weights_136, [784 x i7]* @l1_weights_135, [784 x i7]* @l1_weights_134, [784 x i8]* @l1_weights_133, [784 x i8]* @l1_weights_132, [784 x i8]* @l1_weights_131, [784 x i8]* @l1_weights_130, [784 x i8]* @l1_weights_129, [784 x i7]* @l1_weights_128, [784 x i8]* @l1_weights_127, [784 x i7]* @l1_weights_126, [784 x i8]* @l1_weights, [1 x i8]* @p_str2, [12 x i8]* @p_str8, [1 x i8]* @p_str2, i32 -1, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2)
+
+]]></Node>
+<StgValue><ssdm name="specmemcore_ln210"/></StgValue>
+</operation>
+
+<operation id="35" st_id="8" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="288" bw="0">
+<![CDATA[
+:23  ret void
+
+]]></Node>
+<StgValue><ssdm name="ret_ln220"/></StgValue>
+</operation>
+</state>
+</state_list>
+
+
+<ports>
+<port id="44" name="in_V_data_V" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="in_V_data_V"/></StgValue>
+</port>
+<port id="45" name="in_V_keep_V" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="in_V_keep_V"/></StgValue>
+</port>
+<port id="46" name="in_V_strb_V" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="in_V_strb_V"/></StgValue>
+</port>
+<port id="47" name="in_V_last_V" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="in_V_last_V"/></StgValue>
+</port>
+<port id="48" name="out_V_data_V" dir="1" iftype="0">
+<core>NULL</core><StgValue><ssdm name="out_V_data_V"/></StgValue>
+</port>
+<port id="49" name="out_V_keep_V" dir="1" iftype="0">
+<core>NULL</core><StgValue><ssdm name="out_V_keep_V"/></StgValue>
+</port>
+<port id="50" name="out_V_strb_V" dir="1" iftype="0">
+<core>NULL</core><StgValue><ssdm name="out_V_strb_V"/></StgValue>
+</port>
+<port id="51" name="out_V_last_V" dir="1" iftype="0">
+<core>NULL</core><StgValue><ssdm name="out_V_last_V"/></StgValue>
+</port>
+<port id="52" name="l1_weights_0" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_0"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="53" name="l1_weights_1" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_1"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="54" name="l1_weights_2" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_2"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="55" name="l1_weights_3" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_3"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="56" name="l1_weights_4" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_4"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="57" name="l1_weights_5" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_5"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="58" name="l1_weights_6" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_6"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="59" name="l1_weights_7" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_7"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="60" name="l1_weights_8" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_8"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="61" name="l1_weights_9" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_9"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="62" name="l1_weights_10" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_10"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="63" name="l1_weights_11" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_11"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="64" name="l1_weights_12" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_12"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="65" name="l1_weights_13" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_13"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="66" name="l1_weights_14" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_14"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="67" name="l1_weights_15" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_15"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="68" name="l1_weights_16" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_16"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="69" name="l1_weights_17" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_17"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="70" name="l1_weights_18" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_18"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="71" name="l1_weights_19" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_19"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="72" name="l1_weights_20" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_20"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="73" name="l1_weights_21" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_21"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="74" name="l1_weights_22" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_22"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="75" name="l1_weights_23" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_23"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="76" name="l1_weights_24" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_24"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="77" name="l1_weights_25" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_25"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="78" name="l1_weights_26" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_26"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="79" name="l1_weights_27" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_27"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="80" name="l1_weights_28" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_28"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="81" name="l1_weights_29" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_29"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="82" name="l1_weights_30" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_30"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="83" name="l1_weights_31" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_31"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="84" name="l1_weights_32" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_32"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="85" name="l1_weights_33" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_33"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="86" name="l1_weights_34" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_34"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="87" name="l1_weights_35" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_35"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="88" name="l1_weights_36" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_36"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="89" name="l1_weights_37" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_37"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="90" name="l1_weights_38" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_38"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="91" name="l1_weights_39" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_39"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="92" name="l1_weights_40" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_40"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="93" name="l1_weights_41" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_41"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="94" name="l1_weights_42" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_42"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="95" name="l1_weights_43" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_43"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="96" name="l1_weights_44" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_44"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="97" name="l1_weights_45" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_45"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="98" name="l1_weights_46" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_46"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="99" name="l1_weights_47" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_47"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="100" name="l1_weights_48" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_48"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="101" name="l1_weights_49" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_49"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="102" name="l1_weights_50" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_50"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="103" name="l1_weights_51" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_51"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="104" name="l1_weights_52" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_52"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="105" name="l1_weights_53" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_53"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="106" name="l1_weights_54" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_54"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="107" name="l1_weights_55" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_55"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="108" name="l1_weights_56" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_56"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="109" name="l1_weights_57" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_57"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="110" name="l1_weights_58" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_58"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="111" name="l1_weights_59" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_59"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="112" name="l1_weights_60" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_60"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="113" name="l1_weights_61" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_61"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="114" name="l1_weights_62" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_62"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="115" name="l1_weights_63" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_63"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="116" name="l1_weights_64" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_64"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="117" name="l1_weights_65" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_65"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="118" name="l1_weights_66" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_66"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="119" name="l1_weights_67" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_67"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="120" name="l1_weights_68" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_68"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="121" name="l1_weights_69" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_69"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="122" name="l1_weights_70" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_70"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="123" name="l1_weights_71" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_71"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="124" name="l1_weights_72" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_72"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="125" name="l1_weights_73" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_73"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="126" name="l1_weights_74" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_74"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="127" name="l1_weights_75" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_75"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="128" name="l1_weights_76" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_76"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="129" name="l1_weights_77" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_77"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="130" name="l1_weights_78" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_78"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="131" name="l1_weights_79" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_79"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="132" name="l1_weights_80" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_80"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="133" name="l1_weights_81" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_81"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="134" name="l1_weights_82" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_82"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="135" name="l1_weights_83" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_83"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="136" name="l1_weights_84" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_84"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="137" name="l1_weights_85" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_85"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="138" name="l1_weights_86" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_86"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="139" name="l1_weights_87" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_87"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="140" name="l1_weights_88" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_88"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="141" name="l1_weights_89" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_89"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="142" name="l1_weights_90" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_90"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="143" name="l1_weights_91" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_91"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="144" name="l1_weights_92" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_92"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="145" name="l1_weights_93" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_93"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="146" name="l1_weights_94" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_94"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="147" name="l1_weights_95" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_95"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="148" name="l1_weights_96" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_96"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="149" name="l1_weights_97" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_97"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="150" name="l1_weights_98" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_98"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="151" name="l1_weights_99" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_99"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="152" name="l1_weights_152" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_152"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="153" name="l1_weights_151" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_151"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="154" name="l1_weights_150" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_150"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="155" name="l1_weights_149" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_149"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="156" name="l1_weights_148" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_148"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="157" name="l1_weights_147" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_147"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="158" name="l1_weights_146" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_146"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="159" name="l1_weights_145" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_145"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="160" name="l1_weights_144" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_144"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="161" name="l1_weights_143" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_143"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="162" name="l1_weights_142" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_142"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="163" name="l1_weights_141" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_141"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="164" name="l1_weights_140" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_140"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="165" name="l1_weights_139" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_139"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="166" name="l1_weights_138" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_138"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="167" name="l1_weights_137" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_137"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="168" name="l1_weights_136" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_136"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="169" name="l1_weights_135" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_135"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="170" name="l1_weights_134" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_134"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="171" name="l1_weights_133" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_133"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="172" name="l1_weights_132" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_132"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="173" name="l1_weights_131" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_131"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="174" name="l1_weights_130" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_130"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="175" name="l1_weights_129" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_129"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="176" name="l1_weights_128" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_128"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="177" name="l1_weights_127" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_127"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="178" name="l1_weights_126" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights_126"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="179" name="l1_weights" dir="0" iftype="1">
+<core>RAM_2P_BRAM</core><StgValue><ssdm name="l1_weights"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+</ports>
+
+
+<dataflows>
+<dataflow id="181" from="StgValue_180" to="l1_in_V" fromId="180" toId="9">
+</dataflow>
+<dataflow id="182" from="StgValue_180" to="l2_in_V" fromId="180" toId="10">
+</dataflow>
+<dataflow id="184" from="read_input" to="call_ln217" fromId="183" toId="11">
+</dataflow>
+<dataflow id="185" from="in_V_data_V" to="call_ln217" fromId="44" toId="11">
+</dataflow>
+<dataflow id="186" from="in_V_keep_V" to="call_ln217" fromId="45" toId="11">
+</dataflow>
+<dataflow id="187" from="in_V_strb_V" to="call_ln217" fromId="46" toId="11">
+</dataflow>
+<dataflow id="188" from="in_V_last_V" to="call_ln217" fromId="47" toId="11">
+</dataflow>
+<dataflow id="189" from="l1_in_V" to="call_ln217" fromId="9" toId="11">
+</dataflow>
+<dataflow id="190" from="read_input" to="call_ln217" fromId="183" toId="12">
+</dataflow>
+<dataflow id="191" from="in_V_data_V" to="call_ln217" fromId="44" toId="12">
+</dataflow>
+<dataflow id="192" from="in_V_keep_V" to="call_ln217" fromId="45" toId="12">
+</dataflow>
+<dataflow id="193" from="in_V_strb_V" to="call_ln217" fromId="46" toId="12">
+</dataflow>
+<dataflow id="194" from="in_V_last_V" to="call_ln217" fromId="47" toId="12">
+</dataflow>
+<dataflow id="195" from="l1_in_V" to="call_ln217" fromId="9" toId="12">
+</dataflow>
+<dataflow id="197" from="mlp_l1" to="call_ln218" fromId="196" toId="13">
+</dataflow>
+<dataflow id="198" from="l1_in_V" to="call_ln218" fromId="9" toId="13">
+</dataflow>
+<dataflow id="199" from="l2_in_V" to="call_ln218" fromId="10" toId="13">
+</dataflow>
+<dataflow id="200" from="l1_weights_0" to="call_ln218" fromId="52" toId="13">
+</dataflow>
+<dataflow id="201" from="l1_weights_1" to="call_ln218" fromId="53" toId="13">
+</dataflow>
+<dataflow id="202" from="l1_weights_2" to="call_ln218" fromId="54" toId="13">
+</dataflow>
+<dataflow id="203" from="l1_weights_3" to="call_ln218" fromId="55" toId="13">
+</dataflow>
+<dataflow id="204" from="l1_weights_4" to="call_ln218" fromId="56" toId="13">
+</dataflow>
+<dataflow id="205" from="l1_weights_5" to="call_ln218" fromId="57" toId="13">
+</dataflow>
+<dataflow id="206" from="l1_weights_6" to="call_ln218" fromId="58" toId="13">
+</dataflow>
+<dataflow id="207" from="l1_weights_7" to="call_ln218" fromId="59" toId="13">
+</dataflow>
+<dataflow id="208" from="l1_weights_8" to="call_ln218" fromId="60" toId="13">
+</dataflow>
+<dataflow id="209" from="l1_weights_9" to="call_ln218" fromId="61" toId="13">
+</dataflow>
+<dataflow id="210" from="l1_weights_10" to="call_ln218" fromId="62" toId="13">
+</dataflow>
+<dataflow id="211" from="l1_weights_11" to="call_ln218" fromId="63" toId="13">
+</dataflow>
+<dataflow id="212" from="l1_weights_12" to="call_ln218" fromId="64" toId="13">
+</dataflow>
+<dataflow id="213" from="l1_weights_13" to="call_ln218" fromId="65" toId="13">
+</dataflow>
+<dataflow id="214" from="l1_weights_14" to="call_ln218" fromId="66" toId="13">
+</dataflow>
+<dataflow id="215" from="l1_weights_15" to="call_ln218" fromId="67" toId="13">
+</dataflow>
+<dataflow id="216" from="l1_weights_16" to="call_ln218" fromId="68" toId="13">
+</dataflow>
+<dataflow id="217" from="l1_weights_17" to="call_ln218" fromId="69" toId="13">
+</dataflow>
+<dataflow id="218" from="l1_weights_18" to="call_ln218" fromId="70" toId="13">
+</dataflow>
+<dataflow id="219" from="l1_weights_19" to="call_ln218" fromId="71" toId="13">
+</dataflow>
+<dataflow id="220" from="l1_weights_20" to="call_ln218" fromId="72" toId="13">
+</dataflow>
+<dataflow id="221" from="l1_weights_21" to="call_ln218" fromId="73" toId="13">
+</dataflow>
+<dataflow id="222" from="l1_weights_22" to="call_ln218" fromId="74" toId="13">
+</dataflow>
+<dataflow id="223" from="l1_weights_23" to="call_ln218" fromId="75" toId="13">
+</dataflow>
+<dataflow id="224" from="l1_weights_24" to="call_ln218" fromId="76" toId="13">
+</dataflow>
+<dataflow id="225" from="l1_weights_25" to="call_ln218" fromId="77" toId="13">
+</dataflow>
+<dataflow id="226" from="l1_weights_26" to="call_ln218" fromId="78" toId="13">
+</dataflow>
+<dataflow id="227" from="l1_weights_27" to="call_ln218" fromId="79" toId="13">
+</dataflow>
+<dataflow id="228" from="l1_weights_28" to="call_ln218" fromId="80" toId="13">
+</dataflow>
+<dataflow id="229" from="l1_weights_29" to="call_ln218" fromId="81" toId="13">
+</dataflow>
+<dataflow id="230" from="l1_weights_30" to="call_ln218" fromId="82" toId="13">
+</dataflow>
+<dataflow id="231" from="l1_weights_31" to="call_ln218" fromId="83" toId="13">
+</dataflow>
+<dataflow id="232" from="l1_weights_32" to="call_ln218" fromId="84" toId="13">
+</dataflow>
+<dataflow id="233" from="l1_weights_33" to="call_ln218" fromId="85" toId="13">
+</dataflow>
+<dataflow id="234" from="l1_weights_34" to="call_ln218" fromId="86" toId="13">
+</dataflow>
+<dataflow id="235" from="l1_weights_35" to="call_ln218" fromId="87" toId="13">
+</dataflow>
+<dataflow id="236" from="l1_weights_36" to="call_ln218" fromId="88" toId="13">
+</dataflow>
+<dataflow id="237" from="l1_weights_37" to="call_ln218" fromId="89" toId="13">
+</dataflow>
+<dataflow id="238" from="l1_weights_38" to="call_ln218" fromId="90" toId="13">
+</dataflow>
+<dataflow id="239" from="l1_weights_39" to="call_ln218" fromId="91" toId="13">
+</dataflow>
+<dataflow id="240" from="l1_weights_40" to="call_ln218" fromId="92" toId="13">
+</dataflow>
+<dataflow id="241" from="l1_weights_41" to="call_ln218" fromId="93" toId="13">
+</dataflow>
+<dataflow id="242" from="l1_weights_42" to="call_ln218" fromId="94" toId="13">
+</dataflow>
+<dataflow id="243" from="l1_weights_43" to="call_ln218" fromId="95" toId="13">
+</dataflow>
+<dataflow id="244" from="l1_weights_44" to="call_ln218" fromId="96" toId="13">
+</dataflow>
+<dataflow id="245" from="l1_weights_45" to="call_ln218" fromId="97" toId="13">
+</dataflow>
+<dataflow id="246" from="l1_weights_46" to="call_ln218" fromId="98" toId="13">
+</dataflow>
+<dataflow id="247" from="l1_weights_47" to="call_ln218" fromId="99" toId="13">
+</dataflow>
+<dataflow id="248" from="l1_weights_48" to="call_ln218" fromId="100" toId="13">
+</dataflow>
+<dataflow id="249" from="l1_weights_49" to="call_ln218" fromId="101" toId="13">
+</dataflow>
+<dataflow id="250" from="l1_weights_50" to="call_ln218" fromId="102" toId="13">
+</dataflow>
+<dataflow id="251" from="l1_weights_51" to="call_ln218" fromId="103" toId="13">
+</dataflow>
+<dataflow id="252" from="l1_weights_52" to="call_ln218" fromId="104" toId="13">
+</dataflow>
+<dataflow id="253" from="l1_weights_53" to="call_ln218" fromId="105" toId="13">
+</dataflow>
+<dataflow id="254" from="l1_weights_54" to="call_ln218" fromId="106" toId="13">
+</dataflow>
+<dataflow id="255" from="l1_weights_55" to="call_ln218" fromId="107" toId="13">
+</dataflow>
+<dataflow id="256" from="l1_weights_56" to="call_ln218" fromId="108" toId="13">
+</dataflow>
+<dataflow id="257" from="l1_weights_57" to="call_ln218" fromId="109" toId="13">
+</dataflow>
+<dataflow id="258" from="l1_weights_58" to="call_ln218" fromId="110" toId="13">
+</dataflow>
+<dataflow id="259" from="l1_weights_59" to="call_ln218" fromId="111" toId="13">
+</dataflow>
+<dataflow id="260" from="l1_weights_60" to="call_ln218" fromId="112" toId="13">
+</dataflow>
+<dataflow id="261" from="l1_weights_61" to="call_ln218" fromId="113" toId="13">
+</dataflow>
+<dataflow id="262" from="l1_weights_62" to="call_ln218" fromId="114" toId="13">
+</dataflow>
+<dataflow id="263" from="l1_weights_63" to="call_ln218" fromId="115" toId="13">
+</dataflow>
+<dataflow id="264" from="l1_weights_64" to="call_ln218" fromId="116" toId="13">
+</dataflow>
+<dataflow id="265" from="l1_weights_65" to="call_ln218" fromId="117" toId="13">
+</dataflow>
+<dataflow id="266" from="l1_weights_66" to="call_ln218" fromId="118" toId="13">
+</dataflow>
+<dataflow id="267" from="l1_weights_67" to="call_ln218" fromId="119" toId="13">
+</dataflow>
+<dataflow id="268" from="l1_weights_68" to="call_ln218" fromId="120" toId="13">
+</dataflow>
+<dataflow id="269" from="l1_weights_69" to="call_ln218" fromId="121" toId="13">
+</dataflow>
+<dataflow id="270" from="l1_weights_70" to="call_ln218" fromId="122" toId="13">
+</dataflow>
+<dataflow id="271" from="l1_weights_71" to="call_ln218" fromId="123" toId="13">
+</dataflow>
+<dataflow id="272" from="l1_weights_72" to="call_ln218" fromId="124" toId="13">
+</dataflow>
+<dataflow id="273" from="l1_weights_73" to="call_ln218" fromId="125" toId="13">
+</dataflow>
+<dataflow id="274" from="l1_weights_74" to="call_ln218" fromId="126" toId="13">
+</dataflow>
+<dataflow id="275" from="l1_weights_75" to="call_ln218" fromId="127" toId="13">
+</dataflow>
+<dataflow id="276" from="l1_weights_76" to="call_ln218" fromId="128" toId="13">
+</dataflow>
+<dataflow id="277" from="l1_weights_77" to="call_ln218" fromId="129" toId="13">
+</dataflow>
+<dataflow id="278" from="l1_weights_78" to="call_ln218" fromId="130" toId="13">
+</dataflow>
+<dataflow id="279" from="l1_weights_79" to="call_ln218" fromId="131" toId="13">
+</dataflow>
+<dataflow id="280" from="l1_weights_80" to="call_ln218" fromId="132" toId="13">
+</dataflow>
+<dataflow id="281" from="l1_weights_81" to="call_ln218" fromId="133" toId="13">
+</dataflow>
+<dataflow id="282" from="l1_weights_82" to="call_ln218" fromId="134" toId="13">
+</dataflow>
+<dataflow id="283" from="l1_weights_83" to="call_ln218" fromId="135" toId="13">
+</dataflow>
+<dataflow id="284" from="l1_weights_84" to="call_ln218" fromId="136" toId="13">
+</dataflow>
+<dataflow id="285" from="l1_weights_85" to="call_ln218" fromId="137" toId="13">
+</dataflow>
+<dataflow id="286" from="l1_weights_86" to="call_ln218" fromId="138" toId="13">
+</dataflow>
+<dataflow id="287" from="l1_weights_87" to="call_ln218" fromId="139" toId="13">
+</dataflow>
+<dataflow id="288" from="l1_weights_88" to="call_ln218" fromId="140" toId="13">
+</dataflow>
+<dataflow id="289" from="l1_weights_89" to="call_ln218" fromId="141" toId="13">
+</dataflow>
+<dataflow id="290" from="l1_weights_90" to="call_ln218" fromId="142" toId="13">
+</dataflow>
+<dataflow id="291" from="l1_weights_91" to="call_ln218" fromId="143" toId="13">
+</dataflow>
+<dataflow id="292" from="l1_weights_92" to="call_ln218" fromId="144" toId="13">
+</dataflow>
+<dataflow id="293" from="l1_weights_93" to="call_ln218" fromId="145" toId="13">
+</dataflow>
+<dataflow id="294" from="l1_weights_94" to="call_ln218" fromId="146" toId="13">
+</dataflow>
+<dataflow id="295" from="l1_weights_95" to="call_ln218" fromId="147" toId="13">
+</dataflow>
+<dataflow id="296" from="l1_weights_96" to="call_ln218" fromId="148" toId="13">
+</dataflow>
+<dataflow id="297" from="l1_weights_97" to="call_ln218" fromId="149" toId="13">
+</dataflow>
+<dataflow id="298" from="l1_weights_98" to="call_ln218" fromId="150" toId="13">
+</dataflow>
+<dataflow id="299" from="l1_weights_99" to="call_ln218" fromId="151" toId="13">
+</dataflow>
+<dataflow id="300" from="l1_weights_152" to="call_ln218" fromId="152" toId="13">
+</dataflow>
+<dataflow id="301" from="l1_weights_151" to="call_ln218" fromId="153" toId="13">
+</dataflow>
+<dataflow id="302" from="l1_weights_150" to="call_ln218" fromId="154" toId="13">
+</dataflow>
+<dataflow id="303" from="l1_weights_149" to="call_ln218" fromId="155" toId="13">
+</dataflow>
+<dataflow id="304" from="l1_weights_148" to="call_ln218" fromId="156" toId="13">
+</dataflow>
+<dataflow id="305" from="l1_weights_147" to="call_ln218" fromId="157" toId="13">
+</dataflow>
+<dataflow id="306" from="l1_weights_146" to="call_ln218" fromId="158" toId="13">
+</dataflow>
+<dataflow id="307" from="l1_weights_145" to="call_ln218" fromId="159" toId="13">
+</dataflow>
+<dataflow id="308" from="l1_weights_144" to="call_ln218" fromId="160" toId="13">
+</dataflow>
+<dataflow id="309" from="l1_weights_143" to="call_ln218" fromId="161" toId="13">
+</dataflow>
+<dataflow id="310" from="l1_weights_142" to="call_ln218" fromId="162" toId="13">
+</dataflow>
+<dataflow id="311" from="l1_weights_141" to="call_ln218" fromId="163" toId="13">
+</dataflow>
+<dataflow id="312" from="l1_weights_140" to="call_ln218" fromId="164" toId="13">
+</dataflow>
+<dataflow id="313" from="l1_weights_139" to="call_ln218" fromId="165" toId="13">
+</dataflow>
+<dataflow id="314" from="l1_weights_138" to="call_ln218" fromId="166" toId="13">
+</dataflow>
+<dataflow id="315" from="l1_weights_137" to="call_ln218" fromId="167" toId="13">
+</dataflow>
+<dataflow id="316" from="l1_weights_136" to="call_ln218" fromId="168" toId="13">
+</dataflow>
+<dataflow id="317" from="l1_weights_135" to="call_ln218" fromId="169" toId="13">
+</dataflow>
+<dataflow id="318" from="l1_weights_134" to="call_ln218" fromId="170" toId="13">
+</dataflow>
+<dataflow id="319" from="l1_weights_133" to="call_ln218" fromId="171" toId="13">
+</dataflow>
+<dataflow id="320" from="l1_weights_132" to="call_ln218" fromId="172" toId="13">
+</dataflow>
+<dataflow id="321" from="l1_weights_131" to="call_ln218" fromId="173" toId="13">
+</dataflow>
+<dataflow id="322" from="l1_weights_130" to="call_ln218" fromId="174" toId="13">
+</dataflow>
+<dataflow id="323" from="l1_weights_129" to="call_ln218" fromId="175" toId="13">
+</dataflow>
+<dataflow id="324" from="l1_weights_128" to="call_ln218" fromId="176" toId="13">
+</dataflow>
+<dataflow id="325" from="l1_weights_127" to="call_ln218" fromId="177" toId="13">
+</dataflow>
+<dataflow id="326" from="l1_weights_126" to="call_ln218" fromId="178" toId="13">
+</dataflow>
+<dataflow id="327" from="l1_weights" to="call_ln218" fromId="179" toId="13">
+</dataflow>
+<dataflow id="328" from="mlp_l1" to="call_ln218" fromId="196" toId="14">
+</dataflow>
+<dataflow id="329" from="l1_in_V" to="call_ln218" fromId="9" toId="14">
+</dataflow>
+<dataflow id="330" from="l2_in_V" to="call_ln218" fromId="10" toId="14">
+</dataflow>
+<dataflow id="331" from="l1_weights_0" to="call_ln218" fromId="52" toId="14">
+</dataflow>
+<dataflow id="332" from="l1_weights_1" to="call_ln218" fromId="53" toId="14">
+</dataflow>
+<dataflow id="333" from="l1_weights_2" to="call_ln218" fromId="54" toId="14">
+</dataflow>
+<dataflow id="334" from="l1_weights_3" to="call_ln218" fromId="55" toId="14">
+</dataflow>
+<dataflow id="335" from="l1_weights_4" to="call_ln218" fromId="56" toId="14">
+</dataflow>
+<dataflow id="336" from="l1_weights_5" to="call_ln218" fromId="57" toId="14">
+</dataflow>
+<dataflow id="337" from="l1_weights_6" to="call_ln218" fromId="58" toId="14">
+</dataflow>
+<dataflow id="338" from="l1_weights_7" to="call_ln218" fromId="59" toId="14">
+</dataflow>
+<dataflow id="339" from="l1_weights_8" to="call_ln218" fromId="60" toId="14">
+</dataflow>
+<dataflow id="340" from="l1_weights_9" to="call_ln218" fromId="61" toId="14">
+</dataflow>
+<dataflow id="341" from="l1_weights_10" to="call_ln218" fromId="62" toId="14">
+</dataflow>
+<dataflow id="342" from="l1_weights_11" to="call_ln218" fromId="63" toId="14">
+</dataflow>
+<dataflow id="343" from="l1_weights_12" to="call_ln218" fromId="64" toId="14">
+</dataflow>
+<dataflow id="344" from="l1_weights_13" to="call_ln218" fromId="65" toId="14">
+</dataflow>
+<dataflow id="345" from="l1_weights_14" to="call_ln218" fromId="66" toId="14">
+</dataflow>
+<dataflow id="346" from="l1_weights_15" to="call_ln218" fromId="67" toId="14">
+</dataflow>
+<dataflow id="347" from="l1_weights_16" to="call_ln218" fromId="68" toId="14">
+</dataflow>
+<dataflow id="348" from="l1_weights_17" to="call_ln218" fromId="69" toId="14">
+</dataflow>
+<dataflow id="349" from="l1_weights_18" to="call_ln218" fromId="70" toId="14">
+</dataflow>
+<dataflow id="350" from="l1_weights_19" to="call_ln218" fromId="71" toId="14">
+</dataflow>
+<dataflow id="351" from="l1_weights_20" to="call_ln218" fromId="72" toId="14">
+</dataflow>
+<dataflow id="352" from="l1_weights_21" to="call_ln218" fromId="73" toId="14">
+</dataflow>
+<dataflow id="353" from="l1_weights_22" to="call_ln218" fromId="74" toId="14">
+</dataflow>
+<dataflow id="354" from="l1_weights_23" to="call_ln218" fromId="75" toId="14">
+</dataflow>
+<dataflow id="355" from="l1_weights_24" to="call_ln218" fromId="76" toId="14">
+</dataflow>
+<dataflow id="356" from="l1_weights_25" to="call_ln218" fromId="77" toId="14">
+</dataflow>
+<dataflow id="357" from="l1_weights_26" to="call_ln218" fromId="78" toId="14">
+</dataflow>
+<dataflow id="358" from="l1_weights_27" to="call_ln218" fromId="79" toId="14">
+</dataflow>
+<dataflow id="359" from="l1_weights_28" to="call_ln218" fromId="80" toId="14">
+</dataflow>
+<dataflow id="360" from="l1_weights_29" to="call_ln218" fromId="81" toId="14">
+</dataflow>
+<dataflow id="361" from="l1_weights_30" to="call_ln218" fromId="82" toId="14">
+</dataflow>
+<dataflow id="362" from="l1_weights_31" to="call_ln218" fromId="83" toId="14">
+</dataflow>
+<dataflow id="363" from="l1_weights_32" to="call_ln218" fromId="84" toId="14">
+</dataflow>
+<dataflow id="364" from="l1_weights_33" to="call_ln218" fromId="85" toId="14">
+</dataflow>
+<dataflow id="365" from="l1_weights_34" to="call_ln218" fromId="86" toId="14">
+</dataflow>
+<dataflow id="366" from="l1_weights_35" to="call_ln218" fromId="87" toId="14">
+</dataflow>
+<dataflow id="367" from="l1_weights_36" to="call_ln218" fromId="88" toId="14">
+</dataflow>
+<dataflow id="368" from="l1_weights_37" to="call_ln218" fromId="89" toId="14">
+</dataflow>
+<dataflow id="369" from="l1_weights_38" to="call_ln218" fromId="90" toId="14">
+</dataflow>
+<dataflow id="370" from="l1_weights_39" to="call_ln218" fromId="91" toId="14">
+</dataflow>
+<dataflow id="371" from="l1_weights_40" to="call_ln218" fromId="92" toId="14">
+</dataflow>
+<dataflow id="372" from="l1_weights_41" to="call_ln218" fromId="93" toId="14">
+</dataflow>
+<dataflow id="373" from="l1_weights_42" to="call_ln218" fromId="94" toId="14">
+</dataflow>
+<dataflow id="374" from="l1_weights_43" to="call_ln218" fromId="95" toId="14">
+</dataflow>
+<dataflow id="375" from="l1_weights_44" to="call_ln218" fromId="96" toId="14">
+</dataflow>
+<dataflow id="376" from="l1_weights_45" to="call_ln218" fromId="97" toId="14">
+</dataflow>
+<dataflow id="377" from="l1_weights_46" to="call_ln218" fromId="98" toId="14">
+</dataflow>
+<dataflow id="378" from="l1_weights_47" to="call_ln218" fromId="99" toId="14">
+</dataflow>
+<dataflow id="379" from="l1_weights_48" to="call_ln218" fromId="100" toId="14">
+</dataflow>
+<dataflow id="380" from="l1_weights_49" to="call_ln218" fromId="101" toId="14">
+</dataflow>
+<dataflow id="381" from="l1_weights_50" to="call_ln218" fromId="102" toId="14">
+</dataflow>
+<dataflow id="382" from="l1_weights_51" to="call_ln218" fromId="103" toId="14">
+</dataflow>
+<dataflow id="383" from="l1_weights_52" to="call_ln218" fromId="104" toId="14">
+</dataflow>
+<dataflow id="384" from="l1_weights_53" to="call_ln218" fromId="105" toId="14">
+</dataflow>
+<dataflow id="385" from="l1_weights_54" to="call_ln218" fromId="106" toId="14">
+</dataflow>
+<dataflow id="386" from="l1_weights_55" to="call_ln218" fromId="107" toId="14">
+</dataflow>
+<dataflow id="387" from="l1_weights_56" to="call_ln218" fromId="108" toId="14">
+</dataflow>
+<dataflow id="388" from="l1_weights_57" to="call_ln218" fromId="109" toId="14">
+</dataflow>
+<dataflow id="389" from="l1_weights_58" to="call_ln218" fromId="110" toId="14">
+</dataflow>
+<dataflow id="390" from="l1_weights_59" to="call_ln218" fromId="111" toId="14">
+</dataflow>
+<dataflow id="391" from="l1_weights_60" to="call_ln218" fromId="112" toId="14">
+</dataflow>
+<dataflow id="392" from="l1_weights_61" to="call_ln218" fromId="113" toId="14">
+</dataflow>
+<dataflow id="393" from="l1_weights_62" to="call_ln218" fromId="114" toId="14">
+</dataflow>
+<dataflow id="394" from="l1_weights_63" to="call_ln218" fromId="115" toId="14">
+</dataflow>
+<dataflow id="395" from="l1_weights_64" to="call_ln218" fromId="116" toId="14">
+</dataflow>
+<dataflow id="396" from="l1_weights_65" to="call_ln218" fromId="117" toId="14">
+</dataflow>
+<dataflow id="397" from="l1_weights_66" to="call_ln218" fromId="118" toId="14">
+</dataflow>
+<dataflow id="398" from="l1_weights_67" to="call_ln218" fromId="119" toId="14">
+</dataflow>
+<dataflow id="399" from="l1_weights_68" to="call_ln218" fromId="120" toId="14">
+</dataflow>
+<dataflow id="400" from="l1_weights_69" to="call_ln218" fromId="121" toId="14">
+</dataflow>
+<dataflow id="401" from="l1_weights_70" to="call_ln218" fromId="122" toId="14">
+</dataflow>
+<dataflow id="402" from="l1_weights_71" to="call_ln218" fromId="123" toId="14">
+</dataflow>
+<dataflow id="403" from="l1_weights_72" to="call_ln218" fromId="124" toId="14">
+</dataflow>
+<dataflow id="404" from="l1_weights_73" to="call_ln218" fromId="125" toId="14">
+</dataflow>
+<dataflow id="405" from="l1_weights_74" to="call_ln218" fromId="126" toId="14">
+</dataflow>
+<dataflow id="406" from="l1_weights_75" to="call_ln218" fromId="127" toId="14">
+</dataflow>
+<dataflow id="407" from="l1_weights_76" to="call_ln218" fromId="128" toId="14">
+</dataflow>
+<dataflow id="408" from="l1_weights_77" to="call_ln218" fromId="129" toId="14">
+</dataflow>
+<dataflow id="409" from="l1_weights_78" to="call_ln218" fromId="130" toId="14">
+</dataflow>
+<dataflow id="410" from="l1_weights_79" to="call_ln218" fromId="131" toId="14">
+</dataflow>
+<dataflow id="411" from="l1_weights_80" to="call_ln218" fromId="132" toId="14">
+</dataflow>
+<dataflow id="412" from="l1_weights_81" to="call_ln218" fromId="133" toId="14">
+</dataflow>
+<dataflow id="413" from="l1_weights_82" to="call_ln218" fromId="134" toId="14">
+</dataflow>
+<dataflow id="414" from="l1_weights_83" to="call_ln218" fromId="135" toId="14">
+</dataflow>
+<dataflow id="415" from="l1_weights_84" to="call_ln218" fromId="136" toId="14">
+</dataflow>
+<dataflow id="416" from="l1_weights_85" to="call_ln218" fromId="137" toId="14">
+</dataflow>
+<dataflow id="417" from="l1_weights_86" to="call_ln218" fromId="138" toId="14">
+</dataflow>
+<dataflow id="418" from="l1_weights_87" to="call_ln218" fromId="139" toId="14">
+</dataflow>
+<dataflow id="419" from="l1_weights_88" to="call_ln218" fromId="140" toId="14">
+</dataflow>
+<dataflow id="420" from="l1_weights_89" to="call_ln218" fromId="141" toId="14">
+</dataflow>
+<dataflow id="421" from="l1_weights_90" to="call_ln218" fromId="142" toId="14">
+</dataflow>
+<dataflow id="422" from="l1_weights_91" to="call_ln218" fromId="143" toId="14">
+</dataflow>
+<dataflow id="423" from="l1_weights_92" to="call_ln218" fromId="144" toId="14">
+</dataflow>
+<dataflow id="424" from="l1_weights_93" to="call_ln218" fromId="145" toId="14">
+</dataflow>
+<dataflow id="425" from="l1_weights_94" to="call_ln218" fromId="146" toId="14">
+</dataflow>
+<dataflow id="426" from="l1_weights_95" to="call_ln218" fromId="147" toId="14">
+</dataflow>
+<dataflow id="427" from="l1_weights_96" to="call_ln218" fromId="148" toId="14">
+</dataflow>
+<dataflow id="428" from="l1_weights_97" to="call_ln218" fromId="149" toId="14">
+</dataflow>
+<dataflow id="429" from="l1_weights_98" to="call_ln218" fromId="150" toId="14">
+</dataflow>
+<dataflow id="430" from="l1_weights_99" to="call_ln218" fromId="151" toId="14">
+</dataflow>
+<dataflow id="431" from="l1_weights_152" to="call_ln218" fromId="152" toId="14">
+</dataflow>
+<dataflow id="432" from="l1_weights_151" to="call_ln218" fromId="153" toId="14">
+</dataflow>
+<dataflow id="433" from="l1_weights_150" to="call_ln218" fromId="154" toId="14">
+</dataflow>
+<dataflow id="434" from="l1_weights_149" to="call_ln218" fromId="155" toId="14">
+</dataflow>
+<dataflow id="435" from="l1_weights_148" to="call_ln218" fromId="156" toId="14">
+</dataflow>
+<dataflow id="436" from="l1_weights_147" to="call_ln218" fromId="157" toId="14">
+</dataflow>
+<dataflow id="437" from="l1_weights_146" to="call_ln218" fromId="158" toId="14">
+</dataflow>
+<dataflow id="438" from="l1_weights_145" to="call_ln218" fromId="159" toId="14">
+</dataflow>
+<dataflow id="439" from="l1_weights_144" to="call_ln218" fromId="160" toId="14">
+</dataflow>
+<dataflow id="440" from="l1_weights_143" to="call_ln218" fromId="161" toId="14">
+</dataflow>
+<dataflow id="441" from="l1_weights_142" to="call_ln218" fromId="162" toId="14">
+</dataflow>
+<dataflow id="442" from="l1_weights_141" to="call_ln218" fromId="163" toId="14">
+</dataflow>
+<dataflow id="443" from="l1_weights_140" to="call_ln218" fromId="164" toId="14">
+</dataflow>
+<dataflow id="444" from="l1_weights_139" to="call_ln218" fromId="165" toId="14">
+</dataflow>
+<dataflow id="445" from="l1_weights_138" to="call_ln218" fromId="166" toId="14">
+</dataflow>
+<dataflow id="446" from="l1_weights_137" to="call_ln218" fromId="167" toId="14">
+</dataflow>
+<dataflow id="447" from="l1_weights_136" to="call_ln218" fromId="168" toId="14">
+</dataflow>
+<dataflow id="448" from="l1_weights_135" to="call_ln218" fromId="169" toId="14">
+</dataflow>
+<dataflow id="449" from="l1_weights_134" to="call_ln218" fromId="170" toId="14">
+</dataflow>
+<dataflow id="450" from="l1_weights_133" to="call_ln218" fromId="171" toId="14">
+</dataflow>
+<dataflow id="451" from="l1_weights_132" to="call_ln218" fromId="172" toId="14">
+</dataflow>
+<dataflow id="452" from="l1_weights_131" to="call_ln218" fromId="173" toId="14">
+</dataflow>
+<dataflow id="453" from="l1_weights_130" to="call_ln218" fromId="174" toId="14">
+</dataflow>
+<dataflow id="454" from="l1_weights_129" to="call_ln218" fromId="175" toId="14">
+</dataflow>
+<dataflow id="455" from="l1_weights_128" to="call_ln218" fromId="176" toId="14">
+</dataflow>
+<dataflow id="456" from="l1_weights_127" to="call_ln218" fromId="177" toId="14">
+</dataflow>
+<dataflow id="457" from="l1_weights_126" to="call_ln218" fromId="178" toId="14">
+</dataflow>
+<dataflow id="458" from="l1_weights" to="call_ln218" fromId="179" toId="14">
+</dataflow>
+<dataflow id="460" from="write_output" to="call_ln219" fromId="459" toId="15">
+</dataflow>
+<dataflow id="461" from="l2_in_V" to="call_ln219" fromId="10" toId="15">
+</dataflow>
+<dataflow id="462" from="out_V_data_V" to="call_ln219" fromId="48" toId="15">
+</dataflow>
+<dataflow id="463" from="out_V_keep_V" to="call_ln219" fromId="49" toId="15">
+</dataflow>
+<dataflow id="464" from="out_V_strb_V" to="call_ln219" fromId="50" toId="15">
+</dataflow>
+<dataflow id="465" from="out_V_last_V" to="call_ln219" fromId="51" toId="15">
+</dataflow>
+<dataflow id="466" from="write_output" to="call_ln219" fromId="459" toId="16">
+</dataflow>
+<dataflow id="467" from="l2_in_V" to="call_ln219" fromId="10" toId="16">
+</dataflow>
+<dataflow id="468" from="out_V_data_V" to="call_ln219" fromId="48" toId="16">
+</dataflow>
+<dataflow id="469" from="out_V_keep_V" to="call_ln219" fromId="49" toId="16">
+</dataflow>
+<dataflow id="470" from="out_V_strb_V" to="call_ln219" fromId="50" toId="16">
+</dataflow>
+<dataflow id="471" from="out_V_last_V" to="call_ln219" fromId="51" toId="16">
+</dataflow>
+<dataflow id="473" from="_ssdm_op_SpecDataflowPipeline" to="specdataflowpipeline_ln213" fromId="472" toId="17">
+</dataflow>
+<dataflow id="475" from="StgValue_474" to="specdataflowpipeline_ln213" fromId="474" toId="17">
+</dataflow>
+<dataflow id="477" from="StgValue_476" to="specdataflowpipeline_ln213" fromId="476" toId="17">
+</dataflow>
+<dataflow id="479" from="p_str2" to="specdataflowpipeline_ln213" fromId="478" toId="17">
+</dataflow>
+<dataflow id="481" from="_ssdm_op_SpecBitsMap" to="specbitsmap_ln0" fromId="480" toId="18">
+</dataflow>
+<dataflow id="482" from="in_V_data_V" to="specbitsmap_ln0" fromId="44" toId="18">
+</dataflow>
+<dataflow id="483" from="_ssdm_op_SpecBitsMap" to="specbitsmap_ln0" fromId="480" toId="19">
+</dataflow>
+<dataflow id="484" from="in_V_keep_V" to="specbitsmap_ln0" fromId="45" toId="19">
+</dataflow>
+<dataflow id="485" from="_ssdm_op_SpecBitsMap" to="specbitsmap_ln0" fromId="480" toId="20">
+</dataflow>
+<dataflow id="486" from="in_V_strb_V" to="specbitsmap_ln0" fromId="46" toId="20">
+</dataflow>
+<dataflow id="487" from="_ssdm_op_SpecBitsMap" to="specbitsmap_ln0" fromId="480" toId="21">
+</dataflow>
+<dataflow id="488" from="in_V_last_V" to="specbitsmap_ln0" fromId="47" toId="21">
+</dataflow>
+<dataflow id="489" from="_ssdm_op_SpecBitsMap" to="specbitsmap_ln0" fromId="480" toId="22">
+</dataflow>
+<dataflow id="490" from="out_V_data_V" to="specbitsmap_ln0" fromId="48" toId="22">
+</dataflow>
+<dataflow id="491" from="_ssdm_op_SpecBitsMap" to="specbitsmap_ln0" fromId="480" toId="23">
+</dataflow>
+<dataflow id="492" from="out_V_keep_V" to="specbitsmap_ln0" fromId="49" toId="23">
+</dataflow>
+<dataflow id="493" from="_ssdm_op_SpecBitsMap" to="specbitsmap_ln0" fromId="480" toId="24">
+</dataflow>
+<dataflow id="494" from="out_V_strb_V" to="specbitsmap_ln0" fromId="50" toId="24">
+</dataflow>
+<dataflow id="495" from="_ssdm_op_SpecBitsMap" to="specbitsmap_ln0" fromId="480" toId="25">
+</dataflow>
+<dataflow id="496" from="out_V_last_V" to="specbitsmap_ln0" fromId="51" toId="25">
+</dataflow>
+<dataflow id="498" from="_ssdm_op_SpecTopModule" to="spectopmodule_ln0" fromId="497" toId="26">
+</dataflow>
+<dataflow id="500" from="mlp_str" to="spectopmodule_ln0" fromId="499" toId="26">
+</dataflow>
+<dataflow id="502" from="_ssdm_op_SpecChannel" to="empty" fromId="501" toId="27">
+</dataflow>
+<dataflow id="504" from="l1_in_OC_V_str" to="empty" fromId="503" toId="27">
+</dataflow>
+<dataflow id="506" from="StgValue_505" to="empty" fromId="505" toId="27">
+</dataflow>
+<dataflow id="508" from="p_str30" to="empty" fromId="507" toId="27">
+</dataflow>
+<dataflow id="509" from="p_str30" to="empty" fromId="507" toId="27">
+</dataflow>
+<dataflow id="511" from="StgValue_510" to="empty" fromId="510" toId="27">
+</dataflow>
+<dataflow id="512" from="StgValue_510" to="empty" fromId="510" toId="27">
+</dataflow>
+<dataflow id="513" from="l1_in_V" to="empty" fromId="9" toId="27">
+</dataflow>
+<dataflow id="514" from="l1_in_V" to="empty" fromId="9" toId="27">
+</dataflow>
+<dataflow id="516" from="_ssdm_op_SpecInterface" to="specinterface_ln0" fromId="515" toId="28">
+</dataflow>
+<dataflow id="517" from="l1_in_V" to="specinterface_ln0" fromId="9" toId="28">
+</dataflow>
+<dataflow id="519" from="ap_fifo_str" to="specinterface_ln0" fromId="518" toId="28">
+</dataflow>
+<dataflow id="520" from="StgValue_476" to="specinterface_ln0" fromId="476" toId="28">
+</dataflow>
+<dataflow id="521" from="StgValue_476" to="specinterface_ln0" fromId="476" toId="28">
+</dataflow>
+<dataflow id="523" from="p_str31" to="specinterface_ln0" fromId="522" toId="28">
+</dataflow>
+<dataflow id="524" from="StgValue_476" to="specinterface_ln0" fromId="476" toId="28">
+</dataflow>
+<dataflow id="525" from="StgValue_476" to="specinterface_ln0" fromId="476" toId="28">
+</dataflow>
+<dataflow id="527" from="p_str32" to="specinterface_ln0" fromId="526" toId="28">
+</dataflow>
+<dataflow id="529" from="p_str33" to="specinterface_ln0" fromId="528" toId="28">
+</dataflow>
+<dataflow id="531" from="p_str34" to="specinterface_ln0" fromId="530" toId="28">
+</dataflow>
+<dataflow id="532" from="StgValue_510" to="specinterface_ln0" fromId="510" toId="28">
+</dataflow>
+<dataflow id="533" from="StgValue_510" to="specinterface_ln0" fromId="510" toId="28">
+</dataflow>
+<dataflow id="535" from="StgValue_534" to="specinterface_ln0" fromId="534" toId="28">
+</dataflow>
+<dataflow id="536" from="StgValue_534" to="specinterface_ln0" fromId="534" toId="28">
+</dataflow>
+<dataflow id="538" from="p_str35" to="specinterface_ln0" fromId="537" toId="28">
+</dataflow>
+<dataflow id="540" from="p_str36" to="specinterface_ln0" fromId="539" toId="28">
+</dataflow>
+<dataflow id="541" from="_ssdm_op_SpecChannel" to="empty_22" fromId="501" toId="29">
+</dataflow>
+<dataflow id="543" from="l2_in_OC_V_str" to="empty_22" fromId="542" toId="29">
+</dataflow>
+<dataflow id="544" from="StgValue_505" to="empty_22" fromId="505" toId="29">
+</dataflow>
+<dataflow id="546" from="p_str37" to="empty_22" fromId="545" toId="29">
+</dataflow>
+<dataflow id="547" from="p_str37" to="empty_22" fromId="545" toId="29">
+</dataflow>
+<dataflow id="548" from="StgValue_510" to="empty_22" fromId="510" toId="29">
+</dataflow>
+<dataflow id="549" from="StgValue_510" to="empty_22" fromId="510" toId="29">
+</dataflow>
+<dataflow id="550" from="l2_in_V" to="empty_22" fromId="10" toId="29">
+</dataflow>
+<dataflow id="551" from="l2_in_V" to="empty_22" fromId="10" toId="29">
+</dataflow>
+<dataflow id="552" from="_ssdm_op_SpecInterface" to="specinterface_ln0" fromId="515" toId="30">
+</dataflow>
+<dataflow id="553" from="l2_in_V" to="specinterface_ln0" fromId="10" toId="30">
+</dataflow>
+<dataflow id="554" from="ap_fifo_str" to="specinterface_ln0" fromId="518" toId="30">
+</dataflow>
+<dataflow id="555" from="StgValue_476" to="specinterface_ln0" fromId="476" toId="30">
+</dataflow>
+<dataflow id="556" from="StgValue_476" to="specinterface_ln0" fromId="476" toId="30">
+</dataflow>
+<dataflow id="558" from="p_str38" to="specinterface_ln0" fromId="557" toId="30">
+</dataflow>
+<dataflow id="559" from="StgValue_476" to="specinterface_ln0" fromId="476" toId="30">
+</dataflow>
+<dataflow id="560" from="StgValue_476" to="specinterface_ln0" fromId="476" toId="30">
+</dataflow>
+<dataflow id="562" from="p_str39" to="specinterface_ln0" fromId="561" toId="30">
+</dataflow>
+<dataflow id="564" from="p_str40" to="specinterface_ln0" fromId="563" toId="30">
+</dataflow>
+<dataflow id="566" from="p_str41" to="specinterface_ln0" fromId="565" toId="30">
+</dataflow>
+<dataflow id="567" from="StgValue_510" to="specinterface_ln0" fromId="510" toId="30">
+</dataflow>
+<dataflow id="568" from="StgValue_510" to="specinterface_ln0" fromId="510" toId="30">
+</dataflow>
+<dataflow id="569" from="StgValue_534" to="specinterface_ln0" fromId="534" toId="30">
+</dataflow>
+<dataflow id="570" from="StgValue_534" to="specinterface_ln0" fromId="534" toId="30">
+</dataflow>
+<dataflow id="572" from="p_str42" to="specinterface_ln0" fromId="571" toId="30">
+</dataflow>
+<dataflow id="574" from="p_str43" to="specinterface_ln0" fromId="573" toId="30">
+</dataflow>
+<dataflow id="575" from="_ssdm_op_SpecInterface" to="specinterface_ln204" fromId="515" toId="31">
+</dataflow>
+<dataflow id="576" from="StgValue_476" to="specinterface_ln204" fromId="476" toId="31">
+</dataflow>
+<dataflow id="578" from="p_str15" to="specinterface_ln204" fromId="577" toId="31">
+</dataflow>
+<dataflow id="579" from="StgValue_476" to="specinterface_ln204" fromId="476" toId="31">
+</dataflow>
+<dataflow id="580" from="StgValue_476" to="specinterface_ln204" fromId="476" toId="31">
+</dataflow>
+<dataflow id="581" from="p_str2" to="specinterface_ln204" fromId="478" toId="31">
+</dataflow>
+<dataflow id="582" from="StgValue_476" to="specinterface_ln204" fromId="476" toId="31">
+</dataflow>
+<dataflow id="583" from="StgValue_476" to="specinterface_ln204" fromId="476" toId="31">
+</dataflow>
+<dataflow id="585" from="p_str16" to="specinterface_ln204" fromId="584" toId="31">
+</dataflow>
+<dataflow id="586" from="p_str2" to="specinterface_ln204" fromId="478" toId="31">
+</dataflow>
+<dataflow id="587" from="p_str2" to="specinterface_ln204" fromId="478" toId="31">
+</dataflow>
+<dataflow id="588" from="StgValue_476" to="specinterface_ln204" fromId="476" toId="31">
+</dataflow>
+<dataflow id="589" from="StgValue_476" to="specinterface_ln204" fromId="476" toId="31">
+</dataflow>
+<dataflow id="590" from="StgValue_476" to="specinterface_ln204" fromId="476" toId="31">
+</dataflow>
+<dataflow id="591" from="StgValue_476" to="specinterface_ln204" fromId="476" toId="31">
+</dataflow>
+<dataflow id="592" from="p_str2" to="specinterface_ln204" fromId="478" toId="31">
+</dataflow>
+<dataflow id="593" from="p_str2" to="specinterface_ln204" fromId="478" toId="31">
+</dataflow>
+<dataflow id="594" from="_ssdm_op_SpecInterface" to="specinterface_ln205" fromId="515" toId="32">
+</dataflow>
+<dataflow id="595" from="in_V_data_V" to="specinterface_ln205" fromId="44" toId="32">
+</dataflow>
+<dataflow id="596" from="in_V_keep_V" to="specinterface_ln205" fromId="45" toId="32">
+</dataflow>
+<dataflow id="597" from="in_V_strb_V" to="specinterface_ln205" fromId="46" toId="32">
+</dataflow>
+<dataflow id="598" from="in_V_last_V" to="specinterface_ln205" fromId="47" toId="32">
+</dataflow>
+<dataflow id="600" from="p_str17" to="specinterface_ln205" fromId="599" toId="32">
+</dataflow>
+<dataflow id="601" from="StgValue_505" to="specinterface_ln205" fromId="505" toId="32">
+</dataflow>
+<dataflow id="602" from="StgValue_505" to="specinterface_ln205" fromId="505" toId="32">
+</dataflow>
+<dataflow id="604" from="p_str18" to="specinterface_ln205" fromId="603" toId="32">
+</dataflow>
+<dataflow id="605" from="StgValue_476" to="specinterface_ln205" fromId="476" toId="32">
+</dataflow>
+<dataflow id="606" from="StgValue_476" to="specinterface_ln205" fromId="476" toId="32">
+</dataflow>
+<dataflow id="607" from="p_str2" to="specinterface_ln205" fromId="478" toId="32">
+</dataflow>
+<dataflow id="608" from="p_str2" to="specinterface_ln205" fromId="478" toId="32">
+</dataflow>
+<dataflow id="609" from="p_str2" to="specinterface_ln205" fromId="478" toId="32">
+</dataflow>
+<dataflow id="610" from="StgValue_476" to="specinterface_ln205" fromId="476" toId="32">
+</dataflow>
+<dataflow id="611" from="StgValue_476" to="specinterface_ln205" fromId="476" toId="32">
+</dataflow>
+<dataflow id="612" from="StgValue_476" to="specinterface_ln205" fromId="476" toId="32">
+</dataflow>
+<dataflow id="613" from="StgValue_476" to="specinterface_ln205" fromId="476" toId="32">
+</dataflow>
+<dataflow id="614" from="p_str2" to="specinterface_ln205" fromId="478" toId="32">
+</dataflow>
+<dataflow id="615" from="p_str2" to="specinterface_ln205" fromId="478" toId="32">
+</dataflow>
+<dataflow id="616" from="_ssdm_op_SpecInterface" to="specinterface_ln206" fromId="515" toId="33">
+</dataflow>
+<dataflow id="617" from="out_V_data_V" to="specinterface_ln206" fromId="48" toId="33">
+</dataflow>
+<dataflow id="618" from="out_V_keep_V" to="specinterface_ln206" fromId="49" toId="33">
+</dataflow>
+<dataflow id="619" from="out_V_strb_V" to="specinterface_ln206" fromId="50" toId="33">
+</dataflow>
+<dataflow id="620" from="out_V_last_V" to="specinterface_ln206" fromId="51" toId="33">
+</dataflow>
+<dataflow id="621" from="p_str17" to="specinterface_ln206" fromId="599" toId="33">
+</dataflow>
+<dataflow id="622" from="StgValue_505" to="specinterface_ln206" fromId="505" toId="33">
+</dataflow>
+<dataflow id="623" from="StgValue_505" to="specinterface_ln206" fromId="505" toId="33">
+</dataflow>
+<dataflow id="624" from="p_str18" to="specinterface_ln206" fromId="603" toId="33">
+</dataflow>
+<dataflow id="625" from="StgValue_476" to="specinterface_ln206" fromId="476" toId="33">
+</dataflow>
+<dataflow id="626" from="StgValue_476" to="specinterface_ln206" fromId="476" toId="33">
+</dataflow>
+<dataflow id="627" from="p_str2" to="specinterface_ln206" fromId="478" toId="33">
+</dataflow>
+<dataflow id="628" from="p_str2" to="specinterface_ln206" fromId="478" toId="33">
+</dataflow>
+<dataflow id="629" from="p_str2" to="specinterface_ln206" fromId="478" toId="33">
+</dataflow>
+<dataflow id="630" from="StgValue_476" to="specinterface_ln206" fromId="476" toId="33">
+</dataflow>
+<dataflow id="631" from="StgValue_476" to="specinterface_ln206" fromId="476" toId="33">
+</dataflow>
+<dataflow id="632" from="StgValue_476" to="specinterface_ln206" fromId="476" toId="33">
+</dataflow>
+<dataflow id="633" from="StgValue_476" to="specinterface_ln206" fromId="476" toId="33">
+</dataflow>
+<dataflow id="634" from="p_str2" to="specinterface_ln206" fromId="478" toId="33">
+</dataflow>
+<dataflow id="635" from="p_str2" to="specinterface_ln206" fromId="478" toId="33">
+</dataflow>
+<dataflow id="637" from="_ssdm_op_SpecMemCore" to="specmemcore_ln210" fromId="636" toId="34">
+</dataflow>
+<dataflow id="638" from="l1_weights_0" to="specmemcore_ln210" fromId="52" toId="34">
+</dataflow>
+<dataflow id="639" from="l1_weights_1" to="specmemcore_ln210" fromId="53" toId="34">
+</dataflow>
+<dataflow id="640" from="l1_weights_2" to="specmemcore_ln210" fromId="54" toId="34">
+</dataflow>
+<dataflow id="641" from="l1_weights_3" to="specmemcore_ln210" fromId="55" toId="34">
+</dataflow>
+<dataflow id="642" from="l1_weights_4" to="specmemcore_ln210" fromId="56" toId="34">
+</dataflow>
+<dataflow id="643" from="l1_weights_5" to="specmemcore_ln210" fromId="57" toId="34">
+</dataflow>
+<dataflow id="644" from="l1_weights_6" to="specmemcore_ln210" fromId="58" toId="34">
+</dataflow>
+<dataflow id="645" from="l1_weights_7" to="specmemcore_ln210" fromId="59" toId="34">
+</dataflow>
+<dataflow id="646" from="l1_weights_8" to="specmemcore_ln210" fromId="60" toId="34">
+</dataflow>
+<dataflow id="647" from="l1_weights_9" to="specmemcore_ln210" fromId="61" toId="34">
+</dataflow>
+<dataflow id="648" from="l1_weights_10" to="specmemcore_ln210" fromId="62" toId="34">
+</dataflow>
+<dataflow id="649" from="l1_weights_11" to="specmemcore_ln210" fromId="63" toId="34">
+</dataflow>
+<dataflow id="650" from="l1_weights_12" to="specmemcore_ln210" fromId="64" toId="34">
+</dataflow>
+<dataflow id="651" from="l1_weights_13" to="specmemcore_ln210" fromId="65" toId="34">
+</dataflow>
+<dataflow id="652" from="l1_weights_14" to="specmemcore_ln210" fromId="66" toId="34">
+</dataflow>
+<dataflow id="653" from="l1_weights_15" to="specmemcore_ln210" fromId="67" toId="34">
+</dataflow>
+<dataflow id="654" from="l1_weights_16" to="specmemcore_ln210" fromId="68" toId="34">
+</dataflow>
+<dataflow id="655" from="l1_weights_17" to="specmemcore_ln210" fromId="69" toId="34">
+</dataflow>
+<dataflow id="656" from="l1_weights_18" to="specmemcore_ln210" fromId="70" toId="34">
+</dataflow>
+<dataflow id="657" from="l1_weights_19" to="specmemcore_ln210" fromId="71" toId="34">
+</dataflow>
+<dataflow id="658" from="l1_weights_20" to="specmemcore_ln210" fromId="72" toId="34">
+</dataflow>
+<dataflow id="659" from="l1_weights_21" to="specmemcore_ln210" fromId="73" toId="34">
+</dataflow>
+<dataflow id="660" from="l1_weights_22" to="specmemcore_ln210" fromId="74" toId="34">
+</dataflow>
+<dataflow id="661" from="l1_weights_23" to="specmemcore_ln210" fromId="75" toId="34">
+</dataflow>
+<dataflow id="662" from="l1_weights_24" to="specmemcore_ln210" fromId="76" toId="34">
+</dataflow>
+<dataflow id="663" from="l1_weights_25" to="specmemcore_ln210" fromId="77" toId="34">
+</dataflow>
+<dataflow id="664" from="l1_weights_26" to="specmemcore_ln210" fromId="78" toId="34">
+</dataflow>
+<dataflow id="665" from="l1_weights_27" to="specmemcore_ln210" fromId="79" toId="34">
+</dataflow>
+<dataflow id="666" from="l1_weights_28" to="specmemcore_ln210" fromId="80" toId="34">
+</dataflow>
+<dataflow id="667" from="l1_weights_29" to="specmemcore_ln210" fromId="81" toId="34">
+</dataflow>
+<dataflow id="668" from="l1_weights_30" to="specmemcore_ln210" fromId="82" toId="34">
+</dataflow>
+<dataflow id="669" from="l1_weights_31" to="specmemcore_ln210" fromId="83" toId="34">
+</dataflow>
+<dataflow id="670" from="l1_weights_32" to="specmemcore_ln210" fromId="84" toId="34">
+</dataflow>
+<dataflow id="671" from="l1_weights_33" to="specmemcore_ln210" fromId="85" toId="34">
+</dataflow>
+<dataflow id="672" from="l1_weights_34" to="specmemcore_ln210" fromId="86" toId="34">
+</dataflow>
+<dataflow id="673" from="l1_weights_35" to="specmemcore_ln210" fromId="87" toId="34">
+</dataflow>
+<dataflow id="674" from="l1_weights_36" to="specmemcore_ln210" fromId="88" toId="34">
+</dataflow>
+<dataflow id="675" from="l1_weights_37" to="specmemcore_ln210" fromId="89" toId="34">
+</dataflow>
+<dataflow id="676" from="l1_weights_38" to="specmemcore_ln210" fromId="90" toId="34">
+</dataflow>
+<dataflow id="677" from="l1_weights_39" to="specmemcore_ln210" fromId="91" toId="34">
+</dataflow>
+<dataflow id="678" from="l1_weights_40" to="specmemcore_ln210" fromId="92" toId="34">
+</dataflow>
+<dataflow id="679" from="l1_weights_41" to="specmemcore_ln210" fromId="93" toId="34">
+</dataflow>
+<dataflow id="680" from="l1_weights_42" to="specmemcore_ln210" fromId="94" toId="34">
+</dataflow>
+<dataflow id="681" from="l1_weights_43" to="specmemcore_ln210" fromId="95" toId="34">
+</dataflow>
+<dataflow id="682" from="l1_weights_44" to="specmemcore_ln210" fromId="96" toId="34">
+</dataflow>
+<dataflow id="683" from="l1_weights_45" to="specmemcore_ln210" fromId="97" toId="34">
+</dataflow>
+<dataflow id="684" from="l1_weights_46" to="specmemcore_ln210" fromId="98" toId="34">
+</dataflow>
+<dataflow id="685" from="l1_weights_47" to="specmemcore_ln210" fromId="99" toId="34">
+</dataflow>
+<dataflow id="686" from="l1_weights_48" to="specmemcore_ln210" fromId="100" toId="34">
+</dataflow>
+<dataflow id="687" from="l1_weights_49" to="specmemcore_ln210" fromId="101" toId="34">
+</dataflow>
+<dataflow id="688" from="l1_weights_50" to="specmemcore_ln210" fromId="102" toId="34">
+</dataflow>
+<dataflow id="689" from="l1_weights_51" to="specmemcore_ln210" fromId="103" toId="34">
+</dataflow>
+<dataflow id="690" from="l1_weights_52" to="specmemcore_ln210" fromId="104" toId="34">
+</dataflow>
+<dataflow id="691" from="l1_weights_53" to="specmemcore_ln210" fromId="105" toId="34">
+</dataflow>
+<dataflow id="692" from="l1_weights_54" to="specmemcore_ln210" fromId="106" toId="34">
+</dataflow>
+<dataflow id="693" from="l1_weights_55" to="specmemcore_ln210" fromId="107" toId="34">
+</dataflow>
+<dataflow id="694" from="l1_weights_56" to="specmemcore_ln210" fromId="108" toId="34">
+</dataflow>
+<dataflow id="695" from="l1_weights_57" to="specmemcore_ln210" fromId="109" toId="34">
+</dataflow>
+<dataflow id="696" from="l1_weights_58" to="specmemcore_ln210" fromId="110" toId="34">
+</dataflow>
+<dataflow id="697" from="l1_weights_59" to="specmemcore_ln210" fromId="111" toId="34">
+</dataflow>
+<dataflow id="698" from="l1_weights_60" to="specmemcore_ln210" fromId="112" toId="34">
+</dataflow>
+<dataflow id="699" from="l1_weights_61" to="specmemcore_ln210" fromId="113" toId="34">
+</dataflow>
+<dataflow id="700" from="l1_weights_62" to="specmemcore_ln210" fromId="114" toId="34">
+</dataflow>
+<dataflow id="701" from="l1_weights_63" to="specmemcore_ln210" fromId="115" toId="34">
+</dataflow>
+<dataflow id="702" from="l1_weights_64" to="specmemcore_ln210" fromId="116" toId="34">
+</dataflow>
+<dataflow id="703" from="l1_weights_65" to="specmemcore_ln210" fromId="117" toId="34">
+</dataflow>
+<dataflow id="704" from="l1_weights_66" to="specmemcore_ln210" fromId="118" toId="34">
+</dataflow>
+<dataflow id="705" from="l1_weights_67" to="specmemcore_ln210" fromId="119" toId="34">
+</dataflow>
+<dataflow id="706" from="l1_weights_68" to="specmemcore_ln210" fromId="120" toId="34">
+</dataflow>
+<dataflow id="707" from="l1_weights_69" to="specmemcore_ln210" fromId="121" toId="34">
+</dataflow>
+<dataflow id="708" from="l1_weights_70" to="specmemcore_ln210" fromId="122" toId="34">
+</dataflow>
+<dataflow id="709" from="l1_weights_71" to="specmemcore_ln210" fromId="123" toId="34">
+</dataflow>
+<dataflow id="710" from="l1_weights_72" to="specmemcore_ln210" fromId="124" toId="34">
+</dataflow>
+<dataflow id="711" from="l1_weights_73" to="specmemcore_ln210" fromId="125" toId="34">
+</dataflow>
+<dataflow id="712" from="l1_weights_74" to="specmemcore_ln210" fromId="126" toId="34">
+</dataflow>
+<dataflow id="713" from="l1_weights_75" to="specmemcore_ln210" fromId="127" toId="34">
+</dataflow>
+<dataflow id="714" from="l1_weights_76" to="specmemcore_ln210" fromId="128" toId="34">
+</dataflow>
+<dataflow id="715" from="l1_weights_77" to="specmemcore_ln210" fromId="129" toId="34">
+</dataflow>
+<dataflow id="716" from="l1_weights_78" to="specmemcore_ln210" fromId="130" toId="34">
+</dataflow>
+<dataflow id="717" from="l1_weights_79" to="specmemcore_ln210" fromId="131" toId="34">
+</dataflow>
+<dataflow id="718" from="l1_weights_80" to="specmemcore_ln210" fromId="132" toId="34">
+</dataflow>
+<dataflow id="719" from="l1_weights_81" to="specmemcore_ln210" fromId="133" toId="34">
+</dataflow>
+<dataflow id="720" from="l1_weights_82" to="specmemcore_ln210" fromId="134" toId="34">
+</dataflow>
+<dataflow id="721" from="l1_weights_83" to="specmemcore_ln210" fromId="135" toId="34">
+</dataflow>
+<dataflow id="722" from="l1_weights_84" to="specmemcore_ln210" fromId="136" toId="34">
+</dataflow>
+<dataflow id="723" from="l1_weights_85" to="specmemcore_ln210" fromId="137" toId="34">
+</dataflow>
+<dataflow id="724" from="l1_weights_86" to="specmemcore_ln210" fromId="138" toId="34">
+</dataflow>
+<dataflow id="725" from="l1_weights_87" to="specmemcore_ln210" fromId="139" toId="34">
+</dataflow>
+<dataflow id="726" from="l1_weights_88" to="specmemcore_ln210" fromId="140" toId="34">
+</dataflow>
+<dataflow id="727" from="l1_weights_89" to="specmemcore_ln210" fromId="141" toId="34">
+</dataflow>
+<dataflow id="728" from="l1_weights_90" to="specmemcore_ln210" fromId="142" toId="34">
+</dataflow>
+<dataflow id="729" from="l1_weights_91" to="specmemcore_ln210" fromId="143" toId="34">
+</dataflow>
+<dataflow id="730" from="l1_weights_92" to="specmemcore_ln210" fromId="144" toId="34">
+</dataflow>
+<dataflow id="731" from="l1_weights_93" to="specmemcore_ln210" fromId="145" toId="34">
+</dataflow>
+<dataflow id="732" from="l1_weights_94" to="specmemcore_ln210" fromId="146" toId="34">
+</dataflow>
+<dataflow id="733" from="l1_weights_95" to="specmemcore_ln210" fromId="147" toId="34">
+</dataflow>
+<dataflow id="734" from="l1_weights_96" to="specmemcore_ln210" fromId="148" toId="34">
+</dataflow>
+<dataflow id="735" from="l1_weights_97" to="specmemcore_ln210" fromId="149" toId="34">
+</dataflow>
+<dataflow id="736" from="l1_weights_98" to="specmemcore_ln210" fromId="150" toId="34">
+</dataflow>
+<dataflow id="737" from="l1_weights_99" to="specmemcore_ln210" fromId="151" toId="34">
+</dataflow>
+<dataflow id="738" from="l1_weights_152" to="specmemcore_ln210" fromId="152" toId="34">
+</dataflow>
+<dataflow id="739" from="l1_weights_151" to="specmemcore_ln210" fromId="153" toId="34">
+</dataflow>
+<dataflow id="740" from="l1_weights_150" to="specmemcore_ln210" fromId="154" toId="34">
+</dataflow>
+<dataflow id="741" from="l1_weights_149" to="specmemcore_ln210" fromId="155" toId="34">
+</dataflow>
+<dataflow id="742" from="l1_weights_148" to="specmemcore_ln210" fromId="156" toId="34">
+</dataflow>
+<dataflow id="743" from="l1_weights_147" to="specmemcore_ln210" fromId="157" toId="34">
+</dataflow>
+<dataflow id="744" from="l1_weights_146" to="specmemcore_ln210" fromId="158" toId="34">
+</dataflow>
+<dataflow id="745" from="l1_weights_145" to="specmemcore_ln210" fromId="159" toId="34">
+</dataflow>
+<dataflow id="746" from="l1_weights_144" to="specmemcore_ln210" fromId="160" toId="34">
+</dataflow>
+<dataflow id="747" from="l1_weights_143" to="specmemcore_ln210" fromId="161" toId="34">
+</dataflow>
+<dataflow id="748" from="l1_weights_142" to="specmemcore_ln210" fromId="162" toId="34">
+</dataflow>
+<dataflow id="749" from="l1_weights_141" to="specmemcore_ln210" fromId="163" toId="34">
+</dataflow>
+<dataflow id="750" from="l1_weights_140" to="specmemcore_ln210" fromId="164" toId="34">
+</dataflow>
+<dataflow id="751" from="l1_weights_139" to="specmemcore_ln210" fromId="165" toId="34">
+</dataflow>
+<dataflow id="752" from="l1_weights_138" to="specmemcore_ln210" fromId="166" toId="34">
+</dataflow>
+<dataflow id="753" from="l1_weights_137" to="specmemcore_ln210" fromId="167" toId="34">
+</dataflow>
+<dataflow id="754" from="l1_weights_136" to="specmemcore_ln210" fromId="168" toId="34">
+</dataflow>
+<dataflow id="755" from="l1_weights_135" to="specmemcore_ln210" fromId="169" toId="34">
+</dataflow>
+<dataflow id="756" from="l1_weights_134" to="specmemcore_ln210" fromId="170" toId="34">
+</dataflow>
+<dataflow id="757" from="l1_weights_133" to="specmemcore_ln210" fromId="171" toId="34">
+</dataflow>
+<dataflow id="758" from="l1_weights_132" to="specmemcore_ln210" fromId="172" toId="34">
+</dataflow>
+<dataflow id="759" from="l1_weights_131" to="specmemcore_ln210" fromId="173" toId="34">
+</dataflow>
+<dataflow id="760" from="l1_weights_130" to="specmemcore_ln210" fromId="174" toId="34">
+</dataflow>
+<dataflow id="761" from="l1_weights_129" to="specmemcore_ln210" fromId="175" toId="34">
+</dataflow>
+<dataflow id="762" from="l1_weights_128" to="specmemcore_ln210" fromId="176" toId="34">
+</dataflow>
+<dataflow id="763" from="l1_weights_127" to="specmemcore_ln210" fromId="177" toId="34">
+</dataflow>
+<dataflow id="764" from="l1_weights_126" to="specmemcore_ln210" fromId="178" toId="34">
+</dataflow>
+<dataflow id="765" from="l1_weights" to="specmemcore_ln210" fromId="179" toId="34">
+</dataflow>
+<dataflow id="766" from="p_str2" to="specmemcore_ln210" fromId="478" toId="34">
+</dataflow>
+<dataflow id="768" from="p_str8" to="specmemcore_ln210" fromId="767" toId="34">
+</dataflow>
+<dataflow id="769" from="p_str2" to="specmemcore_ln210" fromId="478" toId="34">
+</dataflow>
+<dataflow id="770" from="StgValue_474" to="specmemcore_ln210" fromId="474" toId="34">
+</dataflow>
+<dataflow id="771" from="p_str2" to="specmemcore_ln210" fromId="478" toId="34">
+</dataflow>
+<dataflow id="772" from="p_str2" to="specmemcore_ln210" fromId="478" toId="34">
+</dataflow>
+<dataflow id="773" from="p_str2" to="specmemcore_ln210" fromId="478" toId="34">
+</dataflow>
+<dataflow id="774" from="p_str2" to="specmemcore_ln210" fromId="478" toId="34">
+</dataflow>
+<dataflow id="775" from="p_str2" to="specmemcore_ln210" fromId="478" toId="34">
+</dataflow>
+</dataflows>
+
+
+</stg>

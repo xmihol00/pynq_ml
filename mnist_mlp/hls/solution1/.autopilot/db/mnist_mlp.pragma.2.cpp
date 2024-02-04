@@ -6954,7 +6954,7 @@ _ssdm_SpecArrayPartition( l2_out, 1, "CYCLIC", 32, "");
 input_mat_mul_outer:
     for (int i = 0; i < 784; i++)
     {
-_ssdm_op_SpecPipeline(1, 1, 1, 0, "");
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
  input_mat_mul_inner:
         for (int j = 0; j < 128; j++)
         {
@@ -6966,7 +6966,8 @@ _ssdm_Unroll(0,0,0, "");
 input_bias_relu:
     for (int i = 0; i < 128; i++)
     {
-_ssdm_op_SpecPipeline(1, 1, 1, 0, "");
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+_ssdm_Unroll(0,0,0, "");
  l1_out[i] += l1_biases[i];
         l1_out[i] = l1_out[i] >> 8;
         if (l1_out[i] < 0)
@@ -6978,8 +6979,8 @@ _ssdm_op_SpecPipeline(1, 1, 1, 0, "");
 hidden_mat_mul_outer:
     for (int i = 0; i < 128; i++)
     {
-_ssdm_op_SpecPipeline(1, 1, 1, 0, "");
- hidden_mat_mul_inner:
+
+    hidden_mat_mul_inner:
         for (int j = 0; j < 64; j++)
         {
 _ssdm_Unroll(1, 0, 32, "");
@@ -6990,7 +6991,8 @@ _ssdm_Unroll(1, 0, 32, "");
 hidden_bias_relu:
     for (int i = 0; i < 64; i++)
     {
-_ssdm_op_SpecPipeline(1, 1, 1, 0, "");
+_ssdm_Unroll(1, 0, 32, "");
+
  l2_out[i] += l2_biases[i];
         l2_out[i] = l2_out[i] >> 8;
         if (l2_out[i] < 0)
@@ -7002,7 +7004,7 @@ _ssdm_op_SpecPipeline(1, 1, 1, 0, "");
 output_bias:
     for (int i = 0; i < 10; i++)
     {
-_ssdm_op_SpecPipeline(1, 1, 1, 0, "");
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
 _ssdm_Unroll(0,0,0, "");
  prediction[i] = l3_biases[i];
     }
@@ -7010,7 +7012,7 @@ _ssdm_Unroll(0,0,0, "");
 output_mat_mul_outer:
     for (int i = 0; i < 64; i++)
     {
-_ssdm_op_SpecPipeline(1, 1, 1, 0, "");
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
  output_mat_mul_inner:
         for (int j = 0; j < 10; j++)
         {
