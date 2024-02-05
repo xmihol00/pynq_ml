@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="mlp,hls_ip_2020_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=8.272500,HLS_SYN_LAT=1858,HLS_SYN_TPT=1846,HLS_SYN_MEM=205,HLS_SYN_DSP=138,HLS_SYN_FF=16979,HLS_SYN_LUT=9444,HLS_VERSION=2020_1}" *)
+(* CORE_GENERATION_INFO="mlp,hls_ip_2020_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=8.272500,HLS_SYN_LAT=1858,HLS_SYN_TPT=1846,HLS_SYN_MEM=209,HLS_SYN_DSP=138,HLS_SYN_FF=17120,HLS_SYN_LUT=9595,HLS_VERSION=2020_1}" *)
 
 module mlp (
         s_axi_control_AWVALID,
@@ -316,7 +316,7 @@ write_output write_output_U0(
     .out_r_TLAST(write_output_U0_out_r_TLAST)
 );
 
-fifo_w8_d2_A l1_in_0_V_U(
+fifo_w8_d784_A l1_in_0_V_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
@@ -329,7 +329,7 @@ fifo_w8_d2_A l1_in_0_V_U(
     .if_read(mlp_l1_U0_l1_in_0_V_read)
 );
 
-fifo_w8_d2_A l1_in_1_V_U(
+fifo_w8_d784_A l1_in_1_V_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
@@ -342,7 +342,7 @@ fifo_w8_d2_A l1_in_1_V_U(
     .if_read(mlp_l1_U0_l1_in_1_V_read)
 );
 
-fifo_w16_d2_A l2_in_V_U(
+fifo_w16_d128_A l2_in_V_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
@@ -355,7 +355,7 @@ fifo_w16_d2_A l2_in_V_U(
     .if_read(mlp_l2_U0_l2_in_V_read)
 );
 
-fifo_w16_d2_A l3_in_V_U(
+fifo_w16_d64_A l3_in_V_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
@@ -368,7 +368,7 @@ fifo_w16_d2_A l3_in_V_U(
     .if_read(mlp_l3_U0_l3_in_V_read)
 );
 
-fifo_w32_d2_A l3_out_V_U(
+fifo_w32_d10_A l3_out_V_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),

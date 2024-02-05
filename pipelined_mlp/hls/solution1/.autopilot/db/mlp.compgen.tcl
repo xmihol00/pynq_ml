@@ -2,15 +2,15 @@
 
 # FIFO definition:
 set ID 370
-set FifoName fifo_w8_d2_A
+set FifoName fifo_w8_d784_A
 set InstName l1_in_0_V_U
 set CoreName ap_simcore_fifo
 set NumOfStage 2
 set RegisteredInput 0
 set DualClock 0
-set Depth 2
+set Depth 784
 set DataWd 8
-set AddrWd 1
+set AddrWd 10
 set FullThresh 0
 set EmptyThresh 0
 set impl_style auto
@@ -71,15 +71,15 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your pl
 
 # FIFO definition:
 set ID 371
-set FifoName fifo_w8_d2_A
+set FifoName fifo_w8_d784_A
 set InstName l1_in_1_V_U
 set CoreName ap_simcore_fifo
 set NumOfStage 2
 set RegisteredInput 0
 set DualClock 0
-set Depth 2
+set Depth 784
 set DataWd 8
-set AddrWd 1
+set AddrWd 10
 set FullThresh 0
 set EmptyThresh 0
 set impl_style auto
@@ -140,15 +140,15 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your pl
 
 # FIFO definition:
 set ID 372
-set FifoName fifo_w16_d2_A
+set FifoName fifo_w16_d128_A
 set InstName l2_in_V_U
 set CoreName ap_simcore_fifo
 set NumOfStage 2
 set RegisteredInput 0
 set DualClock 0
-set Depth 2
+set Depth 128
 set DataWd 16
-set AddrWd 1
+set AddrWd 7
 set FullThresh 0
 set EmptyThresh 0
 set impl_style auto
@@ -209,15 +209,15 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your pl
 
 # FIFO definition:
 set ID 373
-set FifoName fifo_w16_d2_A
+set FifoName fifo_w16_d64_A
 set InstName l3_in_V_U
 set CoreName ap_simcore_fifo
 set NumOfStage 2
 set RegisteredInput 0
 set DualClock 0
-set Depth 2
+set Depth 64
 set DataWd 16
-set AddrWd 1
+set AddrWd 6
 set FullThresh 0
 set EmptyThresh 0
 set impl_style auto
@@ -278,15 +278,15 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your pl
 
 # FIFO definition:
 set ID 374
-set FifoName fifo_w32_d2_A
+set FifoName fifo_w32_d10_A
 set InstName l3_out_V_U
 set CoreName ap_simcore_fifo
 set NumOfStage 2
 set RegisteredInput 0
 set DualClock 0
-set Depth 2
+set Depth 10
 set DataWd 32
-set AddrWd 1
+set AddrWd 4
 set FullThresh 0
 set EmptyThresh 0
 set impl_style auto

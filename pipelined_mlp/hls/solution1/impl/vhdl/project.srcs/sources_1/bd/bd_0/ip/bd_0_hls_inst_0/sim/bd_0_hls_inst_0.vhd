@@ -47,7 +47,7 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: xilinx.com:hls:mlp:1.0
--- IP Revision: 2002042037
+-- IP Revision: 2002051813
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;

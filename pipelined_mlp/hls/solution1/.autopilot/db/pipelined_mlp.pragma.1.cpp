@@ -6932,7 +6932,7 @@ typedef ap_axiu<64, 0, 0, 0> axis_out_t;
 void mlp(hls::stream<axis_in_t> &in, hls::stream<axis_out_t> &out);
 # 3 "pipelined_mlp.cpp" 2
 
-void read_input(hls::stream<axis_in_t> &in, hls::stream<uint8_t> l1_in[2])
+void read_input(hls::stream<axis_in_t> &in, hls::stream<uint8_t, 784> l1_in[2])
 {_ssdm_SpecArrayDimSize(l1_in, 2);
     int j_limit = 128 / 8;
     int i_limit = 784 / j_limit;
@@ -6959,7 +6959,7 @@ _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
     }
 }
 
-void write_output(hls::stream<int32_t> &l3_out, hls::stream<axis_out_t> &out)
+void write_output(hls::stream<int32_t, 10> &l3_out, hls::stream<axis_out_t> &out)
 {
     int j_limit = 64 / 32;
     int i_limit = 10 / j_limit;
@@ -6993,7 +6993,7 @@ _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
     }
 }
 
-void mlp_l1(const int8_t l1_weights[128][784], const int8_t l1_biases[128], hls::stream<uint8_t> l1_in[2], hls::stream<int16_t> &l1_out)
+void mlp_l1(const int8_t l1_weights[128][784], const int8_t l1_biases[128], hls::stream<uint8_t, 784> l1_in[2], hls::stream<int16_t, 128> &l1_out)
 {_ssdm_SpecArrayDimSize(l1_weights, 128);_ssdm_SpecArrayDimSize(l1_biases, 128);_ssdm_SpecArrayDimSize(l1_in, 2);
 _ssdm_op_SpecPipeline(0, 0, 0, 1, "");
 
@@ -7035,7 +7035,7 @@ _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
     }
 }
 
-void mlp_l2(const int8_t l2_weights[64][128], const int8_t l2_biases[64], hls::stream<int16_t> &l2_in, hls::stream<int16_t> &l2_out)
+void mlp_l2(const int8_t l2_weights[64][128], const int8_t l2_biases[64], hls::stream<int16_t, 128> &l2_in, hls::stream<int16_t, 64> &l2_out)
 {_ssdm_SpecArrayDimSize(l2_weights, 64);_ssdm_SpecArrayDimSize(l2_biases, 64);
 _ssdm_op_SpecPipeline(0, 0, 0, 1, "");
  int32_t l2_out_buffer[64];
@@ -7072,7 +7072,7 @@ _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
     }
 }
 
-void mlp_l3(const int8_t l3_weights[10][64], const int8_t l3_biases[10], hls::stream<int16_t> &l3_in, hls::stream<int32_t> &l3_out)
+void mlp_l3(const int8_t l3_weights[10][64], const int8_t l3_biases[10], hls::stream<int16_t, 64> &l3_in, hls::stream<int32_t, 10> &l3_out)
 {_ssdm_SpecArrayDimSize(l3_weights, 10);_ssdm_SpecArrayDimSize(l3_biases, 10);
 _ssdm_op_SpecPipeline(0, 0, 0, 1, "");
  int32_t l3_out_buffer[10 + 6];
@@ -7152,10 +7152,10 @@ _ssdm_op_SpecResource(l3_biases, "", "RAM_2P_BRAM", "", -1, "", "", "", "", "");
 _ssdm_SpecArrayPartition( l3_weights, 1, "COMPLETE", 0, "");
 _ssdm_SpecArrayPartition( l3_biases, 1, "COMPLETE", 0, "");
 
- hls::stream<uint8_t> l1_in[2];
-    hls::stream<int16_t> l2_in;
-    hls::stream<int16_t> l3_in;
-    hls::stream<int32_t> l3_out;
+ hls::stream<uint8_t, 784> l1_in[2];
+    hls::stream<int16_t, 128> l2_in;
+    hls::stream<int16_t, 64> l3_in;
+    hls::stream<int32_t, 10> l3_out;
 
     read_input(in, l1_in);
     mlp_l1(l1_weights, l1_biases, l1_in, l2_in);

@@ -1,7 +1,7 @@
 
 #include "pipelined_mlp.h"
 
-void read_input(hls::stream<axis_in_t> &in, hls::stream<uint8_t> l1_in[2])
+void read_input(hls::stream<axis_in_t> &in, hls::stream<uint8_t, INPUT_SIZE> l1_in[2])
 {
     int j_limit = AXI_INPUT_WIDTH / INT8_BITS;
     int i_limit = INPUT_SIZE / j_limit;
@@ -28,7 +28,7 @@ load_sample:
     }
 }
 
-void write_output(hls::stream<int32_t> &l3_out, hls::stream<axis_out_t> &out)
+void write_output(hls::stream<int32_t, OUTPUT_SIZE> &l3_out, hls::stream<axis_out_t> &out)
 {
     int j_limit = AXI_OUTPUT_WIDTH / INT32_BITS;
     int i_limit = OUTPUT_SIZE / j_limit;
@@ -62,7 +62,7 @@ write_prediction:
     }
 }
 
-void mlp_l1(const int8_t l1_weights[L1_SIZE][INPUT_SIZE], const int8_t l1_biases[L1_SIZE], hls::stream<uint8_t> l1_in[2], hls::stream<int16_t> &l1_out)
+void mlp_l1(const int8_t l1_weights[L1_SIZE][INPUT_SIZE], const int8_t l1_biases[L1_SIZE], hls::stream<uint8_t, INPUT_SIZE> l1_in[2], hls::stream<int16_t, L1_SIZE> &l1_out)
 {
 #pragma HLS PIPELINE off
 
@@ -104,7 +104,7 @@ l1:
     }
 }
 
-void mlp_l2(const int8_t l2_weights[L2_SIZE][L1_SIZE], const int8_t l2_biases[L2_SIZE], hls::stream<int16_t> &l2_in, hls::stream<int16_t> &l2_out)
+void mlp_l2(const int8_t l2_weights[L2_SIZE][L1_SIZE], const int8_t l2_biases[L2_SIZE], hls::stream<int16_t, L1_SIZE> &l2_in, hls::stream<int16_t, L2_SIZE> &l2_out)
 {
 #pragma HLS PIPELINE off
     int32_t l2_out_buffer[L2_SIZE];
@@ -141,7 +141,7 @@ l2_bias_relu_write:
     }
 }
 
-void mlp_l3(const int8_t l3_weights[OUTPUT_SIZE][L2_SIZE], const int8_t l3_biases[OUTPUT_SIZE], hls::stream<int16_t> &l3_in, hls::stream<int32_t> &l3_out)
+void mlp_l3(const int8_t l3_weights[OUTPUT_SIZE][L2_SIZE], const int8_t l3_biases[OUTPUT_SIZE], hls::stream<int16_t, L2_SIZE> &l3_in, hls::stream<int32_t, OUTPUT_SIZE> &l3_out)
 {
 #pragma HLS PIPELINE off
     int32_t l3_out_buffer[OUTPUT_SIZE + 6];
@@ -203,10 +203,10 @@ void mlp(hls::stream<axis_in_t> &in, hls::stream<axis_out_t> &out)
 #pragma HLS ARRAY_PARTITION variable=l3_weights complete dim=1
 #pragma HLS ARRAY_PARTITION variable=l3_biases complete dim=1
 
-    hls::stream<uint8_t> l1_in[2];
-    hls::stream<int16_t> l2_in;
-    hls::stream<int16_t> l3_in;
-    hls::stream<int32_t> l3_out;
+    hls::stream<uint8_t, INPUT_SIZE> l1_in[2];
+    hls::stream<int16_t, L1_SIZE> l2_in;
+    hls::stream<int16_t, L2_SIZE> l3_in;
+    hls::stream<int32_t, OUTPUT_SIZE> l3_out;
 
     read_input(in, l1_in);
     mlp_l1(l1_weights, l1_biases, l1_in, l2_in);

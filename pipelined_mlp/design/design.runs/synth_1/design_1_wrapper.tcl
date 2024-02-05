@@ -70,7 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg400-1
 
@@ -98,13 +97,12 @@ set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/pipelined_mlp/design/design.srcs/sources_1/bd/design_1/ip/design_1_axi_dma_0_1/design_1_axi_dma_0_1_ooc.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/pipelined_mlp/design/design.srcs/sources_1/bd/design_1/ip/design_1_axis_data_fifo_0_2/design_1_axis_data_fifo_0_2_ooc.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/pipelined_mlp/design/design.srcs/sources_1/bd/design_1/ip/design_1_axis_data_fifo_0_3/design_1_axis_data_fifo_0_3_ooc.xdc]
-set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/pipelined_mlp/design/design.srcs/sources_1/bd/design_1/ip/design_1_mlp_0_1/constraints/mlp_ooc.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/pipelined_mlp/design/design.srcs/sources_1/bd/design_1/ip/design_1_xbar_2/design_1_xbar_2_ooc.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/pipelined_mlp/design/design.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_100M_1/design_1_rst_ps7_0_100M_1_board.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/pipelined_mlp/design/design.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_100M_1/design_1_rst_ps7_0_100M_1.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/pipelined_mlp/design/design.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_100M_1/design_1_rst_ps7_0_100M_1_ooc.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/pipelined_mlp/design/design.srcs/sources_1/bd/design_1/ip/design_1_xbar_3/design_1_xbar_3_ooc.xdc]
-set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/pipelined_mlp/design/design.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1_ooc.xdc]
+set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/pipelined_mlp/design/design.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc]
 set_property used_in_synthesis false [get_files -all /mnt/sdc3/david/projs/pynq_ml/pipelined_mlp/design/design.srcs/sources_1/bd/design_1/ip/design_1_auto_us_0/design_1_auto_us_0_clocks.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/pipelined_mlp/design/design.srcs/sources_1/bd/design_1/ip/design_1_auto_us_0/design_1_auto_us_0_clocks.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/pipelined_mlp/design/design.srcs/sources_1/bd/design_1/ip/design_1_auto_us_0/design_1_auto_us_0_ooc.xdc]
@@ -114,7 +112,8 @@ set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/
 set_property used_in_synthesis false [get_files -all /mnt/sdc3/david/projs/pynq_ml/pipelined_mlp/design/design.srcs/sources_1/bd/design_1/ip/design_1_auto_ds_0/design_1_auto_ds_0_clocks.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/pipelined_mlp/design/design.srcs/sources_1/bd/design_1/ip/design_1_auto_ds_0/design_1_auto_ds_0_clocks.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/pipelined_mlp/design/design.srcs/sources_1/bd/design_1/ip/design_1_auto_ds_0/design_1_auto_ds_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/pipelined_mlp/design/design.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_2/design_1_auto_pc_2_ooc.xdc]
+set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/pipelined_mlp/design/design.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1_ooc.xdc]
+set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/pipelined_mlp/design/design.srcs/sources_1/bd/design_1/ip/design_1_mlp_0_2/constraints/mlp_ooc.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/pipelined_mlp/design/design.srcs/sources_1/bd/design_1/design_1_ooc.xdc]
 
 OPTRACE "Adding files" END { }

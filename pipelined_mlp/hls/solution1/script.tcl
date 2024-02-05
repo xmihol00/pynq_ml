@@ -5,14 +5,15 @@
 ############################################################
 open_project hls
 set_top mlp
-add_files pipelined_mlp.cpp
-add_files pipelined_mlp.h
 add_files weights_biases.h
-add_files -tb pipelined_mlp.h
-add_files -tb pipelined_mlp_tb.cpp -cflags "-Wno-unknown-pragmas"
+add_files pipelined_mlp.h
+add_files pipelined_mlp.cpp
+add_files -tb pipelined_mlp_tb.cpp -cflags "-Wno-unknown-pragmas" -csimflags "-Wno-unknown-pragmas"
+add_files -tb pipelined_mlp.h -cflags "-Wno-unknown-pragmas" -csimflags "-Wno-unknown-pragmas"
 open_solution "solution1"
 set_part {xc7z020-clg400-1}
 create_clock -period 10 -name default
+config_export -format ip_catalog -rtl vhdl
 #source "./hls/solution1/directives.tcl"
 csim_design
 csynth_design

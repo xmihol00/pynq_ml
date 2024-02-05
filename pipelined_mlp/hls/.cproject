@@ -157,6 +157,8 @@
                         					
                     </folderInfo>
                     					
+                    <fileInfo id="cdt.managedbuild.config.gnu.exe.debug.980375103.355531356" name="pipelined_mlp.h" rcbsApplicability="disable" resourcePath="testbench/pipelined_mlp.h" toolsToInvoke=""/>
+                    					
                     <fileInfo id="cdt.managedbuild.config.gnu.exe.debug.980375103.1015408652" name="pipelined_mlp_tb.cpp" rcbsApplicability="disable" resourcePath="testbench/pipelined_mlp_tb.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.2104287432.1065454236">
                         						
                         <tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.2104287432.1065454236" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.2104287432">
@@ -334,6 +336,8 @@
                         </toolChain>
                         					
                     </folderInfo>
+                    					
+                    <fileInfo id="cdt.managedbuild.config.gnu.exe.release.640746579.744430098" name="pipelined_mlp.h" rcbsApplicability="disable" resourcePath="testbench/pipelined_mlp.h" toolsToInvoke=""/>
                     					
                     <fileInfo id="cdt.managedbuild.config.gnu.exe.release.640746579.291090207" name="pipelined_mlp_tb.cpp" rcbsApplicability="disable" resourcePath="testbench/pipelined_mlp_tb.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1313244277.464999606">
                         						

@@ -57,7 +57,7 @@
 
 <Node id="6" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
 <![CDATA[
-:0  call void (...)* @_ssdm_op_SpecInterface(i32* %l3_out_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str68, i32 0, i32 0, [1 x i8]* @p_str69, [1 x i8]* @p_str70, [1 x i8]* @p_str71, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str72, [1 x i8]* @p_str73)
+:0  call void (...)* @_ssdm_op_SpecInterface(i32* %l3_out_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str71, i32 0, i32 0, [1 x i8]* @p_str72, [1 x i8]* @p_str73, [1 x i8]* @p_str74, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str75, [1 x i8]* @p_str76)
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -175,7 +175,7 @@
 <state id="3" st_id="3">
 
 <operation id="15" st_id="3" stage="1" lat="1">
-<core>FIFO</core>
+<core>FIFO_SRL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp><literal name="icmp_ln37" val="0"/>
@@ -194,7 +194,7 @@ write_prediction:3  %tmp = call i32 @_ssdm_op_Read.ap_fifo.volatile.i32P(i32* %l
 <state id="4" st_id="4">
 
 <operation id="16" st_id="4" stage="1" lat="1">
-<core>FIFO</core>
+<core>FIFO_SRL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp><literal name="icmp_ln37" val="0"/>
@@ -363,7 +363,7 @@ write_prediction:8  br label %1
 
 <ports>
 <port id="38" name="l3_out_V" dir="0" iftype="3">
-<core>FIFO</core><StgValue><ssdm name="l3_out_V"/></StgValue>
+<core>FIFO_SRL</core><StgValue><ssdm name="l3_out_V"/></StgValue>
 </port>
 <port id="39" name="out_V_data_V" dir="1" iftype="0">
 <core>NULL</core><StgValue><ssdm name="out_V_data_V"/></StgValue>
@@ -391,17 +391,17 @@ write_prediction:8  br label %1
 </dataflow>
 <dataflow id="50" from="StgValue_48" to="specinterface_ln0" fromId="48" toId="7">
 </dataflow>
-<dataflow id="52" from="p_str68" to="specinterface_ln0" fromId="51" toId="7">
+<dataflow id="52" from="p_str71" to="specinterface_ln0" fromId="51" toId="7">
 </dataflow>
 <dataflow id="53" from="StgValue_48" to="specinterface_ln0" fromId="48" toId="7">
 </dataflow>
 <dataflow id="54" from="StgValue_48" to="specinterface_ln0" fromId="48" toId="7">
 </dataflow>
-<dataflow id="56" from="p_str69" to="specinterface_ln0" fromId="55" toId="7">
+<dataflow id="56" from="p_str72" to="specinterface_ln0" fromId="55" toId="7">
 </dataflow>
-<dataflow id="58" from="p_str70" to="specinterface_ln0" fromId="57" toId="7">
+<dataflow id="58" from="p_str73" to="specinterface_ln0" fromId="57" toId="7">
 </dataflow>
-<dataflow id="60" from="p_str71" to="specinterface_ln0" fromId="59" toId="7">
+<dataflow id="60" from="p_str74" to="specinterface_ln0" fromId="59" toId="7">
 </dataflow>
 <dataflow id="62" from="StgValue_61" to="specinterface_ln0" fromId="61" toId="7">
 </dataflow>
@@ -411,9 +411,9 @@ write_prediction:8  br label %1
 </dataflow>
 <dataflow id="66" from="StgValue_64" to="specinterface_ln0" fromId="64" toId="7">
 </dataflow>
-<dataflow id="68" from="p_str72" to="specinterface_ln0" fromId="67" toId="7">
+<dataflow id="68" from="p_str75" to="specinterface_ln0" fromId="67" toId="7">
 </dataflow>
-<dataflow id="70" from="p_str73" to="specinterface_ln0" fromId="69" toId="7">
+<dataflow id="70" from="p_str76" to="specinterface_ln0" fromId="69" toId="7">
 </dataflow>
 <dataflow id="71" from="_ssdm_op_SpecInterface" to="specinterface_ln0" fromId="43" toId="8">
 </dataflow>

@@ -12,9 +12,10 @@
     "Package": "-clg400",
     "Speed": "-1"
   },
-  "HlsSolution": {
-    
-  },
+  "HlsSolution": {"Config": [
+      "config_export -format=ip_catalog",
+      "config_export -rtl=vhdl"
+    ]},
   "Args": {
     "in": {
       "index": "0",
@@ -95,9 +96,10 @@
   "Files": {
     "CSource": ["..\/..\/pipelined_mlp.cpp"],
     "Vhdl": [
-      "impl\/vhdl\/fifo_w8_d2_A.vhd",
-      "impl\/vhdl\/fifo_w16_d2_A.vhd",
-      "impl\/vhdl\/fifo_w32_d2_A.vhd",
+      "impl\/vhdl\/fifo_w8_d784_A.vhd",
+      "impl\/vhdl\/fifo_w16_d64_A.vhd",
+      "impl\/vhdl\/fifo_w16_d128_A.vhd",
+      "impl\/vhdl\/fifo_w32_d10_A.vhd",
       "impl\/vhdl\/mlp_control_s_axi.vhd",
       "impl\/vhdl\/mlp_l1.vhd",
       "impl\/vhdl\/mlp_l1_l1_biases.vhd",
@@ -321,9 +323,10 @@
       "impl\/vhdl\/mlp.vhd"
     ],
     "Verilog": [
-      "impl\/verilog\/fifo_w8_d2_A.v",
-      "impl\/verilog\/fifo_w16_d2_A.v",
-      "impl\/verilog\/fifo_w32_d2_A.v",
+      "impl\/verilog\/fifo_w8_d784_A.v",
+      "impl\/verilog\/fifo_w16_d64_A.v",
+      "impl\/verilog\/fifo_w16_d128_A.v",
+      "impl\/verilog\/fifo_w32_d10_A.v",
       "impl\/verilog\/mlp_control_s_axi.v",
       "impl\/verilog\/mlp_l1.v",
       "impl\/verilog\/mlp_l1_l1_biases.v",
@@ -1491,10 +1494,10 @@
           "Estimate": "8.272"
         },
         "Area": {
-          "BRAM_18K": "205",
+          "BRAM_18K": "209",
           "DSP48E": "138",
-          "FF": "16979",
-          "LUT": "9444",
+          "FF": "17120",
+          "LUT": "9595",
           "URAM": "0"
         }
       }
@@ -1510,7 +1513,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2024-02-04 20:36:42 CET",
+    "Time": "2024-02-05 18:12:30 CET",
     "ToolName": "vivado_hls",
     "ToolVersion": "2020.1"
   }

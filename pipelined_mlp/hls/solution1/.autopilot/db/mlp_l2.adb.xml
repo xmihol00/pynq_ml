@@ -1063,7 +1063,7 @@
 
 <Node id="197" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
 <![CDATA[
-:64  call void (...)* @_ssdm_op_SpecInterface(i16* %l2_out_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str61, i32 0, i32 0, [1 x i8]* @p_str62, [1 x i8]* @p_str63, [1 x i8]* @p_str64, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str65, [1 x i8]* @p_str66)
+:64  call void (...)* @_ssdm_op_SpecInterface(i16* %l2_out_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str64, i32 0, i32 0, [1 x i8]* @p_str65, [1 x i8]* @p_str66, [1 x i8]* @p_str67, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str68, [1 x i8]* @p_str69)
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -1078,7 +1078,7 @@
 
 <Node id="198" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
 <![CDATA[
-:65  call void (...)* @_ssdm_op_SpecInterface(i16* %l2_in_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str54, i32 0, i32 0, [1 x i8]* @p_str55, [1 x i8]* @p_str56, [1 x i8]* @p_str57, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str58, [1 x i8]* @p_str59)
+:65  call void (...)* @_ssdm_op_SpecInterface(i16* %l2_in_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str57, i32 0, i32 0, [1 x i8]* @p_str58, [1 x i8]* @p_str59, [1 x i8]* @p_str60, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str61, [1 x i8]* @p_str62)
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -7643,7 +7643,7 @@ l2_mat_mul_outer:385  %l2_weights_63_load = load i8* %l2_weights_63_addr, align 
 <state id="5" st_id="5">
 
 <operation id="484" st_id="5" stage="1" lat="1">
-<core>FIFO</core>
+<core>FIFO_SRL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp><literal name="icmp_ln121" val="0"/>
@@ -18296,7 +18296,7 @@ l2_bias_relu_write_end:0  %tmp_20 = trunc i23 %l2_out_buffer_0_4 to i16
 <state id="10" st_id="10">
 
 <operation id="1154" st_id="10" stage="1" lat="1">
-<core>FIFO</core>
+<core>FIFO_SRL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp><literal name="icmp_ln134" val="0"/>
@@ -18366,10 +18366,10 @@ l2_bias_relu_write_end:3  br label %.preheader
 
 <ports>
 <port id="1314" name="l2_in_V" dir="0" iftype="3">
-<core>FIFO</core><StgValue><ssdm name="l2_in_V"/></StgValue>
+<core>FIFO_SRL</core><StgValue><ssdm name="l2_in_V"/></StgValue>
 </port>
 <port id="1315" name="l2_out_V" dir="1" iftype="3">
-<core>FIFO</core><StgValue><ssdm name="l2_out_V"/></StgValue>
+<core>FIFO_SRL</core><StgValue><ssdm name="l2_out_V"/></StgValue>
 </port>
 <port id="1316" name="l2_weights_0" dir="0" iftype="1">
 <core>RAM_2P_BRAM</core><StgValue><ssdm name="l2_weights_0"/><MemPortTyVec>1 3 </MemPortTyVec>
@@ -18773,17 +18773,17 @@ l2_bias_relu_write_end:3  br label %.preheader
 </dataflow>
 <dataflow id="1453" from="StgValue_1451" to="specinterface_ln0" fromId="1451" toId="76">
 </dataflow>
-<dataflow id="1455" from="p_str61" to="specinterface_ln0" fromId="1454" toId="76">
+<dataflow id="1455" from="p_str64" to="specinterface_ln0" fromId="1454" toId="76">
 </dataflow>
 <dataflow id="1456" from="StgValue_1451" to="specinterface_ln0" fromId="1451" toId="76">
 </dataflow>
 <dataflow id="1457" from="StgValue_1451" to="specinterface_ln0" fromId="1451" toId="76">
 </dataflow>
-<dataflow id="1459" from="p_str62" to="specinterface_ln0" fromId="1458" toId="76">
+<dataflow id="1459" from="p_str65" to="specinterface_ln0" fromId="1458" toId="76">
 </dataflow>
-<dataflow id="1461" from="p_str63" to="specinterface_ln0" fromId="1460" toId="76">
+<dataflow id="1461" from="p_str66" to="specinterface_ln0" fromId="1460" toId="76">
 </dataflow>
-<dataflow id="1463" from="p_str64" to="specinterface_ln0" fromId="1462" toId="76">
+<dataflow id="1463" from="p_str67" to="specinterface_ln0" fromId="1462" toId="76">
 </dataflow>
 <dataflow id="1465" from="StgValue_1464" to="specinterface_ln0" fromId="1464" toId="76">
 </dataflow>
@@ -18793,9 +18793,9 @@ l2_bias_relu_write_end:3  br label %.preheader
 </dataflow>
 <dataflow id="1469" from="StgValue_1467" to="specinterface_ln0" fromId="1467" toId="76">
 </dataflow>
-<dataflow id="1471" from="p_str65" to="specinterface_ln0" fromId="1470" toId="76">
+<dataflow id="1471" from="p_str68" to="specinterface_ln0" fromId="1470" toId="76">
 </dataflow>
-<dataflow id="1473" from="p_str66" to="specinterface_ln0" fromId="1472" toId="76">
+<dataflow id="1473" from="p_str69" to="specinterface_ln0" fromId="1472" toId="76">
 </dataflow>
 <dataflow id="1474" from="_ssdm_op_SpecInterface" to="specinterface_ln0" fromId="1446" toId="77">
 </dataflow>
@@ -18807,17 +18807,17 @@ l2_bias_relu_write_end:3  br label %.preheader
 </dataflow>
 <dataflow id="1478" from="StgValue_1451" to="specinterface_ln0" fromId="1451" toId="77">
 </dataflow>
-<dataflow id="1480" from="p_str54" to="specinterface_ln0" fromId="1479" toId="77">
+<dataflow id="1480" from="p_str57" to="specinterface_ln0" fromId="1479" toId="77">
 </dataflow>
 <dataflow id="1481" from="StgValue_1451" to="specinterface_ln0" fromId="1451" toId="77">
 </dataflow>
 <dataflow id="1482" from="StgValue_1451" to="specinterface_ln0" fromId="1451" toId="77">
 </dataflow>
-<dataflow id="1484" from="p_str55" to="specinterface_ln0" fromId="1483" toId="77">
+<dataflow id="1484" from="p_str58" to="specinterface_ln0" fromId="1483" toId="77">
 </dataflow>
-<dataflow id="1486" from="p_str56" to="specinterface_ln0" fromId="1485" toId="77">
+<dataflow id="1486" from="p_str59" to="specinterface_ln0" fromId="1485" toId="77">
 </dataflow>
-<dataflow id="1488" from="p_str57" to="specinterface_ln0" fromId="1487" toId="77">
+<dataflow id="1488" from="p_str60" to="specinterface_ln0" fromId="1487" toId="77">
 </dataflow>
 <dataflow id="1489" from="StgValue_1464" to="specinterface_ln0" fromId="1464" toId="77">
 </dataflow>
@@ -18827,9 +18827,9 @@ l2_bias_relu_write_end:3  br label %.preheader
 </dataflow>
 <dataflow id="1492" from="StgValue_1467" to="specinterface_ln0" fromId="1467" toId="77">
 </dataflow>
-<dataflow id="1494" from="p_str58" to="specinterface_ln0" fromId="1493" toId="77">
+<dataflow id="1494" from="p_str61" to="specinterface_ln0" fromId="1493" toId="77">
 </dataflow>
-<dataflow id="1496" from="p_str59" to="specinterface_ln0" fromId="1495" toId="77">
+<dataflow id="1496" from="p_str62" to="specinterface_ln0" fromId="1495" toId="77">
 </dataflow>
 <dataflow id="1498" from="_ssdm_op_SpecMemCore" to="specmemcore_ln0" fromId="1497" toId="78">
 </dataflow>

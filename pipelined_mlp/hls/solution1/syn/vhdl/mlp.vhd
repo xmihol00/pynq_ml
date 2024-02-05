@@ -52,7 +52,7 @@ end;
 architecture behav of mlp is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "mlp,hls_ip_2020_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=8.272500,HLS_SYN_LAT=1858,HLS_SYN_TPT=1846,HLS_SYN_MEM=205,HLS_SYN_DSP=138,HLS_SYN_FF=16979,HLS_SYN_LUT=9444,HLS_VERSION=2020_1}";
+    "mlp,hls_ip_2020_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=8.272500,HLS_SYN_LAT=1858,HLS_SYN_TPT=1846,HLS_SYN_MEM=209,HLS_SYN_DSP=138,HLS_SYN_FF=17120,HLS_SYN_LUT=9595,HLS_VERSION=2020_1}";
     constant C_S_AXI_DATA_WIDTH : INTEGER range 63 downto 0 := 20;
     constant C_S_AXI_WSTRB_WIDTH : INTEGER range 63 downto 0 := 4;
     constant C_S_AXI_ADDR_WIDTH : INTEGER range 63 downto 0 := 20;
@@ -272,7 +272,7 @@ architecture behav of mlp is
     end component;
 
 
-    component fifo_w8_d2_A IS
+    component fifo_w8_d784_A IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -287,7 +287,7 @@ architecture behav of mlp is
     end component;
 
 
-    component fifo_w16_d2_A IS
+    component fifo_w16_d128_A IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -302,7 +302,22 @@ architecture behav of mlp is
     end component;
 
 
-    component fifo_w32_d2_A IS
+    component fifo_w16_d64_A IS
+    port (
+        clk : IN STD_LOGIC;
+        reset : IN STD_LOGIC;
+        if_read_ce : IN STD_LOGIC;
+        if_write_ce : IN STD_LOGIC;
+        if_din : IN STD_LOGIC_VECTOR (15 downto 0);
+        if_full_n : OUT STD_LOGIC;
+        if_write : IN STD_LOGIC;
+        if_dout : OUT STD_LOGIC_VECTOR (15 downto 0);
+        if_empty_n : OUT STD_LOGIC;
+        if_read : IN STD_LOGIC );
+    end component;
+
+
+    component fifo_w32_d10_A IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -547,7 +562,7 @@ begin
         out_r_TSTRB => write_output_U0_out_r_TSTRB,
         out_r_TLAST => write_output_U0_out_r_TLAST);
 
-    l1_in_0_V_U : component fifo_w8_d2_A
+    l1_in_0_V_U : component fifo_w8_d784_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
@@ -560,7 +575,7 @@ begin
         if_empty_n => l1_in_0_V_empty_n,
         if_read => mlp_l1_U0_l1_in_0_V_read);
 
-    l1_in_1_V_U : component fifo_w8_d2_A
+    l1_in_1_V_U : component fifo_w8_d784_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
@@ -573,7 +588,7 @@ begin
         if_empty_n => l1_in_1_V_empty_n,
         if_read => mlp_l1_U0_l1_in_1_V_read);
 
-    l2_in_V_U : component fifo_w16_d2_A
+    l2_in_V_U : component fifo_w16_d128_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
@@ -586,7 +601,7 @@ begin
         if_empty_n => l2_in_V_empty_n,
         if_read => mlp_l2_U0_l2_in_V_read);
 
-    l3_in_V_U : component fifo_w16_d2_A
+    l3_in_V_U : component fifo_w16_d64_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
@@ -599,7 +614,7 @@ begin
         if_empty_n => l3_in_V_empty_n,
         if_read => mlp_l3_U0_l3_in_V_read);
 
-    l3_out_V_U : component fifo_w32_d2_A
+    l3_out_V_U : component fifo_w32_d10_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,

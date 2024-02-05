@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'mlp'" level="0">
-<item name = "Date">Sun Feb  4 20:36:05 2024
+<item name = "Date">Mon Feb  5 18:11:52 2024
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">hls</item>
@@ -31,11 +31,11 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_mlp_l1_fu_576">mlp_l1, 1845, 1845, 18.450 us, 18.450 us, 1845, 1845, none</column>
-<column name="grp_mlp_l2_fu_841">mlp_l2, 264, 264, 2.640 us, 2.640 us, 264, 264, none</column>
-<column name="grp_mlp_l3_fu_977">mlp_l3, 91, 91, 0.910 us, 0.910 us, 91, 91, none</column>
-<column name="grp_read_input_fu_1005">read_input, 786, 786, 7.860 us, 7.860 us, 786, 786, none</column>
-<column name="grp_write_output_fu_1019">write_output, 13, 13, 0.130 us, 0.130 us, 13, 13, none</column>
+<column name="grp_mlp_l1_fu_584">mlp_l1, 1845, 1845, 18.450 us, 18.450 us, 1845, 1845, none</column>
+<column name="grp_mlp_l2_fu_849">mlp_l2, 264, 264, 2.640 us, 2.640 us, 264, 264, none</column>
+<column name="grp_mlp_l3_fu_985">mlp_l3, 91, 91, 0.910 us, 0.910 us, 91, 91, none</column>
+<column name="grp_read_input_fu_1013">read_input, 786, 786, 7.860 us, 7.860 us, 786, 786, none</column>
+<column name="grp_write_output_fu_1027">write_output, 13, 13, 0.130 us, 0.130 us, 13, 13, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

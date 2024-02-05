@@ -10,5 +10,5 @@
   <xd:arg xd:name="out.strb" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_r" xd:busTypeRef="axis" xd:dataWidth="8"/>
   <xd:arg xd:name="out.last" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_r" xd:busTypeRef="axis" xd:dataWidth="1"/>
   <xd:latencyEstimates xd:best-case="1858" xd:worst-case="1858" xd:average-case="1858"/>
-  <xd:resourceEstimates xd:LUT="9444" xd:FF="16979" xd:BRAM="205" xd:DSP="138"/>
+  <xd:resourceEstimates xd:LUT="9595" xd:FF="17120" xd:BRAM="209" xd:DSP="138"/>
 </xd:acceleratorMap>

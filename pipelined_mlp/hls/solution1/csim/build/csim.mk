@@ -68,7 +68,7 @@ all: $(TARGET)
 
 $(ObjDir)/pipelined_mlp_tb.o: ../../../../pipelined_mlp_tb.cpp $(ObjDir)/.dir
 	$(Echo) "   Compiling ../../../../pipelined_mlp_tb.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(CC) ${CCFLAG} -c -MMD -Wno-unknown-pragmas  $(IFLAG) $(DFLAG) $< -o $@ ; \
+	$(Verb)  $(CC) ${CCFLAG} -c -MMD -Wno-unknown-pragmas -Wno-unknown-pragmas  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
 -include $(ObjDir)/pipelined_mlp_tb.d
 

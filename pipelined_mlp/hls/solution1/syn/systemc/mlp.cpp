@@ -142,7 +142,7 @@ mlp::mlp(sc_module_name name) : sc_module(name), mVcdFile(0) {
     write_output_U0->out_r_TKEEP(write_output_U0_out_r_TKEEP);
     write_output_U0->out_r_TSTRB(write_output_U0_out_r_TSTRB);
     write_output_U0->out_r_TLAST(write_output_U0_out_r_TLAST);
-    l1_in_0_V_U = new fifo_w8_d2_A("l1_in_0_V_U");
+    l1_in_0_V_U = new fifo_w8_d784_A("l1_in_0_V_U");
     l1_in_0_V_U->clk(ap_clk);
     l1_in_0_V_U->reset(ap_rst_n_inv);
     l1_in_0_V_U->if_read_ce(ap_var_for_const0);
@@ -153,7 +153,7 @@ mlp::mlp(sc_module_name name) : sc_module(name), mVcdFile(0) {
     l1_in_0_V_U->if_dout(l1_in_0_V_dout);
     l1_in_0_V_U->if_empty_n(l1_in_0_V_empty_n);
     l1_in_0_V_U->if_read(mlp_l1_U0_l1_in_0_V_read);
-    l1_in_1_V_U = new fifo_w8_d2_A("l1_in_1_V_U");
+    l1_in_1_V_U = new fifo_w8_d784_A("l1_in_1_V_U");
     l1_in_1_V_U->clk(ap_clk);
     l1_in_1_V_U->reset(ap_rst_n_inv);
     l1_in_1_V_U->if_read_ce(ap_var_for_const0);
@@ -164,7 +164,7 @@ mlp::mlp(sc_module_name name) : sc_module(name), mVcdFile(0) {
     l1_in_1_V_U->if_dout(l1_in_1_V_dout);
     l1_in_1_V_U->if_empty_n(l1_in_1_V_empty_n);
     l1_in_1_V_U->if_read(mlp_l1_U0_l1_in_1_V_read);
-    l2_in_V_U = new fifo_w16_d2_A("l2_in_V_U");
+    l2_in_V_U = new fifo_w16_d128_A("l2_in_V_U");
     l2_in_V_U->clk(ap_clk);
     l2_in_V_U->reset(ap_rst_n_inv);
     l2_in_V_U->if_read_ce(ap_var_for_const0);
@@ -175,7 +175,7 @@ mlp::mlp(sc_module_name name) : sc_module(name), mVcdFile(0) {
     l2_in_V_U->if_dout(l2_in_V_dout);
     l2_in_V_U->if_empty_n(l2_in_V_empty_n);
     l2_in_V_U->if_read(mlp_l2_U0_l2_in_V_read);
-    l3_in_V_U = new fifo_w16_d2_A("l3_in_V_U");
+    l3_in_V_U = new fifo_w16_d64_A("l3_in_V_U");
     l3_in_V_U->clk(ap_clk);
     l3_in_V_U->reset(ap_rst_n_inv);
     l3_in_V_U->if_read_ce(ap_var_for_const0);
@@ -186,7 +186,7 @@ mlp::mlp(sc_module_name name) : sc_module(name), mVcdFile(0) {
     l3_in_V_U->if_dout(l3_in_V_dout);
     l3_in_V_U->if_empty_n(l3_in_V_empty_n);
     l3_in_V_U->if_read(mlp_l3_U0_l3_in_V_read);
-    l3_out_V_U = new fifo_w32_d2_A("l3_out_V_U");
+    l3_out_V_U = new fifo_w32_d10_A("l3_out_V_U");
     l3_out_V_U->clk(ap_clk);
     l3_out_V_U->reset(ap_rst_n_inv);
     l3_out_V_U->if_read_ce(ap_var_for_const0);

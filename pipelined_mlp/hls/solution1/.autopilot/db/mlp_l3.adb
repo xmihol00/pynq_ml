@@ -26,7 +26,7 @@
               </inlineStackInfo>
               <originalName>l3_in.V</originalName>
               <rtlName/>
-              <coreName>FIFO</coreName>
+              <coreName>FIFO_SRL</coreName>
             </Obj>
             <bitwidth>16</bitwidth>
           </Value>
@@ -54,7 +54,7 @@
               </inlineStackInfo>
               <originalName>l3_out.V</originalName>
               <rtlName/>
-              <coreName>FIFO</coreName>
+              <coreName>FIFO_SRL</coreName>
             </Obj>
             <bitwidth>32</bitwidth>
           </Value>
@@ -19725,11 +19725,11 @@
       <item_version>0</item_version>
       <item class_id="62" tracking_level="0" version="0">
         <first>1</first>
-        <second>FIFO</second>
+        <second>FIFO_SRL</second>
       </item>
       <item>
         <first>2</first>
-        <second>FIFO</second>
+        <second>FIFO_SRL</second>
       </item>
     </port2core>
     <node2core>

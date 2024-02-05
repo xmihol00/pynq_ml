@@ -85,7 +85,7 @@
 
 <Node id="429" bw="8" op_0_bw="64">
 <![CDATA[
-:10  %l1_in_0_V = alloca i8, align 1
+codeRepl:10  %l1_in_0_V = alloca i8, align 1
 
 ]]></Node>
 <StgValue><ssdm name="l1_in_0_V"/></StgValue>
@@ -100,7 +100,7 @@
 
 <Node id="432" bw="8" op_0_bw="64">
 <![CDATA[
-:13  %l1_in_1_V = alloca i8, align 1
+codeRepl:13  %l1_in_1_V = alloca i8, align 1
 
 ]]></Node>
 <StgValue><ssdm name="l1_in_1_V"/></StgValue>
@@ -115,7 +115,7 @@
 
 <Node id="435" bw="16" op_0_bw="64">
 <![CDATA[
-:16  %l2_in_V = alloca i16, align 2
+codeRepl:16  %l2_in_V = alloca i16, align 2
 
 ]]></Node>
 <StgValue><ssdm name="l2_in_V"/></StgValue>
@@ -130,7 +130,7 @@
 
 <Node id="438" bw="16" op_0_bw="64">
 <![CDATA[
-:19  %l3_in_V = alloca i16, align 2
+codeRepl:19  %l3_in_V = alloca i16, align 2
 
 ]]></Node>
 <StgValue><ssdm name="l3_in_V"/></StgValue>
@@ -145,7 +145,7 @@
 
 <Node id="441" bw="32" op_0_bw="64">
 <![CDATA[
-:22  %l3_out_V = alloca i32, align 4
+codeRepl:22  %l3_out_V = alloca i32, align 4
 
 ]]></Node>
 <StgValue><ssdm name="l3_out_V"/></StgValue>
@@ -163,7 +163,7 @@
 
 <Node id="453" bw="0" op_0_bw="0" op_1_bw="128" op_2_bw="16" op_3_bw="16" op_4_bw="1" op_5_bw="8" op_6_bw="8">
 <![CDATA[
-:34  call fastcc void @read_input(i128* %in_V_data_V, i16* %in_V_keep_V, i16* %in_V_strb_V, i1* %in_V_last_V, i8* %l1_in_0_V, i8* %l1_in_1_V)
+codeRepl:34  call fastcc void @read_input(i128* %in_V_data_V, i16* %in_V_keep_V, i16* %in_V_strb_V, i1* %in_V_last_V, i8* %l1_in_0_V, i8* %l1_in_1_V)
 
 ]]></Node>
 <StgValue><ssdm name="call_ln211"/></StgValue>
@@ -181,7 +181,7 @@
 
 <Node id="453" bw="0" op_0_bw="0" op_1_bw="128" op_2_bw="16" op_3_bw="16" op_4_bw="1" op_5_bw="8" op_6_bw="8">
 <![CDATA[
-:34  call fastcc void @read_input(i128* %in_V_data_V, i16* %in_V_keep_V, i16* %in_V_strb_V, i1* %in_V_last_V, i8* %l1_in_0_V, i8* %l1_in_1_V)
+codeRepl:34  call fastcc void @read_input(i128* %in_V_data_V, i16* %in_V_keep_V, i16* %in_V_strb_V, i1* %in_V_last_V, i8* %l1_in_0_V, i8* %l1_in_1_V)
 
 ]]></Node>
 <StgValue><ssdm name="call_ln211"/></StgValue>
@@ -199,7 +199,7 @@
 
 <Node id="454" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="16" op_4_bw="8" op_5_bw="8" op_6_bw="7" op_7_bw="7" op_8_bw="8" op_9_bw="8" op_10_bw="7" op_11_bw="7" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="7" op_20_bw="8" op_21_bw="7" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="7" op_27_bw="7" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="7" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="8" op_38_bw="8" op_39_bw="8" op_40_bw="8" op_41_bw="6" op_42_bw="7" op_43_bw="8" op_44_bw="8" op_45_bw="8" op_46_bw="8" op_47_bw="8" op_48_bw="8" op_49_bw="8" op_50_bw="7" op_51_bw="7" op_52_bw="8" op_53_bw="7" op_54_bw="8" op_55_bw="8" op_56_bw="8" op_57_bw="7" op_58_bw="8" op_59_bw="8" op_60_bw="8" op_61_bw="7" op_62_bw="8" op_63_bw="7" op_64_bw="8" op_65_bw="8" op_66_bw="8" op_67_bw="8" op_68_bw="8" op_69_bw="7" op_70_bw="8" op_71_bw="8" op_72_bw="8" op_73_bw="8" op_74_bw="7" op_75_bw="8" op_76_bw="8" op_77_bw="8" op_78_bw="8" op_79_bw="8" op_80_bw="8" op_81_bw="8" op_82_bw="8" op_83_bw="8" op_84_bw="8" op_85_bw="8" op_86_bw="7" op_87_bw="8" op_88_bw="8" op_89_bw="8" op_90_bw="7" op_91_bw="8" op_92_bw="8" op_93_bw="8" op_94_bw="7" op_95_bw="7" op_96_bw="8" op_97_bw="8" op_98_bw="8" op_99_bw="7" op_100_bw="8" op_101_bw="8" op_102_bw="8" op_103_bw="7" op_104_bw="8" op_105_bw="8" op_106_bw="8" op_107_bw="8" op_108_bw="8" op_109_bw="8" op_110_bw="8" op_111_bw="7" op_112_bw="8" op_113_bw="7" op_114_bw="8" op_115_bw="8" op_116_bw="8" op_117_bw="8" op_118_bw="8" op_119_bw="8" op_120_bw="8" op_121_bw="8" op_122_bw="8" op_123_bw="8" op_124_bw="7" op_125_bw="7" op_126_bw="7" op_127_bw="8" op_128_bw="8" op_129_bw="7" op_130_bw="8" op_131_bw="8" op_132_bw="8" op_133_bw="0" op_134_bw="0">
 <![CDATA[
-:35  call fastcc void @mlp_l1(i8* %l1_in_0_V, i8* %l1_in_1_V, i16* %l2_in_V)
+codeRepl:35  call fastcc void @mlp_l1(i8* %l1_in_0_V, i8* %l1_in_1_V, i16* %l2_in_V)
 
 ]]></Node>
 <StgValue><ssdm name="call_ln212"/></StgValue>
@@ -217,7 +217,7 @@
 
 <Node id="454" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="16" op_4_bw="8" op_5_bw="8" op_6_bw="7" op_7_bw="7" op_8_bw="8" op_9_bw="8" op_10_bw="7" op_11_bw="7" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="7" op_20_bw="8" op_21_bw="7" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="7" op_27_bw="7" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="7" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="8" op_38_bw="8" op_39_bw="8" op_40_bw="8" op_41_bw="6" op_42_bw="7" op_43_bw="8" op_44_bw="8" op_45_bw="8" op_46_bw="8" op_47_bw="8" op_48_bw="8" op_49_bw="8" op_50_bw="7" op_51_bw="7" op_52_bw="8" op_53_bw="7" op_54_bw="8" op_55_bw="8" op_56_bw="8" op_57_bw="7" op_58_bw="8" op_59_bw="8" op_60_bw="8" op_61_bw="7" op_62_bw="8" op_63_bw="7" op_64_bw="8" op_65_bw="8" op_66_bw="8" op_67_bw="8" op_68_bw="8" op_69_bw="7" op_70_bw="8" op_71_bw="8" op_72_bw="8" op_73_bw="8" op_74_bw="7" op_75_bw="8" op_76_bw="8" op_77_bw="8" op_78_bw="8" op_79_bw="8" op_80_bw="8" op_81_bw="8" op_82_bw="8" op_83_bw="8" op_84_bw="8" op_85_bw="8" op_86_bw="7" op_87_bw="8" op_88_bw="8" op_89_bw="8" op_90_bw="7" op_91_bw="8" op_92_bw="8" op_93_bw="8" op_94_bw="7" op_95_bw="7" op_96_bw="8" op_97_bw="8" op_98_bw="8" op_99_bw="7" op_100_bw="8" op_101_bw="8" op_102_bw="8" op_103_bw="7" op_104_bw="8" op_105_bw="8" op_106_bw="8" op_107_bw="8" op_108_bw="8" op_109_bw="8" op_110_bw="8" op_111_bw="7" op_112_bw="8" op_113_bw="7" op_114_bw="8" op_115_bw="8" op_116_bw="8" op_117_bw="8" op_118_bw="8" op_119_bw="8" op_120_bw="8" op_121_bw="8" op_122_bw="8" op_123_bw="8" op_124_bw="7" op_125_bw="7" op_126_bw="7" op_127_bw="8" op_128_bw="8" op_129_bw="7" op_130_bw="8" op_131_bw="8" op_132_bw="8" op_133_bw="0" op_134_bw="0">
 <![CDATA[
-:35  call fastcc void @mlp_l1(i8* %l1_in_0_V, i8* %l1_in_1_V, i16* %l2_in_V)
+codeRepl:35  call fastcc void @mlp_l1(i8* %l1_in_0_V, i8* %l1_in_1_V, i16* %l2_in_V)
 
 ]]></Node>
 <StgValue><ssdm name="call_ln212"/></StgValue>
@@ -235,7 +235,7 @@
 
 <Node id="455" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="8" op_8_bw="8" op_9_bw="8" op_10_bw="8" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="8" op_38_bw="8" op_39_bw="8" op_40_bw="8" op_41_bw="8" op_42_bw="8" op_43_bw="8" op_44_bw="8" op_45_bw="8" op_46_bw="8" op_47_bw="8" op_48_bw="8" op_49_bw="8" op_50_bw="8" op_51_bw="8" op_52_bw="8" op_53_bw="8" op_54_bw="8" op_55_bw="8" op_56_bw="8" op_57_bw="8" op_58_bw="8" op_59_bw="8" op_60_bw="8" op_61_bw="8" op_62_bw="8" op_63_bw="8" op_64_bw="8" op_65_bw="8" op_66_bw="8" op_67_bw="8" op_68_bw="0" op_69_bw="0" op_70_bw="0">
 <![CDATA[
-:36  call fastcc void @mlp_l2(i16* %l2_in_V, i16* %l3_in_V)
+codeRepl:36  call fastcc void @mlp_l2(i16* %l2_in_V, i16* %l3_in_V)
 
 ]]></Node>
 <StgValue><ssdm name="call_ln213"/></StgValue>
@@ -253,7 +253,7 @@
 
 <Node id="455" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="8" op_8_bw="8" op_9_bw="8" op_10_bw="8" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="8" op_38_bw="8" op_39_bw="8" op_40_bw="8" op_41_bw="8" op_42_bw="8" op_43_bw="8" op_44_bw="8" op_45_bw="8" op_46_bw="8" op_47_bw="8" op_48_bw="8" op_49_bw="8" op_50_bw="8" op_51_bw="8" op_52_bw="8" op_53_bw="8" op_54_bw="8" op_55_bw="8" op_56_bw="8" op_57_bw="8" op_58_bw="8" op_59_bw="8" op_60_bw="8" op_61_bw="8" op_62_bw="8" op_63_bw="8" op_64_bw="8" op_65_bw="8" op_66_bw="8" op_67_bw="8" op_68_bw="0" op_69_bw="0" op_70_bw="0">
 <![CDATA[
-:36  call fastcc void @mlp_l2(i16* %l2_in_V, i16* %l3_in_V)
+codeRepl:36  call fastcc void @mlp_l2(i16* %l2_in_V, i16* %l3_in_V)
 
 ]]></Node>
 <StgValue><ssdm name="call_ln213"/></StgValue>
@@ -271,7 +271,7 @@
 
 <Node id="456" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="32" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="8" op_8_bw="8" op_9_bw="8" op_10_bw="8" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="0" op_15_bw="0" op_16_bw="0">
 <![CDATA[
-:37  call fastcc void @mlp_l3(i16* %l3_in_V, i32* %l3_out_V)
+codeRepl:37  call fastcc void @mlp_l3(i16* %l3_in_V, i32* %l3_out_V)
 
 ]]></Node>
 <StgValue><ssdm name="call_ln214"/></StgValue>
@@ -289,7 +289,7 @@
 
 <Node id="456" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="32" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="8" op_8_bw="8" op_9_bw="8" op_10_bw="8" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="0" op_15_bw="0" op_16_bw="0">
 <![CDATA[
-:37  call fastcc void @mlp_l3(i16* %l3_in_V, i32* %l3_out_V)
+codeRepl:37  call fastcc void @mlp_l3(i16* %l3_in_V, i32* %l3_out_V)
 
 ]]></Node>
 <StgValue><ssdm name="call_ln214"/></StgValue>
@@ -307,7 +307,7 @@
 
 <Node id="457" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="1" op_6_bw="0" op_7_bw="0">
 <![CDATA[
-:38  call fastcc void @write_output(i32* %l3_out_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
+codeRepl:38  call fastcc void @write_output(i32* %l3_out_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
 <StgValue><ssdm name="call_ln215"/></StgValue>
@@ -325,7 +325,7 @@
 
 <Node id="457" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="1" op_6_bw="0" op_7_bw="0">
 <![CDATA[
-:38  call fastcc void @write_output(i32* %l3_out_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
+codeRepl:38  call fastcc void @write_output(i32* %l3_out_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
 <StgValue><ssdm name="call_ln215"/></StgValue>
@@ -343,7 +343,7 @@
 
 <Node id="419" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="0">
 <![CDATA[
-:0  call void (...)* @_ssdm_op_SpecDataflowPipeline(i32 -1, i32 0, [1 x i8]* @p_str1) nounwind
+codeRepl:0  call void (...)* @_ssdm_op_SpecDataflowPipeline(i32 -1, i32 0, [1 x i8]* @p_str1) nounwind
 
 ]]></Node>
 <StgValue><ssdm name="specdataflowpipeline_ln183"/></StgValue>
@@ -358,7 +358,7 @@
 
 <Node id="420" bw="0" op_0_bw="0" op_1_bw="128">
 <![CDATA[
-:1  call void (...)* @_ssdm_op_SpecBitsMap(i128* %in_V_data_V), !map !65
+codeRepl:1  call void (...)* @_ssdm_op_SpecBitsMap(i128* %in_V_data_V), !map !65
 
 ]]></Node>
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
@@ -373,7 +373,7 @@
 
 <Node id="421" bw="0" op_0_bw="0" op_1_bw="16">
 <![CDATA[
-:2  call void (...)* @_ssdm_op_SpecBitsMap(i16* %in_V_keep_V), !map !71
+codeRepl:2  call void (...)* @_ssdm_op_SpecBitsMap(i16* %in_V_keep_V), !map !71
 
 ]]></Node>
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
@@ -388,7 +388,7 @@
 
 <Node id="422" bw="0" op_0_bw="0" op_1_bw="16">
 <![CDATA[
-:3  call void (...)* @_ssdm_op_SpecBitsMap(i16* %in_V_strb_V), !map !75
+codeRepl:3  call void (...)* @_ssdm_op_SpecBitsMap(i16* %in_V_strb_V), !map !75
 
 ]]></Node>
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
@@ -403,7 +403,7 @@
 
 <Node id="423" bw="0" op_0_bw="0" op_1_bw="1">
 <![CDATA[
-:4  call void (...)* @_ssdm_op_SpecBitsMap(i1* %in_V_last_V), !map !79
+codeRepl:4  call void (...)* @_ssdm_op_SpecBitsMap(i1* %in_V_last_V), !map !79
 
 ]]></Node>
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
@@ -418,7 +418,7 @@
 
 <Node id="424" bw="0" op_0_bw="0" op_1_bw="64">
 <![CDATA[
-:5  call void (...)* @_ssdm_op_SpecBitsMap(i64* %out_V_data_V), !map !83
+codeRepl:5  call void (...)* @_ssdm_op_SpecBitsMap(i64* %out_V_data_V), !map !83
 
 ]]></Node>
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
@@ -433,7 +433,7 @@
 
 <Node id="425" bw="0" op_0_bw="0" op_1_bw="8">
 <![CDATA[
-:6  call void (...)* @_ssdm_op_SpecBitsMap(i8* %out_V_keep_V), !map !87
+codeRepl:6  call void (...)* @_ssdm_op_SpecBitsMap(i8* %out_V_keep_V), !map !87
 
 ]]></Node>
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
@@ -448,7 +448,7 @@
 
 <Node id="426" bw="0" op_0_bw="0" op_1_bw="8">
 <![CDATA[
-:7  call void (...)* @_ssdm_op_SpecBitsMap(i8* %out_V_strb_V), !map !91
+codeRepl:7  call void (...)* @_ssdm_op_SpecBitsMap(i8* %out_V_strb_V), !map !91
 
 ]]></Node>
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
@@ -463,7 +463,7 @@
 
 <Node id="427" bw="0" op_0_bw="0" op_1_bw="1">
 <![CDATA[
-:8  call void (...)* @_ssdm_op_SpecBitsMap(i1* %out_V_last_V), !map !95
+codeRepl:8  call void (...)* @_ssdm_op_SpecBitsMap(i1* %out_V_last_V), !map !95
 
 ]]></Node>
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
@@ -478,7 +478,7 @@
 
 <Node id="428" bw="0" op_0_bw="0" op_1_bw="0">
 <![CDATA[
-:9  call void (...)* @_ssdm_op_SpecTopModule([4 x i8]* @mlp_str) nounwind
+codeRepl:9  call void (...)* @_ssdm_op_SpecTopModule([4 x i8]* @mlp_str) nounwind
 
 ]]></Node>
 <StgValue><ssdm name="spectopmodule_ln0"/></StgValue>
@@ -493,7 +493,7 @@
 
 <Node id="430" bw="32" op_0_bw="32" op_1_bw="0" op_2_bw="32" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="32" op_7_bw="8" op_8_bw="8">
 <![CDATA[
-:11  %empty = call i32 (...)* @_ssdm_op_SpecChannel([11 x i8]* @l1_in_LF_0_NF_OC_V_s, i32 1, [1 x i8]* @p_str39, [1 x i8]* @p_str39, i32 2, i32 2, i8* %l1_in_0_V, i8* %l1_in_0_V)
+codeRepl:11  %empty = call i32 (...)* @_ssdm_op_SpecChannel([11 x i8]* @l1_in_LF_0_NF_OC_V_s, i32 1, [1 x i8]* @p_str42, [1 x i8]* @p_str42, i32 784, i32 784, i8* %l1_in_0_V, i8* %l1_in_0_V)
 
 ]]></Node>
 <StgValue><ssdm name="empty"/></StgValue>
@@ -508,7 +508,7 @@
 
 <Node id="431" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
 <![CDATA[
-:12  call void (...)* @_ssdm_op_SpecInterface(i8* %l1_in_0_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str40, i32 0, i32 0, [1 x i8]* @p_str41, [1 x i8]* @p_str42, [1 x i8]* @p_str43, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str44, [1 x i8]* @p_str45)
+codeRepl:12  call void (...)* @_ssdm_op_SpecInterface(i8* %l1_in_0_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str43, i32 0, i32 0, [1 x i8]* @p_str44, [1 x i8]* @p_str45, [1 x i8]* @p_str46, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str47, [1 x i8]* @p_str48)
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -523,7 +523,7 @@
 
 <Node id="433" bw="32" op_0_bw="32" op_1_bw="0" op_2_bw="32" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="32" op_7_bw="8" op_8_bw="8">
 <![CDATA[
-:14  %empty_32 = call i32 (...)* @_ssdm_op_SpecChannel([11 x i8]* @l1_in_LF_1_NF_OC_V_s, i32 1, [1 x i8]* @p_str46, [1 x i8]* @p_str46, i32 2, i32 2, i8* %l1_in_1_V, i8* %l1_in_1_V)
+codeRepl:14  %empty_32 = call i32 (...)* @_ssdm_op_SpecChannel([11 x i8]* @l1_in_LF_1_NF_OC_V_s, i32 1, [1 x i8]* @p_str49, [1 x i8]* @p_str49, i32 784, i32 784, i8* %l1_in_1_V, i8* %l1_in_1_V)
 
 ]]></Node>
 <StgValue><ssdm name="empty_32"/></StgValue>
@@ -538,7 +538,7 @@
 
 <Node id="434" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
 <![CDATA[
-:15  call void (...)* @_ssdm_op_SpecInterface(i8* %l1_in_1_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str47, i32 0, i32 0, [1 x i8]* @p_str48, [1 x i8]* @p_str49, [1 x i8]* @p_str50, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str51, [1 x i8]* @p_str52)
+codeRepl:15  call void (...)* @_ssdm_op_SpecInterface(i8* %l1_in_1_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str50, i32 0, i32 0, [1 x i8]* @p_str51, [1 x i8]* @p_str52, [1 x i8]* @p_str53, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str54, [1 x i8]* @p_str55)
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -553,7 +553,7 @@
 
 <Node id="436" bw="32" op_0_bw="32" op_1_bw="0" op_2_bw="32" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="32" op_7_bw="16" op_8_bw="16">
 <![CDATA[
-:17  %empty_33 = call i32 (...)* @_ssdm_op_SpecChannel([8 x i8]* @l2_in_OC_V_str, i32 1, [1 x i8]* @p_str53, [1 x i8]* @p_str53, i32 2, i32 2, i16* %l2_in_V, i16* %l2_in_V)
+codeRepl:17  %empty_33 = call i32 (...)* @_ssdm_op_SpecChannel([8 x i8]* @l2_in_OC_V_str, i32 1, [1 x i8]* @p_str56, [1 x i8]* @p_str56, i32 128, i32 128, i16* %l2_in_V, i16* %l2_in_V)
 
 ]]></Node>
 <StgValue><ssdm name="empty_33"/></StgValue>
@@ -568,7 +568,7 @@
 
 <Node id="437" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
 <![CDATA[
-:18  call void (...)* @_ssdm_op_SpecInterface(i16* %l2_in_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str54, i32 0, i32 0, [1 x i8]* @p_str55, [1 x i8]* @p_str56, [1 x i8]* @p_str57, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str58, [1 x i8]* @p_str59)
+codeRepl:18  call void (...)* @_ssdm_op_SpecInterface(i16* %l2_in_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str57, i32 0, i32 0, [1 x i8]* @p_str58, [1 x i8]* @p_str59, [1 x i8]* @p_str60, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str61, [1 x i8]* @p_str62)
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -583,7 +583,7 @@
 
 <Node id="439" bw="32" op_0_bw="32" op_1_bw="0" op_2_bw="32" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="32" op_7_bw="16" op_8_bw="16">
 <![CDATA[
-:20  %empty_34 = call i32 (...)* @_ssdm_op_SpecChannel([8 x i8]* @l3_in_OC_V_str, i32 1, [1 x i8]* @p_str60, [1 x i8]* @p_str60, i32 2, i32 2, i16* %l3_in_V, i16* %l3_in_V)
+codeRepl:20  %empty_34 = call i32 (...)* @_ssdm_op_SpecChannel([8 x i8]* @l3_in_OC_V_str, i32 1, [1 x i8]* @p_str63, [1 x i8]* @p_str63, i32 64, i32 64, i16* %l3_in_V, i16* %l3_in_V)
 
 ]]></Node>
 <StgValue><ssdm name="empty_34"/></StgValue>
@@ -598,7 +598,7 @@
 
 <Node id="440" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
 <![CDATA[
-:21  call void (...)* @_ssdm_op_SpecInterface(i16* %l3_in_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str61, i32 0, i32 0, [1 x i8]* @p_str62, [1 x i8]* @p_str63, [1 x i8]* @p_str64, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str65, [1 x i8]* @p_str66)
+codeRepl:21  call void (...)* @_ssdm_op_SpecInterface(i16* %l3_in_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str64, i32 0, i32 0, [1 x i8]* @p_str65, [1 x i8]* @p_str66, [1 x i8]* @p_str67, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str68, [1 x i8]* @p_str69)
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -613,7 +613,7 @@
 
 <Node id="442" bw="32" op_0_bw="32" op_1_bw="0" op_2_bw="32" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="32" op_7_bw="32" op_8_bw="32">
 <![CDATA[
-:23  %empty_35 = call i32 (...)* @_ssdm_op_SpecChannel([9 x i8]* @l3_out_OC_V_str, i32 1, [1 x i8]* @p_str67, [1 x i8]* @p_str67, i32 2, i32 2, i32* %l3_out_V, i32* %l3_out_V)
+codeRepl:23  %empty_35 = call i32 (...)* @_ssdm_op_SpecChannel([9 x i8]* @l3_out_OC_V_str, i32 1, [1 x i8]* @p_str70, [1 x i8]* @p_str70, i32 10, i32 10, i32* %l3_out_V, i32* %l3_out_V)
 
 ]]></Node>
 <StgValue><ssdm name="empty_35"/></StgValue>
@@ -628,7 +628,7 @@
 
 <Node id="443" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
 <![CDATA[
-:24  call void (...)* @_ssdm_op_SpecInterface(i32* %l3_out_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str68, i32 0, i32 0, [1 x i8]* @p_str69, [1 x i8]* @p_str70, [1 x i8]* @p_str71, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str72, [1 x i8]* @p_str73)
+codeRepl:24  call void (...)* @_ssdm_op_SpecInterface(i32* %l3_out_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str71, i32 0, i32 0, [1 x i8]* @p_str72, [1 x i8]* @p_str73, [1 x i8]* @p_str74, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str75, [1 x i8]* @p_str76)
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -643,7 +643,7 @@
 
 <Node id="444" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
 <![CDATA[
-:25  call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str17, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [8 x i8]* @p_str18, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+codeRepl:25  call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str17, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [8 x i8]* @p_str18, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln180"/></StgValue>
@@ -658,7 +658,7 @@
 
 <Node id="445" bw="0" op_0_bw="0" op_1_bw="128" op_2_bw="16" op_3_bw="16" op_4_bw="1" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="32" op_10_bw="32" op_11_bw="0" op_12_bw="0" op_13_bw="0" op_14_bw="32" op_15_bw="32" op_16_bw="32" op_17_bw="32" op_18_bw="0" op_19_bw="0">
 <![CDATA[
-:26  call void (...)* @_ssdm_op_SpecInterface(i128* %in_V_data_V, i16* %in_V_keep_V, i16* %in_V_strb_V, i1* %in_V_last_V, [5 x i8]* @p_str19, i32 1, i32 1, [5 x i8]* @p_str20, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+codeRepl:26  call void (...)* @_ssdm_op_SpecInterface(i128* %in_V_data_V, i16* %in_V_keep_V, i16* %in_V_strb_V, i1* %in_V_last_V, [5 x i8]* @p_str19, i32 1, i32 1, [5 x i8]* @p_str20, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln181"/></StgValue>
@@ -673,7 +673,7 @@
 
 <Node id="446" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="8" op_3_bw="8" op_4_bw="1" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="32" op_10_bw="32" op_11_bw="0" op_12_bw="0" op_13_bw="0" op_14_bw="32" op_15_bw="32" op_16_bw="32" op_17_bw="32" op_18_bw="0" op_19_bw="0">
 <![CDATA[
-:27  call void (...)* @_ssdm_op_SpecInterface(i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V, [5 x i8]* @p_str19, i32 1, i32 1, [5 x i8]* @p_str20, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+codeRepl:27  call void (...)* @_ssdm_op_SpecInterface(i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V, [5 x i8]* @p_str19, i32 1, i32 1, [5 x i8]* @p_str20, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln182"/></StgValue>
@@ -688,7 +688,7 @@
 
 <Node id="447" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="7" op_3_bw="8" op_4_bw="7" op_5_bw="8" op_6_bw="8" op_7_bw="8" op_8_bw="8" op_9_bw="8" op_10_bw="8" op_11_bw="8" op_12_bw="7" op_13_bw="8" op_14_bw="8" op_15_bw="7" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="7" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="7" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="7" op_37_bw="8" op_38_bw="8" op_39_bw="8" op_40_bw="8" op_41_bw="8" op_42_bw="7" op_43_bw="8" op_44_bw="7" op_45_bw="8" op_46_bw="7" op_47_bw="8" op_48_bw="8" op_49_bw="8" op_50_bw="8" op_51_bw="8" op_52_bw="8" op_53_bw="8" op_54_bw="8" op_55_bw="8" op_56_bw="8" op_57_bw="8" op_58_bw="8" op_59_bw="8" op_60_bw="8" op_61_bw="7" op_62_bw="7" op_63_bw="8" op_64_bw="8" op_65_bw="8" op_66_bw="7" op_67_bw="8" op_68_bw="7" op_69_bw="8" op_70_bw="8" op_71_bw="8" op_72_bw="7" op_73_bw="7" op_74_bw="8" op_75_bw="8" op_76_bw="7" op_77_bw="8" op_78_bw="8" op_79_bw="8" op_80_bw="8" op_81_bw="8" op_82_bw="8" op_83_bw="6" op_84_bw="8" op_85_bw="8" op_86_bw="8" op_87_bw="8" op_88_bw="7" op_89_bw="7" op_90_bw="8" op_91_bw="7" op_92_bw="8" op_93_bw="7" op_94_bw="7" op_95_bw="8" op_96_bw="8" op_97_bw="7" op_98_bw="8" op_99_bw="8" op_100_bw="8" op_101_bw="8" op_102_bw="8" op_103_bw="8" op_104_bw="8" op_105_bw="8" op_106_bw="8" op_107_bw="8" op_108_bw="8" op_109_bw="8" op_110_bw="7" op_111_bw="8" op_112_bw="7" op_113_bw="8" op_114_bw="7" op_115_bw="8" op_116_bw="8" op_117_bw="8" op_118_bw="7" op_119_bw="7" op_120_bw="8" op_121_bw="8" op_122_bw="8" op_123_bw="8" op_124_bw="8" op_125_bw="7" op_126_bw="8" op_127_bw="7" op_128_bw="8" op_129_bw="0" op_130_bw="0" op_131_bw="0" op_132_bw="32" op_133_bw="0" op_134_bw="0" op_135_bw="0" op_136_bw="0" op_137_bw="0">
 <![CDATA[
-:28  call void (...)* @_ssdm_op_SpecMemCore([784 x i8]* @l1_weights_0, [784 x i7]* @l1_weights_1, [784 x i8]* @l1_weights_2, [784 x i7]* @l1_weights_3, [784 x i8]* @l1_weights_4, [784 x i8]* @l1_weights_5, [784 x i8]* @l1_weights_6, [784 x i8]* @l1_weights_7, [784 x i8]* @l1_weights_8, [784 x i8]* @l1_weights_9, [784 x i8]* @l1_weights_10, [784 x i7]* @l1_weights_11, [784 x i8]* @l1_weights_12, [784 x i8]* @l1_weights_13, [784 x i7]* @l1_weights_14, [784 x i8]* @l1_weights_15, [784 x i8]* @l1_weights_16, [784 x i8]* @l1_weights_17, [784 x i8]* @l1_weights_18, [784 x i7]* @l1_weights_19, [784 x i8]* @l1_weights_20, [784 x i8]* @l1_weights_21, [784 x i8]* @l1_weights_22, [784 x i7]* @l1_weights_23, [784 x i8]* @l1_weights_24, [784 x i8]* @l1_weights_25, [784 x i8]* @l1_weights_26, [784 x i8]* @l1_weights_27, [784 x i8]* @l1_weights_28, [784 x i8]* @l1_weights_29, [784 x i8]* @l1_weights_30, [784 x i8]* @l1_weights_31, [784 x i8]* @l1_weights_32, [784 x i8]* @l1_weights_33, [784 x i8]* @l1_weights_34, [784 x i7]* @l1_weights_35, [784 x i8]* @l1_weights_36, [784 x i8]* @l1_weights_37, [784 x i8]* @l1_weights_38, [784 x i8]* @l1_weights_39, [784 x i8]* @l1_weights_40, [784 x i7]* @l1_weights_41, [784 x i8]* @l1_weights_42, [784 x i7]* @l1_weights_43, [784 x i8]* @l1_weights_44, [784 x i7]* @l1_weights_45, [784 x i8]* @l1_weights_46, [784 x i8]* @l1_weights_47, [784 x i8]* @l1_weights_48, [784 x i8]* @l1_weights_49, [784 x i8]* @l1_weights_50, [784 x i8]* @l1_weights_51, [784 x i8]* @l1_weights_52, [784 x i8]* @l1_weights_53, [784 x i8]* @l1_weights_54, [784 x i8]* @l1_weights_55, [784 x i8]* @l1_weights_56, [784 x i8]* @l1_weights_57, [784 x i8]* @l1_weights_58, [784 x i8]* @l1_weights_59, [784 x i7]* @l1_weights_60, [784 x i7]* @l1_weights_61, [784 x i8]* @l1_weights_62, [784 x i8]* @l1_weights_63, [784 x i8]* @l1_weights_64, [784 x i7]* @l1_weights_65, [784 x i8]* @l1_weights_66, [784 x i7]* @l1_weights_67, [784 x i8]* @l1_weights_68, [784 x i8]* @l1_weights_69, [784 x i8]* @l1_weights_70, [784 x i7]* @l1_weights_71, [784 x i7]* @l1_weights_72, [784 x i8]* @l1_weights_73, [784 x i8]* @l1_weights_74, [784 x i7]* @l1_weights_75, [784 x i8]* @l1_weights_76, [784 x i8]* @l1_weights_77, [784 x i8]* @l1_weights_78, [784 x i8]* @l1_weights_79, [784 x i8]* @l1_weights_80, [784 x i8]* @l1_weights_81, [784 x i6]* @l1_weights_82, [784 x i8]* @l1_weights_83, [784 x i8]* @l1_weights_84, [784 x i8]* @l1_weights_85, [784 x i8]* @l1_weights_86, [784 x i7]* @l1_weights_87, [784 x i7]* @l1_weights_88, [784 x i8]* @l1_weights_89, [784 x i7]* @l1_weights_90, [784 x i8]* @l1_weights_91, [784 x i7]* @l1_weights_92, [784 x i7]* @l1_weights_93, [784 x i8]* @l1_weights_94, [784 x i8]* @l1_weights_95, [784 x i7]* @l1_weights_96, [784 x i8]* @l1_weights_97, [784 x i8]* @l1_weights_98, [784 x i8]* @l1_weights_99, [784 x i8]* @l1_weights_152, [784 x i8]* @l1_weights_151, [784 x i8]* @l1_weights_150, [784 x i8]* @l1_weights_149, [784 x i8]* @l1_weights_148, [784 x i8]* @l1_weights_147, [784 x i8]* @l1_weights_146, [784 x i8]* @l1_weights_145, [784 x i8]* @l1_weights_144, [784 x i7]* @l1_weights_143, [784 x i8]* @l1_weights_142, [784 x i7]* @l1_weights_141, [784 x i8]* @l1_weights_140, [784 x i7]* @l1_weights_139, [784 x i8]* @l1_weights_138, [784 x i8]* @l1_weights_137, [784 x i8]* @l1_weights_136, [784 x i7]* @l1_weights_135, [784 x i7]* @l1_weights_134, [784 x i8]* @l1_weights_133, [784 x i8]* @l1_weights_132, [784 x i8]* @l1_weights_131, [784 x i8]* @l1_weights_130, [784 x i8]* @l1_weights_129, [784 x i7]* @l1_weights_128, [784 x i8]* @l1_weights_127, [784 x i7]* @l1_weights_126, [784 x i8]* @l1_weights, [1 x i8]* @p_str1, [12 x i8]* @p_str21, [1 x i8]* @p_str1, i32 -1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
+codeRepl:28  call void (...)* @_ssdm_op_SpecMemCore([784 x i8]* @l1_weights_0, [784 x i7]* @l1_weights_1, [784 x i8]* @l1_weights_2, [784 x i7]* @l1_weights_3, [784 x i8]* @l1_weights_4, [784 x i8]* @l1_weights_5, [784 x i8]* @l1_weights_6, [784 x i8]* @l1_weights_7, [784 x i8]* @l1_weights_8, [784 x i8]* @l1_weights_9, [784 x i8]* @l1_weights_10, [784 x i7]* @l1_weights_11, [784 x i8]* @l1_weights_12, [784 x i8]* @l1_weights_13, [784 x i7]* @l1_weights_14, [784 x i8]* @l1_weights_15, [784 x i8]* @l1_weights_16, [784 x i8]* @l1_weights_17, [784 x i8]* @l1_weights_18, [784 x i7]* @l1_weights_19, [784 x i8]* @l1_weights_20, [784 x i8]* @l1_weights_21, [784 x i8]* @l1_weights_22, [784 x i7]* @l1_weights_23, [784 x i8]* @l1_weights_24, [784 x i8]* @l1_weights_25, [784 x i8]* @l1_weights_26, [784 x i8]* @l1_weights_27, [784 x i8]* @l1_weights_28, [784 x i8]* @l1_weights_29, [784 x i8]* @l1_weights_30, [784 x i8]* @l1_weights_31, [784 x i8]* @l1_weights_32, [784 x i8]* @l1_weights_33, [784 x i8]* @l1_weights_34, [784 x i7]* @l1_weights_35, [784 x i8]* @l1_weights_36, [784 x i8]* @l1_weights_37, [784 x i8]* @l1_weights_38, [784 x i8]* @l1_weights_39, [784 x i8]* @l1_weights_40, [784 x i7]* @l1_weights_41, [784 x i8]* @l1_weights_42, [784 x i7]* @l1_weights_43, [784 x i8]* @l1_weights_44, [784 x i7]* @l1_weights_45, [784 x i8]* @l1_weights_46, [784 x i8]* @l1_weights_47, [784 x i8]* @l1_weights_48, [784 x i8]* @l1_weights_49, [784 x i8]* @l1_weights_50, [784 x i8]* @l1_weights_51, [784 x i8]* @l1_weights_52, [784 x i8]* @l1_weights_53, [784 x i8]* @l1_weights_54, [784 x i8]* @l1_weights_55, [784 x i8]* @l1_weights_56, [784 x i8]* @l1_weights_57, [784 x i8]* @l1_weights_58, [784 x i8]* @l1_weights_59, [784 x i7]* @l1_weights_60, [784 x i7]* @l1_weights_61, [784 x i8]* @l1_weights_62, [784 x i8]* @l1_weights_63, [784 x i8]* @l1_weights_64, [784 x i7]* @l1_weights_65, [784 x i8]* @l1_weights_66, [784 x i7]* @l1_weights_67, [784 x i8]* @l1_weights_68, [784 x i8]* @l1_weights_69, [784 x i8]* @l1_weights_70, [784 x i7]* @l1_weights_71, [784 x i7]* @l1_weights_72, [784 x i8]* @l1_weights_73, [784 x i8]* @l1_weights_74, [784 x i7]* @l1_weights_75, [784 x i8]* @l1_weights_76, [784 x i8]* @l1_weights_77, [784 x i8]* @l1_weights_78, [784 x i8]* @l1_weights_79, [784 x i8]* @l1_weights_80, [784 x i8]* @l1_weights_81, [784 x i6]* @l1_weights_82, [784 x i8]* @l1_weights_83, [784 x i8]* @l1_weights_84, [784 x i8]* @l1_weights_85, [784 x i8]* @l1_weights_86, [784 x i7]* @l1_weights_87, [784 x i7]* @l1_weights_88, [784 x i8]* @l1_weights_89, [784 x i7]* @l1_weights_90, [784 x i8]* @l1_weights_91, [784 x i7]* @l1_weights_92, [784 x i7]* @l1_weights_93, [784 x i8]* @l1_weights_94, [784 x i8]* @l1_weights_95, [784 x i7]* @l1_weights_96, [784 x i8]* @l1_weights_97, [784 x i8]* @l1_weights_98, [784 x i8]* @l1_weights_99, [784 x i8]* @l1_weights_152, [784 x i8]* @l1_weights_151, [784 x i8]* @l1_weights_150, [784 x i8]* @l1_weights_149, [784 x i8]* @l1_weights_148, [784 x i8]* @l1_weights_147, [784 x i8]* @l1_weights_146, [784 x i8]* @l1_weights_145, [784 x i8]* @l1_weights_144, [784 x i7]* @l1_weights_143, [784 x i8]* @l1_weights_142, [784 x i7]* @l1_weights_141, [784 x i8]* @l1_weights_140, [784 x i7]* @l1_weights_139, [784 x i8]* @l1_weights_138, [784 x i8]* @l1_weights_137, [784 x i8]* @l1_weights_136, [784 x i7]* @l1_weights_135, [784 x i7]* @l1_weights_134, [784 x i8]* @l1_weights_133, [784 x i8]* @l1_weights_132, [784 x i8]* @l1_weights_131, [784 x i8]* @l1_weights_130, [784 x i8]* @l1_weights_129, [784 x i7]* @l1_weights_128, [784 x i8]* @l1_weights_127, [784 x i7]* @l1_weights_126, [784 x i8]* @l1_weights, [1 x i8]* @p_str1, [12 x i8]* @p_str21, [1 x i8]* @p_str1, i32 -1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
 
 ]]></Node>
 <StgValue><ssdm name="specmemcore_ln187"/></StgValue>
@@ -703,7 +703,7 @@
 
 <Node id="448" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="0" op_7_bw="0" op_8_bw="0" op_9_bw="0" op_10_bw="0">
 <![CDATA[
-:29  call void (...)* @_ssdm_op_SpecMemCore([128 x i8]* @l1_biases, [1 x i8]* @p_str1, [12 x i8]* @p_str21, [1 x i8]* @p_str1, i32 -1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
+codeRepl:29  call void (...)* @_ssdm_op_SpecMemCore([128 x i8]* @l1_biases, [1 x i8]* @p_str1, [12 x i8]* @p_str21, [1 x i8]* @p_str1, i32 -1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
 
 ]]></Node>
 <StgValue><ssdm name="specmemcore_ln188"/></StgValue>
@@ -718,7 +718,7 @@
 
 <Node id="449" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="8" op_8_bw="8" op_9_bw="8" op_10_bw="8" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="8" op_38_bw="8" op_39_bw="8" op_40_bw="8" op_41_bw="8" op_42_bw="8" op_43_bw="8" op_44_bw="8" op_45_bw="8" op_46_bw="8" op_47_bw="8" op_48_bw="8" op_49_bw="8" op_50_bw="8" op_51_bw="8" op_52_bw="8" op_53_bw="8" op_54_bw="8" op_55_bw="8" op_56_bw="8" op_57_bw="8" op_58_bw="8" op_59_bw="8" op_60_bw="8" op_61_bw="8" op_62_bw="8" op_63_bw="8" op_64_bw="8" op_65_bw="0" op_66_bw="0" op_67_bw="0" op_68_bw="32" op_69_bw="0" op_70_bw="0" op_71_bw="0" op_72_bw="0" op_73_bw="0">
 <![CDATA[
-:30  call void (...)* @_ssdm_op_SpecMemCore([128 x i8]* @l2_weights_0, [128 x i8]* @l2_weights_1, [128 x i8]* @l2_weights_2, [128 x i8]* @l2_weights_3, [128 x i8]* @l2_weights_4, [128 x i8]* @l2_weights_5, [128 x i8]* @l2_weights_6, [128 x i8]* @l2_weights_7, [128 x i8]* @l2_weights_8, [128 x i8]* @l2_weights_9, [128 x i8]* @l2_weights_10, [128 x i8]* @l2_weights_11, [128 x i8]* @l2_weights_12, [128 x i8]* @l2_weights_13, [128 x i8]* @l2_weights_14, [128 x i8]* @l2_weights_15, [128 x i8]* @l2_weights_16, [128 x i8]* @l2_weights_17, [128 x i8]* @l2_weights_18, [128 x i8]* @l2_weights_19, [128 x i8]* @l2_weights_20, [128 x i8]* @l2_weights_21, [128 x i8]* @l2_weights_22, [128 x i8]* @l2_weights_23, [128 x i8]* @l2_weights_24, [128 x i8]* @l2_weights_25, [128 x i8]* @l2_weights_26, [128 x i8]* @l2_weights_27, [128 x i8]* @l2_weights_28, [128 x i8]* @l2_weights_29, [128 x i8]* @l2_weights_30, [128 x i8]* @l2_weights_31, [128 x i8]* @l2_weights_32, [128 x i8]* @l2_weights_33, [128 x i8]* @l2_weights_34, [128 x i8]* @l2_weights_35, [128 x i8]* @l2_weights_36, [128 x i8]* @l2_weights_37, [128 x i8]* @l2_weights_38, [128 x i8]* @l2_weights_39, [128 x i8]* @l2_weights_40, [128 x i8]* @l2_weights_41, [128 x i8]* @l2_weights_42, [128 x i8]* @l2_weights_43, [128 x i8]* @l2_weights_44, [128 x i8]* @l2_weights_45, [128 x i8]* @l2_weights_46, [128 x i8]* @l2_weights_47, [128 x i8]* @l2_weights_48, [128 x i8]* @l2_weights_49, [128 x i8]* @l2_weights_50, [128 x i8]* @l2_weights_51, [128 x i8]* @l2_weights_52, [128 x i8]* @l2_weights_53, [128 x i8]* @l2_weights_54, [128 x i8]* @l2_weights_55, [128 x i8]* @l2_weights_56, [128 x i8]* @l2_weights_57, [128 x i8]* @l2_weights_58, [128 x i8]* @l2_weights_59, [128 x i8]* @l2_weights_60, [128 x i8]* @l2_weights_61, [128 x i8]* @l2_weights_62, [128 x i8]* @l2_weights_63, [1 x i8]* @p_str1, [12 x i8]* @p_str21, [1 x i8]* @p_str1, i32 -1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
+codeRepl:30  call void (...)* @_ssdm_op_SpecMemCore([128 x i8]* @l2_weights_0, [128 x i8]* @l2_weights_1, [128 x i8]* @l2_weights_2, [128 x i8]* @l2_weights_3, [128 x i8]* @l2_weights_4, [128 x i8]* @l2_weights_5, [128 x i8]* @l2_weights_6, [128 x i8]* @l2_weights_7, [128 x i8]* @l2_weights_8, [128 x i8]* @l2_weights_9, [128 x i8]* @l2_weights_10, [128 x i8]* @l2_weights_11, [128 x i8]* @l2_weights_12, [128 x i8]* @l2_weights_13, [128 x i8]* @l2_weights_14, [128 x i8]* @l2_weights_15, [128 x i8]* @l2_weights_16, [128 x i8]* @l2_weights_17, [128 x i8]* @l2_weights_18, [128 x i8]* @l2_weights_19, [128 x i8]* @l2_weights_20, [128 x i8]* @l2_weights_21, [128 x i8]* @l2_weights_22, [128 x i8]* @l2_weights_23, [128 x i8]* @l2_weights_24, [128 x i8]* @l2_weights_25, [128 x i8]* @l2_weights_26, [128 x i8]* @l2_weights_27, [128 x i8]* @l2_weights_28, [128 x i8]* @l2_weights_29, [128 x i8]* @l2_weights_30, [128 x i8]* @l2_weights_31, [128 x i8]* @l2_weights_32, [128 x i8]* @l2_weights_33, [128 x i8]* @l2_weights_34, [128 x i8]* @l2_weights_35, [128 x i8]* @l2_weights_36, [128 x i8]* @l2_weights_37, [128 x i8]* @l2_weights_38, [128 x i8]* @l2_weights_39, [128 x i8]* @l2_weights_40, [128 x i8]* @l2_weights_41, [128 x i8]* @l2_weights_42, [128 x i8]* @l2_weights_43, [128 x i8]* @l2_weights_44, [128 x i8]* @l2_weights_45, [128 x i8]* @l2_weights_46, [128 x i8]* @l2_weights_47, [128 x i8]* @l2_weights_48, [128 x i8]* @l2_weights_49, [128 x i8]* @l2_weights_50, [128 x i8]* @l2_weights_51, [128 x i8]* @l2_weights_52, [128 x i8]* @l2_weights_53, [128 x i8]* @l2_weights_54, [128 x i8]* @l2_weights_55, [128 x i8]* @l2_weights_56, [128 x i8]* @l2_weights_57, [128 x i8]* @l2_weights_58, [128 x i8]* @l2_weights_59, [128 x i8]* @l2_weights_60, [128 x i8]* @l2_weights_61, [128 x i8]* @l2_weights_62, [128 x i8]* @l2_weights_63, [1 x i8]* @p_str1, [12 x i8]* @p_str21, [1 x i8]* @p_str1, i32 -1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
 
 ]]></Node>
 <StgValue><ssdm name="specmemcore_ln194"/></StgValue>
@@ -733,7 +733,7 @@
 
 <Node id="450" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="0" op_7_bw="0" op_8_bw="0" op_9_bw="0" op_10_bw="0">
 <![CDATA[
-:31  call void (...)* @_ssdm_op_SpecMemCore([64 x i8]* @l2_biases, [1 x i8]* @p_str1, [12 x i8]* @p_str21, [1 x i8]* @p_str1, i32 -1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
+codeRepl:31  call void (...)* @_ssdm_op_SpecMemCore([64 x i8]* @l2_biases, [1 x i8]* @p_str1, [12 x i8]* @p_str21, [1 x i8]* @p_str1, i32 -1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
 
 ]]></Node>
 <StgValue><ssdm name="specmemcore_ln195"/></StgValue>
@@ -748,7 +748,7 @@
 
 <Node id="451" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="8" op_8_bw="8" op_9_bw="8" op_10_bw="8" op_11_bw="0" op_12_bw="0" op_13_bw="0" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="0" op_18_bw="0" op_19_bw="0">
 <![CDATA[
-:32  call void (...)* @_ssdm_op_SpecMemCore([64 x i8]* @l3_weights_0, [64 x i8]* @l3_weights_1, [64 x i8]* @l3_weights_2, [64 x i8]* @l3_weights_3, [64 x i8]* @l3_weights_4, [64 x i8]* @l3_weights_5, [64 x i8]* @l3_weights_6, [64 x i8]* @l3_weights_7, [64 x i8]* @l3_weights_8, [64 x i8]* @l3_weights_9, [1 x i8]* @p_str1, [12 x i8]* @p_str21, [1 x i8]* @p_str1, i32 -1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
+codeRepl:32  call void (...)* @_ssdm_op_SpecMemCore([64 x i8]* @l3_weights_0, [64 x i8]* @l3_weights_1, [64 x i8]* @l3_weights_2, [64 x i8]* @l3_weights_3, [64 x i8]* @l3_weights_4, [64 x i8]* @l3_weights_5, [64 x i8]* @l3_weights_6, [64 x i8]* @l3_weights_7, [64 x i8]* @l3_weights_8, [64 x i8]* @l3_weights_9, [1 x i8]* @p_str1, [12 x i8]* @p_str21, [1 x i8]* @p_str1, i32 -1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
 
 ]]></Node>
 <StgValue><ssdm name="specmemcore_ln201"/></StgValue>
@@ -763,7 +763,7 @@
 
 <Node id="452" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="0" op_7_bw="0" op_8_bw="0" op_9_bw="0" op_10_bw="0">
 <![CDATA[
-:33  call void (...)* @_ssdm_op_SpecMemCore([10 x i8]* @l3_biases, [1 x i8]* @p_str1, [12 x i8]* @p_str21, [1 x i8]* @p_str1, i32 -1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
+codeRepl:33  call void (...)* @_ssdm_op_SpecMemCore([10 x i8]* @l3_biases, [1 x i8]* @p_str1, [12 x i8]* @p_str21, [1 x i8]* @p_str1, i32 -1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
 
 ]]></Node>
 <StgValue><ssdm name="specmemcore_ln202"/></StgValue>
@@ -778,7 +778,7 @@
 
 <Node id="458" bw="0">
 <![CDATA[
-:39  ret void
+codeRepl:39  ret void
 
 ]]></Node>
 <StgValue><ssdm name="ret_ln216"/></StgValue>

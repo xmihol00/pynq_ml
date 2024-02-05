@@ -1,0 +1,12 @@
+regslice_core
+regslice_core
+fifo_w32_d256_A
+fifo_w32_d256_A
+start_for_sum_U0
+start_for_write_obkb
+dataflow_control_s_axi
+regslice_core
+read_input
+sum
+write_output
+dataflow

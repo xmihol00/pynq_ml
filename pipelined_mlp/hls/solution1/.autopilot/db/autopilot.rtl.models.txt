@@ -209,11 +209,11 @@ mlp_l3_l3_weights_7
 mlp_l3_l3_weights_8
 mlp_l3_l3_weights_9
 regslice_core
-fifo_w8_d2_A
-fifo_w8_d2_A
-fifo_w16_d2_A
-fifo_w16_d2_A
-fifo_w32_d2_A
+fifo_w8_d784_A
+fifo_w8_d784_A
+fifo_w16_d128_A
+fifo_w16_d64_A
+fifo_w32_d10_A
 start_for_mlp_l1_U0
 start_for_mlp_l2_U0
 start_for_mlp_l3_U0

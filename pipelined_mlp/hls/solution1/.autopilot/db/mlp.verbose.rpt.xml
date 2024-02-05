@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'mlp'" level="0">
-<item name = "Date">Sun Feb  4 20:36:29 2024
+<item name = "Date">Mon Feb  5 18:12:17 2024
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">hls</item>
@@ -53,13 +53,13 @@
 <keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 2, -</column>
-<column name="FIFO">0, -, 25, 140, -</column>
+<column name="FIFO">4, -, 166, 291, -</column>
 <column name="Instance">205, 138, 16954, 9302, 0</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, -, -, -</column>
 <column name="Register">-, -, -, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
-<specialColumn name="Utilization (%)">73, 62, 15, 17, 0</specialColumn>
+<specialColumn name="Utilization (%)">74, 62, 16, 18, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
@@ -84,11 +84,11 @@
 </item>
 <item name = "FIFO"><table name="" hasTotal="1">
 <keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
-<column name="l1_in_0_V_U">0, 5, 0, -, 2, 8, 16</column>
-<column name="l1_in_1_V_U">0, 5, 0, -, 2, 8, 16</column>
-<column name="l2_in_V_U">0, 5, 0, -, 2, 16, 32</column>
-<column name="l3_in_V_U">0, 5, 0, -, 2, 16, 32</column>
-<column name="l3_out_V_U">0, 5, 0, -, 2, 32, 64</column>
+<column name="l1_in_0_V_U">1, 41, 0, -, 784, 8, 6272</column>
+<column name="l1_in_1_V_U">1, 41, 0, -, 784, 8, 6272</column>
+<column name="l2_in_V_U">1, 40, 0, -, 128, 16, 2048</column>
+<column name="l3_in_V_U">1, 38, 0, -, 64, 16, 1024</column>
+<column name="l3_out_V_U">0, 6, 0, -, 10, 32, 320</column>
 </table>
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
