@@ -50,7 +50,7 @@ write_prediction:
         }
 
         ap_uint<1> last = 0;
-        if (i == i_limit * 5 - 1)
+        if (i == i_limit - 1)
         {
             last = 1;
         }
