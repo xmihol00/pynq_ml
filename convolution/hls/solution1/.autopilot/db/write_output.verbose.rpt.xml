@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'write_output'" level="0">
-<item name = "Date">Fri Feb  9 23:03:38 2024
+<item name = "Date">Sat Feb 10 21:45:53 2024
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">hls</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">3843, 3843, 38.430 us, 38.430 us, 3843, 3843, none</column>
+<column name="">1923, 1923, 19.230 us, 19.230 us, 1923, 1923, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">3841, 3841, 17, 16, 1, 240, yes</column>
+<column name="- Loop 1">1921, 1921, 17, 16, 1, 120, yes</column>
 </table>
 </item>
 </section>
@@ -53,7 +53,7 @@
 <column name="Instance">-, -, -, -, -</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, -, 945, -</column>
-<column name="Register">-, -, 4166, -, -</column>
+<column name="Register">-, -, 4164, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
 <specialColumn name="Utilization (%)">0, 0, 3, 2, 0</specialColumn>
 </table>
@@ -78,7 +78,7 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="i_fu_780_p2">+, 0, 0, 15, 8, 1</column>
+<column name="i_fu_780_p2">+, 0, 0, 15, 7, 1</column>
 <column name="ap_block_pp0_stage0_01001">and, 0, 0, 2, 1, 1</column>
 <column name="ap_block_pp0_stage0_11001">and, 0, 0, 2, 1, 1</column>
 <column name="ap_block_pp0_stage10_11001">and, 0, 0, 2, 1, 1</column>
@@ -174,8 +174,8 @@
 <column name="ap_predicate_op90_read_state7">and, 0, 0, 2, 1, 1</column>
 <column name="ap_predicate_op96_read_state8">and, 0, 0, 2, 1, 1</column>
 <column name="ap_predicate_op99_read_state8">and, 0, 0, 2, 1, 1</column>
-<column name="icmp_ln227_fu_768_p2">icmp, 0, 0, 11, 8, 6</column>
-<column name="tmp_last_V_fu_774_p2">icmp, 0, 0, 11, 8, 6</column>
+<column name="icmp_ln214_fu_768_p2">icmp, 0, 0, 11, 7, 5</column>
+<column name="tmp_last_V_fu_774_p2">icmp, 0, 0, 11, 7, 5</column>
 <column name="ap_block_state10_pp0_stage8_iter0">or, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state11_pp0_stage9_iter0">or, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state12_pp0_stage10_iter0">or, 0, 0, 2, 1, 1</column>
@@ -199,7 +199,7 @@
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
 <column name="ap_NS_fsm">93, 19, 1, 19</column>
 <column name="ap_enable_reg_pp0_iter1">9, 2, 1, 2</column>
-<column name="ap_phi_mux_i_0_phi_fu_206_p4">9, 2, 8, 16</column>
+<column name="ap_phi_mux_i_0_phi_fu_206_p4">9, 2, 7, 14</column>
 <column name="ap_phi_mux_state_2_15_phi_fu_753_p8">27, 5, 2, 10</column>
 <column name="ap_phi_mux_tmp_data_V_phi_fu_736_p8">27, 5, 256, 1280</column>
 <column name="ap_phi_reg_pp0_iter0_p_029_0_2_0_reg_256">21, 4, 256, 1024</column>
@@ -219,7 +219,7 @@
 <column name="ap_phi_reg_pp0_iter1_p_029_0_2_14_reg_718">27, 5, 256, 1280</column>
 <column name="blue_output_V_blk_n">9, 2, 1, 2</column>
 <column name="green_output_V_blk_n">9, 2, 1, 2</column>
-<column name="i_0_reg_202">9, 2, 8, 16</column>
+<column name="i_0_reg_202">9, 2, 7, 14</column>
 <column name="out_r_TDATA_blk_n">9, 2, 1, 2</column>
 <column name="red_output_V_blk_n">9, 2, 1, 2</column>
 <column name="state_0_reg_226">9, 2, 2, 4</column>
@@ -260,9 +260,9 @@
 <column name="ap_phi_reg_pp0_iter0_p_029_0_2_8_reg_520">256, 0, 256, 0</column>
 <column name="ap_phi_reg_pp0_iter0_p_029_0_2_9_reg_553">256, 0, 256, 0</column>
 <column name="ap_phi_reg_pp0_iter1_p_029_0_2_14_reg_718">256, 0, 256, 0</column>
-<column name="i_0_reg_202">8, 0, 8, 0</column>
-<column name="i_reg_1374">8, 0, 8, 0</column>
-<column name="icmp_ln227_reg_1365">1, 0, 1, 0</column>
+<column name="i_0_reg_202">7, 0, 7, 0</column>
+<column name="i_reg_1374">7, 0, 7, 0</column>
+<column name="icmp_ln214_reg_1365">1, 0, 1, 0</column>
 <column name="p_029_0_0_reg_214">256, 0, 256, 0</column>
 <column name="state_0_reg_226">2, 0, 2, 0</column>
 <column name="state_2_0_reg_238">2, 0, 2, 0</column>
@@ -296,15 +296,15 @@
 <column name="ap_done">out, 1, ap_ctrl_hs, write_output, return value</column>
 <column name="ap_idle">out, 1, ap_ctrl_hs, write_output, return value</column>
 <column name="ap_ready">out, 1, ap_ctrl_hs, write_output, return value</column>
-<column name="red_output_V_dout">in, 16, ap_fifo, red_output_V, pointer</column>
-<column name="red_output_V_empty_n">in, 1, ap_fifo, red_output_V, pointer</column>
-<column name="red_output_V_read">out, 1, ap_fifo, red_output_V, pointer</column>
-<column name="green_output_V_dout">in, 16, ap_fifo, green_output_V, pointer</column>
-<column name="green_output_V_empty_n">in, 1, ap_fifo, green_output_V, pointer</column>
-<column name="green_output_V_read">out, 1, ap_fifo, green_output_V, pointer</column>
 <column name="blue_output_V_dout">in, 16, ap_fifo, blue_output_V, pointer</column>
 <column name="blue_output_V_empty_n">in, 1, ap_fifo, blue_output_V, pointer</column>
 <column name="blue_output_V_read">out, 1, ap_fifo, blue_output_V, pointer</column>
+<column name="green_output_V_dout">in, 16, ap_fifo, green_output_V, pointer</column>
+<column name="green_output_V_empty_n">in, 1, ap_fifo, green_output_V, pointer</column>
+<column name="green_output_V_read">out, 1, ap_fifo, green_output_V, pointer</column>
+<column name="red_output_V_dout">in, 16, ap_fifo, red_output_V, pointer</column>
+<column name="red_output_V_empty_n">in, 1, ap_fifo, red_output_V, pointer</column>
+<column name="red_output_V_read">out, 1, ap_fifo, red_output_V, pointer</column>
 <column name="out_r_TDATA">out, 256, axis, out_V_data_V, pointer</column>
 <column name="out_r_TREADY">in, 1, axis, out_V_data_V, pointer</column>
 <column name="out_r_TVALID">out, 1, axis, out_V_last_V, pointer</column>

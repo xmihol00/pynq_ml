@@ -5,8 +5,8 @@
 `timescale 1 ns / 1 ps
 
 (* use_dsp = "yes" *) module convolution_mac_mncg_DSP48_3(
-    input  [8 - 1:0] in0,
-    input  [2 - 1:0] in1,
+    input  [2 - 1:0] in0,
+    input  [8 - 1:0] in1,
     input  [11 - 1:0] in2,
     output [11 - 1:0]  dout);
 
@@ -16,8 +16,8 @@ wire signed [48 - 1:0]     c;
 wire signed [43 - 1:0]     m;
 wire signed [48 - 1:0]     p;
 
-assign a  = $unsigned(in0);
-assign b  = $signed(in1);
+assign a  = $signed(in0);
+assign b  = $unsigned(in1);
 assign c  = $signed(in2);
 
 assign m  = a * b;

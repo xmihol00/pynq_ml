@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'convolution'" level="0">
-<item name = "Date">Fri Feb  9 23:03:33 2024
+<item name = "Date">Sat Feb 10 21:45:39 2024
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">hls</item>
@@ -24,16 +24,16 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">73410, 73410, 0.734 ms, 0.734 ms, 73410, 73410, none</column>
+<column name="">75430, 75430, 0.754 ms, 0.754 ms, 75430, 75430, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_write_output_fu_196">write_output, 3843, 3843, 38.430 us, 38.430 us, 3843, 3843, none</column>
-<column name="grp_read_input_fu_211">read_input, 3842, 3842, 38.420 us, 38.420 us, 3842, 3842, none</column>
-<column name="grp_convolve_fu_231">convolve, 65718, 65718, 0.657 ms, 0.657 ms, 65718, 65718, none</column>
+<column name="grp_write_output_fu_198">write_output, 1923, 1923, 19.230 us, 19.230 us, 1923, 1923, none</column>
+<column name="grp_read_input_fu_213">read_input, 7682, 7682, 76.820 us, 76.820 us, 7682, 7682, none</column>
+<column name="grp_convolve_fu_234">convolve, 65818, 65818, 0.658 ms, 0.658 ms, 65818, 65818, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

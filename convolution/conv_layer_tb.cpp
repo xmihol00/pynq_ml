@@ -1,15 +1,18 @@
 #include "conv_layer.h"
 #include "test_data.h"
 
+#define STRIPE_TEST_HEIGHT 20
+#define STRIPE_TEST_OUTPUT_HEIGHT ((STRIPE_TEST_HEIGHT - 2) / 2)
+
 int main()
 {
-    const uint8_t blue_stripe[STRIPE_HEIGHT][STRIPE_INPUT_WIDTH] = BLUE_CHANNEL;
-    const uint8_t green_stripe[STRIPE_HEIGHT][STRIPE_INPUT_WIDTH] = GREEN_CHANNEL;
-    const uint8_t red_stripe[STRIPE_HEIGHT][STRIPE_INPUT_WIDTH] = RED_CHANNEL;
+    const uint8_t blue_stripe[STRIPE_TEST_HEIGHT][STRIPE_INPUT_WIDTH] = BLUE_CHANNEL;
+    const uint8_t green_stripe[STRIPE_TEST_HEIGHT][STRIPE_INPUT_WIDTH] = GREEN_CHANNEL;
+    const uint8_t red_stripe[STRIPE_TEST_HEIGHT][STRIPE_INPUT_WIDTH] = RED_CHANNEL;
 
-    const int16_t blue_result_gt[STRIPE_OUTPUT_WIDTH] = BLUE_RESULT;
-    const int16_t green_result_gt[STRIPE_OUTPUT_WIDTH] = GREEN_RESULT;
-    const int16_t red_result_gt[STRIPE_OUTPUT_WIDTH] = RED_RESULT;
+    const int16_t blue_result_gt[STRIPE_TEST_OUTPUT_HEIGHT][STRIPE_OUTPUT_WIDTH] = BLUE_RESULT;
+    const int16_t green_result_gt[STRIPE_TEST_OUTPUT_HEIGHT][STRIPE_OUTPUT_WIDTH] = GREEN_RESULT;
+    const int16_t red_result_gt[STRIPE_TEST_OUTPUT_HEIGHT][STRIPE_OUTPUT_WIDTH] = RED_RESULT;
 
     int16_t blue_result_pred[STRIPE_OUTPUT_WIDTH];
     int16_t green_result_pred[STRIPE_OUTPUT_WIDTH];
@@ -19,7 +22,7 @@ int main()
     hls::stream<axis_out_t, 2 * STRIPE_OUTPUT_WIDTH> out;
 
     bool all_correct = true;
-    for (int k = 0; k < 2; k++) 
+    for (int k = 0; k < STRIPE_TEST_HEIGHT / 2; k++) 
     {
         State state = BLUE;
         int j_limit = AXI_INPUT_WIDTH / INT8_BITS;
@@ -86,31 +89,34 @@ int main()
                 }
             }
         }
-        
-    }
-    
-    for (int j = 0; j < STRIPE_OUTPUT_WIDTH; j++) 
-    {
-        bool incorrect = blue_result_pred[j] != blue_result_gt[j];
-        if (incorrect) 
-        {
-            std::cout << "blue_result_pred[" << j << "] = " << blue_result_pred[j] << "\t!= " << "blue_result_gt[" << j << "] = " << blue_result_gt[j] << std::endl;
-        }
-        all_correct &= !incorrect;
 
-        incorrect = green_result_pred[j] != green_result_gt[j];
-        if (incorrect) 
+        if (k > 0)
         {
-            std::cout << "green_result_pred[" << j << "] = " << green_result_pred[j] << "\t!= " << "green_result_gt[" << j << "] = " << green_result_gt[j] << std::endl;
-        }
-        all_correct &= !incorrect;
+            std::cout << "iteration = " << k << std::endl;
+            for (int j = 0; j < STRIPE_OUTPUT_WIDTH; j++) 
+            {
+                bool incorrect = blue_result_pred[j] != blue_result_gt[k-1][j];
+                if (incorrect) 
+                {
+                    std::cout << "blue_result_pred[" << j << "] = " << blue_result_pred[j] << "\t!= " << "blue_result_gt[" << j << "] = " << blue_result_gt[k-1][j] << std::endl;
+                }
+                all_correct &= !incorrect;
 
-        incorrect = red_result_pred[j] != red_result_gt[j];
-        if (incorrect) 
-        {
-            std::cout << "red_result_pred[" << j << "] = " << red_result_pred[j] << "\t!= " << "red_result_gt[" << j << "] = " << red_result_gt[j] << std::endl;
+                incorrect = green_result_pred[j] != green_result_gt[k-1][j];
+                if (incorrect) 
+                {
+                    std::cout << "green_result_pred[" << j << "] = " << green_result_pred[j] << "\t!= " << "green_result_gt[" << j << "] = " << green_result_gt[k-1][j] << std::endl;
+                }
+                all_correct &= !incorrect;
+
+                incorrect = red_result_pred[j] != red_result_gt[k-1][j];
+                if (incorrect) 
+                {
+                    std::cout << "red_result_pred[" << j << "] = " << red_result_pred[j] << "\t!= " << "red_result_gt[" << j << "] = " << red_result_gt[k-1][j] << std::endl;
+                }
+                all_correct &= !incorrect;
+            }
         }
-        all_correct &= !incorrect;
     }
 
     return !all_correct;

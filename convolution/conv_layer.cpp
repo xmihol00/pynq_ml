@@ -6,7 +6,7 @@ void read_input
     uint8_t blue_stripe[STRIPE_HEIGHT][STRIPE_INPUT_WIDTH], 
     uint8_t green_stripe[STRIPE_HEIGHT][STRIPE_INPUT_WIDTH], 
     uint8_t red_stripe[STRIPE_HEIGHT][STRIPE_INPUT_WIDTH], 
-    hls::stream<uint8_t, 1> &input_line_ready
+    hls::stream<uint8_t, 2> &input_line_ready
 )
 {
     static uint8_t row_index = 0;
@@ -17,6 +17,8 @@ void read_input
 
     int low;
     int high;
+
+    input_line_ready.write(1);
 
 two_rows:
     for (int l = 0; l < 2; l++)
@@ -76,13 +78,17 @@ void convolve
     hls::stream<int16_t, STRIPE_OUTPUT_WIDTH> &blue_output, 
     hls::stream<int16_t, STRIPE_OUTPUT_WIDTH> &green_output, 
     hls::stream<int16_t, STRIPE_OUTPUT_WIDTH> &red_output,
-    hls::stream<uint8_t, 1> &input_line_ready
+    hls::stream<uint8_t, 2> &input_line_ready
 )
 {
 #pragma HLS PIPELINE off
 
-    static uint8_t row_indices_upper[KERNEL_SIZE] = {4, 5, 0};
-    static uint8_t row_indices_lower[KERNEL_SIZE] = {5, 0, 1};
+    static int iteration = -1;
+    iteration++;
+    static uint8_t row_indices_upper[KERNEL_SIZE] = {STRIPE_HEIGHT - 2, STRIPE_HEIGHT - 1, 0};
+    static uint8_t row_indices_lower[KERNEL_SIZE] = {STRIPE_HEIGHT - 1, 0, 1};
+
+    input_line_ready.read();
 
 conv_stripe:
     for (int i = 0; i < STRIPE_OUTPUT_WIDTH - 1; i++)
@@ -248,12 +254,12 @@ void convolution(hls::stream<axis_in_t> &in, hls::stream<axis_out_t> &out)
 
     uint8_t stripes[CHANNELS][STRIPE_HEIGHT][STRIPE_INPUT_WIDTH];
 #pragma HLS RESOURCE variable=stripes core=RAM_2P_BRAM
-#pragma HLS ARRAY_PARTITION variable=stripes factor=5 cyclic dim=2
+#pragma HLS ARRAY_PARTITION variable=stripes factor=6 cyclic dim=2
 
     const int8_t kernels[CHANNELS][KERNEL_SIZE][KERNEL_SIZE] = {{{0, 1, 2}, {-1, 0, 1}, {-2, -1, 0}}, {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}}, {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}}};
 #pragma HLS ARRAY_PARTITION variable=kernels factor=3 cyclic dim=2
 
-    hls::stream<uint8_t, 1> input_line_ready;
+    hls::stream<uint8_t, 2> input_line_ready;
     hls::stream<int16_t, STRIPE_OUTPUT_WIDTH> blue_output;
     hls::stream<int16_t, STRIPE_OUTPUT_WIDTH> green_output;
     hls::stream<int16_t, STRIPE_OUTPUT_WIDTH> red_output;

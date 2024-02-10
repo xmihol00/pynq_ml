@@ -8,8 +8,8 @@ use IEEE.numeric_std.all;
 
 entity convolution_mac_mncg_DSP48_3 is
 port (
-    in0:  in  std_logic_vector(8 - 1 downto 0);
-    in1:  in  std_logic_vector(2 - 1 downto 0);
+    in0:  in  std_logic_vector(2 - 1 downto 0);
+    in1:  in  std_logic_vector(8 - 1 downto 0);
     in2:  in  std_logic_vector(11 - 1 downto 0);
     dout: out std_logic_vector(11 - 1 downto 0));
 
@@ -25,8 +25,8 @@ architecture behav of convolution_mac_mncg_DSP48_3 is
     signal m       : signed(43-1 downto 0);
     signal p       : signed(48-1 downto 0);
 begin
-a  <= signed(resize(unsigned(in0), 25));
-b  <= signed(resize(signed(in1), 18));
+a  <= signed(resize(signed(in0), 25));
+b  <= signed(resize(unsigned(in1), 18));
 c  <= signed(resize(signed(in2), 48));
 
 m  <= a * b;

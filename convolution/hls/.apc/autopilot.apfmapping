@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="conv_layer.cpp" path="/mnt/sdc3/david/projs/pynq_ml/convolution/conv_layer.cpp"/>
     <originFiles name="conv_layer.h" path="/mnt/sdc3/david/projs/pynq_ml/convolution/conv_layer.h"/>
+    <originFiles name="conv_layer.cpp" path="/mnt/sdc3/david/projs/pynq_ml/convolution/conv_layer.cpp"/>
   </source>
   <testbench>
-    <originFiles name="conv_layer.h" path="/mnt/sdc3/david/projs/pynq_ml/convolution/conv_layer.h"/>
-    <originFiles name="conv_layer_tb.cpp" path="/mnt/sdc3/david/projs/pynq_ml/convolution/conv_layer_tb.cpp"/>
     <originFiles name="test_data.h" path="/mnt/sdc3/david/projs/pynq_ml/convolution/test_data.h"/>
+    <originFiles name="conv_layer_tb.cpp" path="/mnt/sdc3/david/projs/pynq_ml/convolution/conv_layer_tb.cpp"/>
+    <originFiles name="conv_layer.h" path="/mnt/sdc3/david/projs/pynq_ml/convolution/conv_layer.h"/>
   </testbench>
 </autopilotfilemapping:AutoPilotFileMapping>

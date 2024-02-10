@@ -21,29 +21,29 @@
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>3842</Best-caseLatency>
-<Average-caseLatency>3842</Average-caseLatency>
-<Worst-caseLatency>3842</Worst-caseLatency>
-<Best-caseRealTimeLatency>38.420 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>38.420 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>38.420 us</Worst-caseRealTimeLatency>
-<Interval-min>3842</Interval-min>
-<Interval-max>3842</Interval-max>
+<Best-caseLatency>7682</Best-caseLatency>
+<Average-caseLatency>7682</Average-caseLatency>
+<Worst-caseLatency>7682</Worst-caseLatency>
+<Best-caseRealTimeLatency>76.820 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>76.820 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>76.820 us</Worst-caseRealTimeLatency>
+<Interval-min>7682</Interval-min>
+<Interval-max>7682</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
-<load_row_outer>
-<TripCount>120</TripCount>
-<Latency>3840</Latency>
+<two_rows_load_row_outer>
+<TripCount>240</TripCount>
+<Latency>7680</Latency>
 <PipelineII>32</PipelineII>
 <PipelineDepth>33</PipelineDepth>
-</load_row_outer>
+</two_rows_load_row_outer>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
-<FF>2510</FF>
-<LUT>6800</LUT>
+<FF>2564</FF>
+<LUT>7288</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP48E>0</DSP48E>
 <URAM>0</URAM>
@@ -402,6 +402,50 @@
 <RtlPorts>
 <name>blue_stripe_4_d1</name>
 <Object>blue_stripe_4</Object>
+<Type>array</Type>
+<Scope></Scope>
+<IOProtocol>ap_memory</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>8</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>blue_stripe_5_address1</name>
+<Object>blue_stripe_5</Object>
+<Type>array</Type>
+<Scope></Scope>
+<IOProtocol>ap_memory</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>12</Bits>
+<Attribute>address</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>blue_stripe_5_ce1</name>
+<Object>blue_stripe_5</Object>
+<Type>array</Type>
+<Scope></Scope>
+<IOProtocol>ap_memory</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>blue_stripe_5_we1</name>
+<Object>blue_stripe_5</Object>
+<Type>array</Type>
+<Scope></Scope>
+<IOProtocol>ap_memory</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>blue_stripe_5_d1</name>
+<Object>blue_stripe_5</Object>
 <Type>array</Type>
 <Scope></Scope>
 <IOProtocol>ap_memory</IOProtocol>

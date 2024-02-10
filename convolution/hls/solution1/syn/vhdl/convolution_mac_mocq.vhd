@@ -9,9 +9,9 @@ use IEEE.numeric_std.all;
 entity convolution_mac_mocq_DSP48_4 is
 port (
     in0:  in  std_logic_vector(8 - 1 downto 0);
-    in1:  in  std_logic_vector(3 - 1 downto 0);
-    in2:  in  std_logic_vector(12 - 1 downto 0);
-    dout: out std_logic_vector(12 - 1 downto 0));
+    in1:  in  std_logic_vector(2 - 1 downto 0);
+    in2:  in  std_logic_vector(11 - 1 downto 0);
+    dout: out std_logic_vector(11 - 1 downto 0));
 
     attribute use_dsp : string;
     attribute use_dsp of convolution_mac_mocq_DSP48_4 : entity is "yes";
@@ -27,12 +27,12 @@ architecture behav of convolution_mac_mocq_DSP48_4 is
 begin
 a  <= signed(resize(unsigned(in0), 25));
 b  <= signed(resize(signed(in1), 18));
-c  <= signed(resize(signed(in2), 48));
+c  <= signed(resize(unsigned(in2), 48));
 
 m  <= a * b;
 p  <= m + c;
 
-dout <= std_logic_vector(resize(unsigned(p), 12));
+dout <= std_logic_vector(resize(unsigned(p), 11));
 
 end architecture;
 Library IEEE;

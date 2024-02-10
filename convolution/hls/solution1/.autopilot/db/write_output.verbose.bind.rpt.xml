@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'write_output'" level="0">
-<item name = "Date">Fri Feb  9 23:03:33 2024
+<item name = "Date">Sat Feb 10 21:45:38 2024
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">hls</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">3843, 3843, 38.430 us, 38.430 us, 3843, 3843, none</column>
+<column name="">1923, 1923, 19.230 us, 19.230 us, 1923, 1923, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">3841, 3841, 17, 16, 1, 240, yes</column>
+<column name="- Loop 1">1921, 1921, 17, 16, 1, 120, yes</column>
 </table>
 </item>
 </section>

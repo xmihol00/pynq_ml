@@ -27,7 +27,7 @@ architecture behav of convolution_mac_mlbW_DSP48_1 is
 begin
 a  <= signed(resize(signed(in0), 25));
 b  <= signed(resize(unsigned(in1), 18));
-c  <= signed(resize(signed(in2), 48));
+c  <= signed(resize(unsigned(in2), 48));
 
 m  <= a * b;
 p  <= m + c;

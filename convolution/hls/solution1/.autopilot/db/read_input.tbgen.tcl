@@ -23,6 +23,7 @@ set C_modelArgList {
 	{ blue_stripe_2 int 8 regular {array 3840 { 3 0 } 0 1 }  }
 	{ blue_stripe_3 int 8 regular {array 3840 { 3 0 } 0 1 }  }
 	{ blue_stripe_4 int 8 regular {array 3840 { 3 0 } 0 1 }  }
+	{ blue_stripe_5 int 8 regular {array 3840 { 3 0 } 0 1 }  }
 	{ input_line_ready_V int 8 regular {fifo 1 volatile }  }
 }
 set C_modelArgMapList {[ 
@@ -35,9 +36,10 @@ set C_modelArgMapList {[
  	{ "Name" : "blue_stripe_2", "interface" : "memory", "bitwidth" : 8, "direction" : "WRITEONLY"} , 
  	{ "Name" : "blue_stripe_3", "interface" : "memory", "bitwidth" : 8, "direction" : "WRITEONLY"} , 
  	{ "Name" : "blue_stripe_4", "interface" : "memory", "bitwidth" : 8, "direction" : "WRITEONLY"} , 
+ 	{ "Name" : "blue_stripe_5", "interface" : "memory", "bitwidth" : 8, "direction" : "WRITEONLY"} , 
  	{ "Name" : "input_line_ready_V", "interface" : "fifo", "bitwidth" : 8, "direction" : "WRITEONLY"} ]}
 # RTL Port declarations: 
-set portNum 35
+set portNum 39
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -71,9 +73,13 @@ set portList {
 	{ blue_stripe_4_ce1 sc_out sc_logic 1 signal 8 } 
 	{ blue_stripe_4_we1 sc_out sc_logic 1 signal 8 } 
 	{ blue_stripe_4_d1 sc_out sc_lv 8 signal 8 } 
-	{ input_line_ready_V_din sc_out sc_lv 8 signal 9 } 
-	{ input_line_ready_V_full_n sc_in sc_logic 1 signal 9 } 
-	{ input_line_ready_V_write sc_out sc_logic 1 signal 9 } 
+	{ blue_stripe_5_address1 sc_out sc_lv 12 signal 9 } 
+	{ blue_stripe_5_ce1 sc_out sc_logic 1 signal 9 } 
+	{ blue_stripe_5_we1 sc_out sc_logic 1 signal 9 } 
+	{ blue_stripe_5_d1 sc_out sc_lv 8 signal 9 } 
+	{ input_line_ready_V_din sc_out sc_lv 8 signal 10 } 
+	{ input_line_ready_V_full_n sc_in sc_logic 1 signal 10 } 
+	{ input_line_ready_V_write sc_out sc_logic 1 signal 10 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -108,6 +114,10 @@ set NewPortList {[
  	{ "name": "blue_stripe_4_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "blue_stripe_4", "role": "ce1" }} , 
  	{ "name": "blue_stripe_4_we1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "blue_stripe_4", "role": "we1" }} , 
  	{ "name": "blue_stripe_4_d1", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "blue_stripe_4", "role": "d1" }} , 
+ 	{ "name": "blue_stripe_5_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":12, "type": "signal", "bundle":{"name": "blue_stripe_5", "role": "address1" }} , 
+ 	{ "name": "blue_stripe_5_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "blue_stripe_5", "role": "ce1" }} , 
+ 	{ "name": "blue_stripe_5_we1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "blue_stripe_5", "role": "we1" }} , 
+ 	{ "name": "blue_stripe_5_d1", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "blue_stripe_5", "role": "d1" }} , 
  	{ "name": "input_line_ready_V_din", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "input_line_ready_V", "role": "din" }} , 
  	{ "name": "input_line_ready_V_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "input_line_ready_V", "role": "full_n" }} , 
  	{ "name": "input_line_ready_V_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "input_line_ready_V", "role": "write" }}  ]}
@@ -119,7 +129,7 @@ set RtlHierarchyInfo {[
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "3842", "EstimateLatencyMax" : "3842",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "7682", "EstimateLatencyMax" : "7682",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -138,6 +148,7 @@ set RtlHierarchyInfo {[
 			{"Name" : "blue_stripe_2", "Type" : "Memory", "Direction" : "O"},
 			{"Name" : "blue_stripe_3", "Type" : "Memory", "Direction" : "O"},
 			{"Name" : "blue_stripe_4", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "blue_stripe_5", "Type" : "Memory", "Direction" : "O"},
 			{"Name" : "input_line_ready_V", "Type" : "Fifo", "Direction" : "O",
 				"BlockSignal" : [
 					{"Name" : "input_line_ready_V_blk_n", "Type" : "RtlSignal"}]},
@@ -155,14 +166,15 @@ set ArgLastReadFirstWriteLatency {
 		blue_stripe_2 {Type O LastRead -1 FirstWrite 2}
 		blue_stripe_3 {Type O LastRead -1 FirstWrite 2}
 		blue_stripe_4 {Type O LastRead -1 FirstWrite 2}
-		input_line_ready_V {Type O LastRead -1 FirstWrite 2}
+		blue_stripe_5 {Type O LastRead -1 FirstWrite 2}
+		input_line_ready_V {Type O LastRead -1 FirstWrite 0}
 		row_index {Type IO LastRead -1 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "3842", "Max" : "3842"}
-	, {"Name" : "Interval", "Min" : "3842", "Max" : "3842"}
+	{"Name" : "Latency", "Min" : "7682", "Max" : "7682"}
+	, {"Name" : "Interval", "Min" : "7682", "Max" : "7682"}
 ]}
 
 set PipelineEnableSignalInfo {[
@@ -179,5 +191,6 @@ set Spec2ImplPortList {
 	blue_stripe_2 { ap_memory {  { blue_stripe_2_address1 MemPortADDR2 1 12 }  { blue_stripe_2_ce1 MemPortCE2 1 1 }  { blue_stripe_2_we1 MemPortWE2 1 1 }  { blue_stripe_2_d1 MemPortDIN2 1 8 } } }
 	blue_stripe_3 { ap_memory {  { blue_stripe_3_address1 MemPortADDR2 1 12 }  { blue_stripe_3_ce1 MemPortCE2 1 1 }  { blue_stripe_3_we1 MemPortWE2 1 1 }  { blue_stripe_3_d1 MemPortDIN2 1 8 } } }
 	blue_stripe_4 { ap_memory {  { blue_stripe_4_address1 MemPortADDR2 1 12 }  { blue_stripe_4_ce1 MemPortCE2 1 1 }  { blue_stripe_4_we1 MemPortWE2 1 1 }  { blue_stripe_4_d1 MemPortDIN2 1 8 } } }
+	blue_stripe_5 { ap_memory {  { blue_stripe_5_address1 MemPortADDR2 1 12 }  { blue_stripe_5_ce1 MemPortCE2 1 1 }  { blue_stripe_5_we1 MemPortWE2 1 1 }  { blue_stripe_5_d1 MemPortDIN2 1 8 } } }
 	input_line_ready_V { ap_fifo {  { input_line_ready_V_din fifo_data 1 8 }  { input_line_ready_V_full_n fifo_status 0 1 }  { input_line_ready_V_write fifo_update 1 1 } } }
 }

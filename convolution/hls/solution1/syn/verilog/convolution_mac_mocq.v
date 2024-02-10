@@ -6,9 +6,9 @@
 
 (* use_dsp = "yes" *) module convolution_mac_mocq_DSP48_4(
     input  [8 - 1:0] in0,
-    input  [3 - 1:0] in1,
-    input  [12 - 1:0] in2,
-    output [12 - 1:0]  dout);
+    input  [2 - 1:0] in1,
+    input  [11 - 1:0] in2,
+    output [11 - 1:0]  dout);
 
 wire signed [25 - 1:0]     a;
 wire signed [18 - 1:0]     b;
@@ -18,7 +18,7 @@ wire signed [48 - 1:0]     p;
 
 assign a  = $unsigned(in0);
 assign b  = $signed(in1);
-assign c  = $signed(in2);
+assign c  = $unsigned(in2);
 
 assign m  = a * b;
 assign p  = m + c;

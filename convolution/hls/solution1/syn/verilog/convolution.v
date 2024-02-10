@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="convolution,hls_ip_2020_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.557750,HLS_SYN_LAT=73410,HLS_SYN_TPT=none,HLS_SYN_MEM=13,HLS_SYN_DSP=8,HLS_SYN_FF=7916,HLS_SYN_LUT=11288,HLS_VERSION=2020_1}" *)
+(* CORE_GENERATION_INFO="convolution,hls_ip_2020_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.557750,HLS_SYN_LAT=75430,HLS_SYN_TPT=none,HLS_SYN_MEM=15,HLS_SYN_DSP=16,HLS_SYN_FF=7913,HLS_SYN_LUT=11547,HLS_VERSION=2020_1}" *)
 
 module convolution (
         ap_clk,
@@ -121,85 +121,95 @@ reg    stripes_4_ce0;
 wire   [7:0] stripes_4_q0;
 reg    stripes_4_ce1;
 reg    stripes_4_we1;
-wire    grp_write_output_fu_196_ap_start;
-wire    grp_write_output_fu_196_ap_done;
-wire    grp_write_output_fu_196_ap_idle;
-wire    grp_write_output_fu_196_ap_ready;
-wire    grp_write_output_fu_196_red_output_V_read;
-wire    grp_write_output_fu_196_green_output_V_read;
-wire    grp_write_output_fu_196_blue_output_V_read;
-wire   [255:0] grp_write_output_fu_196_out_r_TDATA;
-wire    grp_write_output_fu_196_out_r_TVALID;
-wire    grp_write_output_fu_196_out_r_TREADY;
-wire   [31:0] grp_write_output_fu_196_out_r_TKEEP;
-wire   [31:0] grp_write_output_fu_196_out_r_TSTRB;
-wire   [0:0] grp_write_output_fu_196_out_r_TLAST;
-wire    grp_read_input_fu_211_ap_start;
-wire    grp_read_input_fu_211_ap_done;
-wire    grp_read_input_fu_211_ap_idle;
-wire    grp_read_input_fu_211_ap_ready;
-wire    grp_read_input_fu_211_in_r_TREADY;
-wire   [11:0] grp_read_input_fu_211_blue_stripe_0_address1;
-wire    grp_read_input_fu_211_blue_stripe_0_ce1;
-wire    grp_read_input_fu_211_blue_stripe_0_we1;
-wire   [7:0] grp_read_input_fu_211_blue_stripe_0_d1;
-wire   [11:0] grp_read_input_fu_211_blue_stripe_1_address1;
-wire    grp_read_input_fu_211_blue_stripe_1_ce1;
-wire    grp_read_input_fu_211_blue_stripe_1_we1;
-wire   [7:0] grp_read_input_fu_211_blue_stripe_1_d1;
-wire   [11:0] grp_read_input_fu_211_blue_stripe_2_address1;
-wire    grp_read_input_fu_211_blue_stripe_2_ce1;
-wire    grp_read_input_fu_211_blue_stripe_2_we1;
-wire   [7:0] grp_read_input_fu_211_blue_stripe_2_d1;
-wire   [11:0] grp_read_input_fu_211_blue_stripe_3_address1;
-wire    grp_read_input_fu_211_blue_stripe_3_ce1;
-wire    grp_read_input_fu_211_blue_stripe_3_we1;
-wire   [7:0] grp_read_input_fu_211_blue_stripe_3_d1;
-wire   [11:0] grp_read_input_fu_211_blue_stripe_4_address1;
-wire    grp_read_input_fu_211_blue_stripe_4_ce1;
-wire    grp_read_input_fu_211_blue_stripe_4_we1;
-wire   [7:0] grp_read_input_fu_211_blue_stripe_4_d1;
-wire   [7:0] grp_read_input_fu_211_input_line_ready_V_din;
-wire    grp_read_input_fu_211_input_line_ready_V_write;
-wire    grp_convolve_fu_231_ap_start;
-wire    grp_convolve_fu_231_ap_done;
-wire    grp_convolve_fu_231_ap_idle;
-wire    grp_convolve_fu_231_ap_ready;
-wire   [11:0] grp_convolve_fu_231_stripes_0_address0;
-wire    grp_convolve_fu_231_stripes_0_ce0;
-wire   [11:0] grp_convolve_fu_231_stripes_1_address0;
-wire    grp_convolve_fu_231_stripes_1_ce0;
-wire   [11:0] grp_convolve_fu_231_stripes_2_address0;
-wire    grp_convolve_fu_231_stripes_2_ce0;
-wire   [11:0] grp_convolve_fu_231_stripes_3_address0;
-wire    grp_convolve_fu_231_stripes_3_ce0;
-wire   [11:0] grp_convolve_fu_231_stripes_4_address0;
-wire    grp_convolve_fu_231_stripes_4_ce0;
-wire   [15:0] grp_convolve_fu_231_blue_output_V_din;
-wire    grp_convolve_fu_231_blue_output_V_write;
-wire   [15:0] grp_convolve_fu_231_green_output_V_din;
-wire    grp_convolve_fu_231_green_output_V_write;
-wire   [15:0] grp_convolve_fu_231_red_output_V_din;
-wire    grp_convolve_fu_231_red_output_V_write;
-wire    grp_convolve_fu_231_input_line_ready_V_read;
-reg    grp_write_output_fu_196_ap_start_reg;
+reg    stripes_5_ce0;
+wire   [7:0] stripes_5_q0;
+reg    stripes_5_ce1;
+reg    stripes_5_we1;
+wire    grp_write_output_fu_198_ap_start;
+wire    grp_write_output_fu_198_ap_done;
+wire    grp_write_output_fu_198_ap_idle;
+wire    grp_write_output_fu_198_ap_ready;
+wire    grp_write_output_fu_198_blue_output_V_read;
+wire    grp_write_output_fu_198_green_output_V_read;
+wire    grp_write_output_fu_198_red_output_V_read;
+wire   [255:0] grp_write_output_fu_198_out_r_TDATA;
+wire    grp_write_output_fu_198_out_r_TVALID;
+wire    grp_write_output_fu_198_out_r_TREADY;
+wire   [31:0] grp_write_output_fu_198_out_r_TKEEP;
+wire   [31:0] grp_write_output_fu_198_out_r_TSTRB;
+wire   [0:0] grp_write_output_fu_198_out_r_TLAST;
+wire    grp_read_input_fu_213_ap_start;
+wire    grp_read_input_fu_213_ap_done;
+wire    grp_read_input_fu_213_ap_idle;
+wire    grp_read_input_fu_213_ap_ready;
+wire    grp_read_input_fu_213_in_r_TREADY;
+wire   [11:0] grp_read_input_fu_213_blue_stripe_0_address1;
+wire    grp_read_input_fu_213_blue_stripe_0_ce1;
+wire    grp_read_input_fu_213_blue_stripe_0_we1;
+wire   [7:0] grp_read_input_fu_213_blue_stripe_0_d1;
+wire   [11:0] grp_read_input_fu_213_blue_stripe_1_address1;
+wire    grp_read_input_fu_213_blue_stripe_1_ce1;
+wire    grp_read_input_fu_213_blue_stripe_1_we1;
+wire   [7:0] grp_read_input_fu_213_blue_stripe_1_d1;
+wire   [11:0] grp_read_input_fu_213_blue_stripe_2_address1;
+wire    grp_read_input_fu_213_blue_stripe_2_ce1;
+wire    grp_read_input_fu_213_blue_stripe_2_we1;
+wire   [7:0] grp_read_input_fu_213_blue_stripe_2_d1;
+wire   [11:0] grp_read_input_fu_213_blue_stripe_3_address1;
+wire    grp_read_input_fu_213_blue_stripe_3_ce1;
+wire    grp_read_input_fu_213_blue_stripe_3_we1;
+wire   [7:0] grp_read_input_fu_213_blue_stripe_3_d1;
+wire   [11:0] grp_read_input_fu_213_blue_stripe_4_address1;
+wire    grp_read_input_fu_213_blue_stripe_4_ce1;
+wire    grp_read_input_fu_213_blue_stripe_4_we1;
+wire   [7:0] grp_read_input_fu_213_blue_stripe_4_d1;
+wire   [11:0] grp_read_input_fu_213_blue_stripe_5_address1;
+wire    grp_read_input_fu_213_blue_stripe_5_ce1;
+wire    grp_read_input_fu_213_blue_stripe_5_we1;
+wire   [7:0] grp_read_input_fu_213_blue_stripe_5_d1;
+wire   [7:0] grp_read_input_fu_213_input_line_ready_V_din;
+wire    grp_read_input_fu_213_input_line_ready_V_write;
+wire    grp_convolve_fu_234_ap_start;
+wire    grp_convolve_fu_234_ap_done;
+wire    grp_convolve_fu_234_ap_idle;
+wire    grp_convolve_fu_234_ap_ready;
+wire   [11:0] grp_convolve_fu_234_stripes_0_address0;
+wire    grp_convolve_fu_234_stripes_0_ce0;
+wire   [11:0] grp_convolve_fu_234_stripes_1_address0;
+wire    grp_convolve_fu_234_stripes_1_ce0;
+wire   [11:0] grp_convolve_fu_234_stripes_2_address0;
+wire    grp_convolve_fu_234_stripes_2_ce0;
+wire   [11:0] grp_convolve_fu_234_stripes_3_address0;
+wire    grp_convolve_fu_234_stripes_3_ce0;
+wire   [11:0] grp_convolve_fu_234_stripes_4_address0;
+wire    grp_convolve_fu_234_stripes_4_ce0;
+wire   [11:0] grp_convolve_fu_234_stripes_5_address0;
+wire    grp_convolve_fu_234_stripes_5_ce0;
+wire   [15:0] grp_convolve_fu_234_blue_output_V_din;
+wire    grp_convolve_fu_234_blue_output_V_write;
+wire   [15:0] grp_convolve_fu_234_green_output_V_din;
+wire    grp_convolve_fu_234_green_output_V_write;
+wire   [15:0] grp_convolve_fu_234_red_output_V_din;
+wire    grp_convolve_fu_234_red_output_V_write;
+wire    grp_convolve_fu_234_input_line_ready_V_read;
+reg    grp_write_output_fu_198_ap_start_reg;
 wire    ap_CS_fsm_state6;
-wire   [15:0] red_output_V_dout;
-wire    red_output_V_empty_n;
-reg    red_output_V_read;
+wire   [15:0] blue_output_V_dout;
+wire    blue_output_V_empty_n;
+reg    blue_output_V_read;
 wire    ap_CS_fsm_state7;
 wire   [15:0] green_output_V_dout;
 wire    green_output_V_empty_n;
 reg    green_output_V_read;
-wire   [15:0] blue_output_V_dout;
-wire    blue_output_V_empty_n;
-reg    blue_output_V_read;
-reg    grp_read_input_fu_211_ap_start_reg;
+wire   [15:0] red_output_V_dout;
+wire    red_output_V_empty_n;
+reg    red_output_V_read;
+reg    grp_read_input_fu_213_ap_start_reg;
 wire    ap_CS_fsm_state2;
 wire    ap_CS_fsm_state3;
 wire    input_line_ready_V_full_n;
 reg    input_line_ready_V_write;
-reg    grp_convolve_fu_231_ap_start_reg;
+reg    grp_convolve_fu_234_ap_start_reg;
 wire    ap_CS_fsm_state4;
 wire    ap_CS_fsm_state5;
 wire    blue_output_V_full_n;
@@ -246,9 +256,9 @@ wire    regslice_both_out_V_last_V_U_vld_out;
 // power-on initialization
 initial begin
 #0 ap_CS_fsm = 8'd1;
-#0 grp_write_output_fu_196_ap_start_reg = 1'b0;
-#0 grp_read_input_fu_211_ap_start_reg = 1'b0;
-#0 grp_convolve_fu_231_ap_start_reg = 1'b0;
+#0 grp_write_output_fu_198_ap_start_reg = 1'b0;
+#0 grp_read_input_fu_213_ap_start_reg = 1'b0;
+#0 grp_convolve_fu_234_ap_start_reg = 1'b0;
 end
 
 convolution_control_s_axi #(
@@ -282,190 +292,213 @@ convolution_control_s_axi_U(
     .ap_idle(ap_idle)
 );
 
-convolution_strippcA #(
+convolution_stripsc4 #(
     .DataWidth( 8 ),
     .AddressRange( 3840 ),
     .AddressWidth( 12 ))
 stripes_0_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(grp_convolve_fu_231_stripes_0_address0),
+    .address0(grp_convolve_fu_234_stripes_0_address0),
     .ce0(stripes_0_ce0),
     .q0(stripes_0_q0),
-    .address1(grp_read_input_fu_211_blue_stripe_0_address1),
+    .address1(grp_read_input_fu_213_blue_stripe_0_address1),
     .ce1(stripes_0_ce1),
     .we1(stripes_0_we1),
-    .d1(grp_read_input_fu_211_blue_stripe_0_d1)
+    .d1(grp_read_input_fu_213_blue_stripe_0_d1)
 );
 
-convolution_strippcA #(
+convolution_stripsc4 #(
     .DataWidth( 8 ),
     .AddressRange( 3840 ),
     .AddressWidth( 12 ))
 stripes_1_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(grp_convolve_fu_231_stripes_1_address0),
+    .address0(grp_convolve_fu_234_stripes_1_address0),
     .ce0(stripes_1_ce0),
     .q0(stripes_1_q0),
-    .address1(grp_read_input_fu_211_blue_stripe_1_address1),
+    .address1(grp_read_input_fu_213_blue_stripe_1_address1),
     .ce1(stripes_1_ce1),
     .we1(stripes_1_we1),
-    .d1(grp_read_input_fu_211_blue_stripe_1_d1)
+    .d1(grp_read_input_fu_213_blue_stripe_1_d1)
 );
 
-convolution_strippcA #(
+convolution_stripsc4 #(
     .DataWidth( 8 ),
     .AddressRange( 3840 ),
     .AddressWidth( 12 ))
 stripes_2_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(grp_convolve_fu_231_stripes_2_address0),
+    .address0(grp_convolve_fu_234_stripes_2_address0),
     .ce0(stripes_2_ce0),
     .q0(stripes_2_q0),
-    .address1(grp_read_input_fu_211_blue_stripe_2_address1),
+    .address1(grp_read_input_fu_213_blue_stripe_2_address1),
     .ce1(stripes_2_ce1),
     .we1(stripes_2_we1),
-    .d1(grp_read_input_fu_211_blue_stripe_2_d1)
+    .d1(grp_read_input_fu_213_blue_stripe_2_d1)
 );
 
-convolution_strippcA #(
+convolution_stripsc4 #(
     .DataWidth( 8 ),
     .AddressRange( 3840 ),
     .AddressWidth( 12 ))
 stripes_3_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(grp_convolve_fu_231_stripes_3_address0),
+    .address0(grp_convolve_fu_234_stripes_3_address0),
     .ce0(stripes_3_ce0),
     .q0(stripes_3_q0),
-    .address1(grp_read_input_fu_211_blue_stripe_3_address1),
+    .address1(grp_read_input_fu_213_blue_stripe_3_address1),
     .ce1(stripes_3_ce1),
     .we1(stripes_3_we1),
-    .d1(grp_read_input_fu_211_blue_stripe_3_d1)
+    .d1(grp_read_input_fu_213_blue_stripe_3_d1)
 );
 
-convolution_strippcA #(
+convolution_stripsc4 #(
     .DataWidth( 8 ),
     .AddressRange( 3840 ),
     .AddressWidth( 12 ))
 stripes_4_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(grp_convolve_fu_231_stripes_4_address0),
+    .address0(grp_convolve_fu_234_stripes_4_address0),
     .ce0(stripes_4_ce0),
     .q0(stripes_4_q0),
-    .address1(grp_read_input_fu_211_blue_stripe_4_address1),
+    .address1(grp_read_input_fu_213_blue_stripe_4_address1),
     .ce1(stripes_4_ce1),
     .we1(stripes_4_we1),
-    .d1(grp_read_input_fu_211_blue_stripe_4_d1)
+    .d1(grp_read_input_fu_213_blue_stripe_4_d1)
 );
 
-write_output grp_write_output_fu_196(
+convolution_stripsc4 #(
+    .DataWidth( 8 ),
+    .AddressRange( 3840 ),
+    .AddressWidth( 12 ))
+stripes_5_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .address0(grp_convolve_fu_234_stripes_5_address0),
+    .ce0(stripes_5_ce0),
+    .q0(stripes_5_q0),
+    .address1(grp_read_input_fu_213_blue_stripe_5_address1),
+    .ce1(stripes_5_ce1),
+    .we1(stripes_5_we1),
+    .d1(grp_read_input_fu_213_blue_stripe_5_d1)
+);
+
+write_output grp_write_output_fu_198(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst_n_inv),
-    .ap_start(grp_write_output_fu_196_ap_start),
-    .ap_done(grp_write_output_fu_196_ap_done),
-    .ap_idle(grp_write_output_fu_196_ap_idle),
-    .ap_ready(grp_write_output_fu_196_ap_ready),
-    .red_output_V_dout(red_output_V_dout),
-    .red_output_V_empty_n(red_output_V_empty_n),
-    .red_output_V_read(grp_write_output_fu_196_red_output_V_read),
-    .green_output_V_dout(green_output_V_dout),
-    .green_output_V_empty_n(green_output_V_empty_n),
-    .green_output_V_read(grp_write_output_fu_196_green_output_V_read),
+    .ap_start(grp_write_output_fu_198_ap_start),
+    .ap_done(grp_write_output_fu_198_ap_done),
+    .ap_idle(grp_write_output_fu_198_ap_idle),
+    .ap_ready(grp_write_output_fu_198_ap_ready),
     .blue_output_V_dout(blue_output_V_dout),
     .blue_output_V_empty_n(blue_output_V_empty_n),
-    .blue_output_V_read(grp_write_output_fu_196_blue_output_V_read),
-    .out_r_TDATA(grp_write_output_fu_196_out_r_TDATA),
-    .out_r_TVALID(grp_write_output_fu_196_out_r_TVALID),
-    .out_r_TREADY(grp_write_output_fu_196_out_r_TREADY),
-    .out_r_TKEEP(grp_write_output_fu_196_out_r_TKEEP),
-    .out_r_TSTRB(grp_write_output_fu_196_out_r_TSTRB),
-    .out_r_TLAST(grp_write_output_fu_196_out_r_TLAST)
+    .blue_output_V_read(grp_write_output_fu_198_blue_output_V_read),
+    .green_output_V_dout(green_output_V_dout),
+    .green_output_V_empty_n(green_output_V_empty_n),
+    .green_output_V_read(grp_write_output_fu_198_green_output_V_read),
+    .red_output_V_dout(red_output_V_dout),
+    .red_output_V_empty_n(red_output_V_empty_n),
+    .red_output_V_read(grp_write_output_fu_198_red_output_V_read),
+    .out_r_TDATA(grp_write_output_fu_198_out_r_TDATA),
+    .out_r_TVALID(grp_write_output_fu_198_out_r_TVALID),
+    .out_r_TREADY(grp_write_output_fu_198_out_r_TREADY),
+    .out_r_TKEEP(grp_write_output_fu_198_out_r_TKEEP),
+    .out_r_TSTRB(grp_write_output_fu_198_out_r_TSTRB),
+    .out_r_TLAST(grp_write_output_fu_198_out_r_TLAST)
 );
 
-read_input grp_read_input_fu_211(
+read_input grp_read_input_fu_213(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst_n_inv),
-    .ap_start(grp_read_input_fu_211_ap_start),
-    .ap_done(grp_read_input_fu_211_ap_done),
-    .ap_idle(grp_read_input_fu_211_ap_idle),
-    .ap_ready(grp_read_input_fu_211_ap_ready),
+    .ap_start(grp_read_input_fu_213_ap_start),
+    .ap_done(grp_read_input_fu_213_ap_done),
+    .ap_idle(grp_read_input_fu_213_ap_idle),
+    .ap_ready(grp_read_input_fu_213_ap_ready),
     .in_r_TDATA(in_r_TDATA_int),
     .in_r_TVALID(in_r_TVALID_int),
-    .in_r_TREADY(grp_read_input_fu_211_in_r_TREADY),
+    .in_r_TREADY(grp_read_input_fu_213_in_r_TREADY),
     .in_r_TKEEP(in_r_TKEEP_int),
     .in_r_TSTRB(in_r_TSTRB_int),
     .in_r_TLAST(in_r_TLAST_int),
-    .blue_stripe_0_address1(grp_read_input_fu_211_blue_stripe_0_address1),
-    .blue_stripe_0_ce1(grp_read_input_fu_211_blue_stripe_0_ce1),
-    .blue_stripe_0_we1(grp_read_input_fu_211_blue_stripe_0_we1),
-    .blue_stripe_0_d1(grp_read_input_fu_211_blue_stripe_0_d1),
-    .blue_stripe_1_address1(grp_read_input_fu_211_blue_stripe_1_address1),
-    .blue_stripe_1_ce1(grp_read_input_fu_211_blue_stripe_1_ce1),
-    .blue_stripe_1_we1(grp_read_input_fu_211_blue_stripe_1_we1),
-    .blue_stripe_1_d1(grp_read_input_fu_211_blue_stripe_1_d1),
-    .blue_stripe_2_address1(grp_read_input_fu_211_blue_stripe_2_address1),
-    .blue_stripe_2_ce1(grp_read_input_fu_211_blue_stripe_2_ce1),
-    .blue_stripe_2_we1(grp_read_input_fu_211_blue_stripe_2_we1),
-    .blue_stripe_2_d1(grp_read_input_fu_211_blue_stripe_2_d1),
-    .blue_stripe_3_address1(grp_read_input_fu_211_blue_stripe_3_address1),
-    .blue_stripe_3_ce1(grp_read_input_fu_211_blue_stripe_3_ce1),
-    .blue_stripe_3_we1(grp_read_input_fu_211_blue_stripe_3_we1),
-    .blue_stripe_3_d1(grp_read_input_fu_211_blue_stripe_3_d1),
-    .blue_stripe_4_address1(grp_read_input_fu_211_blue_stripe_4_address1),
-    .blue_stripe_4_ce1(grp_read_input_fu_211_blue_stripe_4_ce1),
-    .blue_stripe_4_we1(grp_read_input_fu_211_blue_stripe_4_we1),
-    .blue_stripe_4_d1(grp_read_input_fu_211_blue_stripe_4_d1),
-    .input_line_ready_V_din(grp_read_input_fu_211_input_line_ready_V_din),
+    .blue_stripe_0_address1(grp_read_input_fu_213_blue_stripe_0_address1),
+    .blue_stripe_0_ce1(grp_read_input_fu_213_blue_stripe_0_ce1),
+    .blue_stripe_0_we1(grp_read_input_fu_213_blue_stripe_0_we1),
+    .blue_stripe_0_d1(grp_read_input_fu_213_blue_stripe_0_d1),
+    .blue_stripe_1_address1(grp_read_input_fu_213_blue_stripe_1_address1),
+    .blue_stripe_1_ce1(grp_read_input_fu_213_blue_stripe_1_ce1),
+    .blue_stripe_1_we1(grp_read_input_fu_213_blue_stripe_1_we1),
+    .blue_stripe_1_d1(grp_read_input_fu_213_blue_stripe_1_d1),
+    .blue_stripe_2_address1(grp_read_input_fu_213_blue_stripe_2_address1),
+    .blue_stripe_2_ce1(grp_read_input_fu_213_blue_stripe_2_ce1),
+    .blue_stripe_2_we1(grp_read_input_fu_213_blue_stripe_2_we1),
+    .blue_stripe_2_d1(grp_read_input_fu_213_blue_stripe_2_d1),
+    .blue_stripe_3_address1(grp_read_input_fu_213_blue_stripe_3_address1),
+    .blue_stripe_3_ce1(grp_read_input_fu_213_blue_stripe_3_ce1),
+    .blue_stripe_3_we1(grp_read_input_fu_213_blue_stripe_3_we1),
+    .blue_stripe_3_d1(grp_read_input_fu_213_blue_stripe_3_d1),
+    .blue_stripe_4_address1(grp_read_input_fu_213_blue_stripe_4_address1),
+    .blue_stripe_4_ce1(grp_read_input_fu_213_blue_stripe_4_ce1),
+    .blue_stripe_4_we1(grp_read_input_fu_213_blue_stripe_4_we1),
+    .blue_stripe_4_d1(grp_read_input_fu_213_blue_stripe_4_d1),
+    .blue_stripe_5_address1(grp_read_input_fu_213_blue_stripe_5_address1),
+    .blue_stripe_5_ce1(grp_read_input_fu_213_blue_stripe_5_ce1),
+    .blue_stripe_5_we1(grp_read_input_fu_213_blue_stripe_5_we1),
+    .blue_stripe_5_d1(grp_read_input_fu_213_blue_stripe_5_d1),
+    .input_line_ready_V_din(grp_read_input_fu_213_input_line_ready_V_din),
     .input_line_ready_V_full_n(input_line_ready_V_full_n),
-    .input_line_ready_V_write(grp_read_input_fu_211_input_line_ready_V_write)
+    .input_line_ready_V_write(grp_read_input_fu_213_input_line_ready_V_write)
 );
 
-convolve grp_convolve_fu_231(
+convolve grp_convolve_fu_234(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst_n_inv),
-    .ap_start(grp_convolve_fu_231_ap_start),
-    .ap_done(grp_convolve_fu_231_ap_done),
-    .ap_idle(grp_convolve_fu_231_ap_idle),
-    .ap_ready(grp_convolve_fu_231_ap_ready),
-    .stripes_0_address0(grp_convolve_fu_231_stripes_0_address0),
-    .stripes_0_ce0(grp_convolve_fu_231_stripes_0_ce0),
+    .ap_start(grp_convolve_fu_234_ap_start),
+    .ap_done(grp_convolve_fu_234_ap_done),
+    .ap_idle(grp_convolve_fu_234_ap_idle),
+    .ap_ready(grp_convolve_fu_234_ap_ready),
+    .stripes_0_address0(grp_convolve_fu_234_stripes_0_address0),
+    .stripes_0_ce0(grp_convolve_fu_234_stripes_0_ce0),
     .stripes_0_q0(stripes_0_q0),
-    .stripes_1_address0(grp_convolve_fu_231_stripes_1_address0),
-    .stripes_1_ce0(grp_convolve_fu_231_stripes_1_ce0),
+    .stripes_1_address0(grp_convolve_fu_234_stripes_1_address0),
+    .stripes_1_ce0(grp_convolve_fu_234_stripes_1_ce0),
     .stripes_1_q0(stripes_1_q0),
-    .stripes_2_address0(grp_convolve_fu_231_stripes_2_address0),
-    .stripes_2_ce0(grp_convolve_fu_231_stripes_2_ce0),
+    .stripes_2_address0(grp_convolve_fu_234_stripes_2_address0),
+    .stripes_2_ce0(grp_convolve_fu_234_stripes_2_ce0),
     .stripes_2_q0(stripes_2_q0),
-    .stripes_3_address0(grp_convolve_fu_231_stripes_3_address0),
-    .stripes_3_ce0(grp_convolve_fu_231_stripes_3_ce0),
+    .stripes_3_address0(grp_convolve_fu_234_stripes_3_address0),
+    .stripes_3_ce0(grp_convolve_fu_234_stripes_3_ce0),
     .stripes_3_q0(stripes_3_q0),
-    .stripes_4_address0(grp_convolve_fu_231_stripes_4_address0),
-    .stripes_4_ce0(grp_convolve_fu_231_stripes_4_ce0),
+    .stripes_4_address0(grp_convolve_fu_234_stripes_4_address0),
+    .stripes_4_ce0(grp_convolve_fu_234_stripes_4_ce0),
     .stripes_4_q0(stripes_4_q0),
-    .blue_output_V_din(grp_convolve_fu_231_blue_output_V_din),
+    .stripes_5_address0(grp_convolve_fu_234_stripes_5_address0),
+    .stripes_5_ce0(grp_convolve_fu_234_stripes_5_ce0),
+    .stripes_5_q0(stripes_5_q0),
+    .blue_output_V_din(grp_convolve_fu_234_blue_output_V_din),
     .blue_output_V_full_n(blue_output_V_full_n),
-    .blue_output_V_write(grp_convolve_fu_231_blue_output_V_write),
-    .green_output_V_din(grp_convolve_fu_231_green_output_V_din),
+    .blue_output_V_write(grp_convolve_fu_234_blue_output_V_write),
+    .green_output_V_din(grp_convolve_fu_234_green_output_V_din),
     .green_output_V_full_n(green_output_V_full_n),
-    .green_output_V_write(grp_convolve_fu_231_green_output_V_write),
-    .red_output_V_din(grp_convolve_fu_231_red_output_V_din),
+    .green_output_V_write(grp_convolve_fu_234_green_output_V_write),
+    .red_output_V_din(grp_convolve_fu_234_red_output_V_din),
     .red_output_V_full_n(red_output_V_full_n),
-    .red_output_V_write(grp_convolve_fu_231_red_output_V_write),
+    .red_output_V_write(grp_convolve_fu_234_red_output_V_write),
     .input_line_ready_V_dout(input_line_ready_V_dout),
     .input_line_ready_V_empty_n(input_line_ready_V_empty_n),
-    .input_line_ready_V_read(grp_convolve_fu_231_input_line_ready_V_read)
+    .input_line_ready_V_read(grp_convolve_fu_234_input_line_ready_V_read)
 );
 
-fifo_w8_d1_A input_line_ready_V_fifo_U(
+fifo_w8_d2_A input_line_ready_V_fifo_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(grp_read_input_fu_211_input_line_ready_V_din),
+    .if_din(grp_read_input_fu_213_input_line_ready_V_din),
     .if_full_n(input_line_ready_V_full_n),
     .if_write(input_line_ready_V_write),
     .if_dout(input_line_ready_V_dout),
@@ -473,17 +506,17 @@ fifo_w8_d1_A input_line_ready_V_fifo_U(
     .if_read(input_line_ready_V_read)
 );
 
-fifo_w16_d640_A red_output_V_fifo_U(
+fifo_w16_d640_A blue_output_V_fifo_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(grp_convolve_fu_231_red_output_V_din),
-    .if_full_n(red_output_V_full_n),
-    .if_write(red_output_V_write),
-    .if_dout(red_output_V_dout),
-    .if_empty_n(red_output_V_empty_n),
-    .if_read(red_output_V_read)
+    .if_din(grp_convolve_fu_234_blue_output_V_din),
+    .if_full_n(blue_output_V_full_n),
+    .if_write(blue_output_V_write),
+    .if_dout(blue_output_V_dout),
+    .if_empty_n(blue_output_V_empty_n),
+    .if_read(blue_output_V_read)
 );
 
 fifo_w16_d640_A green_output_V_fifo_U(
@@ -491,7 +524,7 @@ fifo_w16_d640_A green_output_V_fifo_U(
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(grp_convolve_fu_231_green_output_V_din),
+    .if_din(grp_convolve_fu_234_green_output_V_din),
     .if_full_n(green_output_V_full_n),
     .if_write(green_output_V_write),
     .if_dout(green_output_V_dout),
@@ -499,17 +532,17 @@ fifo_w16_d640_A green_output_V_fifo_U(
     .if_read(green_output_V_read)
 );
 
-fifo_w16_d640_A blue_output_V_fifo_U(
+fifo_w16_d640_A red_output_V_fifo_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(grp_convolve_fu_231_blue_output_V_din),
-    .if_full_n(blue_output_V_full_n),
-    .if_write(blue_output_V_write),
-    .if_dout(blue_output_V_dout),
-    .if_empty_n(blue_output_V_empty_n),
-    .if_read(blue_output_V_read)
+    .if_din(grp_convolve_fu_234_red_output_V_din),
+    .if_full_n(red_output_V_full_n),
+    .if_write(red_output_V_write),
+    .if_dout(red_output_V_dout),
+    .if_empty_n(red_output_V_empty_n),
+    .if_read(red_output_V_read)
 );
 
 regslice_both #(
@@ -573,8 +606,8 @@ regslice_both #(
 regslice_both_out_V_data_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst_n_inv),
-    .data_in(grp_write_output_fu_196_out_r_TDATA),
-    .vld_in(grp_write_output_fu_196_out_r_TVALID),
+    .data_in(grp_write_output_fu_198_out_r_TDATA),
+    .vld_in(grp_write_output_fu_198_out_r_TVALID),
     .ack_in(out_r_TREADY_int),
     .data_out(out_r_TDATA),
     .vld_out(regslice_both_out_V_data_V_U_vld_out),
@@ -587,8 +620,8 @@ regslice_both #(
 regslice_both_out_V_keep_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst_n_inv),
-    .data_in(grp_write_output_fu_196_out_r_TKEEP),
-    .vld_in(grp_write_output_fu_196_out_r_TVALID),
+    .data_in(grp_write_output_fu_198_out_r_TKEEP),
+    .vld_in(grp_write_output_fu_198_out_r_TVALID),
     .ack_in(regslice_both_out_V_keep_V_U_ack_in_dummy),
     .data_out(out_r_TKEEP),
     .vld_out(regslice_both_out_V_keep_V_U_vld_out),
@@ -601,8 +634,8 @@ regslice_both #(
 regslice_both_out_V_strb_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst_n_inv),
-    .data_in(grp_write_output_fu_196_out_r_TSTRB),
-    .vld_in(grp_write_output_fu_196_out_r_TVALID),
+    .data_in(grp_write_output_fu_198_out_r_TSTRB),
+    .vld_in(grp_write_output_fu_198_out_r_TVALID),
     .ack_in(regslice_both_out_V_strb_V_U_ack_in_dummy),
     .data_out(out_r_TSTRB),
     .vld_out(regslice_both_out_V_strb_V_U_vld_out),
@@ -615,8 +648,8 @@ regslice_both #(
 regslice_both_out_V_last_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst_n_inv),
-    .data_in(grp_write_output_fu_196_out_r_TLAST),
-    .vld_in(grp_write_output_fu_196_out_r_TVALID),
+    .data_in(grp_write_output_fu_198_out_r_TLAST),
+    .vld_in(grp_write_output_fu_198_out_r_TVALID),
     .ack_in(regslice_both_out_V_last_V_U_ack_in_dummy),
     .data_out(out_r_TLAST),
     .vld_out(regslice_both_out_V_last_V_U_vld_out),
@@ -634,36 +667,36 @@ end
 
 always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
-        grp_convolve_fu_231_ap_start_reg <= 1'b0;
+        grp_convolve_fu_234_ap_start_reg <= 1'b0;
     end else begin
         if ((1'b1 == ap_CS_fsm_state4)) begin
-            grp_convolve_fu_231_ap_start_reg <= 1'b1;
-        end else if ((grp_convolve_fu_231_ap_ready == 1'b1)) begin
-            grp_convolve_fu_231_ap_start_reg <= 1'b0;
+            grp_convolve_fu_234_ap_start_reg <= 1'b1;
+        end else if ((grp_convolve_fu_234_ap_ready == 1'b1)) begin
+            grp_convolve_fu_234_ap_start_reg <= 1'b0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
-        grp_read_input_fu_211_ap_start_reg <= 1'b0;
+        grp_read_input_fu_213_ap_start_reg <= 1'b0;
     end else begin
         if ((1'b1 == ap_CS_fsm_state2)) begin
-            grp_read_input_fu_211_ap_start_reg <= 1'b1;
-        end else if ((grp_read_input_fu_211_ap_ready == 1'b1)) begin
-            grp_read_input_fu_211_ap_start_reg <= 1'b0;
+            grp_read_input_fu_213_ap_start_reg <= 1'b1;
+        end else if ((grp_read_input_fu_213_ap_ready == 1'b1)) begin
+            grp_read_input_fu_213_ap_start_reg <= 1'b0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
-        grp_write_output_fu_196_ap_start_reg <= 1'b0;
+        grp_write_output_fu_198_ap_start_reg <= 1'b0;
     end else begin
         if ((1'b1 == ap_CS_fsm_state6)) begin
-            grp_write_output_fu_196_ap_start_reg <= 1'b1;
-        end else if ((grp_write_output_fu_196_ap_ready == 1'b1)) begin
-            grp_write_output_fu_196_ap_start_reg <= 1'b0;
+            grp_write_output_fu_198_ap_start_reg <= 1'b1;
+        end else if ((grp_write_output_fu_198_ap_ready == 1'b1)) begin
+            grp_write_output_fu_198_ap_start_reg <= 1'b0;
         end
     end
 end
@@ -694,7 +727,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state7)) begin
-        blue_output_V_read = grp_write_output_fu_196_blue_output_V_read;
+        blue_output_V_read = grp_write_output_fu_198_blue_output_V_read;
     end else begin
         blue_output_V_read = 1'b0;
     end
@@ -702,7 +735,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state5)) begin
-        blue_output_V_write = grp_convolve_fu_231_blue_output_V_write;
+        blue_output_V_write = grp_convolve_fu_234_blue_output_V_write;
     end else begin
         blue_output_V_write = 1'b0;
     end
@@ -710,7 +743,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state7)) begin
-        green_output_V_read = grp_write_output_fu_196_green_output_V_read;
+        green_output_V_read = grp_write_output_fu_198_green_output_V_read;
     end else begin
         green_output_V_read = 1'b0;
     end
@@ -718,7 +751,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state5)) begin
-        green_output_V_write = grp_convolve_fu_231_green_output_V_write;
+        green_output_V_write = grp_convolve_fu_234_green_output_V_write;
     end else begin
         green_output_V_write = 1'b0;
     end
@@ -734,7 +767,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_r_TREADY_int = grp_read_input_fu_211_in_r_TREADY;
+        in_r_TREADY_int = grp_read_input_fu_213_in_r_TREADY;
     end else begin
         in_r_TREADY_int = 1'b0;
     end
@@ -742,7 +775,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state5)) begin
-        input_line_ready_V_read = grp_convolve_fu_231_input_line_ready_V_read;
+        input_line_ready_V_read = grp_convolve_fu_234_input_line_ready_V_read;
     end else begin
         input_line_ready_V_read = 1'b0;
     end
@@ -750,7 +783,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state3)) begin
-        input_line_ready_V_write = grp_read_input_fu_211_input_line_ready_V_write;
+        input_line_ready_V_write = grp_read_input_fu_213_input_line_ready_V_write;
     end else begin
         input_line_ready_V_write = 1'b0;
     end
@@ -758,7 +791,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state7)) begin
-        red_output_V_read = grp_write_output_fu_196_red_output_V_read;
+        red_output_V_read = grp_write_output_fu_198_red_output_V_read;
     end else begin
         red_output_V_read = 1'b0;
     end
@@ -766,7 +799,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state5)) begin
-        red_output_V_write = grp_convolve_fu_231_red_output_V_write;
+        red_output_V_write = grp_convolve_fu_234_red_output_V_write;
     end else begin
         red_output_V_write = 1'b0;
     end
@@ -774,7 +807,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state5)) begin
-        stripes_0_ce0 = grp_convolve_fu_231_stripes_0_ce0;
+        stripes_0_ce0 = grp_convolve_fu_234_stripes_0_ce0;
     end else begin
         stripes_0_ce0 = 1'b0;
     end
@@ -782,7 +815,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state3)) begin
-        stripes_0_ce1 = grp_read_input_fu_211_blue_stripe_0_ce1;
+        stripes_0_ce1 = grp_read_input_fu_213_blue_stripe_0_ce1;
     end else begin
         stripes_0_ce1 = 1'b0;
     end
@@ -790,7 +823,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state3)) begin
-        stripes_0_we1 = grp_read_input_fu_211_blue_stripe_0_we1;
+        stripes_0_we1 = grp_read_input_fu_213_blue_stripe_0_we1;
     end else begin
         stripes_0_we1 = 1'b0;
     end
@@ -798,7 +831,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state5)) begin
-        stripes_1_ce0 = grp_convolve_fu_231_stripes_1_ce0;
+        stripes_1_ce0 = grp_convolve_fu_234_stripes_1_ce0;
     end else begin
         stripes_1_ce0 = 1'b0;
     end
@@ -806,7 +839,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state3)) begin
-        stripes_1_ce1 = grp_read_input_fu_211_blue_stripe_1_ce1;
+        stripes_1_ce1 = grp_read_input_fu_213_blue_stripe_1_ce1;
     end else begin
         stripes_1_ce1 = 1'b0;
     end
@@ -814,7 +847,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state3)) begin
-        stripes_1_we1 = grp_read_input_fu_211_blue_stripe_1_we1;
+        stripes_1_we1 = grp_read_input_fu_213_blue_stripe_1_we1;
     end else begin
         stripes_1_we1 = 1'b0;
     end
@@ -822,7 +855,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state5)) begin
-        stripes_2_ce0 = grp_convolve_fu_231_stripes_2_ce0;
+        stripes_2_ce0 = grp_convolve_fu_234_stripes_2_ce0;
     end else begin
         stripes_2_ce0 = 1'b0;
     end
@@ -830,7 +863,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state3)) begin
-        stripes_2_ce1 = grp_read_input_fu_211_blue_stripe_2_ce1;
+        stripes_2_ce1 = grp_read_input_fu_213_blue_stripe_2_ce1;
     end else begin
         stripes_2_ce1 = 1'b0;
     end
@@ -838,7 +871,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state3)) begin
-        stripes_2_we1 = grp_read_input_fu_211_blue_stripe_2_we1;
+        stripes_2_we1 = grp_read_input_fu_213_blue_stripe_2_we1;
     end else begin
         stripes_2_we1 = 1'b0;
     end
@@ -846,7 +879,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state5)) begin
-        stripes_3_ce0 = grp_convolve_fu_231_stripes_3_ce0;
+        stripes_3_ce0 = grp_convolve_fu_234_stripes_3_ce0;
     end else begin
         stripes_3_ce0 = 1'b0;
     end
@@ -854,7 +887,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state3)) begin
-        stripes_3_ce1 = grp_read_input_fu_211_blue_stripe_3_ce1;
+        stripes_3_ce1 = grp_read_input_fu_213_blue_stripe_3_ce1;
     end else begin
         stripes_3_ce1 = 1'b0;
     end
@@ -862,7 +895,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state3)) begin
-        stripes_3_we1 = grp_read_input_fu_211_blue_stripe_3_we1;
+        stripes_3_we1 = grp_read_input_fu_213_blue_stripe_3_we1;
     end else begin
         stripes_3_we1 = 1'b0;
     end
@@ -870,7 +903,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state5)) begin
-        stripes_4_ce0 = grp_convolve_fu_231_stripes_4_ce0;
+        stripes_4_ce0 = grp_convolve_fu_234_stripes_4_ce0;
     end else begin
         stripes_4_ce0 = 1'b0;
     end
@@ -878,7 +911,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state3)) begin
-        stripes_4_ce1 = grp_read_input_fu_211_blue_stripe_4_ce1;
+        stripes_4_ce1 = grp_read_input_fu_213_blue_stripe_4_ce1;
     end else begin
         stripes_4_ce1 = 1'b0;
     end
@@ -886,9 +919,33 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state3)) begin
-        stripes_4_we1 = grp_read_input_fu_211_blue_stripe_4_we1;
+        stripes_4_we1 = grp_read_input_fu_213_blue_stripe_4_we1;
     end else begin
         stripes_4_we1 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if ((1'b1 == ap_CS_fsm_state5)) begin
+        stripes_5_ce0 = grp_convolve_fu_234_stripes_5_ce0;
+    end else begin
+        stripes_5_ce0 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if ((1'b1 == ap_CS_fsm_state3)) begin
+        stripes_5_ce1 = grp_read_input_fu_213_blue_stripe_5_ce1;
+    end else begin
+        stripes_5_ce1 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if ((1'b1 == ap_CS_fsm_state3)) begin
+        stripes_5_we1 = grp_read_input_fu_213_blue_stripe_5_we1;
+    end else begin
+        stripes_5_we1 = 1'b0;
     end
 end
 
@@ -905,7 +962,7 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state3;
         end
         ap_ST_fsm_state3 : begin
-            if (((1'b1 == ap_CS_fsm_state3) & (grp_read_input_fu_211_ap_done == 1'b1))) begin
+            if (((1'b1 == ap_CS_fsm_state3) & (grp_read_input_fu_213_ap_done == 1'b1))) begin
                 ap_NS_fsm = ap_ST_fsm_state4;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state3;
@@ -915,7 +972,7 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state5;
         end
         ap_ST_fsm_state5 : begin
-            if (((1'b1 == ap_CS_fsm_state5) & (grp_convolve_fu_231_ap_done == 1'b1))) begin
+            if (((grp_convolve_fu_234_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state5))) begin
                 ap_NS_fsm = ap_ST_fsm_state6;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state5;
@@ -925,7 +982,7 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state7;
         end
         ap_ST_fsm_state7 : begin
-            if (((1'b1 == ap_CS_fsm_state7) & (grp_write_output_fu_196_ap_done == 1'b1))) begin
+            if (((1'b1 == ap_CS_fsm_state7) & (grp_write_output_fu_198_ap_done == 1'b1))) begin
                 ap_NS_fsm = ap_ST_fsm_state8;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state7;
@@ -964,13 +1021,13 @@ always @ (*) begin
     ap_rst_n_inv = ~ap_rst_n;
 end
 
-assign grp_convolve_fu_231_ap_start = grp_convolve_fu_231_ap_start_reg;
+assign grp_convolve_fu_234_ap_start = grp_convolve_fu_234_ap_start_reg;
 
-assign grp_read_input_fu_211_ap_start = grp_read_input_fu_211_ap_start_reg;
+assign grp_read_input_fu_213_ap_start = grp_read_input_fu_213_ap_start_reg;
 
-assign grp_write_output_fu_196_ap_start = grp_write_output_fu_196_ap_start_reg;
+assign grp_write_output_fu_198_ap_start = grp_write_output_fu_198_ap_start_reg;
 
-assign grp_write_output_fu_196_out_r_TREADY = (out_r_TREADY_int & ap_CS_fsm_state7);
+assign grp_write_output_fu_198_out_r_TREADY = (out_r_TREADY_int & ap_CS_fsm_state7);
 
 assign out_r_TVALID = regslice_both_out_V_data_V_U_vld_out;
 

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'convolve'" level="0">
-<item name = "Date">Fri Feb  9 23:03:31 2024
+<item name = "Date">Sat Feb 10 21:45:37 2024
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">hls</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">65718, 65718, 0.657 ms, 0.657 ms, 65718, 65718, none</column>
+<column name="">65818, 65818, 0.658 ms, 0.658 ms, 65818, 65818, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- conv_stripe">65714, 65714, 103, -, -, 638, no</column>
+<column name="- conv_stripe">65817, 65817, 103, -, -, 639, no</column>
 <column name=" + L_conv_kernel_upper">9, 9, 4, 1, 1, 6, yes</column>
 <column name=" + conv_stripe.2">22, 22, 11, -, -, 2, no</column>
 <column name="  ++ conv_kernel_lower">9, 9, 3, -, -, 3, no</column>
@@ -45,7 +45,6 @@
 <column name=" + L_conv_kernel_upper">9, 9, 4, 1, 1, 6, yes</column>
 <column name=" + conv_stripe.6">22, 22, 11, -, -, 2, no</column>
 <column name="  ++ conv_kernel_lower">9, 9, 3, -, -, 3, no</column>
-<column name="- Loop 2">2, 2, 1, -, -, 2, no</column>
 </table>
 </item>
 </section>

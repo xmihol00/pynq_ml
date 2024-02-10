@@ -21,19 +21,19 @@
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>3843</Best-caseLatency>
-<Average-caseLatency>3843</Average-caseLatency>
-<Worst-caseLatency>3843</Worst-caseLatency>
-<Best-caseRealTimeLatency>38.430 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>38.430 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>38.430 us</Worst-caseRealTimeLatency>
-<Interval-min>3843</Interval-min>
-<Interval-max>3843</Interval-max>
+<Best-caseLatency>1923</Best-caseLatency>
+<Average-caseLatency>1923</Average-caseLatency>
+<Worst-caseLatency>1923</Worst-caseLatency>
+<Best-caseRealTimeLatency>19.230 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>19.230 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>19.230 us</Worst-caseRealTimeLatency>
+<Interval-min>1923</Interval-min>
+<Interval-max>1923</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <Loop1>
-<TripCount>240</TripCount>
-<Latency>3841</Latency>
+<TripCount>120</TripCount>
+<Latency>1921</Latency>
 <PipelineII>16</PipelineII>
 <PipelineDepth>17</PipelineDepth>
 </Loop1>
@@ -42,7 +42,7 @@
 
 <AreaEstimates>
 <Resources>
-<FF>4166</FF>
+<FF>4164</FF>
 <LUT>1206</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP48E>0</DSP48E>
@@ -125,8 +125,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>red_output_V_dout</name>
-<Object>red_output_V</Object>
+<name>blue_output_V_dout</name>
+<Object>blue_output_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -136,8 +136,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>red_output_V_empty_n</name>
-<Object>red_output_V</Object>
+<name>blue_output_V_empty_n</name>
+<Object>blue_output_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -147,8 +147,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>red_output_V_read</name>
-<Object>red_output_V</Object>
+<name>blue_output_V_read</name>
+<Object>blue_output_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -191,8 +191,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>blue_output_V_dout</name>
-<Object>blue_output_V</Object>
+<name>red_output_V_dout</name>
+<Object>red_output_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -202,8 +202,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>blue_output_V_empty_n</name>
-<Object>blue_output_V</Object>
+<name>red_output_V_empty_n</name>
+<Object>red_output_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -213,8 +213,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>blue_output_V_read</name>
-<Object>blue_output_V</Object>
+<name>red_output_V_read</name>
+<Object>red_output_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>

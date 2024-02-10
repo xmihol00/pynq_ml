@@ -11,7 +11,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 49 \
+    id 62 \
     name out_V_data_V \
     reset_level 1 \
     sync_rst true \
@@ -30,7 +30,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 50 \
+    id 63 \
     name out_V_keep_V \
     reset_level 1 \
     sync_rst true \
@@ -49,7 +49,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 51 \
+    id 64 \
     name out_V_strb_V \
     reset_level 1 \
     sync_rst true \
@@ -68,7 +68,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 52 \
+    id 65 \
     name out_V_last_V \
     reset_level 1 \
     sync_rst true \
@@ -86,22 +86,22 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 46 \
-    name red_output_V \
+    id 59 \
+    name blue_output_V \
     type fifo \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_red_output_V \
+    corename dc_blue_output_V \
     op interface \
-    ports { red_output_V_dout { I 16 vector } red_output_V_empty_n { I 1 bit } red_output_V_read { O 1 bit } } \
+    ports { blue_output_V_dout { I 16 vector } blue_output_V_empty_n { I 1 bit } blue_output_V_read { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 47 \
+    id 60 \
     name green_output_V \
     type fifo \
     dir I \
@@ -116,15 +116,15 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 48 \
-    name blue_output_V \
+    id 61 \
+    name red_output_V \
     type fifo \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_blue_output_V \
+    corename dc_red_output_V \
     op interface \
-    ports { blue_output_V_dout { I 16 vector } blue_output_V_empty_n { I 1 bit } blue_output_V_read { O 1 bit } } \
+    ports { red_output_V_dout { I 16 vector } red_output_V_empty_n { I 1 bit } red_output_V_read { O 1 bit } } \
 } "
 }
 

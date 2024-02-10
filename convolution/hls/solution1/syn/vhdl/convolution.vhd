@@ -52,7 +52,7 @@ end;
 architecture behav of convolution is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "convolution,hls_ip_2020_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.557750,HLS_SYN_LAT=73410,HLS_SYN_TPT=none,HLS_SYN_MEM=13,HLS_SYN_DSP=8,HLS_SYN_FF=7916,HLS_SYN_LUT=11288,HLS_VERSION=2020_1}";
+    "convolution,hls_ip_2020_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.557750,HLS_SYN_LAT=75430,HLS_SYN_TPT=none,HLS_SYN_MEM=15,HLS_SYN_DSP=16,HLS_SYN_FF=7913,HLS_SYN_LUT=11547,HLS_VERSION=2020_1}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
     constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (7 downto 0) := "00000001";
@@ -104,89 +104,99 @@ architecture behav of convolution is
     signal stripes_4_q0 : STD_LOGIC_VECTOR (7 downto 0);
     signal stripes_4_ce1 : STD_LOGIC;
     signal stripes_4_we1 : STD_LOGIC;
-    signal grp_write_output_fu_196_ap_start : STD_LOGIC;
-    signal grp_write_output_fu_196_ap_done : STD_LOGIC;
-    signal grp_write_output_fu_196_ap_idle : STD_LOGIC;
-    signal grp_write_output_fu_196_ap_ready : STD_LOGIC;
-    signal grp_write_output_fu_196_red_output_V_read : STD_LOGIC;
-    signal grp_write_output_fu_196_green_output_V_read : STD_LOGIC;
-    signal grp_write_output_fu_196_blue_output_V_read : STD_LOGIC;
-    signal grp_write_output_fu_196_out_r_TDATA : STD_LOGIC_VECTOR (255 downto 0);
-    signal grp_write_output_fu_196_out_r_TVALID : STD_LOGIC;
-    signal grp_write_output_fu_196_out_r_TREADY : STD_LOGIC;
-    signal grp_write_output_fu_196_out_r_TKEEP : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_write_output_fu_196_out_r_TSTRB : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_write_output_fu_196_out_r_TLAST : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_read_input_fu_211_ap_start : STD_LOGIC;
-    signal grp_read_input_fu_211_ap_done : STD_LOGIC;
-    signal grp_read_input_fu_211_ap_idle : STD_LOGIC;
-    signal grp_read_input_fu_211_ap_ready : STD_LOGIC;
-    signal grp_read_input_fu_211_in_r_TREADY : STD_LOGIC;
-    signal grp_read_input_fu_211_blue_stripe_0_address1 : STD_LOGIC_VECTOR (11 downto 0);
-    signal grp_read_input_fu_211_blue_stripe_0_ce1 : STD_LOGIC;
-    signal grp_read_input_fu_211_blue_stripe_0_we1 : STD_LOGIC;
-    signal grp_read_input_fu_211_blue_stripe_0_d1 : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_read_input_fu_211_blue_stripe_1_address1 : STD_LOGIC_VECTOR (11 downto 0);
-    signal grp_read_input_fu_211_blue_stripe_1_ce1 : STD_LOGIC;
-    signal grp_read_input_fu_211_blue_stripe_1_we1 : STD_LOGIC;
-    signal grp_read_input_fu_211_blue_stripe_1_d1 : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_read_input_fu_211_blue_stripe_2_address1 : STD_LOGIC_VECTOR (11 downto 0);
-    signal grp_read_input_fu_211_blue_stripe_2_ce1 : STD_LOGIC;
-    signal grp_read_input_fu_211_blue_stripe_2_we1 : STD_LOGIC;
-    signal grp_read_input_fu_211_blue_stripe_2_d1 : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_read_input_fu_211_blue_stripe_3_address1 : STD_LOGIC_VECTOR (11 downto 0);
-    signal grp_read_input_fu_211_blue_stripe_3_ce1 : STD_LOGIC;
-    signal grp_read_input_fu_211_blue_stripe_3_we1 : STD_LOGIC;
-    signal grp_read_input_fu_211_blue_stripe_3_d1 : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_read_input_fu_211_blue_stripe_4_address1 : STD_LOGIC_VECTOR (11 downto 0);
-    signal grp_read_input_fu_211_blue_stripe_4_ce1 : STD_LOGIC;
-    signal grp_read_input_fu_211_blue_stripe_4_we1 : STD_LOGIC;
-    signal grp_read_input_fu_211_blue_stripe_4_d1 : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_read_input_fu_211_input_line_ready_V_din : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_read_input_fu_211_input_line_ready_V_write : STD_LOGIC;
-    signal grp_convolve_fu_231_ap_start : STD_LOGIC;
-    signal grp_convolve_fu_231_ap_done : STD_LOGIC;
-    signal grp_convolve_fu_231_ap_idle : STD_LOGIC;
-    signal grp_convolve_fu_231_ap_ready : STD_LOGIC;
-    signal grp_convolve_fu_231_stripes_0_address0 : STD_LOGIC_VECTOR (11 downto 0);
-    signal grp_convolve_fu_231_stripes_0_ce0 : STD_LOGIC;
-    signal grp_convolve_fu_231_stripes_1_address0 : STD_LOGIC_VECTOR (11 downto 0);
-    signal grp_convolve_fu_231_stripes_1_ce0 : STD_LOGIC;
-    signal grp_convolve_fu_231_stripes_2_address0 : STD_LOGIC_VECTOR (11 downto 0);
-    signal grp_convolve_fu_231_stripes_2_ce0 : STD_LOGIC;
-    signal grp_convolve_fu_231_stripes_3_address0 : STD_LOGIC_VECTOR (11 downto 0);
-    signal grp_convolve_fu_231_stripes_3_ce0 : STD_LOGIC;
-    signal grp_convolve_fu_231_stripes_4_address0 : STD_LOGIC_VECTOR (11 downto 0);
-    signal grp_convolve_fu_231_stripes_4_ce0 : STD_LOGIC;
-    signal grp_convolve_fu_231_blue_output_V_din : STD_LOGIC_VECTOR (15 downto 0);
-    signal grp_convolve_fu_231_blue_output_V_write : STD_LOGIC;
-    signal grp_convolve_fu_231_green_output_V_din : STD_LOGIC_VECTOR (15 downto 0);
-    signal grp_convolve_fu_231_green_output_V_write : STD_LOGIC;
-    signal grp_convolve_fu_231_red_output_V_din : STD_LOGIC_VECTOR (15 downto 0);
-    signal grp_convolve_fu_231_red_output_V_write : STD_LOGIC;
-    signal grp_convolve_fu_231_input_line_ready_V_read : STD_LOGIC;
-    signal grp_write_output_fu_196_ap_start_reg : STD_LOGIC := '0';
+    signal stripes_5_ce0 : STD_LOGIC;
+    signal stripes_5_q0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal stripes_5_ce1 : STD_LOGIC;
+    signal stripes_5_we1 : STD_LOGIC;
+    signal grp_write_output_fu_198_ap_start : STD_LOGIC;
+    signal grp_write_output_fu_198_ap_done : STD_LOGIC;
+    signal grp_write_output_fu_198_ap_idle : STD_LOGIC;
+    signal grp_write_output_fu_198_ap_ready : STD_LOGIC;
+    signal grp_write_output_fu_198_blue_output_V_read : STD_LOGIC;
+    signal grp_write_output_fu_198_green_output_V_read : STD_LOGIC;
+    signal grp_write_output_fu_198_red_output_V_read : STD_LOGIC;
+    signal grp_write_output_fu_198_out_r_TDATA : STD_LOGIC_VECTOR (255 downto 0);
+    signal grp_write_output_fu_198_out_r_TVALID : STD_LOGIC;
+    signal grp_write_output_fu_198_out_r_TREADY : STD_LOGIC;
+    signal grp_write_output_fu_198_out_r_TKEEP : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_write_output_fu_198_out_r_TSTRB : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_write_output_fu_198_out_r_TLAST : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_read_input_fu_213_ap_start : STD_LOGIC;
+    signal grp_read_input_fu_213_ap_done : STD_LOGIC;
+    signal grp_read_input_fu_213_ap_idle : STD_LOGIC;
+    signal grp_read_input_fu_213_ap_ready : STD_LOGIC;
+    signal grp_read_input_fu_213_in_r_TREADY : STD_LOGIC;
+    signal grp_read_input_fu_213_blue_stripe_0_address1 : STD_LOGIC_VECTOR (11 downto 0);
+    signal grp_read_input_fu_213_blue_stripe_0_ce1 : STD_LOGIC;
+    signal grp_read_input_fu_213_blue_stripe_0_we1 : STD_LOGIC;
+    signal grp_read_input_fu_213_blue_stripe_0_d1 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_read_input_fu_213_blue_stripe_1_address1 : STD_LOGIC_VECTOR (11 downto 0);
+    signal grp_read_input_fu_213_blue_stripe_1_ce1 : STD_LOGIC;
+    signal grp_read_input_fu_213_blue_stripe_1_we1 : STD_LOGIC;
+    signal grp_read_input_fu_213_blue_stripe_1_d1 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_read_input_fu_213_blue_stripe_2_address1 : STD_LOGIC_VECTOR (11 downto 0);
+    signal grp_read_input_fu_213_blue_stripe_2_ce1 : STD_LOGIC;
+    signal grp_read_input_fu_213_blue_stripe_2_we1 : STD_LOGIC;
+    signal grp_read_input_fu_213_blue_stripe_2_d1 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_read_input_fu_213_blue_stripe_3_address1 : STD_LOGIC_VECTOR (11 downto 0);
+    signal grp_read_input_fu_213_blue_stripe_3_ce1 : STD_LOGIC;
+    signal grp_read_input_fu_213_blue_stripe_3_we1 : STD_LOGIC;
+    signal grp_read_input_fu_213_blue_stripe_3_d1 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_read_input_fu_213_blue_stripe_4_address1 : STD_LOGIC_VECTOR (11 downto 0);
+    signal grp_read_input_fu_213_blue_stripe_4_ce1 : STD_LOGIC;
+    signal grp_read_input_fu_213_blue_stripe_4_we1 : STD_LOGIC;
+    signal grp_read_input_fu_213_blue_stripe_4_d1 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_read_input_fu_213_blue_stripe_5_address1 : STD_LOGIC_VECTOR (11 downto 0);
+    signal grp_read_input_fu_213_blue_stripe_5_ce1 : STD_LOGIC;
+    signal grp_read_input_fu_213_blue_stripe_5_we1 : STD_LOGIC;
+    signal grp_read_input_fu_213_blue_stripe_5_d1 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_read_input_fu_213_input_line_ready_V_din : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_read_input_fu_213_input_line_ready_V_write : STD_LOGIC;
+    signal grp_convolve_fu_234_ap_start : STD_LOGIC;
+    signal grp_convolve_fu_234_ap_done : STD_LOGIC;
+    signal grp_convolve_fu_234_ap_idle : STD_LOGIC;
+    signal grp_convolve_fu_234_ap_ready : STD_LOGIC;
+    signal grp_convolve_fu_234_stripes_0_address0 : STD_LOGIC_VECTOR (11 downto 0);
+    signal grp_convolve_fu_234_stripes_0_ce0 : STD_LOGIC;
+    signal grp_convolve_fu_234_stripes_1_address0 : STD_LOGIC_VECTOR (11 downto 0);
+    signal grp_convolve_fu_234_stripes_1_ce0 : STD_LOGIC;
+    signal grp_convolve_fu_234_stripes_2_address0 : STD_LOGIC_VECTOR (11 downto 0);
+    signal grp_convolve_fu_234_stripes_2_ce0 : STD_LOGIC;
+    signal grp_convolve_fu_234_stripes_3_address0 : STD_LOGIC_VECTOR (11 downto 0);
+    signal grp_convolve_fu_234_stripes_3_ce0 : STD_LOGIC;
+    signal grp_convolve_fu_234_stripes_4_address0 : STD_LOGIC_VECTOR (11 downto 0);
+    signal grp_convolve_fu_234_stripes_4_ce0 : STD_LOGIC;
+    signal grp_convolve_fu_234_stripes_5_address0 : STD_LOGIC_VECTOR (11 downto 0);
+    signal grp_convolve_fu_234_stripes_5_ce0 : STD_LOGIC;
+    signal grp_convolve_fu_234_blue_output_V_din : STD_LOGIC_VECTOR (15 downto 0);
+    signal grp_convolve_fu_234_blue_output_V_write : STD_LOGIC;
+    signal grp_convolve_fu_234_green_output_V_din : STD_LOGIC_VECTOR (15 downto 0);
+    signal grp_convolve_fu_234_green_output_V_write : STD_LOGIC;
+    signal grp_convolve_fu_234_red_output_V_din : STD_LOGIC_VECTOR (15 downto 0);
+    signal grp_convolve_fu_234_red_output_V_write : STD_LOGIC;
+    signal grp_convolve_fu_234_input_line_ready_V_read : STD_LOGIC;
+    signal grp_write_output_fu_198_ap_start_reg : STD_LOGIC := '0';
     signal ap_CS_fsm_state6 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state6 : signal is "none";
-    signal red_output_V_dout : STD_LOGIC_VECTOR (15 downto 0);
-    signal red_output_V_empty_n : STD_LOGIC;
-    signal red_output_V_read : STD_LOGIC;
+    signal blue_output_V_dout : STD_LOGIC_VECTOR (15 downto 0);
+    signal blue_output_V_empty_n : STD_LOGIC;
+    signal blue_output_V_read : STD_LOGIC;
     signal ap_CS_fsm_state7 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state7 : signal is "none";
     signal green_output_V_dout : STD_LOGIC_VECTOR (15 downto 0);
     signal green_output_V_empty_n : STD_LOGIC;
     signal green_output_V_read : STD_LOGIC;
-    signal blue_output_V_dout : STD_LOGIC_VECTOR (15 downto 0);
-    signal blue_output_V_empty_n : STD_LOGIC;
-    signal blue_output_V_read : STD_LOGIC;
-    signal grp_read_input_fu_211_ap_start_reg : STD_LOGIC := '0';
+    signal red_output_V_dout : STD_LOGIC_VECTOR (15 downto 0);
+    signal red_output_V_empty_n : STD_LOGIC;
+    signal red_output_V_read : STD_LOGIC;
+    signal grp_read_input_fu_213_ap_start_reg : STD_LOGIC := '0';
     signal ap_CS_fsm_state2 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
     signal ap_CS_fsm_state3 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state3 : signal is "none";
     signal input_line_ready_V_full_n : STD_LOGIC;
     signal input_line_ready_V_write : STD_LOGIC;
-    signal grp_convolve_fu_231_ap_start_reg : STD_LOGIC := '0';
+    signal grp_convolve_fu_234_ap_start_reg : STD_LOGIC := '0';
     signal ap_CS_fsm_state4 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state4 : signal is "none";
     signal ap_CS_fsm_state5 : STD_LOGIC;
@@ -241,15 +251,15 @@ architecture behav of convolution is
         ap_done : OUT STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
-        red_output_V_dout : IN STD_LOGIC_VECTOR (15 downto 0);
-        red_output_V_empty_n : IN STD_LOGIC;
-        red_output_V_read : OUT STD_LOGIC;
-        green_output_V_dout : IN STD_LOGIC_VECTOR (15 downto 0);
-        green_output_V_empty_n : IN STD_LOGIC;
-        green_output_V_read : OUT STD_LOGIC;
         blue_output_V_dout : IN STD_LOGIC_VECTOR (15 downto 0);
         blue_output_V_empty_n : IN STD_LOGIC;
         blue_output_V_read : OUT STD_LOGIC;
+        green_output_V_dout : IN STD_LOGIC_VECTOR (15 downto 0);
+        green_output_V_empty_n : IN STD_LOGIC;
+        green_output_V_read : OUT STD_LOGIC;
+        red_output_V_dout : IN STD_LOGIC_VECTOR (15 downto 0);
+        red_output_V_empty_n : IN STD_LOGIC;
+        red_output_V_read : OUT STD_LOGIC;
         out_r_TDATA : OUT STD_LOGIC_VECTOR (255 downto 0);
         out_r_TVALID : OUT STD_LOGIC;
         out_r_TREADY : IN STD_LOGIC;
@@ -293,6 +303,10 @@ architecture behav of convolution is
         blue_stripe_4_ce1 : OUT STD_LOGIC;
         blue_stripe_4_we1 : OUT STD_LOGIC;
         blue_stripe_4_d1 : OUT STD_LOGIC_VECTOR (7 downto 0);
+        blue_stripe_5_address1 : OUT STD_LOGIC_VECTOR (11 downto 0);
+        blue_stripe_5_ce1 : OUT STD_LOGIC;
+        blue_stripe_5_we1 : OUT STD_LOGIC;
+        blue_stripe_5_d1 : OUT STD_LOGIC_VECTOR (7 downto 0);
         input_line_ready_V_din : OUT STD_LOGIC_VECTOR (7 downto 0);
         input_line_ready_V_full_n : IN STD_LOGIC;
         input_line_ready_V_write : OUT STD_LOGIC );
@@ -322,6 +336,9 @@ architecture behav of convolution is
         stripes_4_address0 : OUT STD_LOGIC_VECTOR (11 downto 0);
         stripes_4_ce0 : OUT STD_LOGIC;
         stripes_4_q0 : IN STD_LOGIC_VECTOR (7 downto 0);
+        stripes_5_address0 : OUT STD_LOGIC_VECTOR (11 downto 0);
+        stripes_5_ce0 : OUT STD_LOGIC;
+        stripes_5_q0 : IN STD_LOGIC_VECTOR (7 downto 0);
         blue_output_V_din : OUT STD_LOGIC_VECTOR (15 downto 0);
         blue_output_V_full_n : IN STD_LOGIC;
         blue_output_V_write : OUT STD_LOGIC;
@@ -337,7 +354,7 @@ architecture behav of convolution is
     end component;
 
 
-    component convolution_strippcA IS
+    component convolution_stripsc4 IS
     generic (
         DataWidth : INTEGER;
         AddressRange : INTEGER;
@@ -355,7 +372,7 @@ architecture behav of convolution is
     end component;
 
 
-    component fifo_w8_d1_A IS
+    component fifo_w8_d2_A IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -467,7 +484,7 @@ begin
         ap_done => ap_done,
         ap_idle => ap_idle);
 
-    stripes_0_U : component convolution_strippcA
+    stripes_0_U : component convolution_stripsc4
     generic map (
         DataWidth => 8,
         AddressRange => 3840,
@@ -475,15 +492,15 @@ begin
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
-        address0 => grp_convolve_fu_231_stripes_0_address0,
+        address0 => grp_convolve_fu_234_stripes_0_address0,
         ce0 => stripes_0_ce0,
         q0 => stripes_0_q0,
-        address1 => grp_read_input_fu_211_blue_stripe_0_address1,
+        address1 => grp_read_input_fu_213_blue_stripe_0_address1,
         ce1 => stripes_0_ce1,
         we1 => stripes_0_we1,
-        d1 => grp_read_input_fu_211_blue_stripe_0_d1);
+        d1 => grp_read_input_fu_213_blue_stripe_0_d1);
 
-    stripes_1_U : component convolution_strippcA
+    stripes_1_U : component convolution_stripsc4
     generic map (
         DataWidth => 8,
         AddressRange => 3840,
@@ -491,15 +508,15 @@ begin
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
-        address0 => grp_convolve_fu_231_stripes_1_address0,
+        address0 => grp_convolve_fu_234_stripes_1_address0,
         ce0 => stripes_1_ce0,
         q0 => stripes_1_q0,
-        address1 => grp_read_input_fu_211_blue_stripe_1_address1,
+        address1 => grp_read_input_fu_213_blue_stripe_1_address1,
         ce1 => stripes_1_ce1,
         we1 => stripes_1_we1,
-        d1 => grp_read_input_fu_211_blue_stripe_1_d1);
+        d1 => grp_read_input_fu_213_blue_stripe_1_d1);
 
-    stripes_2_U : component convolution_strippcA
+    stripes_2_U : component convolution_stripsc4
     generic map (
         DataWidth => 8,
         AddressRange => 3840,
@@ -507,15 +524,15 @@ begin
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
-        address0 => grp_convolve_fu_231_stripes_2_address0,
+        address0 => grp_convolve_fu_234_stripes_2_address0,
         ce0 => stripes_2_ce0,
         q0 => stripes_2_q0,
-        address1 => grp_read_input_fu_211_blue_stripe_2_address1,
+        address1 => grp_read_input_fu_213_blue_stripe_2_address1,
         ce1 => stripes_2_ce1,
         we1 => stripes_2_we1,
-        d1 => grp_read_input_fu_211_blue_stripe_2_d1);
+        d1 => grp_read_input_fu_213_blue_stripe_2_d1);
 
-    stripes_3_U : component convolution_strippcA
+    stripes_3_U : component convolution_stripsc4
     generic map (
         DataWidth => 8,
         AddressRange => 3840,
@@ -523,15 +540,15 @@ begin
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
-        address0 => grp_convolve_fu_231_stripes_3_address0,
+        address0 => grp_convolve_fu_234_stripes_3_address0,
         ce0 => stripes_3_ce0,
         q0 => stripes_3_q0,
-        address1 => grp_read_input_fu_211_blue_stripe_3_address1,
+        address1 => grp_read_input_fu_213_blue_stripe_3_address1,
         ce1 => stripes_3_ce1,
         we1 => stripes_3_we1,
-        d1 => grp_read_input_fu_211_blue_stripe_3_d1);
+        d1 => grp_read_input_fu_213_blue_stripe_3_d1);
 
-    stripes_4_U : component convolution_strippcA
+    stripes_4_U : component convolution_stripsc4
     generic map (
         DataWidth => 8,
         AddressRange => 3840,
@@ -539,150 +556,147 @@ begin
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
-        address0 => grp_convolve_fu_231_stripes_4_address0,
+        address0 => grp_convolve_fu_234_stripes_4_address0,
         ce0 => stripes_4_ce0,
         q0 => stripes_4_q0,
-        address1 => grp_read_input_fu_211_blue_stripe_4_address1,
+        address1 => grp_read_input_fu_213_blue_stripe_4_address1,
         ce1 => stripes_4_ce1,
         we1 => stripes_4_we1,
-        d1 => grp_read_input_fu_211_blue_stripe_4_d1);
+        d1 => grp_read_input_fu_213_blue_stripe_4_d1);
 
-    grp_write_output_fu_196 : component write_output
+    stripes_5_U : component convolution_stripsc4
+    generic map (
+        DataWidth => 8,
+        AddressRange => 3840,
+        AddressWidth => 12)
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        address0 => grp_convolve_fu_234_stripes_5_address0,
+        ce0 => stripes_5_ce0,
+        q0 => stripes_5_q0,
+        address1 => grp_read_input_fu_213_blue_stripe_5_address1,
+        ce1 => stripes_5_ce1,
+        we1 => stripes_5_we1,
+        d1 => grp_read_input_fu_213_blue_stripe_5_d1);
+
+    grp_write_output_fu_198 : component write_output
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        ap_start => grp_write_output_fu_196_ap_start,
-        ap_done => grp_write_output_fu_196_ap_done,
-        ap_idle => grp_write_output_fu_196_ap_idle,
-        ap_ready => grp_write_output_fu_196_ap_ready,
-        red_output_V_dout => red_output_V_dout,
-        red_output_V_empty_n => red_output_V_empty_n,
-        red_output_V_read => grp_write_output_fu_196_red_output_V_read,
-        green_output_V_dout => green_output_V_dout,
-        green_output_V_empty_n => green_output_V_empty_n,
-        green_output_V_read => grp_write_output_fu_196_green_output_V_read,
+        ap_start => grp_write_output_fu_198_ap_start,
+        ap_done => grp_write_output_fu_198_ap_done,
+        ap_idle => grp_write_output_fu_198_ap_idle,
+        ap_ready => grp_write_output_fu_198_ap_ready,
         blue_output_V_dout => blue_output_V_dout,
         blue_output_V_empty_n => blue_output_V_empty_n,
-        blue_output_V_read => grp_write_output_fu_196_blue_output_V_read,
-        out_r_TDATA => grp_write_output_fu_196_out_r_TDATA,
-        out_r_TVALID => grp_write_output_fu_196_out_r_TVALID,
-        out_r_TREADY => grp_write_output_fu_196_out_r_TREADY,
-        out_r_TKEEP => grp_write_output_fu_196_out_r_TKEEP,
-        out_r_TSTRB => grp_write_output_fu_196_out_r_TSTRB,
-        out_r_TLAST => grp_write_output_fu_196_out_r_TLAST);
+        blue_output_V_read => grp_write_output_fu_198_blue_output_V_read,
+        green_output_V_dout => green_output_V_dout,
+        green_output_V_empty_n => green_output_V_empty_n,
+        green_output_V_read => grp_write_output_fu_198_green_output_V_read,
+        red_output_V_dout => red_output_V_dout,
+        red_output_V_empty_n => red_output_V_empty_n,
+        red_output_V_read => grp_write_output_fu_198_red_output_V_read,
+        out_r_TDATA => grp_write_output_fu_198_out_r_TDATA,
+        out_r_TVALID => grp_write_output_fu_198_out_r_TVALID,
+        out_r_TREADY => grp_write_output_fu_198_out_r_TREADY,
+        out_r_TKEEP => grp_write_output_fu_198_out_r_TKEEP,
+        out_r_TSTRB => grp_write_output_fu_198_out_r_TSTRB,
+        out_r_TLAST => grp_write_output_fu_198_out_r_TLAST);
 
-    grp_read_input_fu_211 : component read_input
+    grp_read_input_fu_213 : component read_input
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        ap_start => grp_read_input_fu_211_ap_start,
-        ap_done => grp_read_input_fu_211_ap_done,
-        ap_idle => grp_read_input_fu_211_ap_idle,
-        ap_ready => grp_read_input_fu_211_ap_ready,
+        ap_start => grp_read_input_fu_213_ap_start,
+        ap_done => grp_read_input_fu_213_ap_done,
+        ap_idle => grp_read_input_fu_213_ap_idle,
+        ap_ready => grp_read_input_fu_213_ap_ready,
         in_r_TDATA => in_r_TDATA_int,
         in_r_TVALID => in_r_TVALID_int,
-        in_r_TREADY => grp_read_input_fu_211_in_r_TREADY,
+        in_r_TREADY => grp_read_input_fu_213_in_r_TREADY,
         in_r_TKEEP => in_r_TKEEP_int,
         in_r_TSTRB => in_r_TSTRB_int,
         in_r_TLAST => in_r_TLAST_int,
-        blue_stripe_0_address1 => grp_read_input_fu_211_blue_stripe_0_address1,
-        blue_stripe_0_ce1 => grp_read_input_fu_211_blue_stripe_0_ce1,
-        blue_stripe_0_we1 => grp_read_input_fu_211_blue_stripe_0_we1,
-        blue_stripe_0_d1 => grp_read_input_fu_211_blue_stripe_0_d1,
-        blue_stripe_1_address1 => grp_read_input_fu_211_blue_stripe_1_address1,
-        blue_stripe_1_ce1 => grp_read_input_fu_211_blue_stripe_1_ce1,
-        blue_stripe_1_we1 => grp_read_input_fu_211_blue_stripe_1_we1,
-        blue_stripe_1_d1 => grp_read_input_fu_211_blue_stripe_1_d1,
-        blue_stripe_2_address1 => grp_read_input_fu_211_blue_stripe_2_address1,
-        blue_stripe_2_ce1 => grp_read_input_fu_211_blue_stripe_2_ce1,
-        blue_stripe_2_we1 => grp_read_input_fu_211_blue_stripe_2_we1,
-        blue_stripe_2_d1 => grp_read_input_fu_211_blue_stripe_2_d1,
-        blue_stripe_3_address1 => grp_read_input_fu_211_blue_stripe_3_address1,
-        blue_stripe_3_ce1 => grp_read_input_fu_211_blue_stripe_3_ce1,
-        blue_stripe_3_we1 => grp_read_input_fu_211_blue_stripe_3_we1,
-        blue_stripe_3_d1 => grp_read_input_fu_211_blue_stripe_3_d1,
-        blue_stripe_4_address1 => grp_read_input_fu_211_blue_stripe_4_address1,
-        blue_stripe_4_ce1 => grp_read_input_fu_211_blue_stripe_4_ce1,
-        blue_stripe_4_we1 => grp_read_input_fu_211_blue_stripe_4_we1,
-        blue_stripe_4_d1 => grp_read_input_fu_211_blue_stripe_4_d1,
-        input_line_ready_V_din => grp_read_input_fu_211_input_line_ready_V_din,
+        blue_stripe_0_address1 => grp_read_input_fu_213_blue_stripe_0_address1,
+        blue_stripe_0_ce1 => grp_read_input_fu_213_blue_stripe_0_ce1,
+        blue_stripe_0_we1 => grp_read_input_fu_213_blue_stripe_0_we1,
+        blue_stripe_0_d1 => grp_read_input_fu_213_blue_stripe_0_d1,
+        blue_stripe_1_address1 => grp_read_input_fu_213_blue_stripe_1_address1,
+        blue_stripe_1_ce1 => grp_read_input_fu_213_blue_stripe_1_ce1,
+        blue_stripe_1_we1 => grp_read_input_fu_213_blue_stripe_1_we1,
+        blue_stripe_1_d1 => grp_read_input_fu_213_blue_stripe_1_d1,
+        blue_stripe_2_address1 => grp_read_input_fu_213_blue_stripe_2_address1,
+        blue_stripe_2_ce1 => grp_read_input_fu_213_blue_stripe_2_ce1,
+        blue_stripe_2_we1 => grp_read_input_fu_213_blue_stripe_2_we1,
+        blue_stripe_2_d1 => grp_read_input_fu_213_blue_stripe_2_d1,
+        blue_stripe_3_address1 => grp_read_input_fu_213_blue_stripe_3_address1,
+        blue_stripe_3_ce1 => grp_read_input_fu_213_blue_stripe_3_ce1,
+        blue_stripe_3_we1 => grp_read_input_fu_213_blue_stripe_3_we1,
+        blue_stripe_3_d1 => grp_read_input_fu_213_blue_stripe_3_d1,
+        blue_stripe_4_address1 => grp_read_input_fu_213_blue_stripe_4_address1,
+        blue_stripe_4_ce1 => grp_read_input_fu_213_blue_stripe_4_ce1,
+        blue_stripe_4_we1 => grp_read_input_fu_213_blue_stripe_4_we1,
+        blue_stripe_4_d1 => grp_read_input_fu_213_blue_stripe_4_d1,
+        blue_stripe_5_address1 => grp_read_input_fu_213_blue_stripe_5_address1,
+        blue_stripe_5_ce1 => grp_read_input_fu_213_blue_stripe_5_ce1,
+        blue_stripe_5_we1 => grp_read_input_fu_213_blue_stripe_5_we1,
+        blue_stripe_5_d1 => grp_read_input_fu_213_blue_stripe_5_d1,
+        input_line_ready_V_din => grp_read_input_fu_213_input_line_ready_V_din,
         input_line_ready_V_full_n => input_line_ready_V_full_n,
-        input_line_ready_V_write => grp_read_input_fu_211_input_line_ready_V_write);
+        input_line_ready_V_write => grp_read_input_fu_213_input_line_ready_V_write);
 
-    grp_convolve_fu_231 : component convolve
+    grp_convolve_fu_234 : component convolve
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        ap_start => grp_convolve_fu_231_ap_start,
-        ap_done => grp_convolve_fu_231_ap_done,
-        ap_idle => grp_convolve_fu_231_ap_idle,
-        ap_ready => grp_convolve_fu_231_ap_ready,
-        stripes_0_address0 => grp_convolve_fu_231_stripes_0_address0,
-        stripes_0_ce0 => grp_convolve_fu_231_stripes_0_ce0,
+        ap_start => grp_convolve_fu_234_ap_start,
+        ap_done => grp_convolve_fu_234_ap_done,
+        ap_idle => grp_convolve_fu_234_ap_idle,
+        ap_ready => grp_convolve_fu_234_ap_ready,
+        stripes_0_address0 => grp_convolve_fu_234_stripes_0_address0,
+        stripes_0_ce0 => grp_convolve_fu_234_stripes_0_ce0,
         stripes_0_q0 => stripes_0_q0,
-        stripes_1_address0 => grp_convolve_fu_231_stripes_1_address0,
-        stripes_1_ce0 => grp_convolve_fu_231_stripes_1_ce0,
+        stripes_1_address0 => grp_convolve_fu_234_stripes_1_address0,
+        stripes_1_ce0 => grp_convolve_fu_234_stripes_1_ce0,
         stripes_1_q0 => stripes_1_q0,
-        stripes_2_address0 => grp_convolve_fu_231_stripes_2_address0,
-        stripes_2_ce0 => grp_convolve_fu_231_stripes_2_ce0,
+        stripes_2_address0 => grp_convolve_fu_234_stripes_2_address0,
+        stripes_2_ce0 => grp_convolve_fu_234_stripes_2_ce0,
         stripes_2_q0 => stripes_2_q0,
-        stripes_3_address0 => grp_convolve_fu_231_stripes_3_address0,
-        stripes_3_ce0 => grp_convolve_fu_231_stripes_3_ce0,
+        stripes_3_address0 => grp_convolve_fu_234_stripes_3_address0,
+        stripes_3_ce0 => grp_convolve_fu_234_stripes_3_ce0,
         stripes_3_q0 => stripes_3_q0,
-        stripes_4_address0 => grp_convolve_fu_231_stripes_4_address0,
-        stripes_4_ce0 => grp_convolve_fu_231_stripes_4_ce0,
+        stripes_4_address0 => grp_convolve_fu_234_stripes_4_address0,
+        stripes_4_ce0 => grp_convolve_fu_234_stripes_4_ce0,
         stripes_4_q0 => stripes_4_q0,
-        blue_output_V_din => grp_convolve_fu_231_blue_output_V_din,
+        stripes_5_address0 => grp_convolve_fu_234_stripes_5_address0,
+        stripes_5_ce0 => grp_convolve_fu_234_stripes_5_ce0,
+        stripes_5_q0 => stripes_5_q0,
+        blue_output_V_din => grp_convolve_fu_234_blue_output_V_din,
         blue_output_V_full_n => blue_output_V_full_n,
-        blue_output_V_write => grp_convolve_fu_231_blue_output_V_write,
-        green_output_V_din => grp_convolve_fu_231_green_output_V_din,
+        blue_output_V_write => grp_convolve_fu_234_blue_output_V_write,
+        green_output_V_din => grp_convolve_fu_234_green_output_V_din,
         green_output_V_full_n => green_output_V_full_n,
-        green_output_V_write => grp_convolve_fu_231_green_output_V_write,
-        red_output_V_din => grp_convolve_fu_231_red_output_V_din,
+        green_output_V_write => grp_convolve_fu_234_green_output_V_write,
+        red_output_V_din => grp_convolve_fu_234_red_output_V_din,
         red_output_V_full_n => red_output_V_full_n,
-        red_output_V_write => grp_convolve_fu_231_red_output_V_write,
+        red_output_V_write => grp_convolve_fu_234_red_output_V_write,
         input_line_ready_V_dout => input_line_ready_V_dout,
         input_line_ready_V_empty_n => input_line_ready_V_empty_n,
-        input_line_ready_V_read => grp_convolve_fu_231_input_line_ready_V_read);
+        input_line_ready_V_read => grp_convolve_fu_234_input_line_ready_V_read);
 
-    input_line_ready_V_fifo_U : component fifo_w8_d1_A
+    input_line_ready_V_fifo_U : component fifo_w8_d2_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => grp_read_input_fu_211_input_line_ready_V_din,
+        if_din => grp_read_input_fu_213_input_line_ready_V_din,
         if_full_n => input_line_ready_V_full_n,
         if_write => input_line_ready_V_write,
         if_dout => input_line_ready_V_dout,
         if_empty_n => input_line_ready_V_empty_n,
         if_read => input_line_ready_V_read);
-
-    red_output_V_fifo_U : component fifo_w16_d640_A
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => grp_convolve_fu_231_red_output_V_din,
-        if_full_n => red_output_V_full_n,
-        if_write => red_output_V_write,
-        if_dout => red_output_V_dout,
-        if_empty_n => red_output_V_empty_n,
-        if_read => red_output_V_read);
-
-    green_output_V_fifo_U : component fifo_w16_d640_A
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => grp_convolve_fu_231_green_output_V_din,
-        if_full_n => green_output_V_full_n,
-        if_write => green_output_V_write,
-        if_dout => green_output_V_dout,
-        if_empty_n => green_output_V_empty_n,
-        if_read => green_output_V_read);
 
     blue_output_V_fifo_U : component fifo_w16_d640_A
     port map (
@@ -690,12 +704,38 @@ begin
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => grp_convolve_fu_231_blue_output_V_din,
+        if_din => grp_convolve_fu_234_blue_output_V_din,
         if_full_n => blue_output_V_full_n,
         if_write => blue_output_V_write,
         if_dout => blue_output_V_dout,
         if_empty_n => blue_output_V_empty_n,
         if_read => blue_output_V_read);
+
+    green_output_V_fifo_U : component fifo_w16_d640_A
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        if_read_ce => ap_const_logic_1,
+        if_write_ce => ap_const_logic_1,
+        if_din => grp_convolve_fu_234_green_output_V_din,
+        if_full_n => green_output_V_full_n,
+        if_write => green_output_V_write,
+        if_dout => green_output_V_dout,
+        if_empty_n => green_output_V_empty_n,
+        if_read => green_output_V_read);
+
+    red_output_V_fifo_U : component fifo_w16_d640_A
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        if_read_ce => ap_const_logic_1,
+        if_write_ce => ap_const_logic_1,
+        if_din => grp_convolve_fu_234_red_output_V_din,
+        if_full_n => red_output_V_full_n,
+        if_write => red_output_V_write,
+        if_dout => red_output_V_dout,
+        if_empty_n => red_output_V_empty_n,
+        if_read => red_output_V_read);
 
     regslice_both_in_V_data_V_U : component regslice_both
     generic map (
@@ -759,8 +799,8 @@ begin
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => grp_write_output_fu_196_out_r_TDATA,
-        vld_in => grp_write_output_fu_196_out_r_TVALID,
+        data_in => grp_write_output_fu_198_out_r_TDATA,
+        vld_in => grp_write_output_fu_198_out_r_TVALID,
         ack_in => out_r_TREADY_int,
         data_out => out_r_TDATA,
         vld_out => regslice_both_out_V_data_V_U_vld_out,
@@ -773,8 +813,8 @@ begin
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => grp_write_output_fu_196_out_r_TKEEP,
-        vld_in => grp_write_output_fu_196_out_r_TVALID,
+        data_in => grp_write_output_fu_198_out_r_TKEEP,
+        vld_in => grp_write_output_fu_198_out_r_TVALID,
         ack_in => regslice_both_out_V_keep_V_U_ack_in_dummy,
         data_out => out_r_TKEEP,
         vld_out => regslice_both_out_V_keep_V_U_vld_out,
@@ -787,8 +827,8 @@ begin
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => grp_write_output_fu_196_out_r_TSTRB,
-        vld_in => grp_write_output_fu_196_out_r_TVALID,
+        data_in => grp_write_output_fu_198_out_r_TSTRB,
+        vld_in => grp_write_output_fu_198_out_r_TVALID,
         ack_in => regslice_both_out_V_strb_V_U_ack_in_dummy,
         data_out => out_r_TSTRB,
         vld_out => regslice_both_out_V_strb_V_U_vld_out,
@@ -801,8 +841,8 @@ begin
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => grp_write_output_fu_196_out_r_TLAST,
-        vld_in => grp_write_output_fu_196_out_r_TVALID,
+        data_in => grp_write_output_fu_198_out_r_TLAST,
+        vld_in => grp_write_output_fu_198_out_r_TVALID,
         ack_in => regslice_both_out_V_last_V_U_ack_in_dummy,
         data_out => out_r_TLAST,
         vld_out => regslice_both_out_V_last_V_U_vld_out,
@@ -825,55 +865,55 @@ begin
     end process;
 
 
-    grp_convolve_fu_231_ap_start_reg_assign_proc : process(ap_clk)
+    grp_convolve_fu_234_ap_start_reg_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst_n_inv = '1') then
-                grp_convolve_fu_231_ap_start_reg <= ap_const_logic_0;
+                grp_convolve_fu_234_ap_start_reg <= ap_const_logic_0;
             else
                 if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-                    grp_convolve_fu_231_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_convolve_fu_231_ap_ready = ap_const_logic_1)) then 
-                    grp_convolve_fu_231_ap_start_reg <= ap_const_logic_0;
+                    grp_convolve_fu_234_ap_start_reg <= ap_const_logic_1;
+                elsif ((grp_convolve_fu_234_ap_ready = ap_const_logic_1)) then 
+                    grp_convolve_fu_234_ap_start_reg <= ap_const_logic_0;
                 end if; 
             end if;
         end if;
     end process;
 
 
-    grp_read_input_fu_211_ap_start_reg_assign_proc : process(ap_clk)
+    grp_read_input_fu_213_ap_start_reg_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst_n_inv = '1') then
-                grp_read_input_fu_211_ap_start_reg <= ap_const_logic_0;
+                grp_read_input_fu_213_ap_start_reg <= ap_const_logic_0;
             else
                 if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-                    grp_read_input_fu_211_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_read_input_fu_211_ap_ready = ap_const_logic_1)) then 
-                    grp_read_input_fu_211_ap_start_reg <= ap_const_logic_0;
+                    grp_read_input_fu_213_ap_start_reg <= ap_const_logic_1;
+                elsif ((grp_read_input_fu_213_ap_ready = ap_const_logic_1)) then 
+                    grp_read_input_fu_213_ap_start_reg <= ap_const_logic_0;
                 end if; 
             end if;
         end if;
     end process;
 
 
-    grp_write_output_fu_196_ap_start_reg_assign_proc : process(ap_clk)
+    grp_write_output_fu_198_ap_start_reg_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst_n_inv = '1') then
-                grp_write_output_fu_196_ap_start_reg <= ap_const_logic_0;
+                grp_write_output_fu_198_ap_start_reg <= ap_const_logic_0;
             else
                 if ((ap_const_logic_1 = ap_CS_fsm_state6)) then 
-                    grp_write_output_fu_196_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_write_output_fu_196_ap_ready = ap_const_logic_1)) then 
-                    grp_write_output_fu_196_ap_start_reg <= ap_const_logic_0;
+                    grp_write_output_fu_198_ap_start_reg <= ap_const_logic_1;
+                elsif ((grp_write_output_fu_198_ap_ready = ap_const_logic_1)) then 
+                    grp_write_output_fu_198_ap_start_reg <= ap_const_logic_0;
                 end if; 
             end if;
         end if;
     end process;
 
 
-    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, grp_write_output_fu_196_ap_done, grp_read_input_fu_211_ap_done, grp_convolve_fu_231_ap_done, ap_CS_fsm_state7, ap_CS_fsm_state3, ap_CS_fsm_state5, ap_CS_fsm_state8, regslice_both_out_V_data_V_U_apdone_blk)
+    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, grp_write_output_fu_198_ap_done, grp_read_input_fu_213_ap_done, grp_convolve_fu_234_ap_done, ap_CS_fsm_state7, ap_CS_fsm_state3, ap_CS_fsm_state5, ap_CS_fsm_state8, regslice_both_out_V_data_V_U_apdone_blk)
     begin
         case ap_CS_fsm is
             when ap_ST_fsm_state1 => 
@@ -885,7 +925,7 @@ begin
             when ap_ST_fsm_state2 => 
                 ap_NS_fsm <= ap_ST_fsm_state3;
             when ap_ST_fsm_state3 => 
-                if (((ap_const_logic_1 = ap_CS_fsm_state3) and (grp_read_input_fu_211_ap_done = ap_const_logic_1))) then
+                if (((ap_const_logic_1 = ap_CS_fsm_state3) and (grp_read_input_fu_213_ap_done = ap_const_logic_1))) then
                     ap_NS_fsm <= ap_ST_fsm_state4;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state3;
@@ -893,7 +933,7 @@ begin
             when ap_ST_fsm_state4 => 
                 ap_NS_fsm <= ap_ST_fsm_state5;
             when ap_ST_fsm_state5 => 
-                if (((ap_const_logic_1 = ap_CS_fsm_state5) and (grp_convolve_fu_231_ap_done = ap_const_logic_1))) then
+                if (((grp_convolve_fu_234_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state5))) then
                     ap_NS_fsm <= ap_ST_fsm_state6;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state5;
@@ -901,7 +941,7 @@ begin
             when ap_ST_fsm_state6 => 
                 ap_NS_fsm <= ap_ST_fsm_state7;
             when ap_ST_fsm_state7 => 
-                if (((ap_const_logic_1 = ap_CS_fsm_state7) and (grp_write_output_fu_196_ap_done = ap_const_logic_1))) then
+                if (((ap_const_logic_1 = ap_CS_fsm_state7) and (grp_write_output_fu_198_ap_done = ap_const_logic_1))) then
                     ap_NS_fsm <= ap_ST_fsm_state8;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state7;
@@ -961,49 +1001,49 @@ begin
     end process;
 
 
-    blue_output_V_read_assign_proc : process(grp_write_output_fu_196_blue_output_V_read, ap_CS_fsm_state7)
+    blue_output_V_read_assign_proc : process(grp_write_output_fu_198_blue_output_V_read, ap_CS_fsm_state7)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
-            blue_output_V_read <= grp_write_output_fu_196_blue_output_V_read;
+            blue_output_V_read <= grp_write_output_fu_198_blue_output_V_read;
         else 
             blue_output_V_read <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    blue_output_V_write_assign_proc : process(grp_convolve_fu_231_blue_output_V_write, ap_CS_fsm_state5)
+    blue_output_V_write_assign_proc : process(grp_convolve_fu_234_blue_output_V_write, ap_CS_fsm_state5)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            blue_output_V_write <= grp_convolve_fu_231_blue_output_V_write;
+            blue_output_V_write <= grp_convolve_fu_234_blue_output_V_write;
         else 
             blue_output_V_write <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    green_output_V_read_assign_proc : process(grp_write_output_fu_196_green_output_V_read, ap_CS_fsm_state7)
+    green_output_V_read_assign_proc : process(grp_write_output_fu_198_green_output_V_read, ap_CS_fsm_state7)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
-            green_output_V_read <= grp_write_output_fu_196_green_output_V_read;
+            green_output_V_read <= grp_write_output_fu_198_green_output_V_read;
         else 
             green_output_V_read <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    green_output_V_write_assign_proc : process(grp_convolve_fu_231_green_output_V_write, ap_CS_fsm_state5)
+    green_output_V_write_assign_proc : process(grp_convolve_fu_234_green_output_V_write, ap_CS_fsm_state5)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            green_output_V_write <= grp_convolve_fu_231_green_output_V_write;
+            green_output_V_write <= grp_convolve_fu_234_green_output_V_write;
         else 
             green_output_V_write <= ap_const_logic_0;
         end if; 
     end process;
 
-    grp_convolve_fu_231_ap_start <= grp_convolve_fu_231_ap_start_reg;
-    grp_read_input_fu_211_ap_start <= grp_read_input_fu_211_ap_start_reg;
-    grp_write_output_fu_196_ap_start <= grp_write_output_fu_196_ap_start_reg;
-    grp_write_output_fu_196_out_r_TREADY <= (out_r_TREADY_int and ap_CS_fsm_state7);
+    grp_convolve_fu_234_ap_start <= grp_convolve_fu_234_ap_start_reg;
+    grp_read_input_fu_213_ap_start <= grp_read_input_fu_213_ap_start_reg;
+    grp_write_output_fu_198_ap_start <= grp_write_output_fu_198_ap_start_reg;
+    grp_write_output_fu_198_out_r_TREADY <= (out_r_TREADY_int and ap_CS_fsm_state7);
 
     in_r_TREADY_assign_proc : process(in_r_TVALID, regslice_both_in_V_data_V_U_ack_in)
     begin
@@ -1015,30 +1055,30 @@ begin
     end process;
 
 
-    in_r_TREADY_int_assign_proc : process(grp_read_input_fu_211_in_r_TREADY, ap_CS_fsm_state3)
+    in_r_TREADY_int_assign_proc : process(grp_read_input_fu_213_in_r_TREADY, ap_CS_fsm_state3)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            in_r_TREADY_int <= grp_read_input_fu_211_in_r_TREADY;
+            in_r_TREADY_int <= grp_read_input_fu_213_in_r_TREADY;
         else 
             in_r_TREADY_int <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    input_line_ready_V_read_assign_proc : process(grp_convolve_fu_231_input_line_ready_V_read, ap_CS_fsm_state5)
+    input_line_ready_V_read_assign_proc : process(grp_convolve_fu_234_input_line_ready_V_read, ap_CS_fsm_state5)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            input_line_ready_V_read <= grp_convolve_fu_231_input_line_ready_V_read;
+            input_line_ready_V_read <= grp_convolve_fu_234_input_line_ready_V_read;
         else 
             input_line_ready_V_read <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    input_line_ready_V_write_assign_proc : process(grp_read_input_fu_211_input_line_ready_V_write, ap_CS_fsm_state3)
+    input_line_ready_V_write_assign_proc : process(grp_read_input_fu_213_input_line_ready_V_write, ap_CS_fsm_state3)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            input_line_ready_V_write <= grp_read_input_fu_211_input_line_ready_V_write;
+            input_line_ready_V_write <= grp_read_input_fu_213_input_line_ready_V_write;
         else 
             input_line_ready_V_write <= ap_const_logic_0;
         end if; 
@@ -1046,172 +1086,202 @@ begin
 
     out_r_TVALID <= regslice_both_out_V_data_V_U_vld_out;
 
-    red_output_V_read_assign_proc : process(grp_write_output_fu_196_red_output_V_read, ap_CS_fsm_state7)
+    red_output_V_read_assign_proc : process(grp_write_output_fu_198_red_output_V_read, ap_CS_fsm_state7)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
-            red_output_V_read <= grp_write_output_fu_196_red_output_V_read;
+            red_output_V_read <= grp_write_output_fu_198_red_output_V_read;
         else 
             red_output_V_read <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    red_output_V_write_assign_proc : process(grp_convolve_fu_231_red_output_V_write, ap_CS_fsm_state5)
+    red_output_V_write_assign_proc : process(grp_convolve_fu_234_red_output_V_write, ap_CS_fsm_state5)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            red_output_V_write <= grp_convolve_fu_231_red_output_V_write;
+            red_output_V_write <= grp_convolve_fu_234_red_output_V_write;
         else 
             red_output_V_write <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    stripes_0_ce0_assign_proc : process(grp_convolve_fu_231_stripes_0_ce0, ap_CS_fsm_state5)
+    stripes_0_ce0_assign_proc : process(grp_convolve_fu_234_stripes_0_ce0, ap_CS_fsm_state5)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            stripes_0_ce0 <= grp_convolve_fu_231_stripes_0_ce0;
+            stripes_0_ce0 <= grp_convolve_fu_234_stripes_0_ce0;
         else 
             stripes_0_ce0 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    stripes_0_ce1_assign_proc : process(grp_read_input_fu_211_blue_stripe_0_ce1, ap_CS_fsm_state3)
+    stripes_0_ce1_assign_proc : process(grp_read_input_fu_213_blue_stripe_0_ce1, ap_CS_fsm_state3)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            stripes_0_ce1 <= grp_read_input_fu_211_blue_stripe_0_ce1;
+            stripes_0_ce1 <= grp_read_input_fu_213_blue_stripe_0_ce1;
         else 
             stripes_0_ce1 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    stripes_0_we1_assign_proc : process(grp_read_input_fu_211_blue_stripe_0_we1, ap_CS_fsm_state3)
+    stripes_0_we1_assign_proc : process(grp_read_input_fu_213_blue_stripe_0_we1, ap_CS_fsm_state3)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            stripes_0_we1 <= grp_read_input_fu_211_blue_stripe_0_we1;
+            stripes_0_we1 <= grp_read_input_fu_213_blue_stripe_0_we1;
         else 
             stripes_0_we1 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    stripes_1_ce0_assign_proc : process(grp_convolve_fu_231_stripes_1_ce0, ap_CS_fsm_state5)
+    stripes_1_ce0_assign_proc : process(grp_convolve_fu_234_stripes_1_ce0, ap_CS_fsm_state5)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            stripes_1_ce0 <= grp_convolve_fu_231_stripes_1_ce0;
+            stripes_1_ce0 <= grp_convolve_fu_234_stripes_1_ce0;
         else 
             stripes_1_ce0 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    stripes_1_ce1_assign_proc : process(grp_read_input_fu_211_blue_stripe_1_ce1, ap_CS_fsm_state3)
+    stripes_1_ce1_assign_proc : process(grp_read_input_fu_213_blue_stripe_1_ce1, ap_CS_fsm_state3)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            stripes_1_ce1 <= grp_read_input_fu_211_blue_stripe_1_ce1;
+            stripes_1_ce1 <= grp_read_input_fu_213_blue_stripe_1_ce1;
         else 
             stripes_1_ce1 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    stripes_1_we1_assign_proc : process(grp_read_input_fu_211_blue_stripe_1_we1, ap_CS_fsm_state3)
+    stripes_1_we1_assign_proc : process(grp_read_input_fu_213_blue_stripe_1_we1, ap_CS_fsm_state3)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            stripes_1_we1 <= grp_read_input_fu_211_blue_stripe_1_we1;
+            stripes_1_we1 <= grp_read_input_fu_213_blue_stripe_1_we1;
         else 
             stripes_1_we1 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    stripes_2_ce0_assign_proc : process(grp_convolve_fu_231_stripes_2_ce0, ap_CS_fsm_state5)
+    stripes_2_ce0_assign_proc : process(grp_convolve_fu_234_stripes_2_ce0, ap_CS_fsm_state5)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            stripes_2_ce0 <= grp_convolve_fu_231_stripes_2_ce0;
+            stripes_2_ce0 <= grp_convolve_fu_234_stripes_2_ce0;
         else 
             stripes_2_ce0 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    stripes_2_ce1_assign_proc : process(grp_read_input_fu_211_blue_stripe_2_ce1, ap_CS_fsm_state3)
+    stripes_2_ce1_assign_proc : process(grp_read_input_fu_213_blue_stripe_2_ce1, ap_CS_fsm_state3)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            stripes_2_ce1 <= grp_read_input_fu_211_blue_stripe_2_ce1;
+            stripes_2_ce1 <= grp_read_input_fu_213_blue_stripe_2_ce1;
         else 
             stripes_2_ce1 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    stripes_2_we1_assign_proc : process(grp_read_input_fu_211_blue_stripe_2_we1, ap_CS_fsm_state3)
+    stripes_2_we1_assign_proc : process(grp_read_input_fu_213_blue_stripe_2_we1, ap_CS_fsm_state3)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            stripes_2_we1 <= grp_read_input_fu_211_blue_stripe_2_we1;
+            stripes_2_we1 <= grp_read_input_fu_213_blue_stripe_2_we1;
         else 
             stripes_2_we1 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    stripes_3_ce0_assign_proc : process(grp_convolve_fu_231_stripes_3_ce0, ap_CS_fsm_state5)
+    stripes_3_ce0_assign_proc : process(grp_convolve_fu_234_stripes_3_ce0, ap_CS_fsm_state5)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            stripes_3_ce0 <= grp_convolve_fu_231_stripes_3_ce0;
+            stripes_3_ce0 <= grp_convolve_fu_234_stripes_3_ce0;
         else 
             stripes_3_ce0 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    stripes_3_ce1_assign_proc : process(grp_read_input_fu_211_blue_stripe_3_ce1, ap_CS_fsm_state3)
+    stripes_3_ce1_assign_proc : process(grp_read_input_fu_213_blue_stripe_3_ce1, ap_CS_fsm_state3)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            stripes_3_ce1 <= grp_read_input_fu_211_blue_stripe_3_ce1;
+            stripes_3_ce1 <= grp_read_input_fu_213_blue_stripe_3_ce1;
         else 
             stripes_3_ce1 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    stripes_3_we1_assign_proc : process(grp_read_input_fu_211_blue_stripe_3_we1, ap_CS_fsm_state3)
+    stripes_3_we1_assign_proc : process(grp_read_input_fu_213_blue_stripe_3_we1, ap_CS_fsm_state3)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            stripes_3_we1 <= grp_read_input_fu_211_blue_stripe_3_we1;
+            stripes_3_we1 <= grp_read_input_fu_213_blue_stripe_3_we1;
         else 
             stripes_3_we1 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    stripes_4_ce0_assign_proc : process(grp_convolve_fu_231_stripes_4_ce0, ap_CS_fsm_state5)
+    stripes_4_ce0_assign_proc : process(grp_convolve_fu_234_stripes_4_ce0, ap_CS_fsm_state5)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            stripes_4_ce0 <= grp_convolve_fu_231_stripes_4_ce0;
+            stripes_4_ce0 <= grp_convolve_fu_234_stripes_4_ce0;
         else 
             stripes_4_ce0 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    stripes_4_ce1_assign_proc : process(grp_read_input_fu_211_blue_stripe_4_ce1, ap_CS_fsm_state3)
+    stripes_4_ce1_assign_proc : process(grp_read_input_fu_213_blue_stripe_4_ce1, ap_CS_fsm_state3)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            stripes_4_ce1 <= grp_read_input_fu_211_blue_stripe_4_ce1;
+            stripes_4_ce1 <= grp_read_input_fu_213_blue_stripe_4_ce1;
         else 
             stripes_4_ce1 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    stripes_4_we1_assign_proc : process(grp_read_input_fu_211_blue_stripe_4_we1, ap_CS_fsm_state3)
+    stripes_4_we1_assign_proc : process(grp_read_input_fu_213_blue_stripe_4_we1, ap_CS_fsm_state3)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            stripes_4_we1 <= grp_read_input_fu_211_blue_stripe_4_we1;
+            stripes_4_we1 <= grp_read_input_fu_213_blue_stripe_4_we1;
         else 
             stripes_4_we1 <= ap_const_logic_0;
+        end if; 
+    end process;
+
+
+    stripes_5_ce0_assign_proc : process(grp_convolve_fu_234_stripes_5_ce0, ap_CS_fsm_state5)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
+            stripes_5_ce0 <= grp_convolve_fu_234_stripes_5_ce0;
+        else 
+            stripes_5_ce0 <= ap_const_logic_0;
+        end if; 
+    end process;
+
+
+    stripes_5_ce1_assign_proc : process(grp_read_input_fu_213_blue_stripe_5_ce1, ap_CS_fsm_state3)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
+            stripes_5_ce1 <= grp_read_input_fu_213_blue_stripe_5_ce1;
+        else 
+            stripes_5_ce1 <= ap_const_logic_0;
+        end if; 
+    end process;
+
+
+    stripes_5_we1_assign_proc : process(grp_read_input_fu_213_blue_stripe_5_we1, ap_CS_fsm_state3)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
+            stripes_5_we1 <= grp_read_input_fu_213_blue_stripe_5_we1;
+        else 
+            stripes_5_we1 <= ap_const_logic_0;
         end if; 
     end process;
 

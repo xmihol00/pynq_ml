@@ -178,10 +178,29 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 }
 
 
+# XIL_BRAM:
+if {${::AESL::PGuard_autoexp_gen}} {
+if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
+eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
+    id 10 \
+    name blue_stripe_5 \
+    reset_level 1 \
+    sync_rst true \
+    dir O \
+    corename blue_stripe_5 \
+    op interface \
+    ports { blue_stripe_5_address1 { O 12 vector } blue_stripe_5_ce1 { O 1 bit } blue_stripe_5_we1 { O 1 bit } blue_stripe_5_d1 { O 8 vector } } \
+} "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'blue_stripe_5'"
+}
+}
+
+
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 10 \
+    id 11 \
     name input_line_ready_V \
     type fifo \
     dir O \
