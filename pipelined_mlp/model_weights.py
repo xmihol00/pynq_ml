@@ -1,6 +1,5 @@
 import tensorflow as tf
 import numpy as np
-import sys
 
 def format_array_py(arr):
     if len(arr.shape) == 1:

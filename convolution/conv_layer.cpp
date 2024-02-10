@@ -1,26 +1,4 @@
-#include <inttypes.h>
-#include "ap_axi_sdata.h"
-#include "ap_int.h"
-#include "hls_stream.h"
-#ifndef __SYNTHESIS__
-	#include <iostream>
-#endif
-
-#define STRIPE_HEIGHT 5
-#define STRIPE_INPUT_WIDTH 1280
-#define STRIPE_OUTPUT_WIDTH (STRIPE_INPUT_WIDTH / 2)
-#define AXI_INPUT_WIDTH 256
-#define AXI_OUTPUT_WIDTH 256
-#define INT8_BITS 8
-#define INT16_BITS 16
-#define CHANNELS 3
-#define KERNELS_PER_CHANNEL 1
-#define KERNEL_SIZE 3
-
-typedef ap_axiu<AXI_INPUT_WIDTH, 0, 0, 0> axis_in_t;
-typedef ap_axiu<AXI_OUTPUT_WIDTH, 0, 0, 0> axis_out_t;
-
-enum State { BLUE = 0, GREEN = 1, RED = 2 };
+#include "conv_layer.h"
 
 void read_input
 (
@@ -40,48 +18,53 @@ void read_input
     int low;
     int high;
 
-    int col_index = 0;
-
-load_row_outer:
-    for (int i = 0; i < i_limit; i++)
+two_rows:
+    for (int l = 0; l < 2; l++)
     {
-    #pragma HLS PIPELINE
-        low = 0;
-        high = INT8_BITS - 1;
+        int col_index = 0;
 
-        axis_in_t temp = in.read();
-    load_row_inner:
-        for (int j = 0; j < j_limit; j++)
+    load_row_outer:
+        for (int i = 0; i < i_limit; i++)
         {
-            switch (state)
-            {
-            case BLUE:
-                blue_stripe[row_index][col_index] = (uint8_t)temp.data.range(high, low);
-                state = GREEN;
-                break;
-            
-            case GREEN:
-                green_stripe[row_index][col_index] = (uint8_t)temp.data.range(high, low);
-                state = RED;
-                break;
-            
-            case RED:
-                red_stripe[row_index][col_index] = (uint8_t)temp.data.range(high, low);
-                state = BLUE;
-                col_index++;
-                break;
-            }
+        #pragma HLS PIPELINE
+            low = 0;
+            high = INT8_BITS - 1;
 
-            low += INT8_BITS;
-            high += INT8_BITS;
+            axis_in_t temp = in.read();
+        load_row_inner:
+            for (int j = 0; j < j_limit; j++)
+            {
+                switch (state)
+                {
+                case BLUE:
+                    blue_stripe[row_index][col_index] = (uint8_t)temp.data.range(high, low);
+                    state = GREEN;
+                    break;
+                
+                case GREEN:
+                    green_stripe[row_index][col_index] = (uint8_t)temp.data.range(high, low);
+                    state = RED;
+                    break;
+                
+                case RED:
+                    red_stripe[row_index][col_index] = (uint8_t)temp.data.range(high, low);
+                    state = BLUE;
+                    col_index++;
+                    break;
+                }
+
+                low += INT8_BITS;
+                high += INT8_BITS;
+            }
+        }
+
+        row_index++;
+        if (row_index == STRIPE_HEIGHT)
+        {
+            row_index = 0;
         }
     }
 
-    row_index++;
-    if (row_index == STRIPE_HEIGHT)
-    {
-        row_index = 0;
-    }
     input_line_ready.write(1);
 }
 
@@ -98,11 +81,11 @@ void convolve
 {
 #pragma HLS PIPELINE off
 
-    static uint8_t row_indices_upper[STRIPE_HEIGHT - 1] = {1, 2, 3, 4};
-    static uint8_t row_indices_lower[STRIPE_HEIGHT - 1] = {2, 3, 4, 0};
+    static uint8_t row_indices_upper[KERNEL_SIZE] = {4, 5, 0};
+    static uint8_t row_indices_lower[KERNEL_SIZE] = {5, 0, 1};
 
 conv_stripe:
-    for (int i = 0; i < STRIPE_OUTPUT_WIDTH - 2; i++)
+    for (int i = 0; i < STRIPE_OUTPUT_WIDTH - 1; i++)
     {
         int16_t channel_maxes[channels];
     channel_maxes_reset:
@@ -132,9 +115,9 @@ conv_stripe:
                 for (int l = 0; l < KERNEL_SIZE; l++)
                 {
                 #pragma HLS PIPELINE
-                    partial_sums[0] = kernels[j][0][l] * stripes[j][row_indices_upper[0]][i * 2 + l + k];
-                    partial_sums[1] = kernels[j][1][l] * stripes[j][row_indices_upper[1]][i * 2 + l + k];
-                    partial_sums[2] = kernels[j][2][l] * stripes[j][row_indices_upper[2]][i * 2 + l + k];
+                    partial_sums[0] += kernels[j][0][l] * stripes[j][row_indices_upper[0]][i * 2 + l + k];
+                    partial_sums[1] += kernels[j][1][l] * stripes[j][row_indices_upper[1]][i * 2 + l + k];
+                    partial_sums[2] += kernels[j][2][l] * stripes[j][row_indices_upper[2]][i * 2 + l + k];
                 }
                 sum = partial_sums[0] + partial_sums[1] + partial_sums[2];
                 if (sum > channel_maxes[j])
@@ -145,7 +128,6 @@ conv_stripe:
         
             for (int k = 0; k < 2; k++)
             {
-
                 sum = 0;
             partial_sums_reset_lower:
                 for (int l = 0; l < KERNEL_SIZE; l++)
@@ -175,33 +157,30 @@ conv_stripe:
         #pragma HLS UNROLL
             switch (j)
             {
-            case 0:
+            case BLUE:
                 blue_output.write(channel_maxes[j]);
                 break;
             
-            case 1:
+            case GREEN:
                 green_output.write(channel_maxes[j]);
                 break;
             
-            case 2:
+            case RED:
                 red_output.write(channel_maxes[j]);
                 break;
             }
         }
     }
 
-    for (int i = 0; i < 2; i++)
-    {
-        blue_output.write(0);
-        green_output.write(0);
-        red_output.write(0);
-    }
+    blue_output.write(0);
+    green_output.write(0);
+    red_output.write(0);
 
-    for (int i = 0; i < STRIPE_HEIGHT - 1; i++)
+    for (int i = 0; i < KERNEL_SIZE; i++)
     {
     #pragma HLS UNROLL
-        row_indices_upper[i] = row_indices_upper[i] == STRIPE_HEIGHT - 1 ? 0 : row_indices_upper[i] + 1;
-        row_indices_lower[i] = row_indices_lower[i] == STRIPE_HEIGHT - 1 ? 0 : row_indices_lower[i] + 1;
+        row_indices_upper[i] = (row_indices_upper[i] + 2) % STRIPE_HEIGHT;
+        row_indices_lower[i] = (row_indices_lower[i] + 2) % STRIPE_HEIGHT;
     }
 
     input_line_ready.read();
@@ -209,20 +188,22 @@ conv_stripe:
 
 void write_output
 (
-    hls::stream<int16_t, STRIPE_OUTPUT_WIDTH> &red_output, 
-    hls::stream<int16_t, STRIPE_OUTPUT_WIDTH> &green_output, 
     hls::stream<int16_t, STRIPE_OUTPUT_WIDTH> &blue_output, 
+    hls::stream<int16_t, STRIPE_OUTPUT_WIDTH> &green_output, 
+    hls::stream<int16_t, STRIPE_OUTPUT_WIDTH> &red_output, 
     hls::stream<axis_out_t> &out
 )
 {
     axis_out_t temp;
     State state = BLUE;
 
-    int j_limit = AXI_INPUT_WIDTH / INT16_BITS;
-    int i_limit = (STRIPE_INPUT_WIDTH * 3) / j_limit;
+    int j_limit = AXI_OUTPUT_WIDTH / INT16_BITS;
+    int i_limit = (STRIPE_OUTPUT_WIDTH * 3) / j_limit;
 
     int low;
     int high;
+
+    static bool first = true;
 
     for (int i = 0; i < i_limit; i++)
     {
@@ -269,15 +250,15 @@ void convolution(hls::stream<axis_in_t> &in, hls::stream<axis_out_t> &out)
 #pragma HLS RESOURCE variable=stripes core=RAM_2P_BRAM
 #pragma HLS ARRAY_PARTITION variable=stripes factor=5 cyclic dim=2
 
-    const int8_t kernels[CHANNELS][KERNEL_SIZE][KERNEL_SIZE]  = {{{0, 1, 2}, {-1, 0, 1}, {-2, -1, 0}}, {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}}, {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}}};
+    const int8_t kernels[CHANNELS][KERNEL_SIZE][KERNEL_SIZE] = {{{0, 1, 2}, {-1, 0, 1}, {-2, -1, 0}}, {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}}, {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}}};
 #pragma HLS ARRAY_PARTITION variable=kernels factor=3 cyclic dim=2
 
     hls::stream<uint8_t, 1> input_line_ready;
-    hls::stream<int16_t, STRIPE_OUTPUT_WIDTH> red_output;
-    hls::stream<int16_t, STRIPE_OUTPUT_WIDTH> green_output;
     hls::stream<int16_t, STRIPE_OUTPUT_WIDTH> blue_output;
+    hls::stream<int16_t, STRIPE_OUTPUT_WIDTH> green_output;
+    hls::stream<int16_t, STRIPE_OUTPUT_WIDTH> red_output;
     
     read_input(in, stripes[BLUE], stripes[GREEN], stripes[RED], input_line_ready);
     convolve<CHANNELS>(stripes, kernels, blue_output, green_output, red_output, input_line_ready);
-    write_output(red_output, green_output, blue_output, out);
+    write_output(blue_output, green_output, red_output, out);
 }

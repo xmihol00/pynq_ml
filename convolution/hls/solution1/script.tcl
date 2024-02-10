@@ -5,12 +5,16 @@
 ############################################################
 open_project hls
 set_top convolution
-add_files conv.cpp
+add_files conv_layer.cpp
+add_files conv_layer.h
+add_files -tb conv_layer.h
+add_files -tb conv_layer_tb.cpp
+add_files -tb test_data.h
 open_solution "solution1"
-set_part {xc7z020clg400-1}
+set_part {xc7z020-clg400-1}
 create_clock -period 10 -name default
 #source "./hls/solution1/directives.tcl"
-#csim_design
+csim_design
 csynth_design
-#cosim_design
+cosim_design
 export_design -format ip_catalog
