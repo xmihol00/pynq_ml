@@ -79,13 +79,13 @@ set NewPortList {[
  	{ "name": "red_output_V_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "red_output_V", "role": "write" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14"],
 		"CDFG" : "convolve",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "83724", "EstimateLatencyMax" : "83724",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "11520", "EstimateLatencyMax" : "11520",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -108,45 +108,31 @@ set RtlHierarchyInfo {[
 			{"Name" : "red_output_V", "Type" : "Fifo", "Direction" : "O",
 				"BlockSignal" : [
 					{"Name" : "red_output_V_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "row_indices_upper_0", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "row_indices_upper_1", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "row_indices_upper_2", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "row_indices_lower_0", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "row_indices_lower_1", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "row_indices_lower_2", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "row_indices_0", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "row_indices_1", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "row_indices_2", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "row_indices_3", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "row_index", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "kernels_0", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "stripes_0", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "stripes_1", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "stripes_2", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "stripes_3", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "stripes_4", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "stripes_5", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "kernels_1", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "kernels_2", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.kernels_0_U", "Parent" : "0"},
-	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.stripes_0_U", "Parent" : "0"},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.stripes_1_U", "Parent" : "0"},
-	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.stripes_2_U", "Parent" : "0"},
-	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.stripes_3_U", "Parent" : "0"},
-	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.stripes_4_U", "Parent" : "0"},
-	{"ID" : "7", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.stripes_5_U", "Parent" : "0"},
-	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.kernels_1_U", "Parent" : "0"},
-	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.kernels_2_U", "Parent" : "0"},
-	{"ID" : "10", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.convolution_mux_6bkb_U1", "Parent" : "0"},
-	{"ID" : "11", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.convolution_mux_6bkb_U2", "Parent" : "0"},
-	{"ID" : "12", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.convolution_mux_6bkb_U3", "Parent" : "0"},
-	{"ID" : "13", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.convolution_mux_3cud_U4", "Parent" : "0"},
-	{"ID" : "14", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.convolution_mux_3cud_U5", "Parent" : "0"},
-	{"ID" : "15", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.convolution_mux_6bkb_U6", "Parent" : "0"},
-	{"ID" : "16", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.convolution_mux_6bkb_U7", "Parent" : "0"},
-	{"ID" : "17", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.convolution_mux_6bkb_U8", "Parent" : "0"},
-	{"ID" : "18", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.convolution_mac_mdEe_U9", "Parent" : "0"},
-	{"ID" : "19", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.convolution_mac_mdEe_U10", "Parent" : "0"},
-	{"ID" : "20", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.convolution_mac_mdEe_U11", "Parent" : "0"},
-	{"ID" : "21", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.convolution_mac_mdEe_U12", "Parent" : "0"},
-	{"ID" : "22", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.convolution_mac_mdEe_U13", "Parent" : "0"},
-	{"ID" : "23", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.convolution_mac_mdEe_U14", "Parent" : "0"}]}
+			{"Name" : "stripes_5", "Type" : "Memory", "Direction" : "IO"}]},
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.stripes_0_U", "Parent" : "0"},
+	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.stripes_1_U", "Parent" : "0"},
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.stripes_2_U", "Parent" : "0"},
+	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.stripes_3_U", "Parent" : "0"},
+	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.stripes_4_U", "Parent" : "0"},
+	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.stripes_5_U", "Parent" : "0"},
+	{"ID" : "7", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.convolution_mux_6bkb_U1", "Parent" : "0"},
+	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.convolution_mux_6bkb_U2", "Parent" : "0"},
+	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.convolution_mux_6bkb_U3", "Parent" : "0"},
+	{"ID" : "10", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.convolution_mux_6bkb_U4", "Parent" : "0"},
+	{"ID" : "11", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.convolution_mux_6bkb_U5", "Parent" : "0"},
+	{"ID" : "12", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.convolution_mux_6bkb_U6", "Parent" : "0"},
+	{"ID" : "13", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.convolution_mux_6bkb_U7", "Parent" : "0"},
+	{"ID" : "14", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.convolution_mux_6bkb_U8", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
@@ -155,31 +141,26 @@ set ArgLastReadFirstWriteLatency {
 		in_V_keep_V {Type I LastRead 2 FirstWrite -1}
 		in_V_strb_V {Type I LastRead 2 FirstWrite -1}
 		in_V_last_V {Type I LastRead 2 FirstWrite -1}
-		blue_output_V {Type O LastRead -1 FirstWrite 3}
-		green_output_V {Type O LastRead -1 FirstWrite 3}
-		red_output_V {Type O LastRead -1 FirstWrite 3}
-		row_indices_upper_0 {Type IO LastRead -1 FirstWrite -1}
-		row_indices_upper_1 {Type IO LastRead -1 FirstWrite -1}
-		row_indices_upper_2 {Type IO LastRead -1 FirstWrite -1}
-		row_indices_lower_0 {Type IO LastRead -1 FirstWrite -1}
-		row_indices_lower_1 {Type IO LastRead -1 FirstWrite -1}
-		row_indices_lower_2 {Type IO LastRead -1 FirstWrite -1}
+		blue_output_V {Type O LastRead -1 FirstWrite 4}
+		green_output_V {Type O LastRead -1 FirstWrite 4}
+		red_output_V {Type O LastRead -1 FirstWrite 4}
+		row_indices_0 {Type IO LastRead -1 FirstWrite -1}
+		row_indices_1 {Type IO LastRead -1 FirstWrite -1}
+		row_indices_2 {Type IO LastRead -1 FirstWrite -1}
+		row_indices_3 {Type IO LastRead -1 FirstWrite -1}
 		row_index {Type IO LastRead -1 FirstWrite -1}
-		kernels_0 {Type I LastRead -1 FirstWrite -1}
 		stripes_0 {Type IO LastRead -1 FirstWrite -1}
 		stripes_1 {Type IO LastRead -1 FirstWrite -1}
 		stripes_2 {Type IO LastRead -1 FirstWrite -1}
 		stripes_3 {Type IO LastRead -1 FirstWrite -1}
 		stripes_4 {Type IO LastRead -1 FirstWrite -1}
-		stripes_5 {Type IO LastRead -1 FirstWrite -1}
-		kernels_1 {Type I LastRead -1 FirstWrite -1}
-		kernels_2 {Type I LastRead -1 FirstWrite -1}}}
+		stripes_5 {Type IO LastRead -1 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "83724", "Max" : "83724"}
-	, {"Name" : "Interval", "Min" : "83724", "Max" : "83724"}
+	{"Name" : "Latency", "Min" : "11520", "Max" : "11520"}
+	, {"Name" : "Interval", "Min" : "11520", "Max" : "11520"}
 ]}
 
 set PipelineEnableSignalInfo {[

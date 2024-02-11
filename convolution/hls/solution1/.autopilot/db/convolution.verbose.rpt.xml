@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'convolution'" level="0">
-<item name = "Date">Sun Feb 11 15:44:58 2024
+<item name = "Date">Sun Feb 11 17:45:00 2024
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">hls</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 8.137 ns, 1.25 ns</column>
+<column name="ap_clk">10.00 ns, 8.209 ns, 1.25 ns</column>
 </table>
 </item>
 </section>
@@ -24,15 +24,15 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">85652, 85652, 0.857 ms, 0.857 ms, 85652, 85652, none</column>
+<column name="">13448, 13448, 0.134 ms, 0.134 ms, 13448, 13448, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_write_output_fu_146">write_output, 1923, 1923, 19.230 us, 19.230 us, 1923, 1923, none</column>
-<column name="grp_convolve_fu_161">convolve, 83724, 83724, 0.837 ms, 0.837 ms, 83724, 83724, none</column>
+<column name="grp_write_output_fu_136">write_output, 1923, 1923, 19.230 us, 19.230 us, 1923, 1923, none</column>
+<column name="grp_convolve_fu_151">convolve, 11520, 11520, 0.115 ms, 0.115 ms, 11520, 11520, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -51,12 +51,12 @@
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 2, -</column>
 <column name="FIFO">3, -, 144, 219, -</column>
-<column name="Instance">12, 6, 7168, 9903, 0</column>
+<column name="Instance">12, -, 7329, 10733, 0</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, -, 101, -</column>
 <column name="Register">-, -, 8, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
-<specialColumn name="Utilization (%)">5, 2, 6, 19, 0</specialColumn>
+<specialColumn name="Utilization (%)">5, 0, 7, 20, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
@@ -64,8 +64,8 @@
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
 <column name="convolution_control_s_axi_U">convolution_control_s_axi, 0, 0, 36, 40, 0</column>
-<column name="grp_convolve_fu_161">convolve, 12, 6, 2968, 8657, 0</column>
-<column name="grp_write_output_fu_146">write_output, 0, 0, 4164, 1206, 0</column>
+<column name="grp_convolve_fu_151">convolve, 12, 0, 3129, 9487, 0</column>
+<column name="grp_write_output_fu_136">write_output, 0, 0, 4164, 1206, 0</column>
 </table>
 </item>
 <item name = "DSP48E"><table name="" hasTotal="0">
@@ -85,7 +85,7 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="grp_write_output_fu_146_out_r_TREADY">and, 0, 0, 2, 1, 1</column>
+<column name="grp_write_output_fu_136_out_r_TREADY">and, 0, 0, 2, 1, 1</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
@@ -103,8 +103,8 @@
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
 <column name="ap_CS_fsm">6, 0, 6, 0</column>
-<column name="grp_convolve_fu_161_ap_start_reg">1, 0, 1, 0</column>
-<column name="grp_write_output_fu_146_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_convolve_fu_151_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_write_output_fu_136_ap_start_reg">1, 0, 1, 0</column>
 </table>
 </item>
 </section>

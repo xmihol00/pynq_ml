@@ -16,10 +16,13 @@ void convolve
 #pragma HLS ARRAY_PARTITION variable=stripes factor=6 cyclic dim=2
 
     static const int8_t kernels[CHANNELS][KERNEL_SIZE][KERNEL_SIZE] = {{{0, 1, 2}, {-1, 0, 1}, {-2, -1, 0}}, {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}}, {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}}};
-#pragma HLS ARRAY_PARTITION variable=kernels factor=3 cyclic dim=2
+#pragma HLS ARRAY_PARTITION variable=kernels complete
 
-    static uint8_t row_indices_upper[KERNEL_SIZE] = {STRIPE_HEIGHT - 2, STRIPE_HEIGHT - 1, 0};
-    static uint8_t row_indices_lower[KERNEL_SIZE] = {STRIPE_HEIGHT - 1, 0, 1};
+    static uint8_t stripe_buffer[CHANNELS][4][2];
+#pragma HLS ARRAY_PARTITION variable=stripe_buffer complete
+
+    static uint8_t row_indices[KERNEL_SIZE + 1] = {STRIPE_HEIGHT - 2, STRIPE_HEIGHT - 1, 0, 1};
+#pragma HLS ARRAY_PARTITION variable=row_indices complete
 
     static uint8_t row_index = 0;
     State state = BLUE;
@@ -75,12 +78,15 @@ two_rows:
         {
             row_index = 0;
         }
-    }    
+    }
 
 conv_stripe:
     for (int i = 0; i < STRIPE_OUTPUT_WIDTH - 1; i++)
     {
+    #pragma HLS PIPELINE
         int16_t channel_maxes[channels];
+    #pragma HLS ARRAY_PARTITION variable=channel_maxes complete
+
     channel_maxes_reset:
         for (int j = 0; j < channels; j++)
         {
@@ -91,57 +97,55 @@ conv_stripe:
     conv_square:
         for (int j = 0; j < channels; j++)
         {
-        //#pragma HLS UNROLL
-            int16_t sum;
-            int16_t partial_sums[KERNEL_SIZE];
-        
-            for (int k = 0; k < 2; k++)
-            {
-            partial_sums_reset_upper:
-                for (int l = 0; l < KERNEL_SIZE; l++)
-                {
-                #pragma HLS UNROLL
-                    partial_sums[l] = 0;
-                }
+        #pragma HLS UNROLL
+            int16_t partial_sums[4][KERNEL_SIZE] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
+        #pragma HLS ARRAY_PARTITION variable=partial_sums complete
 
-            conv_kernel_upper:
-                for (int l = 0; l < KERNEL_SIZE; l++)
-                {
-                #pragma HLS PIPELINE
-                    partial_sums[0] += kernels[j][0][l] * stripes[j][row_indices_upper[0]][i * 2 + l + k];
-                    partial_sums[1] += kernels[j][1][l] * stripes[j][row_indices_upper[1]][i * 2 + l + k];
-                    partial_sums[2] += kernels[j][2][l] * stripes[j][row_indices_upper[2]][i * 2 + l + k];
-                }
-                sum = partial_sums[0] + partial_sums[1] + partial_sums[2];
-                if (sum > channel_maxes[j])
-                {
-                    channel_maxes[j] = sum;
-                }
-            }
-        
-            for (int k = 0; k < 2; k++)
+            stripe_buffer[j][0][0] = stripes[j][row_indices[0]][2 * i];
+            stripe_buffer[j][1][0] = stripes[j][row_indices[1]][2 * i];
+            stripe_buffer[j][2][0] = stripes[j][row_indices[2]][2 * i];
+            stripe_buffer[j][3][0] = stripes[j][row_indices[3]][2 * i];
+
+            for (int k = 0; k < KERNEL_SIZE; k++)
             {
-                sum = 0;
-            partial_sums_reset_lower:
-                for (int l = 0; l < KERNEL_SIZE; l++)
-                {
-                #pragma HLS UNROLL
-                    partial_sums[l] = 0;
-                }
-            
-            conv_kernel_lower:
-                for (int l = 0; l < KERNEL_SIZE; l++)
-                {
-                    partial_sums[0] += kernels[j][0][l] * stripes[j][row_indices_lower[0]][i * 2 + l + k];
-                    partial_sums[1] += kernels[j][1][l] * stripes[j][row_indices_lower[1]][i * 2 + l + k];
-                    partial_sums[2] += kernels[j][2][l] * stripes[j][row_indices_lower[2]][i * 2 + l + k];
-                }
-                sum = partial_sums[0] + partial_sums[1] + partial_sums[2];
-                if (sum > channel_maxes[j])
-                {
-                    channel_maxes[j] = sum;
-                }
+                stripe_buffer[j][0][(k + 1) & 1] = stripes[j][row_indices[0]][2 * i + k + 1];
+                stripe_buffer[j][1][(k + 1) & 1] = stripes[j][row_indices[1]][2 * i + k + 1];
+                stripe_buffer[j][2][(k + 1) & 1] = stripes[j][row_indices[2]][2 * i + k + 1];
+                stripe_buffer[j][3][(k + 1) & 1] = stripes[j][row_indices[3]][2 * i + k + 1];
+
+                partial_sums[0][0] += kernels[j][0][k] * stripe_buffer[j][0][k & 1];
+                partial_sums[0][1] += kernels[j][1][k] * stripe_buffer[j][1][k & 1];
+                partial_sums[0][2] += kernels[j][2][k] * stripe_buffer[j][2][k & 1];
+
+                partial_sums[1][0] += kernels[j][0][k] * stripe_buffer[j][0][(k + 1) & 1];
+                partial_sums[1][1] += kernels[j][1][k] * stripe_buffer[j][1][(k + 1) & 1];
+                partial_sums[1][2] += kernels[j][2][k] * stripe_buffer[j][2][(k + 1) & 1];
+
+                partial_sums[2][0] += kernels[j][0][k] * stripe_buffer[j][1][k & 1];
+                partial_sums[2][1] += kernels[j][1][k] * stripe_buffer[j][2][k & 1];
+                partial_sums[2][2] += kernels[j][2][k] * stripe_buffer[j][3][k & 1];
+
+                partial_sums[3][0] += kernels[j][0][k] * stripe_buffer[j][1][(k + 1) & 1];
+                partial_sums[3][1] += kernels[j][1][k] * stripe_buffer[j][2][(k + 1) & 1];
+                partial_sums[3][2] += kernels[j][2][k] * stripe_buffer[j][3][(k + 1) & 1];
             }
+
+            int16_t sums[4] = {0, 0, 0, 0};
+        #pragma HLS ARRAY_PARTITION variable=sums complete
+
+            for (int k = 0; k < KERNEL_SIZE; k++)
+            {
+            #pragma HLS UNROLL
+                sums[0] += partial_sums[0][k];
+                sums[1] += partial_sums[1][k];
+                sums[2] += partial_sums[2][k];
+                sums[3] += partial_sums[3][k];
+            }
+
+            sums[0] = sums[0] > sums[1] ? sums[0] : sums[1];
+            sums[2] = sums[2] > sums[3] ? sums[2] : sums[3];
+            sums[0] = sums[0] > sums[2] ? sums[0] : sums[2];
+            channel_maxes[j] = sums[0] > channel_maxes[j] ? sums[0] : channel_maxes[j];
         }
     
     write_output:
@@ -169,11 +173,10 @@ conv_stripe:
     green_output.write(0);
     red_output.write(0);
 
-    for (int i = 0; i < KERNEL_SIZE; i++)
+    for (int i = 0; i < KERNEL_SIZE + 1; i++)
     {
     #pragma HLS UNROLL
-        row_indices_upper[i] = (row_indices_upper[i] + 2) % STRIPE_HEIGHT;
-        row_indices_lower[i] = (row_indices_lower[i] + 2) % STRIPE_HEIGHT;
+        row_indices[i] = (row_indices[i] + 2) % STRIPE_HEIGHT;
     }
 }
 
@@ -237,7 +240,7 @@ void convolution(hls::stream<axis_in_t> &in, hls::stream<axis_out_t> &out)
 #pragma HLS INTERFACE axis port=in
 #pragma HLS INTERFACE axis port=out
 
-//#pragma HLS DATAFLOW
+#pragma HLS DATAFLOW
     hls::stream<int16_t, STRIPE_OUTPUT_WIDTH> blue_output;
     hls::stream<int16_t, STRIPE_OUTPUT_WIDTH> green_output;
     hls::stream<int16_t, STRIPE_OUTPUT_WIDTH> red_output;

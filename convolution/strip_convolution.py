@@ -9,7 +9,7 @@ from tools import format_array_py, format_array_C
 
 np.random.seed(42)
 
-STRIP_HEIGHT = 40
+STRIP_HEIGHT = 20
 STRIP_WIDTH = 1280
 
 blue_channel = np.random.randint(0, 256, (STRIP_HEIGHT, STRIP_WIDTH)).astype(np.uint8)
@@ -19,10 +19,10 @@ red_channel = np.random.randint(0, 256, (STRIP_HEIGHT, STRIP_WIDTH)).astype(np.u
 #print(f"#define BLUE_CHANNEL", format_array_C(blue_channel), sep=" ", end="\n\n")
 #print(f"#define GREEN_CHANNEL", format_array_C(green_channel), sep=" ", end="\n\n")
 #print(f"#define RED_CHANNEL", format_array_C(red_channel), sep=" ", end="\n\n")
-print("import numpy as np")
-print("blue_channel", format_array_py(blue_channel), sep=" = ", end="\n\n")
-print("green_channel", format_array_py(green_channel), sep=" = ", end="\n\n")
-print("red_channel", format_array_py(red_channel), sep=" = ", end="\n\n")
+#print("import numpy as np")
+#print("blue_channel", format_array_py(blue_channel), sep=" = ", end="\n\n")
+#print("green_channel", format_array_py(green_channel), sep=" = ", end="\n\n")
+#print("red_channel", format_array_py(red_channel), sep=" = ", end="\n\n")
 
 blue_kernel = np.array([[0, 1, 2], [-1, 0, 1], [-2, -1, 0]])
 green_kernel = np.array([[-1, -2, -1], [0, 0, 0], [1, 2, 1]])
@@ -42,6 +42,7 @@ blue_conv = signal.convolve2d(blue_channel, blue_kernel, mode='valid')
 green_conv = signal.convolve2d(green_channel, green_kernel, mode='valid')
 red_conv = signal.convolve2d(red_channel, red_kernel, mode='valid')
 
+print(blue_conv[:2, :2])
 
 blue_conv = np.maximum(blue_conv, 0)
 green_conv = np.maximum(green_conv, 0)
@@ -54,11 +55,11 @@ red_max_pool = block_reduce(red_conv, block_size=(2, 2), func=np.max)
 #print(f"#define BLUE_RESULT", format_array_C(blue_max_pool), sep=" ", end="\n\n")
 #print(f"#define GREEN_RESULT", format_array_C(green_max_pool), sep=" ", end="\n\n")
 #print(f"#define RED_RESULT", format_array_C(red_max_pool), sep=" ", end="\n\n")
-print("blue_result", format_array_py(blue_max_pool), sep=" = ", end="\n\n")
-print("green_result", format_array_py(green_max_pool), sep=" = ", end="\n\n")
-print("red_result", format_array_py(red_max_pool), sep=" = ", end="\n\n")
-
-print("channels = np.stack((blue_channel, green_channel, red_channel), axis=-1)")
-print("channels = channels.reshape(channels.shape[0], -1)")
-print("results = np.stack((blue_result, green_result, red_result), axis=-1)")
-print("results = results.reshape(results.shape[0], -1)")
+#print("blue_result", format_array_py(blue_max_pool), sep=" = ", end="\n\n")
+#print("green_result", format_array_py(green_max_pool), sep=" = ", end="\n\n")
+#print("red_result", format_array_py(red_max_pool), sep=" = ", end="\n\n")
+#
+#print("channels = np.stack((blue_channel, green_channel, red_channel), axis=-1)")
+#print("channels = channels.reshape(channels.shape[0], -1)")
+#print("results = np.stack((blue_result, green_result, red_result), axis=-1)")
+#print("results = results.reshape(results.shape[0], -1)")

@@ -52,7 +52,7 @@ end;
 architecture behav of convolution is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "convolution,hls_ip_2020_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.137500,HLS_SYN_LAT=85652,HLS_SYN_TPT=none,HLS_SYN_MEM=15,HLS_SYN_DSP=6,HLS_SYN_FF=7320,HLS_SYN_LUT=10225,HLS_VERSION=2020_1}";
+    "convolution,hls_ip_2020_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.209250,HLS_SYN_LAT=13448,HLS_SYN_TPT=none,HLS_SYN_MEM=15,HLS_SYN_DSP=0,HLS_SYN_FF=7481,HLS_SYN_LUT=11055,HLS_VERSION=2020_1}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
     constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (5 downto 0) := "000001";
@@ -80,31 +80,31 @@ architecture behav of convolution is
     signal ap_CS_fsm_state1 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state1 : signal is "none";
     signal ap_ready : STD_LOGIC;
-    signal grp_write_output_fu_146_ap_start : STD_LOGIC;
-    signal grp_write_output_fu_146_ap_done : STD_LOGIC;
-    signal grp_write_output_fu_146_ap_idle : STD_LOGIC;
-    signal grp_write_output_fu_146_ap_ready : STD_LOGIC;
-    signal grp_write_output_fu_146_blue_output_V_read : STD_LOGIC;
-    signal grp_write_output_fu_146_green_output_V_read : STD_LOGIC;
-    signal grp_write_output_fu_146_red_output_V_read : STD_LOGIC;
-    signal grp_write_output_fu_146_out_r_TDATA : STD_LOGIC_VECTOR (255 downto 0);
-    signal grp_write_output_fu_146_out_r_TVALID : STD_LOGIC;
-    signal grp_write_output_fu_146_out_r_TREADY : STD_LOGIC;
-    signal grp_write_output_fu_146_out_r_TKEEP : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_write_output_fu_146_out_r_TSTRB : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_write_output_fu_146_out_r_TLAST : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_convolve_fu_161_ap_start : STD_LOGIC;
-    signal grp_convolve_fu_161_ap_done : STD_LOGIC;
-    signal grp_convolve_fu_161_ap_idle : STD_LOGIC;
-    signal grp_convolve_fu_161_ap_ready : STD_LOGIC;
-    signal grp_convolve_fu_161_in_r_TREADY : STD_LOGIC;
-    signal grp_convolve_fu_161_blue_output_V_din : STD_LOGIC_VECTOR (15 downto 0);
-    signal grp_convolve_fu_161_blue_output_V_write : STD_LOGIC;
-    signal grp_convolve_fu_161_green_output_V_din : STD_LOGIC_VECTOR (15 downto 0);
-    signal grp_convolve_fu_161_green_output_V_write : STD_LOGIC;
-    signal grp_convolve_fu_161_red_output_V_din : STD_LOGIC_VECTOR (15 downto 0);
-    signal grp_convolve_fu_161_red_output_V_write : STD_LOGIC;
-    signal grp_write_output_fu_146_ap_start_reg : STD_LOGIC := '0';
+    signal grp_write_output_fu_136_ap_start : STD_LOGIC;
+    signal grp_write_output_fu_136_ap_done : STD_LOGIC;
+    signal grp_write_output_fu_136_ap_idle : STD_LOGIC;
+    signal grp_write_output_fu_136_ap_ready : STD_LOGIC;
+    signal grp_write_output_fu_136_blue_output_V_read : STD_LOGIC;
+    signal grp_write_output_fu_136_green_output_V_read : STD_LOGIC;
+    signal grp_write_output_fu_136_red_output_V_read : STD_LOGIC;
+    signal grp_write_output_fu_136_out_r_TDATA : STD_LOGIC_VECTOR (255 downto 0);
+    signal grp_write_output_fu_136_out_r_TVALID : STD_LOGIC;
+    signal grp_write_output_fu_136_out_r_TREADY : STD_LOGIC;
+    signal grp_write_output_fu_136_out_r_TKEEP : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_write_output_fu_136_out_r_TSTRB : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_write_output_fu_136_out_r_TLAST : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_convolve_fu_151_ap_start : STD_LOGIC;
+    signal grp_convolve_fu_151_ap_done : STD_LOGIC;
+    signal grp_convolve_fu_151_ap_idle : STD_LOGIC;
+    signal grp_convolve_fu_151_ap_ready : STD_LOGIC;
+    signal grp_convolve_fu_151_in_r_TREADY : STD_LOGIC;
+    signal grp_convolve_fu_151_blue_output_V_din : STD_LOGIC_VECTOR (15 downto 0);
+    signal grp_convolve_fu_151_blue_output_V_write : STD_LOGIC;
+    signal grp_convolve_fu_151_green_output_V_din : STD_LOGIC_VECTOR (15 downto 0);
+    signal grp_convolve_fu_151_green_output_V_write : STD_LOGIC;
+    signal grp_convolve_fu_151_red_output_V_din : STD_LOGIC_VECTOR (15 downto 0);
+    signal grp_convolve_fu_151_red_output_V_write : STD_LOGIC;
+    signal grp_write_output_fu_136_ap_start_reg : STD_LOGIC := '0';
     signal ap_CS_fsm_state4 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state4 : signal is "none";
     signal blue_output_V_dout : STD_LOGIC_VECTOR (15 downto 0);
@@ -118,7 +118,7 @@ architecture behav of convolution is
     signal red_output_V_dout : STD_LOGIC_VECTOR (15 downto 0);
     signal red_output_V_empty_n : STD_LOGIC;
     signal red_output_V_read : STD_LOGIC;
-    signal grp_convolve_fu_161_ap_start_reg : STD_LOGIC := '0';
+    signal grp_convolve_fu_151_ap_start_reg : STD_LOGIC := '0';
     signal ap_CS_fsm_state2 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
     signal ap_CS_fsm_state3 : STD_LOGIC;
@@ -311,53 +311,53 @@ begin
         ap_done => ap_done,
         ap_idle => ap_idle);
 
-    grp_write_output_fu_146 : component write_output
+    grp_write_output_fu_136 : component write_output
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        ap_start => grp_write_output_fu_146_ap_start,
-        ap_done => grp_write_output_fu_146_ap_done,
-        ap_idle => grp_write_output_fu_146_ap_idle,
-        ap_ready => grp_write_output_fu_146_ap_ready,
+        ap_start => grp_write_output_fu_136_ap_start,
+        ap_done => grp_write_output_fu_136_ap_done,
+        ap_idle => grp_write_output_fu_136_ap_idle,
+        ap_ready => grp_write_output_fu_136_ap_ready,
         blue_output_V_dout => blue_output_V_dout,
         blue_output_V_empty_n => blue_output_V_empty_n,
-        blue_output_V_read => grp_write_output_fu_146_blue_output_V_read,
+        blue_output_V_read => grp_write_output_fu_136_blue_output_V_read,
         green_output_V_dout => green_output_V_dout,
         green_output_V_empty_n => green_output_V_empty_n,
-        green_output_V_read => grp_write_output_fu_146_green_output_V_read,
+        green_output_V_read => grp_write_output_fu_136_green_output_V_read,
         red_output_V_dout => red_output_V_dout,
         red_output_V_empty_n => red_output_V_empty_n,
-        red_output_V_read => grp_write_output_fu_146_red_output_V_read,
-        out_r_TDATA => grp_write_output_fu_146_out_r_TDATA,
-        out_r_TVALID => grp_write_output_fu_146_out_r_TVALID,
-        out_r_TREADY => grp_write_output_fu_146_out_r_TREADY,
-        out_r_TKEEP => grp_write_output_fu_146_out_r_TKEEP,
-        out_r_TSTRB => grp_write_output_fu_146_out_r_TSTRB,
-        out_r_TLAST => grp_write_output_fu_146_out_r_TLAST);
+        red_output_V_read => grp_write_output_fu_136_red_output_V_read,
+        out_r_TDATA => grp_write_output_fu_136_out_r_TDATA,
+        out_r_TVALID => grp_write_output_fu_136_out_r_TVALID,
+        out_r_TREADY => grp_write_output_fu_136_out_r_TREADY,
+        out_r_TKEEP => grp_write_output_fu_136_out_r_TKEEP,
+        out_r_TSTRB => grp_write_output_fu_136_out_r_TSTRB,
+        out_r_TLAST => grp_write_output_fu_136_out_r_TLAST);
 
-    grp_convolve_fu_161 : component convolve
+    grp_convolve_fu_151 : component convolve
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        ap_start => grp_convolve_fu_161_ap_start,
-        ap_done => grp_convolve_fu_161_ap_done,
-        ap_idle => grp_convolve_fu_161_ap_idle,
-        ap_ready => grp_convolve_fu_161_ap_ready,
+        ap_start => grp_convolve_fu_151_ap_start,
+        ap_done => grp_convolve_fu_151_ap_done,
+        ap_idle => grp_convolve_fu_151_ap_idle,
+        ap_ready => grp_convolve_fu_151_ap_ready,
         in_r_TDATA => in_r_TDATA_int,
         in_r_TVALID => in_r_TVALID_int,
-        in_r_TREADY => grp_convolve_fu_161_in_r_TREADY,
+        in_r_TREADY => grp_convolve_fu_151_in_r_TREADY,
         in_r_TKEEP => in_r_TKEEP_int,
         in_r_TSTRB => in_r_TSTRB_int,
         in_r_TLAST => in_r_TLAST_int,
-        blue_output_V_din => grp_convolve_fu_161_blue_output_V_din,
+        blue_output_V_din => grp_convolve_fu_151_blue_output_V_din,
         blue_output_V_full_n => blue_output_V_full_n,
-        blue_output_V_write => grp_convolve_fu_161_blue_output_V_write,
-        green_output_V_din => grp_convolve_fu_161_green_output_V_din,
+        blue_output_V_write => grp_convolve_fu_151_blue_output_V_write,
+        green_output_V_din => grp_convolve_fu_151_green_output_V_din,
         green_output_V_full_n => green_output_V_full_n,
-        green_output_V_write => grp_convolve_fu_161_green_output_V_write,
-        red_output_V_din => grp_convolve_fu_161_red_output_V_din,
+        green_output_V_write => grp_convolve_fu_151_green_output_V_write,
+        red_output_V_din => grp_convolve_fu_151_red_output_V_din,
         red_output_V_full_n => red_output_V_full_n,
-        red_output_V_write => grp_convolve_fu_161_red_output_V_write);
+        red_output_V_write => grp_convolve_fu_151_red_output_V_write);
 
     blue_output_V_fifo_U : component fifo_w16_d640_A
     port map (
@@ -365,7 +365,7 @@ begin
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => grp_convolve_fu_161_blue_output_V_din,
+        if_din => grp_convolve_fu_151_blue_output_V_din,
         if_full_n => blue_output_V_full_n,
         if_write => blue_output_V_write,
         if_dout => blue_output_V_dout,
@@ -378,7 +378,7 @@ begin
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => grp_convolve_fu_161_green_output_V_din,
+        if_din => grp_convolve_fu_151_green_output_V_din,
         if_full_n => green_output_V_full_n,
         if_write => green_output_V_write,
         if_dout => green_output_V_dout,
@@ -391,7 +391,7 @@ begin
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => grp_convolve_fu_161_red_output_V_din,
+        if_din => grp_convolve_fu_151_red_output_V_din,
         if_full_n => red_output_V_full_n,
         if_write => red_output_V_write,
         if_dout => red_output_V_dout,
@@ -460,8 +460,8 @@ begin
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => grp_write_output_fu_146_out_r_TDATA,
-        vld_in => grp_write_output_fu_146_out_r_TVALID,
+        data_in => grp_write_output_fu_136_out_r_TDATA,
+        vld_in => grp_write_output_fu_136_out_r_TVALID,
         ack_in => out_r_TREADY_int,
         data_out => out_r_TDATA,
         vld_out => regslice_both_out_V_data_V_U_vld_out,
@@ -474,8 +474,8 @@ begin
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => grp_write_output_fu_146_out_r_TKEEP,
-        vld_in => grp_write_output_fu_146_out_r_TVALID,
+        data_in => grp_write_output_fu_136_out_r_TKEEP,
+        vld_in => grp_write_output_fu_136_out_r_TVALID,
         ack_in => regslice_both_out_V_keep_V_U_ack_in_dummy,
         data_out => out_r_TKEEP,
         vld_out => regslice_both_out_V_keep_V_U_vld_out,
@@ -488,8 +488,8 @@ begin
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => grp_write_output_fu_146_out_r_TSTRB,
-        vld_in => grp_write_output_fu_146_out_r_TVALID,
+        data_in => grp_write_output_fu_136_out_r_TSTRB,
+        vld_in => grp_write_output_fu_136_out_r_TVALID,
         ack_in => regslice_both_out_V_strb_V_U_ack_in_dummy,
         data_out => out_r_TSTRB,
         vld_out => regslice_both_out_V_strb_V_U_vld_out,
@@ -502,8 +502,8 @@ begin
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => grp_write_output_fu_146_out_r_TLAST,
-        vld_in => grp_write_output_fu_146_out_r_TVALID,
+        data_in => grp_write_output_fu_136_out_r_TLAST,
+        vld_in => grp_write_output_fu_136_out_r_TVALID,
         ack_in => regslice_both_out_V_last_V_U_ack_in_dummy,
         data_out => out_r_TLAST,
         vld_out => regslice_both_out_V_last_V_U_vld_out,
@@ -526,39 +526,39 @@ begin
     end process;
 
 
-    grp_convolve_fu_161_ap_start_reg_assign_proc : process(ap_clk)
+    grp_convolve_fu_151_ap_start_reg_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst_n_inv = '1') then
-                grp_convolve_fu_161_ap_start_reg <= ap_const_logic_0;
+                grp_convolve_fu_151_ap_start_reg <= ap_const_logic_0;
             else
                 if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-                    grp_convolve_fu_161_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_convolve_fu_161_ap_ready = ap_const_logic_1)) then 
-                    grp_convolve_fu_161_ap_start_reg <= ap_const_logic_0;
+                    grp_convolve_fu_151_ap_start_reg <= ap_const_logic_1;
+                elsif ((grp_convolve_fu_151_ap_ready = ap_const_logic_1)) then 
+                    grp_convolve_fu_151_ap_start_reg <= ap_const_logic_0;
                 end if; 
             end if;
         end if;
     end process;
 
 
-    grp_write_output_fu_146_ap_start_reg_assign_proc : process(ap_clk)
+    grp_write_output_fu_136_ap_start_reg_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst_n_inv = '1') then
-                grp_write_output_fu_146_ap_start_reg <= ap_const_logic_0;
+                grp_write_output_fu_136_ap_start_reg <= ap_const_logic_0;
             else
                 if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-                    grp_write_output_fu_146_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_write_output_fu_146_ap_ready = ap_const_logic_1)) then 
-                    grp_write_output_fu_146_ap_start_reg <= ap_const_logic_0;
+                    grp_write_output_fu_136_ap_start_reg <= ap_const_logic_1;
+                elsif ((grp_write_output_fu_136_ap_ready = ap_const_logic_1)) then 
+                    grp_write_output_fu_136_ap_start_reg <= ap_const_logic_0;
                 end if; 
             end if;
         end if;
     end process;
 
 
-    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, grp_write_output_fu_146_ap_done, grp_convolve_fu_161_ap_done, ap_CS_fsm_state5, ap_CS_fsm_state3, ap_CS_fsm_state6, regslice_both_out_V_data_V_U_apdone_blk)
+    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, grp_write_output_fu_136_ap_done, grp_convolve_fu_151_ap_done, ap_CS_fsm_state5, ap_CS_fsm_state3, ap_CS_fsm_state6, regslice_both_out_V_data_V_U_apdone_blk)
     begin
         case ap_CS_fsm is
             when ap_ST_fsm_state1 => 
@@ -570,7 +570,7 @@ begin
             when ap_ST_fsm_state2 => 
                 ap_NS_fsm <= ap_ST_fsm_state3;
             when ap_ST_fsm_state3 => 
-                if (((ap_const_logic_1 = ap_CS_fsm_state3) and (grp_convolve_fu_161_ap_done = ap_const_logic_1))) then
+                if (((ap_const_logic_1 = ap_CS_fsm_state3) and (grp_convolve_fu_151_ap_done = ap_const_logic_1))) then
                     ap_NS_fsm <= ap_ST_fsm_state4;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state3;
@@ -578,7 +578,7 @@ begin
             when ap_ST_fsm_state4 => 
                 ap_NS_fsm <= ap_ST_fsm_state5;
             when ap_ST_fsm_state5 => 
-                if (((grp_write_output_fu_146_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state5))) then
+                if (((grp_write_output_fu_136_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state5))) then
                     ap_NS_fsm <= ap_ST_fsm_state6;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state5;
@@ -636,48 +636,48 @@ begin
     end process;
 
 
-    blue_output_V_read_assign_proc : process(grp_write_output_fu_146_blue_output_V_read, ap_CS_fsm_state5)
+    blue_output_V_read_assign_proc : process(grp_write_output_fu_136_blue_output_V_read, ap_CS_fsm_state5)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            blue_output_V_read <= grp_write_output_fu_146_blue_output_V_read;
+            blue_output_V_read <= grp_write_output_fu_136_blue_output_V_read;
         else 
             blue_output_V_read <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    blue_output_V_write_assign_proc : process(grp_convolve_fu_161_blue_output_V_write, ap_CS_fsm_state3)
+    blue_output_V_write_assign_proc : process(grp_convolve_fu_151_blue_output_V_write, ap_CS_fsm_state3)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            blue_output_V_write <= grp_convolve_fu_161_blue_output_V_write;
+            blue_output_V_write <= grp_convolve_fu_151_blue_output_V_write;
         else 
             blue_output_V_write <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    green_output_V_read_assign_proc : process(grp_write_output_fu_146_green_output_V_read, ap_CS_fsm_state5)
+    green_output_V_read_assign_proc : process(grp_write_output_fu_136_green_output_V_read, ap_CS_fsm_state5)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            green_output_V_read <= grp_write_output_fu_146_green_output_V_read;
+            green_output_V_read <= grp_write_output_fu_136_green_output_V_read;
         else 
             green_output_V_read <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    green_output_V_write_assign_proc : process(grp_convolve_fu_161_green_output_V_write, ap_CS_fsm_state3)
+    green_output_V_write_assign_proc : process(grp_convolve_fu_151_green_output_V_write, ap_CS_fsm_state3)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            green_output_V_write <= grp_convolve_fu_161_green_output_V_write;
+            green_output_V_write <= grp_convolve_fu_151_green_output_V_write;
         else 
             green_output_V_write <= ap_const_logic_0;
         end if; 
     end process;
 
-    grp_convolve_fu_161_ap_start <= grp_convolve_fu_161_ap_start_reg;
-    grp_write_output_fu_146_ap_start <= grp_write_output_fu_146_ap_start_reg;
-    grp_write_output_fu_146_out_r_TREADY <= (out_r_TREADY_int and ap_CS_fsm_state5);
+    grp_convolve_fu_151_ap_start <= grp_convolve_fu_151_ap_start_reg;
+    grp_write_output_fu_136_ap_start <= grp_write_output_fu_136_ap_start_reg;
+    grp_write_output_fu_136_out_r_TREADY <= (out_r_TREADY_int and ap_CS_fsm_state5);
 
     in_r_TREADY_assign_proc : process(in_r_TVALID, regslice_both_in_V_data_V_U_ack_in)
     begin
@@ -689,10 +689,10 @@ begin
     end process;
 
 
-    in_r_TREADY_int_assign_proc : process(grp_convolve_fu_161_in_r_TREADY, ap_CS_fsm_state3)
+    in_r_TREADY_int_assign_proc : process(grp_convolve_fu_151_in_r_TREADY, ap_CS_fsm_state3)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            in_r_TREADY_int <= grp_convolve_fu_161_in_r_TREADY;
+            in_r_TREADY_int <= grp_convolve_fu_151_in_r_TREADY;
         else 
             in_r_TREADY_int <= ap_const_logic_0;
         end if; 
@@ -700,20 +700,20 @@ begin
 
     out_r_TVALID <= regslice_both_out_V_data_V_U_vld_out;
 
-    red_output_V_read_assign_proc : process(grp_write_output_fu_146_red_output_V_read, ap_CS_fsm_state5)
+    red_output_V_read_assign_proc : process(grp_write_output_fu_136_red_output_V_read, ap_CS_fsm_state5)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            red_output_V_read <= grp_write_output_fu_146_red_output_V_read;
+            red_output_V_read <= grp_write_output_fu_136_red_output_V_read;
         else 
             red_output_V_read <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    red_output_V_write_assign_proc : process(grp_convolve_fu_161_red_output_V_write, ap_CS_fsm_state3)
+    red_output_V_write_assign_proc : process(grp_convolve_fu_151_red_output_V_write, ap_CS_fsm_state3)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            red_output_V_write <= grp_convolve_fu_161_red_output_V_write;
+            red_output_V_write <= grp_convolve_fu_151_red_output_V_write;
         else 
             red_output_V_write <= ap_const_logic_0;
         end if; 

@@ -17,18 +17,18 @@
 <PipelineType>none</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>8.137</EstimatedClockPeriod>
+<EstimatedClockPeriod>8.209</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>83724</Best-caseLatency>
-<Average-caseLatency>83724</Average-caseLatency>
-<Worst-caseLatency>83724</Worst-caseLatency>
-<Best-caseRealTimeLatency>0.837 ms</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>0.837 ms</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>0.837 ms</Worst-caseRealTimeLatency>
-<Interval-min>83724</Interval-min>
-<Interval-max>83724</Interval-max>
+<Best-caseLatency>11520</Best-caseLatency>
+<Average-caseLatency>11520</Average-caseLatency>
+<Worst-caseLatency>11520</Worst-caseLatency>
+<Best-caseRealTimeLatency>0.115 ms</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>0.115 ms</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>0.115 ms</Worst-caseRealTimeLatency>
+<Interval-min>11520</Interval-min>
+<Interval-max>11520</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <two_rows_load_row_outer>
@@ -39,34 +39,9 @@
 </two_rows_load_row_outer>
 <conv_stripe>
 <TripCount>639</TripCount>
-<Latency>76041</Latency>
-<IterationLatency>119</IterationLatency>
-<conv_square>
-<TripCount>3</TripCount>
-<Latency>117</Latency>
-<IterationLatency>39</IterationLatency>
-<conv_square.1>
-<TripCount>2</TripCount>
-<Latency>14</Latency>
-<IterationLatency>7</IterationLatency>
-<conv_kernel_upper>
-<TripCount>3</TripCount>
-<Latency>4</Latency>
-<PipelineII>1</PipelineII>
-<PipelineDepth>3</PipelineDepth>
-</conv_kernel_upper>
-</conv_square.1>
-<conv_square.2>
-<TripCount>2</TripCount>
-<Latency>22</Latency>
-<IterationLatency>11</IterationLatency>
-<conv_kernel_lower>
-<TripCount>3</TripCount>
-<Latency>9</Latency>
-<IterationLatency>3</IterationLatency>
-</conv_kernel_lower>
-</conv_square.2>
-</conv_square>
+<Latency>3836</Latency>
+<PipelineII>6</PipelineII>
+<PipelineDepth>9</PipelineDepth>
 </conv_stripe>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
@@ -74,10 +49,10 @@
 <AreaEstimates>
 <Resources>
 <BRAM_18K>12</BRAM_18K>
-<DSP48E>6</DSP48E>
-<FF>2968</FF>
-<LUT>8657</LUT>
+<FF>3129</FF>
+<LUT>9487</LUT>
 <URAM>0</URAM>
+<DSP48E>0</DSP48E>
 </Resources>
 <AvailableResources>
 <BRAM_18K>280</BRAM_18K>

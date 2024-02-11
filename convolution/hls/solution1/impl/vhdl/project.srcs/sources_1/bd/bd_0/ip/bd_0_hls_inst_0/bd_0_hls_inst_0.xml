@@ -1144,11 +1144,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Feb 11 14:45:33 UTC 2019</spirit:value>
+            <spirit:value>Tue Feb 11 16:45:34 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:45f0c923</spirit:value>
+            <spirit:value>9:6dabf8d5</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1159,7 +1159,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:45f0c923</spirit:value>
+            <spirit:value>9:6dabf8d5</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1175,11 +1175,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Feb 11 14:45:33 UTC 2019</spirit:value>
+            <spirit:value>Tue Feb 11 16:45:34 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:45f0c923</spirit:value>
+            <spirit:value>9:6dabf8d5</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1195,11 +1195,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Feb 11 14:45:33 UTC 2019</spirit:value>
+            <spirit:value>Tue Feb 11 16:45:34 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:f3e4fa20</spirit:value>
+            <spirit:value>9:41237a9e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1215,11 +1215,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Feb 11 14:45:33 UTC 2019</spirit:value>
+            <spirit:value>Tue Feb 11 16:45:34 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:f3e4fa20</spirit:value>
+            <spirit:value>9:41237a9e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1233,11 +1233,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Feb 11 14:48:31 UTC 2024</spirit:value>
+            <spirit:value>Tue Feb 11 16:47:51 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:45f0c923</spirit:value>
+            <spirit:value>9:6dabf8d5</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1749,55 +1749,35 @@
         <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/fe8d/hdl/vhdl/convolution_control_s_axi.vhd</spirit:name>
+        <spirit:name>../../ipshared/5586/hdl/vhdl/convolution_control_s_axi.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/fe8d/hdl/vhdl/convolution_mac_mdEe.vhd</spirit:name>
+        <spirit:name>../../ipshared/5586/hdl/vhdl/convolution_mux_6bkb.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/fe8d/hdl/vhdl/convolution_mux_3cud.vhd</spirit:name>
+        <spirit:name>../../ipshared/5586/hdl/vhdl/convolve.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/fe8d/hdl/vhdl/convolution_mux_6bkb.vhd</spirit:name>
+        <spirit:name>../../ipshared/5586/hdl/vhdl/convolve_stripes_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/fe8d/hdl/vhdl/convolve.vhd</spirit:name>
+        <spirit:name>../../ipshared/5586/hdl/vhdl/fifo_w16_d640_A.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/fe8d/hdl/vhdl/convolve_kernels_0.vhd</spirit:name>
+        <spirit:name>../../ipshared/5586/hdl/vhdl/regslice_core.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/fe8d/hdl/vhdl/convolve_kernels_1.vhd</spirit:name>
+        <spirit:name>../../ipshared/5586/hdl/vhdl/write_output.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/fe8d/hdl/vhdl/convolve_kernels_2.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/fe8d/hdl/vhdl/convolve_stripes_0.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/fe8d/hdl/vhdl/fifo_w16_d640_A.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/fe8d/hdl/vhdl/regslice_core.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/fe8d/hdl/vhdl/write_output.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/fe8d/hdl/vhdl/convolution.vhd</spirit:name>
+        <spirit:name>../../ipshared/5586/hdl/vhdl/convolution.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -1812,67 +1792,42 @@
     <spirit:fileSet>
       <spirit:name>xilinx_vhdlbehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/fe8d/hdl/vhdl/convolution_control_s_axi.vhd</spirit:name>
+        <spirit:name>../../ipshared/5586/hdl/vhdl/convolution_control_s_axi.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/fe8d/hdl/vhdl/convolution_mac_mdEe.vhd</spirit:name>
+        <spirit:name>../../ipshared/5586/hdl/vhdl/convolution_mux_6bkb.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/fe8d/hdl/vhdl/convolution_mux_3cud.vhd</spirit:name>
+        <spirit:name>../../ipshared/5586/hdl/vhdl/convolve.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/fe8d/hdl/vhdl/convolution_mux_6bkb.vhd</spirit:name>
+        <spirit:name>../../ipshared/5586/hdl/vhdl/convolve_stripes_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/fe8d/hdl/vhdl/convolve.vhd</spirit:name>
+        <spirit:name>../../ipshared/5586/hdl/vhdl/fifo_w16_d640_A.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/fe8d/hdl/vhdl/convolve_kernels_0.vhd</spirit:name>
+        <spirit:name>../../ipshared/5586/hdl/vhdl/regslice_core.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/fe8d/hdl/vhdl/convolve_kernels_1.vhd</spirit:name>
+        <spirit:name>../../ipshared/5586/hdl/vhdl/write_output.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/fe8d/hdl/vhdl/convolve_kernels_2.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/fe8d/hdl/vhdl/convolve_stripes_0.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/fe8d/hdl/vhdl/fifo_w16_d640_A.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/fe8d/hdl/vhdl/regslice_core.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/fe8d/hdl/vhdl/write_output.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/fe8d/hdl/vhdl/convolution.vhd</spirit:name>
+        <spirit:name>../../ipshared/5586/hdl/vhdl/convolution.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -1963,7 +1918,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>latency</spirit:name>
-      <spirit:value spirit:id="PARAM_VALUE.latency" spirit:order="5">85652</spirit:value>
+      <spirit:value spirit:id="PARAM_VALUE.latency" spirit:order="5">13448</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -1988,7 +1943,7 @@
     <xilinx:coreExtensions>
       <xilinx:displayName>Convolution</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>1902111545</xilinx:coreRevision>
+      <xilinx:coreRevision>2002111745</xilinx:coreRevision>
       <xilinx:configElementInfos>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.AP_CLK.ASSOCIATED_BUSIF" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.AP_CLK.ASSOCIATED_RESET" xilinx:valuePermission="bd"/>
@@ -2059,10 +2014,10 @@
       <xilinx:xilinxVersion>2020.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="2bc6b7da"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="f2df1fcd"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="8c3662c3"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="ce5e9fb9"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="960dbeb1"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="23754c13"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="d9f5a50b"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="d332633e"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

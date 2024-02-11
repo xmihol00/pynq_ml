@@ -103,13 +103,13 @@ set NewPortList {[
  	{ "name": "out_r_TLAST", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "out_V_last_V", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"],
 		"CDFG" : "convolution",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "85652", "EstimateLatencyMax" : "85652",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "13448", "EstimateLatencyMax" : "13448",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -117,83 +117,68 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
 		"WaitState" : [
-			{"State" : "ap_ST_fsm_state5", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_write_output_fu_146"},
-			{"State" : "ap_ST_fsm_state3", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_convolve_fu_161"}],
+			{"State" : "ap_ST_fsm_state5", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_write_output_fu_136"},
+			{"State" : "ap_ST_fsm_state3", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_convolve_fu_151"}],
 		"Port" : [
 			{"Name" : "in_V_data_V", "Type" : "Axis", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_convolve_fu_161", "Port" : "in_V_data_V"}]},
+					{"ID" : "3", "SubInstance" : "grp_convolve_fu_151", "Port" : "in_V_data_V"}]},
 			{"Name" : "in_V_keep_V", "Type" : "Axis", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_convolve_fu_161", "Port" : "in_V_keep_V"}]},
+					{"ID" : "3", "SubInstance" : "grp_convolve_fu_151", "Port" : "in_V_keep_V"}]},
 			{"Name" : "in_V_strb_V", "Type" : "Axis", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_convolve_fu_161", "Port" : "in_V_strb_V"}]},
+					{"ID" : "3", "SubInstance" : "grp_convolve_fu_151", "Port" : "in_V_strb_V"}]},
 			{"Name" : "in_V_last_V", "Type" : "Axis", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_convolve_fu_161", "Port" : "in_V_last_V"}]},
+					{"ID" : "3", "SubInstance" : "grp_convolve_fu_151", "Port" : "in_V_last_V"}]},
 			{"Name" : "out_V_data_V", "Type" : "Axis", "Direction" : "O",
 				"SubConnect" : [
-					{"ID" : "2", "SubInstance" : "grp_write_output_fu_146", "Port" : "out_V_data_V"}]},
+					{"ID" : "2", "SubInstance" : "grp_write_output_fu_136", "Port" : "out_V_data_V"}]},
 			{"Name" : "out_V_keep_V", "Type" : "Axis", "Direction" : "O",
 				"SubConnect" : [
-					{"ID" : "2", "SubInstance" : "grp_write_output_fu_146", "Port" : "out_V_keep_V"}]},
+					{"ID" : "2", "SubInstance" : "grp_write_output_fu_136", "Port" : "out_V_keep_V"}]},
 			{"Name" : "out_V_strb_V", "Type" : "Axis", "Direction" : "O",
 				"SubConnect" : [
-					{"ID" : "2", "SubInstance" : "grp_write_output_fu_146", "Port" : "out_V_strb_V"}]},
+					{"ID" : "2", "SubInstance" : "grp_write_output_fu_136", "Port" : "out_V_strb_V"}]},
 			{"Name" : "out_V_last_V", "Type" : "Axis", "Direction" : "O",
 				"SubConnect" : [
-					{"ID" : "2", "SubInstance" : "grp_write_output_fu_146", "Port" : "out_V_last_V"}]},
-			{"Name" : "row_indices_upper_0", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "2", "SubInstance" : "grp_write_output_fu_136", "Port" : "out_V_last_V"}]},
+			{"Name" : "row_indices_0", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_convolve_fu_161", "Port" : "row_indices_upper_0"}]},
-			{"Name" : "row_indices_upper_1", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "3", "SubInstance" : "grp_convolve_fu_151", "Port" : "row_indices_0"}]},
+			{"Name" : "row_indices_1", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_convolve_fu_161", "Port" : "row_indices_upper_1"}]},
-			{"Name" : "row_indices_upper_2", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "3", "SubInstance" : "grp_convolve_fu_151", "Port" : "row_indices_1"}]},
+			{"Name" : "row_indices_2", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_convolve_fu_161", "Port" : "row_indices_upper_2"}]},
-			{"Name" : "row_indices_lower_0", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "3", "SubInstance" : "grp_convolve_fu_151", "Port" : "row_indices_2"}]},
+			{"Name" : "row_indices_3", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_convolve_fu_161", "Port" : "row_indices_lower_0"}]},
-			{"Name" : "row_indices_lower_1", "Type" : "OVld", "Direction" : "IO",
-				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_convolve_fu_161", "Port" : "row_indices_lower_1"}]},
-			{"Name" : "row_indices_lower_2", "Type" : "OVld", "Direction" : "IO",
-				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_convolve_fu_161", "Port" : "row_indices_lower_2"}]},
+					{"ID" : "3", "SubInstance" : "grp_convolve_fu_151", "Port" : "row_indices_3"}]},
 			{"Name" : "row_index", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_convolve_fu_161", "Port" : "row_index"}]},
-			{"Name" : "kernels_0", "Type" : "Memory", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_convolve_fu_161", "Port" : "kernels_0"}]},
+					{"ID" : "3", "SubInstance" : "grp_convolve_fu_151", "Port" : "row_index"}]},
 			{"Name" : "stripes_0", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_convolve_fu_161", "Port" : "stripes_0"}]},
+					{"ID" : "3", "SubInstance" : "grp_convolve_fu_151", "Port" : "stripes_0"}]},
 			{"Name" : "stripes_1", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_convolve_fu_161", "Port" : "stripes_1"}]},
+					{"ID" : "3", "SubInstance" : "grp_convolve_fu_151", "Port" : "stripes_1"}]},
 			{"Name" : "stripes_2", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_convolve_fu_161", "Port" : "stripes_2"}]},
+					{"ID" : "3", "SubInstance" : "grp_convolve_fu_151", "Port" : "stripes_2"}]},
 			{"Name" : "stripes_3", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_convolve_fu_161", "Port" : "stripes_3"}]},
+					{"ID" : "3", "SubInstance" : "grp_convolve_fu_151", "Port" : "stripes_3"}]},
 			{"Name" : "stripes_4", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_convolve_fu_161", "Port" : "stripes_4"}]},
+					{"ID" : "3", "SubInstance" : "grp_convolve_fu_151", "Port" : "stripes_4"}]},
 			{"Name" : "stripes_5", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_convolve_fu_161", "Port" : "stripes_5"}]},
-			{"Name" : "kernels_1", "Type" : "Memory", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_convolve_fu_161", "Port" : "kernels_1"}]},
-			{"Name" : "kernels_2", "Type" : "Memory", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_convolve_fu_161", "Port" : "kernels_2"}]}]},
+					{"ID" : "3", "SubInstance" : "grp_convolve_fu_151", "Port" : "stripes_5"}]}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.convolution_control_s_axi_U", "Parent" : "0"},
-	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_write_output_fu_146", "Parent" : "0",
+	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_write_output_fu_136", "Parent" : "0",
 		"CDFG" : "write_output",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -222,13 +207,13 @@ set RtlHierarchyInfo {[
 			{"Name" : "out_V_keep_V", "Type" : "Axis", "Direction" : "O"},
 			{"Name" : "out_V_strb_V", "Type" : "Axis", "Direction" : "O"},
 			{"Name" : "out_V_last_V", "Type" : "Axis", "Direction" : "O"}]},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_161", "Parent" : "0", "Child" : ["4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26"],
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_151", "Parent" : "0", "Child" : ["4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17"],
 		"CDFG" : "convolve",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "83724", "EstimateLatencyMax" : "83724",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "11520", "EstimateLatencyMax" : "11520",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -251,56 +236,42 @@ set RtlHierarchyInfo {[
 			{"Name" : "red_output_V", "Type" : "Fifo", "Direction" : "O",
 				"BlockSignal" : [
 					{"Name" : "red_output_V_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "row_indices_upper_0", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "row_indices_upper_1", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "row_indices_upper_2", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "row_indices_lower_0", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "row_indices_lower_1", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "row_indices_lower_2", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "row_indices_0", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "row_indices_1", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "row_indices_2", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "row_indices_3", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "row_index", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "kernels_0", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "stripes_0", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "stripes_1", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "stripes_2", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "stripes_3", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "stripes_4", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "stripes_5", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "kernels_1", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "kernels_2", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_161.kernels_0_U", "Parent" : "3"},
-	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_161.stripes_0_U", "Parent" : "3"},
-	{"ID" : "6", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_161.stripes_1_U", "Parent" : "3"},
-	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_161.stripes_2_U", "Parent" : "3"},
-	{"ID" : "8", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_161.stripes_3_U", "Parent" : "3"},
-	{"ID" : "9", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_161.stripes_4_U", "Parent" : "3"},
-	{"ID" : "10", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_161.stripes_5_U", "Parent" : "3"},
-	{"ID" : "11", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_161.kernels_1_U", "Parent" : "3"},
-	{"ID" : "12", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_161.kernels_2_U", "Parent" : "3"},
-	{"ID" : "13", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_161.convolution_mux_6bkb_U1", "Parent" : "3"},
-	{"ID" : "14", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_161.convolution_mux_6bkb_U2", "Parent" : "3"},
-	{"ID" : "15", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_161.convolution_mux_6bkb_U3", "Parent" : "3"},
-	{"ID" : "16", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_161.convolution_mux_3cud_U4", "Parent" : "3"},
-	{"ID" : "17", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_161.convolution_mux_3cud_U5", "Parent" : "3"},
-	{"ID" : "18", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_161.convolution_mux_6bkb_U6", "Parent" : "3"},
-	{"ID" : "19", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_161.convolution_mux_6bkb_U7", "Parent" : "3"},
-	{"ID" : "20", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_161.convolution_mux_6bkb_U8", "Parent" : "3"},
-	{"ID" : "21", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_161.convolution_mac_mdEe_U9", "Parent" : "3"},
-	{"ID" : "22", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_161.convolution_mac_mdEe_U10", "Parent" : "3"},
-	{"ID" : "23", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_161.convolution_mac_mdEe_U11", "Parent" : "3"},
-	{"ID" : "24", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_161.convolution_mac_mdEe_U12", "Parent" : "3"},
-	{"ID" : "25", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_161.convolution_mac_mdEe_U13", "Parent" : "3"},
-	{"ID" : "26", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_161.convolution_mac_mdEe_U14", "Parent" : "3"},
-	{"ID" : "27", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.blue_output_V_fifo_U", "Parent" : "0"},
-	{"ID" : "28", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.green_output_V_fifo_U", "Parent" : "0"},
-	{"ID" : "29", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.red_output_V_fifo_U", "Parent" : "0"},
-	{"ID" : "30", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_in_V_data_V_U", "Parent" : "0"},
-	{"ID" : "31", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_in_V_keep_V_U", "Parent" : "0"},
-	{"ID" : "32", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_in_V_strb_V_U", "Parent" : "0"},
-	{"ID" : "33", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_in_V_last_V_U", "Parent" : "0"},
-	{"ID" : "34", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_out_V_data_V_U", "Parent" : "0"},
-	{"ID" : "35", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_out_V_keep_V_U", "Parent" : "0"},
-	{"ID" : "36", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_out_V_strb_V_U", "Parent" : "0"},
-	{"ID" : "37", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_out_V_last_V_U", "Parent" : "0"}]}
+			{"Name" : "stripes_5", "Type" : "Memory", "Direction" : "IO"}]},
+	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_151.stripes_0_U", "Parent" : "3"},
+	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_151.stripes_1_U", "Parent" : "3"},
+	{"ID" : "6", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_151.stripes_2_U", "Parent" : "3"},
+	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_151.stripes_3_U", "Parent" : "3"},
+	{"ID" : "8", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_151.stripes_4_U", "Parent" : "3"},
+	{"ID" : "9", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_151.stripes_5_U", "Parent" : "3"},
+	{"ID" : "10", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_151.convolution_mux_6bkb_U1", "Parent" : "3"},
+	{"ID" : "11", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_151.convolution_mux_6bkb_U2", "Parent" : "3"},
+	{"ID" : "12", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_151.convolution_mux_6bkb_U3", "Parent" : "3"},
+	{"ID" : "13", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_151.convolution_mux_6bkb_U4", "Parent" : "3"},
+	{"ID" : "14", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_151.convolution_mux_6bkb_U5", "Parent" : "3"},
+	{"ID" : "15", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_151.convolution_mux_6bkb_U6", "Parent" : "3"},
+	{"ID" : "16", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_151.convolution_mux_6bkb_U7", "Parent" : "3"},
+	{"ID" : "17", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_convolve_fu_151.convolution_mux_6bkb_U8", "Parent" : "3"},
+	{"ID" : "18", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.blue_output_V_fifo_U", "Parent" : "0"},
+	{"ID" : "19", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.green_output_V_fifo_U", "Parent" : "0"},
+	{"ID" : "20", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.red_output_V_fifo_U", "Parent" : "0"},
+	{"ID" : "21", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_in_V_data_V_U", "Parent" : "0"},
+	{"ID" : "22", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_in_V_keep_V_U", "Parent" : "0"},
+	{"ID" : "23", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_in_V_strb_V_U", "Parent" : "0"},
+	{"ID" : "24", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_in_V_last_V_U", "Parent" : "0"},
+	{"ID" : "25", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_out_V_data_V_U", "Parent" : "0"},
+	{"ID" : "26", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_out_V_keep_V_U", "Parent" : "0"},
+	{"ID" : "27", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_out_V_strb_V_U", "Parent" : "0"},
+	{"ID" : "28", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_out_V_last_V_U", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
@@ -313,22 +284,17 @@ set ArgLastReadFirstWriteLatency {
 		out_V_keep_V {Type O LastRead -1 FirstWrite 17}
 		out_V_strb_V {Type O LastRead -1 FirstWrite 17}
 		out_V_last_V {Type O LastRead -1 FirstWrite 17}
-		row_indices_upper_0 {Type IO LastRead -1 FirstWrite -1}
-		row_indices_upper_1 {Type IO LastRead -1 FirstWrite -1}
-		row_indices_upper_2 {Type IO LastRead -1 FirstWrite -1}
-		row_indices_lower_0 {Type IO LastRead -1 FirstWrite -1}
-		row_indices_lower_1 {Type IO LastRead -1 FirstWrite -1}
-		row_indices_lower_2 {Type IO LastRead -1 FirstWrite -1}
+		row_indices_0 {Type IO LastRead -1 FirstWrite -1}
+		row_indices_1 {Type IO LastRead -1 FirstWrite -1}
+		row_indices_2 {Type IO LastRead -1 FirstWrite -1}
+		row_indices_3 {Type IO LastRead -1 FirstWrite -1}
 		row_index {Type IO LastRead -1 FirstWrite -1}
-		kernels_0 {Type I LastRead -1 FirstWrite -1}
 		stripes_0 {Type IO LastRead -1 FirstWrite -1}
 		stripes_1 {Type IO LastRead -1 FirstWrite -1}
 		stripes_2 {Type IO LastRead -1 FirstWrite -1}
 		stripes_3 {Type IO LastRead -1 FirstWrite -1}
 		stripes_4 {Type IO LastRead -1 FirstWrite -1}
-		stripes_5 {Type IO LastRead -1 FirstWrite -1}
-		kernels_1 {Type I LastRead -1 FirstWrite -1}
-		kernels_2 {Type I LastRead -1 FirstWrite -1}}
+		stripes_5 {Type IO LastRead -1 FirstWrite -1}}
 	write_output {
 		blue_output_V {Type I LastRead 17 FirstWrite -1}
 		green_output_V {Type I LastRead 17 FirstWrite -1}
@@ -342,31 +308,26 @@ set ArgLastReadFirstWriteLatency {
 		in_V_keep_V {Type I LastRead 2 FirstWrite -1}
 		in_V_strb_V {Type I LastRead 2 FirstWrite -1}
 		in_V_last_V {Type I LastRead 2 FirstWrite -1}
-		blue_output_V {Type O LastRead -1 FirstWrite 3}
-		green_output_V {Type O LastRead -1 FirstWrite 3}
-		red_output_V {Type O LastRead -1 FirstWrite 3}
-		row_indices_upper_0 {Type IO LastRead -1 FirstWrite -1}
-		row_indices_upper_1 {Type IO LastRead -1 FirstWrite -1}
-		row_indices_upper_2 {Type IO LastRead -1 FirstWrite -1}
-		row_indices_lower_0 {Type IO LastRead -1 FirstWrite -1}
-		row_indices_lower_1 {Type IO LastRead -1 FirstWrite -1}
-		row_indices_lower_2 {Type IO LastRead -1 FirstWrite -1}
+		blue_output_V {Type O LastRead -1 FirstWrite 4}
+		green_output_V {Type O LastRead -1 FirstWrite 4}
+		red_output_V {Type O LastRead -1 FirstWrite 4}
+		row_indices_0 {Type IO LastRead -1 FirstWrite -1}
+		row_indices_1 {Type IO LastRead -1 FirstWrite -1}
+		row_indices_2 {Type IO LastRead -1 FirstWrite -1}
+		row_indices_3 {Type IO LastRead -1 FirstWrite -1}
 		row_index {Type IO LastRead -1 FirstWrite -1}
-		kernels_0 {Type I LastRead -1 FirstWrite -1}
 		stripes_0 {Type IO LastRead -1 FirstWrite -1}
 		stripes_1 {Type IO LastRead -1 FirstWrite -1}
 		stripes_2 {Type IO LastRead -1 FirstWrite -1}
 		stripes_3 {Type IO LastRead -1 FirstWrite -1}
 		stripes_4 {Type IO LastRead -1 FirstWrite -1}
-		stripes_5 {Type IO LastRead -1 FirstWrite -1}
-		kernels_1 {Type I LastRead -1 FirstWrite -1}
-		kernels_2 {Type I LastRead -1 FirstWrite -1}}}
+		stripes_5 {Type IO LastRead -1 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "85652", "Max" : "85652"}
-	, {"Name" : "Interval", "Min" : "85653", "Max" : "85653"}
+	{"Name" : "Latency", "Min" : "13448", "Max" : "13448"}
+	, {"Name" : "Interval", "Min" : "13449", "Max" : "13449"}
 ]}
 
 set PipelineEnableSignalInfo {[

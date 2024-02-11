@@ -13,7 +13,7 @@ set FftOrFirFlag 0
 set NbRWValue 0
 set intNbAccess 0
 set NewDSPMapping 1
-set HasDSPModule 1
+set HasDSPModule 0
 set ResetLevelFlag 0
 set ResetStyle control
 set ResetSyncFlag 1
@@ -43,7 +43,7 @@ set TargetInfo xc7z020:-clg400:-1
 set SourceFiles {sc {} c ../../conv_layer.cpp}
 set SourceFlags {sc {} c {{}}}
 set DirectiveFile /mnt/sdc3/david/projs/pynq_ml/convolution/hls/solution1/solution1.directive
-set TBFiles {verilog {../../conv_layer.h ../../conv_layer_tb.cpp ../../test_data.h} bc {../../conv_layer.h ../../conv_layer_tb.cpp ../../test_data.h} vhdl {../../conv_layer.h ../../conv_layer_tb.cpp ../../test_data.h} sc {../../conv_layer.h ../../conv_layer_tb.cpp ../../test_data.h} cas {../../conv_layer.h ../../conv_layer_tb.cpp ../../test_data.h} c {}}
+set TBFiles {verilog {../../test_data.h ../../conv_layer_tb.cpp ../../conv_layer.h} bc {../../test_data.h ../../conv_layer_tb.cpp ../../conv_layer.h} vhdl {../../test_data.h ../../conv_layer_tb.cpp ../../conv_layer.h} sc {../../test_data.h ../../conv_layer_tb.cpp ../../conv_layer.h} cas {../../test_data.h ../../conv_layer_tb.cpp ../../conv_layer.h} c {}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

@@ -8331,12 +8331,15 @@ _ssdm_SpecArrayPartition( &stripes, 2, "CYCLIC", 6, "");
 _ssdm_SpecConstant(kernels);
 # 18 "conv_layer.cpp"
 
-_ssdm_SpecArrayPartition( &kernels, 2, "CYCLIC", 3, "");
+_ssdm_SpecArrayPartition( &kernels, 1, "COMPLETE", 0, "");
 
- static uint8_t row_indices_upper[3] = {6 - 2, 6 - 1, 0};
-    static uint8_t row_indices_lower[3] = {6 - 1, 0, 1};
+ static uint8_t stripe_buffer[3][4][2];
+_ssdm_SpecArrayPartition( &stripe_buffer, 1, "COMPLETE", 0, "");
 
-    static uint8_t row_index = 0;
+ static uint8_t row_indices[3 + 1] = {6 - 2, 6 - 1, 0, 1};
+_ssdm_SpecArrayPartition( &row_indices, 1, "COMPLETE", 0, "");
+
+ static uint8_t row_index = 0;
     State state = BLUE;
 
     int j_limit = 256 / 8;
@@ -8395,8 +8398,11 @@ _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
 conv_stripe:
     for (int i = 0; i < (1280 / 2) - 1; i++)
     {
-        int16_t channel_maxes[channels];
-    channel_maxes_reset:
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+ int16_t channel_maxes[channels];
+_ssdm_SpecArrayPartition( channel_maxes, 1, "COMPLETE", 0, "");
+
+ channel_maxes_reset:
         for (int j = 0; j < channels; j++)
         {
 _ssdm_Unroll(0,0,0, "");
@@ -8406,57 +8412,55 @@ _ssdm_Unroll(0,0,0, "");
     conv_square:
         for (int j = 0; j < channels; j++)
         {
-
-            int16_t sum;
-            int16_t partial_sums[3];
-
-            for (int k = 0; k < 2; k++)
-            {
-            partial_sums_reset_upper:
-                for (int l = 0; l < 3; l++)
-                {
 _ssdm_Unroll(0,0,0, "");
- partial_sums[l] = 0;
-                }
+ int16_t partial_sums[4][3] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
+_ssdm_SpecArrayPartition( partial_sums, 1, "COMPLETE", 0, "");
 
-            conv_kernel_upper:
-                for (int l = 0; l < 3; l++)
-                {
-_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
- partial_sums[0] += kernels[j][0][l] * stripes[j][row_indices_upper[0]][i * 2 + l + k];
-                    partial_sums[1] += kernels[j][1][l] * stripes[j][row_indices_upper[1]][i * 2 + l + k];
-                    partial_sums[2] += kernels[j][2][l] * stripes[j][row_indices_upper[2]][i * 2 + l + k];
-                }
-                sum = partial_sums[0] + partial_sums[1] + partial_sums[2];
-                if (sum > channel_maxes[j])
-                {
-                    channel_maxes[j] = sum;
-                }
+ stripe_buffer[j][0][0] = stripes[j][row_indices[0]][2 * i];
+            stripe_buffer[j][1][0] = stripes[j][row_indices[1]][2 * i];
+            stripe_buffer[j][2][0] = stripes[j][row_indices[2]][2 * i];
+            stripe_buffer[j][3][0] = stripes[j][row_indices[3]][2 * i];
+
+            for (int k = 0; k < 3; k++)
+            {
+                stripe_buffer[j][0][(k + 1) & 1] = stripes[j][row_indices[0]][2 * i + k + 1];
+                stripe_buffer[j][1][(k + 1) & 1] = stripes[j][row_indices[1]][2 * i + k + 1];
+                stripe_buffer[j][2][(k + 1) & 1] = stripes[j][row_indices[2]][2 * i + k + 1];
+                stripe_buffer[j][3][(k + 1) & 1] = stripes[j][row_indices[3]][2 * i + k + 1];
+
+                partial_sums[0][0] += kernels[j][0][k] * stripe_buffer[j][0][k & 1];
+                partial_sums[0][1] += kernels[j][1][k] * stripe_buffer[j][1][k & 1];
+                partial_sums[0][2] += kernels[j][2][k] * stripe_buffer[j][2][k & 1];
+
+                partial_sums[1][0] += kernels[j][0][k] * stripe_buffer[j][0][(k + 1) & 1];
+                partial_sums[1][1] += kernels[j][1][k] * stripe_buffer[j][1][(k + 1) & 1];
+                partial_sums[1][2] += kernels[j][2][k] * stripe_buffer[j][2][(k + 1) & 1];
+
+                partial_sums[2][0] += kernels[j][0][k] * stripe_buffer[j][1][k & 1];
+                partial_sums[2][1] += kernels[j][1][k] * stripe_buffer[j][2][k & 1];
+                partial_sums[2][2] += kernels[j][2][k] * stripe_buffer[j][3][k & 1];
+
+                partial_sums[3][0] += kernels[j][0][k] * stripe_buffer[j][1][(k + 1) & 1];
+                partial_sums[3][1] += kernels[j][1][k] * stripe_buffer[j][2][(k + 1) & 1];
+                partial_sums[3][2] += kernels[j][2][k] * stripe_buffer[j][3][(k + 1) & 1];
             }
 
-            for (int k = 0; k < 2; k++)
-            {
-                sum = 0;
-            partial_sums_reset_lower:
-                for (int l = 0; l < 3; l++)
-                {
-_ssdm_Unroll(0,0,0, "");
- partial_sums[l] = 0;
-                }
+            int16_t sums[4] = {0, 0, 0, 0};
+_ssdm_SpecArrayPartition( sums, 1, "COMPLETE", 0, "");
 
-            conv_kernel_lower:
-                for (int l = 0; l < 3; l++)
-                {
-                    partial_sums[0] += kernels[j][0][l] * stripes[j][row_indices_lower[0]][i * 2 + l + k];
-                    partial_sums[1] += kernels[j][1][l] * stripes[j][row_indices_lower[1]][i * 2 + l + k];
-                    partial_sums[2] += kernels[j][2][l] * stripes[j][row_indices_lower[2]][i * 2 + l + k];
-                }
-                sum = partial_sums[0] + partial_sums[1] + partial_sums[2];
-                if (sum > channel_maxes[j])
-                {
-                    channel_maxes[j] = sum;
-                }
+ for (int k = 0; k < 3; k++)
+            {
+_ssdm_Unroll(0,0,0, "");
+ sums[0] += partial_sums[0][k];
+                sums[1] += partial_sums[1][k];
+                sums[2] += partial_sums[2][k];
+                sums[3] += partial_sums[3][k];
             }
+
+            sums[0] = sums[0] > sums[1] ? sums[0] : sums[1];
+            sums[2] = sums[2] > sums[3] ? sums[2] : sums[3];
+            sums[0] = sums[0] > sums[2] ? sums[0] : sums[2];
+            channel_maxes[j] = sums[0] > channel_maxes[j] ? sums[0] : channel_maxes[j];
         }
 
     write_output:
@@ -8484,11 +8488,10 @@ _ssdm_Unroll(0,0,0, "");
     green_output.write(0);
     red_output.write(0);
 
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 3 + 1; i++)
     {
 _ssdm_Unroll(0,0,0, "");
- row_indices_upper[i] = (row_indices_upper[i] + 2) % 6;
-        row_indices_lower[i] = (row_indices_lower[i] + 2) % 6;
+ row_indices[i] = (row_indices[i] + 2) % 6;
     }
 }
 

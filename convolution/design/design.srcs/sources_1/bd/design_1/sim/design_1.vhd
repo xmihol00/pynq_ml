@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
---Date        : Sun Feb 11 16:00:13 2024
+--Date        : Sun Feb 11 17:59:45 2024
 --Host        : david running 64-bit Ubuntu 22.04.2 LTS
 --Command     : generate_target design_1.bd
 --Design      : design_1
@@ -3058,7 +3058,7 @@ entity design_1 is
     FIXED_IO_ps_srstb : inout STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of design_1 : entity is "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=19,numReposBlks=10,numNonXlnxBlks=0,numHierBlks=9,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=1,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=6,da_ps7_cnt=1,synth_mode=OOC_per_IP}";
+  attribute CORE_GENERATION_INFO of design_1 : entity is "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=19,numReposBlks=10,numNonXlnxBlks=0,numHierBlks=9,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=1,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=7,da_ps7_cnt=1,synth_mode=OOC_per_IP}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of design_1 : entity is "design_1.hwdef";
 end design_1;
@@ -3289,7 +3289,7 @@ architecture STRUCTURE of design_1 is
     peripheral_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component design_1_rst_ps7_0_100M_0;
-  component design_1_convolution_0_1 is
+  component design_1_convolution_0_2 is
   port (
     s_axi_control_AWADDR : in STD_LOGIC_VECTOR ( 3 downto 0 );
     s_axi_control_AWVALID : in STD_LOGIC;
@@ -3324,7 +3324,7 @@ architecture STRUCTURE of design_1 is
     out_r_TKEEP : out STD_LOGIC_VECTOR ( 31 downto 0 );
     out_r_TSTRB : out STD_LOGIC_VECTOR ( 31 downto 0 )
   );
-  end component design_1_convolution_0_1;
+  end component design_1_convolution_0_2;
   signal axi_mem_intercon_M00_AXI_ARADDR : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal axi_mem_intercon_M00_AXI_ARBURST : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal axi_mem_intercon_M00_AXI_ARCACHE : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -3358,11 +3358,11 @@ architecture STRUCTURE of design_1 is
   signal axi_mem_intercon_M00_AXI_WREADY : STD_LOGIC;
   signal axi_mem_intercon_M00_AXI_WSTRB : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal axi_mem_intercon_M00_AXI_WVALID : STD_LOGIC;
-  signal convolution_out_r_TDATA : STD_LOGIC_VECTOR ( 255 downto 0 );
-  signal convolution_out_r_TKEEP : STD_LOGIC_VECTOR ( 31 downto 0 );
-  signal convolution_out_r_TLAST : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal convolution_out_r_TREADY : STD_LOGIC;
-  signal convolution_out_r_TVALID : STD_LOGIC;
+  signal convolution_0_out_r_TDATA : STD_LOGIC_VECTOR ( 255 downto 0 );
+  signal convolution_0_out_r_TKEEP : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal convolution_0_out_r_TLAST : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal convolution_0_out_r_TREADY : STD_LOGIC;
+  signal convolution_0_out_r_TVALID : STD_LOGIC;
   signal dma_M_AXIS_MM2S_TDATA : STD_LOGIC_VECTOR ( 255 downto 0 );
   signal dma_M_AXIS_MM2S_TKEEP : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal dma_M_AXIS_MM2S_TLAST : STD_LOGIC;
@@ -3669,7 +3669,7 @@ axi_mem_intercon: entity work.design_1_axi_mem_intercon_0
       S02_AXI_wstrb(31 downto 0) => dma_M_AXI_S2MM_WSTRB(31 downto 0),
       S02_AXI_wvalid(0) => dma_M_AXI_S2MM_WVALID
     );
-convolution: component design_1_convolution_0_1
+convolution: component design_1_convolution_0_2
      port map (
       ap_clk => processing_system7_0_FCLK_CLK0,
       ap_rst_n => rst_ps7_0_100M_peripheral_aresetn(0),
@@ -3680,12 +3680,12 @@ convolution: component design_1_convolution_0_1
       in_r_TSTRB(31 downto 0) => B"11111111111111111111111111111111",
       in_r_TVALID => dma_M_AXIS_MM2S_TVALID,
       interrupt => NLW_convolution_interrupt_UNCONNECTED,
-      out_r_TDATA(255 downto 0) => convolution_out_r_TDATA(255 downto 0),
-      out_r_TKEEP(31 downto 0) => convolution_out_r_TKEEP(31 downto 0),
-      out_r_TLAST(0) => convolution_out_r_TLAST(0),
-      out_r_TREADY => convolution_out_r_TREADY,
+      out_r_TDATA(255 downto 0) => convolution_0_out_r_TDATA(255 downto 0),
+      out_r_TKEEP(31 downto 0) => convolution_0_out_r_TKEEP(31 downto 0),
+      out_r_TLAST(0) => convolution_0_out_r_TLAST(0),
+      out_r_TREADY => convolution_0_out_r_TREADY,
       out_r_TSTRB(31 downto 0) => NLW_convolution_out_r_TSTRB_UNCONNECTED(31 downto 0),
-      out_r_TVALID => convolution_out_r_TVALID,
+      out_r_TVALID => convolution_0_out_r_TVALID,
       s_axi_control_ARADDR(3 downto 0) => ps7_0_axi_periph_M00_AXI_ARADDR(3 downto 0),
       s_axi_control_ARREADY => ps7_0_axi_periph_M00_AXI_ARREADY,
       s_axi_control_ARVALID => ps7_0_axi_periph_M00_AXI_ARVALID,
@@ -3794,11 +3794,11 @@ dma: component design_1_axi_dma_0_0
       s_axi_lite_wdata(31 downto 0) => ps7_0_axi_periph_M01_AXI_WDATA(31 downto 0),
       s_axi_lite_wready => ps7_0_axi_periph_M01_AXI_WREADY,
       s_axi_lite_wvalid => ps7_0_axi_periph_M01_AXI_WVALID(0),
-      s_axis_s2mm_tdata(255 downto 0) => convolution_out_r_TDATA(255 downto 0),
-      s_axis_s2mm_tkeep(31 downto 0) => convolution_out_r_TKEEP(31 downto 0),
-      s_axis_s2mm_tlast => convolution_out_r_TLAST(0),
-      s_axis_s2mm_tready => convolution_out_r_TREADY,
-      s_axis_s2mm_tvalid => convolution_out_r_TVALID
+      s_axis_s2mm_tdata(255 downto 0) => convolution_0_out_r_TDATA(255 downto 0),
+      s_axis_s2mm_tkeep(31 downto 0) => convolution_0_out_r_TKEEP(31 downto 0),
+      s_axis_s2mm_tlast => convolution_0_out_r_TLAST(0),
+      s_axis_s2mm_tready => convolution_0_out_r_TREADY,
+      s_axis_s2mm_tvalid => convolution_0_out_r_TVALID
     );
 processing_system7_0: component design_1_processing_system7_0_0
      port map (

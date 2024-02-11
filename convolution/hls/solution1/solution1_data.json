@@ -78,7 +78,7 @@
     "ClockPeriod": "10",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "85652",
+    "Latency": "13448",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -97,13 +97,8 @@
     "CSource": ["..\/..\/conv_layer.cpp"],
     "Vhdl": [
       "impl\/vhdl\/convolution_control_s_axi.vhd",
-      "impl\/vhdl\/convolution_mac_mdEe.vhd",
-      "impl\/vhdl\/convolution_mux_3cud.vhd",
       "impl\/vhdl\/convolution_mux_6bkb.vhd",
       "impl\/vhdl\/convolve.vhd",
-      "impl\/vhdl\/convolve_kernels_0.vhd",
-      "impl\/vhdl\/convolve_kernels_1.vhd",
-      "impl\/vhdl\/convolve_kernels_2.vhd",
       "impl\/vhdl\/convolve_stripes_0.vhd",
       "impl\/vhdl\/fifo_w16_d640_A.vhd",
       "impl\/vhdl\/regslice_core.vhd",
@@ -112,16 +107,8 @@
     ],
     "Verilog": [
       "impl\/verilog\/convolution_control_s_axi.v",
-      "impl\/verilog\/convolution_mac_mdEe.v",
-      "impl\/verilog\/convolution_mux_3cud.v",
       "impl\/verilog\/convolution_mux_6bkb.v",
       "impl\/verilog\/convolve.v",
-      "impl\/verilog\/convolve_kernels_0.v",
-      "impl\/verilog\/convolve_kernels_0_rom.dat",
-      "impl\/verilog\/convolve_kernels_1.v",
-      "impl\/verilog\/convolve_kernels_1_rom.dat",
-      "impl\/verilog\/convolve_kernels_2.v",
-      "impl\/verilog\/convolve_kernels_2_rom.dat",
       "impl\/verilog\/convolve_stripes_0.v",
       "impl\/verilog\/convolve_stripes_0_ram.dat",
       "impl\/verilog\/fifo_w16_d640_A.v",
@@ -589,11 +576,11 @@
       "Instances": [
         {
           "ModuleName": "write_output",
-          "InstanceName": "grp_write_output_fu_146"
+          "InstanceName": "grp_write_output_fu_136"
         },
         {
           "ModuleName": "convolve",
-          "InstanceName": "grp_convolve_fu_161"
+          "InstanceName": "grp_convolve_fu_151"
         }
       ]
     },
@@ -623,17 +610,17 @@
     "Metrics": {
       "convolve": {
         "Latency": {
-          "LatencyBest": "83724",
-          "LatencyAvg": "83724",
-          "LatencyWorst": "83724",
-          "PipelineII": "83724",
+          "LatencyBest": "11520",
+          "LatencyAvg": "11520",
+          "LatencyWorst": "11520",
+          "PipelineII": "11520",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "8.137"
+          "Estimate": "8.209"
         },
         "Loops": [
           {
@@ -646,54 +633,17 @@
           {
             "Name": "conv_stripe",
             "TripCount": "639",
-            "Latency": "76041",
-            "PipelineII": "",
-            "PipelineDepth": "119",
-            "Loops": [{
-                "Name": "conv_square",
-                "TripCount": "3",
-                "Latency": "117",
-                "PipelineII": "",
-                "PipelineDepth": "39",
-                "Loops": [
-                  {
-                    "Name": "conv_square.1",
-                    "TripCount": "2",
-                    "Latency": "14",
-                    "PipelineII": "",
-                    "PipelineDepth": "7",
-                    "Loops": [{
-                        "Name": "conv_kernel_upper",
-                        "TripCount": "3",
-                        "Latency": "4",
-                        "PipelineII": "1",
-                        "PipelineDepth": "3"
-                      }]
-                  },
-                  {
-                    "Name": "conv_square.2",
-                    "TripCount": "2",
-                    "Latency": "22",
-                    "PipelineII": "",
-                    "PipelineDepth": "11",
-                    "Loops": [{
-                        "Name": "conv_kernel_lower",
-                        "TripCount": "3",
-                        "Latency": "9",
-                        "PipelineII": "",
-                        "PipelineDepth": "3"
-                      }]
-                  }
-                ]
-              }]
+            "Latency": "3836",
+            "PipelineII": "6",
+            "PipelineDepth": "9"
           }
         ],
         "Area": {
           "BRAM_18K": "12",
-          "DSP48E": "6",
-          "FF": "2968",
-          "LUT": "8657",
-          "URAM": "0"
+          "FF": "3129",
+          "LUT": "9487",
+          "URAM": "0",
+          "DSP48E": "0"
         }
       },
       "write_output": {
@@ -727,24 +677,24 @@
       },
       "convolution": {
         "Latency": {
-          "LatencyBest": "85652",
-          "LatencyAvg": "85652",
-          "LatencyWorst": "85652",
-          "PipelineII": "85653",
+          "LatencyBest": "13448",
+          "LatencyAvg": "13448",
+          "LatencyWorst": "13448",
+          "PipelineII": "13449",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "8.137"
+          "Estimate": "8.209"
         },
         "Area": {
           "BRAM_18K": "15",
-          "DSP48E": "6",
-          "FF": "7320",
-          "LUT": "10225",
-          "URAM": "0"
+          "FF": "7481",
+          "LUT": "11055",
+          "URAM": "0",
+          "DSP48E": "0"
         }
       }
     }
@@ -759,7 +709,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2024-02-11 15:44:59 CET",
+    "Time": "2024-02-11 17:45:01 CET",
     "ToolName": "vivado_hls",
     "ToolVersion": "2020.1"
   }

@@ -1,10 +1,5 @@
 convolution_mux_6bkb
-convolution_mux_3cud
-convolution_mac_mdEe
-convolve_kernels_0
 convolve_stripes_0
-convolve_kernels_1
-convolve_kernels_2
 fifo_w16_d640_A
 fifo_w16_d640_A
 fifo_w16_d640_A

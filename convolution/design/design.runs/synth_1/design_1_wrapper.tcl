@@ -100,7 +100,6 @@ set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/convolution/design/design.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_100M_0/design_1_rst_ps7_0_100M_0.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/convolution/design/design.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_100M_0/design_1_rst_ps7_0_100M_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/convolution/design/design.srcs/sources_1/bd/design_1/ip/design_1_xbar_1/design_1_xbar_1_ooc.xdc]
-set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/convolution/design/design.srcs/sources_1/bd/design_1/ip/design_1_convolution_0_1/constraints/convolution_ooc.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/convolution/design/design.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc]
 set_property used_in_synthesis false [get_files -all /mnt/sdc3/david/projs/pynq_ml/convolution/design/design.srcs/sources_1/bd/design_1/ip/design_1_auto_us_0/design_1_auto_us_0_clocks.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/convolution/design/design.srcs/sources_1/bd/design_1/ip/design_1_auto_us_0/design_1_auto_us_0_clocks.xdc]
@@ -109,6 +108,7 @@ set_property used_in_synthesis false [get_files -all /mnt/sdc3/david/projs/pynq_
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/convolution/design/design.srcs/sources_1/bd/design_1/ip/design_1_auto_ds_0/design_1_auto_ds_0_clocks.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/convolution/design/design.srcs/sources_1/bd/design_1/ip/design_1_auto_ds_0/design_1_auto_ds_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/convolution/design/design.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1_ooc.xdc]
+set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/convolution/design/design.srcs/sources_1/bd/design_1/ip/design_1_convolution_0_2/constraints/convolution_ooc.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/convolution/design/design.srcs/sources_1/bd/design_1/design_1_ooc.xdc]
 
 OPTRACE "Adding files" END { }
