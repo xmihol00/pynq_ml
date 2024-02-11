@@ -8312,15 +8312,30 @@ enum State { BLUE = 0, GREEN = 1, RED = 2 };
 void convolution(hls::stream<axis_in_t> &in, hls::stream<axis_out_t> &out);
 # 2 "conv_layer.cpp" 2
 
-void read_input
+template<uint8_t channels>
+void convolve
 (
     hls::stream<axis_in_t> &in,
-    uint8_t blue_stripe[6][1280],
-    uint8_t green_stripe[6][1280],
-    uint8_t red_stripe[6][1280],
-    hls::stream<uint8_t, 2> &input_line_ready
+    hls::stream<int16_t, (1280 / 2)> &blue_output,
+    hls::stream<int16_t, (1280 / 2)> &green_output,
+    hls::stream<int16_t, (1280 / 2)> &red_output
 )
-{_ssdm_SpecArrayDimSize(blue_stripe, 6);_ssdm_SpecArrayDimSize(green_stripe, 6);_ssdm_SpecArrayDimSize(red_stripe, 6);
+{
+#pragma HLS PIPELINE off
+
+ static uint8_t stripes[3][6][1280];
+#pragma HLS RESOURCE variable=&stripes core=RAM_2P_BRAM
+#pragma HLS ARRAY_PARTITION variable=&stripes factor=6 cyclic dim=2
+
+ static const int8_t kernels[3][3][3] = {{{0, 1, 2}, {-1, 0, 1}, {-2, -1, 0}}, {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}}, {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}}};
+_ssdm_SpecConstant(kernels);
+# 18 "conv_layer.cpp"
+
+#pragma HLS ARRAY_PARTITION variable=&kernels factor=3 cyclic dim=2
+
+ static uint8_t row_indices_upper[3] = {6 - 2, 6 - 1, 0};
+    static uint8_t row_indices_lower[3] = {6 - 1, 0, 1};
+
     static uint8_t row_index = 0;
     State state = BLUE;
 
@@ -8329,8 +8344,6 @@ void read_input
 
     int low;
     int high;
-
-    input_line_ready.write(1);
 
 two_rows:
     for (int l = 0; l < 2; l++)
@@ -8351,17 +8364,17 @@ two_rows:
                 switch (state)
                 {
                 case BLUE:
-                    blue_stripe[row_index][col_index] = (uint8_t)temp.data.range(high, low);
+                    stripes[BLUE][row_index][col_index] = (uint8_t)temp.data.range(high, low);
                     state = GREEN;
                     break;
 
                 case GREEN:
-                    green_stripe[row_index][col_index] = (uint8_t)temp.data.range(high, low);
+                    stripes[GREEN][row_index][col_index] = (uint8_t)temp.data.range(high, low);
                     state = RED;
                     break;
 
                 case RED:
-                    red_stripe[row_index][col_index] = (uint8_t)temp.data.range(high, low);
+                    stripes[RED][row_index][col_index] = (uint8_t)temp.data.range(high, low);
                     state = BLUE;
                     col_index++;
                     break;
@@ -8379,29 +8392,6 @@ two_rows:
         }
     }
 
-    input_line_ready.write(1);
-}
-
-template<uint8_t channels>
-void convolve
-(
-    uint8_t stripes[3][6][1280],
-    const int8_t kernels[3][3][3],
-    hls::stream<int16_t, (1280 / 2)> &blue_output,
-    hls::stream<int16_t, (1280 / 2)> &green_output,
-    hls::stream<int16_t, (1280 / 2)> &red_output,
-    hls::stream<uint8_t, 2> &input_line_ready
-)
-{_ssdm_SpecArrayDimSize(stripes, 3);_ssdm_SpecArrayDimSize(kernels, 3);
-#pragma HLS PIPELINE off
-
- static int iteration = -1;
-    iteration++;
-    static uint8_t row_indices_upper[3] = {6 - 2, 6 - 1, 0};
-    static uint8_t row_indices_lower[3] = {6 - 1, 0, 1};
-
-    input_line_ready.read();
-
 conv_stripe:
     for (int i = 0; i < (1280 / 2) - 1; i++)
     {
@@ -8416,8 +8406,8 @@ conv_stripe:
     conv_square:
         for (int j = 0; j < channels; j++)
         {
-#pragma HLS UNROLL
- int16_t sum;
+
+            int16_t sum;
             int16_t partial_sums[3];
 
             for (int k = 0; k < 2; k++)
@@ -8500,8 +8490,6 @@ conv_stripe:
  row_indices_upper[i] = (row_indices_upper[i] + 2) % 6;
         row_indices_lower[i] = (row_indices_lower[i] + 2) % 6;
     }
-
-    input_line_ready.read();
 }
 
 void write_output
@@ -8564,22 +8552,11 @@ void convolution(hls::stream<axis_in_t> &in, hls::stream<axis_out_t> &out)
 #pragma HLS INTERFACE axis port=&in
 #pragma HLS INTERFACE axis port=&out
 
- uint8_t stripes[3][6][1280];
-#pragma HLS RESOURCE variable=&stripes core=RAM_2P_BRAM
-#pragma HLS ARRAY_PARTITION variable=&stripes factor=6 cyclic dim=2
 
- const int8_t kernels[3][3][3] = {{{0, 1, 2}, {-1, 0, 1}, {-2, -1, 0}}, {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}}, {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}}};
-_ssdm_SpecConstant(kernels);
-# 259 "conv_layer.cpp"
-
-#pragma HLS ARRAY_PARTITION variable=&kernels factor=3 cyclic dim=2
-
- hls::stream<uint8_t, 2> input_line_ready;
-    hls::stream<int16_t, (1280 / 2)> blue_output;
+ hls::stream<int16_t, (1280 / 2)> blue_output;
     hls::stream<int16_t, (1280 / 2)> green_output;
     hls::stream<int16_t, (1280 / 2)> red_output;
 
-    read_input(in, stripes[BLUE], stripes[GREEN], stripes[RED], input_line_ready);
-    convolve<3>(stripes, kernels, blue_output, green_output, red_output, input_line_ready);
+    convolve<3>(in, blue_output, green_output, red_output);
     write_output(blue_output, green_output, red_output, out);
 }

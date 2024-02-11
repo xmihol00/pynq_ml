@@ -1,7 +1,7 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
--- Date        : Sat Feb 10 22:22:03 2024
+-- Date        : Sun Feb 11 15:10:40 2024
 -- Host        : david running 64-bit Ubuntu 22.04.2 LTS
 -- Command     : write_vhdl -force -mode funcsim
 --               /mnt/sdc3/david/projs/pynq_ml/convolution/design/design.srcs/sources_1/bd/design_1/ip/design_1_xbar_1/design_1_xbar_1_sim_netlist.vhdl
