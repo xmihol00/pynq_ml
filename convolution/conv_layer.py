@@ -36,7 +36,7 @@ def output_thread(dma, out_buffer):
         dma.recvchannel.transfer(out_buffer)
         dma.recvchannel.wait()
         result = out_buffer.copy()
-        if False: #i > 0:
+        if i > 0:
             print(result[0::3][0:12])
             print(results[i-1][0::3][0:12])
             print(result[1::3][0:12])

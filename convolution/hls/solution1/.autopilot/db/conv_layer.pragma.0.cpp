@@ -8321,7 +8321,7 @@ void convolve
     hls::stream<int16_t, (1280 / 2)> &red_output
 )
 {
-#pragma HLS PIPELINE off
+#pragma HLS PIPELINE
 
  static uint8_t stripes[3][6][1280];
 #pragma HLS RESOURCE variable=&stripes core=RAM_2P_BRAM
@@ -8340,6 +8340,7 @@ _ssdm_SpecConstant(kernels);
 #pragma HLS ARRAY_PARTITION variable=&row_indices complete
 
  static uint8_t row_index = 0;
+    uint16_t col_index = 0;
     State state = BLUE;
 
     int j_limit = 256 / 8;
@@ -8348,51 +8349,87 @@ _ssdm_SpecConstant(kernels);
     int low;
     int high;
 
-two_rows:
-    for (int l = 0; l < 2; l++)
+load_first_row:
+    for (int i = 0; i < i_limit; i++)
     {
-        int col_index = 0;
-
-    load_row_outer:
-        for (int i = 0; i < i_limit; i++)
-        {
 #pragma HLS PIPELINE
  low = 0;
-            high = 8 - 1;
+        high = 8 - 1;
 
-            axis_in_t temp = in.read();
-        load_row_inner:
-            for (int j = 0; j < j_limit; j++)
-            {
-                switch (state)
-                {
-                case BLUE:
-                    stripes[BLUE][row_index][col_index] = (uint8_t)temp.data.range(high, low);
-                    state = GREEN;
-                    break;
-
-                case GREEN:
-                    stripes[GREEN][row_index][col_index] = (uint8_t)temp.data.range(high, low);
-                    state = RED;
-                    break;
-
-                case RED:
-                    stripes[RED][row_index][col_index] = (uint8_t)temp.data.range(high, low);
-                    state = BLUE;
-                    col_index++;
-                    break;
-                }
-
-                low += 8;
-                high += 8;
-            }
-        }
-
-        row_index++;
-        if (row_index == 6)
+        axis_in_t temp = in.read();
+    load_row_inner:
+        for (int j = 0; j < j_limit; j++)
         {
-            row_index = 0;
+            switch (state)
+            {
+            case BLUE:
+                stripes[BLUE][row_index][col_index] = (uint8_t)temp.data.range(high, low);
+                state = GREEN;
+                break;
+
+            case GREEN:
+                stripes[GREEN][row_index][col_index] = (uint8_t)temp.data.range(high, low);
+                state = RED;
+                break;
+
+            case RED:
+                stripes[RED][row_index][col_index] = (uint8_t)temp.data.range(high, low);
+                state = BLUE;
+                col_index++;
+                break;
+            }
+
+            low += 8;
+            high += 8;
         }
+    }
+
+    row_index++;
+    if (row_index == 6)
+    {
+        row_index = 0;
+    }
+
+    col_index = 0;
+
+load_second_row:
+    for (int i = 0; i < i_limit; i++)
+    {
+#pragma HLS PIPELINE
+ low = 0;
+        high = 8 - 1;
+
+        axis_in_t temp = in.read();
+        for (int j = 0; j < j_limit; j++)
+        {
+            switch (state)
+            {
+            case BLUE:
+                stripes[BLUE][row_index][col_index] = (uint8_t)temp.data.range(high, low);
+                state = GREEN;
+                break;
+
+            case GREEN:
+                stripes[GREEN][row_index][col_index] = (uint8_t)temp.data.range(high, low);
+                state = RED;
+                break;
+
+            case RED:
+                stripes[RED][row_index][col_index] = (uint8_t)temp.data.range(high, low);
+                state = BLUE;
+                col_index++;
+                break;
+            }
+
+            low += 8;
+            high += 8;
+        }
+    }
+
+    row_index++;
+    if (row_index == 6)
+    {
+        row_index = 0;
     }
 
 conv_stripe:
@@ -8555,7 +8592,7 @@ void convolution(hls::stream<axis_in_t> &in, hls::stream<axis_out_t> &out)
 #pragma HLS INTERFACE axis port=&in
 #pragma HLS INTERFACE axis port=&out
 
-
+#pragma HLS DATAFLOW
  hls::stream<int16_t, (1280 / 2)> blue_output;
     hls::stream<int16_t, (1280 / 2)> green_output;
     hls::stream<int16_t, (1280 / 2)> red_output;
