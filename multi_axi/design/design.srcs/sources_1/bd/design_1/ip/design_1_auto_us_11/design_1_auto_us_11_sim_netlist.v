@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Sun Feb 11 21:25:07 2024
+// Date        : Mon Feb 12 14:08:16 2024
 // Host        : david running 64-bit Ubuntu 22.04.2 LTS
 // Command     : write_verilog -force -mode funcsim -rename_top design_1_auto_us_11 -prefix
 //               design_1_auto_us_11_ design_1_auto_us_0_sim_netlist.v

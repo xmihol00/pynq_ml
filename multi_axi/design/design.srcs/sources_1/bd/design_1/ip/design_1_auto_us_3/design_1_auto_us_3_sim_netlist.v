@@ -1,11 +1,11 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Sun Feb 11 21:25:03 2024
+// Date        : Mon Feb 12 14:11:38 2024
 // Host        : david running 64-bit Ubuntu 22.04.2 LTS
 // Command     : write_verilog -force -mode funcsim -rename_top design_1_auto_us_3 -prefix
-//               design_1_auto_us_3_ design_1_auto_us_3_sim_netlist.v
-// Design      : design_1_auto_us_3
+//               design_1_auto_us_3_ design_1_auto_us_6_sim_netlist.v
+// Design      : design_1_auto_us_6
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
 // Device      : xc7z020clg400-1
@@ -5067,7 +5067,7 @@ module design_1_auto_us_3_axi_register_slice_v2_1_21_axic_register_slice__parame
         .R(1'b0));
 endmodule
 
-(* CHECK_LICENSE_TYPE = "design_1_auto_us_3,axi_dwidth_converter_v2_1_21_top,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* X_CORE_INFO = "axi_dwidth_converter_v2_1_21_top,Vivado 2020.1" *) 
+(* CHECK_LICENSE_TYPE = "design_1_auto_us_6,axi_dwidth_converter_v2_1_21_top,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* X_CORE_INFO = "axi_dwidth_converter_v2_1_21_top,Vivado 2020.1" *) 
 (* NotValidForBitStream *)
 module design_1_auto_us_3
    (s_axi_aclk,

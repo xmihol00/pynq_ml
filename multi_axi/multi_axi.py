@@ -6,13 +6,11 @@ print("Loading overlay", flush=True)
 overlay = Overlay('overlay/multi_axi.bit')
 print("Overlay loaded", flush=True)
 
-help(overlay)
-dma_1 = overlay.dma_1
-dma_2 = overlay.dma_2
-dma_3 = overlay.dma_3
-dma_4 = overlay.dma_4
-multi_axi = overlay.multi_axi
-
+dma_1 = overlay.dma_0
+dma_2 = overlay.dma_1
+dma_3 = overlay.dma_2
+dma_4 = overlay.dma_3
+multi_axi = overlay.multi_axi_0
 
 SIZE = 4
 
@@ -31,7 +29,7 @@ AUTO_RESTART = (1<<7) # bit 7
 
 multi_axi.write(CTRL_REG, (AP_START | AUTO_RESTART))
 
-for i in range(10):
+for i in range(50):
     print("Sending", i, flush=True)
     in_buffer_1[:] = np.arange(i*SIZE, (i+1)*SIZE, dtype=np.int32)
     in_buffer_2[:] = np.arange(i*SIZE, (i+1)*SIZE, dtype=np.int32)
