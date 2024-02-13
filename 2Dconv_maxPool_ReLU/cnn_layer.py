@@ -39,17 +39,21 @@ for i in range(4):
 #print("#define PREDICTION", format_array_C(prediction_merged.astype(np.int16)))
 
 inputs = input_data.reshape(512*512, -1).T
+
 inputs_merged = np.zeros((3*512*512))
 for i in range(3):
     inputs_merged[i::3] = inputs[i]
 
+
 inputs_merged = inputs_merged.reshape(512, -1)
-print("#define INPUT_DATA_1", format_array_C(inputs_merged[0::2].flatten().astype(np.uint8)))
-print("#define INPUT_DATA_2", format_array_C(inputs_merged[1::2].flatten().astype(np.uint8)))
+#print("#define INPUT_DATA_1", format_array_C(inputs_merged[0::2].flatten().astype(np.uint8)))
+#print("#define INPUT_DATA_2", format_array_C(inputs_merged[1::2].flatten().astype(np.uint8)))
 inputs_merged = inputs_merged.flatten()
 
 kernels = model.layers[0].get_weights()[0]
 kernels = kernels.reshape(9, -1).T
+
+#print("#define KERNEL_WEIGHTS", format_array_C(kernels.reshape(12, 3, 3).astype(np.int8)))
 
 ch1_kernels = kernels[0::4]
 ch2_kernels = kernels[1::4]
@@ -72,15 +76,22 @@ for i, group in enumerate(kernel_groups):
         out = convolve2d(inputs_merged[j::3].reshape(512, 512), kernel, mode='valid')
         kernel_sum += out
     
+    print("ks", kernel_sum[:2, :2])
+    
     out = np.maximum(kernel_sum, 0)
     out = block_reduce(out, (2, 2), np.max)
     outputs.append(out)
 
 outputs = np.array(outputs)
+print(outputs[:, 0, 0])
 for i in range(4):
     print(np.array_equal(outputs[i], prediction_merged[i::4].reshape(255, 255)))
 
-#print("#define KERNEL_WEIGHTS", format_array_C(kernel_groups.reshape(12, 3, 3).astype(np.int8)))
+A = np.array([-18, -12, -10,  20, -30, -9, -31,  0,  28, -6,  31, -18,  29,  19,  4, -24, -8,  25, -31,  27, -25, -16, -29,  21, -4,  11,  3])
 
-exit(0)
+B = np.array([13, 94, 47, 14, 199, 205, 214, 251, 248, 24, 89, 74, 37, 129, 134, 209, 218, 161, 67, 217, 101, 41, 31, 166, 108, 237, 35])
 
+sum = 0
+for i in range(27):
+    sum += A[i] * B[i]
+    print(sum)

@@ -99,13 +99,14 @@ void write_output(hls::stream<int16_t, 1> output[KERNELS], hls::stream<axis_out_
     sent += 1;
 
     axis_out_t out_data;
-    out_data.data.range(7, 0) = output[0].read();
-    out_data.data.range(15, 8) = output[1].read();
-    out_data.data.range(23, 16) = output[2].read();
-    out_data.data.range(31, 24) = output[3].read();
+    out_data.data.range(15, 0) = output[0].read();
+    out_data.data.range(31, 16) = output[1].read();
+    out_data.data.range(47, 32) = output[2].read();
+    out_data.data.range(63, 48) = output[3].read();
     out_data.keep = -1;
     out_data.last = sent == STRIPE_OUTPUT_WIDTH;
     out.write(out_data);
+    //std::cout << (int)out_data.data.range(15, 0) << " " << (int)out_data.data.range(31, 16) << " " << (int)out_data.data.range(47, 32) << " " << (int)out_data.data.range(63, 48) << std::endl;
 
     if (sent == STRIPE_OUTPUT_WIDTH)
     {
@@ -128,19 +129,23 @@ void kernel
 #pragma HLS RESOURCE variable=stripes core=RAM_2P_BRAM
 #pragma HLS ARRAY_PARTITION variable=stripes complete dim=1
 
+    static bool next_iteration = false;
     static bool iteration = false;
     static int16_t col_index = 0;
 #pragma HLS RESET variable=iteration
 
-    if (iteration)
+    if (!iteration)
     {
         for (int i = 0; i < num_channels; i++)
         {
+            int local_col_index = col_index;
             for (int j = 0; j < 2; j++)
             {
-                stripes[i][0][col_index] = input_upper[i].read();
-                stripes[i][1][col_index] = input_lower[i].read();
-                col_index++;
+                stripes[i][0][local_col_index] = input_upper[i].read();
+                //std::cout << "stripes[" << i << "][0][" << local_col_index << "] = " << (int)stripes[i][0][local_col_index] << std::endl;
+                stripes[i][1][local_col_index] = input_lower[i].read();
+                //std::cout << "stripes[" << i << "][1][" << local_col_index << "] = " << (int)stripes[i][1][local_col_index] << std::endl;
+                local_col_index++;
             }
         }
     }
@@ -148,14 +153,18 @@ void kernel
     {
         for (int i = 0; i < num_channels; i++)
         {
+            int local_col_index = col_index;
             for (int j = 0; j < 2; j++)
             {
-                stripes[i][2][col_index] = input_upper[i].read();
-                stripes[i][3][col_index] = input_lower[i].read();
-                col_index++;
+                stripes[i][2][local_col_index] = input_upper[i].read();
+                //std::cout << "stripes[" << i << "][2][" << local_col_index << "] = " << (int)stripes[i][2][local_col_index] << std::endl;
+                stripes[i][3][local_col_index] = input_lower[i].read();
+                //std::cout << "stripes[" << i << "][3][" << local_col_index << "] = " << (int)stripes[i][3][local_col_index] << std::endl;
+                local_col_index++;
             }
         }
     }
+    col_index += 2;
 
     uint16_t current_col_index = col_index - 4 > 0 ? col_index - 4 : 0;
     uint16_t current_row_indices[4];
@@ -174,13 +183,7 @@ void kernel
         current_row_indices[3] = 1;
     }
 
-    if (col_index == width)
-    {
-        col_index = 0;
-        iteration = !iteration;
-    }
-
-    int16_t maxes[num_kernels] = {0, };
+    int32_t maxes[num_kernels] = {0, };
     for (int i = 0; i < 4; i++)
     {
         bool top_offset = i >= 2;
@@ -201,7 +204,7 @@ void kernel
         }
         uint16_t local_col_index = current_col_index + left_offset;
 
-        int16_t partial_sums[num_channels][num_kernels] = {{0, }, };
+        int32_t partial_sums[num_channels][num_kernels] = {{0, }, };
     #pragma HLS ARRAY_PARTITION variable=partial_sums complete
 
         for (int l = 0; l < kernel_size; l++)
@@ -215,18 +218,32 @@ void kernel
                     {
                     #pragma HLS UNROLL
                         partial_sums[j][k] += kernels[j * num_kernels + k][l][m] * stripes[j][local_row_indices[l]][local_col_index + m];
+                        if (false)
+                        {
+                            std::cout << "partial_sums[" << j << "][" << k << "] = " << partial_sums[j][k] << std::endl;
+                            std::cout << "kernels[" << j * num_kernels + k << "][" << l << "][" << m << "] = " << (int)kernels[j * num_kernels + k][l][m] << " ";
+                            std::cout << "stripes[" << j << "][" << local_row_indices[l] << "][" << local_col_index + m << "] = " << (int)stripes[j][local_row_indices[l]][local_col_index + m] << std::endl;
+                        }
                     }
                 }
             }
         }
 
-        int16_t kernel_sums[num_channels] = {0, };
+        int32_t kernel_sums[num_kernels] = {0, };
         for (int k = 0; k < num_kernels; k++)
         {
         #pragma HLS UNROLL
             for (int j = 0; j < num_channels; j++)
             {
                 kernel_sums[k] += partial_sums[j][k];
+            }
+        }
+
+        if (next_iteration && false)
+        {
+            for (int j = 0; j < num_kernels; j++)
+            {
+                std::cout << "kernel_sums[" << j << "] = " << kernel_sums[j] << std::endl;
             }
         }
 
@@ -240,6 +257,26 @@ void kernel
     for (int i = 0; i < num_kernels; i++)
     {
         output[i].write(maxes[i]);
+    }
+
+    if (next_iteration && false)
+    {
+        for (int i = 0; i < num_kernels; i++)
+        {
+            std::cout << "maxes[" << i << "] = " << maxes[i] << std::endl;
+        }
+        exit(0);
+    }
+
+    if (iteration)
+    {
+        next_iteration = true;
+    }
+
+    if (col_index == width)
+    {
+        col_index = 0;
+        iteration = !iteration;
     }
 }
 

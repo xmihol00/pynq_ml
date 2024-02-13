@@ -5,9 +5,6 @@
     <downStreamTool>
         <DownStreamTool name="vivado"/>
     </downStreamTool>
-    <clockList>
-        <clock name="default" period="10"/>
-    </clockList>
     <config>
         <schedule model="fused_cnn_layer"/>
     </config>
@@ -57,6 +54,9 @@
             <Rtl active="false" name="vhdl"/>
         </SimFlow>
     </Simulation>
+    <clockList>
+        <clock default="false" name="default" period="10"/>
+    </clockList>
     <name>
         <value string="solution1"/>
     </name>
