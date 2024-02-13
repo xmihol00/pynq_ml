@@ -4,5 +4,9 @@
     <originFiles name="fused_cnn_layer.cpp" path="/mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU/fused_cnn_layer.cpp"/>
     <originFiles name="fused_cnn_layer.h" path="/mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU/fused_cnn_layer.h"/>
   </source>
-  <testbench/>
+  <testbench>
+    <originFiles name="fused_cnn_layer.h" path="/mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU/fused_cnn_layer.h"/>
+    <originFiles name="fused_cnn_layer_tb.cpp" path="/mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU/fused_cnn_layer_tb.cpp"/>
+    <originFiles name="fused_cnn_layer_tb.h" path="/mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU/fused_cnn_layer_tb.h"/>
+  </testbench>
 </autopilotfilemapping:AutoPilotFileMapping>
