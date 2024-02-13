@@ -1,6 +1,6 @@
 #include "fused_cnn_layer.h"
 
-void read_input(hls::stream<uint8_t, 2> input_upper[3], hls::stream<uint8_t, 2> input_lower[3], hls::stream<axis_in_t> in[2])
+void read_input(hls::stream<uint8_t, 2> input_upper[CHANNELS], hls::stream<uint8_t, 2> input_lower[CHANNELS], hls::stream<axis_in_t> in[2])
 {
 #pragma HLS PIPELINE off
 
@@ -93,56 +93,23 @@ void read_input(hls::stream<uint8_t, 2> input_upper[3], hls::stream<uint8_t, 2> 
     last_in[1] = current_in[1];
 }
 
-void write_output(hls::stream<int16_t, 1> output[3], hls::stream<axis_out_t> &out)
+void write_output(hls::stream<int16_t, 1> output[KERNELS], hls::stream<axis_out_t> &out)
 {
     int sent = 0;
-    static axis_out_t out_data = {0, };
-    out_data.keep = 0xFF;
-    out_data.last = 0;
-    static ReadWriteStates state = FIRST;
-    
-    sent += 3;
+    sent += 1;
+
+    axis_out_t out_data;
+    out_data.data.range(7, 0) = output[0].read();
+    out_data.data.range(15, 8) = output[1].read();
+    out_data.data.range(23, 16) = output[2].read();
+    out_data.data.range(31, 24) = output[3].read();
+    out_data.keep = -1;
+    out_data.last = sent == STRIPE_OUTPUT_WIDTH;
+    out.write(out_data);
+
     if (sent == STRIPE_OUTPUT_WIDTH)
     {
-        out_data.last = 1;
         sent = 0;
-    }
-    else
-    {
-        out_data.last = 0;
-    }
-    
-    switch (state)
-    {
-    case FIRST:
-        out_data.data.range(7, 0) = output[0].read();
-        out_data.data.range(15, 8) = output[1].read();
-        out_data.data.range(23, 16) = output[2].read();
-        state = SECOND;
-        break;
-    
-    case SECOND:
-        out_data.data.range(31, 24) = output[0].read();
-        out.write(out_data);
-        out_data.data.range(7, 0) = output[1].read();
-        out_data.data.range(15, 8) = output[2].read();
-        state = THIRD;
-        break;
-    
-    case THIRD:
-        out_data.data.range(23, 16) = output[0].read();
-        out_data.data.range(31, 24) = output[1].read();
-        out.write(out_data);
-        out_data.data.range(7, 0) = output[2].read();
-        state = FOURTH;
-        break;
-    
-    case FOURTH:
-        out_data.data.range(15, 8) = output[0].read();
-        out_data.data.range(23, 16) = output[1].read();
-        out_data.data.range(31, 24) = output[2].read();
-        out.write(out_data);
-        state = FIRST;
     }
 }
 
@@ -152,7 +119,7 @@ void kernel
     hls::stream<uint8_t, 2> input_upper[num_channels],
     hls::stream<uint8_t, 2> input_lower[num_channels],
     hls::stream<int16_t, 1> output[num_kernels],
-    const int8_t kernels[num_channels][num_kernels][kernel_size][kernel_size]
+    const int8_t kernels[num_channels * num_kernels][kernel_size][kernel_size]
 )
 {
 #pragma HLS PIPELINE off
@@ -234,44 +201,44 @@ void kernel
         }
         uint16_t local_col_index = current_col_index + left_offset;
 
-        for (int j = 0; j < num_channels; j++)
+        int16_t partial_sums[num_channels][num_kernels] = {{0, }, };
+    #pragma HLS ARRAY_PARTITION variable=partial_sums complete
+
+        for (int l = 0; l < kernel_size; l++)
         {
-        #pragma HLS UNROLL
-            int16_t partial_sums[num_channels][num_kernels] = {{0, }, };
-            for (int l = 0; l < kernel_size; l++)
+            for (int m = 0; m < kernel_size; m++)
             {
-                for (int m = 0; m < kernel_size; m++)
+                for (int j = 0; j < num_channels; j++)
                 {
+                #pragma HLS UNROLL
                     for (int k = 0; k < num_kernels; k++)
                     {
                     #pragma HLS UNROLL
-                        partial_sums[j][k] += kernels[j][k][l][m] * stripes[j][local_row_indices[l]][local_col_index + m];
+                        partial_sums[j][k] += kernels[j * num_kernels + k][l][m] * stripes[j][local_row_indices[l]][local_col_index + m];
                     }
                 }
             }
         }
 
-        int16_t channel_sums[num_channels] = {0, };
-        for (int j = 0; j < num_channels; j++)
+        int16_t kernel_sums[num_channels] = {0, };
+        for (int k = 0; k < num_kernels; k++)
         {
         #pragma HLS UNROLL
-            for (int k = 0; k < num_kernels; k++)
+            for (int j = 0; j < num_channels; j++)
             {
-            #pragma HLS UNROLL
-                channel_sums[j] += partial_sums[j][k];
+                kernel_sums[k] += partial_sums[j][k];
             }
         }
 
         for (int j = 0; j < num_kernels; j++)
         {
         #pragma HLS UNROLL
-            maxes[j] = channel_sums[j] > maxes[j] ? channel_sums[j] : maxes[j];
+            maxes[j] = kernel_sums[j] > maxes[j] ? kernel_sums[j] : maxes[j];
         }
     }
 
     for (int i = 0; i < num_kernels; i++)
     {
-    #pragma HLS UNROLL
         output[i].write(maxes[i]);
     }
 }
@@ -282,15 +249,15 @@ void fused_cnn_layer(hls::stream<axis_in_t> in[2], hls::stream<axis_out_t> &out)
 #pragma HLS INTERFACE axis port=out
 #pragma HLS INTERFACE ap_ctrl_none port=return
 
-    static const int8_t kernels[CHANNELS][KERNELS_PER_CHANNEL][KERNEL_SIZE][KERNEL_SIZE] = {{{{0}, }}};
-#pragma HLS ARRAY_PARTITION variable=kernels complete dim=1
+    static const int8_t kernels[CHANNELS * KERNELS][KERNEL_SIZE][KERNEL_SIZE] = KERNEL_WEIGHTS;
+#pragma HLS ARRAY_PARTITION variable=kernels block factor=9 dim=1
 
 #pragma HLS DATAFLOW
     hls::stream<uint8_t, 2> input_upper[CHANNELS];
     hls::stream<uint8_t, 2> input_lower[CHANNELS];
-    hls::stream<int16_t, 1> output[KERNELS_PER_CHANNEL];
+    hls::stream<int16_t, 1> output[KERNELS];
 
     read_input(input_upper, input_lower, in);
-    kernel<CHANNELS, KERNELS_PER_CHANNEL, KERNEL_SIZE, STRIPE_INPUT_WIDTH, STRIPE_HEIGHT>(input_upper, input_lower, output, kernels);
+    kernel<CHANNELS, KERNELS, KERNEL_SIZE, STRIPE_INPUT_WIDTH, STRIPE_HEIGHT>(input_upper, input_lower, output, kernels);
     write_output(output, out);       
 }
