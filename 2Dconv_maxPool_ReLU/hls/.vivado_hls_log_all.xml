@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Register 'col_index' is power-on initialization." projectName="hls" solutionName="solution1" date="2024-02-13T18:26:34.872+0100" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'iteration' is power-on initialization." projectName="hls" solutionName="solution1" date="2024-02-13T18:26:34.786+0100" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'state' is power-on initialization." projectName="hls" solutionName="solution1" date="2024-02-13T18:26:34.582+0100" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'last_in_data_V_1' is power-on initialization." projectName="hls" solutionName="solution1" date="2024-02-13T18:26:34.561+0100" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'last_in_data_V_0' is power-on initialization." projectName="hls" solutionName="solution1" date="2024-02-13T18:26:34.553+0100" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'guard_variable_for_r' is power-on initialization." projectName="hls" solutionName="solution1" date="2024-02-13T18:26:34.548+0100" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'kernel&lt;(unsigned char)3, (unsigned char)4, (unsigned char)3, 1280, 6>' to 'kernel' (fused_cnn_layer.cpp:128:36)" projectName="hls" solutionName="solution1" date="2024-02-13T18:26:31.848+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-471] Dataflow form checks found 1 issue(s) in file fused_cnn_layer.cpp" projectName="hls" solutionName="solution1" date="2024-02-13T18:26:29.367+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 214-111] Static scalars and arrays declared inside a dataflow region will be treated like local variables: fused_cnn_layer.cpp:252:22" projectName="hls" solutionName="solution1" date="2024-02-13T18:26:24.019+0100" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

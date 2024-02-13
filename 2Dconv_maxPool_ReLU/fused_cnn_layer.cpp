@@ -138,8 +138,8 @@ void kernel
         {
             for (int j = 0; j < 2; j++)
             {
-                stripes[i][0][col_index] = in[i].read();
-                stripes[i][1][col_index] = in[i].read();
+                stripes[i][0][col_index] = input_upper[i].read();
+                stripes[i][1][col_index] = input_lower[i].read();
                 col_index++;
             }
         }
@@ -150,8 +150,8 @@ void kernel
         {
             for (int j = 0; j < 2; j++)
             {
-                stripes[i][2][col_index] = in[i].read();
-                stripes[i][3][col_index] = in[i].read();
+                stripes[i][2][col_index] = input_upper[i].read();
+                stripes[i][3][col_index] = input_lower[i].read();
                 col_index++;
             }
         }
@@ -250,7 +250,7 @@ void fused_cnn_layer(hls::stream<axis_in_t> in[2], hls::stream<axis_out_t> &out)
 #pragma HLS INTERFACE ap_ctrl_none port=return
 
     static const int8_t kernels[CHANNELS * KERNELS][KERNEL_SIZE][KERNEL_SIZE] = KERNEL_WEIGHTS;
-#pragma HLS ARRAY_PARTITION variable=kernels block factor=9 dim=1
+#pragma HLS ARRAY_PARTITION variable=kernels block factor=12 dim=1
 
 #pragma HLS DATAFLOW
     hls::stream<uint8_t, 2> input_upper[CHANNELS];

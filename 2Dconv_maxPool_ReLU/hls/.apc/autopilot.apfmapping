@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="fused_cnn_layer.cpp" path="/mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU/fused_cnn_layer.cpp"/>
+    <originFiles name="fused_cnn_layer.h" path="/mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU/fused_cnn_layer.h"/>
+  </source>
+  <testbench/>
+</autopilotfilemapping:AutoPilotFileMapping>
