@@ -4,8 +4,7 @@ void read_input(hls::stream<uint8_t, 2> input_upper[3], hls::stream<uint8_t, 2> 
 {
 #pragma HLS PIPELINE off
 
-    enum ReadStates { FIRST, SECOND, THIRD, FOURTH };
-    static ReadStates state = FIRST;
+    static ReadWriteStates state = FIRST;
     static axis_in_t last_in[2] = {0, };
 
     axis_in_t current_in[2];
@@ -92,6 +91,59 @@ void read_input(hls::stream<uint8_t, 2> input_upper[3], hls::stream<uint8_t, 2> 
 
     last_in[0] = current_in[0];
     last_in[1] = current_in[1];
+}
+
+void write_output(hls::stream<int16_t, 1> output[3], hls::stream<axis_out_t> &out)
+{
+    int sent = 0;
+    static axis_out_t out_data = {0, };
+    out_data.keep = 0xFF;
+    out_data.last = 0;
+    static ReadWriteStates state = FIRST;
+    
+    sent += 3;
+    if (sent == STRIPE_OUTPUT_WIDTH)
+    {
+        out_data.last = 1;
+        sent = 0;
+    }
+    else
+    {
+        out_data.last = 0;
+    }
+    
+    switch (state)
+    {
+    case FIRST:
+        out_data.data.range(7, 0) = output[0].read();
+        out_data.data.range(15, 8) = output[1].read();
+        out_data.data.range(23, 16) = output[2].read();
+        state = SECOND;
+        break;
+    
+    case SECOND:
+        out_data.data.range(31, 24) = output[0].read();
+        out.write(out_data);
+        out_data.data.range(7, 0) = output[1].read();
+        out_data.data.range(15, 8) = output[2].read();
+        state = THIRD;
+        break;
+    
+    case THIRD:
+        out_data.data.range(23, 16) = output[0].read();
+        out_data.data.range(31, 24) = output[1].read();
+        out.write(out_data);
+        out_data.data.range(7, 0) = output[2].read();
+        state = FOURTH;
+        break;
+    
+    case FOURTH:
+        out_data.data.range(15, 8) = output[0].read();
+        out_data.data.range(23, 16) = output[1].read();
+        out_data.data.range(31, 24) = output[2].read();
+        out.write(out_data);
+        state = FIRST;
+    }
 }
 
 template<uint8_t num_channels, uint8_t num_kernels, uint8_t kernel_size, int32_t width, int32_t height>
