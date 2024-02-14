@@ -44,5 +44,4 @@ void fused_cnn_layer(hls::stream<axis_in_t> in[2], hls::stream<axis_out_t> &out)
 	{{  -10,   -9,   28 }, {  -18,    4,   25 }, {  -25,   21,    3 }}\
 }
 
-
 #endif

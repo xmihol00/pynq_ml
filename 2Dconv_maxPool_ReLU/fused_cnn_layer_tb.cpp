@@ -1,17 +1,17 @@
 #include "fused_cnn_layer_tb.h"
 #include "fused_cnn_layer.h"
 
-const uint8_t inputs_1[3*512*256] = INPUT_DATA_1;
-const uint8_t inputs_2[3*512*256] = INPUT_DATA_2;
-const int16_t predictions[4*255*255] = PREDICTION;
+const uint8_t inputs_1[3*512*257] = INPUT_DATA_1;
+const uint8_t inputs_2[3*512*257] = INPUT_DATA_2;
+const int16_t predictions[4*255*256] = PREDICTION;
 
 int main()
 {
-    int16_t output[4*255*256];
+    int16_t output[4*257*256];
     hls::stream<axis_in_t, 3> in_streams[2];
     hls::stream<axis_out_t, 4> out_stream;
 
-    for (int n = 0; n < 16384; n++)
+    for (int n = 0; n < 16384 + 2; n++)
     {
         int in_shift = n*24;
         int out_shift = n*16;
@@ -62,16 +62,25 @@ int main()
         }
     }
 
-    for (int i = 0; i < 4*255*255; i++)
+    bool failed = false;
+    int error_count = 0;
+    for (int i = 0; i < 4*255*256; i++)
     {
-        if (output[i + 1028] != predictions[i])
+        if (output[i + 1032] != predictions[i])
         {
-            std::cout << "Test failed at index " << i << std::endl;
-            std::cout << "Expected: " << predictions[i] << std::endl;
-            std::cout << "Actual: " << output[i] << std::endl;
-            return 1;
+            std::cout << "Failed at " << i << ": Expected - " << predictions[i] << "\t Actual - " << output[i + 1032] << std::endl;
+            failed = true;
+            error_count++;
+            if (error_count > 10)
+            {
+                break;
+            }
+        }
+        else
+        {
+            //std::cout << "Passed at " << i << ": Expected - " << predictions[i] << "\t Actual - " << output[i + 1028] << std::endl;
         }
     }
         
-    return 0;
+    return failed;
 }

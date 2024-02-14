@@ -9,6 +9,50 @@
       <mgLog/>
       <packageLog/>
       <csimLog>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-02-14T10:39:25.324+0100"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-02-14T10:39:25.318+0100"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-02-14T10:38:26.254+0100"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-02-14T10:38:26.249+0100"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-02-14T10:32:40.192+0100"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-02-14T10:32:40.185+0100"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-02-14T10:27:06.095+0100"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-02-14T10:27:06.089+0100"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-02-14T10:24:44.383+0100"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-02-14T10:24:44.376+0100"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-02-14T10:15:36.293+0100"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-02-14T10:15:36.285+0100"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-02-14T10:12:35.084+0100"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-02-14T10:12:35.077+0100"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-02-14T10:12:23.364+0100"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-02-14T10:12:23.273+0100"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-02-14T10:06:10.649+0100"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-02-14T10:06:10.636+0100"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-02-14T10:03:46.527+0100"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-02-14T10:03:46.521+0100"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-02-14T09:59:22.829+0100"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-02-14T09:59:22.822+0100"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-02-14T09:55:07.070+0100"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-02-14T09:55:07.063+0100"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-02-14T09:54:13.222+0100"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-02-14T09:54:13.215+0100"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-02-14T09:53:27.306+0100"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-02-14T09:53:27.299+0100"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-02-14T09:49:55.343+0100"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-02-14T09:49:55.329+0100"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-02-14T08:36:40.009+0100"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-02-14T08:36:39.999+0100"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-02-14T08:31:26.176+0100"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-02-14T08:31:26.158+0100"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-02-14T07:52:15.407+0100"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-02-14T07:52:15.376+0100"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-02-14T07:51:34.812+0100"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-02-14T07:51:34.790+0100"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-02-14T07:51:10.450+0100"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-02-14T07:51:10.431+0100"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="hls" solutionName="solution1" date="2024-02-14T07:49:51.050+0100"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="hls" solutionName="solution1" date="2024-02-14T07:49:51.016+0100"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="hls" solutionName="solution1" date="2024-02-14T07:42:20.976+0100"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="hls" solutionName="solution1" date="2024-02-14T07:42:20.959+0100"/>
         <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="hls" solutionName="solution1" date="2024-02-13T23:06:52.890+0100"/>
         <logs message="@E Simulation failed: SIGSEGV." projectName="hls" solutionName="solution1" date="2024-02-13T23:06:52.886+0100"/>
         <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-02-13T23:05:26.685+0100"/>

@@ -12,10 +12,12 @@ np.random.seed(42)
 
 IN_CHANNELS = 3
 OUT_CHANNELS = 4
+IN_WIDTH = 514
+IN_HEIGHT = 512
 
 model = tf.keras.models.Sequential(
     [
-        tf.keras.layers.Conv2D(OUT_CHANNELS, (3, 3), activation='relu', input_shape=(512, 512, IN_CHANNELS)),
+        tf.keras.layers.Conv2D(OUT_CHANNELS, (3, 3), activation='relu', input_shape=(IN_HEIGHT, IN_WIDTH, IN_CHANNELS), padding='valid'),
         tf.keras.layers.MaxPooling2D((2, 2)),
     ]
 )
@@ -28,27 +30,33 @@ for i, layer in enumerate(layers):
         weights, biases = layer.get_weights()
         model.layers[i].set_weights([np.random.randint(-32, 32, weights.shape).astype(np.float32), np.zeros_like(biases)])
 
-input_data = np.random.randint(0, 255, (1, 512, 512, IN_CHANNELS)).astype(np.float32)
+input_data = np.random.randint(0, 255, (1, IN_HEIGHT, IN_WIDTH, IN_CHANNELS)).astype(np.float32)
+input_data[:, :, 0, :] = 0
+input_data[:, :, -1, :] = 0
 prediction = model.predict(input_data)
-prediction_reshaped = prediction.reshape(255*255, -1).T
+prediction_reshaped = prediction.reshape(256*255, -1).T
 
-prediction_merged = np.zeros((4*255*255))
+prediction_merged = np.zeros((4*256*255))
 for i in range(4):
     prediction_merged[i::4] = prediction_reshaped[i]
 
 #print("#define PREDICTION", format_array_C(prediction_merged.astype(np.int16)))
 
-inputs = input_data.reshape(512*512, -1).T
+inputs = input_data.reshape(IN_HEIGHT*IN_WIDTH, -1).T
+inputs_hw = inputs.reshape(IN_CHANNELS, IN_HEIGHT, IN_WIDTH)[:, :, 1:-1]
+print(inputs_hw[:, :4, :9])
+inputs_hw = inputs_hw.reshape(IN_CHANNELS, IN_HEIGHT*(IN_WIDTH-2))
 
-inputs_merged = np.zeros((3*512*512))
-for i in range(3):
-    inputs_merged[i::3] = inputs[i]
+inputs_merged = np.zeros((IN_CHANNELS*IN_HEIGHT*IN_WIDTH))
+inputs_merged_hw = np.zeros((IN_CHANNELS*IN_HEIGHT*(IN_WIDTH-2)))
+for i in range(IN_CHANNELS):
+    inputs_merged[i::IN_CHANNELS] = inputs[i]
+    inputs_merged_hw[i::IN_CHANNELS] = inputs_hw[i]
 
 
-inputs_merged = inputs_merged.reshape(512, -1)
-#print("#define INPUT_DATA_1", format_array_C(inputs_merged[0::2].flatten().astype(np.uint8)))
-#print("#define INPUT_DATA_2", format_array_C(inputs_merged[1::2].flatten().astype(np.uint8)))
-inputs_merged = inputs_merged.flatten()
+inputs_merged_hw = inputs_merged_hw.reshape((IN_WIDTH-2), -1)
+#print("#define INPUT_DATA_1", format_array_C(inputs_merged_hw[0::2].flatten().astype(np.uint8)))
+#print("#define INPUT_DATA_2", format_array_C(inputs_merged_hw[1::2].flatten().astype(np.uint8)))
 
 kernels = model.layers[0].get_weights()[0]
 kernels = kernels.reshape(9, -1).T
@@ -71,12 +79,15 @@ kernel_groups = np.array(kernel_groups)
 
 outputs = []
 for i, group in enumerate(kernel_groups):
-    kernel_sum = np.zeros((510, 510))
+    kernel_sum = np.zeros((IN_HEIGHT-2, IN_WIDTH-2))
     for j, kernel in enumerate(group):
-        out = convolve2d(inputs_merged[j::3].reshape(512, 512), kernel, mode='valid')
+        out = convolve2d(inputs_merged[j::IN_CHANNELS].reshape(IN_HEIGHT, IN_WIDTH), kernel, mode='valid')
         kernel_sum += out
     
-    print("ks", kernel_sum[:2, :2])
+    print("ks 0", kernel_sum[:2, :2].flatten())
+    print("ks 1", kernel_sum[:2, 2:4].flatten())
+    print("ks 2", kernel_sum[:2, 4:6].flatten())
+    print("ks 3", kernel_sum[:2, 6:8].flatten())
     
     out = np.maximum(kernel_sum, 0)
     out = block_reduce(out, (2, 2), np.max)
@@ -84,14 +95,9 @@ for i, group in enumerate(kernel_groups):
 
 outputs = np.array(outputs)
 print(outputs[:, 0, 0])
+print(outputs[:, 0, 1])
+print(outputs[:, 0, 2])
+print(outputs[:, 0, 3])
 for i in range(4):
-    print(np.array_equal(outputs[i], prediction_merged[i::4].reshape(255, 255)))
+    print(np.array_equal(outputs[i], prediction_merged[i::4].reshape(255, 256)))
 
-A = np.array([-18, -12, -10,  20, -30, -9, -31,  0,  28, -6,  31, -18,  29,  19,  4, -24, -8,  25, -31,  27, -25, -16, -29,  21, -4,  11,  3])
-
-B = np.array([13, 94, 47, 14, 199, 205, 214, 251, 248, 24, 89, 74, 37, 129, 134, 209, 218, 161, 67, 217, 101, 41, 31, 166, 108, 237, 35])
-
-sum = 0
-for i in range(27):
-    sum += A[i] * B[i]
-    print(sum)
