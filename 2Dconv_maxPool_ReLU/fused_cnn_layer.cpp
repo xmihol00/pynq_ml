@@ -129,7 +129,6 @@ void kernel
 #pragma HLS ARRAY_PARTITION variable=stripes complete dim=1
 #pragma HLS RESET variable=stripes
 
-    static int it_count = 0;
     static bool read_odd = false;
     static bool compute_odd = true;
     static int16_t read_col_index = 1;
@@ -146,9 +145,7 @@ void kernel
             for (int j = 0; j < 2; j++)
             {
                 stripes[i][0][local_col_index] = input_upper[i].read();
-                //std::cout << "stripes[" << i << "][0][" << local_col_index << "] = " << (int)stripes[i][0][local_col_index] << std::endl;
                 stripes[i][1][local_col_index] = input_lower[i].read();
-                //std::cout << "stripes[" << i << "][1][" << local_col_index << "] = " << (int)stripes[i][1][local_col_index] << std::endl;
                 local_col_index++;
             }
         }
@@ -161,9 +158,7 @@ void kernel
             for (int j = 0; j < 2; j++)
             {
                 stripes[i][2][local_col_index] = input_upper[i].read();
-                //std::cout << "stripes[" << i << "][2][" << local_col_index << "] = " << (int)stripes[i][2][local_col_index] << std::endl;
                 stripes[i][3][local_col_index] = input_lower[i].read();
-                //std::cout << "stripes[" << i << "][3][" << local_col_index << "] = " << (int)stripes[i][3][local_col_index] << std::endl;
                 local_col_index++;
             }
         }
@@ -220,11 +215,6 @@ void kernel
                     {
                     #pragma HLS UNROLL
                         partial_sums[j][k] += kernels[j * num_kernels + k][l][m] * stripes[j][local_row_indices[l]][local_col_index + m];
-                        if (compute_odd && it_count > 0 && false)
-                        {
-                            std::cout << "kernels[" << j * num_kernels + k << "][" << l << "][" << m << "] = " << (int)kernels[j * num_kernels + k][l][m] << " ";
-                            std::cout << "stripes[" << j << "][" << local_row_indices[l] << "][" << local_col_index + m << "] = " << (int)stripes[j][local_row_indices[l]][local_col_index + m] << std::endl;
-                        }
                     }
                 }
             }
@@ -240,26 +230,11 @@ void kernel
             }
         }
 
-        if (compute_odd && it_count > 0 && false)
-        {
-            std::cout << "ks " << i << ": " << kernel_sums[0] << " " << kernel_sums[1] << " " << kernel_sums[2] << " " << kernel_sums[3] << std::endl;
-        }
-
         for (int j = 0; j < num_kernels; j++)
         {
         #pragma HLS UNROLL
             maxes[j] = kernel_sums[j] > maxes[j] ? kernel_sums[j] : maxes[j];
         }
-    }
-
-    if (compute_odd && it_count > 0 && false)
-    {
-        std::cout << "maxes: ";
-        for (int i = 0; i < num_kernels; i++)
-        {
-            std::cout << maxes[i] << " ";
-        }
-        std::cout << std::endl;
     }
 
     for (int i = 0; i < num_kernels; i++)
@@ -272,7 +247,6 @@ void kernel
     {
         read_col_index = 1;
         read_odd = !read_odd;
-        it_count++;
     }
 
     compute_col_index += 2;
