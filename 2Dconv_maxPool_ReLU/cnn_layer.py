@@ -41,10 +41,10 @@ for i in range(4):
     prediction_merged[i::4] = prediction_reshaped[i]
 
 #print("#define PREDICTION", format_array_C(prediction_merged.astype(np.int16)))
+np.save("prediction.npy", prediction_merged.astype(np.int16))
 
 inputs = input_data.reshape(IN_HEIGHT*IN_WIDTH, -1).T
 inputs_hw = inputs.reshape(IN_CHANNELS, IN_HEIGHT, IN_WIDTH)[:, :, 1:-1]
-print(inputs_hw[:, :4, :9])
 inputs_hw = inputs_hw.reshape(IN_CHANNELS, IN_HEIGHT*(IN_WIDTH-2))
 
 inputs_merged = np.zeros((IN_CHANNELS*IN_HEIGHT*IN_WIDTH))
@@ -57,6 +57,8 @@ for i in range(IN_CHANNELS):
 inputs_merged_hw = inputs_merged_hw.reshape((IN_WIDTH-2), -1)
 #print("#define INPUT_DATA_1", format_array_C(inputs_merged_hw[0::2].flatten().astype(np.uint8)))
 #print("#define INPUT_DATA_2", format_array_C(inputs_merged_hw[1::2].flatten().astype(np.uint8)))
+#np.save("input_data_1.npy", inputs_merged_hw[0::2])
+#np.save("input_data_2.npy", inputs_merged_hw[1::2])
 
 kernels = model.layers[0].get_weights()[0]
 kernels = kernels.reshape(9, -1).T
@@ -83,11 +85,6 @@ for i, group in enumerate(kernel_groups):
     for j, kernel in enumerate(group):
         out = convolve2d(inputs_merged[j::IN_CHANNELS].reshape(IN_HEIGHT, IN_WIDTH), kernel, mode='valid')
         kernel_sum += out
-    
-    print("ks 0", kernel_sum[:2, :2].flatten())
-    print("ks 1", kernel_sum[:2, 2:4].flatten())
-    print("ks 2", kernel_sum[:2, 4:6].flatten())
-    print("ks 3", kernel_sum[:2, 6:8].flatten())
     
     out = np.maximum(kernel_sum, 0)
     out = block_reduce(out, (2, 2), np.max)
