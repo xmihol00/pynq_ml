@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'fused_cnn_layer'" level="0">
-<item name = "Date">Wed Feb 14 10:44:42 2024
+<item name = "Date">Fri Feb 16 21:06:23 2024
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">hls</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 8.702 ns, 1.25 ns</column>
+<column name="ap_clk">10.00 ns, 7.069 ns, 1.25 ns</column>
 </table>
 </item>
 </section>
@@ -24,16 +24,16 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">449, 449, 4.490 us, 4.490 us, 450, 450, dataflow</column>
+<column name="">1338, 1338, 13.380 us, 13.380 us, 1338, 1338, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="kernel_U0">kernel, 449, 449, 4.490 us, 4.490 us, 449, 449, none</column>
-<column name="read_input_U0">read_input, 1, 1, 10.000 ns, 10.000 ns, 1, 1, none</column>
-<column name="write_output_U0">write_output, 1, 1, 10.000 ns, 10.000 ns, 1, 1, none</column>
+<column name="grp_kernel_fu_172">kernel, 1321, 1321, 13.210 us, 13.210 us, 1321, 1321, none</column>
+<column name="grp_read_input_fu_224">read_input, 7, 7, 70.000 ns, 70.000 ns, 7, 7, none</column>
+<column name="grp_write_output_fu_250">write_output, 3, 3, 30.000 ns, 30.000 ns, 3, 3, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -50,23 +50,23 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, -, -, -</column>
-<column name="FIFO">0, -, 50, 232, -</column>
-<column name="Instance">17, 12, 7637, 10878, 0</column>
+<column name="Expression">-, -, 0, 2, -</column>
+<column name="FIFO">0, -, 56, 244, -</column>
+<column name="Instance">6, 12, 9723, 13041, 0</column>
 <column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, -, -, -</column>
-<column name="Register">-, -, -, -, -</column>
+<column name="Multiplexer">-, -, -, 242, -</column>
+<column name="Register">-, -, 11, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
-<specialColumn name="Utilization (%)">6, 5, 7, 20, 0</specialColumn>
+<specialColumn name="Utilization (%)">2, 5, 9, 25, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
-<column name="kernel_U0">kernel, 17, 12, 7322, 10215, 0</column>
-<column name="read_input_U0">read_input, 0, 0, 312, 592, 0</column>
-<column name="write_output_U0">write_output, 0, 0, 3, 71, 0</column>
+<column name="grp_kernel_fu_172">kernel, 6, 12, 9564, 12364, 0</column>
+<column name="grp_read_input_fu_224">read_input, 0, 0, 120, 386, 0</column>
+<column name="grp_write_output_fu_250">write_output, 0, 0, 39, 291, 0</column>
 </table>
 </item>
 <item name = "DSP48E"><table name="" hasTotal="0">
@@ -79,28 +79,56 @@
 </item>
 <item name = "FIFO"><table name="" hasTotal="1">
 <keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
-<column name="input_lower_0_V_U">0, 5, 0, -, 2, 8, 16</column>
-<column name="input_lower_1_V_U">0, 5, 0, -, 2, 8, 16</column>
-<column name="input_lower_2_V_U">0, 5, 0, -, 2, 8, 16</column>
-<column name="input_upper_0_V_U">0, 5, 0, -, 2, 8, 16</column>
-<column name="input_upper_1_V_U">0, 5, 0, -, 2, 8, 16</column>
-<column name="input_upper_2_V_U">0, 5, 0, -, 2, 8, 16</column>
-<column name="output_0_V_U">0, 5, 0, -, 1, 16, 16</column>
-<column name="output_1_V_U">0, 5, 0, -, 1, 16, 16</column>
-<column name="output_2_V_U">0, 5, 0, -, 1, 16, 16</column>
-<column name="output_3_V_U">0, 5, 0, -, 1, 16, 16</column>
+<column name="input_lower_0_V_fifo_U">0, 6, 0, -, 8, 8, 64</column>
+<column name="input_lower_1_V_fifo_U">0, 6, 0, -, 8, 8, 64</column>
+<column name="input_lower_2_V_fifo_U">0, 6, 0, -, 8, 8, 64</column>
+<column name="input_upper_0_V_fifo_U">0, 6, 0, -, 8, 8, 64</column>
+<column name="input_upper_1_V_fifo_U">0, 6, 0, -, 8, 8, 64</column>
+<column name="input_upper_2_V_fifo_U">0, 6, 0, -, 8, 8, 64</column>
+<column name="output_0_V_fifo_U">0, 5, 0, -, 4, 16, 64</column>
+<column name="output_1_V_fifo_U">0, 5, 0, -, 4, 16, 64</column>
+<column name="output_2_V_fifo_U">0, 5, 0, -, 4, 16, 64</column>
+<column name="output_3_V_fifo_U">0, 5, 0, -, 4, 16, 64</column>
 </table>
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="grp_write_output_fu_250_out_r_TREADY">and, 0, 0, 2, 1, 1</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_NS_fsm">44, 9, 1, 9</column>
+<column name="in_0_TREADY_int">9, 2, 1, 2</column>
+<column name="in_1_TREADY_int">9, 2, 1, 2</column>
+<column name="input_lower_0_V_read">9, 2, 1, 2</column>
+<column name="input_lower_0_V_write">9, 2, 1, 2</column>
+<column name="input_lower_1_V_read">9, 2, 1, 2</column>
+<column name="input_lower_1_V_write">9, 2, 1, 2</column>
+<column name="input_lower_2_V_read">9, 2, 1, 2</column>
+<column name="input_lower_2_V_write">9, 2, 1, 2</column>
+<column name="input_upper_0_V_read">9, 2, 1, 2</column>
+<column name="input_upper_0_V_write">9, 2, 1, 2</column>
+<column name="input_upper_1_V_read">9, 2, 1, 2</column>
+<column name="input_upper_1_V_write">9, 2, 1, 2</column>
+<column name="input_upper_2_V_read">9, 2, 1, 2</column>
+<column name="input_upper_2_V_write">9, 2, 1, 2</column>
+<column name="output_0_V_read">9, 2, 1, 2</column>
+<column name="output_0_V_write">9, 2, 1, 2</column>
+<column name="output_1_V_read">9, 2, 1, 2</column>
+<column name="output_1_V_write">9, 2, 1, 2</column>
+<column name="output_2_V_read">9, 2, 1, 2</column>
+<column name="output_2_V_write">9, 2, 1, 2</column>
+<column name="output_3_V_read">9, 2, 1, 2</column>
+<column name="output_3_V_write">9, 2, 1, 2</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="ap_CS_fsm">8, 0, 8, 0</column>
+<column name="grp_kernel_fu_172_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_read_input_fu_224_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_write_output_fu_250_ap_start_reg">1, 0, 1, 0</column>
 </table>
 </item>
 </section>
@@ -110,26 +138,26 @@
 <section name = "Interface" level="0">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_clk">in, 1, ap_ctrl_none, fused_cnn_layer, return value</column>
+<column name="ap_rst_n">in, 1, ap_ctrl_none, fused_cnn_layer, return value</column>
 <column name="in_0_TDATA">in, 64, axis, in_0_V_data_V, pointer</column>
+<column name="in_0_TVALID">in, 1, axis, in_0_V_last_V, pointer</column>
+<column name="in_0_TREADY">out, 1, axis, in_0_V_last_V, pointer</column>
+<column name="in_0_TLAST">in, 1, axis, in_0_V_last_V, pointer</column>
 <column name="in_1_TDATA">in, 64, axis, in_1_V_data_V, pointer</column>
+<column name="in_1_TVALID">in, 1, axis, in_1_V_last_V, pointer</column>
+<column name="in_1_TREADY">out, 1, axis, in_1_V_last_V, pointer</column>
+<column name="in_1_TLAST">in, 1, axis, in_1_V_last_V, pointer</column>
 <column name="in_0_TKEEP">in, 8, axis, in_0_V_keep_V, pointer</column>
 <column name="in_1_TKEEP">in, 8, axis, in_1_V_keep_V, pointer</column>
 <column name="in_0_TSTRB">in, 8, axis, in_0_V_strb_V, pointer</column>
 <column name="in_1_TSTRB">in, 8, axis, in_1_V_strb_V, pointer</column>
-<column name="in_0_TLAST">in, 1, axis, in_0_V_last_V, pointer</column>
-<column name="in_0_TVALID">in, 1, axis, in_0_V_last_V, pointer</column>
-<column name="in_0_TREADY">out, 1, axis, in_0_V_last_V, pointer</column>
-<column name="in_1_TLAST">in, 1, axis, in_1_V_last_V, pointer</column>
-<column name="in_1_TVALID">in, 1, axis, in_1_V_last_V, pointer</column>
-<column name="in_1_TREADY">out, 1, axis, in_1_V_last_V, pointer</column>
 <column name="out_r_TDATA">out, 64, axis, out_V_data_V, pointer</column>
-<column name="out_r_TKEEP">out, 8, axis, out_V_keep_V, pointer</column>
-<column name="out_r_TSTRB">out, 8, axis, out_V_strb_V, pointer</column>
-<column name="out_r_TLAST">out, 1, axis, out_V_last_V, pointer</column>
 <column name="out_r_TVALID">out, 1, axis, out_V_last_V, pointer</column>
 <column name="out_r_TREADY">in, 1, axis, out_V_last_V, pointer</column>
-<column name="ap_clk">in, 1, ap_ctrl_none, fused_cnn_layer, return value</column>
-<column name="ap_rst_n">in, 1, ap_ctrl_none, fused_cnn_layer, return value</column>
+<column name="out_r_TLAST">out, 1, axis, out_V_last_V, pointer</column>
+<column name="out_r_TKEEP">out, 8, axis, out_V_keep_V, pointer</column>
+<column name="out_r_TSTRB">out, 8, axis, out_V_strb_V, pointer</column>
 </table>
 </item>
 </section>

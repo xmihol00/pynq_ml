@@ -8312,105 +8312,89 @@ enum ReadWriteStates { FIRST, SECOND, THIRD, FOURTH };
 void fused_cnn_layer(hls::stream<axis_in_t> in[2], hls::stream<axis_out_t> &out);
 # 2 "fused_cnn_layer.cpp" 2
 
-void read_input(hls::stream<uint8_t, 2> input_upper[3], hls::stream<uint8_t, 2> input_lower[3], hls::stream<axis_in_t> in[2])
+void read_input(hls::stream<uint8_t, 8> input_upper[3], hls::stream<uint8_t, 8> input_lower[3], hls::stream<axis_in_t> in[2])
 {_ssdm_SpecArrayDimSize(input_upper, 3);_ssdm_SpecArrayDimSize(input_lower, 3);_ssdm_SpecArrayDimSize(in, 2);
 _ssdm_op_SpecPipeline(0, 0, 0, 1, "");
 
- static ReadWriteStates state = FIRST;
-    static axis_in_t last_in[2] = {0, };
+ axis_in_t in_upper, in_lower;
+    in_upper = in[0].read();
+    in_lower = in[1].read();
 
-    axis_in_t current_in[2];
-    if (state != FOURTH)
-    {
-        current_in[0] = in[0].read();
-        current_in[1] = in[1].read();
-    }
+    input_upper[0].write(in_upper.data.range(7, 0));
+    input_upper[1].write(in_upper.data.range(15, 8));
+    input_upper[2].write(in_upper.data.range(23, 16));
 
-    switch (state)
-    {
-    case FIRST:
-        input_upper[0].write(current_in[0].data.range(7, 0));
-        input_upper[1].write(current_in[0].data.range(15, 8));
-        input_upper[2].write(current_in[0].data.range(23, 16));
-        input_lower[0].write(current_in[1].data.range(7, 0));
-        input_lower[1].write(current_in[1].data.range(15, 8));
-        input_lower[2].write(current_in[1].data.range(23, 16));
+    input_lower[0].write(in_lower.data.range(7, 0));
+    input_lower[1].write(in_lower.data.range(15, 8));
+    input_lower[2].write(in_lower.data.range(23, 16));
 
-        input_upper[0].write(current_in[0].data.range(31, 24));
-        input_upper[1].write(current_in[0].data.range(39, 32));
-        input_upper[2].write(current_in[0].data.range(47, 40));
-        input_lower[0].write(current_in[1].data.range(31, 24));
-        input_lower[1].write(current_in[1].data.range(39, 32));
-        input_lower[2].write(current_in[1].data.range(47, 40));
+    input_upper[0].write(in_upper.data.range(31, 24));
+    input_upper[1].write(in_upper.data.range(39, 32));
+    input_upper[2].write(in_upper.data.range(47, 40));
 
-        state = SECOND;
-        break;
+    input_lower[0].write(in_lower.data.range(31, 24));
+    input_lower[1].write(in_lower.data.range(39, 32));
+    input_lower[2].write(in_lower.data.range(47, 40));
 
-    case SECOND:
-        input_upper[0].write(last_in[0].data.range(55, 48));
-        input_upper[1].write(last_in[0].data.range(63, 56));
-        input_upper[2].write(current_in[0].data.range(7, 0));
-        input_lower[0].write(last_in[1].data.range(55, 48));
-        input_lower[1].write(last_in[1].data.range(63, 56));
-        input_lower[2].write(current_in[1].data.range(7, 0));
+    input_upper[0].write(in_upper.data.range(55, 48));
+    input_upper[1].write(in_upper.data.range(63, 56));
+    in_upper = in[0].read();
+    input_upper[2].write(in_upper.data.range(7, 0));
 
-        input_upper[0].write(current_in[0].data.range(15, 8));
-        input_upper[1].write(current_in[0].data.range(23, 16));
-        input_upper[2].write(current_in[0].data.range(31, 24));
-        input_lower[0].write(current_in[1].data.range(15, 8));
-        input_lower[1].write(current_in[1].data.range(23, 16));
-        input_lower[2].write(current_in[1].data.range(31, 24));
+    input_lower[0].write(in_lower.data.range(55, 48));
+    input_lower[1].write(in_lower.data.range(63, 56));
+    in_lower = in[1].read();
+    input_lower[2].write(in_lower.data.range(7, 0));
 
-        state = THIRD;
-        break;
+    input_upper[0].write(in_upper.data.range(15, 8));
+    input_upper[1].write(in_upper.data.range(23, 16));
+    input_upper[2].write(in_upper.data.range(31, 24));
 
-    case THIRD:
-        input_upper[0].write(last_in[0].data.range(39, 32));
-        input_upper[1].write(last_in[0].data.range(47, 40));
-        input_upper[2].write(last_in[0].data.range(55, 48));
-        input_lower[0].write(last_in[1].data.range(39, 32));
-        input_lower[1].write(last_in[1].data.range(47, 40));
-        input_lower[2].write(last_in[1].data.range(55, 48));
+    input_lower[0].write(in_lower.data.range(15, 8));
+    input_lower[1].write(in_lower.data.range(23, 16));
+    input_lower[2].write(in_lower.data.range(31, 24));
 
-        input_upper[0].write(last_in[0].data.range(63, 56));
-        input_upper[1].write(current_in[0].data.range(7, 0));
-        input_upper[2].write(current_in[0].data.range(15, 8));
-        input_lower[0].write(last_in[1].data.range(63, 56));
-        input_lower[1].write(current_in[1].data.range(7, 0));
-        input_lower[2].write(current_in[1].data.range(15, 8));
+    input_upper[0].write(in_upper.data.range(39, 32));
+    input_upper[1].write(in_upper.data.range(47, 40));
+    input_upper[2].write(in_upper.data.range(55, 48));
 
-        state = FOURTH;
-        break;
+    input_lower[0].write(in_lower.data.range(39, 32));
+    input_lower[1].write(in_lower.data.range(47, 40));
+    input_lower[2].write(in_lower.data.range(55, 48));
 
-    case FOURTH:
-        input_upper[0].write(last_in[0].data.range(23, 16));
-        input_upper[1].write(last_in[0].data.range(31, 24));
-        input_upper[2].write(last_in[0].data.range(39, 32));
-        input_lower[0].write(last_in[1].data.range(23, 16));
-        input_lower[1].write(last_in[1].data.range(31, 24));
-        input_lower[2].write(last_in[1].data.range(39, 32));
+    input_upper[0].write(in_upper.data.range(63, 56));
+    in_upper = in[0].read();
+    input_upper[1].write(in_upper.data.range(7, 0));
+    input_upper[2].write(in_upper.data.range(15, 8));
 
-        input_upper[0].write(last_in[0].data.range(47, 40));
-        input_upper[1].write(last_in[0].data.range(55, 48));
-        input_upper[2].write(last_in[0].data.range(63, 56));
-        input_lower[0].write(last_in[1].data.range(47, 40));
-        input_lower[1].write(last_in[1].data.range(55, 48));
-        input_lower[2].write(last_in[1].data.range(63, 56));
+    input_lower[0].write(in_lower.data.range(63, 56));
+    in_lower = in[1].read();
+    input_lower[1].write(in_lower.data.range(7, 0));
+    input_lower[2].write(in_lower.data.range(15, 8));
 
-        state = FIRST;
-        break;
-    }
+    input_upper[0].write(in_upper.data.range(23, 16));
+    input_upper[1].write(in_upper.data.range(31, 24));
+    input_upper[2].write(in_upper.data.range(39, 32));
 
-    last_in[0] = current_in[0];
-    last_in[1] = current_in[1];
+    input_lower[0].write(in_lower.data.range(23, 16));
+    input_lower[1].write(in_lower.data.range(31, 24));
+    input_lower[2].write(in_lower.data.range(39, 32));
+
+    input_upper[0].write(in_upper.data.range(47, 40));
+    input_upper[1].write(in_upper.data.range(55, 48));
+    input_upper[2].write(in_upper.data.range(63, 56));
+
+    input_lower[0].write(in_lower.data.range(47, 40));
+    input_lower[1].write(in_lower.data.range(55, 48));
+    input_lower[2].write(in_lower.data.range(63, 56));
 }
 
-void write_output(hls::stream<int16_t, 1> output[4], hls::stream<axis_out_t> &out)
+void write_output(hls::stream<int16_t, 4> output[4], hls::stream<axis_out_t> &out)
 {_ssdm_SpecArrayDimSize(output, 4);
-    int sent = 0;
-    sent += 1;
-
+    static int sent = 0;
     axis_out_t out_data;
+
+    sent++;
     out_data.data.range(15, 0) = output[0].read();
     out_data.data.range(31, 16) = output[1].read();
     out_data.data.range(47, 32) = output[2].read();
@@ -8419,7 +8403,34 @@ void write_output(hls::stream<int16_t, 1> output[4], hls::stream<axis_out_t> &ou
     out_data.last = sent == ((512 - 2) / 2);
     out.write(out_data);
 
-    if (sent == ((512 - 2) / 2))
+    sent++;
+    out_data.data.range(15, 0) = output[0].read();
+    out_data.data.range(31, 16) = output[1].read();
+    out_data.data.range(47, 32) = output[2].read();
+    out_data.data.range(63, 48) = output[3].read();
+    out_data.keep = -1;
+    out_data.last = sent == ((512 - 2) / 2);
+    out.write(out_data);
+
+    sent++;
+    out_data.data.range(15, 0) = output[0].read();
+    out_data.data.range(31, 16) = output[1].read();
+    out_data.data.range(47, 32) = output[2].read();
+    out_data.data.range(63, 48) = output[3].read();
+    out_data.keep = -1;
+    out_data.last = sent == ((512 - 2) / 2);
+    out.write(out_data);
+
+    sent++;
+    out_data.data.range(15, 0) = output[0].read();
+    out_data.data.range(31, 16) = output[1].read();
+    out_data.data.range(47, 32) = output[2].read();
+    out_data.data.range(63, 48) = output[3].read();
+    out_data.keep = -1;
+    out_data.last = sent == ((512 - 2) / 2);
+    out.write(out_data);
+
+    if (sent >= ((512 - 2) / 2))
     {
         sent = 0;
     }
@@ -8428,18 +8439,14 @@ void write_output(hls::stream<int16_t, 1> output[4], hls::stream<axis_out_t> &ou
 template<uint8_t num_channels, uint8_t num_kernels, uint8_t kernel_size, int32_t width, int32_t height>
 void kernel
 (
-    hls::stream<uint8_t, 2> input_upper[num_channels],
-    hls::stream<uint8_t, 2> input_lower[num_channels],
-    hls::stream<int16_t, 1> output[num_kernels],
-    const int8_t kernels[num_channels * num_kernels][kernel_size][kernel_size]
+    hls::stream<uint8_t, 8> input_upper[num_channels],
+    hls::stream<uint8_t, 8> input_lower[num_channels],
+    hls::stream<int16_t, 4> output[num_kernels],
+    const int8_t kernels[num_channels * num_kernels][kernel_size][kernel_size],
+    uint8_t stripes[num_channels][4][width + 2]
 )
 {
 _ssdm_op_SpecPipeline(0, 0, 0, 1, "");
-
- static uint8_t stripes[num_channels][4][width + 2] = {{0, } };
-_ssdm_op_SpecResource(&stripes, "", "RAM_2P_BRAM", "", -1, "", "", "", "", "");
-_ssdm_SpecArrayPartition( &stripes, 1, "COMPLETE", 0, "");
-_ssdm_op_SpecReset( &stripes, 1,  "");
 
  static bool read_odd = false;
     static bool compute_odd = true;
@@ -8449,123 +8456,126 @@ _ssdm_op_SpecReset( &read_odd, 1,  "");
 _ssdm_op_SpecReset( &read_col_index, 1,  "");
 _ssdm_op_SpecReset( &compute_col_index, 1,  "");
 
- if (!read_odd)
+ for (int b = 0; b < 4; b++)
     {
-        for (int i = 0; i < num_channels; i++)
+        if (!read_odd)
         {
-            int local_col_index = read_col_index;
-            for (int j = 0; j < 2; j++)
+            for (int i = 0; i < num_channels; i++)
             {
-                stripes[i][0][local_col_index] = input_upper[i].read();
-                stripes[i][1][local_col_index] = input_lower[i].read();
-                local_col_index++;
+                int local_col_index = read_col_index;
+                for (int j = 0; j < 2; j++)
+                {
+                    stripes[i][0][local_col_index] = input_upper[i].read();
+                    stripes[i][1][local_col_index] = input_lower[i].read();
+                    local_col_index++;
+                }
             }
-        }
-    }
-    else
-    {
-        for (int i = 0; i < num_channels; i++)
-        {
-            int local_col_index = read_col_index;
-            for (int j = 0; j < 2; j++)
-            {
-                stripes[i][2][local_col_index] = input_upper[i].read();
-                stripes[i][3][local_col_index] = input_lower[i].read();
-                local_col_index++;
-            }
-        }
-    }
-
-    uint16_t current_row_indices[4];
-    if (compute_odd)
-    {
-        current_row_indices[0] = 0;
-        current_row_indices[1] = 1;
-        current_row_indices[2] = 2;
-        current_row_indices[3] = 3;
-    }
-    else
-    {
-        current_row_indices[0] = 2;
-        current_row_indices[1] = 3;
-        current_row_indices[2] = 0;
-        current_row_indices[3] = 1;
-    }
-
-    int32_t maxes[num_kernels] = {0, };
-    for (int i = 0; i < 4; i++)
-    {
-        bool top_offset = i >= 2;
-        bool left_offset = i & 1;
-
-        uint16_t local_row_indices[3];
-        if (top_offset)
-        {
-            local_row_indices[0] = current_row_indices[1];
-            local_row_indices[1] = current_row_indices[2];
-            local_row_indices[2] = current_row_indices[3];
         }
         else
         {
-            local_row_indices[0] = current_row_indices[0];
-            local_row_indices[1] = current_row_indices[1];
-            local_row_indices[2] = current_row_indices[2];
-        }
-        uint16_t local_col_index = compute_col_index + left_offset;
-
-        int32_t partial_sums[num_channels][num_kernels] = {{0, }, };
-_ssdm_SpecArrayPartition( partial_sums, 1, "COMPLETE", 0, "");
-
- for (int l = 0; l < kernel_size; l++)
-        {
-            for (int m = 0; m < kernel_size; m++)
+            for (int i = 0; i < num_channels; i++)
             {
-                for (int j = 0; j < num_channels; j++)
+                int local_col_index = read_col_index;
+                for (int j = 0; j < 2; j++)
                 {
-_ssdm_Unroll(0,0,0, "");
- for (int k = 0; k < num_kernels; k++)
-                    {
-_ssdm_Unroll(0,0,0, "");
- partial_sums[j][k] += kernels[j * num_kernels + k][l][m] * stripes[j][local_row_indices[l]][local_col_index + m];
-                    }
+                    stripes[i][2][local_col_index] = input_upper[i].read();
+                    stripes[i][3][local_col_index] = input_lower[i].read();
+                    local_col_index++;
                 }
             }
         }
 
-        int32_t kernel_sums[num_kernels] = {0, };
-        for (int k = 0; k < num_kernels; k++)
+        uint16_t current_row_indices[4];
+        if (compute_odd)
         {
+            current_row_indices[0] = 0;
+            current_row_indices[1] = 1;
+            current_row_indices[2] = 2;
+            current_row_indices[3] = 3;
+        }
+        else
+        {
+            current_row_indices[0] = 2;
+            current_row_indices[1] = 3;
+            current_row_indices[2] = 0;
+            current_row_indices[3] = 1;
+        }
+
+        int32_t maxes[num_kernels] = {0, };
+        for (int i = 0; i < 4; i++)
+        {
+            bool top_offset = i >= 2;
+            bool left_offset = i & 1;
+
+            uint16_t local_row_indices[4];
+            if (top_offset)
+            {
+                local_row_indices[0] = current_row_indices[1];
+                local_row_indices[1] = current_row_indices[2];
+                local_row_indices[2] = current_row_indices[3];
+            }
+            else
+            {
+                local_row_indices[0] = current_row_indices[0];
+                local_row_indices[1] = current_row_indices[1];
+                local_row_indices[2] = current_row_indices[2];
+            }
+            uint16_t local_col_index = compute_col_index + left_offset;
+
+            int32_t partial_sums[num_channels][num_kernels] = {{0, }, };
+_ssdm_SpecArrayPartition( partial_sums, 1, "COMPLETE", 0, "");
+
+ for (int l = 0; l < kernel_size; l++)
+            {
+                for (int m = 0; m < kernel_size; m++)
+                {
+                    for (int j = 0; j < num_channels; j++)
+                    {
+_ssdm_Unroll(0,0,0, "");
+ for (int k = 0; k < num_kernels; k++)
+                        {
+_ssdm_Unroll(0,0,0, "");
+ partial_sums[j][k] += kernels[j * num_kernels + k][l][m] * stripes[j][local_row_indices[l]][local_col_index + m];
+                        }
+                    }
+                }
+            }
+
+            int32_t kernel_sums[num_kernels] = {0, };
+            for (int k = 0; k < num_kernels; k++)
+            {
 _ssdm_Unroll(0,0,0, "");
  for (int j = 0; j < num_channels; j++)
+                {
+                    kernel_sums[k] += partial_sums[j][k];
+                }
+            }
+
+            for (int j = 0; j < num_kernels; j++)
             {
-                kernel_sums[k] += partial_sums[j][k];
+_ssdm_Unroll(0,0,0, "");
+ maxes[j] = kernel_sums[j] > maxes[j] ? kernel_sums[j] : maxes[j];
             }
         }
 
-        for (int j = 0; j < num_kernels; j++)
+        for (int i = 0; i < num_kernels; i++)
         {
-_ssdm_Unroll(0,0,0, "");
- maxes[j] = kernel_sums[j] > maxes[j] ? kernel_sums[j] : maxes[j];
+            output[i].write(maxes[i]);
         }
-    }
 
-    for (int i = 0; i < num_kernels; i++)
-    {
-        output[i].write(maxes[i]);
-    }
+        read_col_index += 2;
+        if (read_col_index == width + 1)
+        {
+            read_col_index = 1;
+            read_odd = !read_odd;
+        }
 
-    read_col_index += 2;
-    if (read_col_index == width + 1)
-    {
-        read_col_index = 1;
-        read_odd = !read_odd;
-    }
-
-    compute_col_index += 2;
-    if (compute_col_index == width)
-    {
-        compute_col_index = 0;
-        compute_odd = !compute_odd;
+        compute_col_index += 2;
+        if (compute_col_index == width)
+        {
+            compute_col_index = 0;
+            compute_odd = !compute_odd;
+        }
     }
 }
 
@@ -8577,16 +8587,21 @@ _ssdm_op_SpecInterface(0, "ap_ctrl_none", 0, 0, "", 0, 0, "", "", "", 0, 0, 0, 0
 
  static const int8_t kernels[3 * 4][3][3] = { {{ 6, -22, 11 }, { 11, 29, 18 }, { -24, 14, 9 }}, {{ 19, -22, -3 }, { -8, 29, -26 }, { -7, 2, -29 }}, {{ -4, -9, 5 }, { 16, 14, -12 }, { 20, -19, 21 }}, {{ -18, 20, -31 }, { -6, 29, -24 }, { -31, -16, -4 }}, {{ 10, 3, 31 }, { 26, 18, 6 }, { -13, 3, 30 }}, {{ -25, 7, 27 }, { 30, 11, -15 }, { -5, 17, -15 }}, {{ 28, -9, -12 }, { 9, 22, -29 }, { 14, 7, -7 }}, {{ -12, -30, 0 }, { 31, 19, -8 }, { 27, -29, 11 }}, {{ 6, -11, -21 }, { -5, 31, 27 }, { -26, -31, 1 }}, {{ 25, 20, 25 }, { 27, 24, -19 }, { 11, 29, -23 }}, {{ -14, -31, -11 }, { -17, -30, 17 }, { 28, -27, 29 }}, {{ -10, -9, 28 }, { -18, 4, 25 }, { -25, 21, 3 }}};
 _ssdm_SpecConstant(kernels);
-# 266 "fused_cnn_layer.cpp"
+# 276 "fused_cnn_layer.cpp"
 
 _ssdm_SpecArrayPartition( &kernels, 1, "BLOCK", 12, "");
 
-_ssdm_op_SpecDataflowPipeline(-1, 0, "");
- hls::stream<uint8_t, 2> input_upper[3];
-    hls::stream<uint8_t, 2> input_lower[3];
-    hls::stream<int16_t, 1> output[4];
+ static uint8_t stripes[3][4][512 + 2] = {{0, } };
+_ssdm_op_SpecResource(&stripes, "", "RAM_2P_BRAM", "", -1, "", "", "", "", "");
+_ssdm_SpecArrayPartition( &stripes, 1, "COMPLETE", 0, "");
+_ssdm_op_SpecReset( &stripes, 1,  "");
+
+
+ hls::stream<uint8_t, 8> input_upper[3];
+    hls::stream<uint8_t, 8> input_lower[3];
+    hls::stream<int16_t, 4> output[4];
 
     read_input(input_upper, input_lower, in);
-    kernel<3, 4, 3, 512, 6>(input_upper, input_lower, output, kernels);
+    kernel<3, 4, 3, 512, 6>(input_upper, input_lower, output, kernels, stripes);
     write_output(output, out);
 }

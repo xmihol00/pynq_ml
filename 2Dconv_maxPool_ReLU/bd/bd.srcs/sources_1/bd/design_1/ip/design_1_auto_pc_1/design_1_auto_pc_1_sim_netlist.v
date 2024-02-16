@@ -1,11 +1,11 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Thu Feb 15 21:46:15 2024
+// Date        : Fri Feb 16 10:45:40 2024
 // Host        : david running 64-bit Ubuntu 22.04.2 LTS
 // Command     : write_verilog -force -mode funcsim -rename_top design_1_auto_pc_1 -prefix
-//               design_1_auto_pc_1_ design_1_auto_pc_2_sim_netlist.v
-// Design      : design_1_auto_pc_2
+//               design_1_auto_pc_1_ design_1_auto_pc_1_sim_netlist.v
+// Design      : design_1_auto_pc_1
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
 // Device      : xc7z020clg400-1
@@ -9458,7 +9458,7 @@ module design_1_auto_pc_1_axi_protocol_converter_v2_1_21_w_axi3_conv
         .O(m_axi_wlast));
 endmodule
 
-(* CHECK_LICENSE_TYPE = "design_1_auto_pc_2,axi_protocol_converter_v2_1_21_axi_protocol_converter,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* X_CORE_INFO = "axi_protocol_converter_v2_1_21_axi_protocol_converter,Vivado 2020.1" *) 
+(* CHECK_LICENSE_TYPE = "design_1_auto_pc_1,axi_protocol_converter_v2_1_21_axi_protocol_converter,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* X_CORE_INFO = "axi_protocol_converter_v2_1_21_axi_protocol_converter,Vivado 2020.1" *) 
 (* NotValidForBitStream *)
 module design_1_auto_pc_1
    (aclk,

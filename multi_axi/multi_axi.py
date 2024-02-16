@@ -5,6 +5,8 @@ import time
 print("Loading overlay", flush=True)
 overlay = Overlay('overlay/multi_axi.bit')
 print("Overlay loaded", flush=True)
+help(overlay)
+exit()
 
 dma_1 = overlay.dma_0
 dma_2 = overlay.dma_1

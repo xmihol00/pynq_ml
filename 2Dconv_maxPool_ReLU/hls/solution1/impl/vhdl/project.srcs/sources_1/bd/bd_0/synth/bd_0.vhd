@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
---Date        : Fri Feb 14 10:52:49 2020
+--Date        : Sat Feb 16 21:06:43 2019
 --Host        : david running 64-bit Ubuntu 22.04.2 LTS
 --Command     : generate_target bd_0.bd
 --Design      : bd_0
@@ -43,26 +43,26 @@ end bd_0;
 architecture STRUCTURE of bd_0 is
   component bd_0_hls_inst_0 is
   port (
+    ap_clk : in STD_LOGIC;
+    ap_rst_n : in STD_LOGIC;
     in_0_TVALID : in STD_LOGIC;
     in_0_TREADY : out STD_LOGIC;
     in_0_TDATA : in STD_LOGIC_VECTOR ( 63 downto 0 );
+    in_0_TLAST : in STD_LOGIC_VECTOR ( 0 to 0 );
     in_0_TKEEP : in STD_LOGIC_VECTOR ( 7 downto 0 );
     in_0_TSTRB : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    in_0_TLAST : in STD_LOGIC_VECTOR ( 0 to 0 );
     in_1_TVALID : in STD_LOGIC;
     in_1_TREADY : out STD_LOGIC;
     in_1_TDATA : in STD_LOGIC_VECTOR ( 63 downto 0 );
+    in_1_TLAST : in STD_LOGIC_VECTOR ( 0 to 0 );
     in_1_TKEEP : in STD_LOGIC_VECTOR ( 7 downto 0 );
     in_1_TSTRB : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    in_1_TLAST : in STD_LOGIC_VECTOR ( 0 to 0 );
     out_r_TVALID : out STD_LOGIC;
     out_r_TREADY : in STD_LOGIC;
     out_r_TDATA : out STD_LOGIC_VECTOR ( 63 downto 0 );
-    out_r_TKEEP : out STD_LOGIC_VECTOR ( 7 downto 0 );
-    out_r_TSTRB : out STD_LOGIC_VECTOR ( 7 downto 0 );
     out_r_TLAST : out STD_LOGIC_VECTOR ( 0 to 0 );
-    ap_clk : in STD_LOGIC;
-    ap_rst_n : in STD_LOGIC
+    out_r_TKEEP : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    out_r_TSTRB : out STD_LOGIC_VECTOR ( 7 downto 0 )
   );
   end component bd_0_hls_inst_0;
   signal ap_clk_0_1 : STD_LOGIC;

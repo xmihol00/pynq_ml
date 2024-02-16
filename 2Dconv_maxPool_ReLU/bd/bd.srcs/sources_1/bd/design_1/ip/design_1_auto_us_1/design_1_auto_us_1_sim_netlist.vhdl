@@ -1,7 +1,7 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
--- Date        : Thu Feb 15 21:51:34 2024
+-- Date        : Fri Feb 16 10:45:44 2024
 -- Host        : david running 64-bit Ubuntu 22.04.2 LTS
 -- Command     : write_vhdl -force -mode funcsim -rename_top design_1_auto_us_1 -prefix
 --               design_1_auto_us_1_ design_1_auto_us_0_sim_netlist.vhdl

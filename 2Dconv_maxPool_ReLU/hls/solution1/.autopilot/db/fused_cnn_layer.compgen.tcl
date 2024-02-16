@@ -1,154 +1,16 @@
 # This script segment is generated automatically by AutoPilot
 
 # FIFO definition:
-set ID 68
-set FifoName fifo_w8_d2_A
+set ID 70
+set FifoName fifo_w8_d8_A
 set InstName input_upper_0_V_U
 set CoreName ap_simcore_fifo
 set NumOfStage 2
 set RegisteredInput 0
 set DualClock 0
-set Depth 2
+set Depth 8
 set DataWd 8
-set AddrWd 1
-set FullThresh 0
-set EmptyThresh 0
-set impl_style auto
-if {${::AESL::PGuard_simmodel_gen}} {
-if {[info proc ap_gen_simcore_fifo] == "ap_gen_simcore_fifo"} {
-eval "ap_gen_simcore_fifo { \
-    id ${ID} \
-    name ${FifoName} \
-    instname ${InstName}    corename ${CoreName} \
-    op fifo \
-    stage_num ${NumOfStage} \
-    registered_input ${RegisteredInput} \
-    data_wd ${DataWd} \
-    addr_wd ${AddrWd} \
-    reset_level 1 \
-    sync_rst true \
-    dual_clk 0\
-    depth ${Depth} \
-    empty_thresh ${EmptyThresh} \
-    full_thresh ${FullThresh} \
-}"
-} else {
-puts "@W \[IMPL-106\] Cannot find ap_gen_simcore_fifo, check your platform lib"
-}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler $FifoName
-}
-
-
-if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
-if {[info proc ::AESL_LIB_VIRTEX::xil_gen_FIFO] == "::AESL_LIB_VIRTEX::xil_gen_FIFO"} {
-eval "::AESL_LIB_VIRTEX::xil_gen_FIFO { \
-    id ${ID} \
-    name ${FifoName} \
-    instname ${InstName}
-    corename FIFO \
-    op fifo \
-    stage_num ${NumOfStage} \
-    registered_input ${RegisteredInput} \
-    data_wd ${DataWd} \
-    addr_wd ${AddrWd} \
-    reset_level 1 \
-    sync_rst true \
-    dual_clk 0 \
-    depth ${Depth} \
-    empty_thresh ${EmptyThresh} \
-    full_thresh ${FullThresh} \
-    style ${impl_style} \
-}"
-} else {
-puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your platform lib"
-}
-}
-
-
-# FIFO definition:
-set ID 69
-set FifoName fifo_w8_d2_A
-set InstName input_upper_1_V_U
-set CoreName ap_simcore_fifo
-set NumOfStage 2
-set RegisteredInput 0
-set DualClock 0
-set Depth 2
-set DataWd 8
-set AddrWd 1
-set FullThresh 0
-set EmptyThresh 0
-set impl_style auto
-if {${::AESL::PGuard_simmodel_gen}} {
-if {[info proc ap_gen_simcore_fifo] == "ap_gen_simcore_fifo"} {
-eval "ap_gen_simcore_fifo { \
-    id ${ID} \
-    name ${FifoName} \
-    instname ${InstName}    corename ${CoreName} \
-    op fifo \
-    stage_num ${NumOfStage} \
-    registered_input ${RegisteredInput} \
-    data_wd ${DataWd} \
-    addr_wd ${AddrWd} \
-    reset_level 1 \
-    sync_rst true \
-    dual_clk 0\
-    depth ${Depth} \
-    empty_thresh ${EmptyThresh} \
-    full_thresh ${FullThresh} \
-}"
-} else {
-puts "@W \[IMPL-106\] Cannot find ap_gen_simcore_fifo, check your platform lib"
-}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler $FifoName
-}
-
-
-if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
-if {[info proc ::AESL_LIB_VIRTEX::xil_gen_FIFO] == "::AESL_LIB_VIRTEX::xil_gen_FIFO"} {
-eval "::AESL_LIB_VIRTEX::xil_gen_FIFO { \
-    id ${ID} \
-    name ${FifoName} \
-    instname ${InstName}
-    corename FIFO \
-    op fifo \
-    stage_num ${NumOfStage} \
-    registered_input ${RegisteredInput} \
-    data_wd ${DataWd} \
-    addr_wd ${AddrWd} \
-    reset_level 1 \
-    sync_rst true \
-    dual_clk 0 \
-    depth ${Depth} \
-    empty_thresh ${EmptyThresh} \
-    full_thresh ${FullThresh} \
-    style ${impl_style} \
-}"
-} else {
-puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your platform lib"
-}
-}
-
-
-# FIFO definition:
-set ID 70
-set FifoName fifo_w8_d2_A
-set InstName input_upper_2_V_U
-set CoreName ap_simcore_fifo
-set NumOfStage 2
-set RegisteredInput 0
-set DualClock 0
-set Depth 2
-set DataWd 8
-set AddrWd 1
+set AddrWd 3
 set FullThresh 0
 set EmptyThresh 0
 set impl_style auto
@@ -209,15 +71,15 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your pl
 
 # FIFO definition:
 set ID 71
-set FifoName fifo_w8_d2_A
-set InstName input_lower_0_V_U
+set FifoName fifo_w8_d8_A
+set InstName input_upper_1_V_U
 set CoreName ap_simcore_fifo
 set NumOfStage 2
 set RegisteredInput 0
 set DualClock 0
-set Depth 2
+set Depth 8
 set DataWd 8
-set AddrWd 1
+set AddrWd 3
 set FullThresh 0
 set EmptyThresh 0
 set impl_style auto
@@ -278,15 +140,15 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your pl
 
 # FIFO definition:
 set ID 72
-set FifoName fifo_w8_d2_A
-set InstName input_lower_1_V_U
+set FifoName fifo_w8_d8_A
+set InstName input_upper_2_V_U
 set CoreName ap_simcore_fifo
 set NumOfStage 2
 set RegisteredInput 0
 set DualClock 0
-set Depth 2
+set Depth 8
 set DataWd 8
-set AddrWd 1
+set AddrWd 3
 set FullThresh 0
 set EmptyThresh 0
 set impl_style auto
@@ -347,15 +209,15 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your pl
 
 # FIFO definition:
 set ID 73
-set FifoName fifo_w8_d2_A
-set InstName input_lower_2_V_U
+set FifoName fifo_w8_d8_A
+set InstName input_lower_0_V_U
 set CoreName ap_simcore_fifo
 set NumOfStage 2
 set RegisteredInput 0
 set DualClock 0
-set Depth 2
+set Depth 8
 set DataWd 8
-set AddrWd 1
+set AddrWd 3
 set FullThresh 0
 set EmptyThresh 0
 set impl_style auto
@@ -416,15 +278,15 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your pl
 
 # FIFO definition:
 set ID 74
-set FifoName fifo_w16_d1_A
-set InstName output_0_V_U
+set FifoName fifo_w8_d8_A
+set InstName input_lower_1_V_U
 set CoreName ap_simcore_fifo
 set NumOfStage 2
 set RegisteredInput 0
 set DualClock 0
-set Depth 1
-set DataWd 16
-set AddrWd 1
+set Depth 8
+set DataWd 8
+set AddrWd 3
 set FullThresh 0
 set EmptyThresh 0
 set impl_style auto
@@ -485,15 +347,15 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your pl
 
 # FIFO definition:
 set ID 75
-set FifoName fifo_w16_d1_A
-set InstName output_1_V_U
+set FifoName fifo_w8_d8_A
+set InstName input_lower_2_V_U
 set CoreName ap_simcore_fifo
 set NumOfStage 2
 set RegisteredInput 0
 set DualClock 0
-set Depth 1
-set DataWd 16
-set AddrWd 1
+set Depth 8
+set DataWd 8
+set AddrWd 3
 set FullThresh 0
 set EmptyThresh 0
 set impl_style auto
@@ -554,15 +416,15 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your pl
 
 # FIFO definition:
 set ID 76
-set FifoName fifo_w16_d1_A
-set InstName output_2_V_U
+set FifoName fifo_w16_d4_A
+set InstName output_0_V_U
 set CoreName ap_simcore_fifo
 set NumOfStage 2
 set RegisteredInput 0
 set DualClock 0
-set Depth 1
+set Depth 4
 set DataWd 16
-set AddrWd 1
+set AddrWd 2
 set FullThresh 0
 set EmptyThresh 0
 set impl_style auto
@@ -623,15 +485,15 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your pl
 
 # FIFO definition:
 set ID 77
-set FifoName fifo_w16_d1_A
-set InstName output_3_V_U
+set FifoName fifo_w16_d4_A
+set InstName output_1_V_U
 set CoreName ap_simcore_fifo
 set NumOfStage 2
 set RegisteredInput 0
 set DualClock 0
-set Depth 1
+set Depth 4
 set DataWd 16
-set AddrWd 1
+set AddrWd 2
 set FullThresh 0
 set EmptyThresh 0
 set impl_style auto
@@ -692,15 +554,15 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your pl
 
 # FIFO definition:
 set ID 78
-set FifoName start_for_kernel_U0
-set InstName start_for_kernel_U0_U
+set FifoName fifo_w16_d4_A
+set InstName output_2_V_U
 set CoreName ap_simcore_fifo
 set NumOfStage 2
 set RegisteredInput 0
 set DualClock 0
-set Depth 2
-set DataWd 1
-set AddrWd 1
+set Depth 4
+set DataWd 16
+set AddrWd 2
 set FullThresh 0
 set EmptyThresh 0
 set impl_style auto
@@ -761,15 +623,15 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your pl
 
 # FIFO definition:
 set ID 79
-set FifoName start_for_write_ohbi
-set InstName start_for_write_ohbi_U
+set FifoName fifo_w16_d4_A
+set InstName output_3_V_U
 set CoreName ap_simcore_fifo
 set NumOfStage 2
 set RegisteredInput 0
 set DualClock 0
-set Depth 2
-set DataWd 1
-set AddrWd 1
+set Depth 4
+set DataWd 16
+set AddrWd 2
 set FullThresh 0
 set EmptyThresh 0
 set impl_style auto
@@ -961,7 +823,7 @@ eval "::AESL_LIB_XILADAPTER::native_axis_add { \
     corename {in_0} \
     metadata {  } \
     op interface \
-    ports { in_0_TLAST { I 1 vector } in_0_TVALID { I 1 bit } in_0_TREADY { O 1 bit } } \
+    ports { in_0_TVALID { I 1 bit } in_0_TREADY { O 1 bit } in_0_TLAST { I 1 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'in_0_V_last_V'"
@@ -980,7 +842,7 @@ eval "::AESL_LIB_XILADAPTER::native_axis_add { \
     corename {in_1} \
     metadata {  } \
     op interface \
-    ports { in_1_TLAST { I 1 vector } in_1_TVALID { I 1 bit } in_1_TREADY { O 1 bit } } \
+    ports { in_1_TVALID { I 1 bit } in_1_TREADY { O 1 bit } in_1_TLAST { I 1 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'in_1_V_last_V'"
@@ -1056,7 +918,7 @@ eval "::AESL_LIB_XILADAPTER::native_axis_add { \
     corename {out_r} \
     metadata {  } \
     op interface \
-    ports { out_r_TLAST { O 1 vector } out_r_TVALID { O 1 bit } out_r_TREADY { I 1 bit } } \
+    ports { out_r_TVALID { O 1 bit } out_r_TREADY { I 1 bit } out_r_TLAST { O 1 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'out_V_last_V'"

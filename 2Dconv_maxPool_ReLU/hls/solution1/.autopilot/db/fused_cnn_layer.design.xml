@@ -5,22 +5,22 @@
 <ModuleName>fused_cnn_layer</ModuleName>
 <InstancesList>
 <Instance>
-<InstName>kernel_U0</InstName>
+<InstName>grp_kernel_fu_172</InstName>
 <ModuleName>kernel</ModuleName>
 <IsCompInst>true</IsCompInst>
-<ID>170</ID>
+<ID>172</ID>
 </Instance>
 <Instance>
-<InstName>read_input_U0</InstName>
+<InstName>grp_read_input_fu_224</InstName>
 <ModuleName>read_input</ModuleName>
 <IsCompInst>true</IsCompInst>
-<ID>222</ID>
+<ID>224</ID>
 </Instance>
 <Instance>
-<InstName>write_output_U0</InstName>
+<InstName>grp_write_output_fu_250</InstName>
 <ModuleName>write_output</ModuleName>
 <IsCompInst>true</IsCompInst>
-<ID>256</ID>
+<ID>250</ID>
 </Instance>
 </InstancesList>
 </TopModule>
@@ -33,23 +33,23 @@
 <SummaryOfTimingAnalysis>
 <TargetClockPeriod>10.00</TargetClockPeriod>
 <ClockUncertainty>1.25</ClockUncertainty>
-<EstimatedClockPeriod>5.115</EstimatedClockPeriod>
+<EstimatedClockPeriod>3.634</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
-<Best-caseLatency>1</Best-caseLatency>
-<Average-caseLatency>1</Average-caseLatency>
-<Worst-caseLatency>1</Worst-caseLatency>
-<Best-caseRealTimeLatency>10.000 ns</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>10.000 ns</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>10.000 ns</Worst-caseRealTimeLatency>
-<PipelineInitiationInterval>1</PipelineInitiationInterval>
+<Best-caseLatency>7</Best-caseLatency>
+<Average-caseLatency>7</Average-caseLatency>
+<Worst-caseLatency>7</Worst-caseLatency>
+<Best-caseRealTimeLatency>70.000 ns</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>70.000 ns</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>70.000 ns</Worst-caseRealTimeLatency>
+<PipelineInitiationInterval>7</PipelineInitiationInterval>
 <PipelineType>none</PipelineType>
 </SummaryOfOverallLatency>
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
-<FF>312</FF>
-<LUT>592</LUT>
+<FF>120</FF>
+<LUT>386</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP48E>0</DSP48E>
 <URAM>0</URAM>
@@ -90,17 +90,6 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>start_full_n</name>
-<Object>read_input</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_hs</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>unknown</Attribute>
-</RtlPorts>
-<RtlPorts>
 <name>ap_done</name>
 <Object>read_input</Object>
 <Type>return value</Type>
@@ -108,17 +97,6 @@
 <IOProtocol>ap_ctrl_hs</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>ap_continue</name>
-<Object>read_input</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_hs</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
@@ -143,28 +121,6 @@
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>start_out</name>
-<Object>read_input</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_hs</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>unknown</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>start_write</name>
-<Object>read_input</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_hs</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>unknown</Attribute>
 </RtlPorts>
 <RtlPorts>
 <name>input_upper_0_V_din</name>
@@ -370,18 +326,18 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>64</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
 <name>in_0_TVALID</name>
-<Object>in_0_V_last_V</Object>
+<Object>in_0_V_data_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
@@ -392,7 +348,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOConfig></IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
@@ -403,7 +359,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>data</Attribute>
@@ -414,18 +370,18 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>64</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
 <name>in_1_TVALID</name>
-<Object>in_1_V_last_V</Object>
+<Object>in_1_V_data_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
@@ -436,7 +392,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOConfig></IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
@@ -447,7 +403,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>data</Attribute>
@@ -458,7 +414,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>8</Bits>
 <Attribute>data</Attribute>
@@ -469,7 +425,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>8</Bits>
 <Attribute>data</Attribute>
@@ -480,7 +436,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>8</Bits>
 <Attribute>data</Attribute>
@@ -491,7 +447,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>8</Bits>
 <Attribute>data</Attribute>
@@ -504,47 +460,53 @@
 <SummaryOfTimingAnalysis>
 <TargetClockPeriod>10.00</TargetClockPeriod>
 <ClockUncertainty>1.25</ClockUncertainty>
-<EstimatedClockPeriod>8.702</EstimatedClockPeriod>
+<EstimatedClockPeriod>7.069</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
-<Best-caseLatency>449</Best-caseLatency>
-<Average-caseLatency>449</Average-caseLatency>
-<Worst-caseLatency>449</Worst-caseLatency>
-<Best-caseRealTimeLatency>4.490 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>4.490 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>4.490 us</Worst-caseRealTimeLatency>
-<PipelineInitiationInterval>449</PipelineInitiationInterval>
+<Best-caseLatency>1321</Best-caseLatency>
+<Average-caseLatency>1321</Average-caseLatency>
+<Worst-caseLatency>1321</Worst-caseLatency>
+<Best-caseRealTimeLatency>13.210 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>13.210 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>13.210 us</Worst-caseRealTimeLatency>
+<PipelineInitiationInterval>1321</PipelineInitiationInterval>
 <PipelineType>none</PipelineType>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <Loop1>
 <Name>Loop 1</Name>
-<TripCount>3</TripCount>
-<Latency>24</Latency>
-<IterationLatency>8</IterationLatency>
-<PipelineDepth>8</PipelineDepth>
+<TripCount>4</TripCount>
+<Latency>1320</Latency>
+<IterationLatency>330</IterationLatency>
+<PipelineDepth>330</PipelineDepth>
 <Loop1.1>
 <Name>Loop 1.1</Name>
-<TripCount>2</TripCount>
-<Latency>6</Latency>
-<IterationLatency>3</IterationLatency>
-<PipelineDepth>3</PipelineDepth>
-</Loop1.1>
-</Loop1>
-<Loop2>
-<Name>Loop 2</Name>
 <TripCount>3</TripCount>
 <Latency>24</Latency>
 <IterationLatency>8</IterationLatency>
 <PipelineDepth>8</PipelineDepth>
-<Loop2.1>
-<Name>Loop 2.1</Name>
+<Loop1.1.1>
+<Name>Loop 1.1.1</Name>
 <TripCount>2</TripCount>
 <Latency>6</Latency>
 <IterationLatency>3</IterationLatency>
 <PipelineDepth>3</PipelineDepth>
-</Loop2.1>
-</Loop2>
+</Loop1.1.1>
+</Loop1.1>
+<Loop1.2>
+<Name>Loop 1.2</Name>
+<TripCount>3</TripCount>
+<Latency>24</Latency>
+<IterationLatency>8</IterationLatency>
+<PipelineDepth>8</PipelineDepth>
+<Loop1.2.1>
+<Name>Loop 1.2.1</Name>
+<TripCount>2</TripCount>
+<Latency>6</Latency>
+<IterationLatency>3</IterationLatency>
+<PipelineDepth>3</PipelineDepth>
+</Loop1.2.1>
+</Loop1.2>
 <memset_maxes>
 <Name>memset_maxes</Name>
 <TripCount>4</TripCount>
@@ -552,12 +514,12 @@
 <IterationLatency>1</IterationLatency>
 <PipelineDepth>1</PipelineDepth>
 </memset_maxes>
-<Loop4>
-<Name>Loop 4</Name>
+<Loop1.4>
+<Name>Loop 1.4</Name>
 <TripCount>4</TripCount>
-<Latency>408</Latency>
-<IterationLatency>102</IterationLatency>
-<PipelineDepth>102</PipelineDepth>
+<Latency>292</Latency>
+<IterationLatency>73</IterationLatency>
+<PipelineDepth>73</PipelineDepth>
 <memset_partial_sums>
 <Name>memset_partial_sums</Name>
 <TripCount>3</TripCount>
@@ -572,20 +534,20 @@
 <PipelineDepth>1</PipelineDepth>
 </memset_partial_sums>
 </memset_partial_sums>
-<Loop4.2>
-<Name>Loop 4.2</Name>
+<Loop1.4.2>
+<Name>Loop 1.4.2</Name>
 <TripCount>3</TripCount>
-<Latency>45</Latency>
-<IterationLatency>15</IterationLatency>
-<PipelineDepth>15</PipelineDepth>
-<Loop4.2.1>
-<Name>Loop 4.2.1</Name>
+<Latency>36</Latency>
+<IterationLatency>12</IterationLatency>
+<PipelineDepth>12</PipelineDepth>
+<Loop1.4.2.1>
+<Name>Loop 1.4.2.1</Name>
 <TripCount>3</TripCount>
-<Latency>12</Latency>
-<IterationLatency>4</IterationLatency>
-<PipelineDepth>4</PipelineDepth>
-</Loop4.2.1>
-</Loop4.2>
+<Latency>9</Latency>
+<IterationLatency>3</IterationLatency>
+<PipelineDepth>3</PipelineDepth>
+</Loop1.4.2.1>
+</Loop1.4.2>
 <memset_kernel_sums>
 <Name>memset_kernel_sums</Name>
 <TripCount>4</TripCount>
@@ -593,50 +555,51 @@
 <IterationLatency>1</IterationLatency>
 <PipelineDepth>1</PipelineDepth>
 </memset_kernel_sums>
-<Loop4.4>
-<Name>Loop 4.4</Name>
+<Loop1.4.4>
+<Name>Loop 1.4.4</Name>
 <TripCount>3</TripCount>
-<Latency>6</Latency>
-<IterationLatency>2</IterationLatency>
-<PipelineDepth>2</PipelineDepth>
-</Loop4.4>
-<Loop4.5>
-<Name>Loop 4.5</Name>
+<Latency>3</Latency>
+<IterationLatency>1</IterationLatency>
+<PipelineDepth>1</PipelineDepth>
+</Loop1.4.4>
+<Loop1.4.5>
+<Name>Loop 1.4.5</Name>
 <TripCount>3</TripCount>
-<Latency>6</Latency>
-<IterationLatency>2</IterationLatency>
-<PipelineDepth>2</PipelineDepth>
-</Loop4.5>
-<Loop4.6>
-<Name>Loop 4.6</Name>
+<Latency>3</Latency>
+<IterationLatency>1</IterationLatency>
+<PipelineDepth>1</PipelineDepth>
+</Loop1.4.5>
+<Loop1.4.6>
+<Name>Loop 1.4.6</Name>
 <TripCount>3</TripCount>
-<Latency>6</Latency>
-<IterationLatency>2</IterationLatency>
-<PipelineDepth>2</PipelineDepth>
-</Loop4.6>
-<Loop4.7>
-<Name>Loop 4.7</Name>
+<Latency>3</Latency>
+<IterationLatency>1</IterationLatency>
+<PipelineDepth>1</PipelineDepth>
+</Loop1.4.6>
+<Loop1.4.7>
+<Name>Loop 1.4.7</Name>
 <TripCount>3</TripCount>
-<Latency>6</Latency>
-<IterationLatency>2</IterationLatency>
-<PipelineDepth>2</PipelineDepth>
-</Loop4.7>
-</Loop4>
-<Loop5>
-<Name>Loop 5</Name>
+<Latency>3</Latency>
+<IterationLatency>1</IterationLatency>
+<PipelineDepth>1</PipelineDepth>
+</Loop1.4.7>
+</Loop1.4>
+<Loop1.5>
+<Name>Loop 1.5</Name>
 <TripCount>4</TripCount>
-<Latency>8</Latency>
-<IterationLatency>2</IterationLatency>
-<PipelineDepth>2</PipelineDepth>
-</Loop5>
+<Latency>4</Latency>
+<IterationLatency>1</IterationLatency>
+<PipelineDepth>1</PipelineDepth>
+</Loop1.5>
+</Loop1>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
-<BRAM_18K>17</BRAM_18K>
+<BRAM_18K>6</BRAM_18K>
 <DSP48E>12</DSP48E>
-<FF>7322</FF>
-<LUT>10215</LUT>
+<FF>9564</FF>
+<LUT>12364</LUT>
 <URAM>0</URAM>
 </Resources>
 </AreaEstimates>
@@ -675,17 +638,6 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>start_full_n</name>
-<Object>kernel</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_hs</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>unknown</Attribute>
-</RtlPorts>
-<RtlPorts>
 <name>ap_done</name>
 <Object>kernel</Object>
 <Type>return value</Type>
@@ -693,17 +645,6 @@
 <IOProtocol>ap_ctrl_hs</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>ap_continue</name>
-<Object>kernel</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_hs</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
@@ -728,28 +669,6 @@
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>start_out</name>
-<Object>kernel</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_hs</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>unknown</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>start_write</name>
-<Object>kernel</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_hs</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>unknown</Attribute>
 </RtlPorts>
 <RtlPorts>
 <name>input_upper_0_V_dout</name>
@@ -1089,23 +1008,23 @@
 <SummaryOfTimingAnalysis>
 <TargetClockPeriod>10.00</TargetClockPeriod>
 <ClockUncertainty>1.25</ClockUncertainty>
-<EstimatedClockPeriod>3.634</EstimatedClockPeriod>
+<EstimatedClockPeriod>5.723</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
-<Best-caseLatency>1</Best-caseLatency>
-<Average-caseLatency>1</Average-caseLatency>
-<Worst-caseLatency>1</Worst-caseLatency>
-<Best-caseRealTimeLatency>10.000 ns</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>10.000 ns</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>10.000 ns</Worst-caseRealTimeLatency>
-<PipelineInitiationInterval>1</PipelineInitiationInterval>
+<Best-caseLatency>3</Best-caseLatency>
+<Average-caseLatency>3</Average-caseLatency>
+<Worst-caseLatency>3</Worst-caseLatency>
+<Best-caseRealTimeLatency>30.000 ns</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>30.000 ns</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>30.000 ns</Worst-caseRealTimeLatency>
+<PipelineInitiationInterval>3</PipelineInitiationInterval>
 <PipelineType>none</PipelineType>
 </SummaryOfOverallLatency>
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
-<FF>3</FF>
-<LUT>71</LUT>
+<FF>39</FF>
+<LUT>291</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP48E>0</DSP48E>
 <URAM>0</URAM>
@@ -1153,17 +1072,6 @@
 <IOProtocol>ap_ctrl_hs</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>ap_continue</name>
-<Object>write_output</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_hs</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
@@ -1327,10 +1235,21 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOConfig></IOConfig>
 <Dir>out</Dir>
 <Bits>64</Bits>
 <Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>out_r_TREADY</name>
+<Object>out_V_data_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
 <name>out_r_TVALID</name>
@@ -1338,19 +1257,8 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>out_r_TREADY</name>
-<Object>out_V_last_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
@@ -1360,7 +1268,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOConfig></IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>data</Attribute>
@@ -1371,7 +1279,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOConfig></IOConfig>
 <Dir>out</Dir>
 <Bits>8</Bits>
 <Attribute>data</Attribute>
@@ -1382,7 +1290,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOConfig></IOConfig>
 <Dir>out</Dir>
 <Bits>8</Bits>
 <Attribute>data</Attribute>
@@ -1395,30 +1303,51 @@
 <SummaryOfTimingAnalysis>
 <TargetClockPeriod>10.00</TargetClockPeriod>
 <ClockUncertainty>1.25</ClockUncertainty>
-<EstimatedClockPeriod>8.702</EstimatedClockPeriod>
+<EstimatedClockPeriod>7.069</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
-<Best-caseLatency>449</Best-caseLatency>
-<Average-caseLatency>449</Average-caseLatency>
-<Worst-caseLatency>449</Worst-caseLatency>
-<Best-caseRealTimeLatency>4.490 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>4.490 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>4.490 us</Worst-caseRealTimeLatency>
-<DataflowPipelineThroughput>450</DataflowPipelineThroughput>
-<PipelineInitiationInterval>450</PipelineInitiationInterval>
-<PipelineType>dataflow</PipelineType>
+<Best-caseLatency>1338</Best-caseLatency>
+<Average-caseLatency>1338</Average-caseLatency>
+<Worst-caseLatency>1338</Worst-caseLatency>
+<Best-caseRealTimeLatency>13.380 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>13.380 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>13.380 us</Worst-caseRealTimeLatency>
+<PipelineInitiationInterval>1339</PipelineInitiationInterval>
+<PipelineType>none</PipelineType>
 </SummaryOfOverallLatency>
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
-<BRAM_18K>17</BRAM_18K>
+<BRAM_18K>6</BRAM_18K>
 <DSP48E>12</DSP48E>
-<FF>7687</FF>
-<LUT>11110</LUT>
+<FF>9790</FF>
+<LUT>13529</LUT>
 <URAM>0</URAM>
 </Resources>
 </AreaEstimates>
 <InterfaceSummary>
+<RtlPorts>
+<name>ap_clk</name>
+<Object>fused_cnn_layer</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_none</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_rst_n</name>
+<Object>fused_cnn_layer</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_none</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
 <RtlPorts>
 <name>in_0_TDATA</name>
 <Object>in_0_V_data_V</Object>
@@ -1432,6 +1361,42 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
+<name>in_0_TVALID</name>
+<Object>in_0_V_last_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>in_0_TREADY</name>
+<Object>in_0_V_last_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>in_0_TLAST</name>
+<Object>in_0_V_last_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>data</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
 <name>in_1_TDATA</name>
 <Object>in_1_V_data_V</Object>
 <Type>pointer</Type>
@@ -1440,6 +1405,42 @@
 <IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>64</Bits>
+<Attribute>data</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>in_1_TVALID</name>
+<Object>in_1_V_last_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>in_1_TREADY</name>
+<Object>in_1_V_last_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>in_1_TLAST</name>
+<Object>in_1_V_last_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
@@ -1492,78 +1493,6 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>in_0_TLAST</name>
-<Object>in_0_V_last_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>data</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>in_0_TVALID</name>
-<Object>in_0_V_last_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>in_0_TREADY</name>
-<Object>in_0_V_last_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>in_1_TLAST</name>
-<Object>in_1_V_last_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>data</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>in_1_TVALID</name>
-<Object>in_1_V_last_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>in_1_TREADY</name>
-<Object>in_1_V_last_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
 <name>out_r_TDATA</name>
 <Object>out_V_data_V</Object>
 <Type>pointer</Type>
@@ -1572,42 +1501,6 @@
 <IOConfig>register, both mode</IOConfig>
 <Dir>out</Dir>
 <Bits>64</Bits>
-<Attribute>data</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>out_r_TKEEP</name>
-<Object>out_V_keep_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>out</Dir>
-<Bits>8</Bits>
-<Attribute>data</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>out_r_TSTRB</name>
-<Object>out_V_strb_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>out</Dir>
-<Bits>8</Bits>
-<Attribute>data</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>out_r_TLAST</name>
-<Object>out_V_last_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
@@ -1636,26 +1529,40 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>ap_clk</name>
-<Object>fused_cnn_layer</Object>
-<Type>return value</Type>
+<name>out_r_TLAST</name>
+<Object>out_V_last_V</Object>
+<Type>pointer</Type>
 <Scope></Scope>
-<IOProtocol>ap_ctrl_none</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>out</Dir>
 <Bits>1</Bits>
-<Attribute>control</Attribute>
+<Attribute>data</Attribute>
+<CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>ap_rst_n</name>
-<Object>fused_cnn_layer</Object>
-<Type>return value</Type>
+<name>out_r_TKEEP</name>
+<Object>out_V_keep_V</Object>
+<Type>pointer</Type>
 <Scope></Scope>
-<IOProtocol>ap_ctrl_none</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>out</Dir>
+<Bits>8</Bits>
+<Attribute>data</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>out_r_TSTRB</name>
+<Object>out_V_strb_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>out</Dir>
+<Bits>8</Bits>
+<Attribute>data</Attribute>
+<CType>int</CType>
 </RtlPorts>
 </InterfaceSummary>
 </Module>

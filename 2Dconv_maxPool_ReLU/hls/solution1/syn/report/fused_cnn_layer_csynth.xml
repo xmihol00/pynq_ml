@@ -14,31 +14,30 @@
 </UserAssignments>
 
 <PerformanceEstimates>
-<PipelineType>dataflow</PipelineType>
+<PipelineType>none</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>8.702</EstimatedClockPeriod>
+<EstimatedClockPeriod>7.069</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>449</Best-caseLatency>
-<Average-caseLatency>449</Average-caseLatency>
-<Worst-caseLatency>449</Worst-caseLatency>
-<Best-caseRealTimeLatency>4.490 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>4.490 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>4.490 us</Worst-caseRealTimeLatency>
-<DataflowPipelineThroughput>450</DataflowPipelineThroughput>
-<Interval-min>450</Interval-min>
-<Interval-max>450</Interval-max>
+<Best-caseLatency>1338</Best-caseLatency>
+<Average-caseLatency>1338</Average-caseLatency>
+<Worst-caseLatency>1338</Worst-caseLatency>
+<Best-caseRealTimeLatency>13.380 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>13.380 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>13.380 us</Worst-caseRealTimeLatency>
+<Interval-min>1339</Interval-min>
+<Interval-max>1339</Interval-max>
 </SummaryOfOverallLatency>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
-<BRAM_18K>17</BRAM_18K>
+<BRAM_18K>6</BRAM_18K>
 <DSP48E>12</DSP48E>
-<FF>7687</FF>
-<LUT>11110</LUT>
+<FF>9790</FF>
+<LUT>13529</LUT>
 <URAM>0</URAM>
 </Resources>
 <AvailableResources>
@@ -52,6 +51,28 @@
 
 <InterfaceSummary>
 <RtlPorts>
+<name>ap_clk</name>
+<Object>fused_cnn_layer</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_none</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_rst_n</name>
+<Object>fused_cnn_layer</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_none</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
 <name>in_0_TDATA</name>
 <Object>in_0_V_data_V</Object>
 <Type>pointer</Type>
@@ -64,6 +85,42 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
+<name>in_0_TVALID</name>
+<Object>in_0_V_last_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>in_0_TREADY</name>
+<Object>in_0_V_last_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>in_0_TLAST</name>
+<Object>in_0_V_last_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>data</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
 <name>in_1_TDATA</name>
 <Object>in_1_V_data_V</Object>
 <Type>pointer</Type>
@@ -72,6 +129,42 @@
 <IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>64</Bits>
+<Attribute>data</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>in_1_TVALID</name>
+<Object>in_1_V_last_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>in_1_TREADY</name>
+<Object>in_1_V_last_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>in_1_TLAST</name>
+<Object>in_1_V_last_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
@@ -124,78 +217,6 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>in_0_TLAST</name>
-<Object>in_0_V_last_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>data</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>in_0_TVALID</name>
-<Object>in_0_V_last_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>in_0_TREADY</name>
-<Object>in_0_V_last_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>in_1_TLAST</name>
-<Object>in_1_V_last_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>data</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>in_1_TVALID</name>
-<Object>in_1_V_last_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>in_1_TREADY</name>
-<Object>in_1_V_last_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
 <name>out_r_TDATA</name>
 <Object>out_V_data_V</Object>
 <Type>pointer</Type>
@@ -204,42 +225,6 @@
 <IOConfig>register, both mode</IOConfig>
 <Dir>out</Dir>
 <Bits>64</Bits>
-<Attribute>data</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>out_r_TKEEP</name>
-<Object>out_V_keep_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>out</Dir>
-<Bits>8</Bits>
-<Attribute>data</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>out_r_TSTRB</name>
-<Object>out_V_strb_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>out</Dir>
-<Bits>8</Bits>
-<Attribute>data</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>out_r_TLAST</name>
-<Object>out_V_last_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
@@ -268,26 +253,40 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>ap_clk</name>
-<Object>fused_cnn_layer</Object>
-<Type>return value</Type>
+<name>out_r_TLAST</name>
+<Object>out_V_last_V</Object>
+<Type>pointer</Type>
 <Scope></Scope>
-<IOProtocol>ap_ctrl_none</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>out</Dir>
 <Bits>1</Bits>
-<Attribute>control</Attribute>
+<Attribute>data</Attribute>
+<CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>ap_rst_n</name>
-<Object>fused_cnn_layer</Object>
-<Type>return value</Type>
+<name>out_r_TKEEP</name>
+<Object>out_V_keep_V</Object>
+<Type>pointer</Type>
 <Scope></Scope>
-<IOProtocol>ap_ctrl_none</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>out</Dir>
+<Bits>8</Bits>
+<Attribute>data</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>out_r_TSTRB</name>
+<Object>out_V_strb_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>out</Dir>
+<Bits>8</Bits>
+<Attribute>data</Attribute>
+<CType>int</CType>
 </RtlPorts>
 </InterfaceSummary>
 

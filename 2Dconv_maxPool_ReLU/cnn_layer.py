@@ -31,6 +31,7 @@ for i, layer in enumerate(layers):
         model.layers[i].set_weights([np.random.randint(-32, 32, weights.shape).astype(np.float32), np.zeros_like(biases)])
 
 input_data = np.random.randint(0, 255, (1, IN_HEIGHT, IN_WIDTH, IN_CHANNELS)).astype(np.float32)
+input_data[:, :, :, :] = 1
 input_data[:, :, 0, :] = 0
 input_data[:, :, -1, :] = 0
 prediction = model.predict(input_data)
@@ -41,7 +42,10 @@ for i in range(4):
     prediction_merged[i::4] = prediction_reshaped[i]
 
 #print("#define PREDICTION", format_array_C(prediction_merged.astype(np.int16)))
-np.save("prediction.npy", prediction_merged.astype(np.int16))
+#np.save("prediction.npy", prediction_merged.astype(np.int16))
+print(prediction_merged.reshape(255, -1)[:6, :12])
+print(prediction_merged.reshape(255, -1)[:6, -12:])
+exit()
 
 inputs = input_data.reshape(IN_HEIGHT*IN_WIDTH, -1).T
 inputs_hw = inputs.reshape(IN_CHANNELS, IN_HEIGHT, IN_WIDTH)[:, :, 1:-1]

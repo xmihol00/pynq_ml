@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
---Date        : Thu Feb 15 21:43:28 2024
+--Date        : Fri Feb 16 21:17:29 2024
 --Host        : david running 64-bit Ubuntu 22.04.2 LTS
 --Command     : generate_target design_1.bd
 --Design      : design_1
@@ -4379,7 +4379,7 @@ entity design_1 is
     FIXED_IO_ps_srstb : inout STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of design_1 : entity is "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=27,numReposBlks=15,numNonXlnxBlks=0,numHierBlks=12,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=1,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=8,da_clkrst_cnt=1,da_ps7_cnt=1,synth_mode=OOC_per_IP}";
+  attribute CORE_GENERATION_INFO of design_1 : entity is "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=27,numReposBlks=15,numNonXlnxBlks=0,numHierBlks=12,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=1,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=10,da_clkrst_cnt=5,da_ps7_cnt=1,synth_mode=OOC_per_IP}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of design_1 : entity is "design_1.hwdef";
 end design_1;
@@ -4730,7 +4730,7 @@ architecture STRUCTURE of design_1 is
     m_axis_tlast : out STD_LOGIC
   );
   end component design_1_axis_data_fifo_0_0;
-  component design_1_fifo_0_0 is
+  component design_1_in_fifo_0_0 is
   port (
     s_axis_aresetn : in STD_LOGIC;
     s_axis_aclk : in STD_LOGIC;
@@ -4745,8 +4745,8 @@ architecture STRUCTURE of design_1 is
     m_axis_tkeep : out STD_LOGIC_VECTOR ( 7 downto 0 );
     m_axis_tlast : out STD_LOGIC
   );
-  end component design_1_fifo_0_0;
-  component design_1_in_fifo_1_0 is
+  end component design_1_in_fifo_0_0;
+  component design_1_in_fifo_0_1 is
   port (
     s_axis_aresetn : in STD_LOGIC;
     s_axis_aclk : in STD_LOGIC;
@@ -4763,31 +4763,7 @@ architecture STRUCTURE of design_1 is
     m_axis_tkeep : out STD_LOGIC_VECTOR ( 7 downto 0 );
     m_axis_tlast : out STD_LOGIC
   );
-  end component design_1_in_fifo_1_0;
-  component design_1_fused_cnn_layer_0_0 is
-  port (
-    in_0_TVALID : in STD_LOGIC;
-    in_0_TREADY : out STD_LOGIC;
-    in_0_TDATA : in STD_LOGIC_VECTOR ( 63 downto 0 );
-    in_0_TKEEP : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    in_0_TSTRB : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    in_0_TLAST : in STD_LOGIC_VECTOR ( 0 to 0 );
-    in_1_TVALID : in STD_LOGIC;
-    in_1_TREADY : out STD_LOGIC;
-    in_1_TDATA : in STD_LOGIC_VECTOR ( 63 downto 0 );
-    in_1_TKEEP : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    in_1_TSTRB : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    in_1_TLAST : in STD_LOGIC_VECTOR ( 0 to 0 );
-    out_r_TVALID : out STD_LOGIC;
-    out_r_TREADY : in STD_LOGIC;
-    out_r_TDATA : out STD_LOGIC_VECTOR ( 63 downto 0 );
-    out_r_TKEEP : out STD_LOGIC_VECTOR ( 7 downto 0 );
-    out_r_TSTRB : out STD_LOGIC_VECTOR ( 7 downto 0 );
-    out_r_TLAST : out STD_LOGIC_VECTOR ( 0 to 0 );
-    ap_clk : in STD_LOGIC;
-    ap_rst_n : in STD_LOGIC
-  );
-  end component design_1_fused_cnn_layer_0_0;
+  end component design_1_in_fifo_0_1;
   component design_1_rst_ps7_0_100M_0 is
   port (
     slowest_sync_clk : in STD_LOGIC;
@@ -4802,6 +4778,30 @@ architecture STRUCTURE of design_1 is
     peripheral_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component design_1_rst_ps7_0_100M_0;
+  component design_1_fused_cnn_layer_0_4 is
+  port (
+    ap_clk : in STD_LOGIC;
+    ap_rst_n : in STD_LOGIC;
+    in_0_TVALID : in STD_LOGIC;
+    in_0_TREADY : out STD_LOGIC;
+    in_0_TDATA : in STD_LOGIC_VECTOR ( 63 downto 0 );
+    in_0_TLAST : in STD_LOGIC_VECTOR ( 0 to 0 );
+    in_0_TKEEP : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    in_0_TSTRB : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    in_1_TVALID : in STD_LOGIC;
+    in_1_TREADY : out STD_LOGIC;
+    in_1_TDATA : in STD_LOGIC_VECTOR ( 63 downto 0 );
+    in_1_TLAST : in STD_LOGIC_VECTOR ( 0 to 0 );
+    in_1_TKEEP : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    in_1_TSTRB : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    out_r_TVALID : out STD_LOGIC;
+    out_r_TREADY : in STD_LOGIC;
+    out_r_TDATA : out STD_LOGIC_VECTOR ( 63 downto 0 );
+    out_r_TLAST : out STD_LOGIC_VECTOR ( 0 to 0 );
+    out_r_TKEEP : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    out_r_TSTRB : out STD_LOGIC_VECTOR ( 7 downto 0 )
+  );
+  end component design_1_fused_cnn_layer_0_4;
   signal axi_mem_intercon_M00_AXI_ARADDR : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal axi_mem_intercon_M00_AXI_ARBURST : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal axi_mem_intercon_M00_AXI_ARCACHE : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -5345,29 +5345,6 @@ axi_mem_intercon: entity work.design_1_axi_mem_intercon_0
       S04_AXI_wstrb(3 downto 0) => dma_1_M_AXI_SG_WSTRB(3 downto 0),
       S04_AXI_wvalid => dma_1_M_AXI_SG_WVALID
     );
-cnn_layer: component design_1_fused_cnn_layer_0_0
-     port map (
-      ap_clk => processing_system7_0_FCLK_CLK0,
-      ap_rst_n => rst_ps7_0_100M_peripheral_aresetn(0),
-      in_0_TDATA(63 downto 0) => in_fifo_0_M_AXIS_TDATA(63 downto 0),
-      in_0_TKEEP(7 downto 0) => in_fifo_0_M_AXIS_TKEEP(7 downto 0),
-      in_0_TLAST(0) => in_fifo_0_M_AXIS_TLAST,
-      in_0_TREADY => in_fifo_0_M_AXIS_TREADY,
-      in_0_TSTRB(7 downto 0) => B"11111111",
-      in_0_TVALID => in_fifo_0_M_AXIS_TVALID,
-      in_1_TDATA(63 downto 0) => in_fifo_1_M_AXIS_TDATA(63 downto 0),
-      in_1_TKEEP(7 downto 0) => in_fifo_1_M_AXIS_TKEEP(7 downto 0),
-      in_1_TLAST(0) => in_fifo_1_M_AXIS_TLAST,
-      in_1_TREADY => in_fifo_1_M_AXIS_TREADY,
-      in_1_TSTRB(7 downto 0) => B"11111111",
-      in_1_TVALID => in_fifo_1_M_AXIS_TVALID,
-      out_r_TDATA(63 downto 0) => fused_cnn_layer_0_out_r_TDATA(63 downto 0),
-      out_r_TKEEP(7 downto 0) => fused_cnn_layer_0_out_r_TKEEP(7 downto 0),
-      out_r_TLAST(0) => fused_cnn_layer_0_out_r_TLAST(0),
-      out_r_TREADY => fused_cnn_layer_0_out_r_TREADY,
-      out_r_TSTRB(7 downto 0) => fused_cnn_layer_0_out_r_TSTRB(7 downto 0),
-      out_r_TVALID => fused_cnn_layer_0_out_r_TVALID
-    );
 dma_0: component design_1_axi_dma_0_0
      port map (
       axi_resetn => rst_ps7_0_100M_peripheral_aresetn(0),
@@ -5536,6 +5513,29 @@ dma_1: component design_1_dma_0_0
       s_axi_lite_wready => ps7_0_axi_periph_M01_AXI_WREADY,
       s_axi_lite_wvalid => ps7_0_axi_periph_M01_AXI_WVALID(0)
     );
+fused_cnn_layer_0: component design_1_fused_cnn_layer_0_4
+     port map (
+      ap_clk => processing_system7_0_FCLK_CLK0,
+      ap_rst_n => rst_ps7_0_100M_peripheral_aresetn(0),
+      in_0_TDATA(63 downto 0) => in_fifo_0_M_AXIS_TDATA(63 downto 0),
+      in_0_TKEEP(7 downto 0) => in_fifo_0_M_AXIS_TKEEP(7 downto 0),
+      in_0_TLAST(0) => in_fifo_0_M_AXIS_TLAST,
+      in_0_TREADY => in_fifo_0_M_AXIS_TREADY,
+      in_0_TSTRB(7 downto 0) => B"11111111",
+      in_0_TVALID => in_fifo_0_M_AXIS_TVALID,
+      in_1_TDATA(63 downto 0) => in_fifo_1_M_AXIS_TDATA(63 downto 0),
+      in_1_TKEEP(7 downto 0) => in_fifo_1_M_AXIS_TKEEP(7 downto 0),
+      in_1_TLAST(0) => in_fifo_1_M_AXIS_TLAST,
+      in_1_TREADY => in_fifo_1_M_AXIS_TREADY,
+      in_1_TSTRB(7 downto 0) => B"11111111",
+      in_1_TVALID => in_fifo_1_M_AXIS_TVALID,
+      out_r_TDATA(63 downto 0) => fused_cnn_layer_0_out_r_TDATA(63 downto 0),
+      out_r_TKEEP(7 downto 0) => fused_cnn_layer_0_out_r_TKEEP(7 downto 0),
+      out_r_TLAST(0) => fused_cnn_layer_0_out_r_TLAST(0),
+      out_r_TREADY => fused_cnn_layer_0_out_r_TREADY,
+      out_r_TSTRB(7 downto 0) => fused_cnn_layer_0_out_r_TSTRB(7 downto 0),
+      out_r_TVALID => fused_cnn_layer_0_out_r_TVALID
+    );
 in_fifo_0: component design_1_axis_data_fifo_0_0
      port map (
       m_axis_tdata(63 downto 0) => in_fifo_0_M_AXIS_TDATA(63 downto 0),
@@ -5551,7 +5551,7 @@ in_fifo_0: component design_1_axis_data_fifo_0_0
       s_axis_tready => dma_0_M_AXIS_MM2S_TREADY,
       s_axis_tvalid => dma_0_M_AXIS_MM2S_TVALID
     );
-in_fifo_1: component design_1_fifo_0_0
+in_fifo_1: component design_1_in_fifo_0_0
      port map (
       m_axis_tdata(63 downto 0) => in_fifo_1_M_AXIS_TDATA(63 downto 0),
       m_axis_tkeep(7 downto 0) => in_fifo_1_M_AXIS_TKEEP(7 downto 0),
@@ -5566,7 +5566,7 @@ in_fifo_1: component design_1_fifo_0_0
       s_axis_tready => dma_1_M_AXIS_MM2S_TREADY,
       s_axis_tvalid => dma_1_M_AXIS_MM2S_TVALID
     );
-out_fifo_0: component design_1_in_fifo_1_0
+out_fifo_0: component design_1_in_fifo_0_1
      port map (
       m_axis_tdata(63 downto 0) => out_fifo_0_M_AXIS_TDATA(63 downto 0),
       m_axis_tkeep(7 downto 0) => out_fifo_0_M_AXIS_TKEEP(7 downto 0),

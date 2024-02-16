@@ -99,9 +99,8 @@ set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU/bd/bd.srcs/sources_1/bd/design_1/ip/design_1_dma_0_0/design_1_dma_0_0_clocks.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU/bd/bd.srcs/sources_1/bd/design_1/ip/design_1_dma_0_0/design_1_dma_0_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU/bd/bd.srcs/sources_1/bd/design_1/ip/design_1_axis_data_fifo_0_0/design_1_axis_data_fifo_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU/bd/bd.srcs/sources_1/bd/design_1/ip/design_1_fifo_0_0/design_1_fifo_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU/bd/bd.srcs/sources_1/bd/design_1/ip/design_1_in_fifo_1_0/design_1_in_fifo_1_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU/bd/bd.srcs/sources_1/bd/design_1/ip/design_1_fused_cnn_layer_0_0/constraints/fused_cnn_layer_ooc.xdc]
+set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU/bd/bd.srcs/sources_1/bd/design_1/ip/design_1_in_fifo_0_0/design_1_in_fifo_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU/bd/bd.srcs/sources_1/bd/design_1/ip/design_1_in_fifo_0_1/design_1_in_fifo_0_1_ooc.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU/bd/bd.srcs/sources_1/bd/design_1/ip/design_1_xbar_0/design_1_xbar_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU/bd/bd.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_100M_0/design_1_rst_ps7_0_100M_0_board.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU/bd/bd.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_100M_0/design_1_rst_ps7_0_100M_0.xdc]
@@ -116,6 +115,7 @@ set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU/bd/bd.srcs/sources_1/bd/design_1/ip/design_1_auto_us_1/design_1_auto_us_1_ooc.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU/bd/bd.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1_ooc.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU/bd/bd.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_2/design_1_auto_pc_2_ooc.xdc]
+set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU/bd/bd.srcs/sources_1/bd/design_1/ip/design_1_fused_cnn_layer_0_4/constraints/fused_cnn_layer_ooc.xdc]
 set_property used_in_implementation false [get_files -all /mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU/bd/bd.srcs/sources_1/bd/design_1/design_1_ooc.xdc]
 
 OPTRACE "Adding files" END { }

@@ -43,10 +43,34 @@ int main()
             in_streams[1].write(in2);
         }
 
-        for (int i = 0; i < 4; i++)
+        /*for (int i = 0; i < 3*8; i+=8)
         {
-            fused_cnn_layer(in_streams, out_stream);
-        }
+            axis_in_t in1;
+            axis_in_t in2;
+            
+            in1.data.range(7, 0) = 1;
+            in1.data.range(15, 8) = 1;
+            in1.data.range(23, 16) = 1;
+            in1.data.range(31, 24) = 1;
+            in1.data.range(39, 32) = 1;
+            in1.data.range(47, 40) = 1;
+            in1.data.range(55, 48) = 1;
+            in1.data.range(63, 56) = 1;
+
+            in2.data.range(7, 0) = 1;
+            in2.data.range(15, 8) = 1;
+            in2.data.range(23, 16) = 1;
+            in2.data.range(31, 24) = 1;
+            in2.data.range(39, 32) = 1;
+            in2.data.range(47, 40) = 1;
+            in2.data.range(55, 48) = 1;
+            in2.data.range(63, 56) = 1;
+
+            in_streams[0].write(in1);
+            in_streams[1].write(in2);
+        }*/
+
+        fused_cnn_layer(in_streams, out_stream);
 
         for (int i = 0; i < 16; i+=4)
         {
@@ -71,7 +95,7 @@ int main()
             std::cout << "Failed at " << i << ": Expected - " << predictions[i] << "\t Actual - " << output[i + 1032] << std::endl;
             failed = true;
             error_count++;
-            if (error_count > 10)
+            if (error_count > 100)
             {
                 break;
             }

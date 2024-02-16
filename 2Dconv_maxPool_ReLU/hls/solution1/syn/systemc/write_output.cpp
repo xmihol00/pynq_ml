@@ -14,60 +14,31 @@ namespace ap_rtl {
 
 const sc_logic write_output::ap_const_logic_1 = sc_dt::Log_1;
 const sc_logic write_output::ap_const_logic_0 = sc_dt::Log_0;
-const sc_lv<2> write_output::ap_ST_fsm_state1 = "1";
-const sc_lv<2> write_output::ap_ST_fsm_state2 = "10";
+const sc_lv<4> write_output::ap_ST_fsm_state1 = "1";
+const sc_lv<4> write_output::ap_ST_fsm_state2 = "10";
+const sc_lv<4> write_output::ap_ST_fsm_state3 = "100";
+const sc_lv<4> write_output::ap_ST_fsm_state4 = "1000";
 const sc_lv<32> write_output::ap_const_lv32_0 = "00000000000000000000000000000000";
 const sc_lv<32> write_output::ap_const_lv32_1 = "1";
+const sc_lv<32> write_output::ap_const_lv32_2 = "10";
+const sc_lv<32> write_output::ap_const_lv32_3 = "11";
 const sc_lv<8> write_output::ap_const_lv8_FF = "11111111";
 const sc_lv<8> write_output::ap_const_lv8_0 = "00000000";
-const sc_lv<1> write_output::ap_const_lv1_0 = "0";
+const sc_lv<32> write_output::ap_const_lv32_FE = "11111110";
+const sc_lv<32> write_output::ap_const_lv32_FD = "11111101";
+const sc_lv<32> write_output::ap_const_lv32_FC = "11111100";
+const sc_lv<32> write_output::ap_const_lv32_4 = "100";
+const sc_lv<32> write_output::ap_const_lv32_FF = "11111111";
 const bool write_output::ap_const_boolean_1 = true;
 
 write_output::write_output(sc_module_name name) : sc_module(name), mVcdFile(0) {
-    regslice_both_out_V_data_V_U = new regslice_both<64>("regslice_both_out_V_data_V_U");
-    regslice_both_out_V_data_V_U->ap_clk(ap_clk);
-    regslice_both_out_V_data_V_U->ap_rst(ap_rst);
-    regslice_both_out_V_data_V_U->data_in(out_r_TDATA_int);
-    regslice_both_out_V_data_V_U->vld_in(out_r_TVALID_int);
-    regslice_both_out_V_data_V_U->ack_in(out_r_TREADY_int);
-    regslice_both_out_V_data_V_U->data_out(out_r_TDATA);
-    regslice_both_out_V_data_V_U->vld_out(regslice_both_out_V_data_V_U_vld_out);
-    regslice_both_out_V_data_V_U->ack_out(out_r_TREADY);
-    regslice_both_out_V_data_V_U->apdone_blk(regslice_both_out_V_data_V_U_apdone_blk);
-    regslice_both_out_V_keep_V_U = new regslice_both<8>("regslice_both_out_V_keep_V_U");
-    regslice_both_out_V_keep_V_U->ap_clk(ap_clk);
-    regslice_both_out_V_keep_V_U->ap_rst(ap_rst);
-    regslice_both_out_V_keep_V_U->data_in(ap_var_for_const0);
-    regslice_both_out_V_keep_V_U->vld_in(out_r_TVALID_int);
-    regslice_both_out_V_keep_V_U->ack_in(regslice_both_out_V_keep_V_U_ack_in_dummy);
-    regslice_both_out_V_keep_V_U->data_out(out_r_TKEEP);
-    regslice_both_out_V_keep_V_U->vld_out(regslice_both_out_V_keep_V_U_vld_out);
-    regslice_both_out_V_keep_V_U->ack_out(out_r_TREADY);
-    regslice_both_out_V_keep_V_U->apdone_blk(regslice_both_out_V_keep_V_U_apdone_blk);
-    regslice_both_out_V_strb_V_U = new regslice_both<8>("regslice_both_out_V_strb_V_U");
-    regslice_both_out_V_strb_V_U->ap_clk(ap_clk);
-    regslice_both_out_V_strb_V_U->ap_rst(ap_rst);
-    regslice_both_out_V_strb_V_U->data_in(ap_var_for_const1);
-    regslice_both_out_V_strb_V_U->vld_in(out_r_TVALID_int);
-    regslice_both_out_V_strb_V_U->ack_in(regslice_both_out_V_strb_V_U_ack_in_dummy);
-    regslice_both_out_V_strb_V_U->data_out(out_r_TSTRB);
-    regslice_both_out_V_strb_V_U->vld_out(regslice_both_out_V_strb_V_U_vld_out);
-    regslice_both_out_V_strb_V_U->ack_out(out_r_TREADY);
-    regslice_both_out_V_strb_V_U->apdone_blk(regslice_both_out_V_strb_V_U_apdone_blk);
-    regslice_both_out_V_last_V_U = new regslice_both<1>("regslice_both_out_V_last_V_U");
-    regslice_both_out_V_last_V_U->ap_clk(ap_clk);
-    regslice_both_out_V_last_V_U->ap_rst(ap_rst);
-    regslice_both_out_V_last_V_U->data_in(ap_var_for_const2);
-    regslice_both_out_V_last_V_U->vld_in(out_r_TVALID_int);
-    regslice_both_out_V_last_V_U->ack_in(regslice_both_out_V_last_V_U_ack_in_dummy);
-    regslice_both_out_V_last_V_U->data_out(out_r_TLAST);
-    regslice_both_out_V_last_V_U->vld_out(regslice_both_out_V_last_V_U_vld_out);
-    regslice_both_out_V_last_V_U->ack_out(out_r_TREADY);
-    regslice_both_out_V_last_V_U->apdone_blk(regslice_both_out_V_last_V_U_apdone_blk);
 
     SC_METHOD(thread_ap_clk_no_reset_);
     dont_initialize();
     sensitive << ( ap_clk.pos() );
+
+    SC_METHOD(thread_add_ln112_fu_132_p2);
+    sensitive << ( sent );
 
     SC_METHOD(thread_ap_CS_fsm_state1);
     sensitive << ( ap_CS_fsm );
@@ -75,147 +46,304 @@ write_output::write_output(sc_module_name name) : sc_module(name), mVcdFile(0) {
     SC_METHOD(thread_ap_CS_fsm_state2);
     sensitive << ( ap_CS_fsm );
 
+    SC_METHOD(thread_ap_CS_fsm_state3);
+    sensitive << ( ap_CS_fsm );
+
+    SC_METHOD(thread_ap_CS_fsm_state4);
+    sensitive << ( ap_CS_fsm );
+
     SC_METHOD(thread_ap_block_state1);
     sensitive << ( ap_start );
-    sensitive << ( ap_done_reg );
+    sensitive << ( output_0_V_empty_n );
+    sensitive << ( output_1_V_empty_n );
+    sensitive << ( output_2_V_empty_n );
+    sensitive << ( output_3_V_empty_n );
+
+    SC_METHOD(thread_ap_block_state2);
+    sensitive << ( output_0_V_empty_n );
+    sensitive << ( output_1_V_empty_n );
+    sensitive << ( output_2_V_empty_n );
+    sensitive << ( output_3_V_empty_n );
+
+    SC_METHOD(thread_ap_block_state3);
+    sensitive << ( output_0_V_empty_n );
+    sensitive << ( output_1_V_empty_n );
+    sensitive << ( output_2_V_empty_n );
+    sensitive << ( output_3_V_empty_n );
+
+    SC_METHOD(thread_ap_block_state4);
     sensitive << ( output_0_V_empty_n );
     sensitive << ( output_1_V_empty_n );
     sensitive << ( output_2_V_empty_n );
     sensitive << ( output_3_V_empty_n );
 
     SC_METHOD(thread_ap_done);
-    sensitive << ( ap_done_reg );
-    sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( regslice_both_out_V_data_V_U_apdone_blk );
-    sensitive << ( out_r_TREADY_int );
+    sensitive << ( ap_start );
+    sensitive << ( ap_CS_fsm_state1 );
+    sensitive << ( output_0_V_empty_n );
+    sensitive << ( output_1_V_empty_n );
+    sensitive << ( output_2_V_empty_n );
+    sensitive << ( output_3_V_empty_n );
+    sensitive << ( out_r_TREADY );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_ap_idle);
     sensitive << ( ap_start );
     sensitive << ( ap_CS_fsm_state1 );
 
     SC_METHOD(thread_ap_ready);
+    sensitive << ( output_0_V_empty_n );
+    sensitive << ( output_1_V_empty_n );
+    sensitive << ( output_2_V_empty_n );
+    sensitive << ( output_3_V_empty_n );
+    sensitive << ( out_r_TREADY );
+    sensitive << ( ap_CS_fsm_state4 );
+
+    SC_METHOD(thread_icmp_ln121_fu_144_p2);
+    sensitive << ( ap_start );
+    sensitive << ( ap_CS_fsm_state1 );
+    sensitive << ( output_0_V_empty_n );
+    sensitive << ( output_1_V_empty_n );
+    sensitive << ( output_2_V_empty_n );
+    sensitive << ( output_3_V_empty_n );
+    sensitive << ( out_r_TREADY );
+    sensitive << ( add_ln112_fu_132_p2 );
+
+    SC_METHOD(thread_out_r_TDATA);
+    sensitive << ( ap_start );
+    sensitive << ( ap_CS_fsm_state1 );
+    sensitive << ( output_0_V_empty_n );
+    sensitive << ( output_1_V_empty_n );
+    sensitive << ( output_2_V_empty_n );
+    sensitive << ( output_3_V_empty_n );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( regslice_both_out_V_data_V_U_apdone_blk );
-    sensitive << ( out_r_TREADY_int );
+    sensitive << ( ap_CS_fsm_state3 );
+    sensitive << ( ap_CS_fsm_state4 );
+    sensitive << ( p_Result_s_fu_100_p5 );
+    sensitive << ( p_Result_1_fu_164_p5 );
+    sensitive << ( p_Result_2_fu_177_p5 );
+    sensitive << ( p_Result_3_fu_190_p5 );
 
     SC_METHOD(thread_out_r_TDATA_blk_n);
     sensitive << ( ap_start );
-    sensitive << ( ap_done_reg );
     sensitive << ( ap_CS_fsm_state1 );
+    sensitive << ( out_r_TREADY );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( out_r_TREADY_int );
+    sensitive << ( ap_CS_fsm_state3 );
+    sensitive << ( ap_CS_fsm_state4 );
 
-    SC_METHOD(thread_out_r_TDATA_int);
+    SC_METHOD(thread_out_r_TKEEP);
     sensitive << ( ap_start );
-    sensitive << ( ap_done_reg );
     sensitive << ( ap_CS_fsm_state1 );
-    sensitive << ( output_0_V_dout );
     sensitive << ( output_0_V_empty_n );
-    sensitive << ( output_1_V_dout );
     sensitive << ( output_1_V_empty_n );
-    sensitive << ( output_2_V_dout );
     sensitive << ( output_2_V_empty_n );
-    sensitive << ( output_3_V_dout );
     sensitive << ( output_3_V_empty_n );
+    sensitive << ( ap_CS_fsm_state2 );
+    sensitive << ( ap_CS_fsm_state3 );
+    sensitive << ( ap_CS_fsm_state4 );
+
+    SC_METHOD(thread_out_r_TLAST);
+    sensitive << ( ap_start );
+    sensitive << ( ap_CS_fsm_state1 );
+    sensitive << ( output_0_V_empty_n );
+    sensitive << ( output_1_V_empty_n );
+    sensitive << ( output_2_V_empty_n );
+    sensitive << ( output_3_V_empty_n );
+    sensitive << ( ap_CS_fsm_state2 );
+    sensitive << ( ap_CS_fsm_state3 );
+    sensitive << ( ap_CS_fsm_state4 );
+    sensitive << ( tmp_last_V_1_reg_203 );
+    sensitive << ( tmp_last_V_2_reg_208 );
+    sensitive << ( tmp_last_V_3_reg_213 );
+    sensitive << ( tmp_last_V_fu_113_p2 );
+
+    SC_METHOD(thread_out_r_TSTRB);
+    sensitive << ( ap_start );
+    sensitive << ( ap_CS_fsm_state1 );
+    sensitive << ( output_0_V_empty_n );
+    sensitive << ( output_1_V_empty_n );
+    sensitive << ( output_2_V_empty_n );
+    sensitive << ( output_3_V_empty_n );
+    sensitive << ( ap_CS_fsm_state2 );
+    sensitive << ( ap_CS_fsm_state3 );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_out_r_TVALID);
-    sensitive << ( regslice_both_out_V_data_V_U_vld_out );
-
-    SC_METHOD(thread_out_r_TVALID_int);
     sensitive << ( ap_start );
-    sensitive << ( ap_done_reg );
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( output_0_V_empty_n );
     sensitive << ( output_1_V_empty_n );
     sensitive << ( output_2_V_empty_n );
     sensitive << ( output_3_V_empty_n );
-    sensitive << ( out_r_TREADY_int );
+    sensitive << ( out_r_TREADY );
+    sensitive << ( ap_CS_fsm_state2 );
+    sensitive << ( ap_CS_fsm_state3 );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_output_0_V_blk_n);
     sensitive << ( ap_start );
-    sensitive << ( ap_done_reg );
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( output_0_V_empty_n );
+    sensitive << ( ap_CS_fsm_state2 );
+    sensitive << ( ap_CS_fsm_state3 );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_output_0_V_read);
     sensitive << ( ap_start );
-    sensitive << ( ap_done_reg );
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( output_0_V_empty_n );
     sensitive << ( output_1_V_empty_n );
     sensitive << ( output_2_V_empty_n );
     sensitive << ( output_3_V_empty_n );
-    sensitive << ( out_r_TREADY_int );
+    sensitive << ( out_r_TREADY );
+    sensitive << ( ap_CS_fsm_state2 );
+    sensitive << ( ap_CS_fsm_state3 );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_output_1_V_blk_n);
     sensitive << ( ap_start );
-    sensitive << ( ap_done_reg );
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( output_1_V_empty_n );
+    sensitive << ( ap_CS_fsm_state2 );
+    sensitive << ( ap_CS_fsm_state3 );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_output_1_V_read);
     sensitive << ( ap_start );
-    sensitive << ( ap_done_reg );
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( output_0_V_empty_n );
     sensitive << ( output_1_V_empty_n );
     sensitive << ( output_2_V_empty_n );
     sensitive << ( output_3_V_empty_n );
-    sensitive << ( out_r_TREADY_int );
+    sensitive << ( out_r_TREADY );
+    sensitive << ( ap_CS_fsm_state2 );
+    sensitive << ( ap_CS_fsm_state3 );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_output_2_V_blk_n);
     sensitive << ( ap_start );
-    sensitive << ( ap_done_reg );
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( output_2_V_empty_n );
+    sensitive << ( ap_CS_fsm_state2 );
+    sensitive << ( ap_CS_fsm_state3 );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_output_2_V_read);
     sensitive << ( ap_start );
-    sensitive << ( ap_done_reg );
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( output_0_V_empty_n );
     sensitive << ( output_1_V_empty_n );
     sensitive << ( output_2_V_empty_n );
     sensitive << ( output_3_V_empty_n );
-    sensitive << ( out_r_TREADY_int );
+    sensitive << ( out_r_TREADY );
+    sensitive << ( ap_CS_fsm_state2 );
+    sensitive << ( ap_CS_fsm_state3 );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_output_3_V_blk_n);
     sensitive << ( ap_start );
-    sensitive << ( ap_done_reg );
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( output_3_V_empty_n );
+    sensitive << ( ap_CS_fsm_state2 );
+    sensitive << ( ap_CS_fsm_state3 );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_output_3_V_read);
     sensitive << ( ap_start );
-    sensitive << ( ap_done_reg );
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( output_0_V_empty_n );
     sensitive << ( output_1_V_empty_n );
     sensitive << ( output_2_V_empty_n );
     sensitive << ( output_3_V_empty_n );
-    sensitive << ( out_r_TREADY_int );
+    sensitive << ( out_r_TREADY );
+    sensitive << ( ap_CS_fsm_state2 );
+    sensitive << ( ap_CS_fsm_state3 );
+    sensitive << ( ap_CS_fsm_state4 );
+
+    SC_METHOD(thread_p_Result_1_fu_164_p5);
+    sensitive << ( output_0_V_dout );
+    sensitive << ( output_1_V_dout );
+    sensitive << ( output_2_V_dout );
+    sensitive << ( output_3_V_dout );
+
+    SC_METHOD(thread_p_Result_2_fu_177_p5);
+    sensitive << ( output_0_V_dout );
+    sensitive << ( output_1_V_dout );
+    sensitive << ( output_2_V_dout );
+    sensitive << ( output_3_V_dout );
+
+    SC_METHOD(thread_p_Result_3_fu_190_p5);
+    sensitive << ( output_0_V_dout );
+    sensitive << ( output_1_V_dout );
+    sensitive << ( output_2_V_dout );
+    sensitive << ( output_3_V_dout );
+
+    SC_METHOD(thread_p_Result_s_fu_100_p5);
+    sensitive << ( output_0_V_dout );
+    sensitive << ( output_1_V_dout );
+    sensitive << ( output_2_V_dout );
+    sensitive << ( output_3_V_dout );
+
+    SC_METHOD(thread_select_ln121_fu_150_p3);
+    sensitive << ( add_ln112_fu_132_p2 );
+    sensitive << ( icmp_ln121_fu_144_p2 );
+
+    SC_METHOD(thread_tmp_last_V_1_fu_120_p2);
+    sensitive << ( ap_start );
+    sensitive << ( ap_CS_fsm_state1 );
+    sensitive << ( output_0_V_empty_n );
+    sensitive << ( output_1_V_empty_n );
+    sensitive << ( output_2_V_empty_n );
+    sensitive << ( output_3_V_empty_n );
+    sensitive << ( out_r_TREADY );
+    sensitive << ( sent );
+
+    SC_METHOD(thread_tmp_last_V_2_fu_126_p2);
+    sensitive << ( ap_start );
+    sensitive << ( ap_CS_fsm_state1 );
+    sensitive << ( output_0_V_empty_n );
+    sensitive << ( output_1_V_empty_n );
+    sensitive << ( output_2_V_empty_n );
+    sensitive << ( output_3_V_empty_n );
+    sensitive << ( out_r_TREADY );
+    sensitive << ( sent );
+
+    SC_METHOD(thread_tmp_last_V_3_fu_138_p2);
+    sensitive << ( ap_start );
+    sensitive << ( ap_CS_fsm_state1 );
+    sensitive << ( output_0_V_empty_n );
+    sensitive << ( output_1_V_empty_n );
+    sensitive << ( output_2_V_empty_n );
+    sensitive << ( output_3_V_empty_n );
+    sensitive << ( out_r_TREADY );
+    sensitive << ( add_ln112_fu_132_p2 );
+
+    SC_METHOD(thread_tmp_last_V_fu_113_p2);
+    sensitive << ( ap_start );
+    sensitive << ( ap_CS_fsm_state1 );
+    sensitive << ( output_0_V_empty_n );
+    sensitive << ( output_1_V_empty_n );
+    sensitive << ( output_2_V_empty_n );
+    sensitive << ( output_3_V_empty_n );
+    sensitive << ( out_r_TREADY );
+    sensitive << ( sent );
 
     SC_METHOD(thread_ap_NS_fsm);
     sensitive << ( ap_start );
-    sensitive << ( ap_done_reg );
     sensitive << ( ap_CS_fsm );
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( output_0_V_empty_n );
     sensitive << ( output_1_V_empty_n );
     sensitive << ( output_2_V_empty_n );
     sensitive << ( output_3_V_empty_n );
+    sensitive << ( out_r_TREADY );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( regslice_both_out_V_data_V_U_apdone_blk );
-    sensitive << ( out_r_TREADY_int );
+    sensitive << ( ap_CS_fsm_state3 );
+    sensitive << ( ap_CS_fsm_state4 );
 
-    SC_THREAD(thread_ap_var_for_const0);
-
-    SC_THREAD(thread_ap_var_for_const1);
-
-    SC_THREAD(thread_ap_var_for_const2);
-
-    ap_done_reg = SC_LOGIC_0;
-    ap_CS_fsm = "01";
+    ap_CS_fsm = "0001";
+    sent = "00000000000000000000000000000000";
     static int apTFileNum = 0;
     stringstream apTFilenSS;
     apTFilenSS << "write_output_sc_trace_" << apTFileNum ++;
@@ -228,7 +356,6 @@ write_output::write_output(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sc_trace(mVcdFile, ap_rst, "(port)ap_rst");
     sc_trace(mVcdFile, ap_start, "(port)ap_start");
     sc_trace(mVcdFile, ap_done, "(port)ap_done");
-    sc_trace(mVcdFile, ap_continue, "(port)ap_continue");
     sc_trace(mVcdFile, ap_idle, "(port)ap_idle");
     sc_trace(mVcdFile, ap_ready, "(port)ap_ready");
     sc_trace(mVcdFile, output_0_V_dout, "(port)output_0_V_dout");
@@ -251,31 +378,36 @@ write_output::write_output(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sc_trace(mVcdFile, out_r_TLAST, "(port)out_r_TLAST");
 #endif
 #ifdef __HLS_TRACE_LEVEL_INT__
-    sc_trace(mVcdFile, ap_done_reg, "ap_done_reg");
     sc_trace(mVcdFile, ap_CS_fsm, "ap_CS_fsm");
     sc_trace(mVcdFile, ap_CS_fsm_state1, "ap_CS_fsm_state1");
+    sc_trace(mVcdFile, sent, "sent");
     sc_trace(mVcdFile, output_0_V_blk_n, "output_0_V_blk_n");
+    sc_trace(mVcdFile, ap_CS_fsm_state2, "ap_CS_fsm_state2");
+    sc_trace(mVcdFile, ap_CS_fsm_state3, "ap_CS_fsm_state3");
+    sc_trace(mVcdFile, ap_CS_fsm_state4, "ap_CS_fsm_state4");
     sc_trace(mVcdFile, output_1_V_blk_n, "output_1_V_blk_n");
     sc_trace(mVcdFile, output_2_V_blk_n, "output_2_V_blk_n");
     sc_trace(mVcdFile, output_3_V_blk_n, "output_3_V_blk_n");
     sc_trace(mVcdFile, out_r_TDATA_blk_n, "out_r_TDATA_blk_n");
-    sc_trace(mVcdFile, ap_CS_fsm_state2, "ap_CS_fsm_state2");
+    sc_trace(mVcdFile, tmp_last_V_1_fu_120_p2, "tmp_last_V_1_fu_120_p2");
+    sc_trace(mVcdFile, tmp_last_V_1_reg_203, "tmp_last_V_1_reg_203");
     sc_trace(mVcdFile, ap_block_state1, "ap_block_state1");
-    sc_trace(mVcdFile, regslice_both_out_V_data_V_U_apdone_blk, "regslice_both_out_V_data_V_U_apdone_blk");
+    sc_trace(mVcdFile, tmp_last_V_2_fu_126_p2, "tmp_last_V_2_fu_126_p2");
+    sc_trace(mVcdFile, tmp_last_V_2_reg_208, "tmp_last_V_2_reg_208");
+    sc_trace(mVcdFile, tmp_last_V_3_fu_138_p2, "tmp_last_V_3_fu_138_p2");
+    sc_trace(mVcdFile, tmp_last_V_3_reg_213, "tmp_last_V_3_reg_213");
+    sc_trace(mVcdFile, select_ln121_fu_150_p3, "select_ln121_fu_150_p3");
+    sc_trace(mVcdFile, ap_block_state2, "ap_block_state2");
+    sc_trace(mVcdFile, ap_block_state3, "ap_block_state3");
+    sc_trace(mVcdFile, ap_block_state4, "ap_block_state4");
+    sc_trace(mVcdFile, p_Result_s_fu_100_p5, "p_Result_s_fu_100_p5");
+    sc_trace(mVcdFile, p_Result_1_fu_164_p5, "p_Result_1_fu_164_p5");
+    sc_trace(mVcdFile, p_Result_2_fu_177_p5, "p_Result_2_fu_177_p5");
+    sc_trace(mVcdFile, p_Result_3_fu_190_p5, "p_Result_3_fu_190_p5");
+    sc_trace(mVcdFile, tmp_last_V_fu_113_p2, "tmp_last_V_fu_113_p2");
+    sc_trace(mVcdFile, add_ln112_fu_132_p2, "add_ln112_fu_132_p2");
+    sc_trace(mVcdFile, icmp_ln121_fu_144_p2, "icmp_ln121_fu_144_p2");
     sc_trace(mVcdFile, ap_NS_fsm, "ap_NS_fsm");
-    sc_trace(mVcdFile, out_r_TDATA_int, "out_r_TDATA_int");
-    sc_trace(mVcdFile, out_r_TVALID_int, "out_r_TVALID_int");
-    sc_trace(mVcdFile, out_r_TREADY_int, "out_r_TREADY_int");
-    sc_trace(mVcdFile, regslice_both_out_V_data_V_U_vld_out, "regslice_both_out_V_data_V_U_vld_out");
-    sc_trace(mVcdFile, regslice_both_out_V_keep_V_U_apdone_blk, "regslice_both_out_V_keep_V_U_apdone_blk");
-    sc_trace(mVcdFile, regslice_both_out_V_keep_V_U_ack_in_dummy, "regslice_both_out_V_keep_V_U_ack_in_dummy");
-    sc_trace(mVcdFile, regslice_both_out_V_keep_V_U_vld_out, "regslice_both_out_V_keep_V_U_vld_out");
-    sc_trace(mVcdFile, regslice_both_out_V_strb_V_U_apdone_blk, "regslice_both_out_V_strb_V_U_apdone_blk");
-    sc_trace(mVcdFile, regslice_both_out_V_strb_V_U_ack_in_dummy, "regslice_both_out_V_strb_V_U_ack_in_dummy");
-    sc_trace(mVcdFile, regslice_both_out_V_strb_V_U_vld_out, "regslice_both_out_V_strb_V_U_vld_out");
-    sc_trace(mVcdFile, regslice_both_out_V_last_V_U_apdone_blk, "regslice_both_out_V_last_V_U_apdone_blk");
-    sc_trace(mVcdFile, regslice_both_out_V_last_V_U_ack_in_dummy, "regslice_both_out_V_last_V_U_ack_in_dummy");
-    sc_trace(mVcdFile, regslice_both_out_V_last_V_U_vld_out, "regslice_both_out_V_last_V_U_vld_out");
 #endif
 
     }
@@ -285,22 +417,6 @@ write_output::~write_output() {
     if (mVcdFile) 
         sc_close_vcd_trace_file(mVcdFile);
 
-    delete regslice_both_out_V_data_V_U;
-    delete regslice_both_out_V_keep_V_U;
-    delete regslice_both_out_V_strb_V_U;
-    delete regslice_both_out_V_last_V_U;
-}
-
-void write_output::thread_ap_var_for_const0() {
-    ap_var_for_const0 = ap_const_lv8_FF;
-}
-
-void write_output::thread_ap_var_for_const1() {
-    ap_var_for_const1 = ap_const_lv8_0;
-}
-
-void write_output::thread_ap_var_for_const2() {
-    ap_var_for_const2 = ap_const_lv1_0;
 }
 
 void write_output::thread_ap_clk_no_reset_() {
@@ -309,16 +425,16 @@ void write_output::thread_ap_clk_no_reset_() {
     } else {
         ap_CS_fsm = ap_NS_fsm.read();
     }
-    if ( ap_rst.read() == ap_const_logic_1) {
-        ap_done_reg = ap_const_logic_0;
-    } else {
-        if (esl_seteq<1,1,1>(ap_const_logic_1, ap_continue.read())) {
-            ap_done_reg = ap_const_logic_0;
-        } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-                    !(esl_seteq<1,1,1>(ap_const_logic_1, regslice_both_out_V_data_V_U_apdone_blk.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY_int.read())))) {
-            ap_done_reg = ap_const_logic_1;
-        }
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && !(esl_seteq<1,1,1>(ap_const_logic_0, ap_start.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read())))) {
+        sent = select_ln121_fu_150_p3.read();
+        tmp_last_V_1_reg_203 = tmp_last_V_1_fu_120_p2.read();
+        tmp_last_V_2_reg_208 = tmp_last_V_2_fu_126_p2.read();
+        tmp_last_V_3_reg_213 = tmp_last_V_3_fu_138_p2.read();
     }
+}
+
+void write_output::thread_add_ln112_fu_132_p2() {
+    add_ln112_fu_132_p2 = (!sent.read().is_01() || !ap_const_lv32_4.is_01())? sc_lv<32>(): (sc_biguint<32>(sent.read()) + sc_biguint<32>(ap_const_lv32_4));
 }
 
 void write_output::thread_ap_CS_fsm_state1() {
@@ -329,16 +445,38 @@ void write_output::thread_ap_CS_fsm_state2() {
     ap_CS_fsm_state2 = ap_CS_fsm.read()[1];
 }
 
+void write_output::thread_ap_CS_fsm_state3() {
+    ap_CS_fsm_state3 = ap_CS_fsm.read()[2];
+}
+
+void write_output::thread_ap_CS_fsm_state4() {
+    ap_CS_fsm_state4 = ap_CS_fsm.read()[3];
+}
+
 void write_output::thread_ap_block_state1() {
-    ap_block_state1 = (esl_seteq<1,1,1>(ap_const_logic_0, ap_start.read()) || esl_seteq<1,1,1>(ap_done_reg.read(), ap_const_logic_1) || esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()));
+    ap_block_state1 = (esl_seteq<1,1,1>(ap_const_logic_0, ap_start.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()));
+}
+
+void write_output::thread_ap_block_state2() {
+    ap_block_state2 = (esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()));
+}
+
+void write_output::thread_ap_block_state3() {
+    ap_block_state3 = (esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()));
+}
+
+void write_output::thread_ap_block_state4() {
+    ap_block_state4 = (esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()));
 }
 
 void write_output::thread_ap_done() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         !(esl_seteq<1,1,1>(ap_const_logic_1, regslice_both_out_V_data_V_U_apdone_blk.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY_int.read())))) {
+    if (((esl_seteq<1,1,1>(ap_const_logic_0, ap_start.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) && 
+          !(esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read()))))) {
         ap_done = ap_const_logic_1;
     } else {
-        ap_done = ap_done_reg.read();
+        ap_done = ap_const_logic_0;
     }
 }
 
@@ -352,44 +490,95 @@ void write_output::thread_ap_idle() {
 }
 
 void write_output::thread_ap_ready() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         !(esl_seteq<1,1,1>(ap_const_logic_1, regslice_both_out_V_data_V_U_apdone_blk.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY_int.read())))) {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) && 
+         !(esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read())))) {
         ap_ready = ap_const_logic_1;
     } else {
         ap_ready = ap_const_logic_0;
     }
 }
 
+void write_output::thread_icmp_ln121_fu_144_p2() {
+    icmp_ln121_fu_144_p2 = (!add_ln112_fu_132_p2.read().is_01() || !ap_const_lv32_FE.is_01())? sc_lv<1>(): (sc_bigint<32>(add_ln112_fu_132_p2.read()) > sc_bigint<32>(ap_const_lv32_FE));
+}
+
+void write_output::thread_out_r_TDATA() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) && 
+         !(esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read())))) {
+        out_r_TDATA = p_Result_3_fu_190_p5.read();
+    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) && 
+                !(esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read())))) {
+        out_r_TDATA = p_Result_2_fu_177_p5.read();
+    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
+                !(esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read())))) {
+        out_r_TDATA = p_Result_1_fu_164_p5.read();
+    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
+                !(esl_seteq<1,1,1>(ap_const_logic_0, ap_start.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read())))) {
+        out_r_TDATA = p_Result_s_fu_100_p5.read();
+    } else {
+        out_r_TDATA = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+    }
+}
+
 void write_output::thread_out_r_TDATA_blk_n() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-          !(esl_seteq<1,1,1>(ap_const_logic_0, ap_start.read()) || esl_seteq<1,1,1>(ap_done_reg.read(), ap_const_logic_1))) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()))) {
-        out_r_TDATA_blk_n = out_r_TREADY_int.read();
+          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1)) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()))) {
+        out_r_TDATA_blk_n = out_r_TREADY.read();
     } else {
         out_r_TDATA_blk_n = ap_const_logic_1;
     }
 }
 
-void write_output::thread_out_r_TDATA_int() {
-    out_r_TDATA_int = esl_concat<48,16>(esl_concat<32,16>(esl_concat<16,16>(output_3_V_dout.read(), output_2_V_dout.read()), output_1_V_dout.read()), output_0_V_dout.read());
+void write_output::thread_out_r_TKEEP() {
+    out_r_TKEEP = ap_const_lv8_FF;
+}
+
+void write_output::thread_out_r_TLAST() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) && 
+         !(esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read())))) {
+        out_r_TLAST = tmp_last_V_3_reg_213.read();
+    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) && 
+                !(esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read())))) {
+        out_r_TLAST = tmp_last_V_2_reg_208.read();
+    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
+                !(esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read())))) {
+        out_r_TLAST = tmp_last_V_1_reg_203.read();
+    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
+                !(esl_seteq<1,1,1>(ap_const_logic_0, ap_start.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read())))) {
+        out_r_TLAST = tmp_last_V_fu_113_p2.read();
+    } else {
+        out_r_TLAST =  (sc_lv<1>) ("X");
+    }
+}
+
+void write_output::thread_out_r_TSTRB() {
+    out_r_TSTRB = ap_const_lv8_0;
 }
 
 void write_output::thread_out_r_TVALID() {
-    out_r_TVALID = regslice_both_out_V_data_V_U_vld_out.read();
-}
-
-void write_output::thread_out_r_TVALID_int() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-         !(esl_seteq<1,1,1>(ap_const_logic_0, ap_start.read()) || esl_seteq<1,1,1>(ap_done_reg.read(), ap_const_logic_1) || esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY_int.read())))) {
-        out_r_TVALID_int = ap_const_logic_1;
+    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
+          !(esl_seteq<1,1,1>(ap_const_logic_0, ap_start.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read()))) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
+          !(esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read()))) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) && 
+          !(esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read()))) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) && 
+          !(esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read()))))) {
+        out_r_TVALID = ap_const_logic_1;
     } else {
-        out_r_TVALID_int = ap_const_logic_0;
+        out_r_TVALID = ap_const_logic_0;
     }
 }
 
 void write_output::thread_output_0_V_blk_n() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-         !(esl_seteq<1,1,1>(ap_const_logic_0, ap_start.read()) || esl_seteq<1,1,1>(ap_done_reg.read(), ap_const_logic_1)))) {
+    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
+          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1)) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()))) {
         output_0_V_blk_n = output_0_V_empty_n.read();
     } else {
         output_0_V_blk_n = ap_const_logic_1;
@@ -397,8 +586,14 @@ void write_output::thread_output_0_V_blk_n() {
 }
 
 void write_output::thread_output_0_V_read() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-         !(esl_seteq<1,1,1>(ap_const_logic_0, ap_start.read()) || esl_seteq<1,1,1>(ap_done_reg.read(), ap_const_logic_1) || esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY_int.read())))) {
+    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
+          !(esl_seteq<1,1,1>(ap_const_logic_0, ap_start.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read()))) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
+          !(esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read()))) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) && 
+          !(esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read()))) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) && 
+          !(esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read()))))) {
         output_0_V_read = ap_const_logic_1;
     } else {
         output_0_V_read = ap_const_logic_0;
@@ -406,8 +601,11 @@ void write_output::thread_output_0_V_read() {
 }
 
 void write_output::thread_output_1_V_blk_n() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-         !(esl_seteq<1,1,1>(ap_const_logic_0, ap_start.read()) || esl_seteq<1,1,1>(ap_done_reg.read(), ap_const_logic_1)))) {
+    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
+          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1)) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()))) {
         output_1_V_blk_n = output_1_V_empty_n.read();
     } else {
         output_1_V_blk_n = ap_const_logic_1;
@@ -415,8 +613,14 @@ void write_output::thread_output_1_V_blk_n() {
 }
 
 void write_output::thread_output_1_V_read() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-         !(esl_seteq<1,1,1>(ap_const_logic_0, ap_start.read()) || esl_seteq<1,1,1>(ap_done_reg.read(), ap_const_logic_1) || esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY_int.read())))) {
+    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
+          !(esl_seteq<1,1,1>(ap_const_logic_0, ap_start.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read()))) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
+          !(esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read()))) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) && 
+          !(esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read()))) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) && 
+          !(esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read()))))) {
         output_1_V_read = ap_const_logic_1;
     } else {
         output_1_V_read = ap_const_logic_0;
@@ -424,8 +628,11 @@ void write_output::thread_output_1_V_read() {
 }
 
 void write_output::thread_output_2_V_blk_n() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-         !(esl_seteq<1,1,1>(ap_const_logic_0, ap_start.read()) || esl_seteq<1,1,1>(ap_done_reg.read(), ap_const_logic_1)))) {
+    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
+          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1)) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()))) {
         output_2_V_blk_n = output_2_V_empty_n.read();
     } else {
         output_2_V_blk_n = ap_const_logic_1;
@@ -433,8 +640,14 @@ void write_output::thread_output_2_V_blk_n() {
 }
 
 void write_output::thread_output_2_V_read() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-         !(esl_seteq<1,1,1>(ap_const_logic_0, ap_start.read()) || esl_seteq<1,1,1>(ap_done_reg.read(), ap_const_logic_1) || esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY_int.read())))) {
+    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
+          !(esl_seteq<1,1,1>(ap_const_logic_0, ap_start.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read()))) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
+          !(esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read()))) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) && 
+          !(esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read()))) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) && 
+          !(esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read()))))) {
         output_2_V_read = ap_const_logic_1;
     } else {
         output_2_V_read = ap_const_logic_0;
@@ -442,8 +655,11 @@ void write_output::thread_output_2_V_read() {
 }
 
 void write_output::thread_output_3_V_blk_n() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-         !(esl_seteq<1,1,1>(ap_const_logic_0, ap_start.read()) || esl_seteq<1,1,1>(ap_done_reg.read(), ap_const_logic_1)))) {
+    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
+          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1)) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()))) {
         output_3_V_blk_n = output_3_V_empty_n.read();
     } else {
         output_3_V_blk_n = ap_const_logic_1;
@@ -451,32 +667,88 @@ void write_output::thread_output_3_V_blk_n() {
 }
 
 void write_output::thread_output_3_V_read() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-         !(esl_seteq<1,1,1>(ap_const_logic_0, ap_start.read()) || esl_seteq<1,1,1>(ap_done_reg.read(), ap_const_logic_1) || esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY_int.read())))) {
+    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
+          !(esl_seteq<1,1,1>(ap_const_logic_0, ap_start.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read()))) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
+          !(esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read()))) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) && 
+          !(esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read()))) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) && 
+          !(esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read()))))) {
         output_3_V_read = ap_const_logic_1;
     } else {
         output_3_V_read = ap_const_logic_0;
     }
 }
 
+void write_output::thread_p_Result_1_fu_164_p5() {
+    p_Result_1_fu_164_p5 = esl_concat<48,16>(esl_concat<32,16>(esl_concat<16,16>(output_3_V_dout.read(), output_2_V_dout.read()), output_1_V_dout.read()), output_0_V_dout.read());
+}
+
+void write_output::thread_p_Result_2_fu_177_p5() {
+    p_Result_2_fu_177_p5 = esl_concat<48,16>(esl_concat<32,16>(esl_concat<16,16>(output_3_V_dout.read(), output_2_V_dout.read()), output_1_V_dout.read()), output_0_V_dout.read());
+}
+
+void write_output::thread_p_Result_3_fu_190_p5() {
+    p_Result_3_fu_190_p5 = esl_concat<48,16>(esl_concat<32,16>(esl_concat<16,16>(output_3_V_dout.read(), output_2_V_dout.read()), output_1_V_dout.read()), output_0_V_dout.read());
+}
+
+void write_output::thread_p_Result_s_fu_100_p5() {
+    p_Result_s_fu_100_p5 = esl_concat<48,16>(esl_concat<32,16>(esl_concat<16,16>(output_3_V_dout.read(), output_2_V_dout.read()), output_1_V_dout.read()), output_0_V_dout.read());
+}
+
+void write_output::thread_select_ln121_fu_150_p3() {
+    select_ln121_fu_150_p3 = (!icmp_ln121_fu_144_p2.read()[0].is_01())? sc_lv<32>(): ((icmp_ln121_fu_144_p2.read()[0].to_bool())? ap_const_lv32_0: add_ln112_fu_132_p2.read());
+}
+
+void write_output::thread_tmp_last_V_1_fu_120_p2() {
+    tmp_last_V_1_fu_120_p2 = (!sent.read().is_01() || !ap_const_lv32_FD.is_01())? sc_lv<1>(): sc_lv<1>(sent.read() == ap_const_lv32_FD);
+}
+
+void write_output::thread_tmp_last_V_2_fu_126_p2() {
+    tmp_last_V_2_fu_126_p2 = (!sent.read().is_01() || !ap_const_lv32_FC.is_01())? sc_lv<1>(): sc_lv<1>(sent.read() == ap_const_lv32_FC);
+}
+
+void write_output::thread_tmp_last_V_3_fu_138_p2() {
+    tmp_last_V_3_fu_138_p2 = (!add_ln112_fu_132_p2.read().is_01() || !ap_const_lv32_FF.is_01())? sc_lv<1>(): sc_lv<1>(add_ln112_fu_132_p2.read() == ap_const_lv32_FF);
+}
+
+void write_output::thread_tmp_last_V_fu_113_p2() {
+    tmp_last_V_fu_113_p2 = (!sent.read().is_01() || !ap_const_lv32_FE.is_01())? sc_lv<1>(): sc_lv<1>(sent.read() == ap_const_lv32_FE);
+}
+
 void write_output::thread_ap_NS_fsm() {
     switch (ap_CS_fsm.read().to_uint64()) {
         case 1 : 
-            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && !(esl_seteq<1,1,1>(ap_const_logic_0, ap_start.read()) || esl_seteq<1,1,1>(ap_done_reg.read(), ap_const_logic_1) || esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY_int.read())))) {
+            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && !(esl_seteq<1,1,1>(ap_const_logic_0, ap_start.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read())))) {
                 ap_NS_fsm = ap_ST_fsm_state2;
             } else {
                 ap_NS_fsm = ap_ST_fsm_state1;
             }
             break;
         case 2 : 
-            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && !(esl_seteq<1,1,1>(ap_const_logic_1, regslice_both_out_V_data_V_U_apdone_blk.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY_int.read())))) {
-                ap_NS_fsm = ap_ST_fsm_state1;
+            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && !(esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read())))) {
+                ap_NS_fsm = ap_ST_fsm_state3;
             } else {
                 ap_NS_fsm = ap_ST_fsm_state2;
             }
             break;
+        case 4 : 
+            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) && !(esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read())))) {
+                ap_NS_fsm = ap_ST_fsm_state4;
+            } else {
+                ap_NS_fsm = ap_ST_fsm_state3;
+            }
+            break;
+        case 8 : 
+            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) && !(esl_seteq<1,1,1>(ap_const_logic_0, output_0_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_1_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_2_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, output_3_V_empty_n.read()) || esl_seteq<1,1,1>(ap_const_logic_0, out_r_TREADY.read())))) {
+                ap_NS_fsm = ap_ST_fsm_state1;
+            } else {
+                ap_NS_fsm = ap_ST_fsm_state4;
+            }
+            break;
         default : 
-            ap_NS_fsm = "XX";
+            ap_NS_fsm =  (sc_lv<4>) ("XXXX");
             break;
     }
 }

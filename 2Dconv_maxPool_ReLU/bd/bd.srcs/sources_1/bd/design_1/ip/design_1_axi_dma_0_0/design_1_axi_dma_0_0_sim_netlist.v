@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Thu Feb 15 21:51:20 2024
+// Date        : Fri Feb 16 10:47:58 2024
 // Host        : david running 64-bit Ubuntu 22.04.2 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU/bd/bd.srcs/sources_1/bd/design_1/ip/design_1_axi_dma_0_0/design_1_axi_dma_0_0_sim_netlist.v

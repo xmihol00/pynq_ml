@@ -4,7 +4,7 @@ set ClockPeriod 10
 set ClockList ap_clk
 set HasVivadoClockPeriod 0
 set CombLogicFlag 0
-set PipelineFlag 1
+set PipelineFlag 0
 set DataflowTaskPipelineFlag 1
 set TrivialPipelineFlag 0
 set noPortSwitchingFlag 0
@@ -43,7 +43,7 @@ set TargetInfo xc7z020:-clg400:-1
 set SourceFiles {sc {} c ../../fused_cnn_layer.cpp}
 set SourceFlags {sc {} c {{}}}
 set DirectiveFile /mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU/hls/solution1/solution1.directive
-set TBFiles {verilog {../../fused_cnn_layer.h ../../fused_cnn_layer_tb.cpp ../../fused_cnn_layer_tb.h} bc {../../fused_cnn_layer.h ../../fused_cnn_layer_tb.cpp ../../fused_cnn_layer_tb.h} vhdl {../../fused_cnn_layer.h ../../fused_cnn_layer_tb.cpp ../../fused_cnn_layer_tb.h} sc {../../fused_cnn_layer.h ../../fused_cnn_layer_tb.cpp ../../fused_cnn_layer_tb.h} cas {../../fused_cnn_layer.h ../../fused_cnn_layer_tb.cpp ../../fused_cnn_layer_tb.h} c {}}
+set TBFiles {verilog {../../fused_cnn_layer_tb.h ../../fused_cnn_layer_tb.cpp ../../fused_cnn_layer.h} bc {../../fused_cnn_layer_tb.h ../../fused_cnn_layer_tb.cpp ../../fused_cnn_layer.h} vhdl {../../fused_cnn_layer_tb.h ../../fused_cnn_layer_tb.cpp ../../fused_cnn_layer.h} sc {../../fused_cnn_layer_tb.h ../../fused_cnn_layer_tb.cpp ../../fused_cnn_layer.h} cas {../../fused_cnn_layer_tb.h ../../fused_cnn_layer_tb.cpp ../../fused_cnn_layer.h} c {}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
