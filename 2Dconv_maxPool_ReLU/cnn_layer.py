@@ -11,13 +11,30 @@ from tools import format_array_py, format_array_C
 np.random.seed(42)
 
 IN_CHANNELS = 3
-OUT_CHANNELS = 4
-IN_WIDTH = 514
+L1_OUT_CHANNELS = 4
+L2_OUT_CHANNELS = 6
+IN_WIDTH = 512
 IN_HEIGHT = 512
+
+class ShiftLayer(tf.keras.layers.Layer):
+  def __init__(self, factor):
+    super(ShiftLayer, self).__init__()
+    self.factor = factor
+
+  def build(self, input_shape):
+    pass
+
+  def call(self, inputs):
+    return inputs * self.factor
 
 model = tf.keras.models.Sequential(
     [
-        tf.keras.layers.Conv2D(OUT_CHANNELS, (3, 3), activation='relu', input_shape=(IN_HEIGHT, IN_WIDTH, IN_CHANNELS), padding='valid'),
+        tf.keras.layers.ZeroPadding2D(padding=(0, 1), input_shape=(IN_HEIGHT, IN_WIDTH, IN_CHANNELS)),
+        tf.keras.layers.Conv2D(L1_OUT_CHANNELS, (3, 3), activation='relu', padding='valid'),
+        tf.keras.layers.MaxPooling2D((2, 2)),
+        ShiftLayer(1/32),
+        tf.keras.layers.ZeroPadding2D(padding=(0, 1)),
+        tf.keras.layers.Conv2D(L2_OUT_CHANNELS, (3, 3), activation='relu', padding='valid'),
         tf.keras.layers.MaxPooling2D((2, 2)),
     ]
 )
@@ -26,48 +43,49 @@ model.compile(optimizer='adam', loss='mean_squared_error')
 
 layers = model.layers
 for i, layer in enumerate(layers):
-    if layer.get_weights():
+    if "conv2d" in layer.name:
         weights, biases = layer.get_weights()
-        model.layers[i].set_weights([np.random.randint(-32, 32, weights.shape).astype(np.float32), np.zeros_like(biases)])
+        model.layers[i].set_weights([np.random.randint(-16, 16, weights.shape).astype(np.float32), np.zeros_like(biases)])
 
 input_data = np.random.randint(0, 255, (1, IN_HEIGHT, IN_WIDTH, IN_CHANNELS)).astype(np.float32)
-input_data[:, :, :, :] = 1
-input_data[:, :, 0, :] = 0
-input_data[:, :, -1, :] = 0
 prediction = model.predict(input_data)
-prediction_reshaped = prediction.reshape(256*255, -1).T
+print(prediction.shape)
 
-prediction_merged = np.zeros((4*256*255))
-for i in range(4):
-    prediction_merged[i::4] = prediction_reshaped[i]
+prediction_reshaped = prediction.reshape(128*126, -1).T
 
-#print("#define PREDICTION", format_array_C(prediction_merged.astype(np.int16)))
-#np.save("prediction.npy", prediction_merged.astype(np.int16))
-print(prediction_merged.reshape(255, -1)[:6, :12])
-print(prediction_merged.reshape(255, -1)[:6, -12:])
-exit()
+prediction_merged = np.zeros((6*128*126))
+for i in range(6):
+    prediction_merged[i::6] = prediction_reshaped[i]
+
+print("#define PREDICTION", format_array_C(prediction_merged.astype(np.int16)))
+np.save("prediction.npy", prediction_merged.astype(np.int16))
 
 inputs = input_data.reshape(IN_HEIGHT*IN_WIDTH, -1).T
-inputs_hw = inputs.reshape(IN_CHANNELS, IN_HEIGHT, IN_WIDTH)[:, :, 1:-1]
-inputs_hw = inputs_hw.reshape(IN_CHANNELS, IN_HEIGHT*(IN_WIDTH-2))
+inputs_hw = inputs.reshape(IN_CHANNELS, IN_HEIGHT, IN_WIDTH)
+inputs_hw = inputs_hw.reshape(IN_CHANNELS, IN_HEIGHT*IN_WIDTH)
 
 inputs_merged = np.zeros((IN_CHANNELS*IN_HEIGHT*IN_WIDTH))
-inputs_merged_hw = np.zeros((IN_CHANNELS*IN_HEIGHT*(IN_WIDTH-2)))
+inputs_merged_hw = np.zeros((IN_CHANNELS*IN_HEIGHT*IN_WIDTH))
 for i in range(IN_CHANNELS):
     inputs_merged[i::IN_CHANNELS] = inputs[i]
     inputs_merged_hw[i::IN_CHANNELS] = inputs_hw[i]
 
 
-inputs_merged_hw = inputs_merged_hw.reshape((IN_WIDTH-2), -1)
-#print("#define INPUT_DATA_1", format_array_C(inputs_merged_hw[0::2].flatten().astype(np.uint8)))
-#print("#define INPUT_DATA_2", format_array_C(inputs_merged_hw[1::2].flatten().astype(np.uint8)))
-#np.save("input_data_1.npy", inputs_merged_hw[0::2])
-#np.save("input_data_2.npy", inputs_merged_hw[1::2])
+inputs_merged_hw = inputs_merged_hw.reshape(IN_WIDTH, -1)
+print("#define INPUT_DATA_1", format_array_C(inputs_merged_hw[0::2].flatten().astype(np.uint8)))
+print("#define INPUT_DATA_2", format_array_C(inputs_merged_hw[1::2].flatten().astype(np.uint8)))
+np.save("input_data_1.npy", inputs_merged_hw[0::2])
+np.save("input_data_2.npy", inputs_merged_hw[1::2])
 
-kernels = model.layers[0].get_weights()[0]
+kernels = model.layers[1].get_weights()[0]
 kernels = kernels.reshape(9, -1).T
+print("#define KERNEL_WEIGHTS_L1", format_array_C(kernels.reshape(12, 3, 3).astype(np.int8)), end="\n\n")
 
-#print("#define KERNEL_WEIGHTS", format_array_C(kernels.reshape(12, 3, 3).astype(np.int8)))
+kernels = model.layers[5].get_weights()[0]
+kernels = kernels.reshape(9, -1).T
+print("#define KERNEL_WEIGHTS_L2", format_array_C(kernels.reshape(24, 3, 3).astype(np.int8)))
+
+exit()
 
 ch1_kernels = kernels[0::4]
 ch2_kernels = kernels[1::4]
