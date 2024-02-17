@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'read_input'" level="0">
-<item name = "Date">Fri Feb 16 21:06:22 2024
+<item name = "Date">Sat Feb 17 09:10:51 2024
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">hls</item>
@@ -51,8 +51,8 @@
 <column name="FIFO">-, -, -, -, -</column>
 <column name="Instance">-, -, -, -, -</column>
 <column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, -, 380, -</column>
-<column name="Register">-, -, 120, -, -</column>
+<column name="Multiplexer">-, -, -, 398, -</column>
+<column name="Register">-, -, 122, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
 <specialColumn name="Utilization (%)">0, 0, ~0, ~0, 0</specialColumn>
 </table>
@@ -85,6 +85,7 @@
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
 <column name="ap_NS_fsm">44, 9, 1, 9</column>
+<column name="ap_done">9, 2, 1, 2</column>
 <column name="in_0_TDATA_blk_n">9, 2, 1, 2</column>
 <column name="in_1_TDATA_blk_n">9, 2, 1, 2</column>
 <column name="input_lower_0_V_blk_n">9, 2, 1, 2</column>
@@ -99,25 +100,28 @@
 <column name="input_upper_1_V_din">44, 9, 8, 72</column>
 <column name="input_upper_2_V_blk_n">9, 2, 1, 2</column>
 <column name="input_upper_2_V_din">44, 9, 8, 72</column>
+<column name="real_start">9, 2, 1, 2</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
 <column name="ap_CS_fsm">8, 0, 8, 0</column>
-<column name="reg_296">8, 0, 8, 0</column>
-<column name="reg_303">8, 0, 8, 0</column>
-<column name="reg_310">8, 0, 8, 0</column>
-<column name="reg_317">8, 0, 8, 0</column>
-<column name="reg_324">8, 0, 8, 0</column>
-<column name="reg_331">8, 0, 8, 0</column>
-<column name="reg_338">8, 0, 8, 0</column>
-<column name="reg_345">8, 0, 8, 0</column>
-<column name="reg_352">8, 0, 8, 0</column>
-<column name="reg_359">8, 0, 8, 0</column>
-<column name="reg_366">8, 0, 8, 0</column>
-<column name="reg_372">8, 0, 8, 0</column>
-<column name="tmp_33_reg_408">8, 0, 8, 0</column>
-<column name="tmp_36_reg_413">8, 0, 8, 0</column>
+<column name="ap_done_reg">1, 0, 1, 0</column>
+<column name="reg_298">8, 0, 8, 0</column>
+<column name="reg_305">8, 0, 8, 0</column>
+<column name="reg_312">8, 0, 8, 0</column>
+<column name="reg_319">8, 0, 8, 0</column>
+<column name="reg_326">8, 0, 8, 0</column>
+<column name="reg_333">8, 0, 8, 0</column>
+<column name="reg_340">8, 0, 8, 0</column>
+<column name="reg_347">8, 0, 8, 0</column>
+<column name="reg_354">8, 0, 8, 0</column>
+<column name="reg_361">8, 0, 8, 0</column>
+<column name="reg_368">8, 0, 8, 0</column>
+<column name="reg_374">8, 0, 8, 0</column>
+<column name="start_once_reg">1, 0, 1, 0</column>
+<column name="tmp_33_reg_410">8, 0, 8, 0</column>
+<column name="tmp_36_reg_415">8, 0, 8, 0</column>
 </table>
 </item>
 </section>
@@ -130,9 +134,13 @@
 <column name="ap_clk">in, 1, ap_ctrl_hs, read_input, return value</column>
 <column name="ap_rst">in, 1, ap_ctrl_hs, read_input, return value</column>
 <column name="ap_start">in, 1, ap_ctrl_hs, read_input, return value</column>
+<column name="start_full_n">in, 1, ap_ctrl_hs, read_input, return value</column>
 <column name="ap_done">out, 1, ap_ctrl_hs, read_input, return value</column>
+<column name="ap_continue">in, 1, ap_ctrl_hs, read_input, return value</column>
 <column name="ap_idle">out, 1, ap_ctrl_hs, read_input, return value</column>
 <column name="ap_ready">out, 1, ap_ctrl_hs, read_input, return value</column>
+<column name="start_out">out, 1, ap_ctrl_hs, read_input, return value</column>
+<column name="start_write">out, 1, ap_ctrl_hs, read_input, return value</column>
 <column name="input_upper_0_V_din">out, 8, ap_fifo, input_upper_0_V, pointer</column>
 <column name="input_upper_0_V_full_n">in, 1, ap_fifo, input_upper_0_V, pointer</column>
 <column name="input_upper_0_V_write">out, 1, ap_fifo, input_upper_0_V, pointer</column>
@@ -152,11 +160,11 @@
 <column name="input_lower_2_V_full_n">in, 1, ap_fifo, input_lower_2_V, pointer</column>
 <column name="input_lower_2_V_write">out, 1, ap_fifo, input_lower_2_V, pointer</column>
 <column name="in_0_TDATA">in, 64, axis, in_0_V_data_V, pointer</column>
-<column name="in_0_TVALID">in, 1, axis, in_0_V_data_V, pointer</column>
+<column name="in_0_TVALID">in, 1, axis, in_0_V_last_V, pointer</column>
 <column name="in_0_TREADY">out, 1, axis, in_0_V_last_V, pointer</column>
 <column name="in_0_TLAST">in, 1, axis, in_0_V_last_V, pointer</column>
 <column name="in_1_TDATA">in, 64, axis, in_1_V_data_V, pointer</column>
-<column name="in_1_TVALID">in, 1, axis, in_1_V_data_V, pointer</column>
+<column name="in_1_TVALID">in, 1, axis, in_1_V_last_V, pointer</column>
 <column name="in_1_TREADY">out, 1, axis, in_1_V_last_V, pointer</column>
 <column name="in_1_TLAST">in, 1, axis, in_1_V_last_V, pointer</column>
 <column name="in_0_TKEEP">in, 8, axis, in_0_V_keep_V, pointer</column>

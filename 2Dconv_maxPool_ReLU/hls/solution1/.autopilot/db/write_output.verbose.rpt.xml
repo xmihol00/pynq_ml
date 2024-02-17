@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'write_output'" level="0">
-<item name = "Date">Fri Feb 16 21:06:23 2024
+<item name = "Date">Sat Feb 17 09:10:53 2024
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">hls</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">3, 3, 30.000 ns, 30.000 ns, 3, 3, none</column>
+<column name="">4, 4, 40.000 ns, 40.000 ns, 4, 4, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -51,8 +51,8 @@
 <column name="FIFO">-, -, -, -, -</column>
 <column name="Instance">-, -, -, -, -</column>
 <column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, -, 126, -</column>
-<column name="Register">-, -, 39, -, -</column>
+<column name="Multiplexer">-, -, -, 141, -</column>
+<column name="Register">-, -, 41, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
 <specialColumn name="Utilization (%)">0, 0, ~0, ~0, 0</specialColumn>
 </table>
@@ -77,23 +77,24 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln112_fu_132_p2">+, 0, 0, 39, 32, 3</column>
-<column name="icmp_ln121_fu_144_p2">icmp, 0, 0, 18, 32, 8</column>
-<column name="tmp_last_V_1_fu_120_p2">icmp, 0, 0, 18, 32, 8</column>
-<column name="tmp_last_V_2_fu_126_p2">icmp, 0, 0, 18, 32, 8</column>
-<column name="tmp_last_V_3_fu_138_p2">icmp, 0, 0, 18, 32, 8</column>
-<column name="tmp_last_V_fu_113_p2">icmp, 0, 0, 18, 32, 8</column>
+<column name="add_ln112_fu_134_p2">+, 0, 0, 39, 32, 3</column>
+<column name="icmp_ln121_fu_146_p2">icmp, 0, 0, 18, 32, 8</column>
+<column name="tmp_last_V_1_fu_122_p2">icmp, 0, 0, 18, 32, 8</column>
+<column name="tmp_last_V_2_fu_128_p2">icmp, 0, 0, 18, 32, 8</column>
+<column name="tmp_last_V_3_fu_140_p2">icmp, 0, 0, 18, 32, 8</column>
+<column name="tmp_last_V_fu_115_p2">icmp, 0, 0, 18, 32, 8</column>
 <column name="ap_block_state1">or, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state2">or, 0, 0, 2, 1, 1</column>
-<column name="select_ln121_fu_150_p3">select, 0, 0, 32, 1, 1</column>
+<column name="select_ln121_fu_152_p3">select, 0, 0, 32, 1, 1</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="ap_NS_fsm">27, 5, 1, 5</column>
-<column name="out_r_TDATA">27, 5, 64, 320</column>
+<column name="ap_NS_fsm">33, 6, 1, 6</column>
+<column name="ap_done">9, 2, 1, 2</column>
 <column name="out_r_TDATA_blk_n">9, 2, 1, 2</column>
-<column name="out_r_TLAST">27, 5, 1, 5</column>
+<column name="out_r_TDATA_int">27, 5, 64, 320</column>
+<column name="out_r_TLAST_int">27, 5, 1, 5</column>
 <column name="output_0_V_blk_n">9, 2, 1, 2</column>
 <column name="output_1_V_blk_n">9, 2, 1, 2</column>
 <column name="output_2_V_blk_n">9, 2, 1, 2</column>
@@ -102,11 +103,12 @@
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="ap_CS_fsm">4, 0, 4, 0</column>
+<column name="ap_CS_fsm">5, 0, 5, 0</column>
+<column name="ap_done_reg">1, 0, 1, 0</column>
 <column name="sent">32, 0, 32, 0</column>
-<column name="tmp_last_V_1_reg_203">1, 0, 1, 0</column>
-<column name="tmp_last_V_2_reg_208">1, 0, 1, 0</column>
-<column name="tmp_last_V_3_reg_213">1, 0, 1, 0</column>
+<column name="tmp_last_V_1_reg_215">1, 0, 1, 0</column>
+<column name="tmp_last_V_2_reg_220">1, 0, 1, 0</column>
+<column name="tmp_last_V_3_reg_225">1, 0, 1, 0</column>
 </table>
 </item>
 </section>
@@ -120,6 +122,7 @@
 <column name="ap_rst">in, 1, ap_ctrl_hs, write_output, return value</column>
 <column name="ap_start">in, 1, ap_ctrl_hs, write_output, return value</column>
 <column name="ap_done">out, 1, ap_ctrl_hs, write_output, return value</column>
+<column name="ap_continue">in, 1, ap_ctrl_hs, write_output, return value</column>
 <column name="ap_idle">out, 1, ap_ctrl_hs, write_output, return value</column>
 <column name="ap_ready">out, 1, ap_ctrl_hs, write_output, return value</column>
 <column name="output_0_V_dout">in, 16, ap_fifo, output_0_V, pointer</column>
@@ -135,8 +138,8 @@
 <column name="output_3_V_empty_n">in, 1, ap_fifo, output_3_V, pointer</column>
 <column name="output_3_V_read">out, 1, ap_fifo, output_3_V, pointer</column>
 <column name="out_r_TDATA">out, 64, axis, out_V_data_V, pointer</column>
-<column name="out_r_TREADY">in, 1, axis, out_V_data_V, pointer</column>
 <column name="out_r_TVALID">out, 1, axis, out_V_last_V, pointer</column>
+<column name="out_r_TREADY">in, 1, axis, out_V_last_V, pointer</column>
 <column name="out_r_TLAST">out, 1, axis, out_V_last_V, pointer</column>
 <column name="out_r_TKEEP">out, 8, axis, out_V_keep_V, pointer</column>
 <column name="out_r_TSTRB">out, 8, axis, out_V_strb_V, pointer</column>

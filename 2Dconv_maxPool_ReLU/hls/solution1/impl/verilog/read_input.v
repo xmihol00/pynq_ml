@@ -11,9 +11,13 @@ module read_input (
         ap_clk,
         ap_rst,
         ap_start,
+        start_full_n,
         ap_done,
+        ap_continue,
         ap_idle,
         ap_ready,
+        start_out,
+        start_write,
         input_upper_0_V_din,
         input_upper_0_V_full_n,
         input_upper_0_V_write,
@@ -58,9 +62,13 @@ parameter    ap_ST_fsm_state8 = 8'd128;
 input   ap_clk;
 input   ap_rst;
 input   ap_start;
+input   start_full_n;
 output   ap_done;
+input   ap_continue;
 output   ap_idle;
 output   ap_ready;
+output   start_out;
+output   start_write;
 output  [7:0] input_upper_0_V_din;
 input   input_upper_0_V_full_n;
 output   input_upper_0_V_write;
@@ -94,7 +102,7 @@ input  [0:0] in_1_TLAST;
 
 reg ap_done;
 reg ap_idle;
-reg ap_ready;
+reg start_write;
 reg[7:0] input_upper_0_V_din;
 reg input_upper_0_V_write;
 reg[7:0] input_upper_1_V_din;
@@ -110,8 +118,12 @@ reg input_lower_2_V_write;
 reg in_0_TREADY;
 reg in_1_TREADY;
 
+reg    real_start;
+reg    start_once_reg;
+reg    ap_done_reg;
 (* fsm_encoding = "none" *) reg   [7:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
+reg    internal_ap_ready;
 reg    input_upper_0_V_blk_n;
 wire    ap_CS_fsm_state2;
 wire    ap_CS_fsm_state3;
@@ -127,40 +139,188 @@ reg    input_lower_1_V_blk_n;
 reg    input_lower_2_V_blk_n;
 reg    in_0_TDATA_blk_n;
 reg    in_1_TDATA_blk_n;
-reg   [7:0] reg_296;
+reg   [7:0] reg_298;
 reg    ap_block_state1;
 reg    ap_block_state3;
 reg    ap_block_state6;
-reg   [7:0] reg_303;
-reg   [7:0] reg_310;
-reg   [7:0] reg_317;
-reg   [7:0] reg_324;
-reg   [7:0] reg_331;
-reg   [7:0] reg_338;
-reg   [7:0] reg_345;
-reg   [7:0] reg_352;
-reg   [7:0] reg_359;
-reg   [7:0] reg_366;
-reg   [7:0] reg_372;
-reg   [7:0] tmp_33_reg_408;
-reg   [7:0] tmp_36_reg_413;
-wire   [7:0] tmp_fu_378_p1;
+reg   [7:0] reg_305;
+reg   [7:0] reg_312;
+reg   [7:0] reg_319;
+reg   [7:0] reg_326;
+reg   [7:0] reg_333;
+reg   [7:0] reg_340;
+reg   [7:0] reg_347;
+reg   [7:0] reg_354;
+reg   [7:0] reg_361;
+reg   [7:0] reg_368;
+reg   [7:0] reg_374;
+reg   [7:0] tmp_33_reg_410;
+reg   [7:0] tmp_36_reg_415;
+wire   [7:0] tmp_fu_380_p1;
 reg    ap_block_state2;
 reg    ap_block_state4;
 reg    ap_block_state5;
 reg    ap_block_state7;
 reg    ap_block_state8;
-wire   [7:0] tmp_46_fu_398_p1;
-wire   [7:0] tmp_29_fu_388_p1;
-wire   [7:0] tmp_18_fu_383_p1;
-wire   [7:0] tmp_49_fu_403_p1;
-wire   [7:0] tmp_32_fu_393_p1;
+wire   [7:0] tmp_46_fu_400_p1;
+wire   [7:0] tmp_29_fu_390_p1;
+wire   [7:0] tmp_18_fu_385_p1;
+wire   [7:0] tmp_49_fu_405_p1;
+wire   [7:0] tmp_32_fu_395_p1;
 reg   [7:0] ap_NS_fsm;
+wire    regslice_both_in_0_V_data_V_U_apdone_blk;
+wire   [63:0] in_0_TDATA_int;
+wire    in_0_TVALID_int;
+reg    in_0_TREADY_int;
+wire    regslice_both_in_0_V_data_V_U_ack_in;
+wire    regslice_both_in_1_V_data_V_U_apdone_blk;
+wire   [63:0] in_1_TDATA_int;
+wire    in_1_TVALID_int;
+reg    in_1_TREADY_int;
+wire    regslice_both_in_1_V_data_V_U_ack_in;
+wire    regslice_both_in_0_V_keep_V_U_apdone_blk;
+wire   [7:0] in_0_TKEEP_int;
+wire    regslice_both_in_0_V_keep_V_U_vld_out;
+wire    regslice_both_in_0_V_keep_V_U_ack_in;
+wire    regslice_both_in_1_V_keep_V_U_apdone_blk;
+wire   [7:0] in_1_TKEEP_int;
+wire    regslice_both_in_1_V_keep_V_U_vld_out;
+wire    regslice_both_in_1_V_keep_V_U_ack_in;
+wire    regslice_both_in_0_V_strb_V_U_apdone_blk;
+wire   [7:0] in_0_TSTRB_int;
+wire    regslice_both_in_0_V_strb_V_U_vld_out;
+wire    regslice_both_in_0_V_strb_V_U_ack_in;
+wire    regslice_both_in_1_V_strb_V_U_apdone_blk;
+wire   [7:0] in_1_TSTRB_int;
+wire    regslice_both_in_1_V_strb_V_U_vld_out;
+wire    regslice_both_in_1_V_strb_V_U_ack_in;
+wire    regslice_both_in_0_V_last_V_U_apdone_blk;
+wire   [0:0] in_0_TLAST_int;
+wire    regslice_both_in_0_V_last_V_U_vld_out;
+wire    regslice_both_in_0_V_last_V_U_ack_in;
+wire    regslice_both_in_1_V_last_V_U_apdone_blk;
+wire   [0:0] in_1_TLAST_int;
+wire    regslice_both_in_1_V_last_V_U_vld_out;
+wire    regslice_both_in_1_V_last_V_U_ack_in;
 
 // power-on initialization
 initial begin
+#0 start_once_reg = 1'b0;
+#0 ap_done_reg = 1'b0;
 #0 ap_CS_fsm = 8'd1;
 end
+
+regslice_both #(
+    .DataWidth( 64 ))
+regslice_both_in_0_V_data_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .data_in(in_0_TDATA),
+    .vld_in(in_0_TVALID),
+    .ack_in(regslice_both_in_0_V_data_V_U_ack_in),
+    .data_out(in_0_TDATA_int),
+    .vld_out(in_0_TVALID_int),
+    .ack_out(in_0_TREADY_int),
+    .apdone_blk(regslice_both_in_0_V_data_V_U_apdone_blk)
+);
+
+regslice_both #(
+    .DataWidth( 64 ))
+regslice_both_in_1_V_data_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .data_in(in_1_TDATA),
+    .vld_in(in_1_TVALID),
+    .ack_in(regslice_both_in_1_V_data_V_U_ack_in),
+    .data_out(in_1_TDATA_int),
+    .vld_out(in_1_TVALID_int),
+    .ack_out(in_1_TREADY_int),
+    .apdone_blk(regslice_both_in_1_V_data_V_U_apdone_blk)
+);
+
+regslice_both #(
+    .DataWidth( 8 ))
+regslice_both_in_0_V_keep_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .data_in(in_0_TKEEP),
+    .vld_in(in_0_TVALID),
+    .ack_in(regslice_both_in_0_V_keep_V_U_ack_in),
+    .data_out(in_0_TKEEP_int),
+    .vld_out(regslice_both_in_0_V_keep_V_U_vld_out),
+    .ack_out(in_0_TREADY_int),
+    .apdone_blk(regslice_both_in_0_V_keep_V_U_apdone_blk)
+);
+
+regslice_both #(
+    .DataWidth( 8 ))
+regslice_both_in_1_V_keep_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .data_in(in_1_TKEEP),
+    .vld_in(in_1_TVALID),
+    .ack_in(regslice_both_in_1_V_keep_V_U_ack_in),
+    .data_out(in_1_TKEEP_int),
+    .vld_out(regslice_both_in_1_V_keep_V_U_vld_out),
+    .ack_out(in_1_TREADY_int),
+    .apdone_blk(regslice_both_in_1_V_keep_V_U_apdone_blk)
+);
+
+regslice_both #(
+    .DataWidth( 8 ))
+regslice_both_in_0_V_strb_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .data_in(in_0_TSTRB),
+    .vld_in(in_0_TVALID),
+    .ack_in(regslice_both_in_0_V_strb_V_U_ack_in),
+    .data_out(in_0_TSTRB_int),
+    .vld_out(regslice_both_in_0_V_strb_V_U_vld_out),
+    .ack_out(in_0_TREADY_int),
+    .apdone_blk(regslice_both_in_0_V_strb_V_U_apdone_blk)
+);
+
+regslice_both #(
+    .DataWidth( 8 ))
+regslice_both_in_1_V_strb_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .data_in(in_1_TSTRB),
+    .vld_in(in_1_TVALID),
+    .ack_in(regslice_both_in_1_V_strb_V_U_ack_in),
+    .data_out(in_1_TSTRB_int),
+    .vld_out(regslice_both_in_1_V_strb_V_U_vld_out),
+    .ack_out(in_1_TREADY_int),
+    .apdone_blk(regslice_both_in_1_V_strb_V_U_apdone_blk)
+);
+
+regslice_both #(
+    .DataWidth( 1 ))
+regslice_both_in_0_V_last_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .data_in(in_0_TLAST),
+    .vld_in(in_0_TVALID),
+    .ack_in(regslice_both_in_0_V_last_V_U_ack_in),
+    .data_out(in_0_TLAST_int),
+    .vld_out(regslice_both_in_0_V_last_V_U_vld_out),
+    .ack_out(in_0_TREADY_int),
+    .apdone_blk(regslice_both_in_0_V_last_V_U_apdone_blk)
+);
+
+regslice_both #(
+    .DataWidth( 1 ))
+regslice_both_in_1_V_last_V_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .data_in(in_1_TLAST),
+    .vld_in(in_1_TVALID),
+    .ack_in(regslice_both_in_1_V_last_V_U_ack_in),
+    .data_out(in_1_TLAST_int),
+    .vld_out(regslice_both_in_1_V_last_V_U_vld_out),
+    .ack_out(in_1_TREADY_int),
+    .apdone_blk(regslice_both_in_1_V_last_V_U_apdone_blk)
+);
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
@@ -171,44 +331,68 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
-    if (((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state6)) | (~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state3)) | (~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1)))) begin
-        reg_296 <= {{in_0_TDATA[31:24]}};
-        reg_303 <= {{in_0_TDATA[39:32]}};
-        reg_310 <= {{in_0_TDATA[47:40]}};
-        reg_317 <= {{in_1_TDATA[31:24]}};
-        reg_324 <= {{in_1_TDATA[39:32]}};
-        reg_331 <= {{in_1_TDATA[47:40]}};
-        reg_338 <= {{in_0_TDATA[55:48]}};
-        reg_345 <= {{in_0_TDATA[63:56]}};
-        reg_352 <= {{in_1_TDATA[55:48]}};
-        reg_359 <= {{in_1_TDATA[63:56]}};
+    if (ap_rst == 1'b1) begin
+        ap_done_reg <= 1'b0;
+    end else begin
+        if ((ap_continue == 1'b1)) begin
+            ap_done_reg <= 1'b0;
+        end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state8))) begin
+            ap_done_reg <= 1'b1;
+        end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state6)) | (~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state3)))) begin
-        reg_366 <= {{in_0_TDATA[23:16]}};
-        reg_372 <= {{in_1_TDATA[23:16]}};
+    if (ap_rst == 1'b1) begin
+        start_once_reg <= 1'b0;
+    end else begin
+        if (((internal_ap_ready == 1'b0) & (real_start == 1'b1))) begin
+            start_once_reg <= 1'b1;
+        end else if ((internal_ap_ready == 1'b1)) begin
+            start_once_reg <= 1'b0;
+        end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state3))) begin
-        tmp_33_reg_408 <= {{in_0_TDATA[15:8]}};
-        tmp_36_reg_413 <= {{in_1_TDATA[15:8]}};
+    if (((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state3)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0) | (real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state6)))) begin
+        reg_298 <= {{in_0_TDATA_int[31:24]}};
+        reg_305 <= {{in_0_TDATA_int[39:32]}};
+        reg_312 <= {{in_0_TDATA_int[47:40]}};
+        reg_319 <= {{in_1_TDATA_int[31:24]}};
+        reg_326 <= {{in_1_TDATA_int[39:32]}};
+        reg_333 <= {{in_1_TDATA_int[47:40]}};
+        reg_340 <= {{in_0_TDATA_int[55:48]}};
+        reg_347 <= {{in_0_TDATA_int[63:56]}};
+        reg_354 <= {{in_1_TDATA_int[55:48]}};
+        reg_361 <= {{in_1_TDATA_int[63:56]}};
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state3)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state6)))) begin
+        reg_368 <= {{in_0_TDATA_int[23:16]}};
+        reg_374 <= {{in_1_TDATA_int[23:16]}};
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state3))) begin
+        tmp_33_reg_410 <= {{in_0_TDATA_int[15:8]}};
+        tmp_36_reg_415 <= {{in_1_TDATA_int[15:8]}};
     end
 end
 
 always @ (*) begin
-    if ((((ap_start == 1'b0) & (1'b1 == ap_CS_fsm_state1)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state8)))) begin
+    if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state8))) begin
         ap_done = 1'b1;
     end else begin
-        ap_done = 1'b0;
+        ap_done = ap_done_reg;
     end
 end
 
 always @ (*) begin
-    if (((ap_start == 1'b0) & (1'b1 == ap_CS_fsm_state1))) begin
+    if (((real_start == 1'b0) & (1'b1 == ap_CS_fsm_state1))) begin
         ap_idle = 1'b1;
     end else begin
         ap_idle = 1'b0;
@@ -216,23 +400,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state8))) begin
-        ap_ready = 1'b1;
-    end else begin
-        ap_ready = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state3) | ((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1)))) begin
-        in_0_TDATA_blk_n = in_0_TVALID;
+    if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state6) | (~((real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1)))) begin
+        in_0_TDATA_blk_n = in_0_TVALID_int;
     end else begin
         in_0_TDATA_blk_n = 1'b1;
     end
 end
 
 always @ (*) begin
-    if (((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state6)) | (~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state3)) | (~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1)))) begin
+    if (((in_0_TVALID == 1'b1) & (regslice_both_in_0_V_data_V_U_ack_in == 1'b1))) begin
         in_0_TREADY = 1'b1;
     end else begin
         in_0_TREADY = 1'b0;
@@ -240,15 +416,23 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state3) | ((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1)))) begin
-        in_1_TDATA_blk_n = in_1_TVALID;
+    if (((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state3)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0) | (real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state6)))) begin
+        in_0_TREADY_int = 1'b1;
+    end else begin
+        in_0_TREADY_int = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state6) | (~((real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1)))) begin
+        in_1_TDATA_blk_n = in_1_TVALID_int;
     end else begin
         in_1_TDATA_blk_n = 1'b1;
     end
 end
 
 always @ (*) begin
-    if (((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state6)) | (~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state3)) | (~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1)))) begin
+    if (((in_1_TVALID == 1'b1) & (regslice_both_in_1_V_data_V_U_ack_in == 1'b1))) begin
         in_1_TREADY = 1'b1;
     end else begin
         in_1_TREADY = 1'b0;
@@ -256,7 +440,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state7) | ((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1)))) begin
+    if (((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state3)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0) | (real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state6)))) begin
+        in_1_TREADY_int = 1'b1;
+    end else begin
+        in_1_TREADY_int = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (~((real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1)))) begin
         input_lower_0_V_blk_n = input_lower_0_V_full_n;
     end else begin
         input_lower_0_V_blk_n = 1'b1;
@@ -265,28 +457,28 @@ end
 
 always @ (*) begin
     if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state8))) begin
-        input_lower_0_V_din = reg_331;
+        input_lower_0_V_din = reg_333;
     end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state7))) begin
-        input_lower_0_V_din = reg_372;
-    end else if ((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state6))) begin
-        input_lower_0_V_din = reg_359;
+        input_lower_0_V_din = reg_374;
+    end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state6))) begin
+        input_lower_0_V_din = reg_361;
     end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state5))) begin
-        input_lower_0_V_din = reg_324;
+        input_lower_0_V_din = reg_326;
     end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state4))) begin
-        input_lower_0_V_din = tmp_36_reg_413;
-    end else if ((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state3))) begin
-        input_lower_0_V_din = reg_352;
+        input_lower_0_V_din = tmp_36_reg_415;
+    end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state3))) begin
+        input_lower_0_V_din = reg_354;
     end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state2))) begin
-        input_lower_0_V_din = reg_317;
-    end else if ((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1))) begin
-        input_lower_0_V_din = tmp_18_fu_383_p1;
+        input_lower_0_V_din = reg_319;
+    end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0) | (real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+        input_lower_0_V_din = tmp_18_fu_385_p1;
     end else begin
         input_lower_0_V_din = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state6)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state5)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state4)) | (~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state3)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state2)) | (~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state8)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state7)))) begin
+    if (((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state3)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state2)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0) | (real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state8)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state7)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state6)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state5)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state4)))) begin
         input_lower_0_V_write = 1'b1;
     end else begin
         input_lower_0_V_write = 1'b0;
@@ -294,7 +486,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state7) | ((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1)))) begin
+    if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (~((real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1)))) begin
         input_lower_1_V_blk_n = input_lower_1_V_full_n;
     end else begin
         input_lower_1_V_blk_n = 1'b1;
@@ -303,28 +495,28 @@ end
 
 always @ (*) begin
     if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state8))) begin
-        input_lower_1_V_din = reg_352;
+        input_lower_1_V_din = reg_354;
     end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state7))) begin
-        input_lower_1_V_din = reg_317;
-    end else if ((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state6))) begin
-        input_lower_1_V_din = tmp_49_fu_403_p1;
+        input_lower_1_V_din = reg_319;
+    end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state6))) begin
+        input_lower_1_V_din = tmp_49_fu_405_p1;
     end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state5))) begin
-        input_lower_1_V_din = reg_331;
+        input_lower_1_V_din = reg_333;
     end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state4))) begin
-        input_lower_1_V_din = reg_372;
-    end else if ((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state3))) begin
-        input_lower_1_V_din = reg_359;
+        input_lower_1_V_din = reg_374;
+    end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state3))) begin
+        input_lower_1_V_din = reg_361;
     end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state2))) begin
-        input_lower_1_V_din = reg_324;
-    end else if ((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1))) begin
-        input_lower_1_V_din = {{in_1_TDATA[15:8]}};
+        input_lower_1_V_din = reg_326;
+    end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0) | (real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+        input_lower_1_V_din = {{in_1_TDATA_int[15:8]}};
     end else begin
         input_lower_1_V_din = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state6)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state5)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state4)) | (~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state3)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state2)) | (~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state8)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state7)))) begin
+    if (((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state3)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state2)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0) | (real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state8)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state7)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state6)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state5)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state4)))) begin
         input_lower_1_V_write = 1'b1;
     end else begin
         input_lower_1_V_write = 1'b0;
@@ -332,7 +524,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state7) | ((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1)))) begin
+    if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (~((real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1)))) begin
         input_lower_2_V_blk_n = input_lower_2_V_full_n;
     end else begin
         input_lower_2_V_blk_n = 1'b1;
@@ -341,28 +533,28 @@ end
 
 always @ (*) begin
     if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state8))) begin
-        input_lower_2_V_din = reg_359;
+        input_lower_2_V_din = reg_361;
     end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state7))) begin
-        input_lower_2_V_din = reg_324;
-    end else if ((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state6))) begin
-        input_lower_2_V_din = {{in_1_TDATA[15:8]}};
+        input_lower_2_V_din = reg_326;
+    end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state6))) begin
+        input_lower_2_V_din = {{in_1_TDATA_int[15:8]}};
     end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state5))) begin
-        input_lower_2_V_din = reg_352;
+        input_lower_2_V_din = reg_354;
     end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state4))) begin
-        input_lower_2_V_din = reg_317;
-    end else if ((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state3))) begin
-        input_lower_2_V_din = tmp_32_fu_393_p1;
+        input_lower_2_V_din = reg_319;
+    end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state3))) begin
+        input_lower_2_V_din = tmp_32_fu_395_p1;
     end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state2))) begin
-        input_lower_2_V_din = reg_331;
-    end else if ((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1))) begin
-        input_lower_2_V_din = {{in_1_TDATA[23:16]}};
+        input_lower_2_V_din = reg_333;
+    end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0) | (real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+        input_lower_2_V_din = {{in_1_TDATA_int[23:16]}};
     end else begin
         input_lower_2_V_din = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state6)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state5)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state4)) | (~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state3)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state2)) | (~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state8)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state7)))) begin
+    if (((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state3)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state2)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0) | (real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state8)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state7)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state6)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state5)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state4)))) begin
         input_lower_2_V_write = 1'b1;
     end else begin
         input_lower_2_V_write = 1'b0;
@@ -370,7 +562,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state7) | ((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1)))) begin
+    if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (~((real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1)))) begin
         input_upper_0_V_blk_n = input_upper_0_V_full_n;
     end else begin
         input_upper_0_V_blk_n = 1'b1;
@@ -379,28 +571,28 @@ end
 
 always @ (*) begin
     if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state8))) begin
-        input_upper_0_V_din = reg_310;
+        input_upper_0_V_din = reg_312;
     end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state7))) begin
-        input_upper_0_V_din = reg_366;
-    end else if ((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state6))) begin
-        input_upper_0_V_din = reg_345;
+        input_upper_0_V_din = reg_368;
+    end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state6))) begin
+        input_upper_0_V_din = reg_347;
     end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state5))) begin
-        input_upper_0_V_din = reg_303;
+        input_upper_0_V_din = reg_305;
     end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state4))) begin
-        input_upper_0_V_din = tmp_33_reg_408;
-    end else if ((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state3))) begin
-        input_upper_0_V_din = reg_338;
+        input_upper_0_V_din = tmp_33_reg_410;
+    end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state3))) begin
+        input_upper_0_V_din = reg_340;
     end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state2))) begin
-        input_upper_0_V_din = reg_296;
-    end else if ((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1))) begin
-        input_upper_0_V_din = tmp_fu_378_p1;
+        input_upper_0_V_din = reg_298;
+    end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0) | (real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+        input_upper_0_V_din = tmp_fu_380_p1;
     end else begin
         input_upper_0_V_din = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state6)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state5)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state4)) | (~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state3)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state2)) | (~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state8)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state7)))) begin
+    if (((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state3)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state2)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0) | (real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state8)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state7)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state6)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state5)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state4)))) begin
         input_upper_0_V_write = 1'b1;
     end else begin
         input_upper_0_V_write = 1'b0;
@@ -408,7 +600,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state7) | ((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1)))) begin
+    if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (~((real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1)))) begin
         input_upper_1_V_blk_n = input_upper_1_V_full_n;
     end else begin
         input_upper_1_V_blk_n = 1'b1;
@@ -417,28 +609,28 @@ end
 
 always @ (*) begin
     if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state8))) begin
-        input_upper_1_V_din = reg_338;
+        input_upper_1_V_din = reg_340;
     end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state7))) begin
-        input_upper_1_V_din = reg_296;
-    end else if ((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state6))) begin
-        input_upper_1_V_din = tmp_46_fu_398_p1;
+        input_upper_1_V_din = reg_298;
+    end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state6))) begin
+        input_upper_1_V_din = tmp_46_fu_400_p1;
     end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state5))) begin
-        input_upper_1_V_din = reg_310;
+        input_upper_1_V_din = reg_312;
     end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state4))) begin
-        input_upper_1_V_din = reg_366;
-    end else if ((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state3))) begin
-        input_upper_1_V_din = reg_345;
+        input_upper_1_V_din = reg_368;
+    end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state3))) begin
+        input_upper_1_V_din = reg_347;
     end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state2))) begin
-        input_upper_1_V_din = reg_303;
-    end else if ((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1))) begin
-        input_upper_1_V_din = {{in_0_TDATA[15:8]}};
+        input_upper_1_V_din = reg_305;
+    end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0) | (real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+        input_upper_1_V_din = {{in_0_TDATA_int[15:8]}};
     end else begin
         input_upper_1_V_din = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state6)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state5)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state4)) | (~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state3)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state2)) | (~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state8)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state7)))) begin
+    if (((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state3)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state2)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0) | (real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state8)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state7)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state6)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state5)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state4)))) begin
         input_upper_1_V_write = 1'b1;
     end else begin
         input_upper_1_V_write = 1'b0;
@@ -446,7 +638,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state7) | ((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1)))) begin
+    if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (~((real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1)))) begin
         input_upper_2_V_blk_n = input_upper_2_V_full_n;
     end else begin
         input_upper_2_V_blk_n = 1'b1;
@@ -455,28 +647,28 @@ end
 
 always @ (*) begin
     if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state8))) begin
-        input_upper_2_V_din = reg_345;
+        input_upper_2_V_din = reg_347;
     end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state7))) begin
-        input_upper_2_V_din = reg_303;
-    end else if ((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state6))) begin
-        input_upper_2_V_din = {{in_0_TDATA[15:8]}};
+        input_upper_2_V_din = reg_305;
+    end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state6))) begin
+        input_upper_2_V_din = {{in_0_TDATA_int[15:8]}};
     end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state5))) begin
-        input_upper_2_V_din = reg_338;
+        input_upper_2_V_din = reg_340;
     end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state4))) begin
-        input_upper_2_V_din = reg_296;
-    end else if ((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state3))) begin
-        input_upper_2_V_din = tmp_29_fu_388_p1;
+        input_upper_2_V_din = reg_298;
+    end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state3))) begin
+        input_upper_2_V_din = tmp_29_fu_390_p1;
     end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state2))) begin
-        input_upper_2_V_din = reg_310;
-    end else if ((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1))) begin
-        input_upper_2_V_din = {{in_0_TDATA[23:16]}};
+        input_upper_2_V_din = reg_312;
+    end else if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0) | (real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+        input_upper_2_V_din = {{in_0_TDATA_int[23:16]}};
     end else begin
         input_upper_2_V_din = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state6)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state5)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state4)) | (~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state3)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state2)) | (~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state8)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state7)))) begin
+    if (((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state3)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state2)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0) | (real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state8)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state7)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state6)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state5)) | (~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state4)))) begin
         input_upper_2_V_write = 1'b1;
     end else begin
         input_upper_2_V_write = 1'b0;
@@ -484,9 +676,33 @@ always @ (*) begin
 end
 
 always @ (*) begin
+    if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state8))) begin
+        internal_ap_ready = 1'b1;
+    end else begin
+        internal_ap_ready = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((start_once_reg == 1'b0) & (start_full_n == 1'b0))) begin
+        real_start = 1'b0;
+    end else begin
+        real_start = ap_start;
+    end
+end
+
+always @ (*) begin
+    if (((start_once_reg == 1'b0) & (real_start == 1'b1))) begin
+        start_write = 1'b1;
+    end else begin
+        start_write = 1'b0;
+    end
+end
+
+always @ (*) begin
     case (ap_CS_fsm)
         ap_ST_fsm_state1 : begin
-            if ((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1))) begin
+            if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0) | (real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
                 ap_NS_fsm = ap_ST_fsm_state2;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state1;
@@ -500,7 +716,7 @@ always @ (*) begin
             end
         end
         ap_ST_fsm_state3 : begin
-            if ((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state3))) begin
+            if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state3))) begin
                 ap_NS_fsm = ap_ST_fsm_state4;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state3;
@@ -521,7 +737,7 @@ always @ (*) begin
             end
         end
         ap_ST_fsm_state6 : begin
-            if ((~((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state6))) begin
+            if ((~((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0)) & (1'b1 == ap_CS_fsm_state6))) begin
                 ap_NS_fsm = ap_ST_fsm_state7;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state6;
@@ -564,7 +780,7 @@ assign ap_CS_fsm_state7 = ap_CS_fsm[32'd6];
 assign ap_CS_fsm_state8 = ap_CS_fsm[32'd7];
 
 always @ (*) begin
-    ap_block_state1 = ((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (ap_start == 1'b0));
+    ap_block_state1 = ((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0) | (real_start == 1'b0) | (ap_done_reg == 1'b1));
 end
 
 always @ (*) begin
@@ -572,7 +788,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    ap_block_state3 = ((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0));
+    ap_block_state3 = ((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0));
 end
 
 always @ (*) begin
@@ -584,7 +800,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    ap_block_state6 = ((in_1_TVALID == 1'b0) | (in_0_TVALID == 1'b0) | (input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0));
+    ap_block_state6 = ((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0) | (in_1_TVALID_int == 1'b0) | (in_0_TVALID_int == 1'b0));
 end
 
 always @ (*) begin
@@ -595,16 +811,20 @@ always @ (*) begin
     ap_block_state8 = ((input_lower_2_V_full_n == 1'b0) | (input_lower_1_V_full_n == 1'b0) | (input_lower_0_V_full_n == 1'b0) | (input_upper_2_V_full_n == 1'b0) | (input_upper_1_V_full_n == 1'b0) | (input_upper_0_V_full_n == 1'b0));
 end
 
-assign tmp_18_fu_383_p1 = in_1_TDATA[7:0];
+assign ap_ready = internal_ap_ready;
 
-assign tmp_29_fu_388_p1 = in_0_TDATA[7:0];
+assign start_out = real_start;
 
-assign tmp_32_fu_393_p1 = in_1_TDATA[7:0];
+assign tmp_18_fu_385_p1 = in_1_TDATA_int[7:0];
 
-assign tmp_46_fu_398_p1 = in_0_TDATA[7:0];
+assign tmp_29_fu_390_p1 = in_0_TDATA_int[7:0];
 
-assign tmp_49_fu_403_p1 = in_1_TDATA[7:0];
+assign tmp_32_fu_395_p1 = in_1_TDATA_int[7:0];
 
-assign tmp_fu_378_p1 = in_0_TDATA[7:0];
+assign tmp_46_fu_400_p1 = in_0_TDATA_int[7:0];
+
+assign tmp_49_fu_405_p1 = in_1_TDATA_int[7:0];
+
+assign tmp_fu_380_p1 = in_0_TDATA_int[7:0];
 
 endmodule //read_input

@@ -82,7 +82,7 @@
     "ClockPeriod": "10",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "1338",
+    "Latency": "1630",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -102,64 +102,146 @@
     "Vhdl": [
       "impl\/vhdl\/fifo_w8_d8_A.vhd",
       "impl\/vhdl\/fifo_w16_d4_A.vhd",
-      "impl\/vhdl\/fused_cnn_layer_mbkb.vhd",
-      "impl\/vhdl\/fused_cnn_layer_mcud.vhd",
-      "impl\/vhdl\/fused_cnn_layer_mdEe.vhd",
+      "impl\/vhdl\/fused_cnn_layer_meOg.vhd",
+      "impl\/vhdl\/fused_cnn_layer_mfYi.vhd",
+      "impl\/vhdl\/fused_cnn_layer_mg8j.vhd",
+      "impl\/vhdl\/fused_cnn_layer_mhbi.vhd",
+      "impl\/vhdl\/fused_cnn_layer_mibs.vhd",
       "impl\/vhdl\/kernel.vhd",
-      "impl\/vhdl\/kernel_kernels_0.vhd",
-      "impl\/vhdl\/kernel_kernels_1.vhd",
-      "impl\/vhdl\/kernel_kernels_2.vhd",
-      "impl\/vhdl\/kernel_kernels_3.vhd",
-      "impl\/vhdl\/kernel_kernels_4.vhd",
-      "impl\/vhdl\/kernel_kernels_5.vhd",
-      "impl\/vhdl\/kernel_kernels_6.vhd",
-      "impl\/vhdl\/kernel_kernels_7.vhd",
-      "impl\/vhdl\/kernel_kernels_8.vhd",
-      "impl\/vhdl\/kernel_kernels_9.vhd",
-      "impl\/vhdl\/kernel_kernels_10.vhd",
-      "impl\/vhdl\/kernel_kernels_11.vhd",
-      "impl\/vhdl\/kernel_stripes_0.vhd",
-      "impl\/vhdl\/kernel_stripes_0_ram.vhd",
+      "impl\/vhdl\/kernel_kernels_0_0.vhd",
+      "impl\/vhdl\/kernel_kernels_0_1.vhd",
+      "impl\/vhdl\/kernel_kernels_0_2.vhd",
+      "impl\/vhdl\/kernel_kernels_1_0.vhd",
+      "impl\/vhdl\/kernel_kernels_1_1.vhd",
+      "impl\/vhdl\/kernel_kernels_1_2.vhd",
+      "impl\/vhdl\/kernel_kernels_2_0.vhd",
+      "impl\/vhdl\/kernel_kernels_2_1.vhd",
+      "impl\/vhdl\/kernel_kernels_2_2.vhd",
+      "impl\/vhdl\/kernel_kernels_3_0.vhd",
+      "impl\/vhdl\/kernel_kernels_3_1.vhd",
+      "impl\/vhdl\/kernel_kernels_3_2.vhd",
+      "impl\/vhdl\/kernel_kernels_4_0.vhd",
+      "impl\/vhdl\/kernel_kernels_4_1.vhd",
+      "impl\/vhdl\/kernel_kernels_4_2.vhd",
+      "impl\/vhdl\/kernel_kernels_5_0.vhd",
+      "impl\/vhdl\/kernel_kernels_5_1.vhd",
+      "impl\/vhdl\/kernel_kernels_5_2.vhd",
+      "impl\/vhdl\/kernel_kernels_6_0.vhd",
+      "impl\/vhdl\/kernel_kernels_6_1.vhd",
+      "impl\/vhdl\/kernel_kernels_6_2.vhd",
+      "impl\/vhdl\/kernel_kernels_7_0.vhd",
+      "impl\/vhdl\/kernel_kernels_7_1.vhd",
+      "impl\/vhdl\/kernel_kernels_7_2.vhd",
+      "impl\/vhdl\/kernel_kernels_8_0.vhd",
+      "impl\/vhdl\/kernel_kernels_8_1.vhd",
+      "impl\/vhdl\/kernel_kernels_8_2.vhd",
+      "impl\/vhdl\/kernel_kernels_9_0.vhd",
+      "impl\/vhdl\/kernel_kernels_9_1.vhd",
+      "impl\/vhdl\/kernel_kernels_9_2.vhd",
+      "impl\/vhdl\/kernel_kernels_10_0.vhd",
+      "impl\/vhdl\/kernel_kernels_10_1.vhd",
+      "impl\/vhdl\/kernel_kernels_10_2.vhd",
+      "impl\/vhdl\/kernel_kernels_11_0.vhd",
+      "impl\/vhdl\/kernel_kernels_11_1.vhd",
+      "impl\/vhdl\/kernel_kernels_11_2.vhd",
+      "impl\/vhdl\/kernel_partial_subkb.vhd",
+      "impl\/vhdl\/kernel_stripes_0_0.vhd",
+      "impl\/vhdl\/kernel_stripes_0_0_ram.vhd",
       "impl\/vhdl\/read_input.vhd",
       "impl\/vhdl\/regslice_core.vhd",
+      "impl\/vhdl\/start_for_kernel_U0.vhd",
+      "impl\/vhdl\/start_for_write_ojbC.vhd",
       "impl\/vhdl\/write_output.vhd",
       "impl\/vhdl\/fused_cnn_layer.vhd"
     ],
     "Verilog": [
       "impl\/verilog\/fifo_w8_d8_A.v",
       "impl\/verilog\/fifo_w16_d4_A.v",
-      "impl\/verilog\/fused_cnn_layer_mbkb.v",
-      "impl\/verilog\/fused_cnn_layer_mcud.v",
-      "impl\/verilog\/fused_cnn_layer_mdEe.v",
+      "impl\/verilog\/fused_cnn_layer_meOg.v",
+      "impl\/verilog\/fused_cnn_layer_mfYi.v",
+      "impl\/verilog\/fused_cnn_layer_mg8j.v",
+      "impl\/verilog\/fused_cnn_layer_mhbi.v",
+      "impl\/verilog\/fused_cnn_layer_mibs.v",
       "impl\/verilog\/kernel.v",
-      "impl\/verilog\/kernel_kernels_0.v",
-      "impl\/verilog\/kernel_kernels_0_rom.dat",
-      "impl\/verilog\/kernel_kernels_1.v",
-      "impl\/verilog\/kernel_kernels_1_rom.dat",
-      "impl\/verilog\/kernel_kernels_2.v",
-      "impl\/verilog\/kernel_kernels_2_rom.dat",
-      "impl\/verilog\/kernel_kernels_3.v",
-      "impl\/verilog\/kernel_kernels_3_rom.dat",
-      "impl\/verilog\/kernel_kernels_4.v",
-      "impl\/verilog\/kernel_kernels_4_rom.dat",
-      "impl\/verilog\/kernel_kernels_5.v",
-      "impl\/verilog\/kernel_kernels_5_rom.dat",
-      "impl\/verilog\/kernel_kernels_6.v",
-      "impl\/verilog\/kernel_kernels_6_rom.dat",
-      "impl\/verilog\/kernel_kernels_7.v",
-      "impl\/verilog\/kernel_kernels_7_rom.dat",
-      "impl\/verilog\/kernel_kernels_8.v",
-      "impl\/verilog\/kernel_kernels_8_rom.dat",
-      "impl\/verilog\/kernel_kernels_9.v",
-      "impl\/verilog\/kernel_kernels_9_rom.dat",
-      "impl\/verilog\/kernel_kernels_10.v",
-      "impl\/verilog\/kernel_kernels_10_rom.dat",
-      "impl\/verilog\/kernel_kernels_11.v",
-      "impl\/verilog\/kernel_kernels_11_rom.dat",
-      "impl\/verilog\/kernel_stripes_0.v",
-      "impl\/verilog\/kernel_stripes_0_ram.v",
+      "impl\/verilog\/kernel_kernels_0_0.v",
+      "impl\/verilog\/kernel_kernels_0_0_rom.dat",
+      "impl\/verilog\/kernel_kernels_0_1.v",
+      "impl\/verilog\/kernel_kernels_0_1_rom.dat",
+      "impl\/verilog\/kernel_kernels_0_2.v",
+      "impl\/verilog\/kernel_kernels_0_2_rom.dat",
+      "impl\/verilog\/kernel_kernels_1_0.v",
+      "impl\/verilog\/kernel_kernels_1_0_rom.dat",
+      "impl\/verilog\/kernel_kernels_1_1.v",
+      "impl\/verilog\/kernel_kernels_1_1_rom.dat",
+      "impl\/verilog\/kernel_kernels_1_2.v",
+      "impl\/verilog\/kernel_kernels_1_2_rom.dat",
+      "impl\/verilog\/kernel_kernels_2_0.v",
+      "impl\/verilog\/kernel_kernels_2_0_rom.dat",
+      "impl\/verilog\/kernel_kernels_2_1.v",
+      "impl\/verilog\/kernel_kernels_2_1_rom.dat",
+      "impl\/verilog\/kernel_kernels_2_2.v",
+      "impl\/verilog\/kernel_kernels_2_2_rom.dat",
+      "impl\/verilog\/kernel_kernels_3_0.v",
+      "impl\/verilog\/kernel_kernels_3_0_rom.dat",
+      "impl\/verilog\/kernel_kernels_3_1.v",
+      "impl\/verilog\/kernel_kernels_3_1_rom.dat",
+      "impl\/verilog\/kernel_kernels_3_2.v",
+      "impl\/verilog\/kernel_kernels_3_2_rom.dat",
+      "impl\/verilog\/kernel_kernels_4_0.v",
+      "impl\/verilog\/kernel_kernels_4_0_rom.dat",
+      "impl\/verilog\/kernel_kernels_4_1.v",
+      "impl\/verilog\/kernel_kernels_4_1_rom.dat",
+      "impl\/verilog\/kernel_kernels_4_2.v",
+      "impl\/verilog\/kernel_kernels_4_2_rom.dat",
+      "impl\/verilog\/kernel_kernels_5_0.v",
+      "impl\/verilog\/kernel_kernels_5_0_rom.dat",
+      "impl\/verilog\/kernel_kernels_5_1.v",
+      "impl\/verilog\/kernel_kernels_5_1_rom.dat",
+      "impl\/verilog\/kernel_kernels_5_2.v",
+      "impl\/verilog\/kernel_kernels_5_2_rom.dat",
+      "impl\/verilog\/kernel_kernels_6_0.v",
+      "impl\/verilog\/kernel_kernels_6_0_rom.dat",
+      "impl\/verilog\/kernel_kernels_6_1.v",
+      "impl\/verilog\/kernel_kernels_6_1_rom.dat",
+      "impl\/verilog\/kernel_kernels_6_2.v",
+      "impl\/verilog\/kernel_kernels_6_2_rom.dat",
+      "impl\/verilog\/kernel_kernels_7_0.v",
+      "impl\/verilog\/kernel_kernels_7_0_rom.dat",
+      "impl\/verilog\/kernel_kernels_7_1.v",
+      "impl\/verilog\/kernel_kernels_7_1_rom.dat",
+      "impl\/verilog\/kernel_kernels_7_2.v",
+      "impl\/verilog\/kernel_kernels_7_2_rom.dat",
+      "impl\/verilog\/kernel_kernels_8_0.v",
+      "impl\/verilog\/kernel_kernels_8_0_rom.dat",
+      "impl\/verilog\/kernel_kernels_8_1.v",
+      "impl\/verilog\/kernel_kernels_8_1_rom.dat",
+      "impl\/verilog\/kernel_kernels_8_2.v",
+      "impl\/verilog\/kernel_kernels_8_2_rom.dat",
+      "impl\/verilog\/kernel_kernels_9_0.v",
+      "impl\/verilog\/kernel_kernels_9_0_rom.dat",
+      "impl\/verilog\/kernel_kernels_9_1.v",
+      "impl\/verilog\/kernel_kernels_9_1_rom.dat",
+      "impl\/verilog\/kernel_kernels_9_2.v",
+      "impl\/verilog\/kernel_kernels_9_2_rom.dat",
+      "impl\/verilog\/kernel_kernels_10_0.v",
+      "impl\/verilog\/kernel_kernels_10_0_rom.dat",
+      "impl\/verilog\/kernel_kernels_10_1.v",
+      "impl\/verilog\/kernel_kernels_10_1_rom.dat",
+      "impl\/verilog\/kernel_kernels_10_2.v",
+      "impl\/verilog\/kernel_kernels_10_2_rom.dat",
+      "impl\/verilog\/kernel_kernels_11_0.v",
+      "impl\/verilog\/kernel_kernels_11_0_rom.dat",
+      "impl\/verilog\/kernel_kernels_11_1.v",
+      "impl\/verilog\/kernel_kernels_11_1_rom.dat",
+      "impl\/verilog\/kernel_kernels_11_2.v",
+      "impl\/verilog\/kernel_kernels_11_2_rom.dat",
+      "impl\/verilog\/kernel_partial_subkb.v",
+      "impl\/verilog\/kernel_stripes_0_0.v",
+      "impl\/verilog\/kernel_stripes_0_0_ram.v",
       "impl\/verilog\/read_input.v",
       "impl\/verilog\/regslice_core.v",
+      "impl\/verilog\/start_for_kernel_U0.v",
+      "impl\/verilog\/start_for_write_ojbC.v",
       "impl\/verilog\/write_output.v",
       "impl\/verilog\/fused_cnn_layer.v"
     ],
@@ -199,12 +281,6 @@
           "Type": "integer unsigned",
           "Width": "64"
         },
-        "TVALID": {"Type": "bool"},
-        "TREADY": {"Type": "bool"},
-        "TLAST": {
-          "Type": "integer unsigned",
-          "Width": "1"
-        },
         "TKEEP": {
           "Type": "integer unsigned",
           "Width": "8"
@@ -212,7 +288,13 @@
         "TSTRB": {
           "Type": "integer unsigned",
           "Width": "8"
-        }
+        },
+        "TLAST": {
+          "Type": "integer unsigned",
+          "Width": "1"
+        },
+        "TVALID": {"Type": "bool"},
+        "TREADY": {"Type": "bool"}
       },
       "port_width": {
         "TDATA": "64",
@@ -231,12 +313,6 @@
           "Type": "integer unsigned",
           "Width": "64"
         },
-        "TVALID": {"Type": "bool"},
-        "TREADY": {"Type": "bool"},
-        "TLAST": {
-          "Type": "integer unsigned",
-          "Width": "1"
-        },
         "TKEEP": {
           "Type": "integer unsigned",
           "Width": "8"
@@ -244,7 +320,13 @@
         "TSTRB": {
           "Type": "integer unsigned",
           "Width": "8"
-        }
+        },
+        "TLAST": {
+          "Type": "integer unsigned",
+          "Width": "1"
+        },
+        "TVALID": {"Type": "bool"},
+        "TREADY": {"Type": "bool"}
       },
       "port_width": {
         "TDATA": "64",
@@ -263,12 +345,6 @@
           "Type": "integer unsigned",
           "Width": "64"
         },
-        "TVALID": {"Type": "bool"},
-        "TREADY": {"Type": "bool"},
-        "TLAST": {
-          "Type": "integer unsigned",
-          "Width": "1"
-        },
         "TKEEP": {
           "Type": "integer unsigned",
           "Width": "8"
@@ -276,7 +352,13 @@
         "TSTRB": {
           "Type": "integer unsigned",
           "Width": "8"
-        }
+        },
+        "TLAST": {
+          "Type": "integer unsigned",
+          "Width": "1"
+        },
+        "TVALID": {"Type": "bool"},
+        "TREADY": {"Type": "bool"}
       },
       "port_width": {
         "TDATA": "64",
@@ -287,47 +369,13 @@
     }
   },
   "RtlPorts": {
-    "ap_clk": {
-      "dir": "in",
-      "width": "1"
-    },
-    "ap_rst_n": {
-      "dir": "in",
-      "width": "1"
-    },
     "in_0_TDATA": {
       "dir": "in",
       "width": "64"
     },
-    "in_0_TVALID": {
-      "dir": "in",
-      "width": "1"
-    },
-    "in_0_TREADY": {
-      "dir": "out",
-      "width": "1"
-    },
-    "in_0_TLAST": {
-      "dir": "in",
-      "width": "1",
-      "isVector": "true"
-    },
     "in_1_TDATA": {
       "dir": "in",
       "width": "64"
-    },
-    "in_1_TVALID": {
-      "dir": "in",
-      "width": "1"
-    },
-    "in_1_TREADY": {
-      "dir": "out",
-      "width": "1"
-    },
-    "in_1_TLAST": {
-      "dir": "in",
-      "width": "1",
-      "isVector": "true"
     },
     "in_0_TKEEP": {
       "dir": "in",
@@ -345,9 +393,48 @@
       "dir": "in",
       "width": "8"
     },
+    "in_0_TLAST": {
+      "dir": "in",
+      "width": "1",
+      "isVector": "true"
+    },
+    "in_0_TVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "in_0_TREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "in_1_TLAST": {
+      "dir": "in",
+      "width": "1",
+      "isVector": "true"
+    },
+    "in_1_TVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "in_1_TREADY": {
+      "dir": "out",
+      "width": "1"
+    },
     "out_r_TDATA": {
       "dir": "out",
       "width": "64"
+    },
+    "out_r_TKEEP": {
+      "dir": "out",
+      "width": "8"
+    },
+    "out_r_TSTRB": {
+      "dir": "out",
+      "width": "8"
+    },
+    "out_r_TLAST": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
     },
     "out_r_TVALID": {
       "dir": "out",
@@ -357,18 +444,13 @@
       "dir": "in",
       "width": "1"
     },
-    "out_r_TLAST": {
-      "dir": "out",
-      "width": "1",
-      "isVector": "true"
+    "ap_clk": {
+      "dir": "in",
+      "width": "1"
     },
-    "out_r_TKEEP": {
-      "dir": "out",
-      "width": "8"
-    },
-    "out_r_TSTRB": {
-      "dir": "out",
-      "width": "8"
+    "ap_rst_n": {
+      "dir": "in",
+      "width": "1"
     }
   },
   "ModuleInfo": {
@@ -377,15 +459,15 @@
       "Instances": [
         {
           "ModuleName": "kernel",
-          "InstanceName": "grp_kernel_fu_172"
-        },
-        {
-          "ModuleName": "read_input",
-          "InstanceName": "grp_read_input_fu_224"
+          "InstanceName": "kernel_U0"
         },
         {
           "ModuleName": "write_output",
-          "InstanceName": "grp_write_output_fu_250"
+          "InstanceName": "write_output_U0"
+        },
+        {
+          "ModuleName": "read_input",
+          "InstanceName": "read_input_U0"
         }
       ]
     },
@@ -414,7 +496,7 @@
       "fused_cnn_layer": {
         "FunctionProtocol": "ap_ctrl_none",
         "isTaskLevelControl": "1",
-        "isPipelined": "0",
+        "isPipelined": "1",
         "isCombinational": "0",
         "isOneStateSeq": "0"
       }
@@ -435,8 +517,8 @@
           "Estimate": "3.634"
         },
         "Area": {
-          "FF": "120",
-          "LUT": "386",
+          "FF": "122",
+          "LUT": "404",
           "BRAM_18K": "0",
           "DSP48E": "0",
           "URAM": "0"
@@ -444,24 +526,24 @@
       },
       "kernel": {
         "Latency": {
-          "LatencyBest": "1321",
-          "LatencyAvg": "1321",
-          "LatencyWorst": "1321",
-          "PipelineII": "1321",
+          "LatencyBest": "1625",
+          "LatencyAvg": "1625",
+          "LatencyWorst": "1625",
+          "PipelineII": "1625",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "7.069"
+          "Estimate": "8.702"
         },
         "Loops": [{
             "Name": "Loop 1",
             "TripCount": "4",
-            "Latency": "1320",
+            "Latency": "1624",
             "PipelineII": "",
-            "PipelineDepth": "330",
+            "PipelineDepth": "406",
             "Loops": [
               {
                 "Name": "Loop 1.1",
@@ -501,9 +583,9 @@
               {
                 "Name": "Loop 1.4",
                 "TripCount": "4",
-                "Latency": "292",
+                "Latency": "368",
                 "PipelineII": "",
-                "PipelineDepth": "73",
+                "PipelineDepth": "92",
                 "Loops": [
                   {
                     "Name": "memset_partial_sums",
@@ -522,15 +604,15 @@
                   {
                     "Name": "Loop 1.4.2",
                     "TripCount": "3",
-                    "Latency": "36",
+                    "Latency": "51",
                     "PipelineII": "",
-                    "PipelineDepth": "12",
+                    "PipelineDepth": "17",
                     "Loops": [{
                         "Name": "Loop 1.4.2.1",
                         "TripCount": "3",
-                        "Latency": "9",
+                        "Latency": "15",
                         "PipelineII": "",
-                        "PipelineDepth": "3"
+                        "PipelineDepth": "5"
                       }]
                   },
                   {
@@ -580,19 +662,19 @@
             ]
           }],
         "Area": {
-          "BRAM_18K": "6",
+          "BRAM_18K": "18",
           "DSP48E": "12",
-          "FF": "9564",
-          "LUT": "12364",
+          "FF": "8231",
+          "LUT": "10770",
           "URAM": "0"
         }
       },
       "write_output": {
         "Latency": {
-          "LatencyBest": "3",
-          "LatencyAvg": "3",
-          "LatencyWorst": "3",
-          "PipelineII": "3",
+          "LatencyBest": "4",
+          "LatencyAvg": "4",
+          "LatencyWorst": "4",
+          "PipelineII": "4",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -602,8 +684,8 @@
           "Estimate": "5.723"
         },
         "Area": {
-          "FF": "39",
-          "LUT": "291",
+          "FF": "41",
+          "LUT": "306",
           "BRAM_18K": "0",
           "DSP48E": "0",
           "URAM": "0"
@@ -611,23 +693,23 @@
       },
       "fused_cnn_layer": {
         "Latency": {
-          "LatencyBest": "1338",
-          "LatencyAvg": "1338",
-          "LatencyWorst": "1338",
-          "PipelineII": "1339",
+          "LatencyBest": "1630",
+          "LatencyAvg": "1630",
+          "LatencyWorst": "1630",
+          "PipelineII": "1626",
           "PipelineDepth": "",
-          "PipelineType": "none"
+          "PipelineType": "dataflow"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "7.069"
+          "Estimate": "8.702"
         },
         "Area": {
-          "BRAM_18K": "6",
+          "BRAM_18K": "18",
           "DSP48E": "12",
-          "FF": "9790",
-          "LUT": "13529",
+          "FF": "8450",
+          "LUT": "11724",
           "URAM": "0"
         }
       }
@@ -643,7 +725,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2024-02-16 21:06:25 CET",
+    "Time": "2024-02-17 09:10:55 CET",
     "ToolName": "vivado_hls",
     "ToolVersion": "2020.1"
   }

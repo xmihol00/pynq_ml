@@ -11,14 +11,8 @@ use IEEE.numeric_std.all;
 
 entity fused_cnn_layer is
 port (
-    ap_clk : IN STD_LOGIC;
-    ap_rst_n : IN STD_LOGIC;
     in_0_TDATA : IN STD_LOGIC_VECTOR (63 downto 0);
-    in_0_TVALID : IN STD_LOGIC;
-    in_0_TREADY : OUT STD_LOGIC;
     in_1_TDATA : IN STD_LOGIC_VECTOR (63 downto 0);
-    in_1_TVALID : IN STD_LOGIC;
-    in_1_TREADY : OUT STD_LOGIC;
     in_0_TKEEP : IN STD_LOGIC_VECTOR (7 downto 0);
     in_1_TKEEP : IN STD_LOGIC_VECTOR (7 downto 0);
     in_0_TSTRB : IN STD_LOGIC_VECTOR (7 downto 0);
@@ -26,255 +20,141 @@ port (
     in_0_TLAST : IN STD_LOGIC_VECTOR (0 downto 0);
     in_1_TLAST : IN STD_LOGIC_VECTOR (0 downto 0);
     out_r_TDATA : OUT STD_LOGIC_VECTOR (63 downto 0);
-    out_r_TVALID : OUT STD_LOGIC;
-    out_r_TREADY : IN STD_LOGIC;
     out_r_TKEEP : OUT STD_LOGIC_VECTOR (7 downto 0);
     out_r_TSTRB : OUT STD_LOGIC_VECTOR (7 downto 0);
-    out_r_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0) );
+    out_r_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+    ap_clk : IN STD_LOGIC;
+    ap_rst_n : IN STD_LOGIC;
+    in_0_TVALID : IN STD_LOGIC;
+    in_0_TREADY : OUT STD_LOGIC;
+    in_1_TVALID : IN STD_LOGIC;
+    in_1_TREADY : OUT STD_LOGIC;
+    out_r_TVALID : OUT STD_LOGIC;
+    out_r_TREADY : IN STD_LOGIC );
 end;
 
 
 architecture behav of fused_cnn_layer is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "fused_cnn_layer,hls_ip_2020_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=7.069250,HLS_SYN_LAT=1338,HLS_SYN_TPT=none,HLS_SYN_MEM=6,HLS_SYN_DSP=12,HLS_SYN_FF=9790,HLS_SYN_LUT=13529,HLS_VERSION=2020_1}";
+    "fused_cnn_layer,hls_ip_2020_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=8.702000,HLS_SYN_LAT=1630,HLS_SYN_TPT=1626,HLS_SYN_MEM=18,HLS_SYN_DSP=12,HLS_SYN_FF=8450,HLS_SYN_LUT=11724,HLS_VERSION=2020_1}";
+    constant ap_const_lv64_0 : STD_LOGIC_VECTOR (63 downto 0) := "0000000000000000000000000000000000000000000000000000000000000000";
+    constant ap_const_lv8_0 : STD_LOGIC_VECTOR (7 downto 0) := "00000000";
+    constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
-    constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (7 downto 0) := "00000001";
-    constant ap_ST_fsm_state2 : STD_LOGIC_VECTOR (7 downto 0) := "00000010";
-    constant ap_ST_fsm_state3 : STD_LOGIC_VECTOR (7 downto 0) := "00000100";
-    constant ap_ST_fsm_state4 : STD_LOGIC_VECTOR (7 downto 0) := "00001000";
-    constant ap_ST_fsm_state5 : STD_LOGIC_VECTOR (7 downto 0) := "00010000";
-    constant ap_ST_fsm_state6 : STD_LOGIC_VECTOR (7 downto 0) := "00100000";
-    constant ap_ST_fsm_state7 : STD_LOGIC_VECTOR (7 downto 0) := "01000000";
-    constant ap_ST_fsm_state8 : STD_LOGIC_VECTOR (7 downto 0) := "10000000";
-    constant ap_const_lv32_3 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000011";
-    constant ap_const_lv32_4 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000100";
-    constant ap_const_lv32_1 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000001";
-    constant ap_const_lv32_2 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000010";
-    constant ap_const_lv32_5 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000101";
-    constant ap_const_lv32_6 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000110";
-    constant ap_const_lv32_7 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000111";
-    constant ap_const_boolean_1 : BOOLEAN := true;
 
     signal ap_rst_n_inv : STD_LOGIC;
-    signal grp_kernel_fu_172_ap_start : STD_LOGIC;
-    signal grp_kernel_fu_172_ap_done : STD_LOGIC;
-    signal grp_kernel_fu_172_ap_idle : STD_LOGIC;
-    signal grp_kernel_fu_172_ap_ready : STD_LOGIC;
-    signal grp_kernel_fu_172_input_upper_0_V_read : STD_LOGIC;
-    signal grp_kernel_fu_172_input_upper_1_V_read : STD_LOGIC;
-    signal grp_kernel_fu_172_input_upper_2_V_read : STD_LOGIC;
-    signal grp_kernel_fu_172_input_lower_0_V_read : STD_LOGIC;
-    signal grp_kernel_fu_172_input_lower_1_V_read : STD_LOGIC;
-    signal grp_kernel_fu_172_input_lower_2_V_read : STD_LOGIC;
-    signal grp_kernel_fu_172_output_0_V_din : STD_LOGIC_VECTOR (15 downto 0);
-    signal grp_kernel_fu_172_output_0_V_write : STD_LOGIC;
-    signal grp_kernel_fu_172_output_1_V_din : STD_LOGIC_VECTOR (15 downto 0);
-    signal grp_kernel_fu_172_output_1_V_write : STD_LOGIC;
-    signal grp_kernel_fu_172_output_2_V_din : STD_LOGIC_VECTOR (15 downto 0);
-    signal grp_kernel_fu_172_output_2_V_write : STD_LOGIC;
-    signal grp_kernel_fu_172_output_3_V_din : STD_LOGIC_VECTOR (15 downto 0);
-    signal grp_kernel_fu_172_output_3_V_write : STD_LOGIC;
-    signal grp_read_input_fu_224_ap_start : STD_LOGIC;
-    signal grp_read_input_fu_224_ap_done : STD_LOGIC;
-    signal grp_read_input_fu_224_ap_idle : STD_LOGIC;
-    signal grp_read_input_fu_224_ap_ready : STD_LOGIC;
-    signal grp_read_input_fu_224_input_upper_0_V_din : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_read_input_fu_224_input_upper_0_V_write : STD_LOGIC;
-    signal grp_read_input_fu_224_input_upper_1_V_din : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_read_input_fu_224_input_upper_1_V_write : STD_LOGIC;
-    signal grp_read_input_fu_224_input_upper_2_V_din : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_read_input_fu_224_input_upper_2_V_write : STD_LOGIC;
-    signal grp_read_input_fu_224_input_lower_0_V_din : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_read_input_fu_224_input_lower_0_V_write : STD_LOGIC;
-    signal grp_read_input_fu_224_input_lower_1_V_din : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_read_input_fu_224_input_lower_1_V_write : STD_LOGIC;
-    signal grp_read_input_fu_224_input_lower_2_V_din : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_read_input_fu_224_input_lower_2_V_write : STD_LOGIC;
-    signal grp_read_input_fu_224_in_0_TREADY : STD_LOGIC;
-    signal grp_read_input_fu_224_in_1_TREADY : STD_LOGIC;
-    signal grp_write_output_fu_250_ap_start : STD_LOGIC;
-    signal grp_write_output_fu_250_ap_done : STD_LOGIC;
-    signal grp_write_output_fu_250_ap_idle : STD_LOGIC;
-    signal grp_write_output_fu_250_ap_ready : STD_LOGIC;
-    signal grp_write_output_fu_250_output_0_V_read : STD_LOGIC;
-    signal grp_write_output_fu_250_output_1_V_read : STD_LOGIC;
-    signal grp_write_output_fu_250_output_2_V_read : STD_LOGIC;
-    signal grp_write_output_fu_250_output_3_V_read : STD_LOGIC;
-    signal grp_write_output_fu_250_out_r_TDATA : STD_LOGIC_VECTOR (63 downto 0);
-    signal grp_write_output_fu_250_out_r_TVALID : STD_LOGIC;
-    signal grp_write_output_fu_250_out_r_TREADY : STD_LOGIC;
-    signal grp_write_output_fu_250_out_r_TKEEP : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_write_output_fu_250_out_r_TSTRB : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_write_output_fu_250_out_r_TLAST : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_kernel_fu_172_ap_start_reg : STD_LOGIC := '0';
-    signal ap_CS_fsm : STD_LOGIC_VECTOR (7 downto 0) := "00000001";
-    attribute fsm_encoding : string;
-    attribute fsm_encoding of ap_CS_fsm : signal is "none";
-    signal ap_CS_fsm_state4 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state4 : signal is "none";
+    signal read_input_U0_ap_start : STD_LOGIC;
+    signal read_input_U0_ap_done : STD_LOGIC;
+    signal read_input_U0_ap_continue : STD_LOGIC;
+    signal read_input_U0_ap_idle : STD_LOGIC;
+    signal read_input_U0_ap_ready : STD_LOGIC;
+    signal read_input_U0_start_out : STD_LOGIC;
+    signal read_input_U0_start_write : STD_LOGIC;
+    signal read_input_U0_input_upper_0_V_din : STD_LOGIC_VECTOR (7 downto 0);
+    signal read_input_U0_input_upper_0_V_write : STD_LOGIC;
+    signal read_input_U0_input_upper_1_V_din : STD_LOGIC_VECTOR (7 downto 0);
+    signal read_input_U0_input_upper_1_V_write : STD_LOGIC;
+    signal read_input_U0_input_upper_2_V_din : STD_LOGIC_VECTOR (7 downto 0);
+    signal read_input_U0_input_upper_2_V_write : STD_LOGIC;
+    signal read_input_U0_input_lower_0_V_din : STD_LOGIC_VECTOR (7 downto 0);
+    signal read_input_U0_input_lower_0_V_write : STD_LOGIC;
+    signal read_input_U0_input_lower_1_V_din : STD_LOGIC_VECTOR (7 downto 0);
+    signal read_input_U0_input_lower_1_V_write : STD_LOGIC;
+    signal read_input_U0_input_lower_2_V_din : STD_LOGIC_VECTOR (7 downto 0);
+    signal read_input_U0_input_lower_2_V_write : STD_LOGIC;
+    signal read_input_U0_in_0_TREADY : STD_LOGIC;
+    signal read_input_U0_in_1_TREADY : STD_LOGIC;
+    signal kernel_U0_ap_start : STD_LOGIC;
+    signal kernel_U0_ap_done : STD_LOGIC;
+    signal kernel_U0_ap_continue : STD_LOGIC;
+    signal kernel_U0_ap_idle : STD_LOGIC;
+    signal kernel_U0_ap_ready : STD_LOGIC;
+    signal kernel_U0_start_out : STD_LOGIC;
+    signal kernel_U0_start_write : STD_LOGIC;
+    signal kernel_U0_input_upper_0_V_read : STD_LOGIC;
+    signal kernel_U0_input_upper_1_V_read : STD_LOGIC;
+    signal kernel_U0_input_upper_2_V_read : STD_LOGIC;
+    signal kernel_U0_input_lower_0_V_read : STD_LOGIC;
+    signal kernel_U0_input_lower_1_V_read : STD_LOGIC;
+    signal kernel_U0_input_lower_2_V_read : STD_LOGIC;
+    signal kernel_U0_output_0_V_din : STD_LOGIC_VECTOR (15 downto 0);
+    signal kernel_U0_output_0_V_write : STD_LOGIC;
+    signal kernel_U0_output_1_V_din : STD_LOGIC_VECTOR (15 downto 0);
+    signal kernel_U0_output_1_V_write : STD_LOGIC;
+    signal kernel_U0_output_2_V_din : STD_LOGIC_VECTOR (15 downto 0);
+    signal kernel_U0_output_2_V_write : STD_LOGIC;
+    signal kernel_U0_output_3_V_din : STD_LOGIC_VECTOR (15 downto 0);
+    signal kernel_U0_output_3_V_write : STD_LOGIC;
+    signal write_output_U0_ap_start : STD_LOGIC;
+    signal write_output_U0_ap_done : STD_LOGIC;
+    signal write_output_U0_ap_continue : STD_LOGIC;
+    signal write_output_U0_ap_idle : STD_LOGIC;
+    signal write_output_U0_ap_ready : STD_LOGIC;
+    signal write_output_U0_output_0_V_read : STD_LOGIC;
+    signal write_output_U0_output_1_V_read : STD_LOGIC;
+    signal write_output_U0_output_2_V_read : STD_LOGIC;
+    signal write_output_U0_output_3_V_read : STD_LOGIC;
+    signal write_output_U0_out_r_TDATA : STD_LOGIC_VECTOR (63 downto 0);
+    signal write_output_U0_out_r_TVALID : STD_LOGIC;
+    signal write_output_U0_out_r_TKEEP : STD_LOGIC_VECTOR (7 downto 0);
+    signal write_output_U0_out_r_TSTRB : STD_LOGIC_VECTOR (7 downto 0);
+    signal write_output_U0_out_r_TLAST : STD_LOGIC_VECTOR (0 downto 0);
+    signal ap_sync_continue : STD_LOGIC;
+    signal input_upper_0_V_full_n : STD_LOGIC;
     signal input_upper_0_V_dout : STD_LOGIC_VECTOR (7 downto 0);
     signal input_upper_0_V_empty_n : STD_LOGIC;
-    signal input_upper_0_V_read : STD_LOGIC;
-    signal ap_CS_fsm_state5 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state5 : signal is "none";
+    signal input_upper_1_V_full_n : STD_LOGIC;
     signal input_upper_1_V_dout : STD_LOGIC_VECTOR (7 downto 0);
     signal input_upper_1_V_empty_n : STD_LOGIC;
-    signal input_upper_1_V_read : STD_LOGIC;
+    signal input_upper_2_V_full_n : STD_LOGIC;
     signal input_upper_2_V_dout : STD_LOGIC_VECTOR (7 downto 0);
     signal input_upper_2_V_empty_n : STD_LOGIC;
-    signal input_upper_2_V_read : STD_LOGIC;
+    signal input_lower_0_V_full_n : STD_LOGIC;
     signal input_lower_0_V_dout : STD_LOGIC_VECTOR (7 downto 0);
     signal input_lower_0_V_empty_n : STD_LOGIC;
-    signal input_lower_0_V_read : STD_LOGIC;
+    signal input_lower_1_V_full_n : STD_LOGIC;
     signal input_lower_1_V_dout : STD_LOGIC_VECTOR (7 downto 0);
     signal input_lower_1_V_empty_n : STD_LOGIC;
-    signal input_lower_1_V_read : STD_LOGIC;
+    signal input_lower_2_V_full_n : STD_LOGIC;
     signal input_lower_2_V_dout : STD_LOGIC_VECTOR (7 downto 0);
     signal input_lower_2_V_empty_n : STD_LOGIC;
-    signal input_lower_2_V_read : STD_LOGIC;
     signal output_0_V_full_n : STD_LOGIC;
-    signal output_0_V_write : STD_LOGIC;
-    signal output_1_V_full_n : STD_LOGIC;
-    signal output_1_V_write : STD_LOGIC;
-    signal output_2_V_full_n : STD_LOGIC;
-    signal output_2_V_write : STD_LOGIC;
-    signal output_3_V_full_n : STD_LOGIC;
-    signal output_3_V_write : STD_LOGIC;
-    signal grp_read_input_fu_224_ap_start_reg : STD_LOGIC := '0';
-    signal ap_CS_fsm_state2 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
-    signal input_upper_0_V_full_n : STD_LOGIC;
-    signal input_upper_0_V_write : STD_LOGIC;
-    signal ap_CS_fsm_state3 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state3 : signal is "none";
-    signal input_upper_1_V_full_n : STD_LOGIC;
-    signal input_upper_1_V_write : STD_LOGIC;
-    signal input_upper_2_V_full_n : STD_LOGIC;
-    signal input_upper_2_V_write : STD_LOGIC;
-    signal input_lower_0_V_full_n : STD_LOGIC;
-    signal input_lower_0_V_write : STD_LOGIC;
-    signal input_lower_1_V_full_n : STD_LOGIC;
-    signal input_lower_1_V_write : STD_LOGIC;
-    signal input_lower_2_V_full_n : STD_LOGIC;
-    signal input_lower_2_V_write : STD_LOGIC;
-    signal grp_write_output_fu_250_ap_start_reg : STD_LOGIC := '0';
-    signal ap_CS_fsm_state6 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state6 : signal is "none";
     signal output_0_V_dout : STD_LOGIC_VECTOR (15 downto 0);
     signal output_0_V_empty_n : STD_LOGIC;
-    signal output_0_V_read : STD_LOGIC;
-    signal ap_CS_fsm_state7 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state7 : signal is "none";
+    signal output_1_V_full_n : STD_LOGIC;
     signal output_1_V_dout : STD_LOGIC_VECTOR (15 downto 0);
     signal output_1_V_empty_n : STD_LOGIC;
-    signal output_1_V_read : STD_LOGIC;
+    signal output_2_V_full_n : STD_LOGIC;
     signal output_2_V_dout : STD_LOGIC_VECTOR (15 downto 0);
     signal output_2_V_empty_n : STD_LOGIC;
-    signal output_2_V_read : STD_LOGIC;
+    signal output_3_V_full_n : STD_LOGIC;
     signal output_3_V_dout : STD_LOGIC_VECTOR (15 downto 0);
     signal output_3_V_empty_n : STD_LOGIC;
-    signal output_3_V_read : STD_LOGIC;
-    signal ap_NS_fsm : STD_LOGIC_VECTOR (7 downto 0);
-    signal ap_CS_fsm_state8 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state8 : signal is "none";
-    signal regslice_both_out_V_data_V_U_apdone_blk : STD_LOGIC;
-    signal regslice_both_in_0_V_data_V_U_apdone_blk : STD_LOGIC;
-    signal in_0_TDATA_int : STD_LOGIC_VECTOR (63 downto 0);
-    signal in_0_TVALID_int : STD_LOGIC;
-    signal in_0_TREADY_int : STD_LOGIC;
-    signal regslice_both_in_0_V_data_V_U_ack_in : STD_LOGIC;
-    signal regslice_both_in_1_V_data_V_U_apdone_blk : STD_LOGIC;
-    signal in_1_TDATA_int : STD_LOGIC_VECTOR (63 downto 0);
-    signal in_1_TVALID_int : STD_LOGIC;
-    signal in_1_TREADY_int : STD_LOGIC;
-    signal regslice_both_in_1_V_data_V_U_ack_in : STD_LOGIC;
-    signal regslice_both_in_0_V_keep_V_U_apdone_blk : STD_LOGIC;
-    signal in_0_TKEEP_int : STD_LOGIC_VECTOR (7 downto 0);
-    signal regslice_both_in_0_V_keep_V_U_vld_out : STD_LOGIC;
-    signal regslice_both_in_0_V_keep_V_U_ack_in : STD_LOGIC;
-    signal regslice_both_in_1_V_keep_V_U_apdone_blk : STD_LOGIC;
-    signal in_1_TKEEP_int : STD_LOGIC_VECTOR (7 downto 0);
-    signal regslice_both_in_1_V_keep_V_U_vld_out : STD_LOGIC;
-    signal regslice_both_in_1_V_keep_V_U_ack_in : STD_LOGIC;
-    signal regslice_both_in_0_V_strb_V_U_apdone_blk : STD_LOGIC;
-    signal in_0_TSTRB_int : STD_LOGIC_VECTOR (7 downto 0);
-    signal regslice_both_in_0_V_strb_V_U_vld_out : STD_LOGIC;
-    signal regslice_both_in_0_V_strb_V_U_ack_in : STD_LOGIC;
-    signal regslice_both_in_1_V_strb_V_U_apdone_blk : STD_LOGIC;
-    signal in_1_TSTRB_int : STD_LOGIC_VECTOR (7 downto 0);
-    signal regslice_both_in_1_V_strb_V_U_vld_out : STD_LOGIC;
-    signal regslice_both_in_1_V_strb_V_U_ack_in : STD_LOGIC;
-    signal regslice_both_in_0_V_last_V_U_apdone_blk : STD_LOGIC;
-    signal in_0_TLAST_int : STD_LOGIC_VECTOR (0 downto 0);
-    signal regslice_both_in_0_V_last_V_U_vld_out : STD_LOGIC;
-    signal regslice_both_in_0_V_last_V_U_ack_in : STD_LOGIC;
-    signal regslice_both_in_1_V_last_V_U_apdone_blk : STD_LOGIC;
-    signal in_1_TLAST_int : STD_LOGIC_VECTOR (0 downto 0);
-    signal regslice_both_in_1_V_last_V_U_vld_out : STD_LOGIC;
-    signal regslice_both_in_1_V_last_V_U_ack_in : STD_LOGIC;
-    signal out_r_TREADY_int : STD_LOGIC;
-    signal regslice_both_out_V_data_V_U_vld_out : STD_LOGIC;
-    signal regslice_both_out_V_keep_V_U_apdone_blk : STD_LOGIC;
-    signal regslice_both_out_V_keep_V_U_ack_in_dummy : STD_LOGIC;
-    signal regslice_both_out_V_keep_V_U_vld_out : STD_LOGIC;
-    signal regslice_both_out_V_strb_V_U_apdone_blk : STD_LOGIC;
-    signal regslice_both_out_V_strb_V_U_ack_in_dummy : STD_LOGIC;
-    signal regslice_both_out_V_strb_V_U_vld_out : STD_LOGIC;
-    signal regslice_both_out_V_last_V_U_apdone_blk : STD_LOGIC;
-    signal regslice_both_out_V_last_V_U_ack_in_dummy : STD_LOGIC;
-    signal regslice_both_out_V_last_V_U_vld_out : STD_LOGIC;
-
-    component kernel IS
-    port (
-        ap_clk : IN STD_LOGIC;
-        ap_rst : IN STD_LOGIC;
-        ap_start : IN STD_LOGIC;
-        ap_done : OUT STD_LOGIC;
-        ap_idle : OUT STD_LOGIC;
-        ap_ready : OUT STD_LOGIC;
-        input_upper_0_V_dout : IN STD_LOGIC_VECTOR (7 downto 0);
-        input_upper_0_V_empty_n : IN STD_LOGIC;
-        input_upper_0_V_read : OUT STD_LOGIC;
-        input_upper_1_V_dout : IN STD_LOGIC_VECTOR (7 downto 0);
-        input_upper_1_V_empty_n : IN STD_LOGIC;
-        input_upper_1_V_read : OUT STD_LOGIC;
-        input_upper_2_V_dout : IN STD_LOGIC_VECTOR (7 downto 0);
-        input_upper_2_V_empty_n : IN STD_LOGIC;
-        input_upper_2_V_read : OUT STD_LOGIC;
-        input_lower_0_V_dout : IN STD_LOGIC_VECTOR (7 downto 0);
-        input_lower_0_V_empty_n : IN STD_LOGIC;
-        input_lower_0_V_read : OUT STD_LOGIC;
-        input_lower_1_V_dout : IN STD_LOGIC_VECTOR (7 downto 0);
-        input_lower_1_V_empty_n : IN STD_LOGIC;
-        input_lower_1_V_read : OUT STD_LOGIC;
-        input_lower_2_V_dout : IN STD_LOGIC_VECTOR (7 downto 0);
-        input_lower_2_V_empty_n : IN STD_LOGIC;
-        input_lower_2_V_read : OUT STD_LOGIC;
-        output_0_V_din : OUT STD_LOGIC_VECTOR (15 downto 0);
-        output_0_V_full_n : IN STD_LOGIC;
-        output_0_V_write : OUT STD_LOGIC;
-        output_1_V_din : OUT STD_LOGIC_VECTOR (15 downto 0);
-        output_1_V_full_n : IN STD_LOGIC;
-        output_1_V_write : OUT STD_LOGIC;
-        output_2_V_din : OUT STD_LOGIC_VECTOR (15 downto 0);
-        output_2_V_full_n : IN STD_LOGIC;
-        output_2_V_write : OUT STD_LOGIC;
-        output_3_V_din : OUT STD_LOGIC_VECTOR (15 downto 0);
-        output_3_V_full_n : IN STD_LOGIC;
-        output_3_V_write : OUT STD_LOGIC );
-    end component;
-
+    signal start_for_kernel_U0_din : STD_LOGIC_VECTOR (0 downto 0);
+    signal start_for_kernel_U0_full_n : STD_LOGIC;
+    signal start_for_kernel_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
+    signal start_for_kernel_U0_empty_n : STD_LOGIC;
+    signal start_for_write_output_U0_din : STD_LOGIC_VECTOR (0 downto 0);
+    signal start_for_write_output_U0_full_n : STD_LOGIC;
+    signal start_for_write_output_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
+    signal start_for_write_output_U0_empty_n : STD_LOGIC;
+    signal write_output_U0_start_full_n : STD_LOGIC;
+    signal write_output_U0_start_write : STD_LOGIC;
 
     component read_input IS
     port (
         ap_clk : IN STD_LOGIC;
         ap_rst : IN STD_LOGIC;
         ap_start : IN STD_LOGIC;
+        start_full_n : IN STD_LOGIC;
         ap_done : OUT STD_LOGIC;
+        ap_continue : IN STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
+        start_out : OUT STD_LOGIC;
+        start_write : OUT STD_LOGIC;
         input_upper_0_V_din : OUT STD_LOGIC_VECTOR (7 downto 0);
         input_upper_0_V_full_n : IN STD_LOGIC;
         input_upper_0_V_write : OUT STD_LOGIC;
@@ -308,12 +188,58 @@ architecture behav of fused_cnn_layer is
     end component;
 
 
+    component kernel IS
+    port (
+        ap_clk : IN STD_LOGIC;
+        ap_rst : IN STD_LOGIC;
+        ap_start : IN STD_LOGIC;
+        start_full_n : IN STD_LOGIC;
+        ap_done : OUT STD_LOGIC;
+        ap_continue : IN STD_LOGIC;
+        ap_idle : OUT STD_LOGIC;
+        ap_ready : OUT STD_LOGIC;
+        start_out : OUT STD_LOGIC;
+        start_write : OUT STD_LOGIC;
+        input_upper_0_V_dout : IN STD_LOGIC_VECTOR (7 downto 0);
+        input_upper_0_V_empty_n : IN STD_LOGIC;
+        input_upper_0_V_read : OUT STD_LOGIC;
+        input_upper_1_V_dout : IN STD_LOGIC_VECTOR (7 downto 0);
+        input_upper_1_V_empty_n : IN STD_LOGIC;
+        input_upper_1_V_read : OUT STD_LOGIC;
+        input_upper_2_V_dout : IN STD_LOGIC_VECTOR (7 downto 0);
+        input_upper_2_V_empty_n : IN STD_LOGIC;
+        input_upper_2_V_read : OUT STD_LOGIC;
+        input_lower_0_V_dout : IN STD_LOGIC_VECTOR (7 downto 0);
+        input_lower_0_V_empty_n : IN STD_LOGIC;
+        input_lower_0_V_read : OUT STD_LOGIC;
+        input_lower_1_V_dout : IN STD_LOGIC_VECTOR (7 downto 0);
+        input_lower_1_V_empty_n : IN STD_LOGIC;
+        input_lower_1_V_read : OUT STD_LOGIC;
+        input_lower_2_V_dout : IN STD_LOGIC_VECTOR (7 downto 0);
+        input_lower_2_V_empty_n : IN STD_LOGIC;
+        input_lower_2_V_read : OUT STD_LOGIC;
+        output_0_V_din : OUT STD_LOGIC_VECTOR (15 downto 0);
+        output_0_V_full_n : IN STD_LOGIC;
+        output_0_V_write : OUT STD_LOGIC;
+        output_1_V_din : OUT STD_LOGIC_VECTOR (15 downto 0);
+        output_1_V_full_n : IN STD_LOGIC;
+        output_1_V_write : OUT STD_LOGIC;
+        output_2_V_din : OUT STD_LOGIC_VECTOR (15 downto 0);
+        output_2_V_full_n : IN STD_LOGIC;
+        output_2_V_write : OUT STD_LOGIC;
+        output_3_V_din : OUT STD_LOGIC_VECTOR (15 downto 0);
+        output_3_V_full_n : IN STD_LOGIC;
+        output_3_V_write : OUT STD_LOGIC );
+    end component;
+
+
     component write_output IS
     port (
         ap_clk : IN STD_LOGIC;
         ap_rst : IN STD_LOGIC;
         ap_start : IN STD_LOGIC;
         ap_done : OUT STD_LOGIC;
+        ap_continue : IN STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
         output_0_V_dout : IN STD_LOGIC_VECTOR (15 downto 0);
@@ -367,786 +293,333 @@ architecture behav of fused_cnn_layer is
     end component;
 
 
-    component regslice_both IS
-    generic (
-        DataWidth : INTEGER );
+    component start_for_kernel_U0 IS
     port (
-        ap_clk : IN STD_LOGIC;
-        ap_rst : IN STD_LOGIC;
-        data_in : IN STD_LOGIC_VECTOR (DataWidth-1 downto 0);
-        vld_in : IN STD_LOGIC;
-        ack_in : OUT STD_LOGIC;
-        data_out : OUT STD_LOGIC_VECTOR (DataWidth-1 downto 0);
-        vld_out : OUT STD_LOGIC;
-        ack_out : IN STD_LOGIC;
-        apdone_blk : OUT STD_LOGIC );
+        clk : IN STD_LOGIC;
+        reset : IN STD_LOGIC;
+        if_read_ce : IN STD_LOGIC;
+        if_write_ce : IN STD_LOGIC;
+        if_din : IN STD_LOGIC_VECTOR (0 downto 0);
+        if_full_n : OUT STD_LOGIC;
+        if_write : IN STD_LOGIC;
+        if_dout : OUT STD_LOGIC_VECTOR (0 downto 0);
+        if_empty_n : OUT STD_LOGIC;
+        if_read : IN STD_LOGIC );
+    end component;
+
+
+    component start_for_write_ojbC IS
+    port (
+        clk : IN STD_LOGIC;
+        reset : IN STD_LOGIC;
+        if_read_ce : IN STD_LOGIC;
+        if_write_ce : IN STD_LOGIC;
+        if_din : IN STD_LOGIC_VECTOR (0 downto 0);
+        if_full_n : OUT STD_LOGIC;
+        if_write : IN STD_LOGIC;
+        if_dout : OUT STD_LOGIC_VECTOR (0 downto 0);
+        if_empty_n : OUT STD_LOGIC;
+        if_read : IN STD_LOGIC );
     end component;
 
 
 
 begin
-    grp_kernel_fu_172 : component kernel
+    read_input_U0 : component read_input
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        ap_start => grp_kernel_fu_172_ap_start,
-        ap_done => grp_kernel_fu_172_ap_done,
-        ap_idle => grp_kernel_fu_172_ap_idle,
-        ap_ready => grp_kernel_fu_172_ap_ready,
+        ap_start => read_input_U0_ap_start,
+        start_full_n => start_for_kernel_U0_full_n,
+        ap_done => read_input_U0_ap_done,
+        ap_continue => read_input_U0_ap_continue,
+        ap_idle => read_input_U0_ap_idle,
+        ap_ready => read_input_U0_ap_ready,
+        start_out => read_input_U0_start_out,
+        start_write => read_input_U0_start_write,
+        input_upper_0_V_din => read_input_U0_input_upper_0_V_din,
+        input_upper_0_V_full_n => input_upper_0_V_full_n,
+        input_upper_0_V_write => read_input_U0_input_upper_0_V_write,
+        input_upper_1_V_din => read_input_U0_input_upper_1_V_din,
+        input_upper_1_V_full_n => input_upper_1_V_full_n,
+        input_upper_1_V_write => read_input_U0_input_upper_1_V_write,
+        input_upper_2_V_din => read_input_U0_input_upper_2_V_din,
+        input_upper_2_V_full_n => input_upper_2_V_full_n,
+        input_upper_2_V_write => read_input_U0_input_upper_2_V_write,
+        input_lower_0_V_din => read_input_U0_input_lower_0_V_din,
+        input_lower_0_V_full_n => input_lower_0_V_full_n,
+        input_lower_0_V_write => read_input_U0_input_lower_0_V_write,
+        input_lower_1_V_din => read_input_U0_input_lower_1_V_din,
+        input_lower_1_V_full_n => input_lower_1_V_full_n,
+        input_lower_1_V_write => read_input_U0_input_lower_1_V_write,
+        input_lower_2_V_din => read_input_U0_input_lower_2_V_din,
+        input_lower_2_V_full_n => input_lower_2_V_full_n,
+        input_lower_2_V_write => read_input_U0_input_lower_2_V_write,
+        in_0_TDATA => in_0_TDATA,
+        in_0_TVALID => in_0_TVALID,
+        in_0_TREADY => read_input_U0_in_0_TREADY,
+        in_1_TDATA => in_1_TDATA,
+        in_1_TVALID => in_1_TVALID,
+        in_1_TREADY => read_input_U0_in_1_TREADY,
+        in_0_TKEEP => in_0_TKEEP,
+        in_1_TKEEP => in_1_TKEEP,
+        in_0_TSTRB => in_0_TSTRB,
+        in_1_TSTRB => in_1_TSTRB,
+        in_0_TLAST => in_0_TLAST,
+        in_1_TLAST => in_1_TLAST);
+
+    kernel_U0 : component kernel
+    port map (
+        ap_clk => ap_clk,
+        ap_rst => ap_rst_n_inv,
+        ap_start => kernel_U0_ap_start,
+        start_full_n => start_for_write_output_U0_full_n,
+        ap_done => kernel_U0_ap_done,
+        ap_continue => kernel_U0_ap_continue,
+        ap_idle => kernel_U0_ap_idle,
+        ap_ready => kernel_U0_ap_ready,
+        start_out => kernel_U0_start_out,
+        start_write => kernel_U0_start_write,
         input_upper_0_V_dout => input_upper_0_V_dout,
         input_upper_0_V_empty_n => input_upper_0_V_empty_n,
-        input_upper_0_V_read => grp_kernel_fu_172_input_upper_0_V_read,
+        input_upper_0_V_read => kernel_U0_input_upper_0_V_read,
         input_upper_1_V_dout => input_upper_1_V_dout,
         input_upper_1_V_empty_n => input_upper_1_V_empty_n,
-        input_upper_1_V_read => grp_kernel_fu_172_input_upper_1_V_read,
+        input_upper_1_V_read => kernel_U0_input_upper_1_V_read,
         input_upper_2_V_dout => input_upper_2_V_dout,
         input_upper_2_V_empty_n => input_upper_2_V_empty_n,
-        input_upper_2_V_read => grp_kernel_fu_172_input_upper_2_V_read,
+        input_upper_2_V_read => kernel_U0_input_upper_2_V_read,
         input_lower_0_V_dout => input_lower_0_V_dout,
         input_lower_0_V_empty_n => input_lower_0_V_empty_n,
-        input_lower_0_V_read => grp_kernel_fu_172_input_lower_0_V_read,
+        input_lower_0_V_read => kernel_U0_input_lower_0_V_read,
         input_lower_1_V_dout => input_lower_1_V_dout,
         input_lower_1_V_empty_n => input_lower_1_V_empty_n,
-        input_lower_1_V_read => grp_kernel_fu_172_input_lower_1_V_read,
+        input_lower_1_V_read => kernel_U0_input_lower_1_V_read,
         input_lower_2_V_dout => input_lower_2_V_dout,
         input_lower_2_V_empty_n => input_lower_2_V_empty_n,
-        input_lower_2_V_read => grp_kernel_fu_172_input_lower_2_V_read,
-        output_0_V_din => grp_kernel_fu_172_output_0_V_din,
+        input_lower_2_V_read => kernel_U0_input_lower_2_V_read,
+        output_0_V_din => kernel_U0_output_0_V_din,
         output_0_V_full_n => output_0_V_full_n,
-        output_0_V_write => grp_kernel_fu_172_output_0_V_write,
-        output_1_V_din => grp_kernel_fu_172_output_1_V_din,
+        output_0_V_write => kernel_U0_output_0_V_write,
+        output_1_V_din => kernel_U0_output_1_V_din,
         output_1_V_full_n => output_1_V_full_n,
-        output_1_V_write => grp_kernel_fu_172_output_1_V_write,
-        output_2_V_din => grp_kernel_fu_172_output_2_V_din,
+        output_1_V_write => kernel_U0_output_1_V_write,
+        output_2_V_din => kernel_U0_output_2_V_din,
         output_2_V_full_n => output_2_V_full_n,
-        output_2_V_write => grp_kernel_fu_172_output_2_V_write,
-        output_3_V_din => grp_kernel_fu_172_output_3_V_din,
+        output_2_V_write => kernel_U0_output_2_V_write,
+        output_3_V_din => kernel_U0_output_3_V_din,
         output_3_V_full_n => output_3_V_full_n,
-        output_3_V_write => grp_kernel_fu_172_output_3_V_write);
+        output_3_V_write => kernel_U0_output_3_V_write);
 
-    grp_read_input_fu_224 : component read_input
+    write_output_U0 : component write_output
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        ap_start => grp_read_input_fu_224_ap_start,
-        ap_done => grp_read_input_fu_224_ap_done,
-        ap_idle => grp_read_input_fu_224_ap_idle,
-        ap_ready => grp_read_input_fu_224_ap_ready,
-        input_upper_0_V_din => grp_read_input_fu_224_input_upper_0_V_din,
-        input_upper_0_V_full_n => input_upper_0_V_full_n,
-        input_upper_0_V_write => grp_read_input_fu_224_input_upper_0_V_write,
-        input_upper_1_V_din => grp_read_input_fu_224_input_upper_1_V_din,
-        input_upper_1_V_full_n => input_upper_1_V_full_n,
-        input_upper_1_V_write => grp_read_input_fu_224_input_upper_1_V_write,
-        input_upper_2_V_din => grp_read_input_fu_224_input_upper_2_V_din,
-        input_upper_2_V_full_n => input_upper_2_V_full_n,
-        input_upper_2_V_write => grp_read_input_fu_224_input_upper_2_V_write,
-        input_lower_0_V_din => grp_read_input_fu_224_input_lower_0_V_din,
-        input_lower_0_V_full_n => input_lower_0_V_full_n,
-        input_lower_0_V_write => grp_read_input_fu_224_input_lower_0_V_write,
-        input_lower_1_V_din => grp_read_input_fu_224_input_lower_1_V_din,
-        input_lower_1_V_full_n => input_lower_1_V_full_n,
-        input_lower_1_V_write => grp_read_input_fu_224_input_lower_1_V_write,
-        input_lower_2_V_din => grp_read_input_fu_224_input_lower_2_V_din,
-        input_lower_2_V_full_n => input_lower_2_V_full_n,
-        input_lower_2_V_write => grp_read_input_fu_224_input_lower_2_V_write,
-        in_0_TDATA => in_0_TDATA_int,
-        in_0_TVALID => in_0_TVALID_int,
-        in_0_TREADY => grp_read_input_fu_224_in_0_TREADY,
-        in_1_TDATA => in_1_TDATA_int,
-        in_1_TVALID => in_1_TVALID_int,
-        in_1_TREADY => grp_read_input_fu_224_in_1_TREADY,
-        in_0_TKEEP => in_0_TKEEP_int,
-        in_1_TKEEP => in_1_TKEEP_int,
-        in_0_TSTRB => in_0_TSTRB_int,
-        in_1_TSTRB => in_1_TSTRB_int,
-        in_0_TLAST => in_0_TLAST_int,
-        in_1_TLAST => in_1_TLAST_int);
-
-    grp_write_output_fu_250 : component write_output
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        ap_start => grp_write_output_fu_250_ap_start,
-        ap_done => grp_write_output_fu_250_ap_done,
-        ap_idle => grp_write_output_fu_250_ap_idle,
-        ap_ready => grp_write_output_fu_250_ap_ready,
+        ap_start => write_output_U0_ap_start,
+        ap_done => write_output_U0_ap_done,
+        ap_continue => write_output_U0_ap_continue,
+        ap_idle => write_output_U0_ap_idle,
+        ap_ready => write_output_U0_ap_ready,
         output_0_V_dout => output_0_V_dout,
         output_0_V_empty_n => output_0_V_empty_n,
-        output_0_V_read => grp_write_output_fu_250_output_0_V_read,
+        output_0_V_read => write_output_U0_output_0_V_read,
         output_1_V_dout => output_1_V_dout,
         output_1_V_empty_n => output_1_V_empty_n,
-        output_1_V_read => grp_write_output_fu_250_output_1_V_read,
+        output_1_V_read => write_output_U0_output_1_V_read,
         output_2_V_dout => output_2_V_dout,
         output_2_V_empty_n => output_2_V_empty_n,
-        output_2_V_read => grp_write_output_fu_250_output_2_V_read,
+        output_2_V_read => write_output_U0_output_2_V_read,
         output_3_V_dout => output_3_V_dout,
         output_3_V_empty_n => output_3_V_empty_n,
-        output_3_V_read => grp_write_output_fu_250_output_3_V_read,
-        out_r_TDATA => grp_write_output_fu_250_out_r_TDATA,
-        out_r_TVALID => grp_write_output_fu_250_out_r_TVALID,
-        out_r_TREADY => grp_write_output_fu_250_out_r_TREADY,
-        out_r_TKEEP => grp_write_output_fu_250_out_r_TKEEP,
-        out_r_TSTRB => grp_write_output_fu_250_out_r_TSTRB,
-        out_r_TLAST => grp_write_output_fu_250_out_r_TLAST);
+        output_3_V_read => write_output_U0_output_3_V_read,
+        out_r_TDATA => write_output_U0_out_r_TDATA,
+        out_r_TVALID => write_output_U0_out_r_TVALID,
+        out_r_TREADY => out_r_TREADY,
+        out_r_TKEEP => write_output_U0_out_r_TKEEP,
+        out_r_TSTRB => write_output_U0_out_r_TSTRB,
+        out_r_TLAST => write_output_U0_out_r_TLAST);
 
-    input_upper_0_V_fifo_U : component fifo_w8_d8_A
+    input_upper_0_V_U : component fifo_w8_d8_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => grp_read_input_fu_224_input_upper_0_V_din,
+        if_din => read_input_U0_input_upper_0_V_din,
         if_full_n => input_upper_0_V_full_n,
-        if_write => input_upper_0_V_write,
+        if_write => read_input_U0_input_upper_0_V_write,
         if_dout => input_upper_0_V_dout,
         if_empty_n => input_upper_0_V_empty_n,
-        if_read => input_upper_0_V_read);
+        if_read => kernel_U0_input_upper_0_V_read);
 
-    input_upper_1_V_fifo_U : component fifo_w8_d8_A
+    input_upper_1_V_U : component fifo_w8_d8_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => grp_read_input_fu_224_input_upper_1_V_din,
+        if_din => read_input_U0_input_upper_1_V_din,
         if_full_n => input_upper_1_V_full_n,
-        if_write => input_upper_1_V_write,
+        if_write => read_input_U0_input_upper_1_V_write,
         if_dout => input_upper_1_V_dout,
         if_empty_n => input_upper_1_V_empty_n,
-        if_read => input_upper_1_V_read);
+        if_read => kernel_U0_input_upper_1_V_read);
 
-    input_upper_2_V_fifo_U : component fifo_w8_d8_A
+    input_upper_2_V_U : component fifo_w8_d8_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => grp_read_input_fu_224_input_upper_2_V_din,
+        if_din => read_input_U0_input_upper_2_V_din,
         if_full_n => input_upper_2_V_full_n,
-        if_write => input_upper_2_V_write,
+        if_write => read_input_U0_input_upper_2_V_write,
         if_dout => input_upper_2_V_dout,
         if_empty_n => input_upper_2_V_empty_n,
-        if_read => input_upper_2_V_read);
+        if_read => kernel_U0_input_upper_2_V_read);
 
-    input_lower_0_V_fifo_U : component fifo_w8_d8_A
+    input_lower_0_V_U : component fifo_w8_d8_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => grp_read_input_fu_224_input_lower_0_V_din,
+        if_din => read_input_U0_input_lower_0_V_din,
         if_full_n => input_lower_0_V_full_n,
-        if_write => input_lower_0_V_write,
+        if_write => read_input_U0_input_lower_0_V_write,
         if_dout => input_lower_0_V_dout,
         if_empty_n => input_lower_0_V_empty_n,
-        if_read => input_lower_0_V_read);
+        if_read => kernel_U0_input_lower_0_V_read);
 
-    input_lower_1_V_fifo_U : component fifo_w8_d8_A
+    input_lower_1_V_U : component fifo_w8_d8_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => grp_read_input_fu_224_input_lower_1_V_din,
+        if_din => read_input_U0_input_lower_1_V_din,
         if_full_n => input_lower_1_V_full_n,
-        if_write => input_lower_1_V_write,
+        if_write => read_input_U0_input_lower_1_V_write,
         if_dout => input_lower_1_V_dout,
         if_empty_n => input_lower_1_V_empty_n,
-        if_read => input_lower_1_V_read);
+        if_read => kernel_U0_input_lower_1_V_read);
 
-    input_lower_2_V_fifo_U : component fifo_w8_d8_A
+    input_lower_2_V_U : component fifo_w8_d8_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => grp_read_input_fu_224_input_lower_2_V_din,
+        if_din => read_input_U0_input_lower_2_V_din,
         if_full_n => input_lower_2_V_full_n,
-        if_write => input_lower_2_V_write,
+        if_write => read_input_U0_input_lower_2_V_write,
         if_dout => input_lower_2_V_dout,
         if_empty_n => input_lower_2_V_empty_n,
-        if_read => input_lower_2_V_read);
+        if_read => kernel_U0_input_lower_2_V_read);
 
-    output_0_V_fifo_U : component fifo_w16_d4_A
+    output_0_V_U : component fifo_w16_d4_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => grp_kernel_fu_172_output_0_V_din,
+        if_din => kernel_U0_output_0_V_din,
         if_full_n => output_0_V_full_n,
-        if_write => output_0_V_write,
+        if_write => kernel_U0_output_0_V_write,
         if_dout => output_0_V_dout,
         if_empty_n => output_0_V_empty_n,
-        if_read => output_0_V_read);
+        if_read => write_output_U0_output_0_V_read);
 
-    output_1_V_fifo_U : component fifo_w16_d4_A
+    output_1_V_U : component fifo_w16_d4_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => grp_kernel_fu_172_output_1_V_din,
+        if_din => kernel_U0_output_1_V_din,
         if_full_n => output_1_V_full_n,
-        if_write => output_1_V_write,
+        if_write => kernel_U0_output_1_V_write,
         if_dout => output_1_V_dout,
         if_empty_n => output_1_V_empty_n,
-        if_read => output_1_V_read);
+        if_read => write_output_U0_output_1_V_read);
 
-    output_2_V_fifo_U : component fifo_w16_d4_A
+    output_2_V_U : component fifo_w16_d4_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => grp_kernel_fu_172_output_2_V_din,
+        if_din => kernel_U0_output_2_V_din,
         if_full_n => output_2_V_full_n,
-        if_write => output_2_V_write,
+        if_write => kernel_U0_output_2_V_write,
         if_dout => output_2_V_dout,
         if_empty_n => output_2_V_empty_n,
-        if_read => output_2_V_read);
+        if_read => write_output_U0_output_2_V_read);
 
-    output_3_V_fifo_U : component fifo_w16_d4_A
+    output_3_V_U : component fifo_w16_d4_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => grp_kernel_fu_172_output_3_V_din,
+        if_din => kernel_U0_output_3_V_din,
         if_full_n => output_3_V_full_n,
-        if_write => output_3_V_write,
+        if_write => kernel_U0_output_3_V_write,
         if_dout => output_3_V_dout,
         if_empty_n => output_3_V_empty_n,
-        if_read => output_3_V_read);
+        if_read => write_output_U0_output_3_V_read);
 
-    regslice_both_in_0_V_data_V_U : component regslice_both
-    generic map (
-        DataWidth => 64)
+    start_for_kernel_U0_U : component start_for_kernel_U0
     port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        data_in => in_0_TDATA,
-        vld_in => in_0_TVALID,
-        ack_in => regslice_both_in_0_V_data_V_U_ack_in,
-        data_out => in_0_TDATA_int,
-        vld_out => in_0_TVALID_int,
-        ack_out => in_0_TREADY_int,
-        apdone_blk => regslice_both_in_0_V_data_V_U_apdone_blk);
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        if_read_ce => ap_const_logic_1,
+        if_write_ce => ap_const_logic_1,
+        if_din => start_for_kernel_U0_din,
+        if_full_n => start_for_kernel_U0_full_n,
+        if_write => read_input_U0_start_write,
+        if_dout => start_for_kernel_U0_dout,
+        if_empty_n => start_for_kernel_U0_empty_n,
+        if_read => kernel_U0_ap_ready);
 
-    regslice_both_in_1_V_data_V_U : component regslice_both
-    generic map (
-        DataWidth => 64)
+    start_for_write_ojbC_U : component start_for_write_ojbC
     port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        data_in => in_1_TDATA,
-        vld_in => in_1_TVALID,
-        ack_in => regslice_both_in_1_V_data_V_U_ack_in,
-        data_out => in_1_TDATA_int,
-        vld_out => in_1_TVALID_int,
-        ack_out => in_1_TREADY_int,
-        apdone_blk => regslice_both_in_1_V_data_V_U_apdone_blk);
-
-    regslice_both_in_0_V_keep_V_U : component regslice_both
-    generic map (
-        DataWidth => 8)
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        data_in => in_0_TKEEP,
-        vld_in => in_0_TVALID,
-        ack_in => regslice_both_in_0_V_keep_V_U_ack_in,
-        data_out => in_0_TKEEP_int,
-        vld_out => regslice_both_in_0_V_keep_V_U_vld_out,
-        ack_out => in_0_TREADY_int,
-        apdone_blk => regslice_both_in_0_V_keep_V_U_apdone_blk);
-
-    regslice_both_in_1_V_keep_V_U : component regslice_both
-    generic map (
-        DataWidth => 8)
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        data_in => in_1_TKEEP,
-        vld_in => in_1_TVALID,
-        ack_in => regslice_both_in_1_V_keep_V_U_ack_in,
-        data_out => in_1_TKEEP_int,
-        vld_out => regslice_both_in_1_V_keep_V_U_vld_out,
-        ack_out => in_1_TREADY_int,
-        apdone_blk => regslice_both_in_1_V_keep_V_U_apdone_blk);
-
-    regslice_both_in_0_V_strb_V_U : component regslice_both
-    generic map (
-        DataWidth => 8)
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        data_in => in_0_TSTRB,
-        vld_in => in_0_TVALID,
-        ack_in => regslice_both_in_0_V_strb_V_U_ack_in,
-        data_out => in_0_TSTRB_int,
-        vld_out => regslice_both_in_0_V_strb_V_U_vld_out,
-        ack_out => in_0_TREADY_int,
-        apdone_blk => regslice_both_in_0_V_strb_V_U_apdone_blk);
-
-    regslice_both_in_1_V_strb_V_U : component regslice_both
-    generic map (
-        DataWidth => 8)
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        data_in => in_1_TSTRB,
-        vld_in => in_1_TVALID,
-        ack_in => regslice_both_in_1_V_strb_V_U_ack_in,
-        data_out => in_1_TSTRB_int,
-        vld_out => regslice_both_in_1_V_strb_V_U_vld_out,
-        ack_out => in_1_TREADY_int,
-        apdone_blk => regslice_both_in_1_V_strb_V_U_apdone_blk);
-
-    regslice_both_in_0_V_last_V_U : component regslice_both
-    generic map (
-        DataWidth => 1)
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        data_in => in_0_TLAST,
-        vld_in => in_0_TVALID,
-        ack_in => regslice_both_in_0_V_last_V_U_ack_in,
-        data_out => in_0_TLAST_int,
-        vld_out => regslice_both_in_0_V_last_V_U_vld_out,
-        ack_out => in_0_TREADY_int,
-        apdone_blk => regslice_both_in_0_V_last_V_U_apdone_blk);
-
-    regslice_both_in_1_V_last_V_U : component regslice_both
-    generic map (
-        DataWidth => 1)
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        data_in => in_1_TLAST,
-        vld_in => in_1_TVALID,
-        ack_in => regslice_both_in_1_V_last_V_U_ack_in,
-        data_out => in_1_TLAST_int,
-        vld_out => regslice_both_in_1_V_last_V_U_vld_out,
-        ack_out => in_1_TREADY_int,
-        apdone_blk => regslice_both_in_1_V_last_V_U_apdone_blk);
-
-    regslice_both_out_V_data_V_U : component regslice_both
-    generic map (
-        DataWidth => 64)
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        data_in => grp_write_output_fu_250_out_r_TDATA,
-        vld_in => grp_write_output_fu_250_out_r_TVALID,
-        ack_in => out_r_TREADY_int,
-        data_out => out_r_TDATA,
-        vld_out => regslice_both_out_V_data_V_U_vld_out,
-        ack_out => out_r_TREADY,
-        apdone_blk => regslice_both_out_V_data_V_U_apdone_blk);
-
-    regslice_both_out_V_keep_V_U : component regslice_both
-    generic map (
-        DataWidth => 8)
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        data_in => grp_write_output_fu_250_out_r_TKEEP,
-        vld_in => grp_write_output_fu_250_out_r_TVALID,
-        ack_in => regslice_both_out_V_keep_V_U_ack_in_dummy,
-        data_out => out_r_TKEEP,
-        vld_out => regslice_both_out_V_keep_V_U_vld_out,
-        ack_out => out_r_TREADY,
-        apdone_blk => regslice_both_out_V_keep_V_U_apdone_blk);
-
-    regslice_both_out_V_strb_V_U : component regslice_both
-    generic map (
-        DataWidth => 8)
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        data_in => grp_write_output_fu_250_out_r_TSTRB,
-        vld_in => grp_write_output_fu_250_out_r_TVALID,
-        ack_in => regslice_both_out_V_strb_V_U_ack_in_dummy,
-        data_out => out_r_TSTRB,
-        vld_out => regslice_both_out_V_strb_V_U_vld_out,
-        ack_out => out_r_TREADY,
-        apdone_blk => regslice_both_out_V_strb_V_U_apdone_blk);
-
-    regslice_both_out_V_last_V_U : component regslice_both
-    generic map (
-        DataWidth => 1)
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        data_in => grp_write_output_fu_250_out_r_TLAST,
-        vld_in => grp_write_output_fu_250_out_r_TVALID,
-        ack_in => regslice_both_out_V_last_V_U_ack_in_dummy,
-        data_out => out_r_TLAST,
-        vld_out => regslice_both_out_V_last_V_U_vld_out,
-        ack_out => out_r_TREADY,
-        apdone_blk => regslice_both_out_V_last_V_U_apdone_blk);
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        if_read_ce => ap_const_logic_1,
+        if_write_ce => ap_const_logic_1,
+        if_din => start_for_write_output_U0_din,
+        if_full_n => start_for_write_output_U0_full_n,
+        if_write => kernel_U0_start_write,
+        if_dout => start_for_write_output_U0_dout,
+        if_empty_n => start_for_write_output_U0_empty_n,
+        if_read => write_output_U0_ap_ready);
 
 
 
 
-
-    ap_CS_fsm_assign_proc : process(ap_clk)
-    begin
-        if (ap_clk'event and ap_clk =  '1') then
-            if (ap_rst_n_inv = '1') then
-                ap_CS_fsm <= ap_ST_fsm_state1;
-            else
-                ap_CS_fsm <= ap_NS_fsm;
-            end if;
-        end if;
-    end process;
-
-
-    grp_kernel_fu_172_ap_start_reg_assign_proc : process(ap_clk)
-    begin
-        if (ap_clk'event and ap_clk =  '1') then
-            if (ap_rst_n_inv = '1') then
-                grp_kernel_fu_172_ap_start_reg <= ap_const_logic_0;
-            else
-                if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-                    grp_kernel_fu_172_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_kernel_fu_172_ap_ready = ap_const_logic_1)) then 
-                    grp_kernel_fu_172_ap_start_reg <= ap_const_logic_0;
-                end if; 
-            end if;
-        end if;
-    end process;
-
-
-    grp_read_input_fu_224_ap_start_reg_assign_proc : process(ap_clk)
-    begin
-        if (ap_clk'event and ap_clk =  '1') then
-            if (ap_rst_n_inv = '1') then
-                grp_read_input_fu_224_ap_start_reg <= ap_const_logic_0;
-            else
-                if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-                    grp_read_input_fu_224_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_read_input_fu_224_ap_ready = ap_const_logic_1)) then 
-                    grp_read_input_fu_224_ap_start_reg <= ap_const_logic_0;
-                end if; 
-            end if;
-        end if;
-    end process;
-
-
-    grp_write_output_fu_250_ap_start_reg_assign_proc : process(ap_clk)
-    begin
-        if (ap_clk'event and ap_clk =  '1') then
-            if (ap_rst_n_inv = '1') then
-                grp_write_output_fu_250_ap_start_reg <= ap_const_logic_0;
-            else
-                if ((ap_const_logic_1 = ap_CS_fsm_state6)) then 
-                    grp_write_output_fu_250_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_write_output_fu_250_ap_ready = ap_const_logic_1)) then 
-                    grp_write_output_fu_250_ap_start_reg <= ap_const_logic_0;
-                end if; 
-            end if;
-        end if;
-    end process;
-
-
-    ap_NS_fsm_assign_proc : process (grp_kernel_fu_172_ap_done, grp_read_input_fu_224_ap_done, grp_write_output_fu_250_ap_done, ap_CS_fsm, ap_CS_fsm_state5, ap_CS_fsm_state3, ap_CS_fsm_state7, ap_CS_fsm_state8, regslice_both_out_V_data_V_U_apdone_blk)
-    begin
-        case ap_CS_fsm is
-            when ap_ST_fsm_state1 => 
-                ap_NS_fsm <= ap_ST_fsm_state2;
-            when ap_ST_fsm_state2 => 
-                ap_NS_fsm <= ap_ST_fsm_state3;
-            when ap_ST_fsm_state3 => 
-                if (((grp_read_input_fu_224_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state3))) then
-                    ap_NS_fsm <= ap_ST_fsm_state4;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state3;
-                end if;
-            when ap_ST_fsm_state4 => 
-                ap_NS_fsm <= ap_ST_fsm_state5;
-            when ap_ST_fsm_state5 => 
-                if (((grp_kernel_fu_172_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state5))) then
-                    ap_NS_fsm <= ap_ST_fsm_state6;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state5;
-                end if;
-            when ap_ST_fsm_state6 => 
-                ap_NS_fsm <= ap_ST_fsm_state7;
-            when ap_ST_fsm_state7 => 
-                if (((ap_const_logic_1 = ap_CS_fsm_state7) and (grp_write_output_fu_250_ap_done = ap_const_logic_1))) then
-                    ap_NS_fsm <= ap_ST_fsm_state8;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state7;
-                end if;
-            when ap_ST_fsm_state8 => 
-                if (((regslice_both_out_V_data_V_U_apdone_blk = ap_const_logic_0) and (ap_const_logic_1 = ap_CS_fsm_state8))) then
-                    ap_NS_fsm <= ap_ST_fsm_state1;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state8;
-                end if;
-            when others =>  
-                ap_NS_fsm <= "XXXXXXXX";
-        end case;
-    end process;
-    ap_CS_fsm_state2 <= ap_CS_fsm(1);
-    ap_CS_fsm_state3 <= ap_CS_fsm(2);
-    ap_CS_fsm_state4 <= ap_CS_fsm(3);
-    ap_CS_fsm_state5 <= ap_CS_fsm(4);
-    ap_CS_fsm_state6 <= ap_CS_fsm(5);
-    ap_CS_fsm_state7 <= ap_CS_fsm(6);
-    ap_CS_fsm_state8 <= ap_CS_fsm(7);
 
     ap_rst_n_inv_assign_proc : process(ap_rst_n)
     begin
                 ap_rst_n_inv <= not(ap_rst_n);
     end process;
 
-    grp_kernel_fu_172_ap_start <= grp_kernel_fu_172_ap_start_reg;
-    grp_read_input_fu_224_ap_start <= grp_read_input_fu_224_ap_start_reg;
-    grp_write_output_fu_250_ap_start <= grp_write_output_fu_250_ap_start_reg;
-    grp_write_output_fu_250_out_r_TREADY <= (out_r_TREADY_int and ap_CS_fsm_state7);
-
-    in_0_TREADY_assign_proc : process(in_0_TVALID, regslice_both_in_0_V_data_V_U_ack_in)
-    begin
-        if (((regslice_both_in_0_V_data_V_U_ack_in = ap_const_logic_1) and (in_0_TVALID = ap_const_logic_1))) then 
-            in_0_TREADY <= ap_const_logic_1;
-        else 
-            in_0_TREADY <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    in_0_TREADY_int_assign_proc : process(grp_read_input_fu_224_in_0_TREADY, ap_CS_fsm_state3)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            in_0_TREADY_int <= grp_read_input_fu_224_in_0_TREADY;
-        else 
-            in_0_TREADY_int <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    in_1_TREADY_assign_proc : process(in_1_TVALID, regslice_both_in_1_V_data_V_U_ack_in)
-    begin
-        if (((regslice_both_in_1_V_data_V_U_ack_in = ap_const_logic_1) and (in_1_TVALID = ap_const_logic_1))) then 
-            in_1_TREADY <= ap_const_logic_1;
-        else 
-            in_1_TREADY <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    in_1_TREADY_int_assign_proc : process(grp_read_input_fu_224_in_1_TREADY, ap_CS_fsm_state3)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            in_1_TREADY_int <= grp_read_input_fu_224_in_1_TREADY;
-        else 
-            in_1_TREADY_int <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    input_lower_0_V_read_assign_proc : process(grp_kernel_fu_172_input_lower_0_V_read, ap_CS_fsm_state5)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            input_lower_0_V_read <= grp_kernel_fu_172_input_lower_0_V_read;
-        else 
-            input_lower_0_V_read <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    input_lower_0_V_write_assign_proc : process(grp_read_input_fu_224_input_lower_0_V_write, ap_CS_fsm_state3)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            input_lower_0_V_write <= grp_read_input_fu_224_input_lower_0_V_write;
-        else 
-            input_lower_0_V_write <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    input_lower_1_V_read_assign_proc : process(grp_kernel_fu_172_input_lower_1_V_read, ap_CS_fsm_state5)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            input_lower_1_V_read <= grp_kernel_fu_172_input_lower_1_V_read;
-        else 
-            input_lower_1_V_read <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    input_lower_1_V_write_assign_proc : process(grp_read_input_fu_224_input_lower_1_V_write, ap_CS_fsm_state3)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            input_lower_1_V_write <= grp_read_input_fu_224_input_lower_1_V_write;
-        else 
-            input_lower_1_V_write <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    input_lower_2_V_read_assign_proc : process(grp_kernel_fu_172_input_lower_2_V_read, ap_CS_fsm_state5)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            input_lower_2_V_read <= grp_kernel_fu_172_input_lower_2_V_read;
-        else 
-            input_lower_2_V_read <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    input_lower_2_V_write_assign_proc : process(grp_read_input_fu_224_input_lower_2_V_write, ap_CS_fsm_state3)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            input_lower_2_V_write <= grp_read_input_fu_224_input_lower_2_V_write;
-        else 
-            input_lower_2_V_write <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    input_upper_0_V_read_assign_proc : process(grp_kernel_fu_172_input_upper_0_V_read, ap_CS_fsm_state5)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            input_upper_0_V_read <= grp_kernel_fu_172_input_upper_0_V_read;
-        else 
-            input_upper_0_V_read <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    input_upper_0_V_write_assign_proc : process(grp_read_input_fu_224_input_upper_0_V_write, ap_CS_fsm_state3)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            input_upper_0_V_write <= grp_read_input_fu_224_input_upper_0_V_write;
-        else 
-            input_upper_0_V_write <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    input_upper_1_V_read_assign_proc : process(grp_kernel_fu_172_input_upper_1_V_read, ap_CS_fsm_state5)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            input_upper_1_V_read <= grp_kernel_fu_172_input_upper_1_V_read;
-        else 
-            input_upper_1_V_read <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    input_upper_1_V_write_assign_proc : process(grp_read_input_fu_224_input_upper_1_V_write, ap_CS_fsm_state3)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            input_upper_1_V_write <= grp_read_input_fu_224_input_upper_1_V_write;
-        else 
-            input_upper_1_V_write <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    input_upper_2_V_read_assign_proc : process(grp_kernel_fu_172_input_upper_2_V_read, ap_CS_fsm_state5)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            input_upper_2_V_read <= grp_kernel_fu_172_input_upper_2_V_read;
-        else 
-            input_upper_2_V_read <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    input_upper_2_V_write_assign_proc : process(grp_read_input_fu_224_input_upper_2_V_write, ap_CS_fsm_state3)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            input_upper_2_V_write <= grp_read_input_fu_224_input_upper_2_V_write;
-        else 
-            input_upper_2_V_write <= ap_const_logic_0;
-        end if; 
-    end process;
-
-    out_r_TVALID <= regslice_both_out_V_data_V_U_vld_out;
-
-    output_0_V_read_assign_proc : process(grp_write_output_fu_250_output_0_V_read, ap_CS_fsm_state7)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
-            output_0_V_read <= grp_write_output_fu_250_output_0_V_read;
-        else 
-            output_0_V_read <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    output_0_V_write_assign_proc : process(grp_kernel_fu_172_output_0_V_write, ap_CS_fsm_state5)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            output_0_V_write <= grp_kernel_fu_172_output_0_V_write;
-        else 
-            output_0_V_write <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    output_1_V_read_assign_proc : process(grp_write_output_fu_250_output_1_V_read, ap_CS_fsm_state7)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
-            output_1_V_read <= grp_write_output_fu_250_output_1_V_read;
-        else 
-            output_1_V_read <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    output_1_V_write_assign_proc : process(grp_kernel_fu_172_output_1_V_write, ap_CS_fsm_state5)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            output_1_V_write <= grp_kernel_fu_172_output_1_V_write;
-        else 
-            output_1_V_write <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    output_2_V_read_assign_proc : process(grp_write_output_fu_250_output_2_V_read, ap_CS_fsm_state7)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
-            output_2_V_read <= grp_write_output_fu_250_output_2_V_read;
-        else 
-            output_2_V_read <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    output_2_V_write_assign_proc : process(grp_kernel_fu_172_output_2_V_write, ap_CS_fsm_state5)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            output_2_V_write <= grp_kernel_fu_172_output_2_V_write;
-        else 
-            output_2_V_write <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    output_3_V_read_assign_proc : process(grp_write_output_fu_250_output_3_V_read, ap_CS_fsm_state7)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
-            output_3_V_read <= grp_write_output_fu_250_output_3_V_read;
-        else 
-            output_3_V_read <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    output_3_V_write_assign_proc : process(grp_kernel_fu_172_output_3_V_write, ap_CS_fsm_state5)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            output_3_V_write <= grp_kernel_fu_172_output_3_V_write;
-        else 
-            output_3_V_write <= ap_const_logic_0;
-        end if; 
-    end process;
-
+    ap_sync_continue <= ap_const_logic_0;
+    in_0_TREADY <= read_input_U0_in_0_TREADY;
+    in_1_TREADY <= read_input_U0_in_1_TREADY;
+    kernel_U0_ap_continue <= ap_const_logic_1;
+    kernel_U0_ap_start <= start_for_kernel_U0_empty_n;
+    out_r_TDATA <= write_output_U0_out_r_TDATA;
+    out_r_TKEEP <= write_output_U0_out_r_TKEEP;
+    out_r_TLAST <= write_output_U0_out_r_TLAST;
+    out_r_TSTRB <= write_output_U0_out_r_TSTRB;
+    out_r_TVALID <= write_output_U0_out_r_TVALID;
+    read_input_U0_ap_continue <= ap_const_logic_1;
+    read_input_U0_ap_start <= ap_const_logic_1;
+    start_for_kernel_U0_din <= (0=>ap_const_logic_1, others=>'-');
+    start_for_write_output_U0_din <= (0=>ap_const_logic_1, others=>'-');
+    write_output_U0_ap_continue <= ap_const_logic_1;
+    write_output_U0_ap_start <= start_for_write_output_U0_empty_n;
+    write_output_U0_start_full_n <= ap_const_logic_1;
+    write_output_U0_start_write <= ap_const_logic_0;
 end behav;

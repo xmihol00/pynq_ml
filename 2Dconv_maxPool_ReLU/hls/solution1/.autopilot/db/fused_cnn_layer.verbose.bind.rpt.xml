@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'fused_cnn_layer'" level="0">
-<item name = "Date">Fri Feb 16 21:06:21 2024
+<item name = "Date">Sat Feb 17 09:10:51 2024
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">hls</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 7.069 ns, 1.25 ns</column>
+<column name="ap_clk">10.00 ns, 8.702 ns, 1.25 ns</column>
 </table>
 </item>
 </section>
@@ -24,16 +24,16 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">1338, 1338, 13.380 us, 13.380 us, 1338, 1338, none</column>
+<column name="">1630, 1630, 16.300 us, 16.300 us, 1626, 1626, dataflow</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_kernel_fu_172">kernel, 1321, 1321, 13.210 us, 13.210 us, 1321, 1321, none</column>
-<column name="grp_read_input_fu_224">read_input, 7, 7, 70.000 ns, 70.000 ns, 7, 7, none</column>
-<column name="grp_write_output_fu_250">write_output, 3, 3, 30.000 ns, 30.000 ns, 3, 3, none</column>
+<column name="grp_kernel_fu_240">kernel, 1625, 1625, 16.250 us, 16.250 us, 1625, 1625, none</column>
+<column name="grp_write_output_fu_358">write_output, 4, 4, 40.000 ns, 40.000 ns, 4, 4, none</column>
+<column name="grp_read_input_fu_376">read_input, 7, 7, 70.000 ns, 70.000 ns, 7, 7, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

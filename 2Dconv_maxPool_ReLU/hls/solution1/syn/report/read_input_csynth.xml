@@ -34,8 +34,8 @@
 
 <AreaEstimates>
 <Resources>
-<FF>120</FF>
-<LUT>386</LUT>
+<FF>122</FF>
+<LUT>404</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP48E>0</DSP48E>
 <URAM>0</URAM>
@@ -84,6 +84,17 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
+<name>start_full_n</name>
+<Object>read_input</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>unknown</Attribute>
+</RtlPorts>
+<RtlPorts>
 <name>ap_done</name>
 <Object>read_input</Object>
 <Type>return value</Type>
@@ -91,6 +102,17 @@
 <IOProtocol>ap_ctrl_hs</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_continue</name>
+<Object>read_input</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
@@ -115,6 +137,28 @@
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>start_out</name>
+<Object>read_input</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>unknown</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>start_write</name>
+<Object>read_input</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>unknown</Attribute>
 </RtlPorts>
 <RtlPorts>
 <name>input_upper_0_V_din</name>
@@ -320,18 +364,18 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>64</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
 <name>in_0_TVALID</name>
-<Object>in_0_V_data_V</Object>
+<Object>in_0_V_last_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
@@ -342,7 +386,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
@@ -353,7 +397,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>data</Attribute>
@@ -364,18 +408,18 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>64</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
 <name>in_1_TVALID</name>
-<Object>in_1_V_data_V</Object>
+<Object>in_1_V_last_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
@@ -386,7 +430,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
@@ -397,7 +441,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>data</Attribute>
@@ -408,7 +452,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>8</Bits>
 <Attribute>data</Attribute>
@@ -419,7 +463,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>8</Bits>
 <Attribute>data</Attribute>
@@ -430,7 +474,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>8</Bits>
 <Attribute>data</Attribute>
@@ -441,7 +485,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>8</Bits>
 <Attribute>data</Attribute>

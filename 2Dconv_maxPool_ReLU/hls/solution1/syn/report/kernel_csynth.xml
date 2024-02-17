@@ -17,24 +17,24 @@
 <PipelineType>none</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>7.069</EstimatedClockPeriod>
+<EstimatedClockPeriod>8.702</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>1321</Best-caseLatency>
-<Average-caseLatency>1321</Average-caseLatency>
-<Worst-caseLatency>1321</Worst-caseLatency>
-<Best-caseRealTimeLatency>13.210 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>13.210 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>13.210 us</Worst-caseRealTimeLatency>
-<Interval-min>1321</Interval-min>
-<Interval-max>1321</Interval-max>
+<Best-caseLatency>1625</Best-caseLatency>
+<Average-caseLatency>1625</Average-caseLatency>
+<Worst-caseLatency>1625</Worst-caseLatency>
+<Best-caseRealTimeLatency>16.250 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>16.250 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>16.250 us</Worst-caseRealTimeLatency>
+<Interval-min>1625</Interval-min>
+<Interval-max>1625</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <Loop1>
 <TripCount>4</TripCount>
-<Latency>1320</Latency>
-<IterationLatency>330</IterationLatency>
+<Latency>1624</Latency>
+<IterationLatency>406</IterationLatency>
 <Loop1.1>
 <TripCount>3</TripCount>
 <Latency>24</Latency>
@@ -62,8 +62,8 @@
 </memset_maxes>
 <Loop1.4>
 <TripCount>4</TripCount>
-<Latency>292</Latency>
-<IterationLatency>73</IterationLatency>
+<Latency>368</Latency>
+<IterationLatency>92</IterationLatency>
 <memset_partial_sums>
 <TripCount>3</TripCount>
 <Latency>14</Latency>
@@ -76,12 +76,12 @@
 </memset_partial_sums>
 <Loop1.4.2>
 <TripCount>3</TripCount>
-<Latency>36</Latency>
-<IterationLatency>12</IterationLatency>
+<Latency>51</Latency>
+<IterationLatency>17</IterationLatency>
 <Loop1.4.2.1>
 <TripCount>3</TripCount>
-<Latency>9</Latency>
-<IterationLatency>3</IterationLatency>
+<Latency>15</Latency>
+<IterationLatency>5</IterationLatency>
 </Loop1.4.2.1>
 </Loop1.4.2>
 <memset_kernel_sums>
@@ -121,10 +121,10 @@
 
 <AreaEstimates>
 <Resources>
-<BRAM_18K>6</BRAM_18K>
+<BRAM_18K>18</BRAM_18K>
 <DSP48E>12</DSP48E>
-<FF>9564</FF>
-<LUT>12364</LUT>
+<FF>8231</FF>
+<LUT>10770</LUT>
 <URAM>0</URAM>
 </Resources>
 <AvailableResources>
@@ -171,6 +171,17 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
+<name>start_full_n</name>
+<Object>kernel</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>unknown</Attribute>
+</RtlPorts>
+<RtlPorts>
 <name>ap_done</name>
 <Object>kernel</Object>
 <Type>return value</Type>
@@ -178,6 +189,17 @@
 <IOProtocol>ap_ctrl_hs</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_continue</name>
+<Object>kernel</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
@@ -202,6 +224,28 @@
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>start_out</name>
+<Object>kernel</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>unknown</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>start_write</name>
+<Object>kernel</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>unknown</Attribute>
 </RtlPorts>
 <RtlPorts>
 <name>input_upper_0_V_dout</name>

@@ -281,7 +281,7 @@ void fused_cnn_layer(hls::stream<axis_in_t> in[2], hls::stream<axis_out_t> &out)
 #pragma HLS ARRAY_PARTITION variable=stripes complete dim=1
 #pragma HLS RESET variable=stripes
 
-//#pragma HLS DATAFLOW
+#pragma HLS DATAFLOW
     hls::stream<uint8_t, 8> input_upper[CHANNELS];
     hls::stream<uint8_t, 8> input_lower[CHANNELS];
     hls::stream<int16_t, 4> output[KERNELS];

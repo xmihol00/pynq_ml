@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'read_input'" level="0">
-<item name = "Date">Fri Feb 16 21:06:19 2024
+<item name = "Date">Sat Feb 17 09:10:49 2024
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">hls</item>

@@ -3,30 +3,33 @@
 	"modules": {
 		"fused_cnn_layer": {
 			"proto_instances": {
-				"grp_kernel_fu_172/grp_kernel_fu_172_activity": {
+				"kernel_U0/kernel_U0_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
+						"AP_CONTINUE": { "actual": "ap_continue"},
 						"AP_DONE": { "actual": "ap_done"},
 						"AP_READY": { "actual": "ap_ready"},
 						"AP_RESET": { "actual": "ap_rst"},
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_read_input_fu_224/grp_read_input_fu_224_activity": {
+				"read_input_U0/read_input_U0_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
+						"AP_CONTINUE": { "actual": "ap_continue"},
 						"AP_DONE": { "actual": "ap_done"},
 						"AP_READY": { "actual": "ap_ready"},
 						"AP_RESET": { "actual": "ap_rst"},
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_write_output_fu_250/grp_write_output_fu_250_activity": {
+				"write_output_U0/write_output_U0_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
+						"AP_CONTINUE": { "actual": "ap_continue"},
 						"AP_DONE": { "actual": "ap_done"},
 						"AP_READY": { "actual": "ap_ready"},
 						"AP_RESET": { "actual": "ap_rst"},

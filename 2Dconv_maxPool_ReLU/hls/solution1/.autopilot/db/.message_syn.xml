@@ -2,54 +2,61 @@
 <Messages>
 	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_631" tag="SCHEDULE" content="Option &apos;relax_ii_for_timing&apos; is enabled, will increase II to preserve clock frequency constraints."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1312" tag="" content="Analyzing design file &apos;fused_cnn_layer.cpp&apos; ..."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Linking Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 3510 ; free virtual = 22191"/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Pragmas Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 3515 ; free virtual = 22197"/>
+	<Message severity="WARNING" prefix="[HLS 214-111]" key="HLS 214-111" tag="DATAFLOW,SDX_KERNEL" content="Static scalars and arrays declared inside a dataflow region will be treated like local variables: fused_cnn_layer.cpp:279:22"/>
+	<Message severity="WARNING" prefix="[HLS 214-111]" key="HLS 214-111" tag="DATAFLOW,SDX_KERNEL" content="Static scalars and arrays declared inside a dataflow region will be treated like local variables: fused_cnn_layer.cpp:283:17"/>
+	<Message severity="WARNING" prefix="[HLS 200-471]" key="HLS 200-471" tag="DATAFLOW,SDX_KERNEL" content="Dataflow form checks found 2 issue(s) in file fused_cnn_layer.cpp"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Linking Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 1138 ; free virtual = 23378"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Pragmas Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 1142 ; free virtual = 23382"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1467" tag="" content="Starting code transformations ..."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Standard Transforms Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 3446 ; free virtual = 22128"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Standard Transforms Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 1046 ; free virtual = 23287"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1472" tag="" content="Checking synthesizability ..."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Synthesizability Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 3445 ; free virtual = 22127"/>
-	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-1.4.2.1.1&apos; (fused_cnn_layer.cpp:220) in function &apos;kernel&lt;(unsigned char)3, (unsigned char)4, (unsigned char)3, 512, 6&gt;&apos; completely with a factor of 3."/>
-	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-1.4.2.1.1.1&apos; (fused_cnn_layer.cpp:223) in function &apos;kernel&lt;(unsigned char)3, (unsigned char)4, (unsigned char)3, 512, 6&gt;&apos; completely with a factor of 4."/>
-	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-1.4.4&apos; (fused_cnn_layer.cpp:233) in function &apos;kernel&lt;(unsigned char)3, (unsigned char)4, (unsigned char)3, 512, 6&gt;&apos; completely with a factor of 4."/>
-	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-1.4.5&apos; (fused_cnn_layer.cpp:242) in function &apos;kernel&lt;(unsigned char)3, (unsigned char)4, (unsigned char)3, 512, 6&gt;&apos; completely with a factor of 4."/>
-	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_115" tag="" content="Automatically partitioning small array &apos;maxes&apos; (fused_cnn_layer.cpp:192) completely based on array size."/>
-	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_115" tag="" content="Automatically partitioning small array &apos;local_row_indices&apos; (fused_cnn_layer.cpp:198) completely based on array size."/>
-	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_115" tag="" content="Automatically partitioning small array &apos;kernel_sums&apos; (fused_cnn_layer.cpp:232) completely based on array size."/>
-	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_112" tag="" content="Automatically partitioning streamed array &apos;input_upper.V&apos; (fused_cnn_layer.cpp:285) ."/>
-	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_112" tag="" content="Automatically partitioning streamed array &apos;input_lower.V&apos; (fused_cnn_layer.cpp:286) ."/>
-	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_112" tag="" content="Automatically partitioning streamed array &apos;output.V&apos; (fused_cnn_layer.cpp:287) ."/>
-	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_112" tag="" content="Automatically partitioning streamed array &apos;in.V.data.V&apos; (fused_cnn_layer.cpp:270) ."/>
-	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_112" tag="" content="Automatically partitioning streamed array &apos;in.V.keep.V&apos; (fused_cnn_layer.cpp:270) ."/>
-	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_112" tag="" content="Automatically partitioning streamed array &apos;in.V.strb.V&apos; (fused_cnn_layer.cpp:270) ."/>
-	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_112" tag="" content="Automatically partitioning streamed array &apos;in.V.last.V&apos; (fused_cnn_layer.cpp:270) ."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Synthesizability Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 1043 ; free virtual = 23284"/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-1.4.2.1.1&apos; (fused_cnn_layer.cpp:222) in function &apos;kernel&lt;(unsigned char)3, (unsigned char)4, (unsigned char)3, 512, 6&gt;&apos; completely with a factor of 3."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-1.4.2.1.1.1&apos; (fused_cnn_layer.cpp:225) in function &apos;kernel&lt;(unsigned char)3, (unsigned char)4, (unsigned char)3, 512, 6&gt;&apos; completely with a factor of 4."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-1.4.4&apos; (fused_cnn_layer.cpp:236) in function &apos;kernel&lt;(unsigned char)3, (unsigned char)4, (unsigned char)3, 512, 6&gt;&apos; completely with a factor of 4."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-1.4.5&apos; (fused_cnn_layer.cpp:245) in function &apos;kernel&lt;(unsigned char)3, (unsigned char)4, (unsigned char)3, 512, 6&gt;&apos; completely with a factor of 4."/>
+	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_112" tag="" content="Automatically partitioning streamed array &apos;input_upper.V&apos; (fused_cnn_layer.cpp:290) ."/>
+	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_112" tag="" content="Automatically partitioning streamed array &apos;input_lower.V&apos; (fused_cnn_layer.cpp:291) ."/>
+	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_112" tag="" content="Automatically partitioning streamed array &apos;output.V&apos; (fused_cnn_layer.cpp:292) ."/>
+	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_112" tag="" content="Automatically partitioning streamed array &apos;in.V.data.V&apos; (fused_cnn_layer.cpp:273) ."/>
+	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_112" tag="" content="Automatically partitioning streamed array &apos;in.V.keep.V&apos; (fused_cnn_layer.cpp:273) ."/>
+	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_112" tag="" content="Automatically partitioning streamed array &apos;in.V.strb.V&apos; (fused_cnn_layer.cpp:273) ."/>
+	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_112" tag="" content="Automatically partitioning streamed array &apos;in.V.last.V&apos; (fused_cnn_layer.cpp:273) ."/>
 	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;kernels&apos;  in dimension 1 completely."/>
 	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;stripes&apos;  in dimension 1 completely."/>
-	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;partial_sums&apos; (fused_cnn_layer.cpp:213) in dimension 1 completely."/>
 	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;maxes&apos; (fused_cnn_layer.cpp:192) in dimension 1 completely."/>
-	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;local_row_indices&apos; (fused_cnn_layer.cpp:198) in dimension 1 completely."/>
-	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;kernel_sums&apos; (fused_cnn_layer.cpp:232) in dimension 1 completely."/>
-	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;input_upper.V&apos; (fused_cnn_layer.cpp:285) in dimension 1 completely."/>
-	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;input_lower.V&apos; (fused_cnn_layer.cpp:286) in dimension 1 completely."/>
-	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;output.V&apos; (fused_cnn_layer.cpp:287) in dimension 1 completely."/>
-	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;in.V.data.V&apos; (fused_cnn_layer.cpp:270) in dimension 1 completely."/>
-	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;in.V.keep.V&apos; (fused_cnn_layer.cpp:270) in dimension 1 completely."/>
-	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;in.V.strb.V&apos; (fused_cnn_layer.cpp:270) in dimension 1 completely."/>
-	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;in.V.last.V&apos; (fused_cnn_layer.cpp:270) in dimension 1 completely."/>
-	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_115" tag="" content="Automatically partitioning small array &apos;partial_sums.0&apos; (fused_cnn_layer.cpp:213) completely based on array size."/>
-	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_115" tag="" content="Automatically partitioning small array &apos;partial_sums.1&apos; (fused_cnn_layer.cpp:213) completely based on array size."/>
-	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_115" tag="" content="Automatically partitioning small array &apos;partial_sums.2&apos; (fused_cnn_layer.cpp:213) completely based on array size."/>
-	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;partial_sums.0&apos; (fused_cnn_layer.cpp:213) in dimension 1 completely."/>
-	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;partial_sums.1&apos; (fused_cnn_layer.cpp:213) in dimension 1 completely."/>
-	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;partial_sums.2&apos; (fused_cnn_layer.cpp:213) in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;local_row_indices&apos; (fused_cnn_layer.cpp:199) in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;partial_sums&apos; (fused_cnn_layer.cpp:215) in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;kernel_sums&apos; (fused_cnn_layer.cpp:234) in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;input_upper.V&apos; (fused_cnn_layer.cpp:290) in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;input_lower.V&apos; (fused_cnn_layer.cpp:291) in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;output.V&apos; (fused_cnn_layer.cpp:292) in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;in.V.data.V&apos; (fused_cnn_layer.cpp:273) in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;in.V.keep.V&apos; (fused_cnn_layer.cpp:273) in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;in.V.strb.V&apos; (fused_cnn_layer.cpp:273) in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;in.V.last.V&apos; (fused_cnn_layer.cpp:273) in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;kernels&apos;  in dimension 2 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;stripes&apos;  in dimension 2 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-721]" key="XFORM_LOOP_STREAM_STATUS_309" tag="" content="Changing loop &apos;Loop_1_proc&apos; (fused_cnn_layer.cpp:290) to a process function for dataflow in function &apos;fused_cnn_layer&apos;."/>
+	<Message severity="INFO" prefix="[XFORM 203-721]" key="XFORM_LOOP_STREAM_STATUS_309" tag="" content="Changing loop &apos;Loop_2_proc&apos; (fused_cnn_layer.cpp:291) to a process function for dataflow in function &apos;fused_cnn_layer&apos;."/>
+	<Message severity="INFO" prefix="[XFORM 203-721]" key="XFORM_LOOP_STREAM_STATUS_309" tag="" content="Changing loop &apos;Loop_3_proc&apos; (fused_cnn_layer.cpp:292) to a process function for dataflow in function &apos;fused_cnn_layer&apos;."/>
+	<Message severity="INFO" prefix="[XFORM 203-712]" key="XFORM_DATAFLOW_TRANSFORM_230" tag="DATAFLOW" content="Applying dataflow to function &apos;fused_cnn_layer&apos;, detected/extracted 6 process function(s): 
+	 &apos;Loop_1_proc&apos;
+	 &apos;Loop_2_proc&apos;
+	 &apos;Loop_3_proc&apos;
+	 &apos;read_input&apos;
+	 &apos;kernel&lt;(unsigned char)3, (unsigned char)4, (unsigned char)3, 512, 6&gt;&apos;
+	 &apos;write_output&apos;."/>
 	<Message severity="INFO" prefix="[XFORM 203-401]" key="XFORM_IFCONV_STATUS_239" tag="" content="Performing if-conversion on hyperblock from (fused_cnn_layer.cpp:192:43) to (fused_cnn_layer.cpp:192:43) in function &apos;kernel&lt;(unsigned char)3, (unsigned char)4, (unsigned char)3, 512, 6&gt;&apos;... converting 6 basic blocks."/>
-	<Message severity="INFO" prefix="[XFORM 203-401]" key="XFORM_IFCONV_STATUS_239" tag="" content="Performing if-conversion on hyperblock from (fused_cnn_layer.cpp:213:72) to (fused_cnn_layer.cpp:213:72) in function &apos;kernel&lt;(unsigned char)3, (unsigned char)4, (unsigned char)3, 512, 6&gt;&apos;... converting 20 basic blocks."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Pre-synthesis Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 3599 ; free virtual = 22273"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Pre-synthesis Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 935 ; free virtual = 23177"/>
 	<Message severity="WARNING" prefix="[XFORM 203-631]" key="XFORM_FRN_STATUS_336" tag="" content="Renaming function &apos;kernel&lt;(unsigned char)3, (unsigned char)4, (unsigned char)3, 512, 6&gt;&apos; to &apos;kernel&apos; (fused_cnn_layer.cpp:143:36)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;stripes.0&apos; (fused_cnn_layer.cpp:170:54)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;stripes.0&apos; (fused_cnn_layer.cpp:169:54)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;stripes.0&apos; (fused_cnn_layer.cpp:157:54)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;stripes.0&apos; (fused_cnn_layer.cpp:156:54)"/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Architecture Synthesis Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 3576 ; free virtual = 22251"/>
+	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;partial_sums[0]&apos; (fused_cnn_layer.cpp:228:2)"/>
+	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;partial_sums[0]&apos; (fused_cnn_layer.cpp:215:72)"/>
+	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;stripes.0.3&apos; (fused_cnn_layer.cpp:170:54)"/>
+	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;stripes.0.2&apos; (fused_cnn_layer.cpp:169:54)"/>
+	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;stripes.0.1&apos; (fused_cnn_layer.cpp:157:54)"/>
+	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;stripes.0.0&apos; (fused_cnn_layer.cpp:156:54)"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Architecture Synthesis Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 902 ; free virtual = 23144"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1317" tag="" content="Starting hardware synthesis ..."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1385" tag="" content="Synthesizing &apos;fused_cnn_layer&apos; ..."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------"/>
@@ -57,54 +64,54 @@
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..."/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 20.12 seconds; current allocated memory: 135.654 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 17.54 seconds; current allocated memory: 136.916 MB."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.04 seconds; current allocated memory: 136.060 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.03 seconds; current allocated memory: 137.323 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;kernel&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..."/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.68 seconds; current allocated memory: 137.731 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.54 seconds; current allocated memory: 139.150 MB."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.25 seconds; current allocated memory: 140.092 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.33 seconds; current allocated memory: 141.574 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;write_output&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..."/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.69 seconds; current allocated memory: 140.370 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.67 seconds; current allocated memory: 141.781 MB."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.02 seconds; current allocated memory: 140.560 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.02 seconds; current allocated memory: 141.992 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;fused_cnn_layer&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..."/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.04 seconds; current allocated memory: 140.736 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.04 seconds; current allocated memory: 142.158 MB."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.28 seconds; current allocated memory: 141.135 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.27 seconds; current allocated memory: 142.655 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;read_input&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;read_input&apos;."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.28 seconds; current allocated memory: 141.870 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.26 seconds; current allocated memory: 143.430 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;kernel&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------"/>
@@ -112,20 +119,27 @@
 	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_861" tag="" content="Register &apos;read_col_index&apos; is power-on initialization."/>
 	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_861" tag="" content="Register &apos;compute_odd&apos; is power-on initialization."/>
 	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_861" tag="" content="Register &apos;compute_col_index&apos; is power-on initialization."/>
-	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;fused_cnn_layer_mux_42_32_1_1&apos; to &apos;fused_cnn_layer_mbkb&apos; due to the length limit 20"/>
-	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;fused_cnn_layer_mux_32_32_1_1&apos; to &apos;fused_cnn_layer_mcud&apos; due to the length limit 20"/>
-	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;fused_cnn_layer_mac_muladd_8ns_6s_32ns_32_1_1&apos; to &apos;fused_cnn_layer_mdEe&apos; due to the length limit 20"/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;fused_cnn_layer_mbkb&apos;: 5 instance(s)."/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;fused_cnn_layer_mcud&apos;: 4 instance(s)."/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;fused_cnn_layer_mdEe&apos;: 12 instance(s)."/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;kernel_partial_sums_0&apos; to &apos;kernel_partial_subkb&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;kernel_partial_sums_1&apos; to &apos;kernel_partial_sucud&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;kernel_partial_sums_2&apos; to &apos;kernel_partial_sudEe&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;fused_cnn_layer_mux_32_8_1_1&apos; to &apos;fused_cnn_layer_meOg&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;fused_cnn_layer_mux_42_8_1_1&apos; to &apos;fused_cnn_layer_mfYi&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;fused_cnn_layer_mux_42_32_1_1&apos; to &apos;fused_cnn_layer_mg8j&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;fused_cnn_layer_mux_32_32_1_1&apos; to &apos;fused_cnn_layer_mhbi&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;fused_cnn_layer_mac_muladd_8s_8ns_32ns_32_1_1&apos; to &apos;fused_cnn_layer_mibs&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;fused_cnn_layer_meOg&apos;: 12 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;fused_cnn_layer_mfYi&apos;: 3 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;fused_cnn_layer_mg8j&apos;: 5 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;fused_cnn_layer_mhbi&apos;: 4 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;fused_cnn_layer_mibs&apos;: 12 instance(s)."/>
 	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;kernel&apos;."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.22 seconds; current allocated memory: 146.731 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.7 seconds; current allocated memory: 148.963 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;write_output&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_861" tag="" content="Register &apos;sent&apos; is power-on initialization."/>
 	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;write_output&apos;."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 1.12 seconds; current allocated memory: 156.540 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 1.06 seconds; current allocated memory: 158.603 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;fused_cnn_layer&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------"/>
@@ -142,23 +156,50 @@
 	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;fused_cnn_layer/out_V_strb_V&apos; to &apos;axis&apos; (register, both mode)."/>
 	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;fused_cnn_layer/out_V_last_V&apos; to &apos;axis&apos; (register, both mode)."/>
 	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on function &apos;fused_cnn_layer&apos; to &apos;ap_ctrl_none&apos;."/>
+	<Message severity="INFO" prefix="[HLS 200-633]" key="HLS 200-633" tag="" content="Setting ap_ctrl_none interface for fused_cnn_layer"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;start_for_write_output_U0&apos; to &apos;start_for_write_ojbC&apos; due to the length limit 20"/>
 	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;fused_cnn_layer&apos;."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.16 seconds; current allocated memory: 158.184 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.12 seconds; current allocated memory: 159.902 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-790]" key="HLS 200-790" tag="LOOP,SDX_LOOP" content="**** Loop Constraint Status: All loop constraints were satisfied."/>
-	<Message severity="INFO" prefix="[HLS 200-789]" key="HLS 200-789" tag="THROUGHPUT,SDX_KERNEL" content="**** Estimated Fmax: 141.46 MHz"/>
-	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_0_rom&apos; using distributed ROMs."/>
-	<Message severity="INFO" prefix="[RTMG 210-278]" key="RTMG_278_1791" tag="" content="Implementing memory &apos;kernel_stripes_0_ram (RAM_2P_BRAM)&apos; using block RAMs with reset."/>
-	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_1_rom&apos; using distributed ROMs."/>
-	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_2_rom&apos; using distributed ROMs."/>
-	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_3_rom&apos; using distributed ROMs."/>
-	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_4_rom&apos; using distributed ROMs."/>
-	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_5_rom&apos; using distributed ROMs."/>
-	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_6_rom&apos; using distributed ROMs."/>
-	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_7_rom&apos; using distributed ROMs."/>
-	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_8_rom&apos; using distributed ROMs."/>
-	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_9_rom&apos; using distributed ROMs."/>
-	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_10_rom&apos; using distributed ROMs."/>
-	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_11_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[HLS 200-789]" key="HLS 200-789" tag="THROUGHPUT,SDX_KERNEL" content="**** Estimated Fmax: 114.92 MHz"/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_0_0_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_0_1_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_0_2_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-278]" key="RTMG_278_1791" tag="" content="Implementing memory &apos;kernel_stripes_0_0_ram (RAM_2P_BRAM)&apos; using block RAMs with reset."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_1_0_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_1_1_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_1_2_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_2_0_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_2_1_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_2_2_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_3_0_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_3_1_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_3_2_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_4_0_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_4_1_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_4_2_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_5_0_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_5_1_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_5_2_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_6_0_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_6_1_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_6_2_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_7_0_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_7_1_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_7_2_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_8_0_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_8_1_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_8_2_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_9_0_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_9_1_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_9_2_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_10_0_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_10_1_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_10_2_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_11_0_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_11_1_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;kernel_kernels_11_2_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-278]" key="RTMG_278_1790" tag="" content="Implementing memory &apos;kernel_partial_subkb_ram (RAM)&apos; using block RAMs."/>
 	<Message severity="INFO" prefix="[RTMG 210-285]" key="RTMG_285_1799" tag="" content="Implementing FIFO &apos;input_upper_0_V_U(fifo_w8_d8_A)&apos; using Shift Registers."/>
 	<Message severity="INFO" prefix="[RTMG 210-285]" key="RTMG_285_1799" tag="" content="Implementing FIFO &apos;input_upper_1_V_U(fifo_w8_d8_A)&apos; using Shift Registers."/>
 	<Message severity="INFO" prefix="[RTMG 210-285]" key="RTMG_285_1799" tag="" content="Implementing FIFO &apos;input_upper_2_V_U(fifo_w8_d8_A)&apos; using Shift Registers."/>
@@ -169,7 +210,9 @@
 	<Message severity="INFO" prefix="[RTMG 210-285]" key="RTMG_285_1799" tag="" content="Implementing FIFO &apos;output_1_V_U(fifo_w16_d4_A)&apos; using Shift Registers."/>
 	<Message severity="INFO" prefix="[RTMG 210-285]" key="RTMG_285_1799" tag="" content="Implementing FIFO &apos;output_2_V_U(fifo_w16_d4_A)&apos; using Shift Registers."/>
 	<Message severity="INFO" prefix="[RTMG 210-285]" key="RTMG_285_1799" tag="" content="Implementing FIFO &apos;output_3_V_U(fifo_w16_d4_A)&apos; using Shift Registers."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished generating all RTL models Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 3572 ; free virtual = 22196"/>
+	<Message severity="INFO" prefix="[RTMG 210-285]" key="RTMG_285_1799" tag="" content="Implementing FIFO &apos;start_for_kernel_U0_U(start_for_kernel_U0)&apos; using Shift Registers."/>
+	<Message severity="INFO" prefix="[RTMG 210-285]" key="RTMG_285_1799" tag="" content="Implementing FIFO &apos;start_for_write_ojbC_U(start_for_write_ojbC)&apos; using Shift Registers."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished generating all RTL models Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1634.301 ; gain = 1225.754 ; free physical = 1051 ; free virtual = 23277"/>
 	<Message severity="INFO" prefix="[VHDL 208-304]" key="VHDL_304_1066" tag="" content="Generating VHDL RTL for fused_cnn_layer."/>
 	<Message severity="INFO" prefix="[VLOG 209-307]" key="VLOG_307_1067" tag="" content="Generating Verilog RTL for fused_cnn_layer."/>
 </Messages>

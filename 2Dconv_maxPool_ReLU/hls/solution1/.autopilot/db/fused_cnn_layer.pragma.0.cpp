@@ -8502,13 +8502,15 @@ void kernel
         }
 
         int32_t maxes[num_kernels] = {0, };
-        for (int i = 0; i < 4; i++)
+#pragma HLS ARRAY_PARTITION variable=&maxes complete
+ for (int i = 0; i < 4; i++)
         {
             bool top_offset = i >= 2;
             bool left_offset = i & 1;
 
             uint16_t local_row_indices[4];
-            if (top_offset)
+#pragma HLS ARRAY_PARTITION variable=&local_row_indices complete
+ if (top_offset)
             {
                 local_row_indices[0] = current_row_indices[1];
                 local_row_indices[1] = current_row_indices[2];
@@ -8542,7 +8544,8 @@ void kernel
             }
 
             int32_t kernel_sums[num_kernels] = {0, };
-            for (int k = 0; k < num_kernels; k++)
+#pragma HLS ARRAY_PARTITION variable=&kernel_sums complete
+ for (int k = 0; k < num_kernels; k++)
             {
 #pragma HLS UNROLL
  for (int j = 0; j < num_channels; j++)
@@ -8587,16 +8590,18 @@ void fused_cnn_layer(hls::stream<axis_in_t> in[2], hls::stream<axis_out_t> &out)
 
  static const int8_t kernels[3 * 4][3][3] = { {{ 6, -22, 11 }, { 11, 29, 18 }, { -24, 14, 9 }}, {{ 19, -22, -3 }, { -8, 29, -26 }, { -7, 2, -29 }}, {{ -4, -9, 5 }, { 16, 14, -12 }, { 20, -19, 21 }}, {{ -18, 20, -31 }, { -6, 29, -24 }, { -31, -16, -4 }}, {{ 10, 3, 31 }, { 26, 18, 6 }, { -13, 3, 30 }}, {{ -25, 7, 27 }, { 30, 11, -15 }, { -5, 17, -15 }}, {{ 28, -9, -12 }, { 9, 22, -29 }, { 14, 7, -7 }}, {{ -12, -30, 0 }, { 31, 19, -8 }, { 27, -29, 11 }}, {{ 6, -11, -21 }, { -5, 31, 27 }, { -26, -31, 1 }}, {{ 25, 20, 25 }, { 27, 24, -19 }, { 11, 29, -23 }}, {{ -14, -31, -11 }, { -17, -30, 17 }, { 28, -27, 29 }}, {{ -10, -9, 28 }, { -18, 4, 25 }, { -25, 21, 3 }}};
 _ssdm_SpecConstant(kernels);
-# 276 "fused_cnn_layer.cpp"
+# 279 "fused_cnn_layer.cpp"
 
-#pragma HLS ARRAY_PARTITION variable=&kernels block factor=12 dim=1
+#pragma HLS ARRAY_PARTITION variable=&kernels complete dim=1
+#pragma HLS ARRAY_PARTITION variable=&kernels complete dim=2
 
  static uint8_t stripes[3][4][512 + 2] = {{0, } };
 #pragma HLS RESOURCE variable=&stripes core=RAM_2P_BRAM
 #pragma HLS ARRAY_PARTITION variable=&stripes complete dim=1
+#pragma HLS ARRAY_PARTITION variable=&stripes complete dim=2
 #pragma HLS RESET variable=&stripes
 
-
+#pragma HLS DATAFLOW
  hls::stream<uint8_t, 8> input_upper[3];
     hls::stream<uint8_t, 8> input_lower[3];
     hls::stream<int16_t, 4> output[4];

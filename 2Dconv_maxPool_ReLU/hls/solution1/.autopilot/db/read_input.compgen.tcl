@@ -18,7 +18,7 @@ eval "::AESL_LIB_XILADAPTER::native_axis_add { \
     corename {in_0} \
     metadata {  } \
     op interface \
-    ports { in_0_TDATA { I 64 vector } in_0_TVALID { I 1 bit } } \
+    ports { in_0_TDATA { I 64 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'in_0_V_data_V'"
@@ -37,7 +37,7 @@ eval "::AESL_LIB_XILADAPTER::native_axis_add { \
     corename {in_1} \
     metadata {  } \
     op interface \
-    ports { in_1_TDATA { I 64 vector } in_1_TVALID { I 1 bit } } \
+    ports { in_1_TDATA { I 64 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'in_1_V_data_V'"
@@ -132,7 +132,7 @@ eval "::AESL_LIB_XILADAPTER::native_axis_add { \
     corename {in_0} \
     metadata {  } \
     op interface \
-    ports { in_0_TREADY { O 1 bit } in_0_TLAST { I 1 vector } } \
+    ports { in_0_TVALID { I 1 bit } in_0_TREADY { O 1 bit } in_0_TLAST { I 1 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'in_0_V_last_V'"
@@ -151,7 +151,7 @@ eval "::AESL_LIB_XILADAPTER::native_axis_add { \
     corename {in_1} \
     metadata {  } \
     op interface \
-    ports { in_1_TREADY { O 1 bit } in_1_TLAST { I 1 vector } } \
+    ports { in_1_TVALID { I 1 bit } in_1_TREADY { O 1 bit } in_1_TLAST { I 1 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'in_1_V_last_V'"
@@ -259,7 +259,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename ap_ctrl \
     op interface \
-    ports { ap_start { I 1 bit } ap_ready { O 1 bit } ap_done { O 1 bit } ap_idle { O 1 bit } } \
+    ports { ap_done { O 1 bit } ap_idle { O 1 bit } ap_continue { I 1 bit } } \
 } "
 }
 
@@ -310,6 +310,27 @@ if {${::AESL::PGuard_autoexp_gen}} {
     cg_default_interface_gen_dc_end
     cg_default_interface_gen_bundle_end
     AESL_LIB_XILADAPTER::native_axis_end
+}
+
+
+# RegSlice definition:
+set ID 15
+set RegSliceName regslice_core
+set RegSliceInstName regslice_core_U
+set CoreName ap_simcore_regslice_core
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $RegSliceName
+}
+
+
+if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
+if {[info proc ::AESL_LIB_VIRTEX::xil_gen_regSlice] == "::AESL_LIB_VIRTEX::xil_gen_regSlice"} {
+eval "::AESL_LIB_VIRTEX::xil_gen_regSlice { \
+    name ${RegSliceName} \
+}"
+} else {
+puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_regSlice, check your platform lib"
+}
 }
 
 
