@@ -40,8 +40,8 @@ prediction_merged = np.zeros((4*256*255))
 for i in range(4):
     prediction_merged[i::4] = prediction_reshaped[i]
 
-print("#define PREDICTION", format_array_C(prediction_merged.astype(np.int16)))
-#np.save("prediction.npy", prediction_merged.astype(np.int16))
+#print("#define PREDICTION", format_array_C(prediction_merged.astype(np.int16)))
+np.save("prediction.npy", prediction_merged.astype(np.int16))
 
 inputs = input_data.reshape(IN_HEIGHT*IN_WIDTH, -1).T
 inputs_hw = inputs.reshape(IN_CHANNELS, IN_HEIGHT, IN_WIDTH)[:, :, 1:-1]
@@ -55,12 +55,14 @@ for i in range(IN_CHANNELS):
 
 
 inputs_merged_hw = inputs_merged_hw.reshape((IN_WIDTH-2), -1)
-print("#define INPUT_DATA_1", format_array_C(inputs_merged_hw[0::4].flatten().astype(np.uint8)))
-print("#define INPUT_DATA_2", format_array_C(inputs_merged_hw[1::4].flatten().astype(np.uint8)))
-print("#define INPUT_DATA_3", format_array_C(inputs_merged_hw[2::4].flatten().astype(np.uint8)))
-print("#define INPUT_DATA_4", format_array_C(inputs_merged_hw[3::4].flatten().astype(np.uint8)))
-#np.save("input_data_1.npy", inputs_merged_hw[0::2])
-#np.save("input_data_2.npy", inputs_merged_hw[1::2])
+#print("#define INPUT_DATA_1", format_array_C(inputs_merged_hw[0::4].flatten().astype(np.uint8)))
+#print("#define INPUT_DATA_2", format_array_C(inputs_merged_hw[1::4].flatten().astype(np.uint8)))
+#print("#define INPUT_DATA_3", format_array_C(inputs_merged_hw[2::4].flatten().astype(np.uint8)))
+#print("#define INPUT_DATA_4", format_array_C(inputs_merged_hw[3::4].flatten().astype(np.uint8)))
+np.save("input_data_1.npy", inputs_merged_hw[0::4])
+np.save("input_data_2.npy", inputs_merged_hw[1::4])
+np.save("input_data_3.npy", inputs_merged_hw[2::4])
+np.save("input_data_4.npy", inputs_merged_hw[3::4])
 
 kernels = model.layers[0].get_weights()[0]
 kernels = kernels.reshape(9, -1).T

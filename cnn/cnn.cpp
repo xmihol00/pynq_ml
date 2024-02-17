@@ -144,7 +144,6 @@ batch_width: // process 4 squares at a time in the width direction
         }
 
         int32_t maxes[OUTPUT_STREAMS][num_kernels] = {{0, } };
-    #pragma HLS ARRAY_PARTITION variable=maxes complete dim=1
     batch_height: // process 2 stripes at a time in the height direction
         for (int s = 0; s < OUTPUT_STREAMS; s++)
         {
@@ -173,7 +172,6 @@ batch_width: // process 4 squares at a time in the width direction
                 uint16_t local_col_index = compute_col_index + left_offset;
 
                 int32_t partial_sums[OUTPUT_STREAMS][num_channels][num_kernels] = {{{0, } } };
-            #pragma HLS ARRAY_PARTITION variable=partial_sums complete
 
             kernel_width: // process nx3 kernel
                 for (int l = 0; l < kernel_size; l++)
@@ -196,7 +194,6 @@ batch_width: // process 4 squares at a time in the width direction
                 }
 
                 int32_t kernel_sums[OUTPUT_STREAMS][num_kernels] = {{0, } };
-            #pragma HLS ARRAY_PARTITION variable=kernel_sums complete dim=1
             sum_kernels: // sum results of each kernel
                 for (int k = 0; k < num_kernels; k++)
                 {
@@ -247,13 +244,11 @@ void cnn(hls::stream<axis_in_t> in[INPUT_STREAMS], hls::stream<axis_out_t> out[O
 #pragma HLS INTERFACE ap_ctrl_none port=return
 
     static const int8_t kernels[CHANNELS * KERNELS][KERNEL_SIZE][KERNEL_SIZE] = KERNEL_WEIGHTS;
-#pragma HLS ARRAY_PARTITION variable=kernels complete dim=1
-#pragma HLS ARRAY_PARTITION variable=kernels complete dim=2
+#pragma HLS ARRAY_PARTITION variable=kernels block factor=12 dim=1
 
     static uint8_t stripes[CHANNELS][STRIPE_HEIGHT][STRIPE_INPUT_WIDTH + 2] = {{0, } };
 #pragma HLS RESOURCE variable=stripes core=RAM_2P_BRAM
 #pragma HLS ARRAY_PARTITION variable=stripes complete dim=1
-#pragma HLS ARRAY_PARTITION variable=stripes complete dim=2
 #pragma HLS RESET variable=stripes
 
 #pragma HLS DATAFLOW

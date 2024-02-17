@@ -1,0 +1,80 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'kernel'" level="0">
+<item name = "Date">Sat Feb 17 12:53:28 2024
+</item>
+<item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
+<item name = "Project">hls</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020-clg400-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00 ns, 8.702 ns, 1.25 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">6649, 6649, 66.490 us, 66.490 us, 6649, 6649, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- batch_width">6648, 6648, 1662, -, -, 4, no</column>
+<column name=" + read_channels_even">36, 36, 12, -, -, 3, no</column>
+<column name="  ++ read_values_even">10, 10, 5, -, -, 2, no</column>
+<column name=" + read_channels_odd">36, 36, 12, -, -, 3, no</column>
+<column name="  ++ read_values_odd">10, 10, 5, -, -, 2, no</column>
+<column name=" + memset_maxes">9, 9, 5, -, -, 2, no</column>
+<column name="  ++ memset_maxes">3, 3, 1, -, -, 4, no</column>
+<column name=" + max_pool_kernel">796, 796, 199, -, -, 4, no</column>
+<column name="  ++ memset_partial_sums">31, 31, 16, -, -, 2, no</column>
+<column name="   +++ memset_partial_sums">14, 14, 5, -, -, 3, no</column>
+<column name="    ++++ memset_partial_sums">3, 3, 1, -, -, 4, no</column>
+<column name="  ++ kernel_width">117, 117, 39, -, -, 3, no</column>
+<column name="   +++ kernel_height">36, 36, 12, -, -, 3, no</column>
+<column name="  ++ memset_kernel_sums">9, 9, 5, -, -, 2, no</column>
+<column name="   +++ memset_kernel_sums">3, 3, 1, -, -, 4, no</column>
+<column name="  ++ sum_channels">6, 6, 2, -, -, 3, no</column>
+<column name="  ++ sum_channels">6, 6, 2, -, -, 3, no</column>
+<column name="  ++ sum_channels">6, 6, 2, -, -, 3, no</column>
+<column name="  ++ sum_channels">6, 6, 2, -, -, 3, no</column>
+<column name="  ++ max_pool">8, 8, 2, -, -, 4, no</column>
+<column name=" + write_output">8, 8, 2, -, -, 4, no</column>
+<column name=" + max_pool_kernel">796, 796, 199, -, -, 4, no</column>
+<column name="  ++ memset_partial_sums">31, 31, 16, -, -, 2, no</column>
+<column name="   +++ memset_partial_sums">14, 14, 5, -, -, 3, no</column>
+<column name="    ++++ memset_partial_sums">3, 3, 1, -, -, 4, no</column>
+<column name="  ++ kernel_width">117, 117, 39, -, -, 3, no</column>
+<column name="   +++ kernel_height">36, 36, 12, -, -, 3, no</column>
+<column name="  ++ memset_kernel_sums">9, 9, 5, -, -, 2, no</column>
+<column name="   +++ memset_kernel_sums">3, 3, 1, -, -, 4, no</column>
+<column name="  ++ sum_channels">6, 6, 2, -, -, 3, no</column>
+<column name="  ++ sum_channels">6, 6, 2, -, -, 3, no</column>
+<column name="  ++ sum_channels">6, 6, 2, -, -, 3, no</column>
+<column name="  ++ sum_channels">6, 6, 2, -, -, 3, no</column>
+<column name="  ++ max_pool">8, 8, 2, -, -, 4, no</column>
+<column name=" + write_output">8, 8, 2, -, -, 4, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>
