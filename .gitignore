@@ -108,3 +108,5 @@ models/
 weights/
 
 *.npy
+
+__pycache__/

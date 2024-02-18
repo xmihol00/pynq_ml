@@ -2,43 +2,55 @@
 // Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2020.1 (64-bit)
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // ==============================================================
+`timescale 1 ns / 1 ps
 
-`timescale 1ns/1ps
+(* use_dsp = "yes" *) module fused_cnn_layer_meOg_DSP48_2(
+    input  [6 - 1:0] in0,
+    input  [8 - 1:0] in1,
+    input  [12 - 1:0] in2,
+    output [15 - 1:0]  dout);
 
-module fused_cnn_layer_meOg #(
-parameter
-    ID                = 0,
-    NUM_STAGE         = 1,
-    din0_WIDTH       = 32,
-    din1_WIDTH       = 32,
-    din2_WIDTH       = 32,
-    din3_WIDTH         = 32,
-    dout_WIDTH            = 32
-)(
-    input  [7 : 0]     din0,
-    input  [7 : 0]     din1,
-    input  [7 : 0]     din2,
-    input  [1 : 0]    din3,
-    output [7 : 0]   dout);
+wire signed [25 - 1:0]     a;
+wire signed [18 - 1:0]     b;
+wire signed [48 - 1:0]     c;
+wire signed [43 - 1:0]     m;
+wire signed [48 - 1:0]     p;
 
-// puts internal signals
-wire [1 : 0]     sel;
-// level 1 signals
-wire [7 : 0]         mux_1_0;
-wire [7 : 0]         mux_1_1;
-// level 2 signals
-wire [7 : 0]         mux_2_0;
+assign a  = $unsigned(in0);
+assign b  = $unsigned(in1);
+assign c  = $signed(in2);
 
-assign sel = din3;
+assign m  = a * b;
+assign p  = m + c;
 
-// Generate level 1 logic
-assign mux_1_0 = (sel[0] == 0)? din0 : din1;
-assign mux_1_1 = din2;
-
-// Generate level 2 logic
-assign mux_2_0 = (sel[1] == 0)? mux_1_0 : mux_1_1;
-
-// output logic
-assign dout = mux_2_0;
+assign dout = p;
 
 endmodule
+`timescale 1 ns / 1 ps
+module fused_cnn_layer_meOg(
+    din0,
+    din1,
+    din2,
+    dout);
+
+parameter ID = 32'd1;
+parameter NUM_STAGE = 32'd1;
+parameter din0_WIDTH = 32'd1;
+parameter din1_WIDTH = 32'd1;
+parameter din2_WIDTH = 32'd1;
+parameter dout_WIDTH = 32'd1;
+input[din0_WIDTH - 1:0] din0;
+input[din1_WIDTH - 1:0] din1;
+input[din2_WIDTH - 1:0] din2;
+output[dout_WIDTH - 1:0] dout;
+
+
+
+fused_cnn_layer_meOg_DSP48_2 fused_cnn_layer_meOg_DSP48_2_U(
+    .in0( din0 ),
+    .in1( din1 ),
+    .in2( din2 ),
+    .dout( dout ));
+
+endmodule
+

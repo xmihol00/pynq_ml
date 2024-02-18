@@ -4,11 +4,11 @@
 // ==============================================================
 `timescale 1 ns / 1 ps
 
-(* use_dsp = "yes" *) module fused_cnn_layer_mibs_DSP48_0(
-    input  [8 - 1:0] in0,
+(* use_dsp = "yes" *) module fused_cnn_layer_mibs_DSP48_6(
+    input  [6 - 1:0] in0,
     input  [8 - 1:0] in1,
-    input  [32 - 1:0] in2,
-    output [32 - 1:0]  dout);
+    input  [14 - 1:0] in2,
+    output [15 - 1:0]  dout);
 
 wire signed [25 - 1:0]     a;
 wire signed [18 - 1:0]     b;
@@ -16,7 +16,7 @@ wire signed [48 - 1:0]     c;
 wire signed [43 - 1:0]     m;
 wire signed [48 - 1:0]     p;
 
-assign a  = $signed(in0);
+assign a  = $unsigned(in0);
 assign b  = $unsigned(in1);
 assign c  = $unsigned(in2);
 
@@ -46,7 +46,7 @@ output[dout_WIDTH - 1:0] dout;
 
 
 
-fused_cnn_layer_mibs_DSP48_0 fused_cnn_layer_mibs_DSP48_0_U(
+fused_cnn_layer_mibs_DSP48_6 fused_cnn_layer_mibs_DSP48_6_U(
     .in0( din0 ),
     .in1( din1 ),
     .in2( din2 ),

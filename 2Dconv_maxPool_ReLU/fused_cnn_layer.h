@@ -10,10 +10,10 @@
 	#include <iostream>
 #endif
 
-#define STRIPE_HEIGHT 6
+#define STRIPE_HEIGHT 4
 #define STRIPE_OUTPUT_HEIGHT ((STRIPE_HEIGHT - 2) / 2)
 #define STRIPE_INPUT_WIDTH 512
-#define STRIPE_OUTPUT_WIDTH ((STRIPE_INPUT_WIDTH - 2) / 2)
+#define STRIPE_OUTPUT_WIDTH (STRIPE_INPUT_WIDTH / 2)
 #define AXI_INPUT_WIDTH 64
 #define AXI_OUTPUT_WIDTH 64
 #define INT8_BITS 8
@@ -21,6 +21,7 @@
 #define CHANNELS 3
 #define KERNELS 4
 #define KERNEL_SIZE 3
+#define OUTPUT_BATCH_SIZE 4
 
 typedef ap_axiu<AXI_INPUT_WIDTH, 0, 0, 0> axis_in_t;
 typedef ap_axiu<AXI_OUTPUT_WIDTH, 0, 0, 0> axis_out_t;

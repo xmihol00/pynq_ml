@@ -6,33 +6,33 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity fused_cnn_layer_mibs_DSP48_0 is
+entity fused_cnn_layer_mibs_DSP48_6 is
 port (
-    in0:  in  std_logic_vector(8 - 1 downto 0);
+    in0:  in  std_logic_vector(6 - 1 downto 0);
     in1:  in  std_logic_vector(8 - 1 downto 0);
-    in2:  in  std_logic_vector(32 - 1 downto 0);
-    dout: out std_logic_vector(32 - 1 downto 0));
+    in2:  in  std_logic_vector(14 - 1 downto 0);
+    dout: out std_logic_vector(15 - 1 downto 0));
 
     attribute use_dsp : string;
-    attribute use_dsp of fused_cnn_layer_mibs_DSP48_0 : entity is "yes";
+    attribute use_dsp of fused_cnn_layer_mibs_DSP48_6 : entity is "yes";
 
 end entity;
 
-architecture behav of fused_cnn_layer_mibs_DSP48_0 is
+architecture behav of fused_cnn_layer_mibs_DSP48_6 is
     signal a       : signed(25-1 downto 0);
     signal b       : signed(18-1 downto 0);
     signal c       : signed(48-1 downto 0);
     signal m       : signed(43-1 downto 0);
     signal p       : signed(48-1 downto 0);
 begin
-a  <= signed(resize(signed(in0), 25));
+a  <= signed(resize(unsigned(in0), 25));
 b  <= signed(resize(unsigned(in1), 18));
 c  <= signed(resize(unsigned(in2), 48));
 
 m  <= a * b;
 p  <= m + c;
 
-dout <= std_logic_vector(resize(unsigned(p), 32));
+dout <= std_logic_vector(resize(unsigned(p), 15));
 
 end architecture;
 Library IEEE;
@@ -54,7 +54,7 @@ entity fused_cnn_layer_mibs is
 end entity;
 
 architecture arch of fused_cnn_layer_mibs is
-    component fused_cnn_layer_mibs_DSP48_0 is
+    component fused_cnn_layer_mibs_DSP48_6 is
         port (
             in0 : IN STD_LOGIC_VECTOR;
             in1 : IN STD_LOGIC_VECTOR;
@@ -65,7 +65,7 @@ architecture arch of fused_cnn_layer_mibs is
 
 
 begin
-    fused_cnn_layer_mibs_DSP48_0_U :  component fused_cnn_layer_mibs_DSP48_0
+    fused_cnn_layer_mibs_DSP48_6_U :  component fused_cnn_layer_mibs_DSP48_6
     port map (
         in0 => din0,
         in1 => din1,

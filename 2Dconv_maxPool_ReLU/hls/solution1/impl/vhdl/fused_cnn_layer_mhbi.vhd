@@ -2,48 +2,76 @@
 -- Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2020.1 (64-bit)
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- ==============================================================
-
 library IEEE;
 use IEEE.std_logic_1164.all;
-use IEEE.NUMERIC_STD.all;
+use IEEE.numeric_std.all;
 
-entity fused_cnn_layer_mhbi is
-generic (
-    ID            :integer := 0;
-    NUM_STAGE     :integer := 1;
-    din0_WIDTH       :integer := 32;
-    din1_WIDTH       :integer := 32;
-    din2_WIDTH       :integer := 32;
-    din3_WIDTH       :integer := 32;
-    dout_WIDTH        :integer := 32);
+entity fused_cnn_layer_mhbi_DSP48_5 is
 port (
-    din0   :in  std_logic_vector(31 downto 0);
-    din1   :in  std_logic_vector(31 downto 0);
-    din2   :in  std_logic_vector(31 downto 0);
-    din3   :in  std_logic_vector(1 downto 0);
-    dout     :out std_logic_vector(31 downto 0));
+    in0:  in  std_logic_vector(6 - 1 downto 0);
+    in1:  in  std_logic_vector(8 - 1 downto 0);
+    in2:  in  std_logic_vector(14 - 1 downto 0);
+    dout: out std_logic_vector(14 - 1 downto 0));
+
+    attribute use_dsp : string;
+    attribute use_dsp of fused_cnn_layer_mhbi_DSP48_5 : entity is "yes";
+
 end entity;
 
-architecture rtl of fused_cnn_layer_mhbi is
-    -- puts internal signals
-    signal sel    : std_logic_vector(1 downto 0);
-    -- level 1 signals
-    signal mux_1_0    : std_logic_vector(31 downto 0);
-    signal mux_1_1    : std_logic_vector(31 downto 0);
-    -- level 2 signals
-    signal mux_2_0    : std_logic_vector(31 downto 0);
+architecture behav of fused_cnn_layer_mhbi_DSP48_5 is
+    signal a       : signed(25-1 downto 0);
+    signal b       : signed(18-1 downto 0);
+    signal c       : signed(48-1 downto 0);
+    signal m       : signed(43-1 downto 0);
+    signal p       : signed(48-1 downto 0);
 begin
+a  <= signed(resize(unsigned(in0), 25));
+b  <= signed(resize(unsigned(in1), 18));
+c  <= signed(resize(unsigned(in2), 48));
 
-sel <= din3;
+m  <= a * b;
+p  <= m + c;
 
--- Generate level 1 logic
-mux_1_0 <= din0 when sel(0) = '0' else din1;
-mux_1_1 <= din2;
-
--- Generate level 2 logic
-mux_2_0 <= mux_1_0 when sel(1) = '0' else mux_1_1;
-
--- output logic
-dout <= mux_2_0;
+dout <= std_logic_vector(resize(unsigned(p), 14));
 
 end architecture;
+Library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity fused_cnn_layer_mhbi is
+    generic (
+        ID : INTEGER;
+        NUM_STAGE : INTEGER;
+        din0_WIDTH : INTEGER;
+        din1_WIDTH : INTEGER;
+        din2_WIDTH : INTEGER;
+        dout_WIDTH : INTEGER);
+    port (
+        din0 : IN STD_LOGIC_VECTOR(din0_WIDTH - 1 DOWNTO 0);
+        din1 : IN STD_LOGIC_VECTOR(din1_WIDTH - 1 DOWNTO 0);
+        din2 : IN STD_LOGIC_VECTOR(din2_WIDTH - 1 DOWNTO 0);
+        dout : OUT STD_LOGIC_VECTOR(dout_WIDTH - 1 DOWNTO 0));
+end entity;
+
+architecture arch of fused_cnn_layer_mhbi is
+    component fused_cnn_layer_mhbi_DSP48_5 is
+        port (
+            in0 : IN STD_LOGIC_VECTOR;
+            in1 : IN STD_LOGIC_VECTOR;
+            in2 : IN STD_LOGIC_VECTOR;
+            dout : OUT STD_LOGIC_VECTOR);
+    end component;
+
+
+
+begin
+    fused_cnn_layer_mhbi_DSP48_5_U :  component fused_cnn_layer_mhbi_DSP48_5
+    port map (
+        in0 => din0,
+        in1 => din1,
+        in2 => din2,
+        dout => dout);
+
+end architecture;
+
+
