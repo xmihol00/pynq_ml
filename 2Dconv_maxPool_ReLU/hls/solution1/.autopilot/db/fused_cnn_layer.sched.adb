@@ -348,17 +348,17 @@
 			</item>
 		</ports>
 		<nodes class_id="8" tracking_level="0" version="0">
-			<count>8</count>
+			<count>2</count>
 			<item_version>0</item_version>
 			<item class_id="9" tracking_level="1" version="0" object_id="_13">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>57</id>
-						<name>output_0_V</name>
+						<id>66</id>
+						<name>_ln250</name>
 						<fileName>fused_cnn_layer.cpp</fileName>
 						<fileDirectory>/mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU</fileDirectory>
-						<lineNumber>195</lineNumber>
+						<lineNumber>250</lineNumber>
 						<contextFuncName>fused_cnn_layer</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -373,199 +373,7 @@
 											<first>fused_cnn_layer.cpp</first>
 											<second>fused_cnn_layer</second>
 										</first>
-										<second>195</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName>output[0].V</originalName>
-						<rtlName></rtlName>
-						<coreName></coreName>
-					</Obj>
-					<bitwidth>16</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>1</count>
-					<item_version>0</item_version>
-					<item>82</item>
-				</oprand_edges>
-				<opcode>alloca</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.00</m_delay>
-				<m_topoIndex>1</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_14">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>60</id>
-						<name>output_1_V</name>
-						<fileName>fused_cnn_layer.cpp</fileName>
-						<fileDirectory>/mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU</fileDirectory>
-						<lineNumber>195</lineNumber>
-						<contextFuncName>fused_cnn_layer</contextFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>/mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU</first>
-								<second>
-									<count>1</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>fused_cnn_layer.cpp</first>
-											<second>fused_cnn_layer</second>
-										</first>
-										<second>195</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName>output[1].V</originalName>
-						<rtlName></rtlName>
-						<coreName></coreName>
-					</Obj>
-					<bitwidth>16</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>1</count>
-					<item_version>0</item_version>
-					<item>83</item>
-				</oprand_edges>
-				<opcode>alloca</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.00</m_delay>
-				<m_topoIndex>2</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_15">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>63</id>
-						<name>output_2_V</name>
-						<fileName>fused_cnn_layer.cpp</fileName>
-						<fileDirectory>/mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU</fileDirectory>
-						<lineNumber>195</lineNumber>
-						<contextFuncName>fused_cnn_layer</contextFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>/mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU</first>
-								<second>
-									<count>1</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>fused_cnn_layer.cpp</first>
-											<second>fused_cnn_layer</second>
-										</first>
-										<second>195</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName>output[2].V</originalName>
-						<rtlName></rtlName>
-						<coreName></coreName>
-					</Obj>
-					<bitwidth>16</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>1</count>
-					<item_version>0</item_version>
-					<item>84</item>
-				</oprand_edges>
-				<opcode>alloca</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.00</m_delay>
-				<m_topoIndex>3</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_16">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>66</id>
-						<name>output_3_V</name>
-						<fileName>fused_cnn_layer.cpp</fileName>
-						<fileDirectory>/mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU</fileDirectory>
-						<lineNumber>195</lineNumber>
-						<contextFuncName>fused_cnn_layer</contextFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>/mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU</first>
-								<second>
-									<count>1</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>fused_cnn_layer.cpp</first>
-											<second>fused_cnn_layer</second>
-										</first>
-										<second>195</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName>output[3].V</originalName>
-						<rtlName></rtlName>
-						<coreName></coreName>
-					</Obj>
-					<bitwidth>16</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>1</count>
-					<item_version>0</item_version>
-					<item>85</item>
-				</oprand_edges>
-				<opcode>alloca</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.00</m_delay>
-				<m_topoIndex>4</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_17">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>76</id>
-						<name>_ln197</name>
-						<fileName>fused_cnn_layer.cpp</fileName>
-						<fileDirectory>/mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU</fileDirectory>
-						<lineNumber>197</lineNumber>
-						<contextFuncName>fused_cnn_layer</contextFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>/mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU</first>
-								<second>
-									<count>1</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>fused_cnn_layer.cpp</first>
-											<second>fused_cnn_layer</second>
-										</first>
-										<second>197</second>
+										<second>250</second>
 									</item>
 								</second>
 							</item>
@@ -577,8 +385,25 @@
 					<bitwidth>0</bitwidth>
 				</Value>
 				<oprand_edges>
-					<count>24</count>
+					<count>41</count>
 					<item_version>0</item_version>
+					<item>70</item>
+					<item>71</item>
+					<item>72</item>
+					<item>73</item>
+					<item>74</item>
+					<item>75</item>
+					<item>76</item>
+					<item>77</item>
+					<item>78</item>
+					<item>79</item>
+					<item>80</item>
+					<item>81</item>
+					<item>82</item>
+					<item>83</item>
+					<item>84</item>
+					<item>85</item>
+					<item>86</item>
 					<item>87</item>
 					<item>88</item>
 					<item>89</item>
@@ -588,142 +413,13 @@
 					<item>93</item>
 					<item>94</item>
 					<item>95</item>
-					<item>112</item>
-					<item>113</item>
-					<item>114</item>
-					<item>115</item>
-					<item>116</item>
-					<item>117</item>
-					<item>118</item>
-					<item>119</item>
-					<item>120</item>
-					<item>121</item>
-					<item>122</item>
-					<item>123</item>
-					<item>124</item>
-					<item>125</item>
-					<item>126</item>
-				</oprand_edges>
-				<opcode>call</opcode>
-				<m_Display>1</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>1</m_isLCDNode>
-				<m_isStartOfPath>1</m_isStartOfPath>
-				<m_delay>3.25</m_delay>
-				<m_topoIndex>5</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_18">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>77</id>
-						<name>_ln198</name>
-						<fileName>fused_cnn_layer.cpp</fileName>
-						<fileDirectory>/mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU</fileDirectory>
-						<lineNumber>198</lineNumber>
-						<contextFuncName>fused_cnn_layer</contextFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>/mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU</first>
-								<second>
-									<count>1</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>fused_cnn_layer.cpp</first>
-											<second>fused_cnn_layer</second>
-										</first>
-										<second>198</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<coreName></coreName>
-					</Obj>
-					<bitwidth>0</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>27</count>
-					<item_version>0</item_version>
+					<item>96</item>
 					<item>97</item>
 					<item>98</item>
 					<item>99</item>
 					<item>100</item>
 					<item>101</item>
-					<item>127</item>
-					<item>128</item>
-					<item>129</item>
-					<item>130</item>
-					<item>131</item>
-					<item>132</item>
-					<item>133</item>
-					<item>134</item>
-					<item>135</item>
-					<item>136</item>
-					<item>137</item>
-					<item>138</item>
-					<item>139</item>
-					<item>140</item>
-					<item>141</item>
-					<item>142</item>
-					<item>143</item>
-					<item>144</item>
-					<item>145</item>
-					<item>432</item>
-					<item>434</item>
-					<item>2147483647</item>
-				</oprand_edges>
-				<opcode>call</opcode>
-				<m_Display>1</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>1</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.00</m_delay>
-				<m_topoIndex>6</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_19">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>78</id>
-						<name>_ln199</name>
-						<fileName>fused_cnn_layer.cpp</fileName>
-						<fileDirectory>/mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU</fileDirectory>
-						<lineNumber>199</lineNumber>
-						<contextFuncName>fused_cnn_layer</contextFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>/mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU</first>
-								<second>
-									<count>1</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>fused_cnn_layer.cpp</first>
-											<second>fused_cnn_layer</second>
-										</first>
-										<second>199</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<coreName></coreName>
-					</Obj>
-					<bitwidth>0</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>13</count>
-					<item_version>0</item_version>
+					<item>102</item>
 					<item>103</item>
 					<item>104</item>
 					<item>105</item>
@@ -732,30 +428,25 @@
 					<item>108</item>
 					<item>109</item>
 					<item>110</item>
-					<item>111</item>
-					<item>146</item>
-					<item>147</item>
-					<item>433</item>
-					<item>435</item>
 				</oprand_edges>
 				<opcode>call</opcode>
-				<m_Display>0</m_Display>
+				<m_Display>1</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.00</m_delay>
-				<m_topoIndex>7</m_topoIndex>
+				<m_isLCDNode>1</m_isLCDNode>
+				<m_isStartOfPath>1</m_isStartOfPath>
+				<m_delay>3.25</m_delay>
+				<m_topoIndex>1</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
-			<item class_id_reference="9" object_id="_20">
+			<item class_id_reference="9" object_id="_14">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>79</id>
-						<name>_ln200</name>
+						<id>67</id>
+						<name>_ln252</name>
 						<fileName>fused_cnn_layer.cpp</fileName>
 						<fileDirectory>/mnt/sdc3/david/projs/pynq_ml/2Dconv_maxPool_ReLU</fileDirectory>
-						<lineNumber>200</lineNumber>
+						<lineNumber>252</lineNumber>
 						<contextFuncName>fused_cnn_layer</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -770,7 +461,7 @@
 											<first>fused_cnn_layer.cpp</first>
 											<second>fused_cnn_layer</second>
 										</first>
-										<second>200</second>
+										<second>252</second>
 									</item>
 								</second>
 							</item>
@@ -791,64 +482,18 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>0.00</m_delay>
-				<m_topoIndex>8</m_topoIndex>
+				<m_topoIndex>2</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
 		</nodes>
 		<consts class_id="15" tracking_level="0" version="0">
-			<count>4</count>
+			<count>1</count>
 			<item_version>0</item_version>
-			<item class_id="16" tracking_level="1" version="0" object_id="_21">
+			<item class_id="16" tracking_level="1" version="0" object_id="_15">
 				<Value>
 					<Obj>
 						<type>2</type>
-						<id>81</id>
-						<name>empty</name>
-						<fileName></fileName>
-						<fileDirectory></fileDirectory>
-						<lineNumber>0</lineNumber>
-						<contextFuncName></contextFuncName>
-						<inlineStackInfo>
-							<count>0</count>
-							<item_version>0</item_version>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<coreName></coreName>
-					</Obj>
-					<bitwidth>64</bitwidth>
-				</Value>
-				<const_type>0</const_type>
-				<content>1</content>
-			</item>
-			<item class_id_reference="16" object_id="_22">
-				<Value>
-					<Obj>
-						<type>2</type>
-						<id>86</id>
-						<name>read_input</name>
-						<fileName></fileName>
-						<fileDirectory></fileDirectory>
-						<lineNumber>0</lineNumber>
-						<contextFuncName></contextFuncName>
-						<inlineStackInfo>
-							<count>0</count>
-							<item_version>0</item_version>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<coreName></coreName>
-					</Obj>
-					<bitwidth>0</bitwidth>
-				</Value>
-				<const_type>6</const_type>
-				<content>&lt;constant:read_input&gt;</content>
-			</item>
-			<item class_id_reference="16" object_id="_23">
-				<Value>
-					<Obj>
-						<type>2</type>
-						<id>96</id>
+						<id>69</id>
 						<name>kernel</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -867,37 +512,14 @@
 				<const_type>6</const_type>
 				<content>&lt;constant:kernel&gt;</content>
 			</item>
-			<item class_id_reference="16" object_id="_24">
-				<Value>
-					<Obj>
-						<type>2</type>
-						<id>102</id>
-						<name>write_output</name>
-						<fileName></fileName>
-						<fileDirectory></fileDirectory>
-						<lineNumber>0</lineNumber>
-						<contextFuncName></contextFuncName>
-						<inlineStackInfo>
-							<count>0</count>
-							<item_version>0</item_version>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<coreName></coreName>
-					</Obj>
-					<bitwidth>0</bitwidth>
-				</Value>
-				<const_type>6</const_type>
-				<content>&lt;constant:write_output&gt;</content>
-			</item>
 		</consts>
 		<blocks class_id="17" tracking_level="0" version="0">
 			<count>1</count>
 			<item_version>0</item_version>
-			<item class_id="18" tracking_level="1" version="0" object_id="_25">
+			<item class_id="18" tracking_level="1" version="0" object_id="_16">
 				<Obj>
 					<type>3</type>
-					<id>80</id>
+					<id>68</id>
 					<name>fused_cnn_layer</name>
 					<fileName></fileName>
 					<fileDirectory></fileDirectory>
@@ -912,504 +534,309 @@
 					<coreName></coreName>
 				</Obj>
 				<node_objs>
-					<count>8</count>
+					<count>2</count>
 					<item_version>0</item_version>
-					<item>57</item>
-					<item>60</item>
-					<item>63</item>
 					<item>66</item>
-					<item>76</item>
-					<item>77</item>
-					<item>78</item>
-					<item>79</item>
+					<item>67</item>
 				</node_objs>
 			</item>
 		</blocks>
 		<edges class_id="19" tracking_level="0" version="0">
-			<count>68</count>
+			<count>41</count>
 			<item_version>0</item_version>
-			<item class_id="20" tracking_level="1" version="0" object_id="_26">
-				<id>82</id>
+			<item class_id="20" tracking_level="1" version="0" object_id="_17">
+				<id>70</id>
 				<edge_type>1</edge_type>
-				<source_obj>81</source_obj>
-				<sink_obj>57</sink_obj>
+				<source_obj>69</source_obj>
+				<sink_obj>66</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_18">
+				<id>71</id>
+				<edge_type>1</edge_type>
+				<source_obj>1</source_obj>
+				<sink_obj>66</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_19">
+				<id>72</id>
+				<edge_type>1</edge_type>
+				<source_obj>2</source_obj>
+				<sink_obj>66</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_20">
+				<id>73</id>
+				<edge_type>1</edge_type>
+				<source_obj>3</source_obj>
+				<sink_obj>66</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_21">
+				<id>74</id>
+				<edge_type>1</edge_type>
+				<source_obj>4</source_obj>
+				<sink_obj>66</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_22">
+				<id>75</id>
+				<edge_type>1</edge_type>
+				<source_obj>5</source_obj>
+				<sink_obj>66</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_23">
+				<id>76</id>
+				<edge_type>1</edge_type>
+				<source_obj>6</source_obj>
+				<sink_obj>66</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_24">
+				<id>77</id>
+				<edge_type>1</edge_type>
+				<source_obj>7</source_obj>
+				<sink_obj>66</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_25">
+				<id>78</id>
+				<edge_type>1</edge_type>
+				<source_obj>8</source_obj>
+				<sink_obj>66</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_26">
+				<id>79</id>
+				<edge_type>1</edge_type>
+				<source_obj>9</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_27">
-				<id>83</id>
+				<id>80</id>
 				<edge_type>1</edge_type>
-				<source_obj>81</source_obj>
-				<sink_obj>60</sink_obj>
+				<source_obj>10</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_28">
-				<id>84</id>
+				<id>81</id>
 				<edge_type>1</edge_type>
-				<source_obj>81</source_obj>
-				<sink_obj>63</sink_obj>
+				<source_obj>11</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_29">
-				<id>85</id>
+				<id>82</id>
 				<edge_type>1</edge_type>
-				<source_obj>81</source_obj>
+				<source_obj>12</source_obj>
 				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_30">
-				<id>87</id>
+				<id>83</id>
 				<edge_type>1</edge_type>
-				<source_obj>86</source_obj>
-				<sink_obj>76</sink_obj>
+				<source_obj>14</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_31">
-				<id>88</id>
+				<id>84</id>
 				<edge_type>1</edge_type>
-				<source_obj>1</source_obj>
-				<sink_obj>76</sink_obj>
+				<source_obj>16</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_32">
-				<id>89</id>
+				<id>85</id>
 				<edge_type>1</edge_type>
-				<source_obj>2</source_obj>
-				<sink_obj>76</sink_obj>
+				<source_obj>18</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_33">
-				<id>90</id>
+				<id>86</id>
 				<edge_type>1</edge_type>
-				<source_obj>3</source_obj>
-				<sink_obj>76</sink_obj>
+				<source_obj>19</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_34">
-				<id>91</id>
+				<id>87</id>
 				<edge_type>1</edge_type>
-				<source_obj>4</source_obj>
-				<sink_obj>76</sink_obj>
+				<source_obj>21</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_35">
-				<id>92</id>
+				<id>88</id>
 				<edge_type>1</edge_type>
-				<source_obj>5</source_obj>
-				<sink_obj>76</sink_obj>
+				<source_obj>22</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_36">
-				<id>93</id>
+				<id>89</id>
 				<edge_type>1</edge_type>
-				<source_obj>6</source_obj>
-				<sink_obj>76</sink_obj>
+				<source_obj>24</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_37">
-				<id>94</id>
+				<id>90</id>
 				<edge_type>1</edge_type>
-				<source_obj>7</source_obj>
-				<sink_obj>76</sink_obj>
+				<source_obj>25</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_38">
-				<id>95</id>
+				<id>91</id>
 				<edge_type>1</edge_type>
-				<source_obj>8</source_obj>
-				<sink_obj>76</sink_obj>
+				<source_obj>26</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_39">
-				<id>97</id>
+				<id>92</id>
 				<edge_type>1</edge_type>
-				<source_obj>96</source_obj>
-				<sink_obj>77</sink_obj>
+				<source_obj>27</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_40">
-				<id>98</id>
+				<id>93</id>
 				<edge_type>1</edge_type>
-				<source_obj>57</source_obj>
-				<sink_obj>77</sink_obj>
+				<source_obj>28</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_41">
-				<id>99</id>
+				<id>94</id>
 				<edge_type>1</edge_type>
-				<source_obj>60</source_obj>
-				<sink_obj>77</sink_obj>
+				<source_obj>29</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_42">
-				<id>100</id>
+				<id>95</id>
 				<edge_type>1</edge_type>
-				<source_obj>63</source_obj>
-				<sink_obj>77</sink_obj>
+				<source_obj>30</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_43">
-				<id>101</id>
+				<id>96</id>
 				<edge_type>1</edge_type>
-				<source_obj>66</source_obj>
-				<sink_obj>77</sink_obj>
+				<source_obj>31</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_44">
-				<id>103</id>
+				<id>97</id>
 				<edge_type>1</edge_type>
-				<source_obj>102</source_obj>
-				<sink_obj>78</sink_obj>
+				<source_obj>32</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_45">
-				<id>104</id>
+				<id>98</id>
 				<edge_type>1</edge_type>
-				<source_obj>57</source_obj>
-				<sink_obj>78</sink_obj>
+				<source_obj>33</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_46">
-				<id>105</id>
+				<id>99</id>
 				<edge_type>1</edge_type>
-				<source_obj>60</source_obj>
-				<sink_obj>78</sink_obj>
+				<source_obj>34</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_47">
-				<id>106</id>
+				<id>100</id>
 				<edge_type>1</edge_type>
-				<source_obj>63</source_obj>
-				<sink_obj>78</sink_obj>
+				<source_obj>35</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_48">
-				<id>107</id>
+				<id>101</id>
 				<edge_type>1</edge_type>
-				<source_obj>66</source_obj>
-				<sink_obj>78</sink_obj>
+				<source_obj>36</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_49">
-				<id>108</id>
+				<id>102</id>
 				<edge_type>1</edge_type>
-				<source_obj>9</source_obj>
-				<sink_obj>78</sink_obj>
+				<source_obj>37</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_50">
-				<id>109</id>
+				<id>103</id>
 				<edge_type>1</edge_type>
-				<source_obj>10</source_obj>
-				<sink_obj>78</sink_obj>
+				<source_obj>38</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_51">
-				<id>110</id>
+				<id>104</id>
 				<edge_type>1</edge_type>
-				<source_obj>11</source_obj>
-				<sink_obj>78</sink_obj>
+				<source_obj>39</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_52">
-				<id>111</id>
+				<id>105</id>
 				<edge_type>1</edge_type>
-				<source_obj>12</source_obj>
-				<sink_obj>78</sink_obj>
+				<source_obj>40</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_53">
-				<id>112</id>
+				<id>106</id>
 				<edge_type>1</edge_type>
-				<source_obj>14</source_obj>
-				<sink_obj>76</sink_obj>
+				<source_obj>41</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_54">
-				<id>113</id>
+				<id>107</id>
 				<edge_type>1</edge_type>
-				<source_obj>16</source_obj>
-				<sink_obj>76</sink_obj>
+				<source_obj>42</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_55">
-				<id>114</id>
+				<id>108</id>
 				<edge_type>1</edge_type>
-				<source_obj>18</source_obj>
-				<sink_obj>76</sink_obj>
+				<source_obj>43</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_56">
-				<id>115</id>
+				<id>109</id>
 				<edge_type>1</edge_type>
-				<source_obj>20</source_obj>
-				<sink_obj>76</sink_obj>
+				<source_obj>44</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_57">
-				<id>116</id>
+				<id>110</id>
 				<edge_type>1</edge_type>
-				<source_obj>21</source_obj>
-				<sink_obj>76</sink_obj>
+				<source_obj>45</source_obj>
+				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_58">
-				<id>117</id>
-				<edge_type>1</edge_type>
-				<source_obj>22</source_obj>
-				<sink_obj>76</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_59">
-				<id>118</id>
-				<edge_type>1</edge_type>
-				<source_obj>23</source_obj>
-				<sink_obj>76</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_60">
-				<id>119</id>
-				<edge_type>1</edge_type>
-				<source_obj>24</source_obj>
-				<sink_obj>76</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_61">
-				<id>120</id>
-				<edge_type>1</edge_type>
-				<source_obj>25</source_obj>
-				<sink_obj>76</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_62">
-				<id>121</id>
-				<edge_type>1</edge_type>
-				<source_obj>26</source_obj>
-				<sink_obj>76</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_63">
-				<id>122</id>
-				<edge_type>1</edge_type>
-				<source_obj>27</source_obj>
-				<sink_obj>76</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_64">
-				<id>123</id>
-				<edge_type>1</edge_type>
-				<source_obj>28</source_obj>
-				<sink_obj>76</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_65">
-				<id>124</id>
-				<edge_type>1</edge_type>
-				<source_obj>29</source_obj>
-				<sink_obj>76</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_66">
-				<id>125</id>
-				<edge_type>1</edge_type>
-				<source_obj>30</source_obj>
-				<sink_obj>76</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_67">
-				<id>126</id>
-				<edge_type>1</edge_type>
-				<source_obj>31</source_obj>
-				<sink_obj>76</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_68">
-				<id>127</id>
-				<edge_type>1</edge_type>
-				<source_obj>32</source_obj>
-				<sink_obj>77</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_69">
-				<id>128</id>
-				<edge_type>1</edge_type>
-				<source_obj>34</source_obj>
-				<sink_obj>77</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_70">
-				<id>129</id>
-				<edge_type>1</edge_type>
-				<source_obj>36</source_obj>
-				<sink_obj>77</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_71">
-				<id>130</id>
-				<edge_type>1</edge_type>
-				<source_obj>29</source_obj>
-				<sink_obj>77</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_72">
-				<id>131</id>
-				<edge_type>1</edge_type>
-				<source_obj>20</source_obj>
-				<sink_obj>77</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_73">
-				<id>132</id>
-				<edge_type>1</edge_type>
-				<source_obj>23</source_obj>
-				<sink_obj>77</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_74">
-				<id>133</id>
-				<edge_type>1</edge_type>
-				<source_obj>26</source_obj>
-				<sink_obj>77</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_75">
-				<id>134</id>
-				<edge_type>1</edge_type>
-				<source_obj>30</source_obj>
-				<sink_obj>77</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_76">
-				<id>135</id>
-				<edge_type>1</edge_type>
-				<source_obj>21</source_obj>
-				<sink_obj>77</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_77">
-				<id>136</id>
-				<edge_type>1</edge_type>
-				<source_obj>24</source_obj>
-				<sink_obj>77</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_78">
-				<id>137</id>
-				<edge_type>1</edge_type>
-				<source_obj>27</source_obj>
-				<sink_obj>77</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_79">
-				<id>138</id>
-				<edge_type>1</edge_type>
-				<source_obj>31</source_obj>
-				<sink_obj>77</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_80">
-				<id>139</id>
-				<edge_type>1</edge_type>
-				<source_obj>22</source_obj>
-				<sink_obj>77</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_81">
-				<id>140</id>
-				<edge_type>1</edge_type>
-				<source_obj>25</source_obj>
-				<sink_obj>77</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_82">
-				<id>141</id>
-				<edge_type>1</edge_type>
-				<source_obj>28</source_obj>
-				<sink_obj>77</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_83">
-				<id>142</id>
-				<edge_type>1</edge_type>
-				<source_obj>38</source_obj>
-				<sink_obj>77</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_84">
-				<id>143</id>
-				<edge_type>1</edge_type>
-				<source_obj>39</source_obj>
-				<sink_obj>77</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_85">
-				<id>144</id>
-				<edge_type>1</edge_type>
-				<source_obj>40</source_obj>
-				<sink_obj>77</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_86">
-				<id>145</id>
-				<edge_type>1</edge_type>
-				<source_obj>41</source_obj>
-				<sink_obj>77</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_87">
-				<id>146</id>
-				<edge_type>1</edge_type>
-				<source_obj>42</source_obj>
-				<sink_obj>78</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_88">
-				<id>147</id>
-				<edge_type>1</edge_type>
-				<source_obj>43</source_obj>
-				<sink_obj>78</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_89">
-				<id>432</id>
-				<edge_type>4</edge_type>
-				<source_obj>76</source_obj>
-				<sink_obj>77</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_90">
-				<id>433</id>
-				<edge_type>4</edge_type>
-				<source_obj>77</source_obj>
-				<sink_obj>78</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_91">
-				<id>434</id>
-				<edge_type>4</edge_type>
-				<source_obj>76</source_obj>
-				<sink_obj>77</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_92">
-				<id>435</id>
-				<edge_type>4</edge_type>
-				<source_obj>77</source_obj>
-				<sink_obj>78</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_93">
-				<id>2147483647</id>
-				<edge_type>1</edge_type>
-				<source_obj>77</source_obj>
-				<sink_obj>76</sink_obj>
-				<is_back_edge>1</is_back_edge>
 			</item>
 		</edges>
 	</cdfg>
 	<cdfg_regions class_id="21" tracking_level="0" version="0">
 		<count>1</count>
 		<item_version>0</item_version>
-		<item class_id="22" tracking_level="1" version="0" object_id="_94">
+		<item class_id="22" tracking_level="1" version="0" object_id="_58">
 			<mId>1</mId>
 			<mTag>fused_cnn_layer</mTag>
 			<mType>0</mType>
@@ -1420,14 +847,14 @@
 			<basic_blocks>
 				<count>1</count>
 				<item_version>0</item_version>
-				<item>80</item>
+				<item>68</item>
 			</basic_blocks>
-			<mII>25</mII>
-			<mDepth>29</mDepth>
+			<mII>22</mII>
+			<mDepth>25</mDepth>
 			<mMinTripCount>-1</mMinTripCount>
 			<mMaxTripCount>-1</mMaxTripCount>
-			<mMinLatency>28</mMinLatency>
-			<mMaxLatency>28</mMaxLatency>
+			<mMinLatency>24</mMinLatency>
+			<mMaxLatency>24</mMaxLatency>
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>
 		</item>
@@ -1435,61 +862,19 @@
 	<fsm class_id="-1"></fsm>
 	<res class_id="-1"></res>
 	<node_label_latency class_id="26" tracking_level="0" version="0">
-		<count>8</count>
+		<count>2</count>
 		<item_version>0</item_version>
 		<item class_id="27" tracking_level="0" version="0">
-			<first>57</first>
-			<second class_id="28" tracking_level="0" version="0">
-				<first>0</first>
-				<second>0</second>
-			</second>
-		</item>
-		<item>
-			<first>60</first>
-			<second>
-				<first>0</first>
-				<second>0</second>
-			</second>
-		</item>
-		<item>
-			<first>63</first>
-			<second>
-				<first>0</first>
-				<second>0</second>
-			</second>
-		</item>
-		<item>
 			<first>66</first>
-			<second>
-				<first>0</first>
-				<second>0</second>
-			</second>
-		</item>
-		<item>
-			<first>76</first>
-			<second>
+			<second class_id="28" tracking_level="0" version="0">
 				<first>1</first>
-				<second>16</second>
+				<second>22</second>
 			</second>
 		</item>
 		<item>
-			<first>77</first>
+			<first>67</first>
 			<second>
-				<first>18</first>
-				<second>7</second>
-			</second>
-		</item>
-		<item>
-			<first>78</first>
-			<second>
-				<first>26</first>
-				<second>1</second>
-			</second>
-		</item>
-		<item>
-			<first>79</first>
-			<second>
-				<first>28</first>
+				<first>24</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -1498,22 +883,22 @@
 		<count>1</count>
 		<item_version>0</item_version>
 		<item class_id="30" tracking_level="0" version="0">
-			<first>80</first>
+			<first>68</first>
 			<second class_id="31" tracking_level="0" version="0">
 				<first>0</first>
-				<second>28</second>
+				<second>24</second>
 			</second>
 		</item>
 	</bblk_ent_exit>
 	<regions class_id="32" tracking_level="0" version="0">
 		<count>1</count>
 		<item_version>0</item_version>
-		<item class_id="33" tracking_level="1" version="0" object_id="_95">
+		<item class_id="33" tracking_level="1" version="0" object_id="_59">
 			<region_name>fused_cnn_layer</region_name>
 			<basic_blocks>
 				<count>1</count>
 				<item_version>0</item_version>
-				<item>80</item>
+				<item>68</item>
 			</basic_blocks>
 			<nodes>
 				<count>0</count>
@@ -1521,8 +906,8 @@
 			</nodes>
 			<anchor_node>-1</anchor_node>
 			<region_type>8</region_type>
-			<interval>25</interval>
-			<pipe_depth>29</pipe_depth>
+			<interval>22</interval>
+			<pipe_depth>25</pipe_depth>
 		</item>
 	</regions>
 	<dp_fu_nodes class_id="34" tracking_level="0" version="0">

@@ -28,7 +28,7 @@ layers = model.layers
 for i, layer in enumerate(layers):
     if layer.get_weights():
         weights, biases = layer.get_weights()
-        model.layers[i].set_weights([np.random.randint(-32, 32, weights.shape).astype(np.float32), np.zeros_like(biases)])
+        model.layers[i].set_weights([np.random.randint(-16, 16, weights.shape).astype(np.float32), np.zeros_like(biases)])
 
 input_data = np.random.randint(0, 255, (1, IN_HEIGHT, IN_WIDTH, IN_CHANNELS)).astype(np.float32)
 input_data[:, :, 0, :] = 0
@@ -40,7 +40,7 @@ prediction_merged = np.zeros((4*256*255))
 for i in range(4):
     prediction_merged[i::4] = prediction_reshaped[i]
 
-#print("#define PREDICTION", format_array_C(prediction_merged.astype(np.int16)))
+print("#define PREDICTION", format_array_C(prediction_merged.astype(np.int16)))
 
 inputs = input_data.reshape(IN_HEIGHT*IN_WIDTH, -1).T
 inputs_hw = inputs.reshape(IN_CHANNELS, IN_HEIGHT, IN_WIDTH)[:, :, 1:-1]
@@ -55,13 +55,16 @@ for i in range(IN_CHANNELS):
 
 
 inputs_merged_hw = inputs_merged_hw.reshape((IN_WIDTH-2), -1)
-#print("#define INPUT_DATA_1", format_array_C(inputs_merged_hw[0::2].flatten().astype(np.uint8)))
-#print("#define INPUT_DATA_2", format_array_C(inputs_merged_hw[1::2].flatten().astype(np.uint8)))
+
+np.save("input_data_1.npy", inputs_merged_hw[0::2])
+np.save("input_data_2.npy", inputs_merged_hw[1::2])
+print("#define INPUT_DATA_1", format_array_C(inputs_merged_hw[0::2].flatten().astype(np.uint8)))
+print("#define INPUT_DATA_2", format_array_C(inputs_merged_hw[1::2].flatten().astype(np.uint8)))
 
 kernels = model.layers[0].get_weights()[0]
 kernels = kernels.reshape(9, -1).T
 
-#print("#define KERNEL_WEIGHTS", format_array_C(kernels.reshape(12, 3, 3).astype(np.int8)))
+print("#define KERNEL_WEIGHTS", format_array_C(kernels.reshape(12, 3, 3).astype(np.int8)))
 
 ch1_kernels = kernels[0::4]
 ch2_kernels = kernels[1::4]
@@ -84,16 +87,14 @@ for i, group in enumerate(kernel_groups):
         out = convolve2d(inputs_merged[j::IN_CHANNELS].reshape(IN_HEIGHT, IN_WIDTH), kernel, mode='valid')
         kernel_sum += out
     
-    print("ks 0", kernel_sum[:2, :2].flatten())
+    print("ks 0", kernel_sum[6:8, :2].flatten())
     
     out = np.maximum(kernel_sum, 0)
     out = block_reduce(out, (2, 2), np.max)
     outputs.append(out)
 
 outputs = np.array(outputs)
-print(outputs[:, 0, 0])
-print(outputs[:, 0, 1])
-print(outputs[:, 0, 2])
-print(outputs[:, 0, 3])
 for i in range(4):
     print(np.array_equal(outputs[i], prediction_merged[i::4].reshape(255, 256)))
+
+print("negative: ", np.sum(outputs < 0))

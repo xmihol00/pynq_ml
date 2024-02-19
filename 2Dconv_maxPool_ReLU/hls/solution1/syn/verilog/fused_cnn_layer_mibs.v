@@ -5,10 +5,10 @@
 `timescale 1 ns / 1 ps
 
 (* use_dsp = "yes" *) module fused_cnn_layer_mibs_DSP48_6(
-    input  [6 - 1:0] in0,
+    input  [5 - 1:0] in0,
     input  [8 - 1:0] in1,
-    input  [14 - 1:0] in2,
-    output [15 - 1:0]  dout);
+    input  [8 - 1:0] in2,
+    output [12 - 1:0]  dout);
 
 wire signed [25 - 1:0]     a;
 wire signed [18 - 1:0]     b;

@@ -8307,21 +8307,19 @@ extern int getloadavg (double __loadavg[], int __nelem)
 typedef ap_axiu<64, 0, 0, 0> axis_in_t;
 typedef ap_axiu<64, 0, 0, 0> axis_out_t;
 
-enum ReadWriteStates { FIRST, SECOND, THIRD, FOURTH };
-
 void fused_cnn_layer(hls::stream<axis_in_t> in[2], hls::stream<axis_out_t> &out);
 # 2 "fused_cnn_layer.cpp" 2
 
-void read_input(uint8_t stripes[3][4][512 + 2], hls::stream<axis_in_t> in[2])
+void read_input(uint8_t stripes[3][6][512 + 2], hls::stream<axis_in_t> in[2])
 {_ssdm_SpecArrayDimSize(stripes, 3);_ssdm_SpecArrayDimSize(in, 2);
 #pragma HLS PIPELINE off
 #pragma HLS inline off
 
- static int8_t iteration = -1;
+ static int8_t iteration = 0;
     static uint8_t row_offset = 0;
     static uint16_t col_offset = 1;
 
-    if (iteration <= 0)
+    if (iteration == 0)
     {
         for (int i = 0; i < 2; i++)
         {
@@ -8354,7 +8352,7 @@ void read_input(uint8_t stripes[3][4][512 + 2], hls::stream<axis_in_t> in[2])
         {
             col_offset = 1;
             row_offset += 2;
-            if (row_offset == 4)
+            if (row_offset == 6)
             {
                 row_offset = 0;
             }
@@ -8372,7 +8370,7 @@ void write_output(hls::stream<int16_t, 4> output[4], hls::stream<axis_out_t> &ou
 {_ssdm_SpecArrayDimSize(output, 4);
 #pragma HLS inline off
 
- static uint16_t sent = 0;
+ static uint32_t sent = 0;
     static uint8_t iteration = 0;
 
     iteration++;
@@ -8387,11 +8385,12 @@ void write_output(hls::stream<int16_t, 4> output[4], hls::stream<axis_out_t> &ou
             high += 16;
             low += 16;
         }
-        out_data.keep = -1;
+        out_data.keep = sent < (512 / 2) ? 0 : -1;
         sent++;
-        if (sent == (512 / 2))
+
+        if (sent == (512 / 2) * 2)
         {
-            out_data.last = -1;
+            out_data.last = 1;
             sent = 0;
         }
         else
@@ -8406,82 +8405,133 @@ void write_output(hls::stream<int16_t, 4> output[4], hls::stream<axis_out_t> &ou
 
 void kernel
 (
-    hls::stream<int16_t, 4> output[4],
+    hls::stream<axis_in_t> in[2],
+    hls::stream<axis_out_t> &out,
     const int8_t kernels[3 * 4][3][3],
-    uint8_t stripes[3][4][512 + 2]
+    uint8_t stripes[3][6][512 + 2]
 )
-{_ssdm_SpecArrayDimSize(output, 4);_ssdm_SpecArrayDimSize(kernels, 12);_ssdm_SpecArrayDimSize(stripes, 3);
-#pragma HLS inline off
+{_ssdm_SpecArrayDimSize(in, 2);_ssdm_SpecArrayDimSize(kernels, 12);_ssdm_SpecArrayDimSize(stripes, 3);
+    static uint32_t global_iteration = 0;
 
- static uint8_t iteration = 0;
-    static uint8_t row_offset = 2;
-    static uint16_t col_offset = 0;
-    static int32_t maxes[4] = {0, };
+    static uint16_t write_col_offset = 1;
+    static uint8_t write_row_offset = 0;
+    static uint8_t channel_idx = 0;
 
-    bool top_offset = iteration >= 2;
-    bool left_offset = iteration & 1;
-    uint16_t local_col_index = col_offset + left_offset;
+    static uint8_t read_row_offset = 0;
+    static uint16_t read_col_offset = 0;
+    static int16_t maxes[4] = {0, };
 
-    int32_t partial_sums[3][4] = {{0, }, };
+    if ((global_iteration & 0x3FF) < 192)
+    {
+        int high = 7;
+        int low = 0;
+        axis_in_t in_data_1 = in[0].read();
+        axis_in_t in_data_2 = in[1].read();
+        for (int k = 0; k < 8; k++)
+        {
+            stripes[channel_idx][write_row_offset][write_col_offset] = in_data_1.data.range(high, low);
+            stripes[channel_idx][write_row_offset + 1][write_col_offset] = in_data_2.data.range(high, low);
+            channel_idx++;
+            if (channel_idx == 3)
+            {
+                channel_idx = 0;
+                write_col_offset++;
+            }
+            high += 8;
+            low += 8;
+        }
+    }
+    else if ((global_iteration & 0x3FF) == 0x3FF)
+    {
+        write_col_offset = 1;
+        write_row_offset += 2;
+        if (write_row_offset == 6)
+        {
+            write_row_offset = 0;
+        }
+    }
+
+    if (global_iteration >= 2048)
+    {
+        bool top_offset = global_iteration & 2;
+        bool left_offset = global_iteration & 1;
+        uint16_t local_col_index = read_col_offset + left_offset;
+
+        int16_t partial_sums[3][4] = {{0, }, };
 #pragma HLS ARRAY_PARTITION variable=&partial_sums complete
 
  for (int l = 0; l < 3; l++)
-    {
-        for (int m = 0; m < 3; m++)
         {
-            for (int j = 0; j < 3; j++)
+            uint8_t row_idx = read_row_offset + l + top_offset;
+            if (row_idx >= 6)
             {
-                for (int k = 0; k < 4; k++)
+                row_idx -= 6;
+            }
+            for (int m = 0; m < 3; m++)
+            {
+                for (int j = 0; j < 3; j++)
                 {
-                    uint8_t row_idx = row_offset + l + top_offset;
-                    if (row_idx >= 4)
+                    for (int k = 0; k < 4; k++)
                     {
-                        row_idx -= 4;
+                        partial_sums[j][k] += kernels[j * 4 + k][l][m] * stripes[j][row_idx][local_col_index + m];
                     }
-                    partial_sums[j][k] += kernels[j * 4 + k][l][m] * stripes[j][row_idx][local_col_index + m];
+                }
+            }
+        }
+
+        int16_t kernel_sums[4] = {0, };
+        for (int k = 0; k < 4; k++)
+        {
+#pragma HLS UNROLL
+ for (int j = 0; j < 3; j++)
+            {
+                kernel_sums[k] += partial_sums[j][k];
+            }
+        }
+
+        for (int j = 0; j < 4; j++)
+        {
+#pragma HLS UNROLL
+ maxes[j] = kernel_sums[j] > maxes[j] ? kernel_sums[j] : maxes[j];
+        }
+
+        if ((global_iteration & 0b11) == 0b11)
+        {
+            int high = 15;
+            int low = 0;
+            axis_out_t out_data;
+            for (int k = 0; k < 4; k++)
+            {
+                out_data.data.range(high, low) = maxes[k];
+                high += 16;
+                low += 16;
+                maxes[k] = 0;
+            }
+            out_data.keep = -1;
+            out_data.last = 0;
+
+            if (global_iteration == 258*1024 - 1)
+            {
+                out_data.last = 1;
+                global_iteration = -1;
+            }
+
+            out.write(out_data);
+
+            read_col_offset += 2;
+            if (read_col_offset == 512)
+            {
+                read_col_offset = 0;
+                read_row_offset += 2;
+                if (read_row_offset == 6)
+                {
+                    read_row_offset = 0;
                 }
             }
         }
     }
 
-    int32_t kernel_sums[4] = {0, };
-    for (int k = 0; k < 4; k++)
-    {
-#pragma HLS UNROLL
- for (int j = 0; j < 3; j++)
-        {
-            kernel_sums[k] += partial_sums[j][k];
-        }
-    }
-
-    for (int j = 0; j < 4; j++)
-    {
-#pragma HLS UNROLL
- maxes[j] = kernel_sums[j] > maxes[j] ? kernel_sums[j] : maxes[j];
-    }
-
-    iteration++;
-    if (iteration == 4)
-    {
-        for (int i = 0; i < 4; i++)
-        {
-            output[i].write(maxes[i]);
-            maxes[i] = 0;
-        }
-
-        col_offset += 2;
-        if (col_offset == 512)
-        {
-            col_offset = 0;
-            row_offset += 2;
-            if (row_offset == 4)
-            {
-                row_offset = 0;
-            }
-        }
-
-        iteration = 0;
-    }
+    global_iteration++;
 }
 
 void fused_cnn_layer(hls::stream<axis_in_t> in[2], hls::stream<axis_out_t> &out)
@@ -8490,13 +8540,13 @@ void fused_cnn_layer(hls::stream<axis_in_t> in[2], hls::stream<axis_out_t> &out)
 #pragma HLS INTERFACE axis port=&out
 #pragma HLS INTERFACE ap_ctrl_none port=return
 
- static const int8_t kernels[3 * 4][3][3] = { {{ 6, -22, 11 }, { 11, 29, 18 }, { -24, 14, 9 }}, {{ 19, -22, -3 }, { -8, 29, -26 }, { -7, 2, -29 }}, {{ -4, -9, 5 }, { 16, 14, -12 }, { 20, -19, 21 }}, {{ -18, 20, -31 }, { -6, 29, -24 }, { -31, -16, -4 }}, {{ 10, 3, 31 }, { 26, 18, 6 }, { -13, 3, 30 }}, {{ -25, 7, 27 }, { 30, 11, -15 }, { -5, 17, -15 }}, {{ 28, -9, -12 }, { 9, 22, -29 }, { 14, 7, -7 }}, {{ -12, -30, 0 }, { 31, 19, -8 }, { 27, -29, 11 }}, {{ 6, -11, -21 }, { -5, 31, 27 }, { -26, -31, 1 }}, {{ 25, 20, 25 }, { 27, 24, -19 }, { 11, 29, -23 }}, {{ -14, -31, -11 }, { -17, -30, 17 }, { 28, -27, 29 }}, {{ -10, -9, 28 }, { -18, 4, 25 }, { -25, 21, 3 }}};
+ static const int8_t kernels[3 * 4][3][3] = { {{ -10, -6, -5 }, { -5, 13, 2 }, { -8, -2, -7 }}, {{ 3, -6, 13 }, { 8, 13, -10 }, { 9, -14, -13 }}, {{ 12, 7, -11 }, { 0, -2, 4 }, { 4, -3, 5 }}, {{ -2, 4, -15 }, { 10, 13, -8 }, { -15, 0, 12 }}, {{ -6, -13, 15 }, { 10, 2, -10 }, { 3, -13, 14 }}, {{ -9, -9, 11 }, { 14, -5, 1 }, { 11, 1, 1 }}, {{ 12, 7, 4 }, { -7, 6, -13 }, { -2, -9, 9 }}, {{ 4, -14, -16 }, { 15, 3, 8 }, { 11, -13, -5 }}, {{ -10, 5, -5 }, { 11, 15, 11 }, { -10, -15, -15 }}, {{ 9, 4, 9 }, { 11, 8, -3 }, { -5, 13, -7 }}, {{ 2, -15, 5 }, { -1, -14, 1 }, { 12, -11, 13 }}, {{ 6, 7, 12 }, { -2, -12, 9 }, { -9, 5, -13 }} };
 _ssdm_SpecConstant(kernels);
-# 181 "fused_cnn_layer.cpp"
+# 233 "fused_cnn_layer.cpp"
 
 #pragma HLS ARRAY_PARTITION variable=&kernels block factor=12 dim=1
 
- static uint8_t stripes[3][4][512 + 2] = {{0, } };
+ static uint8_t stripes[3][6][512 + 2] = {{0, } };
 #pragma HLS RESOURCE variable=&stripes core=RAM_2P_BRAM
 #pragma HLS ARRAY_PARTITION variable=&stripes complete dim=1
 #pragma HLS ARRAY_PARTITION variable=&stripes complete dim=2
@@ -8507,9 +8557,9 @@ _ssdm_SpecConstant(kernels);
 
 
 
- hls::stream<int16_t, 4> output[4];
 
-    read_input(stripes, in);
-    kernel(output, kernels, stripes);
-    write_output(output, out);
+
+
+ kernel(in, out, kernels, stripes);
+
 }

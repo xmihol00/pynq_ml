@@ -81,8 +81,8 @@
     "ClockName": "ap_clk",
     "ClockPeriod": "10",
     "IsCombLogic": "0",
-    "II": "25",
-    "Latency": "28",
+    "II": "22",
+    "Latency": "24",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -100,7 +100,6 @@
   "Files": {
     "CSource": ["..\/..\/fused_cnn_layer.cpp"],
     "Vhdl": [
-      "impl\/vhdl\/fifo_w16_d4_A.vhd",
       "impl\/vhdl\/fused_cnn_layer_mbkb.vhd",
       "impl\/vhdl\/fused_cnn_layer_mcud.vhd",
       "impl\/vhdl\/fused_cnn_layer_mdEe.vhd",
@@ -110,30 +109,13 @@
       "impl\/vhdl\/fused_cnn_layer_mhbi.vhd",
       "impl\/vhdl\/fused_cnn_layer_mibs.vhd",
       "impl\/vhdl\/fused_cnn_layer_mjbC.vhd",
-      "impl\/vhdl\/fused_cnn_layer_mkbM.vhd",
-      "impl\/vhdl\/fused_cnn_layer_mlbW.vhd",
-      "impl\/vhdl\/fused_cnn_layer_mmb6.vhd",
-      "impl\/vhdl\/fused_cnn_layer_mncg.vhd",
-      "impl\/vhdl\/fused_cnn_layer_mocq.vhd",
-      "impl\/vhdl\/fused_cnn_layer_mpcA.vhd",
-      "impl\/vhdl\/fused_cnn_layer_mqcK.vhd",
-      "impl\/vhdl\/fused_cnn_layer_mrcU.vhd",
-      "impl\/vhdl\/fused_cnn_layer_msc4.vhd",
-      "impl\/vhdl\/fused_cnn_layer_mtde.vhd",
-      "impl\/vhdl\/fused_cnn_layer_mudo.vhd",
-      "impl\/vhdl\/fused_cnn_layer_mvdy.vhd",
-      "impl\/vhdl\/fused_cnn_layer_mwdI.vhd",
-      "impl\/vhdl\/fused_cnn_layer_mxdS.vhd",
-      "impl\/vhdl\/fused_cnn_layer_syd2.vhd",
-      "impl\/vhdl\/fused_cnn_layer_syd2_ram.vhd",
       "impl\/vhdl\/kernel.vhd",
-      "impl\/vhdl\/read_input.vhd",
+      "impl\/vhdl\/kernel_stripes_0_0.vhd",
+      "impl\/vhdl\/kernel_stripes_0_0_ram.vhd",
       "impl\/vhdl\/regslice_core.vhd",
-      "impl\/vhdl\/write_output.vhd",
       "impl\/vhdl\/fused_cnn_layer.vhd"
     ],
     "Verilog": [
-      "impl\/verilog\/fifo_w16_d4_A.v",
       "impl\/verilog\/fused_cnn_layer_mbkb.v",
       "impl\/verilog\/fused_cnn_layer_mcud.v",
       "impl\/verilog\/fused_cnn_layer_mdEe.v",
@@ -143,26 +125,10 @@
       "impl\/verilog\/fused_cnn_layer_mhbi.v",
       "impl\/verilog\/fused_cnn_layer_mibs.v",
       "impl\/verilog\/fused_cnn_layer_mjbC.v",
-      "impl\/verilog\/fused_cnn_layer_mkbM.v",
-      "impl\/verilog\/fused_cnn_layer_mlbW.v",
-      "impl\/verilog\/fused_cnn_layer_mmb6.v",
-      "impl\/verilog\/fused_cnn_layer_mncg.v",
-      "impl\/verilog\/fused_cnn_layer_mocq.v",
-      "impl\/verilog\/fused_cnn_layer_mpcA.v",
-      "impl\/verilog\/fused_cnn_layer_mqcK.v",
-      "impl\/verilog\/fused_cnn_layer_mrcU.v",
-      "impl\/verilog\/fused_cnn_layer_msc4.v",
-      "impl\/verilog\/fused_cnn_layer_mtde.v",
-      "impl\/verilog\/fused_cnn_layer_mudo.v",
-      "impl\/verilog\/fused_cnn_layer_mvdy.v",
-      "impl\/verilog\/fused_cnn_layer_mwdI.v",
-      "impl\/verilog\/fused_cnn_layer_mxdS.v",
-      "impl\/verilog\/fused_cnn_layer_syd2.v",
-      "impl\/verilog\/fused_cnn_layer_syd2_ram.v",
       "impl\/verilog\/kernel.v",
-      "impl\/verilog\/read_input.v",
+      "impl\/verilog\/kernel_stripes_0_0.v",
+      "impl\/verilog\/kernel_stripes_0_0_ram.v",
       "impl\/verilog\/regslice_core.v",
-      "impl\/verilog\/write_output.v",
       "impl\/verilog\/fused_cnn_layer.v"
     ],
     "Misc": ["impl\/misc\/logo.png"],
@@ -376,37 +342,13 @@
   "ModuleInfo": {
     "Hierarchy": {
       "ModuleName": "fused_cnn_layer",
-      "Instances": [
-        {
+      "Instances": [{
           "ModuleName": "kernel",
-          "InstanceName": "grp_kernel_fu_144"
-        },
-        {
-          "ModuleName": "read_input",
-          "InstanceName": "grp_read_input_fu_190"
-        },
-        {
-          "ModuleName": "write_output",
-          "InstanceName": "grp_write_output_fu_240"
-        }
-      ]
+          "InstanceName": "grp_kernel_fu_112"
+        }]
     },
     "Info": {
-      "read_input": {
-        "FunctionProtocol": "ap_ctrl_hs",
-        "isTaskLevelControl": "1",
-        "isPipelined": "1",
-        "isCombinational": "0",
-        "isOneStateSeq": "0"
-      },
       "kernel": {
-        "FunctionProtocol": "ap_ctrl_hs",
-        "isTaskLevelControl": "1",
-        "isPipelined": "1",
-        "isCombinational": "0",
-        "isOneStateSeq": "0"
-      },
-      "write_output": {
         "FunctionProtocol": "ap_ctrl_hs",
         "isTaskLevelControl": "1",
         "isPipelined": "1",
@@ -422,91 +364,47 @@
       }
     },
     "Metrics": {
-      "read_input": {
-        "Latency": {
-          "LatencyBest": "16",
-          "LatencyAvg": "16",
-          "LatencyWorst": "16",
-          "PipelineII": "16",
-          "PipelineDepth": "17",
-          "PipelineType": "function"
-        },
-        "Timing": {
-          "Target": "10.00",
-          "Uncertainty": "1.25",
-          "Estimate": "6.275"
-        },
-        "Area": {
-          "FF": "573",
-          "LUT": "2016",
-          "BRAM_18K": "0",
-          "DSP48E": "0",
-          "URAM": "0"
-        }
-      },
       "kernel": {
         "Latency": {
-          "LatencyBest": "7",
-          "LatencyAvg": "7",
-          "LatencyWorst": "7",
-          "PipelineII": "6",
-          "PipelineDepth": "8",
+          "LatencyBest": "22",
+          "LatencyAvg": "22",
+          "LatencyWorst": "22",
+          "PipelineII": "22",
+          "PipelineDepth": "23",
           "PipelineType": "function"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "10.401"
+          "Estimate": "10.224"
         },
         "Area": {
-          "DSP48E": "28",
-          "FF": "1632",
-          "LUT": "4155",
-          "BRAM_18K": "0",
-          "URAM": "0"
-        }
-      },
-      "write_output": {
-        "Latency": {
-          "LatencyBest": "1",
-          "LatencyAvg": "1",
-          "LatencyWorst": "1",
-          "PipelineII": "1",
-          "PipelineDepth": "2",
-          "PipelineType": "function"
-        },
-        "Timing": {
-          "Target": "10.00",
-          "Uncertainty": "1.25",
-          "Estimate": "5.311"
-        },
-        "Area": {
-          "FF": "35",
-          "LUT": "161",
-          "BRAM_18K": "0",
-          "DSP48E": "0",
+          "BRAM_18K": "18",
+          "DSP48E": "11",
+          "FF": "12547",
+          "LUT": "20644",
           "URAM": "0"
         }
       },
       "fused_cnn_layer": {
         "Latency": {
-          "LatencyBest": "28",
-          "LatencyAvg": "28",
-          "LatencyWorst": "28",
-          "PipelineII": "25",
-          "PipelineDepth": "29",
+          "LatencyBest": "24",
+          "LatencyAvg": "24",
+          "LatencyWorst": "24",
+          "PipelineII": "22",
+          "PipelineDepth": "25",
           "PipelineType": "function"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "10.401"
+          "Estimate": "10.224"
         },
         "Area": {
-          "BRAM_18K": "12",
-          "DSP48E": "28",
-          "FF": "8457",
-          "LUT": "15336",
+          "BRAM_18K": "18",
+          "DSP48E": "11",
+          "FF": "12571",
+          "LUT": "20810",
           "URAM": "0"
         }
       }
@@ -522,7 +420,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2024-02-18 14:42:17 CET",
+    "Time": "2024-02-19 23:44:31 CET",
     "ToolName": "vivado_hls",
     "ToolVersion": "2020.1"
   }

@@ -3,169 +3,145 @@
 
 <trans_list>
 
-<trans id="119" from="1" to="2">
+<trans id="95" from="1" to="2">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="120" from="2" to="3">
+<trans id="96" from="2" to="3">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="121" from="3" to="4">
+<trans id="97" from="3" to="4">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="122" from="4" to="5">
+<trans id="98" from="4" to="5">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="123" from="5" to="6">
+<trans id="99" from="5" to="6">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="124" from="6" to="7">
+<trans id="100" from="6" to="7">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="125" from="7" to="8">
+<trans id="101" from="7" to="8">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="126" from="8" to="9">
+<trans id="102" from="8" to="9">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="127" from="9" to="10">
+<trans id="103" from="9" to="10">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="128" from="10" to="11">
+<trans id="104" from="10" to="11">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="129" from="11" to="12">
+<trans id="105" from="11" to="12">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="130" from="12" to="13">
+<trans id="106" from="12" to="13">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="131" from="13" to="14">
+<trans id="107" from="13" to="14">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="132" from="14" to="15">
+<trans id="108" from="14" to="15">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="133" from="15" to="16">
+<trans id="109" from="15" to="16">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="134" from="16" to="17">
+<trans id="110" from="16" to="17">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="135" from="17" to="18">
+<trans id="111" from="17" to="18">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="136" from="18" to="19">
+<trans id="112" from="18" to="19">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="137" from="19" to="20">
+<trans id="113" from="19" to="20">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="138" from="20" to="21">
+<trans id="114" from="20" to="21">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="139" from="21" to="22">
+<trans id="115" from="21" to="22">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="140" from="22" to="23">
+<trans id="116" from="22" to="23">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="141" from="23" to="24">
+<trans id="117" from="23" to="24">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="142" from="24" to="25">
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-</trans>
-
-<trans id="143" from="25" to="26">
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-</trans>
-
-<trans id="144" from="26" to="27">
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-</trans>
-
-<trans id="145" from="27" to="28">
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-</trans>
-
-<trans id="146" from="28" to="29">
+<trans id="118" from="24" to="25">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
@@ -177,617 +153,455 @@
 <state_list>
 
 <state id="1" st_id="1">
-
-<operation id="30" st_id="1" stage="1" lat="1">
-<core>FIFO</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="57" bw="16" op_0_bw="64">
-<![CDATA[
-arrayctor.loop.0:13  %output_0_V = alloca i16, align 2
-
-]]></Node>
-<StgValue><ssdm name="output_0_V"/></StgValue>
-</operation>
-
-<operation id="31" st_id="1" stage="1" lat="1">
-<core>FIFO</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="60" bw="16" op_0_bw="64">
-<![CDATA[
-arrayctor.loop.0:16  %output_1_V = alloca i16, align 2
-
-]]></Node>
-<StgValue><ssdm name="output_1_V"/></StgValue>
-</operation>
-
-<operation id="32" st_id="1" stage="1" lat="1">
-<core>FIFO</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="63" bw="16" op_0_bw="64">
-<![CDATA[
-arrayctor.loop.0:19  %output_2_V = alloca i16, align 2
-
-]]></Node>
-<StgValue><ssdm name="output_2_V"/></StgValue>
-</operation>
-
-<operation id="33" st_id="1" stage="1" lat="1">
-<core>FIFO</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="66" bw="16" op_0_bw="64">
-<![CDATA[
-arrayctor.loop.0:22  %output_3_V = alloca i16, align 2
-
-]]></Node>
-<StgValue><ssdm name="output_3_V"/></StgValue>
-</operation>
 </state>
 
 <state id="2" st_id="2">
 
-<operation id="34" st_id="2" stage="17" lat="17">
+<operation id="26" st_id="2" stage="23" lat="23">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="76" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="8" op_10_bw="16" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8">
+<Node id="66" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="64" op_10_bw="8" op_11_bw="8" op_12_bw="1" op_13_bw="32" op_14_bw="16" op_15_bw="8" op_16_bw="8" op_17_bw="16" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="16" op_38_bw="16" op_39_bw="16" op_40_bw="16">
 <![CDATA[
-arrayctor.loop.0:32  call fastcc void @read_input(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V)
+:20  call fastcc void @kernel(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln197"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
 <state id="3" st_id="3">
 
-<operation id="35" st_id="3" stage="16" lat="17">
+<operation id="27" st_id="3" stage="22" lat="23">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="76" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="8" op_10_bw="16" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8">
+<Node id="66" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="64" op_10_bw="8" op_11_bw="8" op_12_bw="1" op_13_bw="32" op_14_bw="16" op_15_bw="8" op_16_bw="8" op_17_bw="16" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="16" op_38_bw="16" op_39_bw="16" op_40_bw="16">
 <![CDATA[
-arrayctor.loop.0:32  call fastcc void @read_input(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V)
+:20  call fastcc void @kernel(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln197"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
 <state id="4" st_id="4">
 
-<operation id="36" st_id="4" stage="15" lat="17">
+<operation id="28" st_id="4" stage="21" lat="23">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="76" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="8" op_10_bw="16" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8">
+<Node id="66" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="64" op_10_bw="8" op_11_bw="8" op_12_bw="1" op_13_bw="32" op_14_bw="16" op_15_bw="8" op_16_bw="8" op_17_bw="16" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="16" op_38_bw="16" op_39_bw="16" op_40_bw="16">
 <![CDATA[
-arrayctor.loop.0:32  call fastcc void @read_input(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V)
+:20  call fastcc void @kernel(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln197"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
 <state id="5" st_id="5">
 
-<operation id="37" st_id="5" stage="14" lat="17">
+<operation id="29" st_id="5" stage="20" lat="23">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="76" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="8" op_10_bw="16" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8">
+<Node id="66" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="64" op_10_bw="8" op_11_bw="8" op_12_bw="1" op_13_bw="32" op_14_bw="16" op_15_bw="8" op_16_bw="8" op_17_bw="16" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="16" op_38_bw="16" op_39_bw="16" op_40_bw="16">
 <![CDATA[
-arrayctor.loop.0:32  call fastcc void @read_input(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V)
+:20  call fastcc void @kernel(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln197"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
 <state id="6" st_id="6">
 
-<operation id="38" st_id="6" stage="13" lat="17">
+<operation id="30" st_id="6" stage="19" lat="23">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="76" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="8" op_10_bw="16" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8">
+<Node id="66" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="64" op_10_bw="8" op_11_bw="8" op_12_bw="1" op_13_bw="32" op_14_bw="16" op_15_bw="8" op_16_bw="8" op_17_bw="16" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="16" op_38_bw="16" op_39_bw="16" op_40_bw="16">
 <![CDATA[
-arrayctor.loop.0:32  call fastcc void @read_input(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V)
+:20  call fastcc void @kernel(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln197"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
 <state id="7" st_id="7">
 
-<operation id="39" st_id="7" stage="12" lat="17">
+<operation id="31" st_id="7" stage="18" lat="23">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="76" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="8" op_10_bw="16" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8">
+<Node id="66" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="64" op_10_bw="8" op_11_bw="8" op_12_bw="1" op_13_bw="32" op_14_bw="16" op_15_bw="8" op_16_bw="8" op_17_bw="16" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="16" op_38_bw="16" op_39_bw="16" op_40_bw="16">
 <![CDATA[
-arrayctor.loop.0:32  call fastcc void @read_input(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V)
+:20  call fastcc void @kernel(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln197"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
 <state id="8" st_id="8">
 
-<operation id="40" st_id="8" stage="11" lat="17">
+<operation id="32" st_id="8" stage="17" lat="23">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="76" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="8" op_10_bw="16" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8">
+<Node id="66" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="64" op_10_bw="8" op_11_bw="8" op_12_bw="1" op_13_bw="32" op_14_bw="16" op_15_bw="8" op_16_bw="8" op_17_bw="16" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="16" op_38_bw="16" op_39_bw="16" op_40_bw="16">
 <![CDATA[
-arrayctor.loop.0:32  call fastcc void @read_input(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V)
+:20  call fastcc void @kernel(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln197"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
 <state id="9" st_id="9">
 
-<operation id="41" st_id="9" stage="10" lat="17">
+<operation id="33" st_id="9" stage="16" lat="23">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="76" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="8" op_10_bw="16" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8">
+<Node id="66" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="64" op_10_bw="8" op_11_bw="8" op_12_bw="1" op_13_bw="32" op_14_bw="16" op_15_bw="8" op_16_bw="8" op_17_bw="16" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="16" op_38_bw="16" op_39_bw="16" op_40_bw="16">
 <![CDATA[
-arrayctor.loop.0:32  call fastcc void @read_input(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V)
+:20  call fastcc void @kernel(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln197"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
 <state id="10" st_id="10">
 
-<operation id="42" st_id="10" stage="9" lat="17">
+<operation id="34" st_id="10" stage="15" lat="23">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="76" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="8" op_10_bw="16" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8">
+<Node id="66" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="64" op_10_bw="8" op_11_bw="8" op_12_bw="1" op_13_bw="32" op_14_bw="16" op_15_bw="8" op_16_bw="8" op_17_bw="16" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="16" op_38_bw="16" op_39_bw="16" op_40_bw="16">
 <![CDATA[
-arrayctor.loop.0:32  call fastcc void @read_input(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V)
+:20  call fastcc void @kernel(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln197"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
 <state id="11" st_id="11">
 
-<operation id="43" st_id="11" stage="8" lat="17">
+<operation id="35" st_id="11" stage="14" lat="23">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="76" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="8" op_10_bw="16" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8">
+<Node id="66" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="64" op_10_bw="8" op_11_bw="8" op_12_bw="1" op_13_bw="32" op_14_bw="16" op_15_bw="8" op_16_bw="8" op_17_bw="16" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="16" op_38_bw="16" op_39_bw="16" op_40_bw="16">
 <![CDATA[
-arrayctor.loop.0:32  call fastcc void @read_input(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V)
+:20  call fastcc void @kernel(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln197"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
 <state id="12" st_id="12">
 
-<operation id="44" st_id="12" stage="7" lat="17">
+<operation id="36" st_id="12" stage="13" lat="23">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="76" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="8" op_10_bw="16" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8">
+<Node id="66" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="64" op_10_bw="8" op_11_bw="8" op_12_bw="1" op_13_bw="32" op_14_bw="16" op_15_bw="8" op_16_bw="8" op_17_bw="16" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="16" op_38_bw="16" op_39_bw="16" op_40_bw="16">
 <![CDATA[
-arrayctor.loop.0:32  call fastcc void @read_input(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V)
+:20  call fastcc void @kernel(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln197"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
 <state id="13" st_id="13">
 
-<operation id="45" st_id="13" stage="6" lat="17">
+<operation id="37" st_id="13" stage="12" lat="23">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="76" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="8" op_10_bw="16" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8">
+<Node id="66" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="64" op_10_bw="8" op_11_bw="8" op_12_bw="1" op_13_bw="32" op_14_bw="16" op_15_bw="8" op_16_bw="8" op_17_bw="16" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="16" op_38_bw="16" op_39_bw="16" op_40_bw="16">
 <![CDATA[
-arrayctor.loop.0:32  call fastcc void @read_input(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V)
+:20  call fastcc void @kernel(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln197"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
 <state id="14" st_id="14">
 
-<operation id="46" st_id="14" stage="5" lat="17">
+<operation id="38" st_id="14" stage="11" lat="23">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="76" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="8" op_10_bw="16" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8">
+<Node id="66" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="64" op_10_bw="8" op_11_bw="8" op_12_bw="1" op_13_bw="32" op_14_bw="16" op_15_bw="8" op_16_bw="8" op_17_bw="16" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="16" op_38_bw="16" op_39_bw="16" op_40_bw="16">
 <![CDATA[
-arrayctor.loop.0:32  call fastcc void @read_input(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V)
+:20  call fastcc void @kernel(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln197"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
 <state id="15" st_id="15">
 
-<operation id="47" st_id="15" stage="4" lat="17">
+<operation id="39" st_id="15" stage="10" lat="23">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="76" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="8" op_10_bw="16" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8">
+<Node id="66" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="64" op_10_bw="8" op_11_bw="8" op_12_bw="1" op_13_bw="32" op_14_bw="16" op_15_bw="8" op_16_bw="8" op_17_bw="16" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="16" op_38_bw="16" op_39_bw="16" op_40_bw="16">
 <![CDATA[
-arrayctor.loop.0:32  call fastcc void @read_input(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V)
+:20  call fastcc void @kernel(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln197"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
 <state id="16" st_id="16">
 
-<operation id="48" st_id="16" stage="3" lat="17">
+<operation id="40" st_id="16" stage="9" lat="23">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="76" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="8" op_10_bw="16" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8">
+<Node id="66" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="64" op_10_bw="8" op_11_bw="8" op_12_bw="1" op_13_bw="32" op_14_bw="16" op_15_bw="8" op_16_bw="8" op_17_bw="16" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="16" op_38_bw="16" op_39_bw="16" op_40_bw="16">
 <![CDATA[
-arrayctor.loop.0:32  call fastcc void @read_input(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V)
+:20  call fastcc void @kernel(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln197"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
 <state id="17" st_id="17">
 
-<operation id="49" st_id="17" stage="2" lat="17">
+<operation id="41" st_id="17" stage="8" lat="23">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="76" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="8" op_10_bw="16" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8">
+<Node id="66" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="64" op_10_bw="8" op_11_bw="8" op_12_bw="1" op_13_bw="32" op_14_bw="16" op_15_bw="8" op_16_bw="8" op_17_bw="16" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="16" op_38_bw="16" op_39_bw="16" op_40_bw="16">
 <![CDATA[
-arrayctor.loop.0:32  call fastcc void @read_input(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V)
+:20  call fastcc void @kernel(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln197"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
 <state id="18" st_id="18">
 
-<operation id="50" st_id="18" stage="1" lat="17">
+<operation id="42" st_id="18" stage="7" lat="23">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="76" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="8" op_10_bw="16" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8">
+<Node id="66" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="64" op_10_bw="8" op_11_bw="8" op_12_bw="1" op_13_bw="32" op_14_bw="16" op_15_bw="8" op_16_bw="8" op_17_bw="16" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="16" op_38_bw="16" op_39_bw="16" op_40_bw="16">
 <![CDATA[
-arrayctor.loop.0:32  call fastcc void @read_input(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V)
+:20  call fastcc void @kernel(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln197"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
 <state id="19" st_id="19">
 
-<operation id="51" st_id="19" stage="8" lat="8">
+<operation id="43" st_id="19" stage="6" lat="23">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="77" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16" op_3_bw="16" op_4_bw="16" op_5_bw="8" op_6_bw="16" op_7_bw="8" op_8_bw="8" op_9_bw="8" op_10_bw="8" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="32" op_21_bw="32" op_22_bw="32" op_23_bw="32" op_24_bw="0" op_25_bw="0">
+<Node id="66" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="64" op_10_bw="8" op_11_bw="8" op_12_bw="1" op_13_bw="32" op_14_bw="16" op_15_bw="8" op_16_bw="8" op_17_bw="16" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="16" op_38_bw="16" op_39_bw="16" op_40_bw="16">
 <![CDATA[
-arrayctor.loop.0:33  call fastcc void @kernel(i16* %output_0_V, i16* %output_1_V, i16* %output_2_V, i16* %output_3_V)
+:20  call fastcc void @kernel(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln198"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
 <state id="20" st_id="20">
 
-<operation id="52" st_id="20" stage="7" lat="8">
+<operation id="44" st_id="20" stage="5" lat="23">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="77" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16" op_3_bw="16" op_4_bw="16" op_5_bw="8" op_6_bw="16" op_7_bw="8" op_8_bw="8" op_9_bw="8" op_10_bw="8" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="32" op_21_bw="32" op_22_bw="32" op_23_bw="32" op_24_bw="0" op_25_bw="0">
+<Node id="66" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="64" op_10_bw="8" op_11_bw="8" op_12_bw="1" op_13_bw="32" op_14_bw="16" op_15_bw="8" op_16_bw="8" op_17_bw="16" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="16" op_38_bw="16" op_39_bw="16" op_40_bw="16">
 <![CDATA[
-arrayctor.loop.0:33  call fastcc void @kernel(i16* %output_0_V, i16* %output_1_V, i16* %output_2_V, i16* %output_3_V)
+:20  call fastcc void @kernel(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln198"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
 <state id="21" st_id="21">
 
-<operation id="53" st_id="21" stage="6" lat="8">
+<operation id="45" st_id="21" stage="4" lat="23">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="77" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16" op_3_bw="16" op_4_bw="16" op_5_bw="8" op_6_bw="16" op_7_bw="8" op_8_bw="8" op_9_bw="8" op_10_bw="8" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="32" op_21_bw="32" op_22_bw="32" op_23_bw="32" op_24_bw="0" op_25_bw="0">
+<Node id="66" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="64" op_10_bw="8" op_11_bw="8" op_12_bw="1" op_13_bw="32" op_14_bw="16" op_15_bw="8" op_16_bw="8" op_17_bw="16" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="16" op_38_bw="16" op_39_bw="16" op_40_bw="16">
 <![CDATA[
-arrayctor.loop.0:33  call fastcc void @kernel(i16* %output_0_V, i16* %output_1_V, i16* %output_2_V, i16* %output_3_V)
+:20  call fastcc void @kernel(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln198"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
 <state id="22" st_id="22">
 
-<operation id="54" st_id="22" stage="5" lat="8">
+<operation id="46" st_id="22" stage="3" lat="23">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="77" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16" op_3_bw="16" op_4_bw="16" op_5_bw="8" op_6_bw="16" op_7_bw="8" op_8_bw="8" op_9_bw="8" op_10_bw="8" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="32" op_21_bw="32" op_22_bw="32" op_23_bw="32" op_24_bw="0" op_25_bw="0">
+<Node id="66" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="64" op_10_bw="8" op_11_bw="8" op_12_bw="1" op_13_bw="32" op_14_bw="16" op_15_bw="8" op_16_bw="8" op_17_bw="16" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="16" op_38_bw="16" op_39_bw="16" op_40_bw="16">
 <![CDATA[
-arrayctor.loop.0:33  call fastcc void @kernel(i16* %output_0_V, i16* %output_1_V, i16* %output_2_V, i16* %output_3_V)
+:20  call fastcc void @kernel(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln198"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
 <state id="23" st_id="23">
 
-<operation id="55" st_id="23" stage="4" lat="8">
+<operation id="47" st_id="23" stage="2" lat="23">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="77" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16" op_3_bw="16" op_4_bw="16" op_5_bw="8" op_6_bw="16" op_7_bw="8" op_8_bw="8" op_9_bw="8" op_10_bw="8" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="32" op_21_bw="32" op_22_bw="32" op_23_bw="32" op_24_bw="0" op_25_bw="0">
+<Node id="66" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="64" op_10_bw="8" op_11_bw="8" op_12_bw="1" op_13_bw="32" op_14_bw="16" op_15_bw="8" op_16_bw="8" op_17_bw="16" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="16" op_38_bw="16" op_39_bw="16" op_40_bw="16">
 <![CDATA[
-arrayctor.loop.0:33  call fastcc void @kernel(i16* %output_0_V, i16* %output_1_V, i16* %output_2_V, i16* %output_3_V)
+:20  call fastcc void @kernel(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln198"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
 <state id="24" st_id="24">
 
-<operation id="56" st_id="24" stage="3" lat="8">
+<operation id="48" st_id="24" stage="1" lat="23">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="77" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16" op_3_bw="16" op_4_bw="16" op_5_bw="8" op_6_bw="16" op_7_bw="8" op_8_bw="8" op_9_bw="8" op_10_bw="8" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="32" op_21_bw="32" op_22_bw="32" op_23_bw="32" op_24_bw="0" op_25_bw="0">
+<Node id="66" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="1" op_8_bw="1" op_9_bw="64" op_10_bw="8" op_11_bw="8" op_12_bw="1" op_13_bw="32" op_14_bw="16" op_15_bw="8" op_16_bw="8" op_17_bw="16" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="16" op_38_bw="16" op_39_bw="16" op_40_bw="16">
 <![CDATA[
-arrayctor.loop.0:33  call fastcc void @kernel(i16* %output_0_V, i16* %output_1_V, i16* %output_2_V, i16* %output_3_V)
+:20  call fastcc void @kernel(i64* %in_0_V_data_V, i64* %in_1_V_data_V, i8* %in_0_V_keep_V, i8* %in_1_V_keep_V, i8* %in_0_V_strb_V, i8* %in_1_V_strb_V, i1* %in_0_V_last_V, i1* %in_1_V_last_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln198"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
 <state id="25" st_id="25">
 
-<operation id="57" st_id="25" stage="2" lat="8">
-<core></core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="77" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16" op_3_bw="16" op_4_bw="16" op_5_bw="8" op_6_bw="16" op_7_bw="8" op_8_bw="8" op_9_bw="8" op_10_bw="8" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="32" op_21_bw="32" op_22_bw="32" op_23_bw="32" op_24_bw="0" op_25_bw="0">
-<![CDATA[
-arrayctor.loop.0:33  call fastcc void @kernel(i16* %output_0_V, i16* %output_1_V, i16* %output_2_V, i16* %output_3_V)
-
-]]></Node>
-<StgValue><ssdm name="call_ln198"/></StgValue>
-</operation>
-</state>
-
-<state id="26" st_id="26">
-
-<operation id="58" st_id="26" stage="1" lat="8">
-<core></core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="77" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16" op_3_bw="16" op_4_bw="16" op_5_bw="8" op_6_bw="16" op_7_bw="8" op_8_bw="8" op_9_bw="8" op_10_bw="8" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="32" op_21_bw="32" op_22_bw="32" op_23_bw="32" op_24_bw="0" op_25_bw="0">
-<![CDATA[
-arrayctor.loop.0:33  call fastcc void @kernel(i16* %output_0_V, i16* %output_1_V, i16* %output_2_V, i16* %output_3_V)
-
-]]></Node>
-<StgValue><ssdm name="call_ln198"/></StgValue>
-</operation>
-</state>
-
-<state id="27" st_id="27">
-
-<operation id="59" st_id="27" stage="2" lat="2">
-<core></core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="78" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16" op_3_bw="16" op_4_bw="16" op_5_bw="64" op_6_bw="8" op_7_bw="8" op_8_bw="1" op_9_bw="8" op_10_bw="16" op_11_bw="0" op_12_bw="0">
-<![CDATA[
-arrayctor.loop.0:34  call fastcc void @write_output(i16* %output_0_V, i16* %output_1_V, i16* %output_2_V, i16* %output_3_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
-
-]]></Node>
-<StgValue><ssdm name="call_ln199"/></StgValue>
-</operation>
-</state>
-
-<state id="28" st_id="28">
-
-<operation id="60" st_id="28" stage="1" lat="2">
-<core></core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="78" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16" op_3_bw="16" op_4_bw="16" op_5_bw="64" op_6_bw="8" op_7_bw="8" op_8_bw="1" op_9_bw="8" op_10_bw="16" op_11_bw="0" op_12_bw="0">
-<![CDATA[
-arrayctor.loop.0:34  call fastcc void @write_output(i16* %output_0_V, i16* %output_1_V, i16* %output_2_V, i16* %output_3_V, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V)
-
-]]></Node>
-<StgValue><ssdm name="call_ln199"/></StgValue>
-</operation>
-</state>
-
-<state id="29" st_id="29">
-
-<operation id="61" st_id="29" stage="1" lat="1">
+<operation id="49" st_id="25" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="44" bw="0" op_0_bw="0" op_1_bw="1">
+<Node id="46" bw="0" op_0_bw="0" op_1_bw="1">
 <![CDATA[
-arrayctor.loop.0:0  call void (...)* @_ssdm_op_SpecBitsMap(i1* %in_1_V_last_V), !map !56
+:0  call void (...)* @_ssdm_op_SpecBitsMap(i1* %in_1_V_last_V), !map !55
 
 ]]></Node>
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="62" st_id="29" stage="1" lat="1">
+<operation id="50" st_id="25" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="45" bw="0" op_0_bw="0" op_1_bw="1">
+<Node id="47" bw="0" op_0_bw="0" op_1_bw="1">
 <![CDATA[
-arrayctor.loop.0:1  call void (...)* @_ssdm_op_SpecBitsMap(i1* %in_0_V_last_V), !map !62
+:1  call void (...)* @_ssdm_op_SpecBitsMap(i1* %in_0_V_last_V), !map !61
 
 ]]></Node>
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="63" st_id="29" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="46" bw="0" op_0_bw="0" op_1_bw="8">
-<![CDATA[
-arrayctor.loop.0:2  call void (...)* @_ssdm_op_SpecBitsMap(i8* %in_1_V_strb_V), !map !68
-
-]]></Node>
-<StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
-</operation>
-
-<operation id="64" st_id="29" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="47" bw="0" op_0_bw="0" op_1_bw="8">
-<![CDATA[
-arrayctor.loop.0:3  call void (...)* @_ssdm_op_SpecBitsMap(i8* %in_0_V_strb_V), !map !72
-
-]]></Node>
-<StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
-</operation>
-
-<operation id="65" st_id="29" stage="1" lat="1">
+<operation id="51" st_id="25" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -796,13 +610,13 @@ arrayctor.loop.0:3  call void (...)* @_ssdm_op_SpecBitsMap(i8* %in_0_V_strb_V), 
 
 <Node id="48" bw="0" op_0_bw="0" op_1_bw="8">
 <![CDATA[
-arrayctor.loop.0:4  call void (...)* @_ssdm_op_SpecBitsMap(i8* %in_1_V_keep_V), !map !76
+:2  call void (...)* @_ssdm_op_SpecBitsMap(i8* %in_1_V_strb_V), !map !67
 
 ]]></Node>
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="66" st_id="29" stage="1" lat="1">
+<operation id="52" st_id="25" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -811,43 +625,43 @@ arrayctor.loop.0:4  call void (...)* @_ssdm_op_SpecBitsMap(i8* %in_1_V_keep_V), 
 
 <Node id="49" bw="0" op_0_bw="0" op_1_bw="8">
 <![CDATA[
-arrayctor.loop.0:5  call void (...)* @_ssdm_op_SpecBitsMap(i8* %in_0_V_keep_V), !map !80
+:3  call void (...)* @_ssdm_op_SpecBitsMap(i8* %in_0_V_strb_V), !map !71
 
 ]]></Node>
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="67" st_id="29" stage="1" lat="1">
+<operation id="53" st_id="25" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="50" bw="0" op_0_bw="0" op_1_bw="64">
+<Node id="50" bw="0" op_0_bw="0" op_1_bw="8">
 <![CDATA[
-arrayctor.loop.0:6  call void (...)* @_ssdm_op_SpecBitsMap(i64* %in_1_V_data_V), !map !84
+:4  call void (...)* @_ssdm_op_SpecBitsMap(i8* %in_1_V_keep_V), !map !75
 
 ]]></Node>
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="68" st_id="29" stage="1" lat="1">
+<operation id="54" st_id="25" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="51" bw="0" op_0_bw="0" op_1_bw="64">
+<Node id="51" bw="0" op_0_bw="0" op_1_bw="8">
 <![CDATA[
-arrayctor.loop.0:7  call void (...)* @_ssdm_op_SpecBitsMap(i64* %in_0_V_data_V), !map !88
+:5  call void (...)* @_ssdm_op_SpecBitsMap(i8* %in_0_V_keep_V), !map !79
 
 ]]></Node>
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="69" st_id="29" stage="1" lat="1">
+<operation id="55" st_id="25" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -856,310 +670,220 @@ arrayctor.loop.0:7  call void (...)* @_ssdm_op_SpecBitsMap(i64* %in_0_V_data_V),
 
 <Node id="52" bw="0" op_0_bw="0" op_1_bw="64">
 <![CDATA[
-arrayctor.loop.0:8  call void (...)* @_ssdm_op_SpecBitsMap(i64* %out_V_data_V), !map !92
+:6  call void (...)* @_ssdm_op_SpecBitsMap(i64* %in_1_V_data_V), !map !83
 
 ]]></Node>
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="70" st_id="29" stage="1" lat="1">
+<operation id="56" st_id="25" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="53" bw="0" op_0_bw="0" op_1_bw="8">
+<Node id="53" bw="0" op_0_bw="0" op_1_bw="64">
 <![CDATA[
-arrayctor.loop.0:9  call void (...)* @_ssdm_op_SpecBitsMap(i8* %out_V_keep_V), !map !98
+:7  call void (...)* @_ssdm_op_SpecBitsMap(i64* %in_0_V_data_V), !map !87
 
 ]]></Node>
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="71" st_id="29" stage="1" lat="1">
+<operation id="57" st_id="25" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="54" bw="0" op_0_bw="0" op_1_bw="8">
+<Node id="54" bw="0" op_0_bw="0" op_1_bw="64">
 <![CDATA[
-arrayctor.loop.0:10  call void (...)* @_ssdm_op_SpecBitsMap(i8* %out_V_strb_V), !map !102
+:8  call void (...)* @_ssdm_op_SpecBitsMap(i64* %out_V_data_V), !map !91
 
 ]]></Node>
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="72" st_id="29" stage="1" lat="1">
+<operation id="58" st_id="25" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="55" bw="0" op_0_bw="0" op_1_bw="1">
+<Node id="55" bw="0" op_0_bw="0" op_1_bw="8">
 <![CDATA[
-arrayctor.loop.0:11  call void (...)* @_ssdm_op_SpecBitsMap(i1* %out_V_last_V), !map !106
+:9  call void (...)* @_ssdm_op_SpecBitsMap(i8* %out_V_keep_V), !map !97
 
 ]]></Node>
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="73" st_id="29" stage="1" lat="1">
+<operation id="59" st_id="25" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="56" bw="0" op_0_bw="0" op_1_bw="0">
+<Node id="56" bw="0" op_0_bw="0" op_1_bw="8">
 <![CDATA[
-arrayctor.loop.0:12  call void (...)* @_ssdm_op_SpecTopModule([16 x i8]* @fused_cnn_layer_str) nounwind
+:10  call void (...)* @_ssdm_op_SpecBitsMap(i8* %out_V_strb_V), !map !101
+
+]]></Node>
+<StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
+</operation>
+
+<operation id="60" st_id="25" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="57" bw="0" op_0_bw="0" op_1_bw="1">
+<![CDATA[
+:11  call void (...)* @_ssdm_op_SpecBitsMap(i1* %out_V_last_V), !map !105
+
+]]></Node>
+<StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
+</operation>
+
+<operation id="61" st_id="25" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="58" bw="0" op_0_bw="0" op_1_bw="0">
+<![CDATA[
+:12  call void (...)* @_ssdm_op_SpecTopModule([16 x i8]* @fused_cnn_layer_str) nounwind
 
 ]]></Node>
 <StgValue><ssdm name="spectopmodule_ln0"/></StgValue>
 </operation>
 
-<operation id="74" st_id="29" stage="1" lat="1">
+<operation id="62" st_id="25" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="58" bw="32" op_0_bw="32" op_1_bw="0" op_2_bw="32" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="32" op_7_bw="16" op_8_bw="16">
+<Node id="59" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="8" op_3_bw="8" op_4_bw="1" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="32" op_10_bw="32" op_11_bw="0" op_12_bw="0" op_13_bw="0" op_14_bw="32" op_15_bw="32" op_16_bw="32" op_17_bw="32" op_18_bw="0" op_19_bw="0">
 <![CDATA[
-arrayctor.loop.0:14  %empty = call i32 (...)* @_ssdm_op_SpecChannel([12 x i8]* @output_LF_0_NF_OC_V, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 4, i32 4, i16* %output_0_V, i16* %output_0_V)
-
-]]></Node>
-<StgValue><ssdm name="empty"/></StgValue>
-</operation>
-
-<operation id="75" st_id="29" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="59" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
-<![CDATA[
-arrayctor.loop.0:15  call void (...)* @_ssdm_op_SpecInterface(i16* %output_0_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)
+:13  call void (...)* @_ssdm_op_SpecInterface(i64* %in_0_V_data_V, i8* %in_0_V_keep_V, i8* %in_0_V_strb_V, i1* %in_0_V_last_V, [5 x i8]* @p_str6, i32 1, i32 1, [5 x i8]* @p_str7, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str)
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
 </operation>
 
-<operation id="76" st_id="29" stage="1" lat="1">
+<operation id="63" st_id="25" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="61" bw="32" op_0_bw="32" op_1_bw="0" op_2_bw="32" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="32" op_7_bw="16" op_8_bw="16">
+<Node id="60" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="8" op_3_bw="8" op_4_bw="1" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="32" op_10_bw="32" op_11_bw="0" op_12_bw="0" op_13_bw="0" op_14_bw="32" op_15_bw="32" op_16_bw="32" op_17_bw="32" op_18_bw="0" op_19_bw="0">
 <![CDATA[
-arrayctor.loop.0:17  %empty_13 = call i32 (...)* @_ssdm_op_SpecChannel([12 x i8]* @output_LF_1_NF_OC_V, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 4, i32 4, i16* %output_1_V, i16* %output_1_V)
-
-]]></Node>
-<StgValue><ssdm name="empty_13"/></StgValue>
-</operation>
-
-<operation id="77" st_id="29" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="62" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
-<![CDATA[
-arrayctor.loop.0:18  call void (...)* @_ssdm_op_SpecInterface(i16* %output_1_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)
+:14  call void (...)* @_ssdm_op_SpecInterface(i64* %in_1_V_data_V, i8* %in_1_V_keep_V, i8* %in_1_V_strb_V, i1* %in_1_V_last_V, [5 x i8]* @p_str6, i32 1, i32 1, [5 x i8]* @p_str7, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str)
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
 </operation>
 
-<operation id="78" st_id="29" stage="1" lat="1">
+<operation id="64" st_id="25" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="64" bw="32" op_0_bw="32" op_1_bw="0" op_2_bw="32" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="32" op_7_bw="16" op_8_bw="16">
+<Node id="61" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="8" op_3_bw="8" op_4_bw="1" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="32" op_10_bw="32" op_11_bw="0" op_12_bw="0" op_13_bw="0" op_14_bw="32" op_15_bw="32" op_16_bw="32" op_17_bw="32" op_18_bw="0" op_19_bw="0">
 <![CDATA[
-arrayctor.loop.0:20  %empty_14 = call i32 (...)* @_ssdm_op_SpecChannel([12 x i8]* @output_LF_2_NF_OC_V, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 4, i32 4, i16* %output_2_V, i16* %output_2_V)
+:15  call void (...)* @_ssdm_op_SpecInterface(i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V, [5 x i8]* @p_str6, i32 1, i32 1, [5 x i8]* @p_str7, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
 
 ]]></Node>
-<StgValue><ssdm name="empty_14"/></StgValue>
+<StgValue><ssdm name="specinterface_ln230"/></StgValue>
 </operation>
 
-<operation id="79" st_id="29" stage="1" lat="1">
+<operation id="65" st_id="25" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="65" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
+<Node id="62" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
 <![CDATA[
-arrayctor.loop.0:21  call void (...)* @_ssdm_op_SpecInterface(i16* %output_2_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)
+:16  call void (...)* @_ssdm_op_SpecInterface(i32 0, [13 x i8]* @p_str8, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
 
 ]]></Node>
-<StgValue><ssdm name="specinterface_ln0"/></StgValue>
+<StgValue><ssdm name="specinterface_ln231"/></StgValue>
 </operation>
 
-<operation id="80" st_id="29" stage="1" lat="1">
+<operation id="66" st_id="25" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="67" bw="32" op_0_bw="32" op_1_bw="0" op_2_bw="32" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="32" op_7_bw="16" op_8_bw="16">
+<Node id="63" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="8" op_8_bw="8" op_9_bw="8" op_10_bw="8" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="0" op_20_bw="0" op_21_bw="0" op_22_bw="32" op_23_bw="0" op_24_bw="0" op_25_bw="0" op_26_bw="0" op_27_bw="0">
 <![CDATA[
-arrayctor.loop.0:23  %empty_15 = call i32 (...)* @_ssdm_op_SpecChannel([12 x i8]* @output_LF_3_NF_OC_V, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 4, i32 4, i16* %output_3_V, i16* %output_3_V)
+:17  call void (...)* @_ssdm_op_SpecMemCore([514 x i8]* @stripes_0_0, [514 x i8]* @stripes_0_1, [514 x i8]* @stripes_0_2, [514 x i8]* @stripes_0_3, [514 x i8]* @stripes_0_4, [514 x i8]* @stripes_0_5, [514 x i8]* @stripes_1_0, [514 x i8]* @stripes_1_1, [514 x i8]* @stripes_1_2, [514 x i8]* @stripes_1_3, [514 x i8]* @stripes_1_4, [514 x i8]* @stripes_1_5, [514 x i8]* @stripes_2_0, [514 x i8]* @stripes_2_1, [514 x i8]* @stripes_2_2, [514 x i8]* @stripes_2_3, [514 x i8]* @stripes_2_4, [514 x i8]* @stripes_2_5, [1 x i8]* @p_str, [12 x i8]* @p_str10, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)
 
 ]]></Node>
-<StgValue><ssdm name="empty_15"/></StgValue>
+<StgValue><ssdm name="specmemcore_ln237"/></StgValue>
 </operation>
 
-<operation id="81" st_id="29" stage="1" lat="1">
+<operation id="67" st_id="25" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="68" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
+<Node id="64" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="8" op_8_bw="8" op_9_bw="8" op_10_bw="8" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="32" op_20_bw="0">
 <![CDATA[
-arrayctor.loop.0:24  call void (...)* @_ssdm_op_SpecInterface(i16* %output_3_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)
+:18  call void (...)* @_ssdm_op_SpecReset([514 x i8]* @stripes_0_0, [514 x i8]* @stripes_0_1, [514 x i8]* @stripes_0_2, [514 x i8]* @stripes_0_3, [514 x i8]* @stripes_0_4, [514 x i8]* @stripes_0_5, [514 x i8]* @stripes_1_0, [514 x i8]* @stripes_1_1, [514 x i8]* @stripes_1_2, [514 x i8]* @stripes_1_3, [514 x i8]* @stripes_1_4, [514 x i8]* @stripes_1_5, [514 x i8]* @stripes_2_0, [514 x i8]* @stripes_2_1, [514 x i8]* @stripes_2_2, [514 x i8]* @stripes_2_3, [514 x i8]* @stripes_2_4, [514 x i8]* @stripes_2_5, i32 1, [1 x i8]* @p_str) nounwind
 
 ]]></Node>
-<StgValue><ssdm name="specinterface_ln0"/></StgValue>
+<StgValue><ssdm name="specreset_ln240"/></StgValue>
 </operation>
 
-<operation id="82" st_id="29" stage="1" lat="1">
+<operation id="68" st_id="25" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="69" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="8" op_3_bw="8" op_4_bw="1" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="32" op_10_bw="32" op_11_bw="0" op_12_bw="0" op_13_bw="0" op_14_bw="32" op_15_bw="32" op_16_bw="32" op_17_bw="32" op_18_bw="0" op_19_bw="0">
+<Node id="65" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="32" op_4_bw="32" op_5_bw="0">
 <![CDATA[
-arrayctor.loop.0:25  call void (...)* @_ssdm_op_SpecInterface(i64* %in_0_V_data_V, i8* %in_0_V_keep_V, i8* %in_0_V_strb_V, i1* %in_0_V_last_V, [5 x i8]* @p_str5, i32 1, i32 1, [5 x i8]* @p_str6, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str)
+:19  call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str) nounwind
 
 ]]></Node>
-<StgValue><ssdm name="specinterface_ln0"/></StgValue>
+<StgValue><ssdm name="specpipeline_ln242"/></StgValue>
 </operation>
 
-<operation id="83" st_id="29" stage="1" lat="1">
+<operation id="69" st_id="25" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="70" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="8" op_3_bw="8" op_4_bw="1" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="32" op_10_bw="32" op_11_bw="0" op_12_bw="0" op_13_bw="0" op_14_bw="32" op_15_bw="32" op_16_bw="32" op_17_bw="32" op_18_bw="0" op_19_bw="0">
+<Node id="67" bw="0">
 <![CDATA[
-arrayctor.loop.0:26  call void (...)* @_ssdm_op_SpecInterface(i64* %in_1_V_data_V, i8* %in_1_V_keep_V, i8* %in_1_V_strb_V, i1* %in_1_V_last_V, [5 x i8]* @p_str5, i32 1, i32 1, [5 x i8]* @p_str6, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str)
+:21  ret void
 
 ]]></Node>
-<StgValue><ssdm name="specinterface_ln0"/></StgValue>
-</operation>
-
-<operation id="84" st_id="29" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="71" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="8" op_3_bw="8" op_4_bw="1" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="32" op_10_bw="32" op_11_bw="0" op_12_bw="0" op_13_bw="0" op_14_bw="32" op_15_bw="32" op_16_bw="32" op_17_bw="32" op_18_bw="0" op_19_bw="0">
-<![CDATA[
-arrayctor.loop.0:27  call void (...)* @_ssdm_op_SpecInterface(i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_last_V, [5 x i8]* @p_str5, i32 1, i32 1, [5 x i8]* @p_str6, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
-
-]]></Node>
-<StgValue><ssdm name="specinterface_ln178"/></StgValue>
-</operation>
-
-<operation id="85" st_id="29" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="72" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
-<![CDATA[
-arrayctor.loop.0:28  call void (...)* @_ssdm_op_SpecInterface(i32 0, [13 x i8]* @p_str7, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
-
-]]></Node>
-<StgValue><ssdm name="specinterface_ln179"/></StgValue>
-</operation>
-
-<operation id="86" st_id="29" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="73" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="8" op_8_bw="8" op_9_bw="8" op_10_bw="8" op_11_bw="8" op_12_bw="8" op_13_bw="0" op_14_bw="0" op_15_bw="0" op_16_bw="32" op_17_bw="0" op_18_bw="0" op_19_bw="0" op_20_bw="0" op_21_bw="0">
-<![CDATA[
-arrayctor.loop.0:29  call void (...)* @_ssdm_op_SpecMemCore([514 x i8]* @stripes_0_0, [514 x i8]* @stripes_0_1, [514 x i8]* @stripes_0_2, [514 x i8]* @stripes_0_3, [514 x i8]* @stripes_1_0, [514 x i8]* @stripes_1_1, [514 x i8]* @stripes_1_2, [514 x i8]* @stripes_1_3, [514 x i8]* @stripes_2_0, [514 x i8]* @stripes_2_1, [514 x i8]* @stripes_2_2, [514 x i8]* @stripes_2_3, [1 x i8]* @p_str, [12 x i8]* @p_str9, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)
-
-]]></Node>
-<StgValue><ssdm name="specmemcore_ln185"/></StgValue>
-</operation>
-
-<operation id="87" st_id="29" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="74" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="8" op_8_bw="8" op_9_bw="8" op_10_bw="8" op_11_bw="8" op_12_bw="8" op_13_bw="32" op_14_bw="0">
-<![CDATA[
-arrayctor.loop.0:30  call void (...)* @_ssdm_op_SpecReset([514 x i8]* @stripes_0_0, [514 x i8]* @stripes_0_1, [514 x i8]* @stripes_0_2, [514 x i8]* @stripes_0_3, [514 x i8]* @stripes_1_0, [514 x i8]* @stripes_1_1, [514 x i8]* @stripes_1_2, [514 x i8]* @stripes_1_3, [514 x i8]* @stripes_2_0, [514 x i8]* @stripes_2_1, [514 x i8]* @stripes_2_2, [514 x i8]* @stripes_2_3, i32 1, [1 x i8]* @p_str) nounwind
-
-]]></Node>
-<StgValue><ssdm name="specreset_ln188"/></StgValue>
-</operation>
-
-<operation id="88" st_id="29" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="75" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="32" op_4_bw="32" op_5_bw="0">
-<![CDATA[
-arrayctor.loop.0:31  call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str) nounwind
-
-]]></Node>
-<StgValue><ssdm name="specpipeline_ln190"/></StgValue>
-</operation>
-
-<operation id="89" st_id="29" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="79" bw="0">
-<![CDATA[
-arrayctor.loop.0:35  ret void
-
-]]></Node>
-<StgValue><ssdm name="ret_ln200"/></StgValue>
+<StgValue><ssdm name="ret_ln252"/></StgValue>
 </operation>
 </state>
 </state_list>

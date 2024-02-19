@@ -7,7 +7,7 @@
 (* use_dsp = "yes" *) module fused_cnn_layer_mfYi_DSP48_3(
     input  [5 - 1:0] in0,
     input  [8 - 1:0] in1,
-    input  [13 - 1:0] in2,
+    input  [12 - 1:0] in2,
     output [14 - 1:0]  dout);
 
 wire signed [25 - 1:0]     a;

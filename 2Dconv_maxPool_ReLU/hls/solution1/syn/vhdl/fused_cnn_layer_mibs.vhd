@@ -8,10 +8,10 @@ use IEEE.numeric_std.all;
 
 entity fused_cnn_layer_mibs_DSP48_6 is
 port (
-    in0:  in  std_logic_vector(6 - 1 downto 0);
+    in0:  in  std_logic_vector(5 - 1 downto 0);
     in1:  in  std_logic_vector(8 - 1 downto 0);
-    in2:  in  std_logic_vector(14 - 1 downto 0);
-    dout: out std_logic_vector(15 - 1 downto 0));
+    in2:  in  std_logic_vector(8 - 1 downto 0);
+    dout: out std_logic_vector(12 - 1 downto 0));
 
     attribute use_dsp : string;
     attribute use_dsp of fused_cnn_layer_mibs_DSP48_6 : entity is "yes";
@@ -32,7 +32,7 @@ c  <= signed(resize(unsigned(in2), 48));
 m  <= a * b;
 p  <= m + c;
 
-dout <= std_logic_vector(resize(unsigned(p), 15));
+dout <= std_logic_vector(resize(unsigned(p), 12));
 
 end architecture;
 Library IEEE;

@@ -8,10 +8,10 @@ use IEEE.numeric_std.all;
 
 entity fused_cnn_layer_meOg_DSP48_2 is
 port (
-    in0:  in  std_logic_vector(6 - 1 downto 0);
+    in0:  in  std_logic_vector(5 - 1 downto 0);
     in1:  in  std_logic_vector(8 - 1 downto 0);
-    in2:  in  std_logic_vector(12 - 1 downto 0);
-    dout: out std_logic_vector(15 - 1 downto 0));
+    in2:  in  std_logic_vector(13 - 1 downto 0);
+    dout: out std_logic_vector(14 - 1 downto 0));
 
     attribute use_dsp : string;
     attribute use_dsp of fused_cnn_layer_meOg_DSP48_2 : entity is "yes";
@@ -25,14 +25,14 @@ architecture behav of fused_cnn_layer_meOg_DSP48_2 is
     signal m       : signed(43-1 downto 0);
     signal p       : signed(48-1 downto 0);
 begin
-a  <= signed(resize(unsigned(in0), 25));
+a  <= signed(resize(signed(in0), 25));
 b  <= signed(resize(unsigned(in1), 18));
 c  <= signed(resize(signed(in2), 48));
 
 m  <= a * b;
 p  <= m + c;
 
-dout <= std_logic_vector(resize(unsigned(p), 15));
+dout <= std_logic_vector(resize(unsigned(p), 14));
 
 end architecture;
 Library IEEE;

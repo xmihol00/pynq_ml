@@ -18,29 +18,29 @@
 <PipelineType>function</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>10.401</EstimatedClockPeriod>
+<EstimatedClockPeriod>10.224</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>28</Best-caseLatency>
-<Average-caseLatency>28</Average-caseLatency>
-<Worst-caseLatency>28</Worst-caseLatency>
-<Best-caseRealTimeLatency>0.291 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>0.291 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>0.291 us</Worst-caseRealTimeLatency>
-<PipelineInitiationInterval>25</PipelineInitiationInterval>
-<PipelineDepth>29</PipelineDepth>
-<Interval-min>25</Interval-min>
-<Interval-max>25</Interval-max>
+<Best-caseLatency>24</Best-caseLatency>
+<Average-caseLatency>24</Average-caseLatency>
+<Worst-caseLatency>24</Worst-caseLatency>
+<Best-caseRealTimeLatency>0.245 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>0.245 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>0.245 us</Worst-caseRealTimeLatency>
+<PipelineInitiationInterval>22</PipelineInitiationInterval>
+<PipelineDepth>25</PipelineDepth>
+<Interval-min>22</Interval-min>
+<Interval-max>22</Interval-max>
 </SummaryOfOverallLatency>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
-<BRAM_18K>12</BRAM_18K>
-<DSP48E>28</DSP48E>
-<FF>8457</FF>
-<LUT>15336</LUT>
+<BRAM_18K>18</BRAM_18K>
+<DSP48E>11</DSP48E>
+<FF>12571</FF>
+<LUT>20810</LUT>
 <URAM>0</URAM>
 </Resources>
 <AvailableResources>
