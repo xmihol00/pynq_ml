@@ -17,8 +17,8 @@ def input_thread(dma_0, dma_1, in_buffer_1, in_buffer_2):
 
     dma_0.sendchannel.transfer(in_buffer_1)
     dma_1.sendchannel.transfer(in_buffer_2)
-    #dma_0.sendchannel.wait()
-    #dma_1.sendchannel.wait()
+    dma_0.sendchannel.wait()
+    dma_1.sendchannel.wait()
 
     print("Image sent", flush=True)
 
@@ -50,12 +50,13 @@ def output_thread(dma_0, out_buffer_1):
 
     print("Output received", flush=True)
 
-    result_buffer[:, :] = out_buffer_1
+    result_buffer[:, :] = out_buffer_1[:255, :]
+    return
 
     print(f"Result same as prediction: {np.array_equal(result_buffer, prediction)}")
     print(f"Number of wrong values: {np.sum(result_buffer != prediction)}")
 
-    for r, p in zip(result_buffer[1], prediction[0]):
+    for r, p in zip(result_buffer[0], prediction[0]):
         print(r, p)
 
     #for i, pred in enumerate(result_buffer):
@@ -92,13 +93,13 @@ if __name__ == "__main__":
     AUTO_RESTART = (1<<7) # bit 7
     #overlay.fused_cnn_layer_0.write(CTRL_REG, (AP_START | AUTO_RESTART))
 
-    in_buffer_1 = allocate(shape=(393240), dtype=np.uint8)
-    in_buffer_2 = allocate(shape=(393240), dtype=np.uint8)
-    out_buffer_1 = allocate(shape=(255, 1024), dtype=np.int16)
+    in_buffer_1 = allocate(shape=(393240 + 2*INPUT_WIDTH), dtype=np.uint8)
+    in_buffer_2 = allocate(shape=(393240 + 2*INPUT_WIDTH), dtype=np.uint8)
+    out_buffer_1 = allocate(shape=(256, 1024), dtype=np.int16)
 
     start = time.time()
 
-    out_buffer_1[:, :] = 0
+    #out_buffer_1[:, :] = 0
     in_buffer_1[:len(input_data_1)] = input_data_1
     in_buffer_2[:len(input_data_2)] = input_data_2
 
@@ -114,7 +115,7 @@ if __name__ == "__main__":
     output_thread.join()
     print("Threads joined")
 
-    result_buffer[:, :] = out_buffer_1[1:, :]
+    #result_buffer[:, :] = out_buffer_1[:255, :]
 
     end = time.time()
 

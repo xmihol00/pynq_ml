@@ -4,6 +4,7 @@ from scipy.signal import convolve2d
 from skimage.measure import block_reduce
 import os
 import sys
+import time
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from tools import format_array_py, format_array_C
@@ -14,6 +15,7 @@ IN_CHANNELS = 3
 OUT_CHANNELS = 4
 IN_WIDTH = 514
 IN_HEIGHT = 512
+SAVE = False
 
 model = tf.keras.models.Sequential(
     [
@@ -33,18 +35,23 @@ for i, layer in enumerate(layers):
 input_data = np.random.randint(0, 255, (1, IN_HEIGHT, IN_WIDTH, IN_CHANNELS)).astype(np.float32)
 input_data[:, :, 0, :] = 0
 input_data[:, :, -1, :] = 0
+
+start = time.time()
 prediction = model.predict(input_data)
+print("Prediction time:", time.time() - start)
+
 prediction_reshaped = prediction.reshape(256*255, -1).T
 
 prediction_merged = np.zeros((4*256*255))
 for i in range(4):
     prediction_merged[i::4] = prediction_reshaped[i]
 
-print("#define PREDICTION", format_array_C(prediction_merged.astype(np.int16)))
+if SAVE:
+    print("#define PREDICTION", format_array_C(prediction_merged.astype(np.int16)))
+    np.save("prediction.npy", prediction_merged.astype(np.int16))
 
 inputs = input_data.reshape(IN_HEIGHT*IN_WIDTH, -1).T
 inputs_hw = inputs.reshape(IN_CHANNELS, IN_HEIGHT, IN_WIDTH)[:, :, 1:-1]
-print(inputs_hw[:, :4, :9])
 inputs_hw = inputs_hw.reshape(IN_CHANNELS, IN_HEIGHT*(IN_WIDTH-2))
 
 inputs_merged = np.zeros((IN_CHANNELS*IN_HEIGHT*IN_WIDTH))
@@ -56,15 +63,17 @@ for i in range(IN_CHANNELS):
 
 inputs_merged_hw = inputs_merged_hw.reshape((IN_WIDTH-2), -1)
 
-np.save("input_data_1.npy", inputs_merged_hw[0::2])
-np.save("input_data_2.npy", inputs_merged_hw[1::2])
-print("#define INPUT_DATA_1", format_array_C(inputs_merged_hw[0::2].flatten().astype(np.uint8)))
-print("#define INPUT_DATA_2", format_array_C(inputs_merged_hw[1::2].flatten().astype(np.uint8)))
+if SAVE:
+    np.save("input_data_1.npy", inputs_merged_hw[0::2])
+    np.save("input_data_2.npy", inputs_merged_hw[1::2])
+    print("#define INPUT_DATA_1", format_array_C(inputs_merged_hw[0::2].flatten().astype(np.uint8)))
+    print("#define INPUT_DATA_2", format_array_C(inputs_merged_hw[1::2].flatten().astype(np.uint8)))
 
 kernels = model.layers[0].get_weights()[0]
 kernels = kernels.reshape(9, -1).T
 
-print("#define KERNEL_WEIGHTS", format_array_C(kernels.reshape(12, 3, 3).astype(np.int8)))
+if SAVE:
+    print("#define KERNEL_WEIGHTS", format_array_C(kernels.reshape(12, 3, 3).astype(np.int8)))
 
 ch1_kernels = kernels[0::4]
 ch2_kernels = kernels[1::4]
