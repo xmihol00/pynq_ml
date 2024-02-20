@@ -93,29 +93,32 @@ if __name__ == "__main__":
     AUTO_RESTART = (1<<7) # bit 7
     #overlay.fused_cnn_layer_0.write(CTRL_REG, (AP_START | AUTO_RESTART))
 
-    in_buffer_1 = allocate(shape=(393240 + 2*INPUT_WIDTH), dtype=np.uint8)
-    in_buffer_2 = allocate(shape=(393240 + 2*INPUT_WIDTH), dtype=np.uint8)
-    out_buffer_1 = allocate(shape=(256, 1024), dtype=np.int16)
+    dma_0 = overlay.dma_0
+    dma_1 = overlay.dma_1
+
+    in_buffer_1 = allocate(shape=(393240 + 1*INPUT_WIDTH), dtype=np.uint8)
+    in_buffer_2 = allocate(shape=(393240 + 1*INPUT_WIDTH), dtype=np.uint8)
+    out_buffer_1 = allocate(shape=(255, 1024), dtype=np.int16)
 
     start = time.time()
 
-    #out_buffer_1[:, :] = 0
-    in_buffer_1[:len(input_data_1)] = input_data_1
-    in_buffer_2[:len(input_data_2)] = input_data_2
+    for _ in range(10):
+        in_buffer_1[:len(input_data_1)] = input_data_1
+        in_buffer_2[:len(input_data_2)] = input_data_2
 
-    input_thread = threading.Thread(target=input_thread, args=(overlay.dma_0, overlay.dma_1, in_buffer_1, in_buffer_2))
-    output_thread = threading.Thread(target=output_thread, args=(overlay.dma_0, out_buffer_1))
+        print("Initiating transfer", flush=True)
+        dma_0.sendchannel.transfer(in_buffer_1)
+        dma_1.sendchannel.transfer(in_buffer_2)
 
-    print("Starting threads")
-    input_thread.start()
-    output_thread.start()
+        dma_0.recvchannel.transfer(out_buffer_1)
 
-    print("Joining threads")
-    input_thread.join()
-    output_thread.join()
-    print("Threads joined")
+        print("Waiting for results", flush=True)
+        dma_0.recvchannel.wait()
 
-    #result_buffer[:, :] = out_buffer_1[:255, :]
+        dma_0.sendchannel.wait()
+        dma_1.sendchannel.wait()
+
+        result_buffer[:, :] = out_buffer_1[:, :]
 
     end = time.time()
 

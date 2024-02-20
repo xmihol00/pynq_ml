@@ -26679,7 +26679,7 @@ meminst.0:689  %add_ln178_7 = add i16 %add_ln178_73, %sext_ln178_39
 
 <Node id="2050" bw="1" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-.preheader117.0:1  %tmp_last_V = icmp eq i32 %global_iteration_loa, 264191
+.preheader117.0:1  %tmp_last_V = icmp eq i32 %global_iteration_loa, 263167
 
 ]]></Node>
 <StgValue><ssdm name="tmp_last_V"/></StgValue>
@@ -26696,7 +26696,7 @@ meminst.0:689  %add_ln178_7 = add i16 %add_ln178_73, %sext_ln178_39
 
 <Node id="2051" bw="32" op_0_bw="1" op_1_bw="32" op_2_bw="32">
 <![CDATA[
-.preheader117.0:2  %select_ln203 = select i1 %tmp_last_V, i32 -1, i32 %global_iteration_loa
+.preheader117.0:2  %select_ln203 = select i1 %tmp_last_V, i32 1023, i32 %global_iteration_loa
 
 ]]></Node>
 <StgValue><ssdm name="select_ln203"/></StgValue>

@@ -8510,10 +8510,10 @@ void kernel
             out_data.keep = -1;
             out_data.last = 0;
 
-            if (global_iteration == 258*1024 - 1)
+            if (global_iteration == 257*1024 - 1)
             {
                 out_data.last = 1;
-                global_iteration = -1;
+                global_iteration = 1023;
             }
 
             out.write(out_data);

@@ -5,17 +5,16 @@
 ############################################################
 open_project hls
 set_top cnn
-add_files cnn.h
 add_files cnn.cpp
-add_files -tb cnn_tb.h -cflags "-Wno-unknown-pragmas" -csimflags "-Wno-unknown-pragmas"
-add_files -tb cnn_tb.cpp -cflags "-Wno-unknown-pragmas" -csimflags "-Wno-unknown-pragmas"
-add_files -tb cnn.h -cflags "-Wno-unknown-pragmas" -csimflags "-Wno-unknown-pragmas"
+add_files cnn.h
+add_files -tb cnn.h
+add_files -tb cnn_tb.cpp
+add_files -tb cnn_tb.h
 open_solution "solution1"
-set_part {xc7z020-clg400-1}
+set_part {xc7z020clg400-1}
 create_clock -period 10 -name default
-config_export -format ip_catalog -rtl vhdl
 #source "./hls/solution1/directives.tcl"
 csim_design
 csynth_design
 cosim_design
-export_design -flow impl -rtl vhdl -format ip_catalog
+export_design -format ip_catalog

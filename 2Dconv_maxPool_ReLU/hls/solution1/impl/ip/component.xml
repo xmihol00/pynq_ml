@@ -278,7 +278,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>3ed38e9a</spirit:value>
+            <spirit:value>2a7729d6</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -294,7 +294,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>7fd62b6d</spirit:value>
+            <spirit:value>ef455e10</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -310,7 +310,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>6810dcdb</spirit:value>
+            <spirit:value>676e929a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -326,7 +326,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>aefb64d7</spirit:value>
+            <spirit:value>0038f696</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1076,13 +1076,13 @@
       </xilinx:taxonomies>
       <xilinx:displayName>Fused_cnn_layer</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>1902192346</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2019-02-19T22:46:19Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>2002202036</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2024-02-20T19:36:55Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2020.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="0824c011"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="b1fdf68c"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="1e7b4765"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="023afc05"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="033798fb"/>
     </xilinx:packagingInfo>

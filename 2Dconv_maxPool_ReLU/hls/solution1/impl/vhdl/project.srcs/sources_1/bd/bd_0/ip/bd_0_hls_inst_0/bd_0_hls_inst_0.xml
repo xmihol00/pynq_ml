@@ -602,11 +602,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Feb 19 22:46:36 UTC 2019</spirit:value>
+            <spirit:value>Tue Feb 20 19:37:13 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:9981e101</spirit:value>
+            <spirit:value>9:4395dc64</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -617,7 +617,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:9981e101</spirit:value>
+            <spirit:value>9:4395dc64</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -633,11 +633,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Feb 19 22:46:36 UTC 2019</spirit:value>
+            <spirit:value>Tue Feb 20 19:37:13 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:9981e101</spirit:value>
+            <spirit:value>9:4395dc64</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -653,11 +653,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Feb 19 22:46:36 UTC 2019</spirit:value>
+            <spirit:value>Tue Feb 20 19:37:13 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:e83fbaa5</spirit:value>
+            <spirit:value>9:322b87c0</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -673,11 +673,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Feb 19 22:46:36 UTC 2019</spirit:value>
+            <spirit:value>Tue Feb 20 19:37:13 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:e83fbaa5</spirit:value>
+            <spirit:value>9:322b87c0</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -691,11 +691,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Feb 19 22:49:38 UTC 2024</spirit:value>
+            <spirit:value>Tue Feb 20 19:40:37 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:9981e101</spirit:value>
+            <spirit:value>9:4395dc64</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1038,59 +1038,59 @@
         <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/fused_cnn_layer_mbkb.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/fused_cnn_layer_mbkb.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/fused_cnn_layer_mcud.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/fused_cnn_layer_mcud.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/fused_cnn_layer_mdEe.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/fused_cnn_layer_mdEe.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/fused_cnn_layer_meOg.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/fused_cnn_layer_meOg.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/fused_cnn_layer_mfYi.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/fused_cnn_layer_mfYi.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/fused_cnn_layer_mg8j.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/fused_cnn_layer_mg8j.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/fused_cnn_layer_mhbi.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/fused_cnn_layer_mhbi.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/fused_cnn_layer_mibs.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/fused_cnn_layer_mibs.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/fused_cnn_layer_mjbC.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/fused_cnn_layer_mjbC.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/kernel.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/kernel.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/kernel_stripes_0_0.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/kernel_stripes_0_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/kernel_stripes_0_0_ram.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/kernel_stripes_0_0_ram.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/regslice_core.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/regslice_core.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/fused_cnn_layer.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/fused_cnn_layer.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -1105,72 +1105,72 @@
     <spirit:fileSet>
       <spirit:name>xilinx_vhdlbehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/fused_cnn_layer_mbkb.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/fused_cnn_layer_mbkb.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/fused_cnn_layer_mcud.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/fused_cnn_layer_mcud.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/fused_cnn_layer_mdEe.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/fused_cnn_layer_mdEe.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/fused_cnn_layer_meOg.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/fused_cnn_layer_meOg.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/fused_cnn_layer_mfYi.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/fused_cnn_layer_mfYi.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/fused_cnn_layer_mg8j.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/fused_cnn_layer_mg8j.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/fused_cnn_layer_mhbi.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/fused_cnn_layer_mhbi.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/fused_cnn_layer_mibs.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/fused_cnn_layer_mibs.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/fused_cnn_layer_mjbC.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/fused_cnn_layer_mjbC.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/kernel.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/kernel.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/kernel_stripes_0_0.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/kernel_stripes_0_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/kernel_stripes_0_0_ram.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/kernel_stripes_0_0_ram.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/regslice_core.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/regslice_core.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5c94/hdl/vhdl/fused_cnn_layer.vhd</spirit:name>
+        <spirit:name>../../ipshared/b547/hdl/vhdl/fused_cnn_layer.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -1286,7 +1286,7 @@
     <xilinx:coreExtensions>
       <xilinx:displayName>Fused_cnn_layer</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>1902192346</xilinx:coreRevision>
+      <xilinx:coreRevision>2002202036</xilinx:coreRevision>
       <xilinx:configElementInfos>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.AP_CLK.ASSOCIATED_BUSIF" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.AP_CLK.ASSOCIATED_RESET" xilinx:valuePermission="bd"/>
@@ -1336,7 +1336,7 @@
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2020.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="0824c011"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="b1fdf68c"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="1e7b4765"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="023afc05"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="033798fb"/>
     </xilinx:packagingInfo>

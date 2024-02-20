@@ -63,6 +63,7 @@ for i in range(IN_CHANNELS):
 
 inputs_merged_hw = inputs_merged_hw.reshape((IN_WIDTH-2), -1)
 
+print("#define INPUT_DATA", format_array_C(inputs_merged_hw.flatten().astype(np.uint8)))
 if SAVE:
     np.save("input_data_1.npy", inputs_merged_hw[0::2])
     np.save("input_data_2.npy", inputs_merged_hw[1::2])

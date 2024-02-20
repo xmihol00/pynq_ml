@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1708410531">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1708459003">
   <File Type="VDS-TIMING-PB" Name="design_1_wrapper_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="design_1_wrapper_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="design_1_wrapper.dcp"/>
@@ -48,7 +48,7 @@
     </StratHandle>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_fused_cnn_layer_0_10"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_fused_cnn_layer_0_11"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_processing_system7_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_axis_data_fifo_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_in_fifo_0_1"/>

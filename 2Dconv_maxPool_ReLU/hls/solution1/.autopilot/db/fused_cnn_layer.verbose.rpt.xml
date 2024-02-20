@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'fused_cnn_layer'" level="0">
-<item name = "Date">Mon Feb 19 23:44:30 2024
+<item name = "Date">Tue Feb 20 20:36:13 2024
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">hls</item>

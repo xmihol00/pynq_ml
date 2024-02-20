@@ -1,10 +1,10 @@
-<project xmlns="com.autoesl.autopilot.project" name="hls" top="cnn">
+<project xmlns="com.autoesl.autopilot.project" top="cnn" name="hls">
     <files>
-        <file name="../../cnn_tb.h" sc="0" tb="1" cflags=" -Wno-unknown-pragmas" blackbox="false" csimflags=" -Wno-unknown-pragmas"/>
-        <file name="../../cnn_tb.cpp" sc="0" tb="1" cflags=" -Wno-unknown-pragmas" blackbox="false" csimflags=" -Wno-unknown-pragmas"/>
-        <file name="../../cnn.h" sc="0" tb="1" cflags=" -Wno-unknown-pragmas" blackbox="false" csimflags=" -Wno-unknown-pragmas"/>
-        <file name="cnn.h" sc="0" tb="false" cflags="" blackbox="false" csimflags=""/>
-        <file name="cnn.cpp" sc="0" tb="false" cflags="" blackbox="false" csimflags=""/>
+        <file name="cnn.cpp" sc="0" tb="false" cflags="" csimflags=""/>
+        <file name="cnn.h" sc="0" tb="false" cflags="" csimflags=""/>
+        <file name="../../cnn.h" sc="0" tb="1" cflags="" csimflags=""/>
+        <file name="../../cnn_tb.cpp" sc="0" tb="1" cflags="" csimflags=""/>
+        <file name="../../cnn_tb.h" sc="0" tb="1" cflags="" csimflags=""/>
     </files>
     <includePaths/>
     <libraryPaths/>
