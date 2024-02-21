@@ -42,7 +42,7 @@ print("Prediction time:", time.time() - start)
 prediction_reshaped = prediction.reshape(256*255, -1).T
 pred_shifted = (prediction_reshaped / 32).astype(np.uint8).reshape(4, 255, 256)
 print(len(pred_shifted[0, 0]))
-print(pred_shifted)
+print(pred_shifted[:, :4, :4])
 
 prediction_merged = np.zeros((4*256*255))
 for i in range(4):

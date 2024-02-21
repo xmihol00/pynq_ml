@@ -140,11 +140,12 @@ void kernel
     {
         /*for (int i = 0; i < L1_KERNELS; i++)
         {
-            for (int j = 0; j < STRIPE_HEIGHT; j++)
+            for (int j = 0; j < STRIPE_HEIGHT-2; j++)
             {
                 std::cout << (int)l2_stripes[i][j][0] << " " << (int)l2_stripes[i][j][1] << " " << (int)l2_stripes[i][j][2] << " " << (int)l2_stripes[i][j][3] << std::endl;
             }
         }
+        std::cout << (int)l2_read_row_offset << " " << l2_read_col_offset << std::endl;
         exit(1);*/
 
         uint8_t channel_offset = global_iteration & 1 ? 2 : 0;
