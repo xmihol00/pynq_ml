@@ -1,4 +1,4 @@
-<project xmlns="com.autoesl.autopilot.project" top="cnn" name="hls">
+<project xmlns="com.autoesl.autopilot.project" name="hls" top="cnn">
     <files>
         <file name="cnn.cpp" sc="0" tb="false" cflags="" csimflags=""/>
         <file name="cnn.h" sc="0" tb="false" cflags="" csimflags=""/>

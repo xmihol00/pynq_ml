@@ -12,7 +12,7 @@ np.random.seed(42)
 
 IN_CHANNELS = 3
 L1_OUT_CHANNELS = 4
-L2_OUT_CHANNELS = 6
+L2_OUT_CHANNELS = 8
 IN_WIDTH = 512
 IN_HEIGHT = 512
 
@@ -38,6 +38,7 @@ model = tf.keras.models.Sequential(
         tf.keras.layers.MaxPooling2D((2, 2)),
     ]
 )
+input_data = np.random.randint(0, 255, (1, IN_HEIGHT, IN_WIDTH, IN_CHANNELS)).astype(np.float32)
 
 model.compile(optimizer='adam', loss='mean_squared_error')
 
@@ -47,16 +48,15 @@ for i, layer in enumerate(layers):
         weights, biases = layer.get_weights()
         model.layers[i].set_weights([np.random.randint(-16, 16, weights.shape).astype(np.float32), np.zeros_like(biases)])
 
-input_data = np.random.randint(0, 255, (1, IN_HEIGHT, IN_WIDTH, IN_CHANNELS)).astype(np.float32)
 prediction = model.predict(input_data)
-print(prediction.shape)
 
 prediction_reshaped = prediction.reshape(128*126, -1).T
 
-prediction_merged = np.zeros((6*128*126))
-for i in range(6):
-    prediction_merged[i::6] = prediction_reshaped[i]
+prediction_merged = np.zeros((L2_OUT_CHANNELS*128*126))
+for i in range(L2_OUT_CHANNELS):
+    prediction_merged[i::L2_OUT_CHANNELS] = prediction_reshaped[i]
 
+print("prediction shape:", prediction_merged.shape)
 print("#define PREDICTION", format_array_C(prediction_merged.astype(np.int16)))
 np.save("prediction.npy", prediction_merged.astype(np.int16))
 
@@ -84,7 +84,7 @@ print("#define KERNEL_WEIGHTS_L1", format_array_C(kernels.reshape(12, 3, 3).asty
 
 kernels = model.layers[5].get_weights()[0]
 kernels = kernels.reshape(9, -1).T
-print("#define KERNEL_WEIGHTS_L2", format_array_C(kernels.reshape(24, 3, 3).astype(np.int8)))
+print("#define KERNEL_WEIGHTS_L2", format_array_C(kernels.reshape(32, 3, 3).astype(np.int8)))
 
 exit()
 

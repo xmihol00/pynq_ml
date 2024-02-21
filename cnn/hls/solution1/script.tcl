@@ -11,7 +11,7 @@ add_files -tb cnn.h
 add_files -tb cnn_tb.cpp
 add_files -tb cnn_tb.h
 open_solution "solution1"
-set_part {xc7z020clg400-1}
+set_part {xc7z020-clg400-1}
 create_clock -period 10 -name default
 #source "./hls/solution1/directives.tcl"
 csim_design
