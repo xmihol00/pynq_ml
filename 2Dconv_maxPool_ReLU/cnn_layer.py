@@ -10,9 +10,44 @@ sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from tools import format_array_py, format_array_C
 
 np.random.seed(42)
+l2_kernels = np.array([
+    [[ -13,  -14,  -11], [  14,    9,    9], [ -13,   -2,    3]],
+    [[  11,   -3,    2], [ -15,    9,  -16], [ -10,    9,  -11]],
+    [[  -5,    9,    9], [  -6,  -14,    4], [  -5,   -6,   15]],
+    [[   2,  -15,  -15], [  -1,   11,    1], [   9,    2,  -16]],
+    [[   1,   14,   14], [  -8,   -4,    1], [  -6,   -1,    4]],
+    [[  14,  -15,   -7], [  14,   -1,  -11], [  11,    6,    1]],
+    [[  -4,   -1,    9], [   6,   -7,   11], [ -15,  -16,   -2]],
+    [[ -11,    0,    0], [  -3,  -13,   11], [  -2,   13,  -16]],
+    [[  10,   13,    1], [  -6,  -12,  -11], [  11,    7,  -11]],
+    [[ -10,   -5,   -7], [  -2,   -7,    0], [  -2,    2,   -9]],
+    [[  14,  -16,   15], [ -11,    0,   -4], [  14,    3,  -11]],
+    [[  -1,    1,   -2], [   2,   12,   -7], [   1,  -15,   11]],
+    [[ -11,    6,  -12], [ -11,  -14,   15], [ -14,  -15,   14]],
+    [[  -8,  -15,   12], [  13,  -11,   13], [   1,   -4,  -15]],
+    [[   2,    2,   14], [   3,    7,   -5], [   7,   -1,   12]],
+    [[ -16,    8,   13], [ -14,  -13,   -7], [   9,   -5,   11]],
+    [[   0,   -6,    8], [  -7,   -1,  -12], [   1,    2,    7]],
+    [[  -2,    0,    6], [ -13,   -9,   -7], [  -1,  -15,   -8]],
+    [[   3,    7,    6], [   8,   -6,   -3], [  15,   -9,   -5]],
+    [[  -2,  -11,   -3], [   0,    1,    7], [ -10,   14,  -14]],
+    [[   1,    4,  -13], [  15,    6,   13], [ -16,   -6,   -8]],
+    [[  -4,   -6,   13], [   5,  -14,  -13], [  -7,    1,  -14]],
+    [[  -2,   -6,  -10], [   2,   -6,    2], [ -10,   -9,    5]],
+    [[  -5,  -11,    9], [ -15,  -13,   10], [   3,  -10,   10]],
+    [[  11,   10,    2], [ -15,    8,    7], [  -3,  -12,   10]],
+    [[  -7,    6,   -4], [   1,   14,   15], [  -1,    0,  -11]],
+    [[   6,    6,  -14], [   3,    7,  -12], [ -15,   10,   -2]],
+    [[   8,   -2,   11], [   5,   -6,    1], [  -5,  -13,  -13]],
+    [[   4,  -12,   -6], [   8,   13,    5], [   0,   10,  -15]],
+    [[  11,   10,  -15], [   7,   -9,    5], [ -12,  -15,    2]],
+    [[ -11,   -3,   -9], [ -15,  -16,    6], [  -9,   12,   12]],
+    [[ -14,    9,  -12], [   3,   -9,  -13], [  10,   -2,   -8]]
+])
 
 IN_CHANNELS = 3
 OUT_CHANNELS = 4
+L2_CHANNELS = 8
 IN_LARGER_WIDTH = 514
 IN_WIDTH = 512
 IN_HEIGHT = 512
@@ -94,6 +129,7 @@ for i, group in enumerate([ch1_kernels, ch2_kernels, ch3_kernels, ch4_kernels]):
         kernel_groups[i][j] = np.flip(kernel_groups[i][j], 1)
 
 kernel_groups = np.array(kernel_groups)
+print(kernel_groups.shape)
 
 outputs = []
 for i, group in enumerate(kernel_groups):
@@ -108,8 +144,39 @@ for i, group in enumerate(kernel_groups):
     out = block_reduce(out, (2, 2), np.max)
     outputs.append(out)
 
+
 outputs = np.array(outputs)
 for i in range(4):
     print(np.array_equal(outputs[i], prediction_merged[i::4].reshape(255, 256)))
 
-print("negative: ", np.sum(outputs < 0))
+outputs /= 32
+
+kernel_groups = [[None] * OUT_CHANNELS for _ in range(L2_CHANNELS)]
+channels = []
+for i in range(OUT_CHANNELS):
+    channels.append(l2_kernels[i::OUT_CHANNELS])
+
+for i, group in enumerate(channels):
+    for j, kernel in enumerate(group):
+        kernel_groups[j][i] = kernel
+        kernel_groups[j][i] = np.flip(kernel_groups[j][i], 0)
+        kernel_groups[j][i] = np.flip(kernel_groups[j][i], 1)        
+
+kernel_groups = np.array(kernel_groups)
+print(kernel_groups.shape)
+outs = []
+for i, group in enumerate(kernel_groups):
+    kernel_sum = np.zeros((253,256))
+    for j, kernel in enumerate(group):
+        inp = np.zeros((255, 258)).astype(np.int16)
+        inp[:, 1:-1] = outputs[j].astype(np.int16)
+        print(inp[:4, :4])
+        out = convolve2d(inp, kernel, mode='valid')
+        kernel_sum += out
+    
+    print("ks 1", kernel_sum[:2, :2].flatten().astype(np.int16))
+
+    out = np.maximum(kernel_sum, 0)
+    out = block_reduce(out, (2, 2), np.max)
+    print("out", out[0, 0].astype(np.int16))
+    outs.append(out)

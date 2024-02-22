@@ -86,9 +86,8 @@ kernels = kernels.reshape(9, -1).T
 print("#define KERNEL_WEIGHTS_L1", format_array_C(kernels.reshape(12, 3, 3).astype(np.int8)), end="\n\n")
 
 kernels = model.layers[5].get_weights()[0]
-print(kernels)
-print()
-print(kernels.reshape(32, 9))
+kernels = kernels.reshape(9, -1).T
+print("l2_kernels", format_array_py(kernels.reshape(32, 3, 3).astype(np.int8)))
 if PRINT:
     print("#define KERNEL_WEIGHTS_L2", format_array_C(kernels.reshape(32, 3, 3).astype(np.int8)))
 
