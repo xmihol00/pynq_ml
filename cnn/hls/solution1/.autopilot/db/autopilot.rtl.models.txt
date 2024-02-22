@@ -1,0 +1,17 @@
+cnn_mux_63_8_1_1
+cnn_mac_muladd_5sRg6
+cnn_mac_muladd_5sShg
+cnn_mac_muladd_5sThq
+cnn_mac_muladd_5nUhA
+cnn_mac_muladd_5nVhK
+cnn_mac_muladd_5nWhU
+cnn_mac_muladd_5nXh4
+cnn_mac_muladd_5sYie
+cnn_mac_muladd_5nZio
+cnn_mul_mul_8ns_50iy
+cnn_mul_mul_8ns_51iI
+kernel_l1_stripesbkb
+kernel_l2_stripestde
+regslice_core
+kernel
+cnn

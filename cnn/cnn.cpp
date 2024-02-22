@@ -10,8 +10,7 @@ void kernel
     uint8_t l2_stripes[L1_KERNELS][STRIPE_HEIGHT][L2_STRIPE_INPUT_WIDTH + 2]
 )
 {
-    static uint32_t global_iteration = 0;
-
+    static uint32_t l1_iteration = 0;
     static uint16_t l1_write_col_offset = 1;
     static uint8_t l1_write_row_offset = 0;
     static uint8_t l1_channel_idx = 0;
@@ -19,6 +18,7 @@ void kernel
     static uint16_t l1_read_col_offset = 0;
     static int16_t l1_maxes[L1_KERNELS] = {0, };
 
+    static uint32_t l2_iteration = 0;
     static uint16_t l2_write_col_offset = 1;
     static uint8_t l2_write_row_offset = 0;
     static uint8_t l2_channel_idx = 0;
@@ -27,7 +27,7 @@ void kernel
     static int16_t l2_maxes[L2_KERNELS] = {0, };
     static int16_t l2_kernel_sums[L2_KERNELS] = {0, };
 
-    if ((global_iteration & 0x3FF) < 384)
+    if ((l1_iteration & 0x3FF) < 384)
     {
         int high = 7;
         int low = 0;
@@ -45,13 +45,13 @@ void kernel
             low += 8;
         }
 
-        if ((global_iteration & 0x3FF) == 191)
+        if ((l1_iteration & 0x3FF) == 191)
         {
             l1_write_row_offset += 1;
             l1_write_col_offset = 1;
         }
     }
-    else if ((global_iteration & 0x3FF) == 0x3FF)
+    else if ((l1_iteration & 0x3FF) == 0x3FF)
     {
         l1_write_col_offset = 1;
         l1_write_row_offset += 1;
@@ -61,40 +61,48 @@ void kernel
         }
     }
 
-    if (global_iteration >= 2*1024)
+    if (l1_iteration >= 2*1024)
     {   
-        bool top_offset = global_iteration & 2;
-        bool left_offset = global_iteration & 1;
+        bool top_offset = l1_iteration & 2;
+        bool left_offset = l1_iteration & 1;
         uint16_t local_col_index = l1_read_col_offset + left_offset;
 
         int16_t partial_sums[IN_CHANNELS][L1_KERNELS] = {{0, }, };
     #pragma HLS ARRAY_PARTITION variable=partial_sums complete
 
-        for (int l = 0; l < KERNEL_SIZE; l++)
         {
-            uint8_t row_idx = l1_read_row_offset + l + top_offset;
-            if (row_idx >= STRIPE_HEIGHT)
+        #pragma HLS latency min=9 max=9
+            for (int l = 0; l < KERNEL_SIZE; l++)
             {
-                row_idx -= STRIPE_HEIGHT;
-            }
-            for (int m = 0; m < KERNEL_SIZE; m++)
-            {
-                for (int j = 0; j < IN_CHANNELS; j++)
+                uint8_t row_idx = l1_read_row_offset + l + top_offset;
+                if (row_idx >= STRIPE_HEIGHT)
                 {
-                    for (int k = 0; k < L1_KERNELS; k++)
+                    row_idx -= STRIPE_HEIGHT;
+                }
+                for (int m = 0; m < KERNEL_SIZE; m++)
+                {
+                    for (int j = 0; j < IN_CHANNELS; j++)
                     {
-                        partial_sums[j][k] += l1_kernels[j * L1_KERNELS + k][l][m] * l1_stripes[j][row_idx][local_col_index + m];
+                    #pragma HLS UNROLL
+                        for (int k = 0; k < L1_KERNELS; k++)
+                        {
+                        #pragma HLS UNROLL
+                            partial_sums[j][k] += l1_kernels[j * L1_KERNELS + k][l][m] * l1_stripes[j][row_idx][local_col_index + m];
+                        }
                     }
                 }
             }
         }
 
         int16_t kernel_sums[L1_KERNELS] = {0, };
-        for (int k = 0; k < L1_KERNELS; k++)
         {
-            for (int j = 0; j < IN_CHANNELS; j++)
+        #pragma HLS latency min=3 max=3
+            for (int k = 0; k < L1_KERNELS; k++)
             {
-                kernel_sums[k] += partial_sums[j][k];
+                for (int j = 0; j < IN_CHANNELS; j++)
+                {
+                    kernel_sums[k] += partial_sums[j][k];
+                }
             }
         }
 
@@ -103,7 +111,7 @@ void kernel
             l1_maxes[j] = kernel_sums[j] > l1_maxes[j] ? kernel_sums[j] : l1_maxes[j];
         }
 
-        if ((global_iteration & 0b11) == 0b11)
+        if ((l1_iteration & 0b11) == 0b11)
         {
             for (int k = 0; k < L1_KERNELS; k++)
             {
@@ -136,21 +144,11 @@ void kernel
     }
 
     static int16_t l2_partial_sums[L1_KERNELS][L2_KERNELS] = {{0, }, };
-    if (global_iteration >= 6*1024 & !(global_iteration & 1024))
+    if (l2_iteration >= 6*1024 && !(l2_iteration & 1024))
     {
-        /*for (int i = 0; i < L1_KERNELS; i++)
-        {
-            for (int j = 0; j < STRIPE_HEIGHT-2; j++)
-            {
-                std::cout << (int)l2_stripes[i][j][0] << " " << (int)l2_stripes[i][j][1] << " " << (int)l2_stripes[i][j][2] << " " << (int)l2_stripes[i][j][3] << std::endl;
-            }
-        }
-        std::cout << (int)l2_read_row_offset << " " << l2_read_col_offset << std::endl;
-        exit(1);*/
-
-        uint8_t channel_offset = global_iteration & 1 ? 2 : 0;
-        bool top_offset = global_iteration & 4;
-        bool left_offset = global_iteration & 2;
+        uint8_t channel_offset = l2_iteration & 1 ? 2 : 0;
+        bool top_offset = l2_iteration & 4;
+        bool left_offset = l2_iteration & 2;
         uint16_t local_col_index = l2_read_col_offset + left_offset;
 
         int16_t l2_partial_sums[L1_KERNELS/2][L2_KERNELS] = {{0, }, };
@@ -181,25 +179,22 @@ void kernel
             }
         }
 
-        if (global_iteration & 1)
+        if (l2_iteration & 1)
         {
             for (int j = 0; j < L2_KERNELS; j++)
             {
-                //std::cout << l2_kernel_sums[j] << " ";
                 l2_maxes[j] = l2_kernel_sums[j] > l2_maxes[j] ? l2_kernel_sums[j] : l2_maxes[j];
-                //std::cout << l2_maxes[j] << " ";
                 l2_kernel_sums[j] = 0;
             }
-            //std::cout << std::endl;
         }
 
-        if ((global_iteration & 0b111) == 0b111)
+        if ((l2_iteration & 0b111) == 0b111)
         {
             int high = 15;
             int low = 0;
             axis_out_t out_data;
             out_data.keep = 0xFF;
-            out_data.last = global_iteration >= (255*1024 - 7);
+            out_data.last = l2_iteration >= (257*1024 - 7);
             for (int k = 0; k < L2_KERNELS; k++)
             {
                 out_data.data.range(high, low) = l2_maxes[k];
@@ -222,11 +217,19 @@ void kernel
         }
     }
 
-    global_iteration++;
-    if (global_iteration == 257*1024)
+    l1_iteration++;
+    if (l1_iteration == 257*1024)
     {
-        global_iteration = 1024;
+        l1_iteration = 1024;
         l1_read_row_offset = 2;
+        l2_write_row_offset--;
+    }
+
+    l2_iteration++;
+    if (l2_iteration == 258*1024)
+    {
+        l2_iteration = 2*1024;
+        l2_read_row_offset = 2;
     }
 }
 
@@ -239,7 +242,7 @@ void cnn(hls::stream<axis_in_t> &in, hls::stream<axis_out_t> &out)
     static const int8_t l1_kernels[IN_CHANNELS * L1_KERNELS][KERNEL_SIZE][KERNEL_SIZE] = KERNEL_WEIGHTS_L1;
     static const int8_t l2_kernels[L1_KERNELS * L2_KERNELS][KERNEL_SIZE][KERNEL_SIZE] = KERNEL_WEIGHTS_L2;
 #pragma HLS ARRAY_PARTITION variable=l1_kernels block factor=12 dim=1
-#pragma HLS ARRAY_PARTITION variable=l2_kernels block factor=12 dim=1
+#pragma HLS ARRAY_PARTITION variable=l2_kernels block factor=32 dim=1
 
     static uint8_t l1_stripes[IN_CHANNELS][STRIPE_HEIGHT][L1_STRIPE_INPUT_WIDTH + 2] = {{0, } };
     static uint8_t l2_stripes[L1_KERNELS][STRIPE_HEIGHT][L2_STRIPE_INPUT_WIDTH + 2] = {{0, } };
@@ -247,8 +250,12 @@ void cnn(hls::stream<axis_in_t> &in, hls::stream<axis_out_t> &out)
 #pragma HLS ARRAY_PARTITION variable=l1_stripes complete dim=1
 #pragma HLS ARRAY_PARTITION variable=l1_stripes complete dim=2
 #pragma HLS RESET variable=l1_stripes
+#pragma HLS RESOURCE variable=l2_stripes core=RAM_2P_BRAM
+#pragma HLS ARRAY_PARTITION variable=l2_stripes complete dim=1
+#pragma HLS ARRAY_PARTITION variable=l2_stripes complete dim=2
+#pragma HLS RESET variable=l2_stripes
 
-#pragma HLS PIPELINE
+#pragma HLS PIPELINE II=27
 
     kernel(in, out, l1_kernels, l1_stripes, l2_kernels, l2_stripes);
 }

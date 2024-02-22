@@ -1,0 +1,14 @@
++--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+
+|       Launch Clock       |      Capture Clock       |                                                 Pin                                                      |
++--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+
+|               clk_fpga_0 |               clk_fpga_0 |                                   design_1_i/cnn_0/U0/grp_kernel_fu_196/l1_stripes_2_2_U/sel0_sr_reg[0]/D|
+|               clk_fpga_0 |               clk_fpga_0 |                                   design_1_i/cnn_0/U0/grp_kernel_fu_196/l1_stripes_1_4_U/sel0_sr_reg[0]/D|
+|               clk_fpga_0 |               clk_fpga_0 |design_1_i/axi_mem_intercon/s00_couplers/auto_us/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.write_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_ADDR.addr_q_reg[4]/D|
+|               clk_fpga_0 |               clk_fpga_0 |                                 design_1_i/cnn_0/U0/grp_kernel_fu_196/l1_stripes_1_5_U/written_reg[172]/D|
+|               clk_fpga_0 |               clk_fpga_0 |                                 design_1_i/cnn_0/U0/grp_kernel_fu_196/l1_stripes_1_5_U/written_reg[160]/D|
+|               clk_fpga_0 |               clk_fpga_0 |                                  design_1_i/cnn_0/U0/grp_kernel_fu_196/l1_stripes_1_5_U/written_reg[74]/D|
+|               clk_fpga_0 |               clk_fpga_0 |                                 design_1_i/cnn_0/U0/grp_kernel_fu_196/l1_stripes_1_3_U/written_reg[118]/D|
+|               clk_fpga_0 |               clk_fpga_0 |                                 design_1_i/cnn_0/U0/grp_kernel_fu_196/l1_stripes_1_3_U/written_reg[106]/D|
+|               clk_fpga_0 |               clk_fpga_0 |                                    design_1_i/cnn_0/U0/grp_kernel_fu_196/add_ln178_94_reg_17463_reg[15]/D|
+|               clk_fpga_0 |               clk_fpga_0 |                                 design_1_i/cnn_0/U0/grp_kernel_fu_196/l1_stripes_1_3_U/written_reg[100]/D|
++--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+

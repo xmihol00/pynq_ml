@@ -1,21 +1,21 @@
 #include "cnn_tb.h"
 #include "cnn.h"
 
-const uint8_t inputs[3*512*514] = INPUT_DATA;
-const int16_t predictions[8*126*128] = PREDICTION;
+const uint8_t inputs[3*512*515] = INPUT_DATA;
+const int16_t predictions[8*126*129] = PREDICTION;
 
 int main()
 {
-    int16_t output[8*126*128];
+    int16_t output[8*126*129];
     hls::stream<axis_in_t> in_stream;
     hls::stream<axis_out_t> out_stream;
     int valid_count = 0;
     bool failed = false;
     int output_idx = 0;
 
-    for (int m = 0; m < 1; m++)
+    for (int m = 0; m < 2; m++)
     {
-        for (int n = 0; n < 256 + (m == 1); n++)
+        for (int n = 0; n < 256 + 2*(m == 1); n++)
         {
             int in_shift = n*2*1536;
 
@@ -61,6 +61,7 @@ int main()
 
                 if (out.last)
                 {
+                    std::cout << "index " << output_idx << " is last" << std::endl;
                     output_idx = 0;
                     int error_count = 0;
                     for (int i = 0; i < 8*126*128; i++)
@@ -77,7 +78,7 @@ int main()
                         }
                         else if (predictions[i])
                         {
-                            std::cout << "Passed at " << i << ": Expected - " << predictions[i] << "\t Actual - " << output[i + 1028] << std::endl;
+                            //std::cout << "Passed at " << i << ": Expected - " << predictions[i] << "\t Actual - " << output[i] << std::endl;
                         }
                     }
 

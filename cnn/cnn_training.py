@@ -15,7 +15,7 @@ L1_OUT_CHANNELS = 4
 L2_OUT_CHANNELS = 8
 IN_WIDTH = 512
 IN_HEIGHT = 512
-PRINT = False
+PRINT = True
 
 class ShiftLayer(tf.keras.layers.Layer):
   def __init__(self, factor):
@@ -72,8 +72,8 @@ prediction_merged = np.zeros((L2_OUT_CHANNELS*128*126))
 for i in range(L2_OUT_CHANNELS):
     prediction_merged[i::L2_OUT_CHANNELS] = prediction_reshaped[i]
 
-np.save("prediction.npy", prediction_merged.astype(np.int16))
 if PRINT:
+    np.save("prediction.npy", prediction_merged.astype(np.int16))
     print("#define PREDICTION", format_array_C(prediction_merged.astype(np.int16)))
 
 inputs = input_data.reshape(IN_HEIGHT*IN_WIDTH, -1).T
@@ -89,9 +89,6 @@ inputs_merged_hw = inputs_merged_hw.reshape(IN_WIDTH, -1)
 if PRINT:
     print("#define INPUT_DATA", format_array_C(inputs_merged_hw.flatten().astype(np.uint8)))
     np.save("input_data.npy", inputs_merged_hw)
-
-for i in range(4):
-    print(f"R{i}", inputs_merged_hw[i::4].flatten())
 
 kernels_l1 = model.layers[1].get_weights()[0]
 kernels_l1 = kernels_l1.reshape(9, -1).T
@@ -131,9 +128,11 @@ for i, group in enumerate(kernel_groups_l1):
     outs_l1.append(out)
 
 for outs, preds in zip(outs_l1, prediction_small):
-    print(outs.flatten().shape, preds.shape)
-    print(outs.flatten()[:4], preds[:4])
     print(np.array_equal(outs.flatten(), preds))
+
+outs_l1 = np.array(outs_l1)
+outs_l1 = (outs_l1 / 32).astype(np.uint8)
+outs_l1 = outs_l1.astype(np.float32)
 
 kernel_groups_l2 = [[None] * L1_OUT_CHANNELS for _ in range(L2_OUT_CHANNELS)]
 channels = []
@@ -160,4 +159,8 @@ for i, group in enumerate(kernel_groups_l2):
 
     out = np.maximum(kernel_sum, 0)
     out = block_reduce(out, (2, 2), np.max)
+    print("max", out[0, 0])
     outs_l2.append(out)
+
+for outs, preds in zip(outs_l2, prediction_reshaped):
+    print(np.array_equal(outs[:126].flatten(), preds))
