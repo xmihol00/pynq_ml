@@ -26,7 +26,8 @@ class ShiftLayer(tf.keras.layers.Layer):
     pass
 
   def call(self, inputs):
-    return inputs * self.factor
+    shifted = tf.cast(inputs * self.factor, tf.uint8)
+    return tf.cast(shifted, tf.float32)
 
 model = tf.keras.models.Sequential(
     [
@@ -39,9 +40,19 @@ model = tf.keras.models.Sequential(
         tf.keras.layers.MaxPooling2D((2, 2)),
     ]
 )
+
+model_small = tf.keras.models.Sequential(
+    [
+        tf.keras.layers.ZeroPadding2D(padding=(0, 1), input_shape=(IN_HEIGHT, IN_WIDTH, IN_CHANNELS)),
+        tf.keras.layers.Conv2D(L1_OUT_CHANNELS, (3, 3), activation='relu', padding='valid'),
+        tf.keras.layers.MaxPooling2D((2, 2)),
+    ]
+)
+
 input_data = np.random.randint(0, 255, (1, IN_HEIGHT, IN_WIDTH, IN_CHANNELS)).astype(np.float32)
 
 model.compile(optimizer='adam', loss='mean_squared_error')
+model_small.compile(optimizer='adam', loss='mean_squared_error')
 
 layers = model.layers
 for i, layer in enumerate(layers):
@@ -49,7 +60,11 @@ for i, layer in enumerate(layers):
         weights, biases = layer.get_weights()
         model.layers[i].set_weights([np.random.randint(-16, 16, weights.shape).astype(np.float32), np.zeros_like(biases)])
 
+model_small.layers[1].set_weights(model.layers[1].get_weights())
+
 prediction = model.predict(input_data)
+prediction_small = model_small.predict(input_data)
+prediction_small = prediction_small.reshape(256*255, -1).T
 
 prediction_reshaped = prediction.reshape(128*126, -1).T
 
@@ -57,19 +72,16 @@ prediction_merged = np.zeros((L2_OUT_CHANNELS*128*126))
 for i in range(L2_OUT_CHANNELS):
     prediction_merged[i::L2_OUT_CHANNELS] = prediction_reshaped[i]
 
+np.save("prediction.npy", prediction_merged.astype(np.int16))
 if PRINT:
-    print("prediction shape:", prediction_merged.shape)
     print("#define PREDICTION", format_array_C(prediction_merged.astype(np.int16)))
-    np.save("prediction.npy", prediction_merged.astype(np.int16))
 
 inputs = input_data.reshape(IN_HEIGHT*IN_WIDTH, -1).T
 inputs_hw = inputs.reshape(IN_CHANNELS, IN_HEIGHT, IN_WIDTH)
 inputs_hw = inputs_hw.reshape(IN_CHANNELS, IN_HEIGHT*IN_WIDTH)
 
-inputs_merged = np.zeros((IN_CHANNELS*IN_HEIGHT*IN_WIDTH))
 inputs_merged_hw = np.zeros((IN_CHANNELS*IN_HEIGHT*IN_WIDTH))
 for i in range(IN_CHANNELS):
-    inputs_merged[i::IN_CHANNELS] = inputs[i]
     inputs_merged_hw[i::IN_CHANNELS] = inputs_hw[i]
 
 
@@ -81,47 +93,71 @@ if PRINT:
 for i in range(4):
     print(f"R{i}", inputs_merged_hw[i::4].flatten())
 
-kernels = model.layers[1].get_weights()[0]
-kernels = kernels.reshape(9, -1).T
-print("#define KERNEL_WEIGHTS_L1", format_array_C(kernels.reshape(12, 3, 3).astype(np.int8)), end="\n\n")
-
-kernels = model.layers[5].get_weights()[0]
-kernels = kernels.reshape(9, -1).T
-print("l2_kernels", format_array_py(kernels.reshape(32, 3, 3).astype(np.int8)))
+kernels_l1 = model.layers[1].get_weights()[0]
+kernels_l1 = kernels_l1.reshape(9, -1).T
 if PRINT:
-    print("#define KERNEL_WEIGHTS_L2", format_array_C(kernels.reshape(32, 3, 3).astype(np.int8)))
+    print("#define KERNEL_WEIGHTS_L1", format_array_C(kernels_l1.reshape(12, 3, 3).astype(np.int8)), end="\n\n")
 
-exit()
+kernels_l2 = model.layers[5].get_weights()[0]
+kernels_l2 = kernels_l2.reshape(9, -1).T
+if PRINT:
+    print("#define KERNEL_WEIGHTS_L2", format_array_C(kernels_l2.reshape(32, 3, 3).astype(np.int8)))
 
-ch1_kernels = kernels[0::4]
-ch2_kernels = kernels[1::4]
-ch3_kernels = kernels[2::4]
-ch4_kernels = kernels[3::4]
+kernel_groups_l1 = [[None] * IN_CHANNELS for _ in range(L1_OUT_CHANNELS)]
+channels = []
+for i in range(IN_CHANNELS):
+    channels.append(kernels_l1[i::IN_CHANNELS])
 
-kernel_groups = [[None] * 3 for _ in range(4)]
-for i, group in enumerate([ch1_kernels, ch2_kernels, ch3_kernels, ch4_kernels]):
+for i, group in enumerate(channels):
     for j, kernel in enumerate(group):
-        kernel_groups[i][j] = kernel.reshape(3, 3)
-        kernel_groups[i][j] = np.flip(kernel_groups[i][j], 0)
-        kernel_groups[i][j] = np.flip(kernel_groups[i][j], 1)
+        kernel_groups_l1[j][i] = kernel.reshape(3, 3)
+        kernel_groups_l1[j][i] = np.flip(kernel_groups_l1[j][i], 0)
+        kernel_groups_l1[j][i] = np.flip(kernel_groups_l1[j][i], 1)        
 
-kernel_groups = np.array(kernel_groups)
-
-outputs = []
-for i, group in enumerate(kernel_groups):
-    kernel_sum = np.zeros((IN_HEIGHT-2, IN_WIDTH-2))
+kernel_groups_l1 = np.array(kernel_groups_l1)
+outs_l1 = []
+for i, group in enumerate(kernel_groups_l1):
+    kernel_sum = np.zeros((510,512))
     for j, kernel in enumerate(group):
-        out = convolve2d(inputs_merged[j::IN_CHANNELS].reshape(IN_HEIGHT, IN_WIDTH), kernel, mode='valid')
+        inp = np.zeros((512, 514)).astype(np.int16)
+        inp[:, 1:-1] = inputs_hw[j].reshape((512, 512)).astype(np.int16)
+        out = convolve2d(inp, kernel, mode='valid')
         kernel_sum += out
     
+    print("ks 0", kernel_sum[:2, :2].flatten().astype(np.int16))
+
     out = np.maximum(kernel_sum, 0)
     out = block_reduce(out, (2, 2), np.max)
-    outputs.append(out)
+    outs_l1.append(out)
 
-outputs = np.array(outputs)
-print(outputs[:, 0, 0])
-print(outputs[:, 0, 1])
-print(outputs[:, 0, 2])
-print(outputs[:, 0, 3])
-for i in range(4):
-    print(np.array_equal(outputs[i], prediction_merged[i::4].reshape(255, 256)))
+for outs, preds in zip(outs_l1, prediction_small):
+    print(outs.flatten().shape, preds.shape)
+    print(outs.flatten()[:4], preds[:4])
+    print(np.array_equal(outs.flatten(), preds))
+
+kernel_groups_l2 = [[None] * L1_OUT_CHANNELS for _ in range(L2_OUT_CHANNELS)]
+channels = []
+for i in range(L1_OUT_CHANNELS):
+    channels.append(kernels_l2[i::L1_OUT_CHANNELS])
+
+for i, group in enumerate(channels):
+    for j, kernel in enumerate(group):
+        kernel_groups_l2[j][i] = kernel.reshape(3, 3)
+        kernel_groups_l2[j][i] = np.flip(kernel_groups_l2[j][i], 0)
+        kernel_groups_l2[j][i] = np.flip(kernel_groups_l2[j][i], 1)
+
+kernel_groups_l2 = np.array(kernel_groups_l2)
+outs_l2 = []
+for i, group in enumerate(kernel_groups_l2):
+    kernel_sum = np.zeros((253,256))
+    for j, kernel in enumerate(group):
+        inp = np.zeros((255, 258)).astype(np.int16)
+        inp[:, 1:-1] = outs_l1[j].astype(np.int16)
+        out = convolve2d(inp, kernel, mode='valid')
+        kernel_sum += out
+    
+    print("ks 1", kernel_sum[:2, :2].flatten().astype(np.int16))
+
+    out = np.maximum(kernel_sum, 0)
+    out = block_reduce(out, (2, 2), np.max)
+    outs_l2.append(out)

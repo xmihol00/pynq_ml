@@ -170,7 +170,6 @@ for i, group in enumerate(kernel_groups):
     for j, kernel in enumerate(group):
         inp = np.zeros((255, 258)).astype(np.int16)
         inp[:, 1:-1] = outputs[j].astype(np.int16)
-        print(inp[:4, :4])
         out = convolve2d(inp, kernel, mode='valid')
         kernel_sum += out
     
@@ -178,5 +177,4 @@ for i, group in enumerate(kernel_groups):
 
     out = np.maximum(kernel_sum, 0)
     out = block_reduce(out, (2, 2), np.max)
-    print("out", out[0, 0].astype(np.int16))
     outs.append(out)
