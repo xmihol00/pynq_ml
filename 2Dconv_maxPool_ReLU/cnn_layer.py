@@ -76,15 +76,13 @@ print("Prediction time:", time.time() - start)
 
 prediction_reshaped = prediction.reshape(256*255, -1).T
 pred_shifted = (prediction_reshaped / 32).astype(np.uint8).reshape(4, 255, 256)
-print(len(pred_shifted[0, 0]))
-print(pred_shifted[:, :4, :4])
 
 prediction_merged = np.zeros((4*256*255))
 for i in range(4):
     prediction_merged[i::4] = prediction_reshaped[i]
 
-print("#define PREDICTION", format_array_C(prediction_merged.astype(np.int16)))
 if SAVE:
+    print("#define PREDICTION", format_array_C(prediction_merged.astype(np.int16)))
     np.save("prediction.npy", prediction_merged.astype(np.int16))
 
 inputs = input_data.reshape(IN_HEIGHT*IN_WIDTH, -1).T
@@ -148,6 +146,37 @@ for i, group in enumerate(kernel_groups):
 outputs = np.array(outputs)
 for i in range(4):
     print(np.array_equal(outputs[i], prediction_merged[i::4].reshape(255, 256)))
+
+kernel_groups_l1 = [[None] * IN_CHANNELS for _ in range(OUT_CHANNELS)]
+channels = []
+for i in range(OUT_CHANNELS):
+    channels.append(kernels[i::OUT_CHANNELS])
+
+for i, group in enumerate(channels):
+    print(i, group)
+    for j, kernel in enumerate(group):
+        kernel_groups_l1[i][j] = kernel.reshape(3, 3)
+        kernel_groups_l1[i][j] = np.flip(kernel_groups_l1[i][j], 0)
+        kernel_groups_l1[i][j] = np.flip(kernel_groups_l1[i][j], 1)        
+
+kernel_groups_l1 = np.array(kernel_groups_l1)
+outs_l1 = []
+for i, group in enumerate(kernel_groups_l1):
+    kernel_sum = np.zeros((510,512))
+    for j, kernel in enumerate(group):
+        inp = np.zeros((512, 514)).astype(np.int16)
+        inp[:, 1:-1] = inputs_hw[j].reshape((512, 512)).astype(np.int16)
+        out = convolve2d(inp, kernel, mode='valid')
+        kernel_sum += out
+    
+    print("ks 0", kernel_sum[:2, :2].flatten().astype(np.int16))
+
+    out = np.maximum(kernel_sum, 0)
+    out = block_reduce(out, (2, 2), np.max)
+    outs_l1.append(out)
+
+for i in range(4):
+    print(np.array_equal(outs_l1[i], prediction_merged[i::4].reshape(255, 256)))
 
 outputs /= 32
 

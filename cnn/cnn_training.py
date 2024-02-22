@@ -105,14 +105,14 @@ if PRINT:
 
 kernel_groups_l1 = [[None] * IN_CHANNELS for _ in range(L1_OUT_CHANNELS)]
 channels = []
-for i in range(IN_CHANNELS):
-    channels.append(kernels_l1[i::IN_CHANNELS])
+for i in range(L1_OUT_CHANNELS):
+    channels.append(kernels_l1[i::L1_OUT_CHANNELS])
 
 for i, group in enumerate(channels):
     for j, kernel in enumerate(group):
-        kernel_groups_l1[j][i] = kernel.reshape(3, 3)
-        kernel_groups_l1[j][i] = np.flip(kernel_groups_l1[j][i], 0)
-        kernel_groups_l1[j][i] = np.flip(kernel_groups_l1[j][i], 1)        
+        kernel_groups_l1[i][j] = kernel.reshape(3, 3)
+        kernel_groups_l1[i][j] = np.flip(kernel_groups_l1[i][j], 0)
+        kernel_groups_l1[i][j] = np.flip(kernel_groups_l1[i][j], 1)        
 
 kernel_groups_l1 = np.array(kernel_groups_l1)
 outs_l1 = []
@@ -137,14 +137,14 @@ for outs, preds in zip(outs_l1, prediction_small):
 
 kernel_groups_l2 = [[None] * L1_OUT_CHANNELS for _ in range(L2_OUT_CHANNELS)]
 channels = []
-for i in range(L1_OUT_CHANNELS):
-    channels.append(kernels_l2[i::L1_OUT_CHANNELS])
+for i in range(L2_OUT_CHANNELS):
+    channels.append(kernels_l2[i::L2_OUT_CHANNELS])
 
 for i, group in enumerate(channels):
     for j, kernel in enumerate(group):
-        kernel_groups_l2[j][i] = kernel.reshape(3, 3)
-        kernel_groups_l2[j][i] = np.flip(kernel_groups_l2[j][i], 0)
-        kernel_groups_l2[j][i] = np.flip(kernel_groups_l2[j][i], 1)
+        kernel_groups_l2[i][j] = kernel.reshape(3, 3)
+        kernel_groups_l2[i][j] = np.flip(kernel_groups_l2[i][j], 0)
+        kernel_groups_l2[i][j] = np.flip(kernel_groups_l2[i][j], 1)
 
 kernel_groups_l2 = np.array(kernel_groups_l2)
 outs_l2 = []
