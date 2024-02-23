@@ -1,8 +1,8 @@
 cnn_mux_63_8_1_1
 cnn_mac_muladd_5sRg6
 cnn_mac_muladd_5sShg
-cnn_mac_muladd_5sThq
-cnn_mac_muladd_5nUhA
+cnn_mac_muladd_5nThq
+cnn_mac_muladd_5sUhA
 cnn_mac_muladd_5nVhK
 cnn_mac_muladd_5nWhU
 cnn_mac_muladd_5nXh4

@@ -243,10 +243,10 @@
 					<Obj>
 						<type>0</type>
 						<id>105</id>
-						<name>_ln260</name>
+						<name>_ln273</name>
 						<fileName>cnn.cpp</fileName>
 						<fileDirectory>/mnt/sdc3/david/projs/pynq_ml/cnn</fileDirectory>
-						<lineNumber>260</lineNumber>
+						<lineNumber>273</lineNumber>
 						<contextFuncName>cnn</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -261,7 +261,7 @@
 											<first>cnn.cpp</first>
 											<second>cnn</second>
 										</first>
-										<second>260</second>
+										<second>273</second>
 									</item>
 								</second>
 							</item>
@@ -372,10 +372,10 @@
 					<Obj>
 						<type>0</type>
 						<id>106</id>
-						<name>_ln261</name>
+						<name>_ln274</name>
 						<fileName>cnn.cpp</fileName>
 						<fileDirectory>/mnt/sdc3/david/projs/pynq_ml/cnn</fileDirectory>
-						<lineNumber>261</lineNumber>
+						<lineNumber>274</lineNumber>
 						<contextFuncName>cnn</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -390,7 +390,7 @@
 											<first>cnn.cpp</first>
 											<second>cnn</second>
 										</first>
-										<second>261</second>
+										<second>274</second>
 									</item>
 								</second>
 							</item>
@@ -1065,12 +1065,12 @@
 				<item_version>0</item_version>
 				<item>107</item>
 			</basic_blocks>
-			<mII>27</mII>
-			<mDepth>39</mDepth>
+			<mII>9</mII>
+			<mDepth>29</mDepth>
 			<mMinTripCount>-1</mMinTripCount>
 			<mMaxTripCount>-1</mMaxTripCount>
-			<mMinLatency>38</mMinLatency>
-			<mMaxLatency>38</mMaxLatency>
+			<mMinLatency>28</mMinLatency>
+			<mMaxLatency>28</mMaxLatency>
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>
 		</item>
@@ -1084,13 +1084,13 @@
 			<first>105</first>
 			<second class_id="28" tracking_level="0" version="0">
 				<first>1</first>
-				<second>36</second>
+				<second>26</second>
 			</second>
 		</item>
 		<item>
 			<first>106</first>
 			<second>
-				<first>38</first>
+				<first>28</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -1102,7 +1102,7 @@
 			<first>107</first>
 			<second class_id="31" tracking_level="0" version="0">
 				<first>0</first>
-				<second>38</second>
+				<second>28</second>
 			</second>
 		</item>
 	</bblk_ent_exit>
@@ -1122,8 +1122,8 @@
 			</nodes>
 			<anchor_node>-1</anchor_node>
 			<region_type>8</region_type>
-			<interval>27</interval>
-			<pipe_depth>39</pipe_depth>
+			<interval>9</interval>
+			<pipe_depth>29</pipe_depth>
 		</item>
 	</regions>
 	<dp_fu_nodes class_id="34" tracking_level="0" version="0">

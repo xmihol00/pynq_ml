@@ -6,19 +6,19 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity cnn_mac_muladd_5nVhK_DSP48_4 is
+entity cnn_mac_muladd_5nThq_DSP48_2 is
 port (
     in0:  in  std_logic_vector(5 - 1 downto 0);
     in1:  in  std_logic_vector(8 - 1 downto 0);
-    in2:  in  std_logic_vector(13 - 1 downto 0);
+    in2:  in  std_logic_vector(14 - 1 downto 0);
     dout: out std_logic_vector(14 - 1 downto 0));
 
     attribute use_dsp : string;
-    attribute use_dsp of cnn_mac_muladd_5nVhK_DSP48_4 : entity is "yes";
+    attribute use_dsp of cnn_mac_muladd_5nThq_DSP48_2 : entity is "yes";
 
 end entity;
 
-architecture behav of cnn_mac_muladd_5nVhK_DSP48_4 is
+architecture behav of cnn_mac_muladd_5nThq_DSP48_2 is
     signal a       : signed(25-1 downto 0);
     signal b       : signed(18-1 downto 0);
     signal c       : signed(48-1 downto 0);
@@ -27,7 +27,7 @@ architecture behav of cnn_mac_muladd_5nVhK_DSP48_4 is
 begin
 a  <= signed(resize(unsigned(in0), 25));
 b  <= signed(resize(unsigned(in1), 18));
-c  <= signed(resize(signed(in2), 48));
+c  <= signed(resize(unsigned(in2), 48));
 
 m  <= a * b;
 p  <= m + c;
@@ -38,7 +38,7 @@ end architecture;
 Library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity cnn_mac_muladd_5nVhK is
+entity cnn_mac_muladd_5nThq is
     generic (
         ID : INTEGER;
         NUM_STAGE : INTEGER;
@@ -53,8 +53,8 @@ entity cnn_mac_muladd_5nVhK is
         dout : OUT STD_LOGIC_VECTOR(dout_WIDTH - 1 DOWNTO 0));
 end entity;
 
-architecture arch of cnn_mac_muladd_5nVhK is
-    component cnn_mac_muladd_5nVhK_DSP48_4 is
+architecture arch of cnn_mac_muladd_5nThq is
+    component cnn_mac_muladd_5nThq_DSP48_2 is
         port (
             in0 : IN STD_LOGIC_VECTOR;
             in1 : IN STD_LOGIC_VECTOR;
@@ -65,7 +65,7 @@ architecture arch of cnn_mac_muladd_5nVhK is
 
 
 begin
-    cnn_mac_muladd_5nVhK_DSP48_4_U :  component cnn_mac_muladd_5nVhK_DSP48_4
+    cnn_mac_muladd_5nThq_DSP48_2_U :  component cnn_mac_muladd_5nThq_DSP48_2
     port map (
         in0 => din0,
         in1 => din1,

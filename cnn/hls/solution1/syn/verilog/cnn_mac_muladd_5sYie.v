@@ -18,7 +18,7 @@ wire signed [48 - 1:0]     p;
 
 assign a  = $signed(in0);
 assign b  = $unsigned(in1);
-assign c  = $signed(in2);
+assign c  = $unsigned(in2);
 
 assign m  = a * b;
 assign p  = m + c;

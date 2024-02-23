@@ -60,6 +60,8 @@
                                     <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include/ap_sysc"/>
                                     									
                                     <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/mnt/sdc3/david/projs/pynq_ml/cnn"/>
                                     								
                                 </option>
                                 								
@@ -94,6 +96,8 @@
                                     <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include/ap_sysc"/>
                                     									
                                     <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/mnt/sdc3/david/projs/pynq_ml/cnn"/>
                                     								
                                 </option>
                                 								
@@ -156,6 +160,40 @@
                         </toolChain>
                         					
                     </folderInfo>
+                    					
+                    <fileInfo id="cdt.managedbuild.config.gnu.exe.debug.1198479813.1693388989" name="cnn_tb.cpp" rcbsApplicability="disable" resourcePath="testbench/cnn_tb.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.1012396544.560301086">
+                        						
+                        <tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.1012396544.560301086" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.1012396544">
+                            							
+                            <option id="gnu.cpp.compiler.option.preprocessor.def.1399109656" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def"/>
+                            							
+                            <option id="gnu.cpp.compiler.option.include.paths.909156004" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
+                                								
+                                <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include/etc"/>
+                                								
+                                <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/lnx64/tools/systemc/include"/>
+                                								
+                                <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/lnx64/tools/auto_cc/include"/>
+                                								
+                                <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include/ap_sysc"/>
+                                								
+                                <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include"/>
+                                								
+                                <listOptionValue builtIn="false" value="/mnt/sdc3/david/projs/pynq_ml/cnn"/>
+                                							
+                            </option>
+                            							
+                            <option id="gnu.cpp.compiler.option.other.other.2119534748" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-Wno-unknown-pragmas -c -fmessage-length=0" valueType="string"/>
+                            							
+                            <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1426578829" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+                            						
+                        </tool>
+                        					
+                    </fileInfo>
+                    					
+                    <fileInfo id="cdt.managedbuild.config.gnu.exe.debug.1198479813.665582733" name="cnn_tb.h" rcbsApplicability="disable" resourcePath="testbench/cnn_tb.h" toolsToInvoke=""/>
+                    					
+                    <fileInfo id="cdt.managedbuild.config.gnu.exe.debug.1198479813.553600655" name="cnn.h" rcbsApplicability="disable" resourcePath="testbench/cnn.h" toolsToInvoke=""/>
                     					
                     <sourceEntries>
                         						
@@ -228,6 +266,8 @@
                                     <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include/ap_sysc"/>
                                     									
                                     <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/mnt/sdc3/david/projs/pynq_ml/cnn"/>
                                     								
                                 </option>
                                 								
@@ -252,6 +292,8 @@
                                     <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include/ap_sysc"/>
                                     									
                                     <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/mnt/sdc3/david/projs/pynq_ml/cnn"/>
                                     								
                                 </option>
                                 								
@@ -304,6 +346,40 @@
                         </toolChain>
                         					
                     </folderInfo>
+                    					
+                    <fileInfo id="cdt.managedbuild.config.gnu.exe.release.740077800.236927075" name="cnn_tb.cpp" rcbsApplicability="disable" resourcePath="testbench/cnn_tb.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1702058943.1393506975">
+                        						
+                        <tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1702058943.1393506975" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1702058943">
+                            							
+                            <option id="gnu.cpp.compiler.option.preprocessor.def.1006970357" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def"/>
+                            							
+                            <option id="gnu.cpp.compiler.option.include.paths.1461969501" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
+                                								
+                                <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include/etc"/>
+                                								
+                                <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/lnx64/tools/systemc/include"/>
+                                								
+                                <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/lnx64/tools/auto_cc/include"/>
+                                								
+                                <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include/ap_sysc"/>
+                                								
+                                <listOptionValue builtIn="false" value="/home/david/Xilinx/Vivado/2020.1/include"/>
+                                								
+                                <listOptionValue builtIn="false" value="/mnt/sdc3/david/projs/pynq_ml/cnn"/>
+                                							
+                            </option>
+                            							
+                            <option id="gnu.cpp.compiler.option.other.other.1381423147" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-Wno-unknown-pragmas -c -fmessage-length=0" valueType="string"/>
+                            							
+                            <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1168318780" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+                            						
+                        </tool>
+                        					
+                    </fileInfo>
+                    					
+                    <fileInfo id="cdt.managedbuild.config.gnu.exe.release.740077800.1191551316" name="cnn_tb.h" rcbsApplicability="disable" resourcePath="testbench/cnn_tb.h" toolsToInvoke=""/>
+                    					
+                    <fileInfo id="cdt.managedbuild.config.gnu.exe.release.740077800.2102311794" name="cnn.h" rcbsApplicability="disable" resourcePath="testbench/cnn.h" toolsToInvoke=""/>
                     					
                     <sourceEntries>
                         						

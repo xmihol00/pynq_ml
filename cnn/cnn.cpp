@@ -70,44 +70,57 @@ void kernel
         int16_t partial_sums[IN_CHANNELS][L1_KERNELS] = {{0, }, };
     #pragma HLS ARRAY_PARTITION variable=partial_sums complete
 
+        for (int l = 0; l < KERNEL_SIZE; l++)
         {
-        #pragma HLS latency min=9 max=9
-            for (int l = 0; l < KERNEL_SIZE; l++)
+            uint8_t row_idx = l1_read_row_offset + l + top_offset;
+            if (row_idx >= STRIPE_HEIGHT)
             {
-                uint8_t row_idx = l1_read_row_offset + l + top_offset;
-                if (row_idx >= STRIPE_HEIGHT)
+                row_idx -= STRIPE_HEIGHT;
+            }
+            for (int m = 0; m < KERNEL_SIZE; m++)
+            {
+                uint16_t col_idx = local_col_index + m;
+                for (int j = 0; j < IN_CHANNELS; j++)
                 {
-                    row_idx -= STRIPE_HEIGHT;
-                }
-                for (int m = 0; m < KERNEL_SIZE; m++)
-                {
-                    for (int j = 0; j < IN_CHANNELS; j++)
+                #pragma HLS UNROLL
+                    for (int k = 0; k < L1_KERNELS; k++)
                     {
                     #pragma HLS UNROLL
-                        for (int k = 0; k < L1_KERNELS; k++)
                         {
-                        #pragma HLS UNROLL
-                            partial_sums[j][k] += l1_kernels[j * L1_KERNELS + k][l][m] * l1_stripes[j][row_idx][local_col_index + m];
+                        #pragma HLS latency min=2 max=2
+                            int16_t temp = l1_kernels[j * L1_KERNELS + k][l][m] * l1_stripes[j][row_idx][col_idx];
+                            partial_sums[j][k] += temp;
                         }
                     }
                 }
             }
         }
 
-        int16_t kernel_sums[L1_KERNELS] = {0, };
+        int16_t kernel_sums_1a[L1_KERNELS];
+        int16_t kernel_sums_1b[L1_KERNELS];
+        int16_t kernel_sums[L1_KERNELS];
         {
-        #pragma HLS latency min=3 max=3
+        #pragma HLS latency min=1 max=2
             for (int k = 0; k < L1_KERNELS; k++)
             {
-                for (int j = 0; j < IN_CHANNELS; j++)
-                {
-                    kernel_sums[k] += partial_sums[j][k];
-                }
+            #pragma HLS UNROLL
+                kernel_sums_1a[k] = partial_sums[0][k] + partial_sums[1][k];
+                kernel_sums_1b[k] = partial_sums[2][k];
+            }
+        }
+
+        {
+        #pragma HLS latency min=1 max=2
+            for (int k = 0; k < L1_KERNELS; k++)
+            {
+            #pragma HLS UNROLL
+                kernel_sums[k] = kernel_sums_1a[k] + kernel_sums_1b[k];
             }
         }
 
         for (int j = 0; j < L1_KERNELS; j++)
         {
+        #pragma HLS UNROLL
             l1_maxes[j] = kernel_sums[j] > l1_maxes[j] ? kernel_sums[j] : l1_maxes[j];
         }
 
@@ -255,7 +268,7 @@ void cnn(hls::stream<axis_in_t> &in, hls::stream<axis_out_t> &out)
 #pragma HLS ARRAY_PARTITION variable=l2_stripes complete dim=2
 #pragma HLS RESET variable=l2_stripes
 
-#pragma HLS PIPELINE II=27
+#pragma HLS PIPELINE
 
     kernel(in, out, l1_kernels, l1_stripes, l2_kernels, l2_stripes);
 }

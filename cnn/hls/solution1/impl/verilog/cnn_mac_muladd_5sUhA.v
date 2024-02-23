@@ -4,10 +4,10 @@
 // ==============================================================
 `timescale 1 ns / 1 ps
 
-(* use_dsp = "yes" *) module cnn_mac_muladd_5nUhA_DSP48_3(
+(* use_dsp = "yes" *) module cnn_mac_muladd_5sUhA_DSP48_3(
     input  [5 - 1:0] in0,
     input  [8 - 1:0] in1,
-    input  [14 - 1:0] in2,
+    input  [13 - 1:0] in2,
     output [14 - 1:0]  dout);
 
 wire signed [25 - 1:0]     a;
@@ -16,9 +16,9 @@ wire signed [48 - 1:0]     c;
 wire signed [43 - 1:0]     m;
 wire signed [48 - 1:0]     p;
 
-assign a  = $unsigned(in0);
+assign a  = $signed(in0);
 assign b  = $unsigned(in1);
-assign c  = $unsigned(in2);
+assign c  = $signed(in2);
 
 assign m  = a * b;
 assign p  = m + c;
@@ -27,7 +27,7 @@ assign dout = p;
 
 endmodule
 `timescale 1 ns / 1 ps
-module cnn_mac_muladd_5nUhA(
+module cnn_mac_muladd_5sUhA(
     din0,
     din1,
     din2,
@@ -46,7 +46,7 @@ output[dout_WIDTH - 1:0] dout;
 
 
 
-cnn_mac_muladd_5nUhA_DSP48_3 cnn_mac_muladd_5nUhA_DSP48_3_U(
+cnn_mac_muladd_5sUhA_DSP48_3 cnn_mac_muladd_5sUhA_DSP48_3_U(
     .in0( din0 ),
     .in1( din1 ),
     .in2( din2 ),
