@@ -97,7 +97,7 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_pipemux, check your
 }
 
 
-set id 61
+set id 59
 set name cnn_mac_muladd_5sRg6
 set corename simcore_mac
 set op mac
@@ -179,7 +179,7 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_dsp48, check your p
 }
 
 
-set id 62
+set id 60
 set name cnn_mac_muladd_5sShg
 set corename simcore_mac
 set op mac
@@ -261,7 +261,7 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_dsp48, check your p
 }
 
 
-set id 63
+set id 61
 set name cnn_mac_muladd_5nThq
 set corename simcore_mac
 set op mac
@@ -343,7 +343,7 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_dsp48, check your p
 }
 
 
-set id 64
+set id 62
 set name cnn_mac_muladd_5sUhA
 set corename simcore_mac
 set op mac
@@ -425,7 +425,7 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_dsp48, check your p
 }
 
 
-set id 65
+set id 63
 set name cnn_mac_muladd_5nVhK
 set corename simcore_mac
 set op mac
@@ -507,7 +507,7 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_dsp48, check your p
 }
 
 
-set id 66
+set id 64
 set name cnn_mac_muladd_5nWhU
 set corename simcore_mac
 set op mac
@@ -589,7 +589,7 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_dsp48, check your p
 }
 
 
-set id 67
+set id 65
 set name cnn_mac_muladd_5nXh4
 set corename simcore_mac
 set op mac
@@ -671,7 +671,7 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_dsp48, check your p
 }
 
 
-set id 68
+set id 66
 set name cnn_mac_muladd_5sYie
 set corename simcore_mac
 set op mac
@@ -753,7 +753,7 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_dsp48, check your p
 }
 
 
-set id 70
+set id 68
 set name cnn_mac_muladd_5nZio
 set corename simcore_mac
 set op mac
@@ -835,7 +835,7 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_dsp48, check your p
 }
 
 
-set id 71
+set id 69
 set name cnn_mul_mul_8ns_50iy
 set corename simcore_mul
 set op mul
@@ -911,7 +911,7 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_dsp48, check your p
 }
 
 
-set id 72
+set id 70
 set name cnn_mul_mul_8ns_51iI
 set corename simcore_mul
 set op mul
@@ -988,7 +988,7 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_dsp48, check your p
 
 
 # Memory (RAM/ROM)  definition:
-set ID 108
+set ID 106
 set hasByteEnable 0
 set MemName kernel_l1_stripesbkb
 set CoreName ap_simcore_mem
@@ -1005,7 +1005,7 @@ set Initializer $ROMData
 set NumOfStage 2
 set MaxLatency -1
 set DelayBudget 3.254
-set ClkPeriod 10
+set ClkPeriod 8
 set RegisteredInput 0
 if {${::AESL::PGuard_simmodel_gen}} {
 if {[info proc ap_gen_simcore_mem] == "ap_gen_simcore_mem"} {
@@ -1074,7 +1074,7 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RA
 
 
 # Memory (RAM/ROM)  definition:
-set ID 109
+set ID 107
 set hasByteEnable 0
 set MemName kernel_l2_stripestde
 set CoreName ap_simcore_mem
@@ -1091,7 +1091,7 @@ set Initializer $ROMData
 set NumOfStage 2
 set MaxLatency -1
 set DelayBudget 3.254
-set ClkPeriod 10
+set ClkPeriod 8
 set RegisteredInput 0
 if {${::AESL::PGuard_simmodel_gen}} {
 if {[info proc ap_gen_simcore_mem] == "ap_gen_simcore_mem"} {
@@ -1170,7 +1170,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 110 \
+    id 108 \
     name in_V_data_V \
     reset_level 1 \
     sync_rst true \
@@ -1189,7 +1189,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 111 \
+    id 109 \
     name in_V_keep_V \
     reset_level 1 \
     sync_rst true \
@@ -1208,7 +1208,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 112 \
+    id 110 \
     name in_V_strb_V \
     reset_level 1 \
     sync_rst true \
@@ -1227,7 +1227,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 113 \
+    id 111 \
     name in_V_last_V \
     reset_level 1 \
     sync_rst true \
@@ -1246,14 +1246,14 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 114 \
+    id 112 \
     name out_V_data_V \
     reset_level 1 \
     sync_rst true \
     corename {out_r} \
     metadata {  } \
     op interface \
-    ports { out_r_TREADY { I 1 bit } out_r_TDATA { O 128 vector } } \
+    ports { out_r_TDATA { O 128 vector } out_r_TREADY { I 1 bit } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'out_V_data_V'"
@@ -1265,7 +1265,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 115 \
+    id 113 \
     name out_V_keep_V \
     reset_level 1 \
     sync_rst true \
@@ -1284,7 +1284,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 116 \
+    id 114 \
     name out_V_strb_V \
     reset_level 1 \
     sync_rst true \
@@ -1303,7 +1303,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 117 \
+    id 115 \
     name out_V_last_V \
     reset_level 1 \
     sync_rst true \

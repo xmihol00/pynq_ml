@@ -1066,11 +1066,11 @@
 				<item>107</item>
 			</basic_blocks>
 			<mII>9</mII>
-			<mDepth>29</mDepth>
+			<mDepth>30</mDepth>
 			<mMinTripCount>-1</mMinTripCount>
 			<mMaxTripCount>-1</mMaxTripCount>
-			<mMinLatency>28</mMinLatency>
-			<mMaxLatency>28</mMaxLatency>
+			<mMinLatency>29</mMinLatency>
+			<mMaxLatency>29</mMaxLatency>
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>
 		</item>
@@ -1084,13 +1084,13 @@
 			<first>105</first>
 			<second class_id="28" tracking_level="0" version="0">
 				<first>1</first>
-				<second>26</second>
+				<second>27</second>
 			</second>
 		</item>
 		<item>
 			<first>106</first>
 			<second>
-				<first>28</first>
+				<first>29</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -1102,7 +1102,7 @@
 			<first>107</first>
 			<second class_id="31" tracking_level="0" version="0">
 				<first>0</first>
-				<second>28</second>
+				<second>29</second>
 			</second>
 		</item>
 	</bblk_ent_exit>
@@ -1123,7 +1123,7 @@
 			<anchor_node>-1</anchor_node>
 			<region_type>8</region_type>
 			<interval>9</interval>
-			<pipe_depth>29</pipe_depth>
+			<pipe_depth>30</pipe_depth>
 		</item>
 	</regions>
 	<dp_fu_nodes class_id="34" tracking_level="0" version="0">

@@ -1,6 +1,6 @@
 
 set TopModule "cnn"
-set ClockPeriod 10
+set ClockPeriod 8
 set ClockList ap_clk
 set HasVivadoClockPeriod 0
 set CombLogicFlag 0

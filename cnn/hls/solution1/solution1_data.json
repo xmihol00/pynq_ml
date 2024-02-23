@@ -14,7 +14,12 @@
   },
   "HlsSolution": {"Config": [
       "config_export -format=ip_catalog",
-      "config_export -rtl=vhdl"
+      "config_export -rtl=vhdl",
+      "config_export -vivado_optimization_level=2",
+      "config_export -vivado_phys_opt=place",
+      "config_export -vivado_report_level=0",
+      "config_sdx -optimization_level=none",
+      "config_sdx -target=none"
     ]},
   "Args": {
     "in": {
@@ -75,13 +80,13 @@
   },
   "ClockInfo": {
     "ClockName": "ap_clk",
-    "ClockPeriod": "10",
+    "ClockPeriod": "8",
     "IsCombLogic": "0",
     "II": "9",
-    "Latency": "28",
-    "Uncertainty": "1.25"
+    "Latency": "29",
+    "Uncertainty": "1"
   },
-  "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
+  "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 8.000 [get_ports ap_clk]"]},
   "Ipx": {
     "Vendor": "xilinx.com",
     "Library": "hls",
@@ -315,45 +320,45 @@
     "Metrics": {
       "kernel": {
         "Latency": {
-          "LatencyBest": "26",
-          "LatencyAvg": "26",
-          "LatencyWorst": "26",
+          "LatencyBest": "27",
+          "LatencyAvg": "27",
+          "LatencyWorst": "27",
           "PipelineII": "9",
-          "PipelineDepth": "27",
+          "PipelineDepth": "28",
           "PipelineType": "function"
         },
         "Timing": {
-          "Target": "10.00",
-          "Uncertainty": "1.25",
-          "Estimate": "10.283"
+          "Target": "8.00",
+          "Uncertainty": "1.00",
+          "Estimate": "9.400"
         },
         "Area": {
           "BRAM_18K": "42",
           "DSP48E": "35",
-          "FF": "20417",
-          "LUT": "37113",
+          "FF": "22162",
+          "LUT": "37052",
           "URAM": "0"
         }
       },
       "cnn": {
         "Latency": {
-          "LatencyBest": "28",
-          "LatencyAvg": "28",
-          "LatencyWorst": "28",
+          "LatencyBest": "29",
+          "LatencyAvg": "29",
+          "LatencyWorst": "29",
           "PipelineII": "9",
-          "PipelineDepth": "29",
+          "PipelineDepth": "30",
           "PipelineType": "function"
         },
         "Timing": {
-          "Target": "10.00",
-          "Uncertainty": "1.25",
-          "Estimate": "10.283"
+          "Target": "8.00",
+          "Uncertainty": "1.00",
+          "Estimate": "9.400"
         },
         "Area": {
           "BRAM_18K": "42",
           "DSP48E": "35",
-          "FF": "20430",
-          "LUT": "37208",
+          "FF": "22175",
+          "LUT": "37147",
           "URAM": "0"
         }
       }
@@ -369,7 +374,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2024-02-23 10:02:20 CET",
+    "Time": "2024-02-23 10:05:33 CET",
     "ToolName": "vivado_hls",
     "ToolVersion": "2020.1"
   }

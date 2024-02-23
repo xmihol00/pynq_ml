@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'kernel'" level="0">
-<item name = "Date">Fri Feb 23 10:02:05 2024
+<item name = "Date">Fri Feb 23 10:05:18 2024
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">hls</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 10.283 ns, 1.25 ns</column>
+<column name="ap_clk">8.00 ns, 9.400 ns, 1.00 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">26, 26, 0.267 us, 0.267 us, 9, 9, function</column>
+<column name="">27, 27, 0.254 us, 0.254 us, 9, 9, function</column>
 </table>
 </item>
 <item name = "Detail">

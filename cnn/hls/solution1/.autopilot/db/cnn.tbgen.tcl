@@ -67,13 +67,13 @@ set NewPortList {[
  	{ "name": "out_r_TLAST", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "out_V_last_V", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "139", "140", "141", "142", "143", "144", "145", "146"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "137", "138", "139", "140", "141", "142", "143", "144"],
 		"CDFG" : "cnn",
 		"Protocol" : "ap_ctrl_none",
 		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "0", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
 		"Pipeline" : "Aligned", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "9",
-		"VariableLatency" : "0", "ExactLatency" : "28", "EstimateLatencyMin" : "28", "EstimateLatencyMax" : "28",
+		"VariableLatency" : "0", "ExactLatency" : "29", "EstimateLatencyMin" : "29", "EstimateLatencyMax" : "29",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -330,13 +330,13 @@ set RtlHierarchyInfo {[
 					{"ID" : "1", "SubInstance" : "grp_kernel_fu_194", "Port" : "l2_write_row_offset"}]}],
 		"SubInstanceBlock" : [
 			{"SubInstance" : "grp_kernel_fu_194", "SubBlockPort" : ["in_r_TDATA_blk_n", "out_r_TDATA_blk_n"]}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194", "Parent" : "0", "Child" : ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "100", "101", "102", "103", "104", "105", "106", "107", "108", "109", "110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "130", "131", "132", "133", "134", "135", "136", "137", "138"],
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194", "Parent" : "0", "Child" : ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "100", "101", "102", "103", "104", "105", "106", "107", "108", "109", "110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "130", "131", "132", "133", "134", "135", "136"],
 		"CDFG" : "kernel",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "Aligned", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "9",
-		"VariableLatency" : "0", "ExactLatency" : "26", "EstimateLatencyMin" : "26", "EstimateLatencyMax" : "26",
+		"VariableLatency" : "0", "ExactLatency" : "27", "EstimateLatencyMin" : "27", "EstimateLatencyMax" : "27",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "1",
@@ -529,51 +529,49 @@ set RtlHierarchyInfo {[
 	{"ID" : "99", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mux_63_8_1_1_U56", "Parent" : "1"},
 	{"ID" : "100", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mux_63_8_1_1_U57", "Parent" : "1"},
 	{"ID" : "101", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mux_63_8_1_1_U58", "Parent" : "1"},
-	{"ID" : "102", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mux_63_8_1_1_U59", "Parent" : "1"},
-	{"ID" : "103", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mux_63_8_1_1_U60", "Parent" : "1"},
-	{"ID" : "104", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mac_muladd_5sRg6_U61", "Parent" : "1"},
-	{"ID" : "105", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mac_muladd_5sShg_U62", "Parent" : "1"},
-	{"ID" : "106", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mac_muladd_5nThq_U63", "Parent" : "1"},
-	{"ID" : "107", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mac_muladd_5sUhA_U64", "Parent" : "1"},
-	{"ID" : "108", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mac_muladd_5nVhK_U65", "Parent" : "1"},
-	{"ID" : "109", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mac_muladd_5nWhU_U66", "Parent" : "1"},
-	{"ID" : "110", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mac_muladd_5nXh4_U67", "Parent" : "1"},
-	{"ID" : "111", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mac_muladd_5sYie_U68", "Parent" : "1"},
-	{"ID" : "112", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mac_muladd_5nWhU_U69", "Parent" : "1"},
-	{"ID" : "113", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mac_muladd_5nZio_U70", "Parent" : "1"},
+	{"ID" : "102", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mac_muladd_5sRg6_U59", "Parent" : "1"},
+	{"ID" : "103", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mac_muladd_5sShg_U60", "Parent" : "1"},
+	{"ID" : "104", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mac_muladd_5nThq_U61", "Parent" : "1"},
+	{"ID" : "105", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mac_muladd_5sUhA_U62", "Parent" : "1"},
+	{"ID" : "106", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mac_muladd_5nVhK_U63", "Parent" : "1"},
+	{"ID" : "107", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mac_muladd_5nWhU_U64", "Parent" : "1"},
+	{"ID" : "108", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mac_muladd_5nXh4_U65", "Parent" : "1"},
+	{"ID" : "109", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mac_muladd_5sYie_U66", "Parent" : "1"},
+	{"ID" : "110", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mac_muladd_5nWhU_U67", "Parent" : "1"},
+	{"ID" : "111", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mac_muladd_5nZio_U68", "Parent" : "1"},
+	{"ID" : "112", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_50iy_U69", "Parent" : "1"},
+	{"ID" : "113", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_51iI_U70", "Parent" : "1"},
 	{"ID" : "114", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_50iy_U71", "Parent" : "1"},
 	{"ID" : "115", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_51iI_U72", "Parent" : "1"},
 	{"ID" : "116", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_50iy_U73", "Parent" : "1"},
 	{"ID" : "117", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_51iI_U74", "Parent" : "1"},
-	{"ID" : "118", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_50iy_U75", "Parent" : "1"},
+	{"ID" : "118", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_51iI_U75", "Parent" : "1"},
 	{"ID" : "119", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_51iI_U76", "Parent" : "1"},
 	{"ID" : "120", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_51iI_U77", "Parent" : "1"},
-	{"ID" : "121", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_51iI_U78", "Parent" : "1"},
+	{"ID" : "121", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_50iy_U78", "Parent" : "1"},
 	{"ID" : "122", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_51iI_U79", "Parent" : "1"},
 	{"ID" : "123", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_51iI_U80", "Parent" : "1"},
-	{"ID" : "124", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_50iy_U81", "Parent" : "1"},
+	{"ID" : "124", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_51iI_U81", "Parent" : "1"},
 	{"ID" : "125", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_51iI_U82", "Parent" : "1"},
 	{"ID" : "126", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_51iI_U83", "Parent" : "1"},
 	{"ID" : "127", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_51iI_U84", "Parent" : "1"},
 	{"ID" : "128", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_51iI_U85", "Parent" : "1"},
 	{"ID" : "129", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_51iI_U86", "Parent" : "1"},
-	{"ID" : "130", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_51iI_U87", "Parent" : "1"},
+	{"ID" : "130", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_50iy_U87", "Parent" : "1"},
 	{"ID" : "131", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_51iI_U88", "Parent" : "1"},
 	{"ID" : "132", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_51iI_U89", "Parent" : "1"},
 	{"ID" : "133", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_51iI_U90", "Parent" : "1"},
 	{"ID" : "134", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_51iI_U91", "Parent" : "1"},
 	{"ID" : "135", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_51iI_U92", "Parent" : "1"},
 	{"ID" : "136", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_51iI_U93", "Parent" : "1"},
-	{"ID" : "137", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_50iy_U94", "Parent" : "1"},
-	{"ID" : "138", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_kernel_fu_194.cnn_mul_mul_8ns_51iI_U95", "Parent" : "1"},
-	{"ID" : "139", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_in_V_data_V_U", "Parent" : "0"},
-	{"ID" : "140", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_in_V_keep_V_U", "Parent" : "0"},
-	{"ID" : "141", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_in_V_strb_V_U", "Parent" : "0"},
-	{"ID" : "142", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_in_V_last_V_U", "Parent" : "0"},
-	{"ID" : "143", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_out_V_data_V_U", "Parent" : "0"},
-	{"ID" : "144", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_out_V_keep_V_U", "Parent" : "0"},
-	{"ID" : "145", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_out_V_strb_V_U", "Parent" : "0"},
-	{"ID" : "146", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_out_V_last_V_U", "Parent" : "0"}]}
+	{"ID" : "137", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_in_V_data_V_U", "Parent" : "0"},
+	{"ID" : "138", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_in_V_keep_V_U", "Parent" : "0"},
+	{"ID" : "139", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_in_V_strb_V_U", "Parent" : "0"},
+	{"ID" : "140", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_in_V_last_V_U", "Parent" : "0"},
+	{"ID" : "141", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_out_V_data_V_U", "Parent" : "0"},
+	{"ID" : "142", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_out_V_keep_V_U", "Parent" : "0"},
+	{"ID" : "143", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_out_V_strb_V_U", "Parent" : "0"},
+	{"ID" : "144", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_out_V_last_V_U", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
@@ -582,10 +580,10 @@ set ArgLastReadFirstWriteLatency {
 		in_V_keep_V {Type I LastRead 1 FirstWrite -1}
 		in_V_strb_V {Type I LastRead 1 FirstWrite -1}
 		in_V_last_V {Type I LastRead 1 FirstWrite -1}
-		out_V_data_V {Type O LastRead -1 FirstWrite 26}
-		out_V_keep_V {Type O LastRead -1 FirstWrite 26}
-		out_V_strb_V {Type O LastRead -1 FirstWrite 26}
-		out_V_last_V {Type O LastRead -1 FirstWrite 26}
+		out_V_data_V {Type O LastRead -1 FirstWrite 27}
+		out_V_keep_V {Type O LastRead -1 FirstWrite 27}
+		out_V_strb_V {Type O LastRead -1 FirstWrite 27}
+		out_V_last_V {Type O LastRead -1 FirstWrite 27}
 		l1_iteration {Type IO LastRead -1 FirstWrite -1}
 		l1_write_col_offset {Type IO LastRead -1 FirstWrite -1}
 		l1_write_row_offset {Type IO LastRead -1 FirstWrite -1}
@@ -664,10 +662,10 @@ set ArgLastReadFirstWriteLatency {
 		in_V_keep_V {Type I LastRead 1 FirstWrite -1}
 		in_V_strb_V {Type I LastRead 1 FirstWrite -1}
 		in_V_last_V {Type I LastRead 1 FirstWrite -1}
-		out_V_data_V {Type O LastRead -1 FirstWrite 26}
-		out_V_keep_V {Type O LastRead -1 FirstWrite 26}
-		out_V_strb_V {Type O LastRead -1 FirstWrite 26}
-		out_V_last_V {Type O LastRead -1 FirstWrite 26}
+		out_V_data_V {Type O LastRead -1 FirstWrite 27}
+		out_V_keep_V {Type O LastRead -1 FirstWrite 27}
+		out_V_strb_V {Type O LastRead -1 FirstWrite 27}
+		out_V_last_V {Type O LastRead -1 FirstWrite 27}
 		l1_iteration {Type IO LastRead -1 FirstWrite -1}
 		l1_write_col_offset {Type IO LastRead -1 FirstWrite -1}
 		l1_write_row_offset {Type IO LastRead -1 FirstWrite -1}
@@ -745,7 +743,7 @@ set ArgLastReadFirstWriteLatency {
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "28", "Max" : "28"}
+	{"Name" : "Latency", "Min" : "29", "Max" : "29"}
 	, {"Name" : "Interval", "Min" : "9", "Max" : "9"}
 ]}
 

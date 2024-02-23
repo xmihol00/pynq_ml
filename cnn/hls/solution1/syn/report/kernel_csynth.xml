@@ -9,8 +9,8 @@
 <ProductFamily>zynq</ProductFamily>
 <Part>xc7z020-clg400-1</Part>
 <TopModelName>kernel</TopModelName>
-<TargetClockPeriod>10.00</TargetClockPeriod>
-<ClockUncertainty>1.25</ClockUncertainty>
+<TargetClockPeriod>8.00</TargetClockPeriod>
+<ClockUncertainty>1.00</ClockUncertainty>
 <TargetInitiationInterval>4294967295</TargetInitiationInterval>
 </UserAssignments>
 
@@ -18,18 +18,18 @@
 <PipelineType>function</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>10.283</EstimatedClockPeriod>
+<EstimatedClockPeriod>9.400</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>26</Best-caseLatency>
-<Average-caseLatency>26</Average-caseLatency>
-<Worst-caseLatency>26</Worst-caseLatency>
-<Best-caseRealTimeLatency>0.267 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>0.267 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>0.267 us</Worst-caseRealTimeLatency>
+<Best-caseLatency>27</Best-caseLatency>
+<Average-caseLatency>27</Average-caseLatency>
+<Worst-caseLatency>27</Worst-caseLatency>
+<Best-caseRealTimeLatency>0.254 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>0.254 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>0.254 us</Worst-caseRealTimeLatency>
 <PipelineInitiationInterval>9</PipelineInitiationInterval>
-<PipelineDepth>27</PipelineDepth>
+<PipelineDepth>28</PipelineDepth>
 <Interval-min>9</Interval-min>
 <Interval-max>9</Interval-max>
 </SummaryOfOverallLatency>
@@ -39,8 +39,8 @@
 <Resources>
 <BRAM_18K>42</BRAM_18K>
 <DSP48E>35</DSP48E>
-<FF>20417</FF>
-<LUT>37113</LUT>
+<FF>22162</FF>
+<LUT>37052</LUT>
 <URAM>0</URAM>
 </Resources>
 <AvailableResources>
@@ -153,28 +153,6 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>out_r_TREADY</name>
-<Object>out_V_data_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>out_r_TDATA</name>
-<Object>out_V_data_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>out</Dir>
-<Bits>128</Bits>
-<Attribute>data</Attribute>
-</RtlPorts>
-<RtlPorts>
 <name>in_r_TDATA</name>
 <Object>in_V_data_V</Object>
 <Type>pointer</Type>
@@ -239,6 +217,28 @@
 <Dir>in</Dir>
 <Bits>8</Bits>
 <Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>out_r_TDATA</name>
+<Object>out_V_data_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>128</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>out_r_TREADY</name>
+<Object>out_V_data_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
 <name>out_r_TVALID</name>

@@ -41,7 +41,6 @@ set portList {
 	{ ap_done sc_out sc_logic 1 predone -1 } 
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
-	{ out_r_TREADY sc_in sc_logic 1 outacc 4 } 
 	{ ap_ce sc_in sc_logic 1 ce -1 } 
 	{ in_r_TDATA sc_in sc_lv 64 signal 0 } 
 	{ in_r_TVALID sc_in sc_logic 1 invld 0 } 
@@ -51,6 +50,7 @@ set portList {
 	{ in_r_TLAST sc_in sc_lv 1 signal 3 } 
 	{ out_r_TDATA sc_out sc_lv 128 signal 4 } 
 	{ out_r_TVALID sc_out sc_logic 1 outvld 7 } 
+	{ out_r_TREADY sc_in sc_logic 1 outacc 4 } 
 	{ out_r_TKEEP sc_out sc_lv 16 signal 5 } 
 	{ out_r_TSTRB sc_out sc_lv 16 signal 6 } 
 	{ out_r_TLAST sc_out sc_lv 1 signal 7 } 
@@ -64,7 +64,6 @@ set NewPortList {[
  	{ "name": "ap_done", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "predone", "bundle":{"name": "ap_done", "role": "default" }} , 
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
- 	{ "name": "out_r_TREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "outacc", "bundle":{"name": "out_V_data_V", "role": "default" }} , 
  	{ "name": "ap_ce", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "ce", "bundle":{"name": "ap_ce", "role": "default" }} , 
  	{ "name": "in_r_TDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "in_V_data_V", "role": "default" }} , 
  	{ "name": "in_r_TVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "in_V_data_V", "role": "default" }} , 
@@ -74,6 +73,7 @@ set NewPortList {[
  	{ "name": "in_r_TLAST", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "in_V_last_V", "role": "default" }} , 
  	{ "name": "out_r_TDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":128, "type": "signal", "bundle":{"name": "out_V_data_V", "role": "default" }} , 
  	{ "name": "out_r_TVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "out_V_last_V", "role": "default" }} , 
+ 	{ "name": "out_r_TREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "outacc", "bundle":{"name": "out_V_data_V", "role": "default" }} , 
  	{ "name": "out_r_TKEEP", "direction": "out", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "out_V_keep_V", "role": "default" }} , 
  	{ "name": "out_r_TSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "out_V_strb_V", "role": "default" }} , 
  	{ "name": "out_r_TLAST", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "out_V_last_V", "role": "default" }} , 
@@ -81,13 +81,13 @@ set NewPortList {[
  	{ "name": "out_r_TDATA_blk_n", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "out_r_TDATA_blk_n", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "100", "101", "102", "103", "104", "105", "106", "107", "108", "109", "110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "130", "131", "132", "133", "134", "135", "136", "137"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "100", "101", "102", "103", "104", "105", "106", "107", "108", "109", "110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "130", "131", "132", "133", "134", "135"],
 		"CDFG" : "kernel",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "Aligned", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "9",
-		"VariableLatency" : "0", "ExactLatency" : "26", "EstimateLatencyMin" : "26", "EstimateLatencyMax" : "26",
+		"VariableLatency" : "0", "ExactLatency" : "27", "EstimateLatencyMin" : "27", "EstimateLatencyMax" : "27",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "1",
@@ -280,43 +280,41 @@ set RtlHierarchyInfo {[
 	{"ID" : "98", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mux_63_8_1_1_U56", "Parent" : "0"},
 	{"ID" : "99", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mux_63_8_1_1_U57", "Parent" : "0"},
 	{"ID" : "100", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mux_63_8_1_1_U58", "Parent" : "0"},
-	{"ID" : "101", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mux_63_8_1_1_U59", "Parent" : "0"},
-	{"ID" : "102", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mux_63_8_1_1_U60", "Parent" : "0"},
-	{"ID" : "103", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mac_muladd_5sRg6_U61", "Parent" : "0"},
-	{"ID" : "104", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mac_muladd_5sShg_U62", "Parent" : "0"},
-	{"ID" : "105", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mac_muladd_5nThq_U63", "Parent" : "0"},
-	{"ID" : "106", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mac_muladd_5sUhA_U64", "Parent" : "0"},
-	{"ID" : "107", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mac_muladd_5nVhK_U65", "Parent" : "0"},
-	{"ID" : "108", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mac_muladd_5nWhU_U66", "Parent" : "0"},
-	{"ID" : "109", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mac_muladd_5nXh4_U67", "Parent" : "0"},
-	{"ID" : "110", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mac_muladd_5sYie_U68", "Parent" : "0"},
-	{"ID" : "111", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mac_muladd_5nWhU_U69", "Parent" : "0"},
-	{"ID" : "112", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mac_muladd_5nZio_U70", "Parent" : "0"},
+	{"ID" : "101", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mac_muladd_5sRg6_U59", "Parent" : "0"},
+	{"ID" : "102", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mac_muladd_5sShg_U60", "Parent" : "0"},
+	{"ID" : "103", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mac_muladd_5nThq_U61", "Parent" : "0"},
+	{"ID" : "104", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mac_muladd_5sUhA_U62", "Parent" : "0"},
+	{"ID" : "105", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mac_muladd_5nVhK_U63", "Parent" : "0"},
+	{"ID" : "106", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mac_muladd_5nWhU_U64", "Parent" : "0"},
+	{"ID" : "107", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mac_muladd_5nXh4_U65", "Parent" : "0"},
+	{"ID" : "108", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mac_muladd_5sYie_U66", "Parent" : "0"},
+	{"ID" : "109", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mac_muladd_5nWhU_U67", "Parent" : "0"},
+	{"ID" : "110", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mac_muladd_5nZio_U68", "Parent" : "0"},
+	{"ID" : "111", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_50iy_U69", "Parent" : "0"},
+	{"ID" : "112", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_51iI_U70", "Parent" : "0"},
 	{"ID" : "113", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_50iy_U71", "Parent" : "0"},
 	{"ID" : "114", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_51iI_U72", "Parent" : "0"},
 	{"ID" : "115", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_50iy_U73", "Parent" : "0"},
 	{"ID" : "116", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_51iI_U74", "Parent" : "0"},
-	{"ID" : "117", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_50iy_U75", "Parent" : "0"},
+	{"ID" : "117", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_51iI_U75", "Parent" : "0"},
 	{"ID" : "118", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_51iI_U76", "Parent" : "0"},
 	{"ID" : "119", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_51iI_U77", "Parent" : "0"},
-	{"ID" : "120", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_51iI_U78", "Parent" : "0"},
+	{"ID" : "120", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_50iy_U78", "Parent" : "0"},
 	{"ID" : "121", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_51iI_U79", "Parent" : "0"},
 	{"ID" : "122", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_51iI_U80", "Parent" : "0"},
-	{"ID" : "123", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_50iy_U81", "Parent" : "0"},
+	{"ID" : "123", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_51iI_U81", "Parent" : "0"},
 	{"ID" : "124", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_51iI_U82", "Parent" : "0"},
 	{"ID" : "125", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_51iI_U83", "Parent" : "0"},
 	{"ID" : "126", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_51iI_U84", "Parent" : "0"},
 	{"ID" : "127", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_51iI_U85", "Parent" : "0"},
 	{"ID" : "128", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_51iI_U86", "Parent" : "0"},
-	{"ID" : "129", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_51iI_U87", "Parent" : "0"},
+	{"ID" : "129", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_50iy_U87", "Parent" : "0"},
 	{"ID" : "130", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_51iI_U88", "Parent" : "0"},
 	{"ID" : "131", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_51iI_U89", "Parent" : "0"},
 	{"ID" : "132", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_51iI_U90", "Parent" : "0"},
 	{"ID" : "133", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_51iI_U91", "Parent" : "0"},
 	{"ID" : "134", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_51iI_U92", "Parent" : "0"},
-	{"ID" : "135", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_51iI_U93", "Parent" : "0"},
-	{"ID" : "136", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_50iy_U94", "Parent" : "0"},
-	{"ID" : "137", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_51iI_U95", "Parent" : "0"}]}
+	{"ID" : "135", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.cnn_mul_mul_8ns_51iI_U93", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
@@ -325,10 +323,10 @@ set ArgLastReadFirstWriteLatency {
 		in_V_keep_V {Type I LastRead 1 FirstWrite -1}
 		in_V_strb_V {Type I LastRead 1 FirstWrite -1}
 		in_V_last_V {Type I LastRead 1 FirstWrite -1}
-		out_V_data_V {Type O LastRead -1 FirstWrite 26}
-		out_V_keep_V {Type O LastRead -1 FirstWrite 26}
-		out_V_strb_V {Type O LastRead -1 FirstWrite 26}
-		out_V_last_V {Type O LastRead -1 FirstWrite 26}
+		out_V_data_V {Type O LastRead -1 FirstWrite 27}
+		out_V_keep_V {Type O LastRead -1 FirstWrite 27}
+		out_V_strb_V {Type O LastRead -1 FirstWrite 27}
+		out_V_last_V {Type O LastRead -1 FirstWrite 27}
 		l1_iteration {Type IO LastRead -1 FirstWrite -1}
 		l1_write_col_offset {Type IO LastRead -1 FirstWrite -1}
 		l1_write_row_offset {Type IO LastRead -1 FirstWrite -1}
@@ -406,7 +404,7 @@ set ArgLastReadFirstWriteLatency {
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "26", "Max" : "26"}
+	{"Name" : "Latency", "Min" : "27", "Max" : "27"}
 	, {"Name" : "Interval", "Min" : "9", "Max" : "9"}
 ]}
 
@@ -419,7 +417,7 @@ set Spec2ImplPortList {
 	in_V_keep_V { axis {  { in_r_TKEEP in_data 0 8 } } }
 	in_V_strb_V { axis {  { in_r_TSTRB in_data 0 8 } } }
 	in_V_last_V { axis {  { in_r_TREADY in_acc 1 1 }  { in_r_TLAST in_data 0 1 } } }
-	out_V_data_V { axis {  { out_r_TREADY out_acc 0 1 }  { out_r_TDATA out_data 1 128 } } }
+	out_V_data_V { axis {  { out_r_TDATA out_data 1 128 }  { out_r_TREADY out_acc 0 1 } } }
 	out_V_keep_V { axis {  { out_r_TKEEP out_data 1 16 } } }
 	out_V_strb_V { axis {  { out_r_TSTRB out_data 1 16 } } }
 	out_V_last_V { axis {  { out_r_TVALID out_vld 1 1 }  { out_r_TLAST out_data 1 1 } } }

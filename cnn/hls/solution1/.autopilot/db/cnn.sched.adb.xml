@@ -3,169 +3,175 @@
 
 <trans_list>
 
-<trans id="104" from="1" to="2">
+<trans id="107" from="1" to="2">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="105" from="2" to="3">
+<trans id="108" from="2" to="3">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="106" from="3" to="4">
+<trans id="109" from="3" to="4">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="107" from="4" to="5">
+<trans id="110" from="4" to="5">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="108" from="5" to="6">
+<trans id="111" from="5" to="6">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="109" from="6" to="7">
+<trans id="112" from="6" to="7">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="110" from="7" to="8">
+<trans id="113" from="7" to="8">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="111" from="8" to="9">
+<trans id="114" from="8" to="9">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="112" from="9" to="10">
+<trans id="115" from="9" to="10">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="113" from="10" to="11">
+<trans id="116" from="10" to="11">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="114" from="11" to="12">
+<trans id="117" from="11" to="12">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="115" from="12" to="13">
+<trans id="118" from="12" to="13">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="116" from="13" to="14">
+<trans id="119" from="13" to="14">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="117" from="14" to="15">
+<trans id="120" from="14" to="15">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="118" from="15" to="16">
+<trans id="121" from="15" to="16">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="119" from="16" to="17">
+<trans id="122" from="16" to="17">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="120" from="17" to="18">
+<trans id="123" from="17" to="18">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="121" from="18" to="19">
+<trans id="124" from="18" to="19">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="122" from="19" to="20">
+<trans id="125" from="19" to="20">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="123" from="20" to="21">
+<trans id="126" from="20" to="21">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="124" from="21" to="22">
+<trans id="127" from="21" to="22">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="125" from="22" to="23">
+<trans id="128" from="22" to="23">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="126" from="23" to="24">
+<trans id="129" from="23" to="24">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="127" from="24" to="25">
+<trans id="130" from="24" to="25">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="128" from="25" to="26">
+<trans id="131" from="25" to="26">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="129" from="26" to="27">
+<trans id="132" from="26" to="27">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="130" from="27" to="28">
+<trans id="133" from="27" to="28">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="131" from="28" to="29">
+<trans id="134" from="28" to="29">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="135" from="29" to="30">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
@@ -181,7 +187,7 @@
 
 <state id="2" st_id="2">
 
-<operation id="30" st_id="2" stage="27" lat="27">
+<operation id="31" st_id="2" stage="28" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -199,7 +205,7 @@
 
 <state id="3" st_id="3">
 
-<operation id="31" st_id="3" stage="26" lat="27">
+<operation id="32" st_id="3" stage="27" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -217,7 +223,7 @@
 
 <state id="4" st_id="4">
 
-<operation id="32" st_id="4" stage="25" lat="27">
+<operation id="33" st_id="4" stage="26" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -235,7 +241,7 @@
 
 <state id="5" st_id="5">
 
-<operation id="33" st_id="5" stage="24" lat="27">
+<operation id="34" st_id="5" stage="25" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -253,7 +259,7 @@
 
 <state id="6" st_id="6">
 
-<operation id="34" st_id="6" stage="23" lat="27">
+<operation id="35" st_id="6" stage="24" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -271,7 +277,7 @@
 
 <state id="7" st_id="7">
 
-<operation id="35" st_id="7" stage="22" lat="27">
+<operation id="36" st_id="7" stage="23" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -289,7 +295,7 @@
 
 <state id="8" st_id="8">
 
-<operation id="36" st_id="8" stage="21" lat="27">
+<operation id="37" st_id="8" stage="22" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -307,7 +313,7 @@
 
 <state id="9" st_id="9">
 
-<operation id="37" st_id="9" stage="20" lat="27">
+<operation id="38" st_id="9" stage="21" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -325,7 +331,7 @@
 
 <state id="10" st_id="10">
 
-<operation id="38" st_id="10" stage="19" lat="27">
+<operation id="39" st_id="10" stage="20" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -343,7 +349,7 @@
 
 <state id="11" st_id="11">
 
-<operation id="39" st_id="11" stage="18" lat="27">
+<operation id="40" st_id="11" stage="19" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -361,7 +367,7 @@
 
 <state id="12" st_id="12">
 
-<operation id="40" st_id="12" stage="17" lat="27">
+<operation id="41" st_id="12" stage="18" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -379,7 +385,7 @@
 
 <state id="13" st_id="13">
 
-<operation id="41" st_id="13" stage="16" lat="27">
+<operation id="42" st_id="13" stage="17" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -397,7 +403,7 @@
 
 <state id="14" st_id="14">
 
-<operation id="42" st_id="14" stage="15" lat="27">
+<operation id="43" st_id="14" stage="16" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -415,7 +421,7 @@
 
 <state id="15" st_id="15">
 
-<operation id="43" st_id="15" stage="14" lat="27">
+<operation id="44" st_id="15" stage="15" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -433,7 +439,7 @@
 
 <state id="16" st_id="16">
 
-<operation id="44" st_id="16" stage="13" lat="27">
+<operation id="45" st_id="16" stage="14" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -451,7 +457,7 @@
 
 <state id="17" st_id="17">
 
-<operation id="45" st_id="17" stage="12" lat="27">
+<operation id="46" st_id="17" stage="13" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -469,7 +475,7 @@
 
 <state id="18" st_id="18">
 
-<operation id="46" st_id="18" stage="11" lat="27">
+<operation id="47" st_id="18" stage="12" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -487,7 +493,7 @@
 
 <state id="19" st_id="19">
 
-<operation id="47" st_id="19" stage="10" lat="27">
+<operation id="48" st_id="19" stage="11" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -505,7 +511,7 @@
 
 <state id="20" st_id="20">
 
-<operation id="48" st_id="20" stage="9" lat="27">
+<operation id="49" st_id="20" stage="10" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -523,7 +529,7 @@
 
 <state id="21" st_id="21">
 
-<operation id="49" st_id="21" stage="8" lat="27">
+<operation id="50" st_id="21" stage="9" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -541,7 +547,7 @@
 
 <state id="22" st_id="22">
 
-<operation id="50" st_id="22" stage="7" lat="27">
+<operation id="51" st_id="22" stage="8" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -559,7 +565,7 @@
 
 <state id="23" st_id="23">
 
-<operation id="51" st_id="23" stage="6" lat="27">
+<operation id="52" st_id="23" stage="7" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -577,7 +583,7 @@
 
 <state id="24" st_id="24">
 
-<operation id="52" st_id="24" stage="5" lat="27">
+<operation id="53" st_id="24" stage="6" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -595,7 +601,7 @@
 
 <state id="25" st_id="25">
 
-<operation id="53" st_id="25" stage="4" lat="27">
+<operation id="54" st_id="25" stage="5" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -613,7 +619,7 @@
 
 <state id="26" st_id="26">
 
-<operation id="54" st_id="26" stage="3" lat="27">
+<operation id="55" st_id="26" stage="4" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -631,7 +637,7 @@
 
 <state id="27" st_id="27">
 
-<operation id="55" st_id="27" stage="2" lat="27">
+<operation id="56" st_id="27" stage="3" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -649,7 +655,7 @@
 
 <state id="28" st_id="28">
 
-<operation id="56" st_id="28" stage="1" lat="27">
+<operation id="57" st_id="28" stage="2" lat="28">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -667,7 +673,25 @@
 
 <state id="29" st_id="29">
 
-<operation id="57" st_id="29" stage="1" lat="1">
+<operation id="58" st_id="29" stage="1" lat="28">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="105" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="8" op_3_bw="8" op_4_bw="1" op_5_bw="128" op_6_bw="16" op_7_bw="16" op_8_bw="1" op_9_bw="32" op_10_bw="16" op_11_bw="8" op_12_bw="8" op_13_bw="16" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="16" op_33_bw="16" op_34_bw="16" op_35_bw="16" op_36_bw="16" op_37_bw="32" op_38_bw="8" op_39_bw="16" op_40_bw="8" op_41_bw="8" op_42_bw="8" op_43_bw="8" op_44_bw="8" op_45_bw="8" op_46_bw="8" op_47_bw="8" op_48_bw="8" op_49_bw="8" op_50_bw="8" op_51_bw="8" op_52_bw="8" op_53_bw="8" op_54_bw="8" op_55_bw="8" op_56_bw="8" op_57_bw="8" op_58_bw="8" op_59_bw="8" op_60_bw="8" op_61_bw="8" op_62_bw="8" op_63_bw="8" op_64_bw="16" op_65_bw="16" op_66_bw="16" op_67_bw="16" op_68_bw="16" op_69_bw="16" op_70_bw="16" op_71_bw="16" op_72_bw="16" op_73_bw="16" op_74_bw="16" op_75_bw="16" op_76_bw="16" op_77_bw="16" op_78_bw="16" op_79_bw="16" op_80_bw="8" op_81_bw="8">
+<![CDATA[
+:17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
+
+]]></Node>
+<StgValue><ssdm name="call_ln273"/></StgValue>
+</operation>
+</state>
+
+<state id="30" st_id="30">
+
+<operation id="59" st_id="30" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -682,7 +706,7 @@
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="58" st_id="29" stage="1" lat="1">
+<operation id="60" st_id="30" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -697,7 +721,7 @@
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="59" st_id="29" stage="1" lat="1">
+<operation id="61" st_id="30" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -712,7 +736,7 @@
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="60" st_id="29" stage="1" lat="1">
+<operation id="62" st_id="30" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -727,7 +751,7 @@
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="61" st_id="29" stage="1" lat="1">
+<operation id="63" st_id="30" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -742,7 +766,7 @@
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="62" st_id="29" stage="1" lat="1">
+<operation id="64" st_id="30" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -757,7 +781,7 @@
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="63" st_id="29" stage="1" lat="1">
+<operation id="65" st_id="30" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -772,7 +796,7 @@
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="64" st_id="29" stage="1" lat="1">
+<operation id="66" st_id="30" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -787,7 +811,7 @@
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="65" st_id="29" stage="1" lat="1">
+<operation id="67" st_id="30" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -802,7 +826,7 @@
 <StgValue><ssdm name="spectopmodule_ln0"/></StgValue>
 </operation>
 
-<operation id="66" st_id="29" stage="1" lat="1">
+<operation id="68" st_id="30" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -817,7 +841,7 @@
 <StgValue><ssdm name="specinterface_ln251"/></StgValue>
 </operation>
 
-<operation id="67" st_id="29" stage="1" lat="1">
+<operation id="69" st_id="30" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -832,7 +856,7 @@
 <StgValue><ssdm name="specinterface_ln252"/></StgValue>
 </operation>
 
-<operation id="68" st_id="29" stage="1" lat="1">
+<operation id="70" st_id="30" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -847,7 +871,7 @@
 <StgValue><ssdm name="specinterface_ln253"/></StgValue>
 </operation>
 
-<operation id="69" st_id="29" stage="1" lat="1">
+<operation id="71" st_id="30" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -862,7 +886,7 @@
 <StgValue><ssdm name="specmemcore_ln262"/></StgValue>
 </operation>
 
-<operation id="70" st_id="29" stage="1" lat="1">
+<operation id="72" st_id="30" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -877,7 +901,7 @@
 <StgValue><ssdm name="specreset_ln265"/></StgValue>
 </operation>
 
-<operation id="71" st_id="29" stage="1" lat="1">
+<operation id="73" st_id="30" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -892,7 +916,7 @@
 <StgValue><ssdm name="specmemcore_ln266"/></StgValue>
 </operation>
 
-<operation id="72" st_id="29" stage="1" lat="1">
+<operation id="74" st_id="30" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -907,7 +931,7 @@
 <StgValue><ssdm name="specreset_ln269"/></StgValue>
 </operation>
 
-<operation id="73" st_id="29" stage="1" lat="1">
+<operation id="75" st_id="30" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -922,7 +946,7 @@
 <StgValue><ssdm name="specpipeline_ln271"/></StgValue>
 </operation>
 
-<operation id="74" st_id="29" stage="1" lat="1">
+<operation id="76" st_id="30" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
