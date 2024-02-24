@@ -7,8 +7,8 @@
 (* use_dsp = "yes" *) module cnn_mac_muladd_8n2iS_DSP48_11(
     input  [8 - 1:0] in0,
     input  [5 - 1:0] in1,
-    input  [9 - 1:0] in2,
-    output [12 - 1:0]  dout);
+    input  [13 - 1:0] in2,
+    output [13 - 1:0]  dout);
 
 wire signed [25 - 1:0]     a;
 wire signed [18 - 1:0]     b;

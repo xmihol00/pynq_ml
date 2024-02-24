@@ -247,7 +247,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -265,7 +265,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -283,7 +283,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -301,7 +301,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -319,7 +319,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -337,7 +337,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -355,7 +355,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -373,7 +373,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -391,7 +391,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -409,7 +409,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -427,7 +427,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -445,7 +445,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -463,7 +463,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -481,7 +481,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -499,7 +499,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -517,7 +517,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -535,7 +535,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -553,7 +553,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -571,7 +571,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -589,7 +589,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -607,7 +607,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -625,7 +625,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -643,7 +643,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -661,7 +661,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -679,7 +679,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -697,7 +697,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -715,7 +715,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -733,7 +733,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -751,7 +751,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -769,7 +769,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -787,7 +787,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -805,7 +805,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -823,7 +823,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -841,7 +841,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -859,7 +859,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -877,7 +877,7 @@
 :17  call fastcc void @kernel(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V)
 
 ]]></Node>
-<StgValue><ssdm name="call_ln262"/></StgValue>
+<StgValue><ssdm name="call_ln250"/></StgValue>
 </operation>
 </state>
 
@@ -1030,7 +1030,7 @@
 :9  call void (...)* @_ssdm_op_SpecInterface(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_last_V, [5 x i8]* @p_str5, i32 1, i32 1, [5 x i8]* @p_str6, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
 
 ]]></Node>
-<StgValue><ssdm name="specinterface_ln241"/></StgValue>
+<StgValue><ssdm name="specinterface_ln229"/></StgValue>
 </operation>
 
 <operation id="85" st_id="38" stage="1" lat="1">
@@ -1045,7 +1045,7 @@
 :10  call void (...)* @_ssdm_op_SpecInterface(i128* %out_V_data_V, i16* %out_V_keep_V, i16* %out_V_strb_V, i1* %out_V_last_V, [5 x i8]* @p_str5, i32 1, i32 1, [5 x i8]* @p_str6, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
 
 ]]></Node>
-<StgValue><ssdm name="specinterface_ln242"/></StgValue>
+<StgValue><ssdm name="specinterface_ln230"/></StgValue>
 </operation>
 
 <operation id="86" st_id="38" stage="1" lat="1">
@@ -1060,7 +1060,7 @@
 :11  call void (...)* @_ssdm_op_SpecInterface(i32 0, [13 x i8]* @p_str7, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
 
 ]]></Node>
-<StgValue><ssdm name="specinterface_ln243"/></StgValue>
+<StgValue><ssdm name="specinterface_ln231"/></StgValue>
 </operation>
 
 <operation id="87" st_id="38" stage="1" lat="1">
@@ -1075,7 +1075,7 @@
 :12  call void (...)* @_ssdm_op_SpecMemCore([514 x i8]* @l1_stripes_0_0, [514 x i8]* @l1_stripes_0_1, [514 x i8]* @l1_stripes_0_2, [514 x i8]* @l1_stripes_0_3, [514 x i8]* @l1_stripes_0_4, [514 x i8]* @l1_stripes_0_5, [514 x i8]* @l1_stripes_1_0, [514 x i8]* @l1_stripes_1_1, [514 x i8]* @l1_stripes_1_2, [514 x i8]* @l1_stripes_1_3, [514 x i8]* @l1_stripes_1_4, [514 x i8]* @l1_stripes_1_5, [514 x i8]* @l1_stripes_2_0, [514 x i8]* @l1_stripes_2_1, [514 x i8]* @l1_stripes_2_2, [514 x i8]* @l1_stripes_2_3, [514 x i8]* @l1_stripes_2_4, [514 x i8]* @l1_stripes_2_5, [1 x i8]* @p_str, [12 x i8]* @p_str8, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)
 
 ]]></Node>
-<StgValue><ssdm name="specmemcore_ln252"/></StgValue>
+<StgValue><ssdm name="specmemcore_ln240"/></StgValue>
 </operation>
 
 <operation id="88" st_id="38" stage="1" lat="1">
@@ -1090,7 +1090,7 @@
 :13  call void (...)* @_ssdm_op_SpecReset([514 x i8]* @l1_stripes_0_0, [514 x i8]* @l1_stripes_0_1, [514 x i8]* @l1_stripes_0_2, [514 x i8]* @l1_stripes_0_3, [514 x i8]* @l1_stripes_0_4, [514 x i8]* @l1_stripes_0_5, [514 x i8]* @l1_stripes_1_0, [514 x i8]* @l1_stripes_1_1, [514 x i8]* @l1_stripes_1_2, [514 x i8]* @l1_stripes_1_3, [514 x i8]* @l1_stripes_1_4, [514 x i8]* @l1_stripes_1_5, [514 x i8]* @l1_stripes_2_0, [514 x i8]* @l1_stripes_2_1, [514 x i8]* @l1_stripes_2_2, [514 x i8]* @l1_stripes_2_3, [514 x i8]* @l1_stripes_2_4, [514 x i8]* @l1_stripes_2_5, i32 1, [1 x i8]* @p_str) nounwind
 
 ]]></Node>
-<StgValue><ssdm name="specreset_ln255"/></StgValue>
+<StgValue><ssdm name="specreset_ln243"/></StgValue>
 </operation>
 
 <operation id="89" st_id="38" stage="1" lat="1">
@@ -1105,7 +1105,7 @@
 :14  call void (...)* @_ssdm_op_SpecMemCore([258 x i8]* @l2_stripes_0_0, [258 x i8]* @l2_stripes_0_1, [258 x i8]* @l2_stripes_0_2, [258 x i8]* @l2_stripes_0_3, [258 x i8]* @l2_stripes_0_4, [258 x i8]* @l2_stripes_0_5, [258 x i8]* @l2_stripes_1_0, [258 x i8]* @l2_stripes_1_1, [258 x i8]* @l2_stripes_1_2, [258 x i8]* @l2_stripes_1_3, [258 x i8]* @l2_stripes_1_4, [258 x i8]* @l2_stripes_1_5, [258 x i8]* @l2_stripes_2_0, [258 x i8]* @l2_stripes_2_1, [258 x i8]* @l2_stripes_2_2, [258 x i8]* @l2_stripes_2_3, [258 x i8]* @l2_stripes_2_4, [258 x i8]* @l2_stripes_2_5, [258 x i8]* @l2_stripes_3_0, [258 x i8]* @l2_stripes_3_1, [258 x i8]* @l2_stripes_3_2, [258 x i8]* @l2_stripes_3_3, [258 x i8]* @l2_stripes_3_4, [258 x i8]* @l2_stripes_3_5, [1 x i8]* @p_str, [12 x i8]* @p_str8, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)
 
 ]]></Node>
-<StgValue><ssdm name="specmemcore_ln256"/></StgValue>
+<StgValue><ssdm name="specmemcore_ln244"/></StgValue>
 </operation>
 
 <operation id="90" st_id="38" stage="1" lat="1">
@@ -1120,7 +1120,7 @@
 :15  call void (...)* @_ssdm_op_SpecReset([258 x i8]* @l2_stripes_0_0, [258 x i8]* @l2_stripes_0_1, [258 x i8]* @l2_stripes_0_2, [258 x i8]* @l2_stripes_0_3, [258 x i8]* @l2_stripes_0_4, [258 x i8]* @l2_stripes_0_5, [258 x i8]* @l2_stripes_1_0, [258 x i8]* @l2_stripes_1_1, [258 x i8]* @l2_stripes_1_2, [258 x i8]* @l2_stripes_1_3, [258 x i8]* @l2_stripes_1_4, [258 x i8]* @l2_stripes_1_5, [258 x i8]* @l2_stripes_2_0, [258 x i8]* @l2_stripes_2_1, [258 x i8]* @l2_stripes_2_2, [258 x i8]* @l2_stripes_2_3, [258 x i8]* @l2_stripes_2_4, [258 x i8]* @l2_stripes_2_5, [258 x i8]* @l2_stripes_3_0, [258 x i8]* @l2_stripes_3_1, [258 x i8]* @l2_stripes_3_2, [258 x i8]* @l2_stripes_3_3, [258 x i8]* @l2_stripes_3_4, [258 x i8]* @l2_stripes_3_5, i32 1, [1 x i8]* @p_str) nounwind
 
 ]]></Node>
-<StgValue><ssdm name="specreset_ln259"/></StgValue>
+<StgValue><ssdm name="specreset_ln247"/></StgValue>
 </operation>
 
 <operation id="91" st_id="38" stage="1" lat="1">
@@ -1135,7 +1135,7 @@
 :16  call void (...)* @_ssdm_op_SpecPipeline(i32 36, i32 1, i32 1, i32 0, [1 x i8]* @p_str) nounwind
 
 ]]></Node>
-<StgValue><ssdm name="specpipeline_ln261"/></StgValue>
+<StgValue><ssdm name="specpipeline_ln249"/></StgValue>
 </operation>
 
 <operation id="92" st_id="38" stage="1" lat="1">
@@ -1150,7 +1150,7 @@
 :18  ret void
 
 ]]></Node>
-<StgValue><ssdm name="ret_ln263"/></StgValue>
+<StgValue><ssdm name="ret_ln251"/></StgValue>
 </operation>
 </state>
 </state_list>

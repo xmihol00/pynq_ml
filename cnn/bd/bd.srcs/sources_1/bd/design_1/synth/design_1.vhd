@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
---Date        : Sat Feb 24 10:53:30 2024
+--Date        : Sat Feb 24 11:44:54 2024
 --Host        : david running 64-bit Ubuntu 22.04.2 LTS
 --Command     : generate_target design_1.bd
 --Design      : design_1
@@ -2669,7 +2669,7 @@ entity design_1 is
     FIXED_IO_ps_srstb : inout STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of design_1 : entity is "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=17,numReposBlks=10,numNonXlnxBlks=0,numHierBlks=7,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=1,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=4,da_clkrst_cnt=7,da_ps7_cnt=1,synth_mode=OOC_per_IP}";
+  attribute CORE_GENERATION_INFO of design_1 : entity is "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=17,numReposBlks=10,numNonXlnxBlks=0,numHierBlks=7,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=1,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=4,da_clkrst_cnt=8,da_ps7_cnt=1,synth_mode=OOC_per_IP}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of design_1 : entity is "design_1.hwdef";
 end design_1;
@@ -2900,7 +2900,7 @@ architecture STRUCTURE of design_1 is
     peripheral_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component design_1_rst_ps7_0_100M_0;
-  component design_1_cnn_0_1 is
+  component design_1_cnn_0_2 is
   port (
     ap_clk : in STD_LOGIC;
     ap_rst_n : in STD_LOGIC;
@@ -2917,7 +2917,7 @@ architecture STRUCTURE of design_1 is
     out_r_TKEEP : out STD_LOGIC_VECTOR ( 15 downto 0 );
     out_r_TSTRB : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
-  end component design_1_cnn_0_1;
+  end component design_1_cnn_0_2;
   signal axi_mem_intercon_M00_AXI_ARADDR : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal axi_mem_intercon_M00_AXI_ARBURST : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal axi_mem_intercon_M00_AXI_ARCACHE : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -3097,7 +3097,7 @@ architecture STRUCTURE of design_1 is
   signal ps7_0_axi_periph_M00_AXI_WREADY : STD_LOGIC;
   signal ps7_0_axi_periph_M00_AXI_WVALID : STD_LOGIC;
   signal rst_ps7_0_100M_peripheral_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal NLW_cnn_0_out_r_TSTRB_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal NLW_cnn_out_r_TSTRB_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_dma_mm2s_introut_UNCONNECTED : STD_LOGIC;
   signal NLW_dma_mm2s_prmry_reset_out_n_UNCONNECTED : STD_LOGIC;
   signal NLW_dma_s2mm_introut_UNCONNECTED : STD_LOGIC;
@@ -3244,7 +3244,7 @@ axi_mem_intercon: entity work.design_1_axi_mem_intercon_0
       S02_AXI_wstrb(15 downto 0) => dma_M_AXI_S2MM_WSTRB(15 downto 0),
       S02_AXI_wvalid(0) => dma_M_AXI_S2MM_WVALID
     );
-cnn_0: component design_1_cnn_0_1
+cnn: component design_1_cnn_0_2
      port map (
       ap_clk => processing_system7_0_FCLK_CLK0,
       ap_rst_n => rst_ps7_0_100M_peripheral_aresetn(0),
@@ -3258,7 +3258,7 @@ cnn_0: component design_1_cnn_0_1
       out_r_TKEEP(15 downto 0) => cnn_0_out_r_TKEEP(15 downto 0),
       out_r_TLAST(0) => cnn_0_out_r_TLAST(0),
       out_r_TREADY => cnn_0_out_r_TREADY,
-      out_r_TSTRB(15 downto 0) => NLW_cnn_0_out_r_TSTRB_UNCONNECTED(15 downto 0),
+      out_r_TSTRB(15 downto 0) => NLW_cnn_out_r_TSTRB_UNCONNECTED(15 downto 0),
       out_r_TVALID => cnn_0_out_r_TVALID
     );
 dma: component design_1_axi_dma_0_0

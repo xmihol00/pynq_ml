@@ -30,28 +30,29 @@ if __name__ == "__main__":
 
     start = time.time()
 
-    print(f"Image {1}")
+    #print(f"Image {1}")
     in_buffer[:len(input_data)] = input_data
-    print("Initiating transfer", flush=True)
+    #print("Initiating transfer", flush=True)
     dma.sendchannel.transfer(in_buffer, 0, 512*INPUT_WIDTH)
 
-    for i in range(10): 
+    ITERATIONS = 1000
+    for i in range(ITERATIONS): 
         dma.recvchannel.transfer(out_buffer)
         in_buffer[:len(input_data)] = input_data
 
-        print("Waiting for data to be sent", flush=True)
+        #print("Waiting for data to be sent", flush=True)
         dma.sendchannel.wait()
 
-        print(f"Image {i+2}")
-        dma.sendchannel.transfer(in_buffer, 0, 512*INPUT_WIDTH + (4*INPUT_WIDTH if i == 9 else 0))
+        #print(f"Image {i+2}")
+        dma.sendchannel.transfer(in_buffer, 0, 512*INPUT_WIDTH + (4*INPUT_WIDTH if i == ITERATIONS - 1 else 0))
 
-        print("Waiting for data to be received", flush=True)
+        #print("Waiting for data to be received", flush=True)
         dma.recvchannel.wait()
         result_buffer[:, :] = out_buffer[:, :]
     
-    print("Last image")
+    #print("Last image")
     dma.recvchannel.transfer(out_buffer)
-    print("Waiting for data to be received", flush=True)
+    #print("Waiting for data to be received", flush=True)
     dma.recvchannel.wait()
     result_buffer[:, :] = out_buffer[:, :]
 
@@ -67,4 +68,5 @@ if __name__ == "__main__":
 
     print(f"Result same as prediction: {np.array_equal(result_buffer, prediction)}")
     print(f"Number of wrong values: {np.sum(result_buffer != prediction)}")
+    print(f"FPS: {(ITERATIONS + 1) / (end - start)}")
 

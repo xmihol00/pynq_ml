@@ -96,13 +96,13 @@
   "Files": {
     "CSource": ["..\/..\/cnn.cpp"],
     "Vhdl": [
-      "impl\/vhdl\/cnn_mac_muladd_5nThq.vhd",
+      "impl\/vhdl\/cnn_mac_muladd_5nShg.vhd",
       "impl\/vhdl\/cnn_mac_muladd_5nUhA.vhd",
       "impl\/vhdl\/cnn_mac_muladd_5nVhK.vhd",
       "impl\/vhdl\/cnn_mac_muladd_5nXh4.vhd",
       "impl\/vhdl\/cnn_mac_muladd_5nZio.vhd",
       "impl\/vhdl\/cnn_mac_muladd_5sRg6.vhd",
-      "impl\/vhdl\/cnn_mac_muladd_5sShg.vhd",
+      "impl\/vhdl\/cnn_mac_muladd_5sThq.vhd",
       "impl\/vhdl\/cnn_mac_muladd_5sWhU.vhd",
       "impl\/vhdl\/cnn_mac_muladd_5sYie.vhd",
       "impl\/vhdl\/cnn_mac_muladd_8n2iS.vhd",
@@ -120,13 +120,13 @@
       "impl\/vhdl\/cnn.vhd"
     ],
     "Verilog": [
-      "impl\/verilog\/cnn_mac_muladd_5nThq.v",
+      "impl\/verilog\/cnn_mac_muladd_5nShg.v",
       "impl\/verilog\/cnn_mac_muladd_5nUhA.v",
       "impl\/verilog\/cnn_mac_muladd_5nVhK.v",
       "impl\/verilog\/cnn_mac_muladd_5nXh4.v",
       "impl\/verilog\/cnn_mac_muladd_5nZio.v",
       "impl\/verilog\/cnn_mac_muladd_5sRg6.v",
-      "impl\/verilog\/cnn_mac_muladd_5sShg.v",
+      "impl\/verilog\/cnn_mac_muladd_5sThq.v",
       "impl\/verilog\/cnn_mac_muladd_5sWhU.v",
       "impl\/verilog\/cnn_mac_muladd_5sYie.v",
       "impl\/verilog\/cnn_mac_muladd_8n2iS.v",
@@ -324,20 +324,20 @@
           "LatencyBest": "35",
           "LatencyAvg": "35",
           "LatencyWorst": "35",
-          "PipelineII": "27",
+          "PipelineII": "30",
           "PipelineDepth": "36",
           "PipelineType": "function"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "10.283"
+          "Estimate": "11.344"
         },
         "Area": {
           "BRAM_18K": "42",
           "DSP48E": "36",
-          "FF": "20732",
-          "LUT": "37337",
+          "FF": "20609",
+          "LUT": "37417",
           "URAM": "0"
         }
       },
@@ -353,13 +353,13 @@
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "10.283"
+          "Estimate": "11.344"
         },
         "Area": {
           "BRAM_18K": "42",
           "DSP48E": "36",
-          "FF": "20770",
-          "LUT": "37541",
+          "FF": "20647",
+          "LUT": "37621",
           "URAM": "0"
         }
       }
@@ -375,7 +375,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2024-02-24 10:50:08 CET",
+    "Time": "2020-02-24 11:41:30 CET",
     "ToolName": "vivado_hls",
     "ToolVersion": "2020.1"
   }

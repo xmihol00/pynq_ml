@@ -10,7 +10,8 @@ void kernel
     uint8_t l2_stripes[L1_KERNELS][STRIPE_HEIGHT][L2_STRIPE_INPUT_WIDTH + 2]
 )
 {
-#pragma HLS PIPELINE II=27
+#pragma HLS latency min=30
+#pragma HLS PIPELINE II=30
 
     static uint32_t l1_iteration = 0;
     static uint16_t l1_write_col_offset = 1;
@@ -72,6 +73,7 @@ void kernel
         int16_t partial_sums[IN_CHANNELS][L1_KERNELS] = {{0, }, };
         int16_t kernel_sums[L1_KERNELS] = {0,};
     #pragma HLS ARRAY_PARTITION variable=partial_sums complete
+    #pragma HLS ARRAY_PARTITION variable=kernel_sums complete
 
         for (int l = 0; l < KERNEL_SIZE; l++)
         {
@@ -87,36 +89,22 @@ void kernel
                 {
                     for (int k = 0; k < L1_KERNELS; k++)
                     {
-                        {
-                        #pragma HLS latency min=2 max=2
-                            kernel_sums[k] += l1_kernels[j * L1_KERNELS + k][l][m] * l1_stripes[j][row_idx][col_idx];
-                        }
+                        partial_sums[j][k] += l1_kernels[j * L1_KERNELS + k][l][m] * l1_stripes[j][row_idx][col_idx];
                     }
                 }
             }
         }
 
-        /*int16_t kernel_sums_1a[L1_KERNELS];
-        int16_t kernel_sums_1b[L1_KERNELS];
-        
+        for (int j = 0; j < IN_CHANNELS; j++)
         {
-        #pragma HLS latency min=1 max=2
-            for (int k = 0; k < L1_KERNELS; k++)
             {
-            #pragma HLS UNROLL
-                kernel_sums_1a[k] = partial_sums[0][k] + partial_sums[1][k];
-                kernel_sums_1b[k] = partial_sums[2][k];
+            #pragma HLS latency min=4
+                for (int k = 0; k < L1_KERNELS; k++)
+                {
+                    kernel_sums[k] += partial_sums[j][k];
+                }
             }
         }
-
-        {
-        #pragma HLS latency min=1 max=2
-            for (int k = 0; k < L1_KERNELS; k++)
-            {
-            #pragma HLS UNROLL
-                kernel_sums[k] = kernel_sums_1a[k] + kernel_sums_1b[k];
-            }
-        }*/
 
         for (int j = 0; j < L1_KERNELS; j++)
         {

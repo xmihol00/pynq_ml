@@ -7,8 +7,8 @@
 (* use_dsp = "yes" *) module cnn_mac_muladd_5sWhU_DSP48_5(
     input  [5 - 1:0] in0,
     input  [8 - 1:0] in1,
-    input  [13 - 1:0] in2,
-    output [14 - 1:0]  dout);
+    input  [15 - 1:0] in2,
+    output [15 - 1:0]  dout);
 
 wire signed [25 - 1:0]     a;
 wire signed [18 - 1:0]     b;

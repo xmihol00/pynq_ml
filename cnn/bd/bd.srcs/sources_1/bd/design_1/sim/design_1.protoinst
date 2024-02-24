@@ -850,7 +850,7 @@
 						"WVALID": { "actual": "s_axi_wvalid[2:2]"}
 					}
 				},
-				"/cnn_0/in_r": {
+				"/cnn/in_r": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "ap_clk"},
@@ -863,7 +863,7 @@
 						"TVALID": { "actual": "in_r_TVALID"}
 					}
 				},
-				"/cnn_0/out_r": {
+				"/cnn/out_r": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "ap_clk"},

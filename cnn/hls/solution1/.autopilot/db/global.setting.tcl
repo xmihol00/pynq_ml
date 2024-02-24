@@ -43,7 +43,7 @@ set TargetInfo xc7z020:-clg400:-1
 set SourceFiles {sc {} c ../../cnn.cpp}
 set SourceFlags {sc {} c {{}}}
 set DirectiveFile /mnt/sdc3/david/projs/pynq_ml/cnn/hls/solution1/solution1.directive
-set TBFiles {verilog {../../cnn.h ../../cnn_tb.cpp ../../cnn_tb.h} bc {../../cnn.h ../../cnn_tb.cpp ../../cnn_tb.h} vhdl {../../cnn.h ../../cnn_tb.cpp ../../cnn_tb.h} sc {../../cnn.h ../../cnn_tb.cpp ../../cnn_tb.h} cas {../../cnn.h ../../cnn_tb.cpp ../../cnn_tb.h} c {}}
+set TBFiles {verilog {../../cnn_tb.h ../../cnn_tb.cpp ../../cnn.h} bc {../../cnn_tb.h ../../cnn_tb.cpp ../../cnn.h} vhdl {../../cnn_tb.h ../../cnn_tb.cpp ../../cnn.h} sc {../../cnn_tb.h ../../cnn_tb.cpp ../../cnn.h} cas {../../cnn_tb.h ../../cnn_tb.cpp ../../cnn.h} c {}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

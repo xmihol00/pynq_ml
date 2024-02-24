@@ -9,5 +9,5 @@
   <xd:arg xd:name="out.strb" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_r" xd:busTypeRef="axis" xd:dataWidth="16"/>
   <xd:arg xd:name="out.last" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_r" xd:busTypeRef="axis" xd:dataWidth="1"/>
   <xd:latencyEstimates xd:best-case="37" xd:worst-case="37" xd:average-case="37"/>
-  <xd:resourceEstimates xd:LUT="37541" xd:FF="20770" xd:BRAM="42" xd:DSP="36"/>
+  <xd:resourceEstimates xd:LUT="37621" xd:FF="20647" xd:BRAM="42" xd:DSP="36"/>
 </xd:acceleratorMap>

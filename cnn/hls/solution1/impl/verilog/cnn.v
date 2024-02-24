@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="cnn,hls_ip_2020_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=pipeline,HLS_SYN_CLOCK=10.283000,HLS_SYN_LAT=37,HLS_SYN_TPT=36,HLS_SYN_MEM=42,HLS_SYN_DSP=36,HLS_SYN_FF=20770,HLS_SYN_LUT=37541,HLS_VERSION=2020_1}" *)
+(* CORE_GENERATION_INFO="cnn,hls_ip_2020_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=pipeline,HLS_SYN_CLOCK=11.344500,HLS_SYN_LAT=37,HLS_SYN_TPT=36,HLS_SYN_MEM=42,HLS_SYN_DSP=36,HLS_SYN_FF=20647,HLS_SYN_LUT=37621,HLS_VERSION=2020_1}" *)
 
 module cnn (
         ap_clk,
@@ -242,36 +242,31 @@ wire    ap_block_pp0_stage9;
 wire    ap_block_pp0_stage11;
 wire    ap_block_pp0_stage12;
 wire    ap_block_pp0_stage17;
-wire    ap_block_state20_pp0_stage19_iter0;
-wire    ap_block_pp0_stage19_11001;
+wire    ap_block_state21_pp0_stage20_iter0;
+wire    ap_block_pp0_stage20_11001;
 wire    ap_block_pp0_stage18;
+wire    ap_block_pp0_stage16;
+wire    ap_block_pp0_stage19;
+wire    ap_block_state17_pp0_stage16_iter0;
+wire    ap_block_pp0_stage16_11001;
 wire    ap_block_state18_pp0_stage17_iter0;
 wire    ap_block_pp0_stage17_11001;
-wire    ap_block_state19_pp0_stage18_iter0;
-wire    ap_block_pp0_stage18_11001;
-wire    ap_block_pp0_stage19;
 wire    ap_block_pp0_stage20;
-wire    ap_block_pp0_stage28;
-wire    ap_block_state30_pp0_stage29_iter0;
-wire    ap_block_pp0_stage29_11001;
-wire    ap_block_state31_pp0_stage30_iter0;
-wire    ap_block_pp0_stage30_11001;
-wire    ap_block_state35_pp0_stage34_iter0;
-wire    ap_block_pp0_stage34_11001;
-wire    ap_block_pp0_stage27;
+wire    ap_block_pp0_stage31;
 wire    ap_block_state33_pp0_stage32_iter0;
 wire    ap_block_pp0_stage32_11001;
 wire    ap_block_state34_pp0_stage33_iter0;
 wire    ap_block_pp0_stage33_11001;
+wire    ap_block_state35_pp0_stage34_iter0;
+wire    ap_block_pp0_stage34_11001;
+wire    ap_block_pp0_stage30;
 wire    ap_block_state32_pp0_stage31_iter0;
 wire    ap_block_pp0_stage31_11001;
 wire    ap_block_pp0_stage35_11001;
 wire    ap_block_pp0_stage21;
-wire    ap_block_pp0_stage29;
-wire    ap_block_pp0_stage33;
-wire    ap_block_pp0_stage31;
-wire    ap_block_state21_pp0_stage20_iter0;
-wire    ap_block_pp0_stage20_11001;
+wire    ap_block_pp0_stage22;
+wire    ap_block_state22_pp0_stage21_iter0;
+wire    ap_block_pp0_stage21_11001;
 reg   [35:0] ap_NS_fsm;
 reg    ap_block_pp0_stage0_subdone;
 wire    ap_reset_idle_pp0;
@@ -309,16 +304,16 @@ wire    ap_block_pp0_stage14_11001;
 wire    ap_block_state16_pp0_stage15_iter0;
 wire    ap_block_pp0_stage15_subdone;
 wire    ap_block_pp0_stage15_11001;
-wire    ap_block_state17_pp0_stage16_iter0;
 wire    ap_block_pp0_stage16_subdone;
-wire    ap_block_pp0_stage16_11001;
 wire    ap_block_pp0_stage17_subdone;
+wire    ap_block_state19_pp0_stage18_iter0;
 wire    ap_block_pp0_stage18_subdone;
+wire    ap_block_pp0_stage18_11001;
+wire    ap_block_state20_pp0_stage19_iter0;
 wire    ap_block_pp0_stage19_subdone;
+wire    ap_block_pp0_stage19_11001;
 wire    ap_block_pp0_stage20_subdone;
-wire    ap_block_state22_pp0_stage21_iter0;
 wire    ap_block_pp0_stage21_subdone;
-wire    ap_block_pp0_stage21_11001;
 wire    ap_block_state23_pp0_stage22_iter0;
 wire    ap_block_pp0_stage22_subdone;
 wire    ap_block_pp0_stage22_11001;
@@ -340,8 +335,12 @@ wire    ap_block_pp0_stage27_11001;
 wire    ap_block_state29_pp0_stage28_iter0;
 wire    ap_block_pp0_stage28_subdone;
 wire    ap_block_pp0_stage28_11001;
+wire    ap_block_state30_pp0_stage29_iter0;
 wire    ap_block_pp0_stage29_subdone;
+wire    ap_block_pp0_stage29_11001;
+wire    ap_block_state31_pp0_stage30_iter0;
 wire    ap_block_pp0_stage30_subdone;
+wire    ap_block_pp0_stage30_11001;
 wire    ap_block_pp0_stage31_subdone;
 wire    ap_block_pp0_stage32_subdone;
 wire    ap_block_pp0_stage33_subdone;
@@ -992,6 +991,8 @@ assign ap_block_pp0_stage15_11001_ignoreCallOp53 = ~(1'b1 == 1'b1);
 
 assign ap_block_pp0_stage15_subdone = ~(1'b1 == 1'b1);
 
+assign ap_block_pp0_stage16 = ~(1'b1 == 1'b1);
+
 assign ap_block_pp0_stage16_11001 = ~(1'b1 == 1'b1);
 
 assign ap_block_pp0_stage16_11001_ignoreCallOp54 = ~(1'b1 == 1'b1);
@@ -1052,6 +1053,8 @@ assign ap_block_pp0_stage21_11001_ignoreCallOp59 = ~(1'b1 == 1'b1);
 
 assign ap_block_pp0_stage21_subdone = ~(1'b1 == 1'b1);
 
+assign ap_block_pp0_stage22 = ~(1'b1 == 1'b1);
+
 assign ap_block_pp0_stage22_11001 = ~(1'b1 == 1'b1);
 
 assign ap_block_pp0_stage22_11001_ignoreCallOp60 = ~(1'b1 == 1'b1);
@@ -1082,23 +1085,17 @@ assign ap_block_pp0_stage26_11001_ignoreCallOp64 = ~(1'b1 == 1'b1);
 
 assign ap_block_pp0_stage26_subdone = ~(1'b1 == 1'b1);
 
-assign ap_block_pp0_stage27 = ~(1'b1 == 1'b1);
-
 assign ap_block_pp0_stage27_11001 = ~(1'b1 == 1'b1);
 
 assign ap_block_pp0_stage27_11001_ignoreCallOp65 = ~(1'b1 == 1'b1);
 
 assign ap_block_pp0_stage27_subdone = ~(1'b1 == 1'b1);
 
-assign ap_block_pp0_stage28 = ~(1'b1 == 1'b1);
-
 assign ap_block_pp0_stage28_11001 = ~(1'b1 == 1'b1);
 
 assign ap_block_pp0_stage28_11001_ignoreCallOp66 = ~(1'b1 == 1'b1);
 
 assign ap_block_pp0_stage28_subdone = ~(1'b1 == 1'b1);
-
-assign ap_block_pp0_stage29 = ~(1'b1 == 1'b1);
 
 assign ap_block_pp0_stage29_11001 = ~(1'b1 == 1'b1);
 
@@ -1117,6 +1114,8 @@ always @ (*) begin
 end
 
 assign ap_block_pp0_stage3 = ~(1'b1 == 1'b1);
+
+assign ap_block_pp0_stage30 = ~(1'b1 == 1'b1);
 
 assign ap_block_pp0_stage30_11001 = ~(1'b1 == 1'b1);
 
@@ -1137,8 +1136,6 @@ assign ap_block_pp0_stage32_11001 = ~(1'b1 == 1'b1);
 assign ap_block_pp0_stage32_11001_ignoreCallOp70 = ~(1'b1 == 1'b1);
 
 assign ap_block_pp0_stage32_subdone = ~(1'b1 == 1'b1);
-
-assign ap_block_pp0_stage33 = ~(1'b1 == 1'b1);
 
 assign ap_block_pp0_stage33_11001 = ~(1'b1 == 1'b1);
 

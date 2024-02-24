@@ -10,8 +10,8 @@ entity cnn_mac_muladd_8n2iS_DSP48_11 is
 port (
     in0:  in  std_logic_vector(8 - 1 downto 0);
     in1:  in  std_logic_vector(5 - 1 downto 0);
-    in2:  in  std_logic_vector(9 - 1 downto 0);
-    dout: out std_logic_vector(12 - 1 downto 0));
+    in2:  in  std_logic_vector(13 - 1 downto 0);
+    dout: out std_logic_vector(13 - 1 downto 0));
 
     attribute use_dsp : string;
     attribute use_dsp of cnn_mac_muladd_8n2iS_DSP48_11 : entity is "yes";
@@ -32,7 +32,7 @@ c  <= signed(resize(unsigned(in2), 48));
 m  <= a * b;
 p  <= m + c;
 
-dout <= std_logic_vector(resize(unsigned(p), 12));
+dout <= std_logic_vector(resize(unsigned(p), 13));
 
 end architecture;
 Library IEEE;

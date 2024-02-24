@@ -37,7 +37,7 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_auto_d
 # IP: bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_auto_pc_1 || ORIG_REF_NAME==design_1_auto_pc_1} -quiet] -quiet
 
-# IP: bd/design_1/ip/design_1_cnn_0_1/design_1_cnn_0_1.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_cnn_0_1 || ORIG_REF_NAME==design_1_cnn_0_1} -quiet] -quiet
+# IP: bd/design_1/ip/design_1_cnn_0_2/design_1_cnn_0_2.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_cnn_0_2 || ORIG_REF_NAME==design_1_cnn_0_2} -quiet] -quiet
 
 # XDC: bd/design_1/design_1_ooc.xdc
