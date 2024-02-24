@@ -7,21 +7,21 @@ entity cnn_mul_mul_8ns_51iI_DSP48_10 is
 port (
     a: in std_logic_vector(8 - 1 downto 0);
     b: in std_logic_vector(5 - 1 downto 0);
-    p: out std_logic_vector(13 - 1 downto 0));
+    p: out std_logic_vector(12 - 1 downto 0));
 
 end entity;
 
 architecture behav of cnn_mul_mul_8ns_51iI_DSP48_10 is
     signal a_cvt: unsigned(8 - 1 downto 0);
     signal b_cvt: signed(5 - 1 downto 0);
-    signal p_cvt: signed(13 - 1 downto 0);
+    signal p_cvt: signed(12 - 1 downto 0);
 
 
 begin
 
     a_cvt <= unsigned(a);
     b_cvt <= signed(b);
-    p_cvt <= signed (resize(unsigned (signed ('0' & a_cvt) * signed (b_cvt)), 13));
+    p_cvt <= signed (resize(unsigned (signed ('0' & a_cvt) * signed (b_cvt)), 12));
     p <= std_logic_vector(p_cvt);
 
 end architecture;

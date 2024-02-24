@@ -8320,7 +8320,9 @@ void kernel
     uint8_t l2_stripes[4][6][(512 / 2) + 2]
 )
 {_ssdm_SpecArrayDimSize(l1_kernels, 12);_ssdm_SpecArrayDimSize(l1_stripes, 3);_ssdm_SpecArrayDimSize(l2_kernels, 32);_ssdm_SpecArrayDimSize(l2_stripes, 4);
-    static uint32_t l1_iteration = 0;
+#pragma HLS PIPELINE II=27
+
+ static uint32_t l1_iteration = 0;
     static uint16_t l1_write_col_offset = 1;
     static uint8_t l1_write_row_offset = 0;
     static uint8_t l1_channel_idx = 0;
@@ -8378,6 +8380,7 @@ void kernel
         uint16_t local_col_index = l1_read_col_offset + left_offset;
 
         int16_t partial_sums[3][4] = {{0, }, };
+        int16_t kernel_sums[4] = {0,};
 #pragma HLS ARRAY_PARTITION variable=&partial_sums complete
 
  for (int l = 0; l < 3; l++)
@@ -8392,42 +8395,17 @@ void kernel
                 uint16_t col_idx = local_col_index + m;
                 for (int j = 0; j < 3; j++)
                 {
-#pragma HLS UNROLL
- for (int k = 0; k < 4; k++)
+                    for (int k = 0; k < 4; k++)
                     {
-#pragma HLS UNROLL
- {
+                        {
 #pragma HLS latency min=2 max=2
- int16_t temp = l1_kernels[j * 4 + k][l][m] * l1_stripes[j][row_idx][col_idx];
-                            partial_sums[j][k] += temp;
+ kernel_sums[k] += l1_kernels[j * 4 + k][l][m] * l1_stripes[j][row_idx][col_idx];
                         }
                     }
                 }
             }
         }
-
-        int16_t kernel_sums_1a[4];
-        int16_t kernel_sums_1b[4];
-        int16_t kernel_sums[4];
-        {
-#pragma HLS latency min=1 max=2
- for (int k = 0; k < 4; k++)
-            {
-#pragma HLS UNROLL
- kernel_sums_1a[k] = partial_sums[0][k] + partial_sums[1][k];
-                kernel_sums_1b[k] = partial_sums[2][k];
-            }
-        }
-
-        {
-#pragma HLS latency min=1 max=2
- for (int k = 0; k < 4; k++)
-            {
-#pragma HLS UNROLL
- kernel_sums[k] = kernel_sums_1a[k] + kernel_sums_1b[k];
-            }
-        }
-
+# 121 "cnn.cpp"
         for (int j = 0; j < 4; j++)
         {
 #pragma HLS UNROLL
@@ -8466,7 +8444,6 @@ void kernel
         }
     }
 
-    static int16_t l2_partial_sums[4][8] = {{0, }, };
     if (l2_iteration >= 6*1024 && !(l2_iteration & 1024))
     {
         uint8_t channel_offset = l2_iteration & 1 ? 2 : 0;
@@ -8474,7 +8451,6 @@ void kernel
         bool left_offset = l2_iteration & 2;
         uint16_t local_col_index = l2_read_col_offset + left_offset;
 
-        int16_t l2_partial_sums[4/2][8] = {{0, }, };
         for (int l = 0; l < 3; l++)
         {
             uint8_t row_idx = l2_read_row_offset + l + top_offset;
@@ -8488,17 +8464,9 @@ void kernel
                 {
                     for (int k = 0; k < 8; k++)
                     {
-                        l2_partial_sums[j][k] += l2_kernels[(j + channel_offset) * 8 + k][l][m] * l2_stripes[j + channel_offset][row_idx][local_col_index + m];
+                        l2_kernel_sums[k] += l2_kernels[(j + channel_offset) * 8 + k][l][m] * l2_stripes[j + channel_offset][row_idx][local_col_index + m];
                     }
                 }
-            }
-        }
-
-        for (int k = 0; k < 8; k++)
-        {
-            for (int j = 0; j < 4/2; j++)
-            {
-                l2_kernel_sums[k] += l2_partial_sums[j][k];
             }
         }
 
@@ -8516,7 +8484,7 @@ void kernel
             int high = 15;
             int low = 0;
             axis_out_t out_data;
-            out_data.keep = 0xFF;
+            out_data.keep = -1;
             out_data.last = l2_iteration >= (257*1024 - 7);
             for (int k = 0; k < 8; k++)
             {
@@ -8564,14 +8532,14 @@ void cnn(hls::stream<axis_in_t> &in, hls::stream<axis_out_t> &out)
 
  static const int8_t l1_kernels[3 * 4][3][3] = { {{ 6, 14, -16 }, { 2, 9, 8 }, { -2, -13, -3 }}, {{ 14, 3, -11 }, { -4, -6, 6 }, { -9, 2, 15 }}, {{ -6, -6, 9 }, { -3, -15, 6 }, { -15, -14, -1 }}, {{ 7, -12, 0 }, { 13, 14, -15 }, { 0, -16, -7 }}, {{ -12, -9, -6 }, { -1, 11, -6 }, { 1, 13, 7 }}, {{ 2, 12, 12 }, { 10, -1, -5 }, { -3, 6, 4 }}, {{ 0, 8, -4 }, { 3, -12, -11 }, { -1, 2, -1 }}, {{ 7, -4, 7 }, { -16, 8, -9 }, { -8, 6, 1 }}, {{ -2, -12, -9 }, { -9, -6, -9 }, { -16, 15, 3 }}, {{ -15, -7, -8 }, { 3, -4, 9 }, { -2, -4, -15 }}, {{ -6, 2, 13 }, { 0, -14, 11 }, { -15, -9, 14 }}, {{ 12, -11, -16 }, { 4, 12, 13 }, { 8, -10, -4 }} };
 _ssdm_SpecConstant(l1_kernels);
-# 255 "cnn.cpp"
+# 245 "cnn.cpp"
 
     static const int8_t l2_kernels[4 * 8][3][3] = { {{ -13, -14, -11 }, { 14, 9, 9 }, { -13, -2, 3 }}, {{ 11, -3, 2 }, { -15, 9, -16 }, { -10, 9, -11 }}, {{ -5, 9, 9 }, { -6, -14, 4 }, { -5, -6, 15 }}, {{ 2, -15, -15 }, { -1, 11, 1 }, { 9, 2, -16 }}, {{ 1, 14, 14 }, { -8, -4, 1 }, { -6, -1, 4 }}, {{ 14, -15, -7 }, { 14, -1, -11 }, { 11, 6, 1 }}, {{ -4, -1, 9 }, { 6, -7, 11 }, { -15, -16, -2 }}, {{ -11, 0, 0 }, { -3, -13, 11 }, { -2, 13, -16 }}, {{ 10, 13, 1 }, { -6, -12, -11 }, { 11, 7, -11 }}, {{ -10, -5, -7 }, { -2, -7, 0 }, { -2, 2, -9 }}, {{ 14, -16, 15 }, { -11, 0, -4 }, { 14, 3, -11 }}, {{ -1, 1, -2 }, { 2, 12, -7 }, { 1, -15, 11 }}, {{ -11, 6, -12 }, { -11, -14, 15 }, { -14, -15, 14 }}, {{ -8, -15, 12 }, { 13, -11, 13 }, { 1, -4, -15 }}, {{ 2, 2, 14 }, { 3, 7, -5 }, { 7, -1, 12 }}, {{ -16, 8, 13 }, { -14, -13, -7 }, { 9, -5, 11 }}, {{ 0, -6, 8 }, { -7, -1, -12 }, { 1, 2, 7 }}, {{ -2, 0, 6 }, { -13, -9, -7 }, { -1, -15, -8 }}, {{ 3, 7, 6 }, { 8, -6, -3 }, { 15, -9, -5 }}, {{ -2, -11, -3 }, { 0, 1, 7 }, { -10, 14, -14 }}, {{ 1, 4, -13 }, { 15, 6, 13 }, { -16, -6, -8 }}, {{ -4, -6, 13 }, { 5, -14, -13 }, { -7, 1, -14 }}, {{ -2, -6, -10 }, { 2, -6, 2 }, { -10, -9, 5 }}, {{ -5, -11, 9 }, { -15, -13, 10 }, { 3, -10, 10 }}, {{ 11, 10, 2 }, { -15, 8, 7 }, { -3, -12, 10 }}, {{ -7, 6, -4 }, { 1, 14, 15 }, { -1, 0, -11 }}, {{ 6, 6, -14 }, { 3, 7, -12 }, { -15, 10, -2 }}, {{ 8, -2, 11 }, { 5, -6, 1 }, { -5, -13, -13 }}, {{ 4, -12, -6 }, { 8, 13, 5 }, { 0, 10, -15 }}, {{ 11, 10, -15 }, { 7, -9, 5 }, { -12, -15, 2 }}, {{ -11, -3, -9 }, { -15, -16, 6 }, { -9, 12, 12 }}, {{ -14, 9, -12 }, { 3, -9, -13 }, { 10, -2, -8 }} };
 _ssdm_SpecConstant(l2_kernels);
-# 256 "cnn.cpp"
+# 246 "cnn.cpp"
 
-#pragma HLS ARRAY_PARTITION variable=&l1_kernels block factor=12 dim=1
-#pragma HLS ARRAY_PARTITION variable=&l2_kernels block factor=32 dim=1
+#pragma HLS ARRAY_PARTITION variable=&l1_kernels complete dim=1
+#pragma HLS ARRAY_PARTITION variable=&l2_kernels complete dim=1
 
  static uint8_t l1_stripes[3][6][512 + 2] = {{0, } };
     static uint8_t l2_stripes[4][6][(512 / 2) + 2] = {{0, } };
@@ -8584,7 +8552,6 @@ _ssdm_SpecConstant(l2_kernels);
 #pragma HLS ARRAY_PARTITION variable=&l2_stripes complete dim=2
 #pragma HLS RESET variable=&l2_stripes
 
-#pragma HLS PIPELINE
-
+#pragma HLS PIPELINE II=36
  kernel(in, out, l1_kernels, l1_stripes, l2_kernels, l2_stripes);
 }

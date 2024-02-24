@@ -3,6 +3,7 @@ import numpy as np
 import time
 
 overlay = Overlay('overlay/matmul.bit')
+help(overlay)
 
 dma = overlay.dma
 matmul_ip = overlay.matmul

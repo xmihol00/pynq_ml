@@ -7,8 +7,7 @@
     </downStreamTool>
     <config>
         <schedule model="cnn"/>
-        <config_export format="ip_catalog" rtl="vhdl" use_netlist="" vivado_optimization_level="2" vivado_phys_opt="place" vivado_report_level="0"/>
-        <config_sdx optimization_level="none" target="none"/>
+        <config_export format="ip_catalog" rtl="vhdl"/>
     </config>
     <UIConfigurations>
         <UIAutosynConf boardInfo="pynq-z2 (xc7z020clg400-1) " hideTrivialOp="true" isBasedOnBoard="true" isSolutionDirty="false" isStopAskAgain="false" showDetailDesignViewer="false">
@@ -42,8 +41,8 @@
             </RTLs>
         </UIAutoSimConf>
     </UIConfigurations>
-    <ExportDesign askAgain="false" evaluate="true" flow="true" flowChoice="impl" formatName="ip_catalog" rtl="vhdl" rtlButton="true" rtlCombo="vhdl">
-        <Format formatName="ip_catalog"/>
+    <ExportDesign askAgain="false" evaluate="false" flow="false" flowChoice="syn" formatName="ip_catalog" rtl="verilog" rtlButton="true" rtlCombo="vhdl">
+        <Format formatName="ip_catalog" description="" vendor="" library="" ipname="" version="" driver_input_dir="" display_name="" taxonomy=""/>
         <Format formatName="sysgen"/>
         <Format formatName="sysgen_ise"/>
         <Format formatName="syn_dcp"/>
@@ -56,6 +55,9 @@
             <Rtl active="false" name="vhdl"/>
         </SimFlow>
     </Simulation>
+    <clockList>
+        <clock default="false" name="default" period="10"/>
+    </clockList>
     <name>
         <value string="solution1"/>
     </name>
@@ -69,8 +71,5 @@
         <library name="DefaultPlatform" value="xilinx/zynq/zynq"/>
         <library name="DefaultPlatform" value="xilinx/zynq/zynq_fpv6"/>
     </libraryList>
-    <clockList>
-        <clock name="default" default="false" uncertainty="12.5%" period="8"/>
-    </clockList>
 </solution>
 

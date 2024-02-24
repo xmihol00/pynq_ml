@@ -4,7 +4,7 @@
   module cnn_mul_mul_8ns_51iI_DSP48_10(a, b, p);
 input [8 - 1 : 0] a;
 input signed [5 - 1 : 0] b;
-output signed [13 - 1 : 0] p;
+output signed [12 - 1 : 0] p;
 
 assign p = $signed ({1'b0, a}) * $signed (b);
 
