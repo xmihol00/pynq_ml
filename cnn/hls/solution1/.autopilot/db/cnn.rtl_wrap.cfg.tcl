@@ -73,7 +73,7 @@ set structIsPacked0 "0"
 set DataType0 [list "ap_axiu<64, 0, 0, 0>" "struct ap_axiu" $structMem0 1 0 $structParameter0 $structArgument0 $NameSpace0 $structIsPacked0]
 set Port0 [list $PortName0 $Interface0 $DataType0 $Pointer0 $Dims0 $Const0 $Volatile0 $ArrayOpt0]
 lappend PortList $Port0
-set PortName1 "out"
+set PortName1 "weights"
 set BitWidth1 "256"
 set ArrayOpt1 ""
 set Const1 "0"
@@ -142,6 +142,75 @@ set structIsPacked1 "0"
 set DataType1 [list "ap_axiu<128, 0, 0, 0>" "struct ap_axiu" $structMem1 1 0 $structParameter1 $structArgument1 $NameSpace1 $structIsPacked1]
 set Port1 [list $PortName1 $Interface1 $DataType1 $Pointer1 $Dims1 $Const1 $Volatile1 $ArrayOpt1]
 lappend PortList $Port1
+set PortName2 "out"
+set BitWidth2 "1024"
+set ArrayOpt2 ""
+set Const2 "0"
+set Volatile2 "0"
+set Pointer2 "2"
+set Reference2 "1"
+set Dims2 [list 0]
+set Interface2 [list AP_STREAM 0] 
+set structMem2 ""
+set PortName20 "data"
+set BitWidth20 "512"
+set ArrayOpt20 ""
+set Const20 "0"
+set Volatile20 "0"
+set Pointer20 "0"
+set Reference20 "0"
+set Dims20 [list 0]
+set Interface20 "wire"
+set DataType20 "[list ap_uint 512 ]"
+set Port20 [list $PortName20 $Interface20 $DataType20 $Pointer20 $Dims20 $Const20 $Volatile20 $ArrayOpt20]
+lappend structMem2 $Port20
+set PortName21 "keep"
+set BitWidth21 "64"
+set ArrayOpt21 ""
+set Const21 "0"
+set Volatile21 "0"
+set Pointer21 "0"
+set Reference21 "0"
+set Dims21 [list 0]
+set Interface21 "wire"
+set DataType21 "[list ap_uint 64 ]"
+set Port21 [list $PortName21 $Interface21 $DataType21 $Pointer21 $Dims21 $Const21 $Volatile21 $ArrayOpt21]
+lappend structMem2 $Port21
+set PortName22 "strb"
+set BitWidth22 "64"
+set ArrayOpt22 ""
+set Const22 "0"
+set Volatile22 "0"
+set Pointer22 "0"
+set Reference22 "0"
+set Dims22 [list 0]
+set Interface22 "wire"
+set DataType22 "[list ap_uint 64 ]"
+set Port22 [list $PortName22 $Interface22 $DataType22 $Pointer22 $Dims22 $Const22 $Volatile22 $ArrayOpt22]
+lappend structMem2 $Port22
+set PortName23 "last"
+set BitWidth23 "8"
+set ArrayOpt23 ""
+set Const23 "0"
+set Volatile23 "0"
+set Pointer23 "0"
+set Reference23 "0"
+set Dims23 [list 0]
+set Interface23 "wire"
+set DataType23 "[list ap_uint 1 ]"
+set Port23 [list $PortName23 $Interface23 $DataType23 $Pointer23 $Dims23 $Const23 $Volatile23 $ArrayOpt23]
+lappend structMem2 $Port23
+set DataType2tp0 "int"
+set DataType2tp1 "int"
+set DataType2tp2 "int"
+set DataType2tp3 "int"
+set structParameter2 [list [list $DataType2tp0 D] [list $DataType2tp1 U] [list $DataType2tp2 TI] [list $DataType2tp3 TD] ]
+set structArgument2 [list 512 0 0 0 ]
+set NameSpace2 [list ]
+set structIsPacked2 "0"
+set DataType2 [list "ap_axiu<512, 0, 0, 0>" "struct ap_axiu" $structMem2 1 0 $structParameter2 $structArgument2 $NameSpace2 $structIsPacked2]
+set Port2 [list $PortName2 $Interface2 $DataType2 $Pointer2 $Dims2 $Const2 $Volatile2 $ArrayOpt2]
+lappend PortList $Port2
 set globalAPint "" 
 set returnAPInt "" 
 set hasCPPAPInt 1 

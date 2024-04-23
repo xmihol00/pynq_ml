@@ -1,10 +1,10 @@
 
 `timescale 1 ns / 1 ps
 
-  module cnn_mul_mul_5s_8nYie_DSP48_7(a, b, p);
+  module cnn_mul_mul_5s_8nYie_DSP48_6(a, b, p);
 input signed [5 - 1 : 0] a;
 input [8 - 1 : 0] b;
-output signed [12 - 1 : 0] p;
+output signed [13 - 1 : 0] p;
 
 assign p = $signed (a) * $signed ({1'b0, b});
 
@@ -26,7 +26,7 @@ output[dout_WIDTH - 1:0] dout;
 
 
 
-cnn_mul_mul_5s_8nYie_DSP48_7 cnn_mul_mul_5s_8nYie_DSP48_7_U(
+cnn_mul_mul_5s_8nYie_DSP48_6 cnn_mul_mul_5s_8nYie_DSP48_6_U(
     .a( din0 ),
     .b( din1 ),
     .p( dout ));

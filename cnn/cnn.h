@@ -14,9 +14,10 @@
 #define STRIPE_OUTPUT_HEIGHT ((STRIPE_HEIGHT - 2) / 2)
 #define L1_STRIPE_INPUT_WIDTH 256
 #define L2_STRIPE_INPUT_WIDTH (L1_STRIPE_INPUT_WIDTH / 2)
-#define L3_STRIPE_INPUT_WIDTH (L2_STRIPE_INPUT_WIDTH / 2)
-#define AXI_INPUT_WIDTH 64
-#define AXI_OUTPUT_WIDTH 128
+#define L3_OUTPUT_WIDTH 16
+#define AXI_INPUT_WIDTH (8 * 8)
+#define AXI_OUTPUT_WIDTH (16 * 32)
+#define AXI_WEIGHTS_WIDTH (16 * 8)
 #define INT8_BITS 8
 #define INT16_BITS 16
 #define IN_CHANNELS 3
@@ -31,9 +32,10 @@
 #define ITERATION_MASK (ITERATION_MULTIPLE - 1)
 
 typedef ap_axiu<AXI_INPUT_WIDTH, 0, 0, 0> axis_in_t;
+typedef ap_axiu<AXI_WEIGHTS_WIDTH, 0, 0, 0> axis_weights_t;
 typedef ap_axiu<AXI_OUTPUT_WIDTH, 0, 0, 0> axis_out_t;
 
-void cnn(hls::stream<axis_in_t> &in, hls::stream<axis_out_t> &out);
+void cnn(hls::stream<axis_in_t> &in, hls::stream<axis_weights_t> &weights, hls::stream<axis_out_t> &out);
 
 #define KERNEL_WEIGHTS_L1 {\
         {{   -2,   15,   -1 }, {  -15,    1,    6 }, {    5,   10,   -5 }},\

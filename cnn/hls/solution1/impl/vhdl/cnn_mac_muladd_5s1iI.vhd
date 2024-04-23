@@ -6,7 +6,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity cnn_mac_muladd_5s1iI_DSP48_10 is
+entity cnn_mac_muladd_5s1iI_DSP48_9 is
 port (
     in0:  in  std_logic_vector(5 - 1 downto 0);
     in1:  in  std_logic_vector(8 - 1 downto 0);
@@ -14,11 +14,11 @@ port (
     dout: out std_logic_vector(13 - 1 downto 0));
 
     attribute use_dsp : string;
-    attribute use_dsp of cnn_mac_muladd_5s1iI_DSP48_10 : entity is "yes";
+    attribute use_dsp of cnn_mac_muladd_5s1iI_DSP48_9 : entity is "yes";
 
 end entity;
 
-architecture behav of cnn_mac_muladd_5s1iI_DSP48_10 is
+architecture behav of cnn_mac_muladd_5s1iI_DSP48_9 is
     signal a       : signed(25-1 downto 0);
     signal b       : signed(18-1 downto 0);
     signal c       : signed(48-1 downto 0);
@@ -54,7 +54,7 @@ entity cnn_mac_muladd_5s1iI is
 end entity;
 
 architecture arch of cnn_mac_muladd_5s1iI is
-    component cnn_mac_muladd_5s1iI_DSP48_10 is
+    component cnn_mac_muladd_5s1iI_DSP48_9 is
         port (
             in0 : IN STD_LOGIC_VECTOR;
             in1 : IN STD_LOGIC_VECTOR;
@@ -65,7 +65,7 @@ architecture arch of cnn_mac_muladd_5s1iI is
 
 
 begin
-    cnn_mac_muladd_5s1iI_DSP48_10_U :  component cnn_mac_muladd_5s1iI_DSP48_10
+    cnn_mac_muladd_5s1iI_DSP48_9_U :  component cnn_mac_muladd_5s1iI_DSP48_9
     port map (
         in0 => din0,
         in1 => din1,

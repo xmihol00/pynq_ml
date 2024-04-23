@@ -4,10 +4,14 @@
   <xd:arg xd:name="in.keep" xd:originalName="in" xd:direction="in" xd:interfaceRef="in_r" xd:busTypeRef="axis" xd:dataWidth="8"/>
   <xd:arg xd:name="in.strb" xd:originalName="in" xd:direction="in" xd:interfaceRef="in_r" xd:busTypeRef="axis" xd:dataWidth="8"/>
   <xd:arg xd:name="in.last" xd:originalName="in" xd:direction="in" xd:interfaceRef="in_r" xd:busTypeRef="axis" xd:dataWidth="1"/>
-  <xd:arg xd:name="out.data" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_r" xd:busTypeRef="axis" xd:dataWidth="128"/>
-  <xd:arg xd:name="out.keep" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_r" xd:busTypeRef="axis" xd:dataWidth="16"/>
-  <xd:arg xd:name="out.strb" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_r" xd:busTypeRef="axis" xd:dataWidth="16"/>
+  <xd:arg xd:name="weights.data" xd:originalName="weights" xd:direction="in" xd:interfaceRef="weights_V_data_V" xd:busTypeRef="acc_fifo" xd:dataWidth="128"/>
+  <xd:arg xd:name="weights.keep" xd:originalName="weights" xd:direction="in" xd:interfaceRef="weights_V_keep_V" xd:busTypeRef="acc_fifo" xd:dataWidth="16"/>
+  <xd:arg xd:name="weights.strb" xd:originalName="weights" xd:direction="in" xd:interfaceRef="weights_V_strb_V" xd:busTypeRef="acc_fifo" xd:dataWidth="16"/>
+  <xd:arg xd:name="weights.last" xd:originalName="weights" xd:direction="in" xd:interfaceRef="weights_V_last_V" xd:busTypeRef="acc_fifo" xd:dataWidth="1"/>
+  <xd:arg xd:name="out.data" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_r" xd:busTypeRef="axis" xd:dataWidth="512"/>
+  <xd:arg xd:name="out.keep" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_r" xd:busTypeRef="axis" xd:dataWidth="64"/>
+  <xd:arg xd:name="out.strb" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_r" xd:busTypeRef="axis" xd:dataWidth="64"/>
   <xd:arg xd:name="out.last" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_r" xd:busTypeRef="axis" xd:dataWidth="1"/>
   <xd:latencyEstimates xd:best-case="41" xd:worst-case="41" xd:average-case="41"/>
-  <xd:resourceEstimates xd:LUT="27763" xd:FF="12958" xd:BRAM="42" xd:DSP="27"/>
+  <xd:resourceEstimates xd:LUT="31974" xd:FF="15665" xd:BRAM="46" xd:DSP="59"/>
 </xd:acceleratorMap>

@@ -43,11 +43,37 @@
         }
       }
     },
-    "out": {
+    "weights": {
       "index": "1",
       "type": {
         "kinds": ["struct"],
         "dataType": "ap_axiu<128, 0, 0, 0>",
+        "structImpl": "flat-interface",
+        "fields": {
+          "data": {
+            "order": "0",
+            "dataType": "ap_uint"
+          },
+          "keep": {
+            "order": "1",
+            "dataType": "ap_uint"
+          },
+          "strb": {
+            "order": "2",
+            "dataType": "ap_uint"
+          },
+          "last": {
+            "order": "3",
+            "dataType": "ap_uint"
+          }
+        }
+      }
+    },
+    "out": {
+      "index": "2",
+      "type": {
+        "kinds": ["struct"],
+        "dataType": "ap_axiu<512, 0, 0, 0>",
         "structImpl": "flat-interface",
         "fields": {
           "data": {
@@ -96,44 +122,51 @@
   "Files": {
     "CSource": ["..\/..\/cnn.cpp"],
     "Vhdl": [
-      "impl\/vhdl\/cnn_mac_mul_sub_5Rg6.vhd",
-      "impl\/vhdl\/cnn_mac_muladd_5nShg.vhd",
-      "impl\/vhdl\/cnn_mac_muladd_5nWhU.vhd",
+      "impl\/vhdl\/cnn_mac_mul_sub_5Shg.vhd",
+      "impl\/vhdl\/cnn_mac_muladd_5nThq.vhd",
+      "impl\/vhdl\/cnn_mac_muladd_5nVhK.vhd",
       "impl\/vhdl\/cnn_mac_muladd_5s0iy.vhd",
       "impl\/vhdl\/cnn_mac_muladd_5s1iI.vhd",
-      "impl\/vhdl\/cnn_mac_muladd_5sThq.vhd",
+      "impl\/vhdl\/cnn_mac_muladd_5s2iS.vhd",
       "impl\/vhdl\/cnn_mac_muladd_5sUhA.vhd",
-      "impl\/vhdl\/cnn_mac_muladd_5sVhK.vhd",
-      "impl\/vhdl\/cnn_mac_muladd_5sZio.vhd",
-      "impl\/vhdl\/cnn_mul_mul_5s_8nXh4.vhd",
+      "impl\/vhdl\/cnn_mac_muladd_5sWhU.vhd",
+      "impl\/vhdl\/cnn_mac_muladd_5sXh4.vhd",
       "impl\/vhdl\/cnn_mul_mul_5s_8nYie.vhd",
+      "impl\/vhdl\/cnn_mul_mul_5s_8nZio.vhd",
       "impl\/vhdl\/cnn_mux_63_8_1_1.vhd",
       "impl\/vhdl\/kernel.vhd",
       "impl\/vhdl\/kernel_l1_stripesbkb.vhd",
       "impl\/vhdl\/kernel_l1_stripesbkb_ram.vhd",
+      "impl\/vhdl\/kernel_l2_kernel_Rg6.vhd",
       "impl\/vhdl\/kernel_l2_stripestde.vhd",
       "impl\/vhdl\/kernel_l2_stripestde_ram.vhd",
+      "impl\/vhdl\/kernel_l3_outputs.vhd",
+      "impl\/vhdl\/kernel_l3_outputs_ram.vhd",
       "impl\/vhdl\/regslice_core.vhd",
       "impl\/vhdl\/cnn.vhd"
     ],
     "Verilog": [
-      "impl\/verilog\/cnn_mac_mul_sub_5Rg6.v",
-      "impl\/verilog\/cnn_mac_muladd_5nShg.v",
-      "impl\/verilog\/cnn_mac_muladd_5nWhU.v",
+      "impl\/verilog\/cnn_mac_mul_sub_5Shg.v",
+      "impl\/verilog\/cnn_mac_muladd_5nThq.v",
+      "impl\/verilog\/cnn_mac_muladd_5nVhK.v",
       "impl\/verilog\/cnn_mac_muladd_5s0iy.v",
       "impl\/verilog\/cnn_mac_muladd_5s1iI.v",
-      "impl\/verilog\/cnn_mac_muladd_5sThq.v",
+      "impl\/verilog\/cnn_mac_muladd_5s2iS.v",
       "impl\/verilog\/cnn_mac_muladd_5sUhA.v",
-      "impl\/verilog\/cnn_mac_muladd_5sVhK.v",
-      "impl\/verilog\/cnn_mac_muladd_5sZio.v",
-      "impl\/verilog\/cnn_mul_mul_5s_8nXh4.v",
+      "impl\/verilog\/cnn_mac_muladd_5sWhU.v",
+      "impl\/verilog\/cnn_mac_muladd_5sXh4.v",
       "impl\/verilog\/cnn_mul_mul_5s_8nYie.v",
+      "impl\/verilog\/cnn_mul_mul_5s_8nZio.v",
       "impl\/verilog\/cnn_mux_63_8_1_1.v",
       "impl\/verilog\/kernel.v",
       "impl\/verilog\/kernel_l1_stripesbkb.v",
       "impl\/verilog\/kernel_l1_stripesbkb_ram.v",
+      "impl\/verilog\/kernel_l2_kernel_Rg6.v",
+      "impl\/verilog\/kernel_l2_kernel_Rg6_ram.dat",
       "impl\/verilog\/kernel_l2_stripestde.v",
       "impl\/verilog\/kernel_l2_stripestde_ram.v",
+      "impl\/verilog\/kernel_l3_outputs.v",
+      "impl\/verilog\/kernel_l3_outputs_ram.v",
       "impl\/verilog\/regslice_core.v",
       "impl\/verilog\/cnn.v"
     ],
@@ -203,7 +236,7 @@
       "ctype": {
         "TDATA": {
           "Type": "integer unsigned",
-          "Width": "128"
+          "Width": "512"
         },
         "TVALID": {"Type": "bool"},
         "TREADY": {"Type": "bool"},
@@ -213,18 +246,70 @@
         },
         "TKEEP": {
           "Type": "integer unsigned",
-          "Width": "16"
+          "Width": "64"
         },
         "TSTRB": {
           "Type": "integer unsigned",
-          "Width": "16"
+          "Width": "64"
         }
       },
       "port_width": {
-        "TDATA": "128",
-        "TKEEP": "16",
+        "TDATA": "512",
+        "TKEEP": "64",
         "TLAST": "1",
-        "TSTRB": "16"
+        "TSTRB": "64"
+      }
+    },
+    "weights_V_data_V": {
+      "type": "ap_fifo",
+      "fifo_width": "128",
+      "fifo_type": "read",
+      "ctype": {
+        "RD_DATA": {
+          "Type": "integer unsigned",
+          "Width": "128"
+        },
+        "EMPTY_N": {"Type": "bool"},
+        "RD_EN": {"Type": "bool"}
+      }
+    },
+    "weights_V_keep_V": {
+      "type": "ap_fifo",
+      "fifo_width": "16",
+      "fifo_type": "read",
+      "ctype": {
+        "RD_DATA": {
+          "Type": "integer unsigned",
+          "Width": "16"
+        },
+        "EMPTY_N": {"Type": "bool"},
+        "RD_EN": {"Type": "bool"}
+      }
+    },
+    "weights_V_last_V": {
+      "type": "ap_fifo",
+      "fifo_width": "1",
+      "fifo_type": "read",
+      "ctype": {
+        "RD_DATA": {
+          "Type": "integer unsigned",
+          "Width": "1"
+        },
+        "EMPTY_N": {"Type": "bool"},
+        "RD_EN": {"Type": "bool"}
+      }
+    },
+    "weights_V_strb_V": {
+      "type": "ap_fifo",
+      "fifo_width": "16",
+      "fifo_type": "read",
+      "ctype": {
+        "RD_DATA": {
+          "Type": "integer unsigned",
+          "Width": "16"
+        },
+        "EMPTY_N": {"Type": "bool"},
+        "RD_EN": {"Type": "bool"}
       }
     }
   },
@@ -262,9 +347,57 @@
       "dir": "in",
       "width": "8"
     },
+    "weights_V_data_V_dout": {
+      "dir": "in",
+      "width": "128"
+    },
+    "weights_V_data_V_empty_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "weights_V_data_V_read": {
+      "dir": "out",
+      "width": "1"
+    },
+    "weights_V_keep_V_dout": {
+      "dir": "in",
+      "width": "16"
+    },
+    "weights_V_keep_V_empty_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "weights_V_keep_V_read": {
+      "dir": "out",
+      "width": "1"
+    },
+    "weights_V_strb_V_dout": {
+      "dir": "in",
+      "width": "16"
+    },
+    "weights_V_strb_V_empty_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "weights_V_strb_V_read": {
+      "dir": "out",
+      "width": "1"
+    },
+    "weights_V_last_V_dout": {
+      "dir": "in",
+      "width": "1"
+    },
+    "weights_V_last_V_empty_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "weights_V_last_V_read": {
+      "dir": "out",
+      "width": "1"
+    },
     "out_r_TDATA": {
       "dir": "out",
-      "width": "128"
+      "width": "512"
     },
     "out_r_TVALID": {
       "dir": "out",
@@ -281,11 +414,11 @@
     },
     "out_r_TKEEP": {
       "dir": "out",
-      "width": "16"
+      "width": "64"
     },
     "out_r_TSTRB": {
       "dir": "out",
-      "width": "16"
+      "width": "64"
     }
   },
   "ModuleInfo": {
@@ -293,14 +426,14 @@
       "ModuleName": "cnn",
       "Instances": [{
           "ModuleName": "kernel",
-          "InstanceName": "grp_kernel_fu_196"
+          "InstanceName": "grp_kernel_fu_216"
         }]
     },
     "Info": {
       "kernel": {
         "FunctionProtocol": "ap_ctrl_hs",
         "isTaskLevelControl": "1",
-        "isPipelined": "1",
+        "isPipelined": "0",
         "isCombinational": "0",
         "isOneStateSeq": "0"
       },
@@ -318,20 +451,20 @@
           "LatencyBest": "39",
           "LatencyAvg": "39",
           "LatencyWorst": "39",
-          "PipelineII": "30",
+          "PipelineII": "40",
           "PipelineDepth": "40",
           "PipelineType": "function"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "11.088"
+          "Estimate": "10.254"
         },
         "Area": {
-          "BRAM_18K": "42",
-          "DSP48E": "27",
-          "FF": "12916",
-          "LUT": "27543",
+          "BRAM_18K": "46",
+          "DSP48E": "59",
+          "FF": "15623",
+          "LUT": "31684",
           "URAM": "0"
         }
       },
@@ -347,13 +480,13 @@
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "11.088"
+          "Estimate": "10.254"
         },
         "Area": {
-          "BRAM_18K": "42",
-          "DSP48E": "27",
-          "FF": "12958",
-          "LUT": "27763",
+          "BRAM_18K": "46",
+          "DSP48E": "59",
+          "FF": "15665",
+          "LUT": "31974",
           "URAM": "0"
         }
       }
@@ -369,7 +502,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2021-04-23 16:24:57 CEST",
+    "Time": "2024-04-23 21:16:23 CEST",
     "ToolName": "vivado_hls",
     "ToolVersion": "2020.1"
   }

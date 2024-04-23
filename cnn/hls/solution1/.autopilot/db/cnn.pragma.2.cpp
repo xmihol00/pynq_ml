@@ -8303,23 +8303,26 @@ extern int getloadavg (double __loadavg[], int __nelem)
 # 1035 "/usr/include/stdlib.h" 3 4
 }
 # 9 "./cnn.h" 2
-# 33 "./cnn.h"
-typedef ap_axiu<64, 0, 0, 0> axis_in_t;
-typedef ap_axiu<128, 0, 0, 0> axis_out_t;
+# 34 "./cnn.h"
+typedef ap_axiu<(8 * 8), 0, 0, 0> axis_in_t;
+typedef ap_axiu<(16 * 8), 0, 0, 0> axis_weights_t;
+typedef ap_axiu<(16 * 32), 0, 0, 0> axis_out_t;
 
-void cnn(hls::stream<axis_in_t> &in, hls::stream<axis_out_t> &out);
+void cnn(hls::stream<axis_in_t> &in, hls::stream<axis_weights_t> &weights, hls::stream<axis_out_t> &out);
 # 2 "cnn.cpp" 2
 
 void kernel
 (
     hls::stream<axis_in_t> &in,
+    hls::stream<axis_weights_t> &weights,
     hls::stream<axis_out_t> &out,
     const int8_t l1_kernels[3 * 4][3][3],
     uint8_t l1_stripes[3][6][256 + 2],
     const int8_t l2_kernels[4 * 8][3][3],
-    uint8_t l2_stripes[4][6][(256 / 2) + 2]
+    uint8_t l2_stripes[4][6][(256 / 2) + 2],
+    int32_t l3_outputs[16]
 )
-{_ssdm_SpecArrayDimSize(l1_kernels, 12);_ssdm_SpecArrayDimSize(l1_stripes, 3);_ssdm_SpecArrayDimSize(l2_kernels, 32);_ssdm_SpecArrayDimSize(l2_stripes, 4);
+{_ssdm_SpecArrayDimSize(l1_kernels, 12);_ssdm_SpecArrayDimSize(l1_stripes, 3);_ssdm_SpecArrayDimSize(l2_kernels, 32);_ssdm_SpecArrayDimSize(l2_stripes, 4);_ssdm_SpecArrayDimSize(l3_outputs, 16);
 _ssdm_op_SpecLatency(30, 65535, "");
 _ssdm_op_SpecPipeline(30, 1, 1, 0, "");
 
@@ -8329,7 +8332,7 @@ _ssdm_op_SpecPipeline(30, 1, 1, 0, "");
     static uint8_t l1_channel_idx = 0;
     static uint8_t l1_read_row_offset = 0;
     static uint16_t l1_read_col_offset = 0;
-    static int16_t l1_maxes[4] = {0, };
+    static int32_t l1_maxes[4] = {0, };
 
     static uint32_t l2_iteration = 0;
     static uint16_t l2_write_col_offset = 1;
@@ -8337,8 +8340,9 @@ _ssdm_op_SpecPipeline(30, 1, 1, 0, "");
     static uint8_t l2_channel_idx = 0;
     static uint8_t l2_read_row_offset = 0;
     static uint16_t l2_read_col_offset = 0;
-    static int16_t l2_maxes[8] = {0, };
-    static int16_t l2_kernel_sums[8] = {0, };
+    static int32_t l2_maxes[2][8] = {{0, }, };
+    static bool l2_maxes_idx = 0;
+    static int32_t l2_kernel_sums[8] = {0, };
 
     if ((l1_iteration & ((2 * 256) - 1)) < (256 * 3 / 4))
     {
@@ -8380,8 +8384,8 @@ _ssdm_op_SpecPipeline(30, 1, 1, 0, "");
         bool left_offset = l1_iteration & 1;
         uint16_t local_col_index = l1_read_col_offset + left_offset;
 
-        int16_t partial_sums[3][4] = {{0, }, };
-        int16_t kernel_sums[4] = {0,};
+        int32_t partial_sums[3][4] = {{0, }, };
+        int32_t kernel_sums[4] = {0,};
 _ssdm_SpecArrayPartition( partial_sums, 1, "COMPLETE", 0, "");
 _ssdm_SpecArrayPartition( kernel_sums, 1, "COMPLETE", 0, "");
 
@@ -8399,7 +8403,6 @@ _ssdm_SpecArrayPartition( kernel_sums, 1, "COMPLETE", 0, "");
                 {
                     for (int k = 0; k < 4; k++)
                     {
-
                         partial_sums[j][k] += l1_kernels[j * 4 + k][l][m] * l1_stripes[j][row_idx][col_idx];
                     }
                 }
@@ -8412,7 +8415,6 @@ _ssdm_SpecArrayPartition( kernel_sums, 1, "COMPLETE", 0, "");
 _ssdm_op_SpecLatency(4, 65535, "");
  for (int k = 0; k < 4; k++)
                 {
-
                     kernel_sums[k] += partial_sums[j][k];
                 }
             }
@@ -8421,7 +8423,6 @@ _ssdm_op_SpecLatency(4, 65535, "");
         for (int j = 0; j < 4; j++)
         {
 _ssdm_Unroll(0,0,0, "");
-
  l1_maxes[j] = kernel_sums[j] > l1_maxes[j] ? kernel_sums[j] : l1_maxes[j];
         }
 
@@ -8429,7 +8430,6 @@ _ssdm_Unroll(0,0,0, "");
         {
             for (int k = 0; k < 4; k++)
             {
-
                 l2_stripes[k][l2_write_row_offset][l2_write_col_offset] = l1_maxes[k] >> 5;
                 l1_maxes[k] = 0;
             }
@@ -8488,26 +8488,34 @@ _ssdm_Unroll(0,0,0, "");
         {
             for (int j = 0; j < 8; j++)
             {
-                l2_maxes[j] = l2_kernel_sums[j] > l2_maxes[j] ? l2_kernel_sums[j] : l2_maxes[j];
+                l2_maxes[l2_maxes_idx][j] = l2_kernel_sums[j] > l2_maxes[l2_maxes_idx][j] ? l2_kernel_sums[j] : l2_maxes[l2_maxes_idx][j];
                 l2_kernel_sums[j] = 0;
             }
+            l2_maxes_idx = !l2_maxes_idx;
+        }
+
+        axis_weights_t weights_data = weights.read();
+_ssdm_Unroll(0,0,0, "");
+ for (int j = 0; j < 16; j++)
+        {
+            int8_t weight = weights_data.data.range(j * 8 + 7, j * 8);
+            l3_outputs[j] += weight * l2_kernel_sums[j];
         }
 
         if ((l2_iteration & 0b111) == 0b111)
         {
-            int high = 15;
-            int low = 0;
-            axis_out_t out_data;
-            out_data.keep = -1;
-            out_data.last = l2_iteration >= (((256 / 2) + 1) * (2 * 256) - 7);
-            for (int k = 0; k < 8; k++)
+            if (l2_iteration >= (((256 / 2) + 1) * (2 * 256) - 7))
             {
-                out_data.data.range(high, low) = l2_maxes[k];
-                l2_maxes[k] = 0;
-                high += 16;
-                low += 16;
+                axis_out_t out_data;
+                out_data.keep = -1;
+                out_data.last = 1;
+                for (int j = 0; j < 16; j++)
+                {
+                    out_data.data.range(j * 32 + 31, j * 32) = l3_outputs[j];
+                    l3_outputs[j] = 0;
+                }
+                out.write(out_data);
             }
-            out.write(out_data);
 
             l2_read_col_offset += 2;
             if (l2_read_col_offset == (256 / 2))
@@ -8539,7 +8547,7 @@ _ssdm_Unroll(0,0,0, "");
     }
 }
 
-void cnn(hls::stream<axis_in_t> &in, hls::stream<axis_out_t> &out)
+void cnn(hls::stream<axis_in_t> &in, hls::stream<axis_weights_t> &weights, hls::stream<axis_out_t> &out)
 {
 _ssdm_op_SpecInterface(&in, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(&out, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
@@ -8547,17 +8555,18 @@ _ssdm_op_SpecInterface(0, "ap_ctrl_none", 0, 0, "", 0, 0, "", "", "", 0, 0, 0, 0
 
  static const int8_t l1_kernels[3 * 4][3][3] = { {{ -2, 15, -1 }, { -15, 1, 6 }, { 5, 10, -5 }}, {{ -2, 8, 12 }, { 14, -9, 14 }, { -4, 5, -12 }}, {{ 3, -7, -2 }, { -16, -12, -1 }, { 9, 8, -7 }}, {{ 3, 5, 4 }, { -16, 0, 3 }, { 8, -14, -1 }}, {{ 15, 12, -14 }, { 10, 0, -14 }, { 13, 0, -1 }}, {{ 6, 9, -7 }, { -2, 7, -14 }, { -4, -4, 9 }}, {{ 6, 10, -8 }, { 7, -16, 2 }, { 14, 9, -13 }}, {{ -12, -14, -14 }, { -16, -15, -8 }, { 2, -10, 1 }}, {{ -2, 13, -13 }, { -6, -5, 7 }, { -14, 6, -15 }}, {{ 12, -16, -9 }, { 8, -10, 14 }, { 6, 4, -16 }}, {{ -4, 14, -10 }, { 2, 4, 12 }, { -10, 13, -11 }}, {{ 3, -6, 15 }, { 0, 1, -3 }, { -6, -6, -15 }} };
 _ssdm_SpecConstant(l1_kernels);
-# 238 "cnn.cpp"
+# 245 "cnn.cpp"
 
     static const int8_t l2_kernels[4 * 8][3][3] = { {{ -1, -8, -10 }, { -4, 9, 12 }, { 7, -11, -9 }}, {{ -10, -7, 15 }, { 13, 4, -15 }, { -8, -16, 8 }}, {{ 12, -11, -6 }, { -4, -11, 1 }, { -3, -1, -3 }}, {{ -10, -4, 7 }, { 10, 11, -13 }, { -6, 10, -15 }}, {{ -11, -14, 5 }, { 15, -8, -1 }, { -3, 0, -2 }}, {{ 1, 0, 0 }, { -3, -15, -13 }, { 7, 14, -8 }}, {{ 12, -2, 13 }, { -8, 9, -1 }, { 5, 12, 9 }}, {{ -5, -5, 3 }, { 4, -11, -10 }, { 0, -4, 8 }}, {{ 11, 5, -13 }, { 2, -9, 9 }, { 15, -10, 10 }}, {{ 3, 2, 9 }, { -12, 9, -16 }, { 9, -14, -16 }}, {{ -9, -8, 11 }, { 15, -12, -14 }, { 8, 3, -7 }}, {{ 10, 10, -7 }, { -10, -1, -1 }, { 10, -13, 2 }}, {{ -2, 6, 15 }, { 12, 7, -11 }, { 10, 14, 1 }}, {{ 8, -1, -2 }, { 7, 14, -4 }, { -16, 10, -14 }}, {{ -2, 15, -11 }, { 4, -11, -12 }, { -2, 10, -9 }}, {{ 12, 4, -6 }, { -5, -7, 13 }, { 3, -11, 14 }}, {{ 11, -13, -2 }, { 6, -2, -8 }, { -4, 0, -4 }}, {{ 5, 14, 15 }, { 14, 10, -3 }, { 10, 14, 0 }}, {{ -16, -14, 4 }, { -12, 11, -3 }, { 5, 0, -15 }}, {{ -7, 15, 5 }, { -13, 10, -3 }, { -7, 3, -13 }}, {{ -14, 0, -1 }, { 15, -4, 2 }, { -3, -11, -11 }}, {{ 13, -1, 12 }, { 5, 11, 3 }, { -15, -9, 7 }}, {{ 0, 0, 7 }, { 7, -12, 0 }, { -3, 2, 0 }}, {{ -12, 12, 6 }, { -15, 7, 12 }, { 2, 12, 15 }}, {{ 0, -11, 1 }, { -5, 1, 1 }, { 9, 1, 10 }}, {{ 14, -2, -15 }, { 2, -9, 7 }, { -2, 6, 9 }}, {{ -15, 3, -16 }, { -10, -11, 10 }, { 15, 12, 2 }}, {{ -5, -9, 10 }, { -3, 11, 13 }, { 6, 3, -16 }}, {{ -13, 3, -3 }, { -6, 0, 9 }, { -12, -15, 4 }}, {{ -7, 13, -14 }, { -3, -13, -14 }, { -5, 8, 12 }}, {{ -6, 12, -5 }, { -9, -5, 13 }, { 4, -8, 4 }}, {{ -9, -4, 9 }, { -9, 6, -1 }, { -11, 2, 2 }} };
 _ssdm_SpecConstant(l2_kernels);
-# 239 "cnn.cpp"
+# 246 "cnn.cpp"
 
 _ssdm_SpecArrayPartition( &l1_kernels, 1, "COMPLETE", 0, "");
 _ssdm_SpecArrayPartition( &l2_kernels, 1, "COMPLETE", 0, "");
 
  static uint8_t l1_stripes[3][6][256 + 2] = {{0, } };
     static uint8_t l2_stripes[4][6][(256 / 2) + 2] = {{0, } };
+    static int32_t l3_outputs[16] = {0, };
 _ssdm_op_SpecResource(&l1_stripes, "", "RAM_2P_BRAM", "", -1, "", "", "", "", "");
 _ssdm_SpecArrayPartition( &l1_stripes, 1, "COMPLETE", 0, "");
 _ssdm_SpecArrayPartition( &l1_stripes, 2, "COMPLETE", 0, "");
@@ -8566,7 +8575,11 @@ _ssdm_op_SpecResource(&l2_stripes, "", "RAM_2P_BRAM", "", -1, "", "", "", "", ""
 _ssdm_SpecArrayPartition( &l2_stripes, 1, "COMPLETE", 0, "");
 _ssdm_SpecArrayPartition( &l2_stripes, 2, "COMPLETE", 0, "");
 _ssdm_op_SpecReset( &l2_stripes, 1,  "");
+_ssdm_op_SpecResource(&l3_outputs, "", "RAM_2P_BRAM", "", -1, "", "", "", "", "");
+_ssdm_SpecArrayPartition( &l3_outputs, 1, "COMPLETE", 0, "");
+_ssdm_op_SpecReset( &l3_outputs, 1,  "");
+
 
 _ssdm_op_SpecPipeline(36, 1, 1, 0, "");
- kernel(in, out, l1_kernels, l1_stripes, l2_kernels, l2_stripes);
+ kernel(in, weights, out, l1_kernels, l1_stripes, l2_kernels, l2_stripes, l3_outputs);
 }

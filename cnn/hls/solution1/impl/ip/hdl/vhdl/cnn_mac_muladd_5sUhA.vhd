@@ -6,19 +6,19 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity cnn_mac_muladd_5sUhA_DSP48_3 is
+entity cnn_mac_muladd_5sUhA_DSP48_2 is
 port (
     in0:  in  std_logic_vector(5 - 1 downto 0);
     in1:  in  std_logic_vector(8 - 1 downto 0);
-    in2:  in  std_logic_vector(12 - 1 downto 0);
-    dout: out std_logic_vector(14 - 1 downto 0));
+    in2:  in  std_logic_vector(10 - 1 downto 0);
+    dout: out std_logic_vector(13 - 1 downto 0));
 
     attribute use_dsp : string;
-    attribute use_dsp of cnn_mac_muladd_5sUhA_DSP48_3 : entity is "yes";
+    attribute use_dsp of cnn_mac_muladd_5sUhA_DSP48_2 : entity is "yes";
 
 end entity;
 
-architecture behav of cnn_mac_muladd_5sUhA_DSP48_3 is
+architecture behav of cnn_mac_muladd_5sUhA_DSP48_2 is
     signal a       : signed(25-1 downto 0);
     signal b       : signed(18-1 downto 0);
     signal c       : signed(48-1 downto 0);
@@ -27,12 +27,12 @@ architecture behav of cnn_mac_muladd_5sUhA_DSP48_3 is
 begin
 a  <= signed(resize(signed(in0), 25));
 b  <= signed(resize(unsigned(in1), 18));
-c  <= signed(resize(signed(in2), 48));
+c  <= signed(resize(unsigned(in2), 48));
 
 m  <= a * b;
 p  <= m + c;
 
-dout <= std_logic_vector(resize(unsigned(p), 14));
+dout <= std_logic_vector(resize(unsigned(p), 13));
 
 end architecture;
 Library IEEE;
@@ -54,7 +54,7 @@ entity cnn_mac_muladd_5sUhA is
 end entity;
 
 architecture arch of cnn_mac_muladd_5sUhA is
-    component cnn_mac_muladd_5sUhA_DSP48_3 is
+    component cnn_mac_muladd_5sUhA_DSP48_2 is
         port (
             in0 : IN STD_LOGIC_VECTOR;
             in1 : IN STD_LOGIC_VECTOR;
@@ -65,7 +65,7 @@ architecture arch of cnn_mac_muladd_5sUhA is
 
 
 begin
-    cnn_mac_muladd_5sUhA_DSP48_3_U :  component cnn_mac_muladd_5sUhA_DSP48_3
+    cnn_mac_muladd_5sUhA_DSP48_2_U :  component cnn_mac_muladd_5sUhA_DSP48_2
     port map (
         in0 => din0,
         in1 => din1,

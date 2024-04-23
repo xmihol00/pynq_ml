@@ -4,10 +4,10 @@
 // ==============================================================
 `timescale 1 ns / 1 ps
 
-(* use_dsp = "yes" *) module cnn_mac_muladd_5s0iy_DSP48_9(
+(* use_dsp = "yes" *) module cnn_mac_muladd_5s0iy_DSP48_8(
     input  [5 - 1:0] in0,
     input  [8 - 1:0] in1,
-    input  [9 - 1:0] in2,
+    input  [12 - 1:0] in2,
     output [13 - 1:0]  dout);
 
 wire signed [25 - 1:0]     a;
@@ -46,7 +46,7 @@ output[dout_WIDTH - 1:0] dout;
 
 
 
-cnn_mac_muladd_5s0iy_DSP48_9 cnn_mac_muladd_5s0iy_DSP48_9_U(
+cnn_mac_muladd_5s0iy_DSP48_8 cnn_mac_muladd_5s0iy_DSP48_8_U(
     .in0( din0 ),
     .in1( din1 ),
     .in2( din2 ),

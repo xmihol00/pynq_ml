@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'cnn'" level="0">
-<item name = "Date">Fri Apr 23 16:24:46 2021
+<item name = "Date">Tue Apr 23 21:16:12 2024
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">hls</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 11.088 ns, 1.25 ns</column>
+<column name="ap_clk">10.00 ns, 10.254 ns, 1.25 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">41, 41, 0.455 us, 0.455 us, 40, 40, function</column>
+<column name="">41, 41, 0.420 us, 0.420 us, 40, 40, function</column>
 </table>
 </item>
 <item name = "Detail">

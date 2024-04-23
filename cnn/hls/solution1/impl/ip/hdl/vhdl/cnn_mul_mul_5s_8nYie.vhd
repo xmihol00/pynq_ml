@@ -3,25 +3,25 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity cnn_mul_mul_5s_8nYie_DSP48_7 is
+entity cnn_mul_mul_5s_8nYie_DSP48_6 is
 port (
     a: in std_logic_vector(5 - 1 downto 0);
     b: in std_logic_vector(8 - 1 downto 0);
-    p: out std_logic_vector(12 - 1 downto 0));
+    p: out std_logic_vector(13 - 1 downto 0));
 
 end entity;
 
-architecture behav of cnn_mul_mul_5s_8nYie_DSP48_7 is
+architecture behav of cnn_mul_mul_5s_8nYie_DSP48_6 is
     signal a_cvt: signed(5 - 1 downto 0);
     signal b_cvt: unsigned(8 - 1 downto 0);
-    signal p_cvt: signed(12 - 1 downto 0);
+    signal p_cvt: signed(13 - 1 downto 0);
 
 
 begin
 
     a_cvt <= signed(a);
     b_cvt <= unsigned(b);
-    p_cvt <= signed (resize(unsigned (signed (a_cvt) * signed ('0' & b_cvt)), 12));
+    p_cvt <= signed (resize(unsigned (signed (a_cvt) * signed ('0' & b_cvt)), 13));
     p <= std_logic_vector(p_cvt);
 
 end architecture;
@@ -42,7 +42,7 @@ entity cnn_mul_mul_5s_8nYie is
 end entity;
 
 architecture arch of cnn_mul_mul_5s_8nYie is
-    component cnn_mul_mul_5s_8nYie_DSP48_7 is
+    component cnn_mul_mul_5s_8nYie_DSP48_6 is
         port (
             a : IN STD_LOGIC_VECTOR;
             b : IN STD_LOGIC_VECTOR;
@@ -52,7 +52,7 @@ architecture arch of cnn_mul_mul_5s_8nYie is
 
 
 begin
-    cnn_mul_mul_5s_8nYie_DSP48_7_U :  component cnn_mul_mul_5s_8nYie_DSP48_7
+    cnn_mul_mul_5s_8nYie_DSP48_6_U :  component cnn_mul_mul_5s_8nYie_DSP48_6
     port map (
         a => din0,
         b => din1,
