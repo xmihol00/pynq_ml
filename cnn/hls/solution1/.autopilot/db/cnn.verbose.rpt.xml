@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'cnn'" level="0">
-<item name = "Date">Tue Apr 23 21:16:20 2024
+<item name = "Date">Wed Apr 24 09:10:31 2024
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">hls</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 10.254 ns, 1.25 ns</column>
+<column name="ap_clk">10.00 ns, 10.623 ns, 1.25 ns</column>
 </table>
 </item>
 </section>
@@ -24,14 +24,14 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">41, 41, 0.420 us, 0.420 us, 40, 40, function</column>
+<column name="">43, 43, 0.457 us, 0.457 us, 42, 42, function</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_kernel_fu_216">kernel, 39, 39, 0.400 us, 0.400 us, 40, 40, function</column>
+<column name="grp_kernel_fu_296">kernel, 41, 41, 0.436 us, 0.436 us, 30, 30, function</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -50,19 +50,19 @@
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 10, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">46, 59, 15623, 31684, 0</column>
+<column name="Instance">44, 184, 17725, 29083, 0</column>
 <column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, -, 280, -</column>
-<column name="Register">-, -, 42, -, -</column>
+<column name="Multiplexer">-, -, -, 288, -</column>
+<column name="Register">-, -, 44, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
-<specialColumn name="Utilization (%)">16, 26, 14, 60, 0</specialColumn>
+<specialColumn name="Utilization (%)">15, 83, 16, 55, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
-<column name="grp_kernel_fu_216">kernel, 46, 59, 15623, 31684, 0</column>
+<column name="grp_kernel_fu_296">kernel, 44, 184, 17725, 29083, 0</column>
 </table>
 </item>
 <item name = "DSP48E"><table name="" hasTotal="0">
@@ -80,15 +80,15 @@
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
 <column name="ap_block_pp0_stage1_11001">and, 0, 0, 2, 1, 1</column>
-<column name="ap_block_pp0_stage27_11001">and, 0, 0, 2, 1, 1</column>
-<column name="grp_kernel_fu_216_out_r_TREADY">and, 0, 0, 2, 1, 1</column>
-<column name="ap_block_state28_pp0_stage27_iter0">or, 0, 0, 2, 1, 1</column>
+<column name="ap_block_pp0_stage2_11001">and, 0, 0, 2, 1, 1</column>
+<column name="grp_kernel_fu_296_out_r_TREADY">and, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state31_pp0_stage30_iter0">or, 0, 0, 2, 1, 1</column>
 <column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="ap_NS_fsm">181, 41, 1, 41</column>
+<column name="ap_NS_fsm">189, 43, 1, 43</column>
 <column name="in_r_TDATA_blk_n">9, 2, 1, 2</column>
 <column name="in_r_TREADY_int">9, 2, 1, 2</column>
 <column name="out_r_TDATA_blk_n">9, 2, 1, 2</column>
@@ -104,9 +104,9 @@
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="ap_CS_fsm">40, 0, 40, 0</column>
+<column name="ap_CS_fsm">42, 0, 42, 0</column>
 <column name="ap_enable_reg_pp0_iter1">1, 0, 1, 0</column>
-<column name="grp_kernel_fu_216_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_kernel_fu_296_ap_start_reg">1, 0, 1, 0</column>
 </table>
 </item>
 </section>

@@ -1,2 +1,2 @@
-set design_latency 41
-set design_II 40
+set design_latency 43
+set design_II 42

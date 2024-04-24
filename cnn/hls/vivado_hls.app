@@ -1,16 +1,18 @@
 <project xmlns="com.autoesl.autopilot.project" name="hls" top="cnn">
+    <files>
+        <file name="../../cnn_test_data.h" sc="0" tb="1" cflags=" -Wno-unknown-pragmas" blackbox="false" csimflags=" -Wno-unknown-pragmas"/>
+        <file name="../../cnn_tb.h" sc="0" tb="1" cflags=" -Wno-unknown-pragmas" blackbox="false" csimflags=" -Wno-unknown-pragmas"/>
+        <file name="../../cnn_tb.cpp" sc="0" tb="1" cflags=" -Wno-unknown-pragmas" blackbox="false" csimflags=" -Wno-unknown-pragmas"/>
+        <file name="../../cnn.h" sc="0" tb="1" cflags=" -Wno-unknown-pragmas" blackbox="false" csimflags=" -Wno-unknown-pragmas"/>
+        <file name="cnn.h" sc="0" tb="false" cflags="" blackbox="false" csimflags=""/>
+        <file name="cnn.cpp" sc="0" tb="false" cflags="" blackbox="false" csimflags=""/>
+        <file name="../../../../../../../../home/david/projs/pynq_ml/cnn/cnn_test_data.h" sc="0" tb="1" cflags="" blackbox="false" csimflags=""/>
+    </files>
     <includePaths/>
     <libraryPaths/>
     <Simulation>
         <SimFlow askAgain="false" name="csim" csimMode="0" lastCsimMode="0"/>
     </Simulation>
-    <files xmlns="">
-        <file name="../../cnn_tb.h" sc="0" tb="1" cflags=" -Wno-unknown-pragmas" csimflags=" -Wno-unknown-pragmas" blackbox="false"/>
-        <file name="../../cnn_tb.cpp" sc="0" tb="1" cflags=" -Wno-unknown-pragmas" csimflags=" -Wno-unknown-pragmas" blackbox="false"/>
-        <file name="../../cnn.h" sc="0" tb="1" cflags=" -Wno-unknown-pragmas" csimflags=" -Wno-unknown-pragmas" blackbox="false"/>
-        <file name="cnn.h" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
-        <file name="cnn.cpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
-    </files>
     <solutions xmlns="">
         <solution name="solution1" status="active"/>
     </solutions>

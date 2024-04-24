@@ -1,5 +1,4 @@
-obj/cnn_tb.o: ../../../../cnn_tb.cpp ../../../../cnn_tb.h \
- ../../../../cnn.h \
+obj/cnn_tb.o: ../../../../cnn_tb.cpp ../../../../cnn.h \
  /home/david/Xilinx/Vivado/2020.1/include/ap_axi_sdata.h \
  /home/david/Xilinx/Vivado/2020.1/include/ap_int.h \
  /home/david/Xilinx/Vivado/2020.1/include/ap_common.h \
@@ -21,4 +20,5 @@ obj/cnn_tb.o: ../../../../cnn_tb.cpp ../../../../cnn_tb.h \
  /home/david/Xilinx/Vivado/2020.1/include/ap_int.h \
  /home/david/Xilinx/Vivado/2020.1/include/ap_fixed_ref.h \
  /home/david/Xilinx/Vivado/2020.1/include/ap_fixed_special.h \
- /home/david/Xilinx/Vivado/2020.1/include/hls_stream.h
+ /home/david/Xilinx/Vivado/2020.1/include/hls_stream.h \
+ ../../../../cnn_tb.h ../../../../cnn_test_data.h

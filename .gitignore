@@ -112,3 +112,4 @@ weights/
 __pycache__/
 datasets/
 models/
+cnn_test_data.h

@@ -8,7 +8,7 @@ void kernel
     const int8_t l1_kernels[IN_CHANNELS * L1_KERNELS][KERNEL_SIZE][KERNEL_SIZE],
     uint8_t l1_stripes[IN_CHANNELS][STRIPE_HEIGHT][L1_STRIPE_INPUT_WIDTH + 2],
     const int8_t l2_kernels[L1_KERNELS * L2_KERNELS][KERNEL_SIZE][KERNEL_SIZE],
-    uint8_t l2_stripes[L1_KERNELS][STRIPE_HEIGHT][L2_STRIPE_INPUT_WIDTH + 2],
+    uint16_t l2_stripes[L1_KERNELS][STRIPE_HEIGHT][L2_STRIPE_INPUT_WIDTH + 2],
     int32_t l3_outputs[L3_OUTPUT_WIDTH]
 )
 {
@@ -180,16 +180,20 @@ void kernel
                 l2_maxes[l2_maxes_idx][j] = l2_kernel_sums[j] > l2_maxes[l2_maxes_idx][j] ? l2_kernel_sums[j] : l2_maxes[l2_maxes_idx][j];
                 l2_kernel_sums[j] = 0;
             }
-            l2_maxes_idx = !l2_maxes_idx;
         }
 
+        int iteration_idx = l2_iteration & L2_OUTPUT_WRITE_MASK;
+        l2_maxes[!l2_maxes_idx][iteration_idx] >>= L2_OUTPUT_SHIFT;
         axis_weights_t weights_data = weights.read();
+        cout << "iteration_idx: " << iteration_idx << endl;
         #pragma HLS UNROLL
         for (int j = 0; j < L3_OUTPUT_WIDTH; j++)
         {
             int8_t weight = weights_data.data.range(j * 8 + 7, j * 8);
-            l3_outputs[j] += weight * l2_kernel_sums[j];
+            cout << j << ": " << l2_maxes[!l2_maxes_idx][iteration_idx] << " " << (int)weight << endl;
+            l3_outputs[j] += l2_maxes[!l2_maxes_idx][iteration_idx] * weight;
         }
+        cout << endl;
                 
         if ((l2_iteration & L2_OUTPUT_WRITE_MASK) == L2_OUTPUT_WRITE_MASK)
         {
@@ -200,7 +204,8 @@ void kernel
                 out_data.last = 1;
                 for (int j = 0; j < L3_OUTPUT_WIDTH; j++)
                 {
-                    out_data.data.range(j * 32 + 31, j * 32) = l3_outputs[j];
+                    l3_outputs[j] = l3_outputs[j] > 0 ? l3_outputs[j] : 0;
+                    out_data.data.range(j * 32 + 31, j * 32) = l3_outputs[j] >> L3_OUTPUT_SHIFT;
                     l3_outputs[j] = 0;
                 }
                 out.write(out_data);
@@ -216,6 +221,8 @@ void kernel
                     l2_read_row_offset = 0;
                 }
             }
+            l2_maxes_idx = !l2_maxes_idx;
+            if (!l2_maxes_idx) exit(0);
         }
     }
 
@@ -248,7 +255,7 @@ void cnn(hls::stream<axis_in_t> &in, hls::stream<axis_weights_t> &weights, hls::
 #pragma HLS ARRAY_PARTITION variable=l2_kernels complete dim=1
 
     static uint8_t l1_stripes[IN_CHANNELS][STRIPE_HEIGHT][L1_STRIPE_INPUT_WIDTH + 2] = {{0, } };
-    static uint8_t l2_stripes[L1_KERNELS][STRIPE_HEIGHT][L2_STRIPE_INPUT_WIDTH + 2] = {{0, } };
+    static uint16_t l2_stripes[L1_KERNELS][STRIPE_HEIGHT][L2_STRIPE_INPUT_WIDTH + 2] = {{0, } };
     static int32_t l3_outputs[L3_OUTPUT_WIDTH] = {0, };
 #pragma HLS RESOURCE variable=l1_stripes core=RAM_2P_BRAM
 #pragma HLS ARRAY_PARTITION variable=l1_stripes complete dim=1
@@ -258,7 +265,6 @@ void cnn(hls::stream<axis_in_t> &in, hls::stream<axis_weights_t> &weights, hls::
 #pragma HLS ARRAY_PARTITION variable=l2_stripes complete dim=1
 #pragma HLS ARRAY_PARTITION variable=l2_stripes complete dim=2
 #pragma HLS RESET variable=l2_stripes
-#pragma HLS RESOURCE variable=l3_outputs core=RAM_2P_BRAM
 #pragma HLS ARRAY_PARTITION variable=l3_outputs complete
 #pragma HLS RESET variable=l3_outputs
 

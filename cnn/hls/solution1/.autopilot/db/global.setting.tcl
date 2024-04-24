@@ -7,7 +7,7 @@ set CombLogicFlag 0
 set PipelineFlag 1
 set DataflowTaskPipelineFlag 1
 set TrivialPipelineFlag 0
-set noPortSwitchingFlag 1
+set noPortSwitchingFlag 0
 set FloatingPointFlag 0
 set FftOrFirFlag 0
 set NbRWValue 0
@@ -43,7 +43,7 @@ set TargetInfo xc7z020:-clg400:-1
 set SourceFiles {sc {} c ../../cnn.cpp}
 set SourceFlags {sc {} c {{}}}
 set DirectiveFile /mnt/sdc3/david/projs/pynq_ml/cnn/hls/solution1/solution1.directive
-set TBFiles {verilog {../../cnn_tb.h ../../cnn_tb.cpp ../../cnn.h} bc {../../cnn_tb.h ../../cnn_tb.cpp ../../cnn.h} vhdl {../../cnn_tb.h ../../cnn_tb.cpp ../../cnn.h} sc {../../cnn_tb.h ../../cnn_tb.cpp ../../cnn.h} cas {../../cnn_tb.h ../../cnn_tb.cpp ../../cnn.h} c {}}
+set TBFiles {verilog {../../cnn_test_data.h ../../cnn_tb.h ../../cnn_tb.cpp ../../cnn.h} bc {../../cnn_test_data.h ../../cnn_tb.h ../../cnn_tb.cpp ../../cnn.h} vhdl {../../cnn_test_data.h ../../cnn_tb.h ../../cnn_tb.cpp ../../cnn.h} sc {../../cnn_test_data.h ../../cnn_tb.h ../../cnn_tb.cpp ../../cnn.h} cas {../../cnn_test_data.h ../../cnn_tb.h ../../cnn_tb.cpp ../../cnn.h} c {}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

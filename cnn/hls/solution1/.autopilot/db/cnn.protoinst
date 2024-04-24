@@ -3,7 +3,7 @@
 	"modules": {
 		"cnn": {
 			"proto_instances": {
-				"grp_kernel_fu_216/grp_kernel_fu_216_activity": {
+				"grp_kernel_fu_296/grp_kernel_fu_296_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
