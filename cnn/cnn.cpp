@@ -33,6 +33,8 @@ void kernel
     static bool l2_maxes_idx = 0;
     static int32_t l2_kernel_sums[L2_KERNELS] = {0, };
 
+    static int32_t l3_iteration = -L2_KERNELS;
+
     if ((l1_iteration & ITERATION_MASK) < (L1_STRIPE_INPUT_WIDTH * IN_CHANNELS / 4))
     {
         int high = 7;
@@ -181,36 +183,9 @@ void kernel
                 l2_kernel_sums[j] = 0;
             }
         }
-
-        int iteration_idx = l2_iteration & L2_OUTPUT_WRITE_MASK;
-        l2_maxes[!l2_maxes_idx][iteration_idx] >>= L2_OUTPUT_SHIFT;
-        axis_weights_t weights_data = weights.read();
-        cout << "iteration_idx: " << iteration_idx << endl;
-        #pragma HLS UNROLL
-        for (int j = 0; j < L3_OUTPUT_WIDTH; j++)
-        {
-            int8_t weight = weights_data.data.range(j * 8 + 7, j * 8);
-            cout << j << ": " << l2_maxes[!l2_maxes_idx][iteration_idx] << " " << (int)weight << endl;
-            l3_outputs[j] += l2_maxes[!l2_maxes_idx][iteration_idx] * weight;
-        }
-        cout << endl;
                 
         if ((l2_iteration & L2_OUTPUT_WRITE_MASK) == L2_OUTPUT_WRITE_MASK)
         {
-            if (l2_iteration >= ((L2_STRIPE_INPUT_WIDTH + 1) * ITERATION_MULTIPLE - 7))
-            {
-                axis_out_t out_data;
-                out_data.keep = -1;
-                out_data.last = 1;
-                for (int j = 0; j < L3_OUTPUT_WIDTH; j++)
-                {
-                    l3_outputs[j] = l3_outputs[j] > 0 ? l3_outputs[j] : 0;
-                    out_data.data.range(j * 32 + 31, j * 32) = l3_outputs[j] >> L3_OUTPUT_SHIFT;
-                    l3_outputs[j] = 0;
-                }
-                out.write(out_data);
-            }
-
             l2_read_col_offset += 2;
             if (l2_read_col_offset == L2_STRIPE_INPUT_WIDTH)
             {
@@ -221,9 +196,30 @@ void kernel
                     l2_read_row_offset = 0;
                 }
             }
-            l2_maxes_idx = !l2_maxes_idx;
-            if (!l2_maxes_idx) exit(0);
+            //if (l2_iteration > 3620) exit(0);
         }
+    }
+
+    if (l3_iteration >= 6 * ITERATION_MULTIPLE && !(l3_iteration & ITERATION_MULTIPLE))
+    {
+        int maxes_idx = l3_iteration & L2_OUTPUT_WRITE_MASK;
+        l2_maxes[!l2_maxes_idx][maxes_idx] >>= L2_OUTPUT_SHIFT;
+        axis_weights_t weights_data = weights.read();
+        //cout << "maxes_idx: " << maxes_idx << endl;
+        #pragma HLS UNROLL
+        for (int j = 0; j < L3_OUTPUT_WIDTH; j++)
+        {
+            int8_t weight = weights_data.data.range(j * 8 + 7, j * 8);
+            //cout << j << ": " << l2_maxes[!l2_maxes_idx][maxes_idx] << " " << (int)weight << endl;
+            l3_outputs[j] += l2_maxes[!l2_maxes_idx][maxes_idx] * weight;
+        }
+        l2_maxes[!l2_maxes_idx][maxes_idx] = 0;
+        //cout << endl;
+    }
+
+    if ((l2_iteration & L2_OUTPUT_WRITE_MASK) == L2_OUTPUT_WRITE_MASK)
+    {
+        l2_maxes_idx = !l2_maxes_idx;
     }
 
     l1_iteration++;
@@ -240,6 +236,23 @@ void kernel
     {
         l2_iteration = 2 * ITERATION_MULTIPLE;
         l2_read_row_offset = 0;
+    }
+
+    l3_iteration++;
+    if (l3_iteration == (L2_STRIPE_INPUT_WIDTH + 2) * ITERATION_MULTIPLE)
+    {
+        l3_iteration = 2 * ITERATION_MULTIPLE;
+        
+        axis_out_t out_data;
+        out_data.keep = -1;
+        out_data.last = 1;
+        for (int j = 0; j < L3_OUTPUT_WIDTH; j++)
+        {
+            l3_outputs[j] = l3_outputs[j] > 0 ? l3_outputs[j] : 0;
+            out_data.data.range(j * 32 + 31, j * 32) = l3_outputs[j] >> L3_OUTPUT_SHIFT;
+            l3_outputs[j] = 0;
+        }
+        out.write(out_data);
     }
 }
 

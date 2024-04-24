@@ -133,7 +133,7 @@ for n, (sample, expected_class) in zip(range(0, RANGE), train_generator):
     l2_outputs = np.array(l2_outputs)
     l2_outputs = l2_outputs.reshape(-1, L2_HEIGHT * L2_WIDTH).T
     l2_outputs = l2_outputs.flatten().reshape(1, -1)
-    for i in range(5):
+    for i in range(64):
         print(l2_outputs[0, i], l3_weights[i])
     
     l3_outputs = (np.dot(l2_outputs, l3_weights) * (1/256))

@@ -3,6 +3,23 @@
   <errorLogs>
     <logs>
       <csimLog>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-04-24T18:07:17.117+0200"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-04-24T18:07:17.043+0200"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-04-24T18:04:23.903+0200"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-04-24T18:04:23.807+0200"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-04-24T18:01:21.357+0200"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-04-24T18:01:21.223+0200"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-04-24T18:00:27.921+0200"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-04-24T18:00:27.795+0200"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-04-24T17:58:36.121+0200"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-04-24T17:58:36.084+0200"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-04-24T17:57:40.681+0200"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-04-24T17:57:40.645+0200"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-04-24T17:55:01.370+0200"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-04-24T17:55:00.941+0200"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-04-24T17:53:10.893+0200"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-04-24T17:53:10.768+0200"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="hls" solutionName="solution1" date="2024-04-24T17:30:17.978+0200"/>
         <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="hls" solutionName="solution1" date="2024-04-24T11:07:50.469+0200"/>
         <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="hls" solutionName="solution1" date="2024-04-24T11:04:16.316+0200"/>
         <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="hls" solutionName="solution1" date="2024-04-24T11:04:16.259+0200"/>
@@ -30,6 +47,15 @@
   <warningLogs>
     <logs>
       <csimLog>
+        <logs message="WARNING: Hls::stream 'hls::stream&lt;ap_axiu&lt;128, 0, 0, 0>, 0>.1' contains leftover data, which may result in RTL simulation hanging." projectName="hls" solutionName="solution1" date="2024-04-24T18:11:23.936+0200" type="Warning"/>
+        <logs message="WARNING: Hls::stream 'hls::stream&lt;ap_axiu&lt;128, 0, 0, 0>, 0>.1' contains leftover data, which may result in RTL simulation hanging." projectName="hls" solutionName="solution1" date="2024-04-24T18:10:46.417+0200" type="Warning"/>
+        <logs message="WARNING: Hls::stream 'hls::stream&lt;ap_axiu&lt;128, 0, 0, 0>, 0>.1' contains leftover data, which may result in RTL simulation hanging." projectName="hls" solutionName="solution1" date="2024-04-24T18:07:16.935+0200" type="Warning"/>
+        <logs message="WARNING: Hls::stream 'hls::stream&lt;ap_axiu&lt;128, 0, 0, 0>, 0>.1' contains leftover data, which may result in RTL simulation hanging." projectName="hls" solutionName="solution1" date="2024-04-24T18:04:23.776+0200" type="Warning"/>
+        <logs message="WARNING: Hls::stream 'hls::stream&lt;ap_axiu&lt;128, 0, 0, 0>, 0>.1' contains leftover data, which may result in RTL simulation hanging." projectName="hls" solutionName="solution1" date="2024-04-24T18:01:21.188+0200" type="Warning"/>
+        <logs message="WARNING: Hls::stream 'hls::stream&lt;ap_axiu&lt;128, 0, 0, 0>, 0>.1' contains leftover data, which may result in RTL simulation hanging." projectName="hls" solutionName="solution1" date="2024-04-24T17:58:36.026+0200" type="Warning"/>
+        <logs message="WARNING: Hls::stream 'hls::stream&lt;ap_axiu&lt;128, 0, 0, 0>, 0>.1' contains leftover data, which may result in RTL simulation hanging." projectName="hls" solutionName="solution1" date="2024-04-24T17:57:40.608+0200" type="Warning"/>
+        <logs message="WARNING: Hls::stream 'hls::stream&lt;ap_axiu&lt;128, 0, 0, 0>, 0>.1' contains leftover data, which may result in RTL simulation hanging." projectName="hls" solutionName="solution1" date="2024-04-24T17:55:00.894+0200" type="Warning"/>
+        <logs message="WARNING: Hls::stream 'hls::stream&lt;ap_axiu&lt;128, 0, 0, 0>, 0>.1' contains leftover data, which may result in RTL simulation hanging." projectName="hls" solutionName="solution1" date="2024-04-24T17:53:10.641+0200" type="Warning"/>
         <logs message="WARNING: Hls::stream 'hls::stream&lt;ap_axiu&lt;128, 0, 0, 0>, 0>.1' contains leftover data, which may result in RTL simulation hanging." projectName="hls" solutionName="solution1" date="2024-04-24T11:04:16.229+0200" type="Warning"/>
         <logs message="WARNING: Hls::stream 'hls::stream&lt;ap_axiu&lt;128, 0, 0, 0>, 0>.1' contains leftover data, which may result in RTL simulation hanging." projectName="hls" solutionName="solution1" date="2024-04-24T10:50:13.670+0200" type="Warning"/>
         <logs message="WARNING: Hls::stream 'hls::stream&lt;ap_axiu&lt;128, 0, 0, 0>, 0>.1' contains leftover data, which may result in RTL simulation hanging." projectName="hls" solutionName="solution1" date="2024-04-24T10:49:21.180+0200" type="Warning"/>

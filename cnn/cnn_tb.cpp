@@ -12,10 +12,11 @@ int main()
     bool failed = false;
     int output_idx = 0;
     int weights_idx = 0;
+    int predictions_idx = 0;
 
-    for (int m = 1; m < NUMBER_OF_INPUTS; m++)
+    for (int m = 0; m < NUMBER_OF_INPUTS; m++)
     {
-        weights_idx = 0;
+        cout << "Starting iteration " << m << endl;
         for (int n = 0; n < L2_INPUT_WIDTH + 2*(m == NUMBER_OF_INPUTS); n++)
         {
             int in_shift = n * INPUT_VALUES_PER_ITERATION;
@@ -36,7 +37,7 @@ int main()
                 in_stream.write(in1);
             }
 
-            if (n > 1)
+            if (n > 1 && n < 126)
             {
                 for (int i = 0; i < WEIGHT_ROWS_PER_ITERATION; i++)
                 {
@@ -51,6 +52,12 @@ int main()
                     }
                     weights_stream.write(weights);
                 }
+            }
+
+            if (L3_OUTPUT_SIZE * L3_INPUT_HEIGHT * L3_INPUT_WIDTH * L2_KERNELS == weights_idx)
+            {
+                weights_idx = 0;
+                cout << "Resetting weights index at: " << m << " " << n << endl;
             }
 
             for (int i = 0; i < NUMBER_OF_CNN_CALLS; i++)
@@ -76,47 +83,53 @@ int main()
 
                 if (out.last)
                 {
+                    bool failed_iteration = false;
                     std::cout << "Last index: " << output_idx << ", expected last index: " << L3_OUTPUT_SIZE << std::endl;
                     output_idx = 0;
                     int error_count = 0;
                     for (int i = 0; i < L3_OUTPUT_SIZE; i++)
                     {
-                        if (output[i] != predictions[m][i])
+                        if (output[i] != predictions[predictions_idx][i])
                         {
-                            std::cout << "FAILED AT " << i << ":\tExpected - " << predictions[m][i] << "\t Actual - " << output[i] << std::endl;
+                            std::cout << "FAILED AT " << i << ":\tExpected - " << predictions[predictions_idx][i] << "\t Actual - " << output[i] << std::endl;
                             failed = true;
+                            failed_iteration = true;
                             error_count++;
                             if (error_count > 100)
                             {
                                 break;
                             }
                         }
-                        else if (predictions[m][i])
+                        else
                         {
-                            std::cout << "Passed at " << i << ":\tExpected - " << predictions[m][i] << "\t Actual - " << output[i] << std::endl;
+                            std::cout << "Passed at " << i << ":\tExpected - " << predictions[predictions_idx][i] << "\t Actual - " << output[i] << std::endl;
                         }
                     }
 
-                    if (failed)
+                    if (failed_iteration)
                     {
-                        std::cout << "Failed at iteration" << m << std::endl;
+                        std::cout << "Failed at iteration " << m << std::endl;
                     }
-                    /*else
+                    else
                     {
-                        std::cout << "First outputs:          " << output[0] << ", " << predictions[0] << std::endl;
-                        std::cout << "Second outputs:         " << output[1] << ", " << predictions[1] << std::endl;
-                        std::cout << "Third outputs:          " << output[2] << ", " << predictions[2] << std::endl;
-                        std::cout << std::endl;
-                        std::cout << "Third to last outputs:  " << output[TOTAL_OUTPUT_SIZE - 3] << ", " << predictions[TOTAL_OUTPUT_SIZE - 3] << std::endl;
-                        std::cout << "Second to last outputs: " << output[TOTAL_OUTPUT_SIZE - 2] << ", " << predictions[TOTAL_OUTPUT_SIZE - 2] << std::endl;
-                        std::cout << "Last outputs:           " << output[TOTAL_OUTPUT_SIZE - 1] << ", " << predictions[TOTAL_OUTPUT_SIZE - 1] << std::endl;
-                    }*/
+                        std::cout << "Passed at iteration " << m << std::endl;
+                    }
                     std::cout << "----------------------------------------------\n" << std::endl;
-                    m++;
+
+                    predictions_idx++;
                 }
             }
         }
-    } 
+    }
+
+    if (failed)
+    {
+        std::cout << "Failed" << std::endl;
+    }
+    else
+    {
+        std::cout << "Passed" << std::endl;
+    }
      
     return failed;
 }
