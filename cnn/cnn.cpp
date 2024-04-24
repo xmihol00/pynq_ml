@@ -12,8 +12,7 @@ void kernel
     int32_t l3_outputs[L3_OUTPUT_WIDTH]
 )
 {
-#pragma HLS latency min=30
-#pragma HLS PIPELINE II=30
+#pragma HLS PIPELINE II=33
 
     static uint32_t l1_iteration = 0;
     static uint16_t l1_write_col_offset = 1;
@@ -92,8 +91,10 @@ void kernel
                 uint16_t col_idx = local_col_index + m;
                 for (int j = 0; j < IN_CHANNELS; j++)
                 {
+                #pragma HLS latency min=5
                     for (int k = 0; k < L1_KERNELS; k++)
                     {
+                    #pragma HLS latency min=5
                         partial_sums[j][k] += l1_kernels[j * L1_KERNELS + k][l][m] * l1_stripes[j][row_idx][col_idx];
                     }
                 }
@@ -102,12 +103,11 @@ void kernel
 
         for (int j = 0; j < IN_CHANNELS; j++)
         {
+        #pragma HLS latency min=5
+            for (int k = 0; k < L1_KERNELS; k++)
             {
-            #pragma HLS latency min=4
-                for (int k = 0; k < L1_KERNELS; k++)
-                {
-                    kernel_sums[k] += partial_sums[j][k];
-                }
+            #pragma HLS latency min=5
+                kernel_sums[k] += partial_sums[j][k];
             }
         }
 
@@ -196,7 +196,6 @@ void kernel
                     l2_read_row_offset = 0;
                 }
             }
-            //if (l2_iteration > 3620) exit(0);
         }
     }
 
@@ -205,16 +204,13 @@ void kernel
         int maxes_idx = l3_iteration & L2_OUTPUT_WRITE_MASK;
         l2_maxes[!l2_maxes_idx][maxes_idx] >>= L2_OUTPUT_SHIFT;
         axis_weights_t weights_data = weights.read();
-        //cout << "maxes_idx: " << maxes_idx << endl;
         #pragma HLS UNROLL
         for (int j = 0; j < L3_OUTPUT_WIDTH; j++)
         {
             int8_t weight = weights_data.data.range(j * 8 + 7, j * 8);
-            //cout << j << ": " << l2_maxes[!l2_maxes_idx][maxes_idx] << " " << (int)weight << endl;
             l3_outputs[j] += l2_maxes[!l2_maxes_idx][maxes_idx] * weight;
         }
         l2_maxes[!l2_maxes_idx][maxes_idx] = 0;
-        //cout << endl;
     }
 
     if ((l2_iteration & L2_OUTPUT_WRITE_MASK) == L2_OUTPUT_WRITE_MASK)
@@ -259,6 +255,7 @@ void kernel
 void cnn(hls::stream<axis_in_t> &in, hls::stream<axis_weights_t> &weights, hls::stream<axis_out_t> &out)
 {
 #pragma HLS INTERFACE axis port=in
+#pragma HLS INTERFACE axis port=weights
 #pragma HLS INTERFACE axis port=out
 #pragma HLS INTERFACE ap_ctrl_none port=return
 
@@ -280,7 +277,6 @@ void cnn(hls::stream<axis_in_t> &in, hls::stream<axis_weights_t> &weights, hls::
 #pragma HLS RESET variable=l2_stripes
 #pragma HLS ARRAY_PARTITION variable=l3_outputs complete
 #pragma HLS RESET variable=l3_outputs
-
 
 #pragma HLS PIPELINE II=36
     kernel(in, weights, out, l1_kernels, l1_stripes, l2_kernels, l2_stripes, l3_outputs);

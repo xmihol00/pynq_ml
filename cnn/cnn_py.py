@@ -30,7 +30,7 @@ train_generator = train_datagen.flow_from_directory(
     target_size=IMAGE_SIZE,
     batch_size=1,
     class_mode='binary',  # binary classification
-    shuffle=False
+    #shuffle=False
 )
 
 model = get_model()
@@ -55,6 +55,8 @@ l1_kernels = l1_quantized.reshape(KERNEL_SIZE * KERNEL_SIZE, -1).T.astype(np.int
 l2_kernels = l2_quantized.reshape(KERNEL_SIZE * KERNEL_SIZE, -1).T.astype(np.int32)
 l3_weights = l3_quantized.astype(np.int32)
 l4_weights = l4_quantized.astype(np.int32)
+np.save("l3_weights.npy", l3_weights)
+np.save("l4_weights.npy", l4_weights)
 
 if PRINT:
     print("#define KERNEL_WEIGHTS_L1", format_array_C(l1_kernels.reshape(IN_CHANNELS * L1_OUT_CHANNELS, 3, 3)), end="\n\n")
@@ -89,13 +91,19 @@ for i, group in enumerate(channels):
 l2_kernels = np.array(kernel_groups_l2).astype(np.int32)
 
 correct_predictions = 0
-RANGE = 1
+RANGE = 10
 merged_samples = np.zeros((RANGE, IN_CHANNELS * IN_HEIGHT * IN_WIDTH), dtype=np.uint32)
 l3_predictions = np.zeros((RANGE, L3_OUTPUT_SIZE), dtype=np.uint32)
 train_generator.next()
 for n, (sample, expected_class) in zip(range(0, RANGE), train_generator):
     sample = sample.reshape(IN_HEIGHT * IN_WIDTH, -1).T
-    sample = sample.reshape(IN_CHANNELS, IN_HEIGHT, IN_WIDTH).astype(np.uint32)
+    sample = sample.reshape(IN_CHANNELS, IN_HEIGHT, IN_WIDTH).astype(np.uint8)
+
+    samples_flattened = sample.reshape(IN_CHANNELS, IN_HEIGHT * IN_WIDTH)
+    fpga_sample = np.zeros((IN_CHANNELS * IN_HEIGHT * IN_WIDTH)).astype(np.uint8)
+    for i in range(IN_CHANNELS):
+        fpga_sample[i::IN_CHANNELS] = samples_flattened[i]
+    np.save(f"sample_{n}.npy", fpga_sample)
 
     for j in range(IN_CHANNELS):
         merged_samples[n, j::IN_CHANNELS] = sample[j].flatten()
@@ -133,8 +141,6 @@ for n, (sample, expected_class) in zip(range(0, RANGE), train_generator):
     l2_outputs = np.array(l2_outputs)
     l2_outputs = l2_outputs.reshape(-1, L2_HEIGHT * L2_WIDTH).T
     l2_outputs = l2_outputs.flatten().reshape(1, -1)
-    for i in range(64):
-        print(l2_outputs[0, i], l3_weights[i])
     
     l3_outputs = (np.dot(l2_outputs, l3_weights) * (1/256))
     l3_outputs = np.maximum(l3_outputs, 0).astype(np.uint32)
@@ -144,7 +150,7 @@ for n, (sample, expected_class) in zip(range(0, RANGE), train_generator):
     predicted_class = l4_outputs[0, 0] >= 0
     expected_class = expected_class[0] >= 0.5
     correct_predictions += predicted_class == expected_class
-    #print(f"Predicted: {predicted_class},\tExpected: {expected_class}")
+    print(f"Predicted: {predicted_class},\tExpected: {expected_class}")
 
 if PRINT:
     print("#define INPUTS", format_array_C(merged_samples), end="\n\n")
