@@ -145,6 +145,7 @@ for n, (sample, expected_class) in zip(range(0, RANGE), train_generator):
     l3_outputs = (np.dot(l2_outputs, l3_weights) * (1/256))
     l3_outputs = np.maximum(l3_outputs, 0).astype(np.uint32)
     l3_predictions[n] = l3_outputs.flatten()
+    print(f"Prediction {n}: {l3_outputs.flatten()}")
 
     l4_outputs = np.dot(l3_outputs, l4_weights)
     predicted_class = l4_outputs[0, 0] >= 0

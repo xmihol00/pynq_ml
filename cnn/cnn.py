@@ -6,7 +6,8 @@ from pynq import Clocks, Overlay, allocate
 print(Clocks.cpu_mhz)
 print(Clocks.fclk0_mhz)
 
-pynq.ps.set_fclk(1, clk_mhz=84)
+#pynq.ps.ClocksMeta.set_fclk(1, clk_mhz=84)
+Clocks.fclk0_mhz = 83.33
 
 print(Clocks.cpu_mhz)
 print(Clocks.fclk0_mhz)
@@ -23,7 +24,7 @@ if __name__ == "__main__":
     overlay = Overlay("overlay/cnn.bit")
     print("Overlay loaded", flush=True)
 
-    l3_weights = np.load("l3_weights.npy")
+    l3_weights = np.load("l3_weights.npy").flatten()
     l4_weights = np.load("l4_weights.npy")
     
     CTRL_REG = 0x00
@@ -35,8 +36,10 @@ if __name__ == "__main__":
     dma_weights = overlay.dma2
 
     in_buffer = allocate(shape=(INPUT_HEIGHT * INPUT_WIDTH * CHANNELS + 4 * INPUT_WIDTH * CHANNELS), dtype=np.uint8)
-    l3_weights_buffer = allocate(shape=(WEIGHTS_HEIGHT * WEIGHTS_WIDTH), dtype=np.int8)
-    out_buffer = allocate(shape=(OUTPUT_WIDTH), dtype=np.int32)
+    l3_weights_buffer = allocate(shape=l3_weights.shape, dtype=np.int8)
+    out_buffer = allocate(shape=(OUTPUT_WIDTH * 12), dtype=np.int32)
+
+    l3_weights_buffer[:] = l3_weights[:]
 
     inputs = np.load("sample_0.npy")
     outputs = np.zeros((OUTPUT_WIDTH))
@@ -46,31 +49,40 @@ if __name__ == "__main__":
     print(f"Sample {0}")
     in_buffer[:len(inputs)] = inputs
     print("Initiating transfer", flush=True)
-    dma_inputs.sendchannel.transfer(in_buffer, 0, 512*INPUT_WIDTH)
+    dma_inputs.sendchannel.transfer(in_buffer, 0, INPUT_HEIGHT * INPUT_WIDTH * CHANNELS)
+    dma_weights.sendchannel.transfer(l3_weights_buffer, 0, l3_weights_buffer.shape[0])
 
     ITERATIONS = 10
-    for i in range(1, ITERATIONS): 
-        dma_inputs.recvchannel.transfer(out_buffer)
-        
+    dma_inputs.recvchannel.transfer(out_buffer)
+    for i in range(1, ITERATIONS):
+       
         print(f"Sample {i}")
         inputs = np.load(f"sample_{i}.npy")
         in_buffer[:len(inputs)] = inputs
 
-        print("Waiting for data to be sent", flush=True)
+        print("Waiting for input data to be sent", flush=True)
         dma_inputs.sendchannel.wait()
-
+        print("Initiating input data transfer", flush=True)
         dma_inputs.sendchannel.transfer(in_buffer, 0, INPUT_HEIGHT * INPUT_WIDTH * CHANNELS + (4 * INPUT_WIDTH * CHANNELS if i == ITERATIONS - 1 else 0))
+        
+        print("Waiting for weights data to be sent", flush=True)
+        dma_weights.sendchannel.wait()
+        print("Initiating weights data transfer", flush=True)
+        dma_weights.sendchannel.transfer(l3_weights_buffer)
 
         print("Waiting for data to be received", flush=True)
-        dma_inputs.recvchannel.wait()
-        outputs[:] = out_buffer[:]
-        print(f"Output: {outputs}")
+        print(out_buffer)
+        outputs[:] = out_buffer[(i - 1) * OUTPUT_WIDTH : i * OUTPUT_WIDTH]
+        result = np.dot(outputs.reshape((1, -1)), l4_weights)
+        print()
+        print(f"Result: {result[0, 0] >= 0}")
+        print()
     
     print("Last image")
     dma_inputs.recvchannel.transfer(out_buffer)
     print("Waiting for data to be received", flush=True)
     dma_inputs.recvchannel.wait()
-    outputs[:] = out_buffer[:]
+    print("Final:", out_buffer)
 
     end = time.time()
 
