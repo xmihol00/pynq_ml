@@ -96,13 +96,15 @@ merged_samples = np.zeros((RANGE, IN_CHANNELS * IN_HEIGHT * IN_WIDTH), dtype=np.
 l3_predictions = np.zeros((RANGE, L3_OUTPUT_SIZE), dtype=np.uint32)
 train_generator.next()
 for n, (sample, expected_class) in zip(range(0, RANGE), train_generator):
+    print(sample.flatten()[:9])
     sample = sample.reshape(IN_HEIGHT * IN_WIDTH, -1).T
     sample = sample.reshape(IN_CHANNELS, IN_HEIGHT, IN_WIDTH).astype(np.uint8)
-
-    samples_flattened = sample.reshape(IN_CHANNELS, IN_HEIGHT * IN_WIDTH)
+    
+    sample_flattened = sample.reshape(IN_CHANNELS, IN_HEIGHT * IN_WIDTH)
     fpga_sample = np.zeros((IN_CHANNELS * IN_HEIGHT * IN_WIDTH)).astype(np.uint8)
     for i in range(IN_CHANNELS):
-        fpga_sample[i::IN_CHANNELS] = samples_flattened[i]
+        fpga_sample[i::IN_CHANNELS] = sample_flattened[i]
+    print(fpga_sample[:9])
     np.save(f"sample_{n}.npy", fpga_sample)
 
     for j in range(IN_CHANNELS):
