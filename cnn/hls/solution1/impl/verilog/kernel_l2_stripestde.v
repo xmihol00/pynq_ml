@@ -7,7 +7,7 @@
 
 module kernel_l2_stripestde
 #(parameter
-    DataWidth    = 8,
+    DataWidth    = 16,
     AddressWidth = 8,
     AddressRange = 130
 )(
@@ -47,10 +47,10 @@ kernel_l2_stripestde_ram kernel_l2_stripestde_ram_u (
 //------------------------Body---------------------------
 assign q0     = q0_sel? q0_ram : q0_rom;
 assign q0_sel = sel0_sr[0];
-assign q0_rom = 8'b00000000;
+assign q0_rom = 16'b0000000000000000;
 assign q1     = q1_sel? q1_ram : q1_rom;
 assign q1_sel = sel1_sr[0];
-assign q1_rom = 8'b00000000;
+assign q1_rom = 16'b0000000000000000;
 
 always @(posedge clk) begin
     if (reset)

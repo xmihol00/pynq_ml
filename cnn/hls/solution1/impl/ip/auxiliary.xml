@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="cnn" xd:componentRef="cnn" xd:initiationInterval="42" xd:clockPeriod="10.000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="cnn" xd:componentRef="cnn" xd:initiationInterval="35" xd:clockPeriod="12.000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
   <xd:arg xd:name="in.data" xd:originalName="in" xd:direction="in" xd:interfaceRef="in_r" xd:busTypeRef="axis" xd:dataWidth="64"/>
   <xd:arg xd:name="in.keep" xd:originalName="in" xd:direction="in" xd:interfaceRef="in_r" xd:busTypeRef="axis" xd:dataWidth="8"/>
   <xd:arg xd:name="in.strb" xd:originalName="in" xd:direction="in" xd:interfaceRef="in_r" xd:busTypeRef="axis" xd:dataWidth="8"/>
   <xd:arg xd:name="in.last" xd:originalName="in" xd:direction="in" xd:interfaceRef="in_r" xd:busTypeRef="axis" xd:dataWidth="1"/>
-  <xd:arg xd:name="weights.data" xd:originalName="weights" xd:direction="in" xd:interfaceRef="weights_V_data_V" xd:busTypeRef="acc_fifo" xd:dataWidth="128"/>
-  <xd:arg xd:name="weights.keep" xd:originalName="weights" xd:direction="in" xd:interfaceRef="weights_V_keep_V" xd:busTypeRef="acc_fifo" xd:dataWidth="16"/>
-  <xd:arg xd:name="weights.strb" xd:originalName="weights" xd:direction="in" xd:interfaceRef="weights_V_strb_V" xd:busTypeRef="acc_fifo" xd:dataWidth="16"/>
-  <xd:arg xd:name="weights.last" xd:originalName="weights" xd:direction="in" xd:interfaceRef="weights_V_last_V" xd:busTypeRef="acc_fifo" xd:dataWidth="1"/>
+  <xd:arg xd:name="weights.data" xd:originalName="weights" xd:direction="in" xd:interfaceRef="weights" xd:busTypeRef="axis" xd:dataWidth="128"/>
+  <xd:arg xd:name="weights.keep" xd:originalName="weights" xd:direction="in" xd:interfaceRef="weights" xd:busTypeRef="axis" xd:dataWidth="16"/>
+  <xd:arg xd:name="weights.strb" xd:originalName="weights" xd:direction="in" xd:interfaceRef="weights" xd:busTypeRef="axis" xd:dataWidth="16"/>
+  <xd:arg xd:name="weights.last" xd:originalName="weights" xd:direction="in" xd:interfaceRef="weights" xd:busTypeRef="axis" xd:dataWidth="1"/>
   <xd:arg xd:name="out.data" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_r" xd:busTypeRef="axis" xd:dataWidth="512"/>
   <xd:arg xd:name="out.keep" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_r" xd:busTypeRef="axis" xd:dataWidth="64"/>
   <xd:arg xd:name="out.strb" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_r" xd:busTypeRef="axis" xd:dataWidth="64"/>
   <xd:arg xd:name="out.last" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_r" xd:busTypeRef="axis" xd:dataWidth="1"/>
-  <xd:latencyEstimates xd:best-case="43" xd:worst-case="43" xd:average-case="43"/>
-  <xd:resourceEstimates xd:LUT="29381" xd:FF="17769" xd:BRAM="44" xd:DSP="184"/>
+  <xd:latencyEstimates xd:best-case="34" xd:worst-case="34" xd:average-case="34"/>
+  <xd:resourceEstimates xd:LUT="29932" xd:FF="19197" xd:BRAM="44" xd:DSP="183"/>
 </xd:acceleratorMap>

@@ -10,8 +10,8 @@ entity cnn_mac_muladd_7sbdk_DSP48_22 is
 port (
     in0:  in  std_logic_vector(7 - 1 downto 0);
     in1:  in  std_logic_vector(8 - 1 downto 0);
-    in2:  in  std_logic_vector(9 - 1 downto 0);
-    dout: out std_logic_vector(15 - 1 downto 0));
+    in2:  in  std_logic_vector(16 - 1 downto 0);
+    dout: out std_logic_vector(17 - 1 downto 0));
 
     attribute use_dsp : string;
     attribute use_dsp of cnn_mac_muladd_7sbdk_DSP48_22 : entity is "yes";
@@ -27,12 +27,12 @@ architecture behav of cnn_mac_muladd_7sbdk_DSP48_22 is
 begin
 a  <= signed(resize(signed(in0), 25));
 b  <= signed(resize(unsigned(in1), 18));
-c  <= signed(resize(unsigned(in2), 48));
+c  <= signed(resize(signed(in2), 48));
 
 m  <= a * b;
 p  <= m + c;
 
-dout <= std_logic_vector(resize(unsigned(p), 15));
+dout <= std_logic_vector(resize(unsigned(p), 17));
 
 end architecture;
 Library IEEE;

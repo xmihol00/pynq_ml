@@ -1,13 +1,6 @@
-import threading
 import numpy as np
 import time
 from pynq import Clocks, Overlay, allocate
-
-print(Clocks.cpu_mhz)
-print(Clocks.fclk0_mhz)
-
-#pynq.ps.ClocksMeta.set_fclk(1, clk_mhz=84)
-Clocks.fclk0_mhz = 83.33
 
 print(Clocks.cpu_mhz)
 print(Clocks.fclk0_mhz)
@@ -20,50 +13,54 @@ WEIGHTS_HEIGHT = 31744
 WEIGHTS_WIDTH = 16
 
 if __name__ == "__main__":
-    print("Loading overlay", flush=True)
+    print("Loading FPGA configuration", flush=True)
     overlay = Overlay("overlay/cnn.bit")
-    print("Overlay loaded", flush=True)
+    print("FPGA configuration loaded", flush=True)
 
-    l3_weights = np.load("l3_weights.npy").flatten()
-    l4_weights = np.load("l4_weights.npy")
-    
-    CTRL_REG = 0x00
-    AP_START = (1<<0) # bit 0
-    AUTO_RESTART = (1<<7) # bit 7
-    #overlay.cnn.write(CTRL_REG, (AP_START | AUTO_RESTART))
+    print(f"CPU  running at: {Clocks.cpu_mhz} MHZ")
+    print(f"FPGA running at: {Clocks.fclk0_mhz} MHZ")
 
     dma_inputs = overlay.dma1
     dma_weights = overlay.dma2
 
-    in_buffer = allocate(shape=(INPUT_HEIGHT * INPUT_WIDTH * CHANNELS + 4 * INPUT_WIDTH * CHANNELS), dtype=np.uint8)
-    l3_weights_buffer = allocate(shape=l3_weights.shape, dtype=np.int8)
-    out_buffer = allocate(shape=(OUTPUT_WIDTH * 12), dtype=np.int32)
+    print("Allocating buffers", flush=True)
+    in_buffers = [
+        allocate(shape=(INPUT_HEIGHT * INPUT_WIDTH * CHANNELS), dtype=np.uint8),
+        allocate(shape=(INPUT_HEIGHT * INPUT_WIDTH * CHANNELS), dtype=np.uint8)
+    ]
+    l3_weights_buffer = allocate(shape=(WEIGHTS_HEIGHT * WEIGHTS_WIDTH), dtype=np.int8)
+    out_buffer = allocate(shape=(OUTPUT_WIDTH * 8), dtype=np.int32)
+    print("Buffers allocated", flush=True)
 
-    l3_weights_buffer[:] = l3_weights[:]
+    in_ping_pong = False
 
-    inputs = np.load("sample_0.npy")
+    print("Loading weights", flush=True)
+    l4_weights = np.load("l4_weights.npy")
+    l3_weights_buffer[:] = np.load("l3_weights.npy").flatten()
+    print("Weights loaded", flush=True)
+    
     outputs = np.zeros((OUTPUT_WIDTH))
 
     start = time.time()
+    in_buffers[in_ping_pong][:] = np.load("sample_0.npy")
 
     print(f"Sample {0}")
-    in_buffer[:len(inputs)] = inputs
     print("Initiating transfer", flush=True)
-    dma_inputs.sendchannel.transfer(in_buffer, 0, INPUT_HEIGHT * INPUT_WIDTH * CHANNELS)
-    dma_weights.sendchannel.transfer(l3_weights_buffer, 0, l3_weights_buffer.shape[0])
+    dma_inputs.sendchannel.transfer(in_buffers[in_ping_pong])
+    dma_weights.sendchannel.transfer(l3_weights_buffer)
 
     ITERATIONS = 10
-    dma_inputs.recvchannel.transfer(out_buffer)
     for i in range(1, ITERATIONS):
+        in_ping_pong = not in_ping_pong
+        dma_inputs.recvchannel.transfer(out_buffer)
        
         print(f"Sample {i}")
-        inputs = np.load(f"sample_{i}.npy")
-        in_buffer[:len(inputs)] = inputs
+        in_buffers[in_ping_pong][:] = np.load(f"sample_{i}.npy")
 
         print("Waiting for input data to be sent", flush=True)
         dma_inputs.sendchannel.wait()
         print("Initiating input data transfer", flush=True)
-        dma_inputs.sendchannel.transfer(in_buffer, 0, INPUT_HEIGHT * INPUT_WIDTH * CHANNELS + (4 * INPUT_WIDTH * CHANNELS if i == ITERATIONS - 1 else 0))
+        dma_inputs.sendchannel.transfer(in_buffers[in_ping_pong])
         
         print("Waiting for weights data to be sent", flush=True)
         dma_weights.sendchannel.wait()
@@ -71,17 +68,18 @@ if __name__ == "__main__":
         dma_weights.sendchannel.transfer(l3_weights_buffer)
 
         print("Waiting for data to be received", flush=True)
-        print(out_buffer)
-        outputs[:] = out_buffer[(i - 1) * OUTPUT_WIDTH : i * OUTPUT_WIDTH]
+        dma_inputs.recvchannel.wait()
+        outputs[:] = out_buffer[7 * OUTPUT_WIDTH : 8 * OUTPUT_WIDTH]
+        print(outputs)
         result = np.dot(outputs.reshape((1, -1)), l4_weights)
         print()
-        print(f"Result: {result[0, 0] >= 0}")
+        print(f"Result: {result[0, 0] >= 0} ({result[0, 0]})")
         print()
     
     print("Last image")
     dma_inputs.recvchannel.transfer(out_buffer)
     print("Waiting for data to be received", flush=True)
-    dma_inputs.recvchannel.wait()
+    #dma_inputs.recvchannel.wait()
     print("Final:", out_buffer)
 
     end = time.time()
@@ -89,7 +87,8 @@ if __name__ == "__main__":
     #np.save("result.npy", result_buffer)
 
     print("Freeing buffers")
-    in_buffer.freebuffer()
+    in_buffers[0].freebuffer()
+    in_buffers[1].freebuffer()
     out_buffer.freebuffer()
     
     print(f"FPGA run time: {end - start}")

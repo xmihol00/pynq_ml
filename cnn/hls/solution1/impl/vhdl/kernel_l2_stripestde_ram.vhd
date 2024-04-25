@@ -10,7 +10,7 @@ use ieee.std_logic_unsigned.all;
 entity kernel_l2_stripestde_ram is 
     generic(
             MEM_TYPE    : string := "block"; 
-            DWIDTH     : integer := 8; 
+            DWIDTH     : integer := 16; 
             AWIDTH     : integer := 8; 
             MEM_SIZE    : integer := 130
     ); 

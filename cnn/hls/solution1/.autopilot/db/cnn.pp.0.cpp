@@ -8303,7 +8303,7 @@ extern int getloadavg (double __loadavg[], int __nelem)
 # 1035 "/usr/include/stdlib.h" 3 4
 }
 # 9 "./cnn.h" 2
-# 34 "./cnn.h"
+# 37 "./cnn.h"
 typedef ap_axiu<(8 * 8), 0, 0, 0> axis_in_t;
 typedef ap_axiu<(16 * 8), 0, 0, 0> axis_weights_t;
 typedef ap_axiu<(16 * 32), 0, 0, 0> axis_out_t;
@@ -8319,12 +8319,11 @@ void kernel
     const int8_t l1_kernels[3 * 4][3][3],
     uint8_t l1_stripes[3][6][256 + 2],
     const int8_t l2_kernels[4 * 8][3][3],
-    uint8_t l2_stripes[4][6][(256 / 2) + 2],
+    uint16_t l2_stripes[4][6][(256 / 2) + 2],
     int32_t l3_outputs[16]
 )
 {_ssdm_SpecArrayDimSize(l1_kernels, 12);_ssdm_SpecArrayDimSize(l1_stripes, 3);_ssdm_SpecArrayDimSize(l2_kernels, 32);_ssdm_SpecArrayDimSize(l2_stripes, 4);_ssdm_SpecArrayDimSize(l3_outputs, 16);
-#pragma HLS latency min=30
-#pragma HLS PIPELINE II=30
+#pragma HLS PIPELINE II=33
 
  static uint32_t l1_iteration = 0;
     static uint16_t l1_write_col_offset = 1;
@@ -8343,8 +8342,8 @@ void kernel
     static int32_t l2_maxes[2][8] = {{0, }, };
     static bool l2_maxes_idx = 0;
     static int32_t l2_kernel_sums[8] = {0, };
-    static uint8_t l3_weights_rows[2][16] = {{0, }, };
-    static bool l3_weights_row_idx = 0;
+
+    static int32_t l3_iteration = -8;
 
     if ((l1_iteration & ((2 * 256) - 1)) < (256 * 3 / 4))
     {
@@ -8403,9 +8402,11 @@ void kernel
                 uint16_t col_idx = local_col_index + m;
                 for (int j = 0; j < 3; j++)
                 {
-                    for (int k = 0; k < 4; k++)
+#pragma HLS latency min=5
+ for (int k = 0; k < 4; k++)
                     {
-                        partial_sums[j][k] += l1_kernels[j * 4 + k][l][m] * l1_stripes[j][row_idx][col_idx];
+#pragma HLS latency min=5
+ partial_sums[j][k] += l1_kernels[j * 4 + k][l][m] * l1_stripes[j][row_idx][col_idx];
                     }
                 }
             }
@@ -8413,12 +8414,11 @@ void kernel
 
         for (int j = 0; j < 3; j++)
         {
-            {
-#pragma HLS latency min=4
+#pragma HLS latency min=5
  for (int k = 0; k < 4; k++)
-                {
-                    kernel_sums[k] += partial_sums[j][k];
-                }
+            {
+#pragma HLS latency min=5
+ kernel_sums[k] += partial_sums[j][k];
             }
         }
 
@@ -8432,7 +8432,7 @@ void kernel
         {
             for (int k = 0; k < 4; k++)
             {
-                l2_stripes[k][l2_write_row_offset][l2_write_col_offset] = l1_maxes[k] >> 5;
+                l2_stripes[k][l2_write_row_offset][l2_write_col_offset] = l1_maxes[k] >> 8;
                 l1_maxes[k] = 0;
             }
 
@@ -8493,30 +8493,10 @@ void kernel
                 l2_maxes[l2_maxes_idx][j] = l2_kernel_sums[j] > l2_maxes[l2_maxes_idx][j] ? l2_kernel_sums[j] : l2_maxes[l2_maxes_idx][j];
                 l2_kernel_sums[j] = 0;
             }
-            l2_maxes_idx = !l2_maxes_idx;
-        }
-
-#pragma HLS UNROLL
- for (int j = 0; j < 16; j++)
-        {
-            l3_outputs[j] += l2_maxes[!l2_maxes_idx][l2_iteration & 0b111] * l3_weights_rows[!l3_weights_row_idx][j];
         }
 
         if ((l2_iteration & 0b111) == 0b111)
         {
-            if (l2_iteration >= (((256 / 2) + 1) * (2 * 256) - 7))
-            {
-                axis_out_t out_data;
-                out_data.keep = -1;
-                out_data.last = 1;
-                for (int j = 0; j < 16; j++)
-                {
-                    out_data.data.range(j * 32 + 31, j * 32) = l3_outputs[j];
-                    l3_outputs[j] = 0;
-                }
-                out.write(out_data);
-            }
-
             l2_read_col_offset += 2;
             if (l2_read_col_offset == (256 / 2))
             {
@@ -8528,16 +8508,25 @@ void kernel
                 }
             }
         }
-        else if (!(l2_iteration & 0b111))
-        {
-            axis_weights_t weights_data = weights.read();
+    }
+
+    if (l3_iteration >= 6 * (2 * 256) && !(l3_iteration & (2 * 256)))
+    {
+        int maxes_idx = l3_iteration & 0b111;
+        l2_maxes[!l2_maxes_idx][maxes_idx] >>= 8;
+        axis_weights_t weights_data = weights.read();
 #pragma HLS UNROLL
  for (int j = 0; j < 16; j++)
-            {
-                l3_weights_rows[l3_weights_row_idx][j] = weights_data.data.range(j * 8 + 7, j * 8);
-            }
-            l3_weights_row_idx = !l3_weights_row_idx;
+        {
+            int8_t weight = weights_data.data.range(j * 8 + 7, j * 8);
+            l3_outputs[j] += l2_maxes[!l2_maxes_idx][maxes_idx] * weight;
         }
+        l2_maxes[!l2_maxes_idx][maxes_idx] = 0;
+    }
+
+    if ((l2_iteration & 0b111) == 0b111)
+    {
+        l2_maxes_idx = !l2_maxes_idx;
     }
 
     l1_iteration++;
@@ -8555,27 +8544,56 @@ void kernel
         l2_iteration = 2 * (2 * 256);
         l2_read_row_offset = 0;
     }
+
+    l3_iteration++;
+    if (l3_iteration == ((256 / 2) + 2) * (2 * 256))
+    {
+        l3_iteration = 2 * (2 * 256);
+
+        axis_out_t out_data;
+        out_data.keep = -1;
+        out_data.last = 1;
+        for (int j = 0; j < 16; j++)
+        {
+            l3_outputs[j] = l3_outputs[j] > 0 ? l3_outputs[j] : 0;
+            out_data.data.range(j * 32 + 31, j * 32) = l3_outputs[j] >> 8;
+            l3_outputs[j] = 0;
+        }
+        out.write(out_data);
+    }
+    else if (l3_iteration > 2 * (2 * 256) && l3_iteration < 2 * (2 * 256) + 8)
+    {
+        axis_out_t out_data;
+        out_data.keep = -1;
+        out_data.last = 0;
+        for (int j = 0; j < 16; j++)
+        {
+            out_data.data.range(j * 32 + 31, j * 32) = -1;
+        }
+        out.write(out_data);
+    }
 }
 
 void cnn(hls::stream<axis_in_t> &in, hls::stream<axis_weights_t> &weights, hls::stream<axis_out_t> &out)
 {
 #pragma HLS INTERFACE axis port=&in
+#pragma HLS INTERFACE axis port=&weights
 #pragma HLS INTERFACE axis port=&out
 #pragma HLS INTERFACE ap_ctrl_none port=return
 
  static const int8_t l1_kernels[3 * 4][3][3] = { {{ 7, -57, -20 }, { 15, 28, 101 }, { 55, 82, 34 }}, {{ 53, 18, -44 }, { -95, 25, 60 }, { 70, -18, 11 }}, {{ 82, -46, 45 }, { 80, 43, -63 }, { -19, -35, 31 }}, {{ -38, -7, -31 }, { 68, -31, 5 }, { -20, 66, -26 }}, {{ 15, 61, -62 }, { 38, 91, 55 }, { 111, 110, 17 }}, {{ 64, -8, -26 }, { -68, -96, 2 }, { -58, 61, -52 }}, {{ 46, 8, -11 }, { -14, 0, -11 }, { -69, -68, -51 }}, {{ -48, 72, -35 }, { 61, 14, 25 }, { 78, 24, 37 }}, {{ 111, -15, 17 }, { -16, 40, -49 }, { 76, 127, 76 }}, {{ -97, -42, -35 }, { 62, 48, 4 }, { 69, 79, 79 }}, {{ 94, 29, -21 }, { 0, 64, -72 }, { 60, 56, -37 }}, {{ -83, -2, 38 }, { 42, 3, -49 }, { -9, 56, 13 }} };
 _ssdm_SpecConstant(l1_kernels);
-# 255 "cnn.cpp"
+# 273 "cnn.cpp"
 
     static const int8_t l2_kernels[4 * 8][3][3] = { {{ 29, -114, 50 }, { 39, -43, -53 }, { 87, 40, -80 }}, {{ 15, -77, -26 }, { -81, 61, -55 }, { -107, 32, -103 }}, {{ -20, -29, 90 }, { 79, -28, -1 }, { -88, -1, -48 }}, {{ -82, 111, 97 }, { -118, 67, 55 }, { -95, 21, -79 }}, {{ 114, -54, -62 }, { 14, -127, 49 }, { -50, -49, 89 }}, {{ -71, -91, 16 }, { -105, 10, 31 }, { -7, 103, 84 }}, {{ 106, 75, 24 }, { -67, -1, -102 }, { -3, -79, -73 }}, {{ 91, -20, -104 }, { 53, -86, 25 }, { -85, 45, 81 }}, {{ -20, 9, 39 }, { -107, -34, -92 }, { -68, -108, -108 }}, {{ 37, 94, 9 }, { -22, -33, 40 }, { 94, -62, 42 }}, {{ 95, -78, -4 }, { -81, 86, 22 }, { 85, -8, 67 }}, {{ -26, -99, -22 }, { -7, -55, 3 }, { -55, 36, 87 }}, {{ 42, 13, -49 }, { -37, -42, -7 }, { -75, 32, 77 }}, {{ -26, 90, 40 }, { 12, -30, 90 }, { -30, 10, -2 }}, {{ -19, -62, -37 }, { 30, 10, -15 }, { -40, 74, -4 }}, {{ 8, -40, 43 }, { -52, 108, 103 }, { -11, -74, 88 }}, {{ 91, 1, -96 }, { -76, 53, -54 }, { 79, 7, -71 }}, {{ -86, 87, -65 }, { -55, -27, 46 }, { 3, -28, 54 }}, {{ 18, -68, -59 }, { -9, 80, -24 }, { -96, -61, -13 }}, {{ 11, 29, -4 }, { 46, 62, -1 }, { 5, -38, -19 }}, {{ 71, 12, -13 }, { 113, -51, 37 }, { -19, -99, -49 }}, {{ -9, -69, -118 }, { 23, 20, 21 }, { -84, -42, 51 }}, {{ -89, -52, -46 }, { -31, -47, -82 }, { 31, 103, 78 }}, {{ -4, -47, 23 }, { -102, 4, 19 }, { 6, 90, 12 }}, {{ 60, -90, 43 }, { 54, -19, -103 }, { 103, 24, -22 }}, {{ 40, 41, -61 }, { 32, -42, 37 }, { 72, -74, 54 }}, {{ -46, 43, -36 }, { 74, 26, -57 }, { 38, 16, 88 }}, {{ -115, 2, 30 }, { -15, -91, 63 }, { -76, 89, -51 }}, {{ 88, 50, -31 }, { -62, -78, -18 }, { 43, 62, 96 }}, {{ -43, 4, 89 }, { 62, -56, 36 }, { 22, -64, 23 }}, {{ -10, -51, -94 }, { 49, -4, -24 }, { -14, -98, 15 }}, {{ -107, 34, 7 }, { -16, -22, 12 }, { 59, -8, 55 }} };
 _ssdm_SpecConstant(l2_kernels);
-# 256 "cnn.cpp"
+# 274 "cnn.cpp"
 
 #pragma HLS ARRAY_PARTITION variable=&l1_kernels complete dim=1
 #pragma HLS ARRAY_PARTITION variable=&l2_kernels complete dim=1
 
  static uint8_t l1_stripes[3][6][256 + 2] = {{0, } };
-    static uint8_t l2_stripes[4][6][(256 / 2) + 2] = {{0, } };
+    static uint16_t l2_stripes[4][6][(256 / 2) + 2] = {{0, } };
     static int32_t l3_outputs[16] = {0, };
 #pragma HLS RESOURCE variable=&l1_stripes core=RAM_2P_BRAM
 #pragma HLS ARRAY_PARTITION variable=&l1_stripes complete dim=1
@@ -8587,7 +8605,6 @@ _ssdm_SpecConstant(l2_kernels);
 #pragma HLS RESET variable=&l2_stripes
 #pragma HLS ARRAY_PARTITION variable=&l3_outputs complete
 #pragma HLS RESET variable=&l3_outputs
-
 
 #pragma HLS PIPELINE II=36
  kernel(in, weights, out, l1_kernels, l1_stripes, l2_kernels, l2_stripes, l3_outputs);

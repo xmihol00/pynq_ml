@@ -250,6 +250,17 @@ void kernel
         }
         out.write(out_data);
     }
+    else if (l3_iteration > 2 * ITERATION_MULTIPLE && l3_iteration < 2 * ITERATION_MULTIPLE + 8)
+    {
+        axis_out_t out_data;
+        out_data.keep = -1;
+        out_data.last = 0;
+        for (int j = 0; j < L3_OUTPUT_WIDTH; j++)
+        {
+            out_data.data.range(j * 32 + 31, j * 32) = -1;
+        }
+        out.write(out_data);
+    }
 }
 
 void cnn(hls::stream<axis_in_t> &in, hls::stream<axis_weights_t> &weights, hls::stream<axis_out_t> &out)

@@ -4,7 +4,7 @@
 
 int main()
 {
-    int32_t output[L3_OUTPUT_SIZE + 20];
+    int32_t output[L3_OUTPUT_SIZE * 8 + L3_OUTPUT_SIZE];
     hls::stream<axis_in_t> in_stream;
     hls::stream<axis_weights_t> weights_stream;
     hls::stream<axis_out_t> out_stream;
@@ -89,9 +89,10 @@ int main()
                     int error_count = 0;
                     for (int i = 0; i < L3_OUTPUT_SIZE; i++)
                     {
-                        if (output[i] != predictions[predictions_idx][i])
+                        int output_idx = i + 112;
+                        if (output[output_idx] != predictions[predictions_idx][i])
                         {
-                            std::cout << "FAILED AT " << i << ":\tExpected - " << predictions[predictions_idx][i] << "\t Actual - " << output[i] << std::endl;
+                            std::cout << "FAILED AT " << i << ":\tExpected - " << predictions[predictions_idx][i] << "\t Actual - " << output[output_idx] << std::endl;
                             failed = true;
                             failed_iteration = true;
                             error_count++;
@@ -102,7 +103,7 @@ int main()
                         }
                         else
                         {
-                            std::cout << "Passed at " << i << ":\tExpected - " << predictions[predictions_idx][i] << "\t Actual - " << output[i] << std::endl;
+                            std::cout << "Passed at " << i << ":\tExpected - " << predictions[predictions_idx][i] << "\t Actual - " << output[output_idx] << std::endl;
                         }
                     }
 

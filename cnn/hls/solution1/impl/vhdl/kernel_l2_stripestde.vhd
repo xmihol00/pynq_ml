@@ -8,7 +8,7 @@ use ieee.numeric_std.all;
 
 entity kernel_l2_stripestde is
     generic (
-        DataWidth    : integer := 8;
+        DataWidth    : integer := 16;
         AddressWidth : integer := 8;
         AddressRange : integer := 130
     );
@@ -68,10 +68,10 @@ begin
     --------------------- Assignment --------------------
     q0     <= q0_ram when q0_sel = '1' else q0_rom;
     q0_sel <= sel0_sr(0);
-    q0_rom <= "00000000";
+    q0_rom <= "0000000000000000";
     q1     <= q1_ram when q1_sel = '1' else q1_rom;
     q1_sel <= sel1_sr(0);
-    q1_rom <= "00000000";
+    q1_rom <= "0000000000000000";
 
     process (clk) begin
         if clk'event and clk = '1' then

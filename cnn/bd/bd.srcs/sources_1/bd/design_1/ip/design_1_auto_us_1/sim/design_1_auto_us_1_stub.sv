@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2024 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -94,7 +94,7 @@ module design_1_auto_us_1 (
   output bit [3 : 0] m_axi_arqos,
   output bit_as_bool m_axi_arvalid,
   input bit_as_bool m_axi_arready,
-  input bit [127 : 0] m_axi_rdata,
+  input bit [511 : 0] m_axi_rdata,
   input bit [1 : 0] m_axi_rresp,
   input bit_as_bool m_axi_rlast,
   input bit_as_bool m_axi_rvalid,
@@ -137,7 +137,7 @@ module design_1_auto_us_1 (s_axi_aclk,s_axi_aresetn,s_axi_araddr,s_axi_arlen,s_a
   output wire [3 : 0] m_axi_arqos;
   output wire m_axi_arvalid;
   input bit m_axi_arready;
-  input bit [127 : 0] m_axi_rdata;
+  input bit [511 : 0] m_axi_rdata;
   input bit [1 : 0] m_axi_rresp;
   input bit m_axi_rlast;
   input bit m_axi_rvalid;
@@ -177,7 +177,7 @@ module design_1_auto_us_1 (s_axi_aclk,s_axi_aresetn,s_axi_araddr,s_axi_arlen,s_a
   output wire [3 : 0] m_axi_arqos;
   output wire m_axi_arvalid;
   input bit m_axi_arready;
-  input bit [127 : 0] m_axi_rdata;
+  input bit [511 : 0] m_axi_rdata;
   input bit [1 : 0] m_axi_rresp;
   input bit m_axi_rlast;
   input bit m_axi_rvalid;

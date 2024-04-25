@@ -1,12 +1,12 @@
 
 set TopModule "cnn"
-set ClockPeriod 10
+set ClockPeriod 12
 set ClockList ap_clk
 set HasVivadoClockPeriod 0
 set CombLogicFlag 0
 set PipelineFlag 1
 set DataflowTaskPipelineFlag 1
-set TrivialPipelineFlag 0
+set TrivialPipelineFlag 1
 set noPortSwitchingFlag 0
 set FloatingPointFlag 0
 set FftOrFirFlag 0

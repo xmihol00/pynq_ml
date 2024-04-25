@@ -5,7 +5,7 @@
 `timescale 1 ns / 1 ps
 module kernel_l2_stripestde_ram (addr0, ce0, q0, addr1, ce1, d1, we1, q1,  clk);
 
-parameter DWIDTH = 8;
+parameter DWIDTH = 16;
 parameter AWIDTH = 8;
 parameter MEM_SIZE = 130;
 

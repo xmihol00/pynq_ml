@@ -12,7 +12,7 @@ set axilite_register_dict [dict create]
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 276 \
+    id 316 \
     name in_V_data_V \
     reset_level 0 \
     sync_rst true \
@@ -31,7 +31,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 277 \
+    id 317 \
     name in_V_keep_V \
     reset_level 0 \
     sync_rst true \
@@ -50,7 +50,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 278 \
+    id 318 \
     name in_V_strb_V \
     reset_level 0 \
     sync_rst true \
@@ -69,7 +69,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 279 \
+    id 319 \
     name in_V_last_V \
     reset_level 0 \
     sync_rst true \
@@ -88,7 +88,83 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 284 \
+    id 320 \
+    name weights_V_data_V \
+    reset_level 0 \
+    sync_rst true \
+    corename {weights} \
+    metadata {  } \
+    op interface \
+    ports { weights_TDATA { I 128 vector } } \
+} "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'weights_V_data_V'"
+}
+}
+
+
+# Native AXIS:
+if {${::AESL::PGuard_autoexp_gen}} {
+if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
+eval "::AESL_LIB_XILADAPTER::native_axis_add { \
+    id 321 \
+    name weights_V_keep_V \
+    reset_level 0 \
+    sync_rst true \
+    corename {weights} \
+    metadata {  } \
+    op interface \
+    ports { weights_TKEEP { I 16 vector } } \
+} "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'weights_V_keep_V'"
+}
+}
+
+
+# Native AXIS:
+if {${::AESL::PGuard_autoexp_gen}} {
+if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
+eval "::AESL_LIB_XILADAPTER::native_axis_add { \
+    id 322 \
+    name weights_V_strb_V \
+    reset_level 0 \
+    sync_rst true \
+    corename {weights} \
+    metadata {  } \
+    op interface \
+    ports { weights_TSTRB { I 16 vector } } \
+} "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'weights_V_strb_V'"
+}
+}
+
+
+# Native AXIS:
+if {${::AESL::PGuard_autoexp_gen}} {
+if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
+eval "::AESL_LIB_XILADAPTER::native_axis_add { \
+    id 323 \
+    name weights_V_last_V \
+    reset_level 0 \
+    sync_rst true \
+    corename {weights} \
+    metadata {  } \
+    op interface \
+    ports { weights_TVALID { I 1 bit } weights_TREADY { O 1 bit } weights_TLAST { I 1 vector } } \
+} "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'weights_V_last_V'"
+}
+}
+
+
+# Native AXIS:
+if {${::AESL::PGuard_autoexp_gen}} {
+if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
+eval "::AESL_LIB_XILADAPTER::native_axis_add { \
+    id 324 \
     name out_V_data_V \
     reset_level 0 \
     sync_rst true \
@@ -107,7 +183,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 285 \
+    id 325 \
     name out_V_keep_V \
     reset_level 0 \
     sync_rst true \
@@ -126,7 +202,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 286 \
+    id 326 \
     name out_V_strb_V \
     reset_level 0 \
     sync_rst true \
@@ -145,7 +221,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 287 \
+    id 327 \
     name out_V_last_V \
     reset_level 0 \
     sync_rst true \
@@ -159,66 +235,6 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 }
 }
 
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 280 \
-    name weights_V_data_V \
-    type fifo \
-    dir I \
-    reset_level 0 \
-    sync_rst true \
-    corename dc_weights_V_data_V \
-    op interface \
-    ports { weights_V_data_V_dout { I 128 vector } weights_V_data_V_empty_n { I 1 bit } weights_V_data_V_read { O 1 bit } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 281 \
-    name weights_V_keep_V \
-    type fifo \
-    dir I \
-    reset_level 0 \
-    sync_rst true \
-    corename dc_weights_V_keep_V \
-    op interface \
-    ports { weights_V_keep_V_dout { I 16 vector } weights_V_keep_V_empty_n { I 1 bit } weights_V_keep_V_read { O 1 bit } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 282 \
-    name weights_V_strb_V \
-    type fifo \
-    dir I \
-    reset_level 0 \
-    sync_rst true \
-    corename dc_weights_V_strb_V \
-    op interface \
-    ports { weights_V_strb_V_dout { I 16 vector } weights_V_strb_V_empty_n { I 1 bit } weights_V_strb_V_read { O 1 bit } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 283 \
-    name weights_V_last_V \
-    type fifo \
-    dir I \
-    reset_level 0 \
-    sync_rst true \
-    corename dc_weights_V_last_V \
-    op interface \
-    ports { weights_V_last_V_dout { I 1 vector } weights_V_last_V_empty_n { I 1 bit } weights_V_last_V_read { O 1 bit } } \
-} "
-}
 
 
 # Adapter definition:
@@ -271,7 +287,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 
 
 # RegSlice definition:
-set ID 288
+set ID 328
 set RegSliceName regslice_core
 set RegSliceInstName regslice_core_U
 set CoreName ap_simcore_regslice_core
