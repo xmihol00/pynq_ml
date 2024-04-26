@@ -1584,7 +1584,7 @@
 						"WVALID": { "actual": "s_axi_wvalid[4:4]"}
 					}
 				},
-				"/cnn_0/in_r": {
+				"/cnn/in_r": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "ap_clk"},
@@ -1597,7 +1597,7 @@
 						"TVALID": { "actual": "in_r_TVALID"}
 					}
 				},
-				"/cnn_0/out_r": {
+				"/cnn/out_r": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "ap_clk"},
@@ -1610,7 +1610,7 @@
 						"TVALID": { "actual": "out_r_TVALID"}
 					}
 				},
-				"/cnn_0/weights": {
+				"/cnn/weights": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "ap_clk"},
@@ -1623,7 +1623,7 @@
 						"TVALID": { "actual": "weights_TVALID"}
 					}
 				},
-				"/dma1/M_AXIS_MM2S": {
+				"/dma_in_out/M_AXIS_MM2S": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "m_axi_mm2s_aclk"},
@@ -1635,7 +1635,7 @@
 						"TVALID": { "actual": "m_axis_mm2s_tvalid"}
 					}
 				},
-				"/dma1/M_AXI_MM2S": {
+				"/dma_in_out/M_AXI_MM2S": {
 					"interface": "xilinx.com:interface:aximm:1.0",
 					"ports": {
 						"ACLK": { "actual": "m_axi_mm2s_aclk"},
@@ -1655,7 +1655,7 @@
 						"RVALID": { "actual": "m_axi_mm2s_rvalid"}
 					}
 				},
-				"/dma1/M_AXI_S2MM": {
+				"/dma_in_out/M_AXI_S2MM": {
 					"interface": "xilinx.com:interface:aximm:1.0",
 					"ports": {
 						"ACLK": { "actual": "m_axi_s2mm_aclk"},
@@ -1678,7 +1678,7 @@
 						"WVALID": { "actual": "m_axi_s2mm_wvalid"}
 					}
 				},
-				"/dma1/M_AXI_SG": {
+				"/dma_in_out/M_AXI_SG": {
 					"interface": "xilinx.com:interface:aximm:1.0",
 					"ports": {
 						"ACLK": { "actual": "m_axi_sg_aclk"},
@@ -1713,7 +1713,7 @@
 						"WVALID": { "actual": "m_axi_sg_wvalid"}
 					}
 				},
-				"/dma1/S_AXIS_S2MM": {
+				"/dma_in_out/S_AXIS_S2MM": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "m_axi_s2mm_aclk"},
@@ -1725,7 +1725,7 @@
 						"TVALID": { "actual": "s_axis_s2mm_tvalid"}
 					}
 				},
-				"/dma1/S_AXI_LITE": {
+				"/dma_in_out/S_AXI_LITE": {
 					"interface": "xilinx.com:interface:aximm:1.0",
 					"ports": {
 						"ACLK": { "actual": "s_axi_lite_aclk"},
@@ -1748,7 +1748,7 @@
 						"WVALID": { "actual": "s_axi_lite_wvalid"}
 					}
 				},
-				"/dma2/M_AXIS_MM2S": {
+				"/dma_weights/M_AXIS_MM2S": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "m_axi_mm2s_aclk"},
@@ -1760,7 +1760,7 @@
 						"TVALID": { "actual": "m_axis_mm2s_tvalid"}
 					}
 				},
-				"/dma2/M_AXI_MM2S": {
+				"/dma_weights/M_AXI_MM2S": {
 					"interface": "xilinx.com:interface:aximm:1.0",
 					"ports": {
 						"ACLK": { "actual": "m_axi_mm2s_aclk"},
@@ -1780,7 +1780,7 @@
 						"RVALID": { "actual": "m_axi_mm2s_rvalid"}
 					}
 				},
-				"/dma2/M_AXI_SG": {
+				"/dma_weights/M_AXI_SG": {
 					"interface": "xilinx.com:interface:aximm:1.0",
 					"ports": {
 						"ACLK": { "actual": "m_axi_sg_aclk"},
@@ -1815,7 +1815,7 @@
 						"WVALID": { "actual": "m_axi_sg_wvalid"}
 					}
 				},
-				"/dma2/S_AXI_LITE": {
+				"/dma_weights/S_AXI_LITE": {
 					"interface": "xilinx.com:interface:aximm:1.0",
 					"ports": {
 						"ACLK": { "actual": "s_axi_lite_aclk"},

@@ -5,6 +5,8 @@ from net import get_model, IMAGE_SIZE
 import numpy as np
 from scipy.signal import convolve2d
 from skimage.measure import block_reduce
+from PIL import Image
+import cv2
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from tools import format_array_C
@@ -29,8 +31,7 @@ train_generator = train_datagen.flow_from_directory(
     train_dir,
     target_size=IMAGE_SIZE,
     batch_size=1,
-    class_mode='binary',  # binary classification
-    #shuffle=False
+    class_mode='binary',
 )
 
 model = get_model()
@@ -91,12 +92,11 @@ for i, group in enumerate(channels):
 l2_kernels = np.array(kernel_groups_l2).astype(np.int32)
 
 correct_predictions = 0
-RANGE = 10
+RANGE = 20
 merged_samples = np.zeros((RANGE, IN_CHANNELS * IN_HEIGHT * IN_WIDTH), dtype=np.uint32)
 l3_predictions = np.zeros((RANGE, L3_OUTPUT_SIZE), dtype=np.uint32)
-train_generator.next()
+
 for n, (sample, expected_class) in zip(range(0, RANGE), train_generator):
-    print(sample.flatten()[:9])
     sample = sample.reshape(IN_HEIGHT * IN_WIDTH, -1).T
     sample = sample.reshape(IN_CHANNELS, IN_HEIGHT, IN_WIDTH).astype(np.uint8)
     
@@ -104,8 +104,6 @@ for n, (sample, expected_class) in zip(range(0, RANGE), train_generator):
     fpga_sample = np.zeros((IN_CHANNELS * IN_HEIGHT * IN_WIDTH)).astype(np.uint8)
     for i in range(IN_CHANNELS):
         fpga_sample[i::IN_CHANNELS] = sample_flattened[i]
-    print(fpga_sample[:9])
-    np.save(f"sample_{n}.npy", fpga_sample)
 
     for j in range(IN_CHANNELS):
         merged_samples[n, j::IN_CHANNELS] = sample[j].flatten()
@@ -147,7 +145,6 @@ for n, (sample, expected_class) in zip(range(0, RANGE), train_generator):
     l3_outputs = (np.dot(l2_outputs, l3_weights) * (1/256))
     l3_outputs = np.maximum(l3_outputs, 0).astype(np.uint32)
     l3_predictions[n] = l3_outputs.flatten()
-    print(f"Prediction {n}: {l3_outputs.flatten()}")
 
     l4_outputs = np.dot(l3_outputs, l4_weights)
     predicted_class = l4_outputs[0, 0] >= 0

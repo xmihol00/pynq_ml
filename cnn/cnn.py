@@ -42,20 +42,20 @@ if __name__ == "__main__":
     outputs = np.zeros((OUTPUT_WIDTH))
 
     start = time.time()
-    in_buffers[in_ping_pong][:] = np.load("sample_0.npy")
+    in_buffers[in_ping_pong][:] = np.load("samples/sample_0.npy")
 
     print(f"Sample {0}")
     print("Initiating transfer", flush=True)
     dma_inputs.sendchannel.transfer(in_buffers[in_ping_pong])
     dma_weights.sendchannel.transfer(l3_weights_buffer)
 
-    ITERATIONS = 10
+    ITERATIONS = 20
     for i in range(1, ITERATIONS):
         in_ping_pong = not in_ping_pong
         dma_inputs.recvchannel.transfer(out_buffer)
        
         print(f"Sample {i}")
-        in_buffers[in_ping_pong][:] = np.load(f"sample_{i}.npy")
+        in_buffers[in_ping_pong][:] = np.load(f"samples/sample_{i}.npy")
 
         print("Waiting for input data to be sent", flush=True)
         dma_inputs.sendchannel.wait()

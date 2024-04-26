@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="39">
   <CompositeFile CompositeFileTopName="design_1" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1619333005"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1619333005"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1619333005"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1619333005"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1714119755"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1714119755"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1714119755"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1714119755"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip/design_1_processing_system7_0_1/design_1_processing_system7_0_1.xci" Type="IP">
         <Instance HierarchyPath="processing_system7_0"/>
@@ -16,7 +16,7 @@
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/design_1_axi_dma_0_1/design_1_axi_dma_0_1.xci" Type="IP">
-        <Instance HierarchyPath="dma1"/>
+        <Instance HierarchyPath="dma_in_out"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
@@ -24,7 +24,7 @@
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/design_1_axi_dma_0_2/design_1_axi_dma_0_2.xci" Type="IP">
-        <Instance HierarchyPath="dma2"/>
+        <Instance HierarchyPath="dma_weights"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
@@ -79,6 +79,14 @@
       <File Name="sim/design_1.vhd" Type="VHDL">
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/design_1_cnn_0_2/design_1_cnn_0_2.xci" Type="IP">
+        <Instance HierarchyPath="cnn"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/design_1_auto_pc_0/design_1_auto_pc_0.xci" Type="IP">
@@ -147,14 +155,6 @@
       </File>
       <File Name="ip/design_1_auto_pc_2/design_1_auto_pc_2.xci" Type="IP">
         <Instance HierarchyPath="axi_mem_intercon/m01_couplers/auto_pc"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="ip/design_1_cnn_0_2/design_1_cnn_0_2.xci" Type="IP">
-        <Instance HierarchyPath="cnn_0"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>

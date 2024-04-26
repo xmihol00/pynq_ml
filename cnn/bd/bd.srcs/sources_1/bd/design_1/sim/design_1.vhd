@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
---Date        : Sun Apr 25 08:43:23 2021
+--Date        : Fri Apr 26 10:22:33 2024
 --Host        : david running 64-bit Ubuntu 22.04.2 LTS
 --Command     : generate_target design_1.bd
 --Design      : design_1
@@ -5519,13 +5519,13 @@ architecture STRUCTURE of design_1 is
   signal ps7_0_axi_periph_M01_AXI_WREADY : STD_LOGIC;
   signal ps7_0_axi_periph_M01_AXI_WVALID : STD_LOGIC_VECTOR ( 0 to 0 );
   signal rst_ps7_0_100M_peripheral_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal NLW_cnn_0_out_r_TSTRB_UNCONNECTED : STD_LOGIC_VECTOR ( 63 downto 0 );
-  signal NLW_dma1_mm2s_introut_UNCONNECTED : STD_LOGIC;
-  signal NLW_dma1_mm2s_prmry_reset_out_n_UNCONNECTED : STD_LOGIC;
-  signal NLW_dma1_s2mm_introut_UNCONNECTED : STD_LOGIC;
-  signal NLW_dma1_s2mm_prmry_reset_out_n_UNCONNECTED : STD_LOGIC;
-  signal NLW_dma2_mm2s_introut_UNCONNECTED : STD_LOGIC;
-  signal NLW_dma2_mm2s_prmry_reset_out_n_UNCONNECTED : STD_LOGIC;
+  signal NLW_cnn_out_r_TSTRB_UNCONNECTED : STD_LOGIC_VECTOR ( 63 downto 0 );
+  signal NLW_dma_in_out_mm2s_introut_UNCONNECTED : STD_LOGIC;
+  signal NLW_dma_in_out_mm2s_prmry_reset_out_n_UNCONNECTED : STD_LOGIC;
+  signal NLW_dma_in_out_s2mm_introut_UNCONNECTED : STD_LOGIC;
+  signal NLW_dma_in_out_s2mm_prmry_reset_out_n_UNCONNECTED : STD_LOGIC;
+  signal NLW_dma_weights_mm2s_introut_UNCONNECTED : STD_LOGIC;
+  signal NLW_dma_weights_mm2s_prmry_reset_out_n_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_USB0_VBUS_PWRSELECT_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_S_AXI_HP0_BID_UNCONNECTED : STD_LOGIC_VECTOR ( 5 downto 0 );
   signal NLW_processing_system7_0_S_AXI_HP0_RACOUNT_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -5755,7 +5755,7 @@ axi_mem_intercon: entity work.design_1_axi_mem_intercon_0
       S04_AXI_wstrb(3 downto 0) => dma2_M_AXI_SG_WSTRB(3 downto 0),
       S04_AXI_wvalid => dma2_M_AXI_SG_WVALID
     );
-cnn_0: component design_1_cnn_0_2
+cnn: component design_1_cnn_0_2
      port map (
       ap_clk => processing_system7_0_FCLK_CLK0,
       ap_rst_n => rst_ps7_0_100M_peripheral_aresetn(0),
@@ -5769,7 +5769,7 @@ cnn_0: component design_1_cnn_0_2
       out_r_TKEEP(63 downto 0) => cnn_0_out_r_TKEEP(63 downto 0),
       out_r_TLAST(0) => cnn_0_out_r_TLAST(0),
       out_r_TREADY => cnn_0_out_r_TREADY,
-      out_r_TSTRB(63 downto 0) => NLW_cnn_0_out_r_TSTRB_UNCONNECTED(63 downto 0),
+      out_r_TSTRB(63 downto 0) => NLW_cnn_out_r_TSTRB_UNCONNECTED(63 downto 0),
       out_r_TVALID => cnn_0_out_r_TVALID,
       weights_TDATA(127 downto 0) => dma2_M_AXIS_MM2S_TDATA(127 downto 0),
       weights_TKEEP(15 downto 0) => dma2_M_AXIS_MM2S_TKEEP(15 downto 0),
@@ -5778,7 +5778,7 @@ cnn_0: component design_1_cnn_0_2
       weights_TSTRB(15 downto 0) => B"1111111111111111",
       weights_TVALID => dma2_M_AXIS_MM2S_TVALID
     );
-dma1: component design_1_axi_dma_0_1
+dma_in_out: component design_1_axi_dma_0_1
      port map (
       axi_resetn => rst_ps7_0_100M_peripheral_aresetn(0),
       m_axi_mm2s_aclk => processing_system7_0_FCLK_CLK0,
@@ -5847,10 +5847,10 @@ dma1: component design_1_axi_dma_0_1
       m_axis_mm2s_tlast => dma1_M_AXIS_MM2S_TLAST,
       m_axis_mm2s_tready => dma1_M_AXIS_MM2S_TREADY,
       m_axis_mm2s_tvalid => dma1_M_AXIS_MM2S_TVALID,
-      mm2s_introut => NLW_dma1_mm2s_introut_UNCONNECTED,
-      mm2s_prmry_reset_out_n => NLW_dma1_mm2s_prmry_reset_out_n_UNCONNECTED,
-      s2mm_introut => NLW_dma1_s2mm_introut_UNCONNECTED,
-      s2mm_prmry_reset_out_n => NLW_dma1_s2mm_prmry_reset_out_n_UNCONNECTED,
+      mm2s_introut => NLW_dma_in_out_mm2s_introut_UNCONNECTED,
+      mm2s_prmry_reset_out_n => NLW_dma_in_out_mm2s_prmry_reset_out_n_UNCONNECTED,
+      s2mm_introut => NLW_dma_in_out_s2mm_introut_UNCONNECTED,
+      s2mm_prmry_reset_out_n => NLW_dma_in_out_s2mm_prmry_reset_out_n_UNCONNECTED,
       s_axi_lite_aclk => processing_system7_0_FCLK_CLK0,
       s_axi_lite_araddr(9 downto 0) => ps7_0_axi_periph_M00_AXI_ARADDR(9 downto 0),
       s_axi_lite_arready => ps7_0_axi_periph_M00_AXI_ARREADY,
@@ -5874,7 +5874,7 @@ dma1: component design_1_axi_dma_0_1
       s_axis_s2mm_tready => cnn_0_out_r_TREADY,
       s_axis_s2mm_tvalid => cnn_0_out_r_TVALID
     );
-dma2: component design_1_axi_dma_0_2
+dma_weights: component design_1_axi_dma_0_2
      port map (
       axi_resetn => rst_ps7_0_100M_peripheral_aresetn(0),
       m_axi_mm2s_aclk => processing_system7_0_FCLK_CLK0,
@@ -5926,8 +5926,8 @@ dma2: component design_1_axi_dma_0_2
       m_axis_mm2s_tlast => dma2_M_AXIS_MM2S_TLAST,
       m_axis_mm2s_tready => dma2_M_AXIS_MM2S_TREADY,
       m_axis_mm2s_tvalid => dma2_M_AXIS_MM2S_TVALID,
-      mm2s_introut => NLW_dma2_mm2s_introut_UNCONNECTED,
-      mm2s_prmry_reset_out_n => NLW_dma2_mm2s_prmry_reset_out_n_UNCONNECTED,
+      mm2s_introut => NLW_dma_weights_mm2s_introut_UNCONNECTED,
+      mm2s_prmry_reset_out_n => NLW_dma_weights_mm2s_prmry_reset_out_n_UNCONNECTED,
       s_axi_lite_aclk => processing_system7_0_FCLK_CLK0,
       s_axi_lite_araddr(9 downto 0) => ps7_0_axi_periph_M01_AXI_ARADDR(9 downto 0),
       s_axi_lite_arready => ps7_0_axi_periph_M01_AXI_ARREADY,
